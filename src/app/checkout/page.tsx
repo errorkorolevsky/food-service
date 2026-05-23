@@ -118,7 +118,7 @@ export default function CheckoutPage() {
       if (address.trim()) localStorage.setItem("fs_address", address.trim())
       if (company.trim()) localStorage.setItem("fs_company", company.trim())
       clearCart()
-      router.push(`/order/success?id=${data.id}`)
+      router.push(`/order/success?id=${data.id}&payment=${payment}&total=${total}`)
     } catch {
       setError(t.checkout.errorConn)
       setSubmitting(false)

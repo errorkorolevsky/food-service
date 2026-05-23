@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next"
-import { Inter } from "next/font/google"
 
 import MobileNav from "@/components/layout/MobileNav"
 import ServiceWorkerRegister from "@/components/ui/ServiceWorker"
@@ -12,12 +11,6 @@ import ScrollToTop from "@/components/ui/ScrollToTop"
 import { ThemeProvider } from "@/components/ui/ThemeProvider"
 
 import "./globals.css"
-
-const inter = Inter({
-  subsets:  ["latin", "cyrillic"],
-  variable: "--font-inter",
-  display:  "swap",
-})
 
 export const viewport: Viewport = {
   themeColor:        "#005B46",
@@ -57,7 +50,7 @@ const themeInitScript = `(function(){try{var t=localStorage.getItem('fs-theme');
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" className={inter.variable} suppressHydrationWarning>
+    <html lang="ru" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>

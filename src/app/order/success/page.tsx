@@ -49,6 +49,8 @@ function SuccessContent() {
   const params             = useSearchParams()
   const rawId              = params.get("id")
   const orderId            = formatOrderId(rawId)
+  const urlPayment         = params.get("payment") ?? ""
+  const urlTotal           = Number(params.get("total") ?? 0)
   const { data: session }  = useSession()
   const { t }              = useLang()
 
@@ -71,9 +73,13 @@ function SuccessContent() {
       .catch(() => {})
   }, [rawId, orderId])
 
-  const stepIndex   = order ? STATUS_STEPS.findIndex((s) => s.key === order.status) : 0
-  const PayIcon     = order ? (PAYMENT_ICON[order.payment] ?? CreditCard) : CreditCard
-  const paymentLabel = order ? (t.order.payment[order.payment as keyof typeof t.order.payment] ?? order.payment) : "—"
+  const stepIndex    = order ? STATUS_STEPS.findIndex((s) => s.key === order.status) : 0
+  const paymentKey   = order?.payment ?? urlPayment
+  const PayIcon      = PAYMENT_ICON[paymentKey] ?? CreditCard
+  const paymentLabel = paymentKey
+    ? (t.order.payment[paymentKey as keyof typeof t.order.payment] ?? paymentKey)
+    : "—"
+  const displayTotal = order?.total ?? urlTotal
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -133,7 +139,7 @@ function SuccessContent() {
             <div className="bg-fs-offwhite border border-fs-border rounded-xl p-2.5 sm:p-4 text-center">
               <p className="text-[9px] sm:text-label text-fs-gray uppercase tracking-wide sm:tracking-widest mb-1 sm:mb-2 leading-tight">{t.order.totalLabel}</p>
               <p className="text-[11px] sm:text-caption font-bold text-fs-graphite">
-                {order ? `₸${order.total.toLocaleString()}` : "—"}
+                {displayTotal ? `₸${displayTotal.toLocaleString()}` : "—"}
               </p>
             </div>
           </div>
