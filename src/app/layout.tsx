@@ -9,6 +9,7 @@ import CursorAura from "@/components/ui/CursorAura"
 import SmoothScroll from "@/components/ui/SmoothScroll"
 import NavigationProgress from "@/components/ui/NavigationProgress"
 import ScrollToTop from "@/components/ui/ScrollToTop"
+import { ThemeProvider } from "@/components/ui/ThemeProvider"
 
 import "./globals.css"
 
@@ -51,21 +52,29 @@ export const metadata: Metadata = {
   },
 }
 
+/* Inline script prevents flash-of-wrong-theme before React hydrates */
+const themeInitScript = `(function(){try{var t=localStorage.getItem('fs-theme');var d=t==='dark'||((!t||t==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d)document.documentElement.classList.add('dark');}catch(e){}})();`
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" className={inter.variable}>
-      <body className="bg-white text-fs-graphite antialiased font-sans pb-24 lg:pb-0">
-        <SessionProviderWrapper>
-          <AnimatedLayout>
-            {children}
-          </AnimatedLayout>
-        </SessionProviderWrapper>
-        <NavigationProgress />
-        <ScrollToTop />
-        <SmoothScroll />
-        <CursorAura />
-        <MobileNav />
-        <ServiceWorkerRegister />
+    <html lang="ru" className={inter.variable} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="bg-[var(--page-bg)] text-fs-graphite antialiased font-sans pb-24 lg:pb-0 transition-colors duration-200">
+        <ThemeProvider>
+          <SessionProviderWrapper>
+            <AnimatedLayout>
+              {children}
+            </AnimatedLayout>
+          </SessionProviderWrapper>
+          <NavigationProgress />
+          <ScrollToTop />
+          <SmoothScroll />
+          <CursorAura />
+          <MobileNav />
+          <ServiceWorkerRegister />
+        </ThemeProvider>
       </body>
     </html>
   )

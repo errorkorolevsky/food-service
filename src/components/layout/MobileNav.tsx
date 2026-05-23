@@ -7,6 +7,7 @@ import { Home, Grid3x3, Package, User, Heart } from "lucide-react"
 
 import { useFavoritesStore } from "@/store/favoritesStore"
 import { useLang } from "@/locales"
+import ThemeToggle from "@/components/ui/ThemeToggle"
 
 export default function MobileNav() {
   const pathname  = usePathname()
@@ -38,15 +39,16 @@ export default function MobileNav() {
         transition={{ type: "spring", stiffness: 340, damping: 32, delay: 0.15 }}
         className="
           relative
-          bg-white/90 backdrop-blur-2xl
-          border border-white/60
+          bg-white/90 dark:bg-[#1C2128]/92 backdrop-blur-2xl
+          border border-white/60 dark:border-white/10
           rounded-[32px] px-2 py-2
           flex items-center gap-0
           shadow-[0_8px_32px_rgba(0,0,0,0.14),0_0_0_1px_rgba(255,255,255,0.6)_inset]
+          dark:shadow-[0_8px_32px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.06)_inset]
         "
       >
         {/* LANG SWITCHER */}
-        <div className="flex items-center gap-0.5 pl-1 pr-1 border-r border-black/10 mr-0.5">
+        <div className="flex items-center gap-0.5 pl-1 pr-1 border-r border-black/10 dark:border-white/10 mr-0.5">
           {(["ru", "kz"] as const).map((l) => (
             <button
               key={l}
@@ -60,6 +62,7 @@ export default function MobileNav() {
               {l.toUpperCase()}
             </button>
           ))}
+          <ThemeToggle variant="mobile" />
         </div>
 
         {links.map(({ href, icon: Icon, label, showFavBadge }) => {
@@ -89,7 +92,7 @@ export default function MobileNav() {
                 <Icon
                   size={20}
                   strokeWidth={isActive ? 2.2 : 1.6}
-                  className={isActive ? "text-white" : "text-fs-gray"}
+                  className={isActive ? "text-white" : "text-fs-gray dark:text-fs-gray"}
                 />
 
                 {/* FAVORITES BADGE */}

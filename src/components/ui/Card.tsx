@@ -13,8 +13,8 @@ export default function Card({
 }: CardProps) {
 
   const variants = {
-    default:  "bg-white border border-fs-border",
-    elevated: "bg-white border border-fs-border shadow-card",
+    default:  "bg-fs-white border border-fs-border",
+    elevated: "bg-fs-white border border-fs-border shadow-card",
     glass:    "fs-glass",
   }
 

@@ -30,7 +30,7 @@ export default function ScrollToTop() {
           className="
             fixed bottom-28 right-5 z-40
             w-11 h-11 rounded-xl
-            bg-white border border-fs-border
+            bg-fs-white border border-fs-border
             shadow-card-hover
             flex items-center justify-center
             text-fs-gray hover:text-fs-primary hover:border-fs-primary/30

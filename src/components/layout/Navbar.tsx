@@ -9,6 +9,7 @@ import { useEffect, useState } from "react"
 
 import Logo from "@/components/ui/Logo"
 import CartButton from "@/components/layout/CartButton"
+import ThemeToggle from "@/components/ui/ThemeToggle"
 import { MagneticDiv } from "@/components/ui/MagneticButton"
 import { useFavoritesStore } from "@/store/favoritesStore"
 import { useLang } from "@/locales"
@@ -125,6 +126,8 @@ export default function Navbar() {
               </button>
             ))}
           </div>
+
+          <ThemeToggle variant="navbar" />
 
           {session?.user ? (
             <Link href="/profile" className="flex items-center gap-2.5 group">

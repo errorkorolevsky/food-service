@@ -24,7 +24,7 @@ export default function NewArrivalsSection() {
   if (newProducts.length === 0) return null
 
   return (
-    <section className="fs-section bg-white overflow-hidden">
+    <section className="fs-section bg-fs-white overflow-hidden">
       <div className="fs-container py-10 sm:py-16 lg:py-20">
 
         <FadeIn>
@@ -41,7 +41,7 @@ export default function NewArrivalsSection() {
                   onClick={() => scrollBy(-1)}
                   className="
                     w-9 h-9 rounded-xl
-                    border border-fs-border bg-white
+                    border border-fs-border bg-fs-white
                     flex items-center justify-center
                     text-fs-gray hover:text-fs-primary hover:border-fs-primary/30
                     transition-all duration-200 shadow-sm
@@ -53,7 +53,7 @@ export default function NewArrivalsSection() {
                   onClick={() => scrollBy(1)}
                   className="
                     w-9 h-9 rounded-xl
-                    border border-fs-border bg-white
+                    border border-fs-border bg-fs-white
                     flex items-center justify-center
                     text-fs-gray hover:text-fs-primary hover:border-fs-primary/30
                     transition-all duration-200 shadow-sm

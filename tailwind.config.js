@@ -5,28 +5,29 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
 
       colors: {
         fs: {
-          // PRIMARY BRAND — Food Service Kazakhstan
+          // PRIMARY BRAND — Food Service Kazakhstan (fixed, no dark-mode change)
           primary:   "#005B46",
           dark:      "#00392D",
           soft:      "#0A7A5C",
           accent:    "#0D9E76",
 
-          // SURFACES
-          white:     "#FFFFFF",
-          offwhite:  "#F5F5F5",
-          light:     "#F0F4F2",
-          border:    "#E5E7EB",
-          muted:     "#D1D5DB",
+          // SURFACES — CSS variables, auto dark-mode
+          white:     "rgb(var(--fs-white) / <alpha-value>)",
+          offwhite:  "rgb(var(--fs-offwhite) / <alpha-value>)",
+          light:     "rgb(var(--fs-light) / <alpha-value>)",
+          border:    "rgb(var(--fs-border) / <alpha-value>)",
+          muted:     "rgb(var(--fs-muted) / <alpha-value>)",
 
-          // TEXT
-          graphite:  "#1E1E1E",
-          gray:      "#6B7280",
-          slate:     "#374151",
+          // TEXT — CSS variables, auto dark-mode
+          graphite:  "rgb(var(--fs-graphite) / <alpha-value>)",
+          gray:      "rgb(var(--fs-gray) / <alpha-value>)",
+          slate:     "rgb(var(--fs-slate) / <alpha-value>)",
 
           // LEGACY — kept for auth/admin pages
           black:     "#1E1E1E",

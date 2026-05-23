@@ -61,7 +61,7 @@ export default function SearchBar({
         onBlur={() => setFocused(false)}
         placeholder={placeholder}
         className={`
-          w-full bg-white border rounded-xl
+          w-full bg-fs-white border rounded-xl
           pl-14 pr-14 py-4
           text-body text-fs-graphite
           placeholder:text-fs-gray

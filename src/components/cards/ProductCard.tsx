@@ -127,7 +127,7 @@ export default function ProductCard({
       transition={{ type: "spring", stiffness: 280, damping: 22 }}
       className="
         group
-        bg-white border border-fs-border rounded-2xl
+        bg-fs-white border border-fs-border rounded-2xl
         overflow-hidden shadow-card
         transition-shadow duration-300
         flex flex-col relative
@@ -159,7 +159,7 @@ export default function ProductCard({
           h-40 sm:h-48 md:h-56 flex items-center justify-center relative
           cursor-pointer overflow-hidden
         " style={{
-          background: `radial-gradient(ellipse 80% 70% at 50% 60%, ${CATEGORY_COLORS[category] ?? "#005B46"}18 0%, #F0F4F2 100%)`,
+          background: `radial-gradient(ellipse 80% 70% at 50% 60%, ${CATEGORY_COLORS[category] ?? "#005B46"}18 0%, rgb(var(--fs-light)) 100%)`,
         }}>
           {/* ambient inner glow */}
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{

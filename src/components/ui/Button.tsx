@@ -30,9 +30,9 @@ export default function Button({
 
   const variants = {
     primary:   "bg-fs-primary text-white font-bold hover:bg-fs-soft shadow-green",
-    secondary: "border border-fs-border text-fs-graphite font-medium bg-white hover:bg-fs-offwhite hover:border-fs-primary/30",
+    secondary: "border border-fs-border text-fs-graphite font-medium bg-fs-white hover:bg-fs-offwhite hover:border-fs-primary/30",
     ghost:     "text-fs-gray font-medium hover:text-fs-graphite hover:bg-fs-offwhite",
-    white:     "bg-white text-fs-primary font-bold hover:bg-fs-offwhite shadow-lg shadow-black/15",
+    white:     "bg-fs-white text-fs-primary font-bold hover:bg-fs-offwhite shadow-lg shadow-black/15",
   }
 
   return (

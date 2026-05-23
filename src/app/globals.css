@@ -3,32 +3,53 @@
 @tailwind utilities;
 
 @layer base {
+  /* ─── LIGHT MODE (default) ─────────────────────────────────── */
   :root {
-    /* BRAND */
-    --fs-primary:   #005B46;
-    --fs-dark:      #00392D;
-    --fs-soft:      #0A7A5C;
-    --fs-accent:    #0D9E76;
+    /* BRAND (unchanged across themes) */
+    --fs-primary-raw: #005B46;
+    --fs-dark-raw:    #00392D;
+    --fs-soft-raw:    #0A7A5C;
+    --fs-accent-raw:  #0D9E76;
 
-    /* SURFACES */
-    --fs-white:     #FFFFFF;
-    --fs-offwhite:  #F5F5F5;
-    --fs-light:     #F0F4F2;
-    --fs-border:    #E5E7EB;
-    --fs-muted:     #D1D5DB;
+    /* SURFACES — space-separated RGB for Tailwind opacity support */
+    --fs-white:    255 255 255;   /* #FFFFFF */
+    --fs-offwhite: 245 245 245;   /* #F5F5F5 */
+    --fs-light:    240 244 242;   /* #F0F4F2 */
+    --fs-border:   229 231 235;   /* #E5E7EB */
+    --fs-muted:    209 213 219;   /* #D1D5DB */
 
     /* TEXT */
-    --fs-graphite:  #1E1E1E;
-    --fs-gray:      #6B7280;
-    --fs-slate:     #374151;
+    --fs-graphite: 30 30 30;      /* #1E1E1E */
+    --fs-gray:     107 114 128;   /* #6B7280 */
+    --fs-slate:    55 65 81;      /* #374151 */
+
+    /* PAGE BACKGROUND (used directly in html/body) */
+    --page-bg: #F8FAF9;
+    --page-bg-rgb: 248 250 249;
+  }
+
+  /* ─── DARK MODE ─────────────────────────────────────────────── */
+  html.dark {
+    --fs-white:    28 33 40;      /* #1C2128 — card surface   */
+    --fs-offwhite: 22 27 34;      /* #161B22 — subtle surface */
+    --fs-light:    13 17 23;      /* #0D1117 — deep surface   */
+    --fs-border:   48 54 61;      /* #30363D — border         */
+    --fs-muted:    72 79 88;      /* #484F58 — muted border   */
+    --fs-graphite: 230 237 243;   /* #E6EDF3 — primary text   */
+    --fs-gray:     139 148 158;   /* #8B949E — secondary text */
+    --fs-slate:    201 209 217;   /* #C9D1D9 — body text      */
+
+    --page-bg: #0D1117;
+    --page-bg-rgb: 13 17 23;
   }
 
   html {
-    background: #F8FAF9;
-    color: #1E1E1E;
+    background: var(--page-bg);
+    color: rgb(var(--fs-graphite));
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
 
   @media (pointer: fine) {
@@ -38,8 +59,8 @@
   body {
     margin: 0;
     padding: 0;
-    background: #F8FAF9;
-    color: #1E1E1E;
+    background: var(--page-bg);
+    color: rgb(var(--fs-graphite));
   }
 
   * {
@@ -89,7 +110,7 @@
   }
 
   .fs-glass {
-    @apply bg-white/80 backdrop-blur-xl border border-fs-border/60;
+    @apply bg-white/80 dark:bg-[#1C2128]/80 backdrop-blur-xl border border-fs-border/60;
   }
 
   .fs-glass-dark {
@@ -159,6 +180,10 @@
     position: relative;
   }
 
+  html.dark .fs-page-bg {
+    background: linear-gradient(160deg, #0D1117 0%, #0a1520 50%, #0D1117 100%);
+  }
+
   .fs-page-bg::before {
     content: "";
     position: fixed;
@@ -180,9 +205,15 @@
     box-shadow: 0 4px 32px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(255,255,255,0.5) inset;
   }
 
+  html.dark .fs-glass-card {
+    background: rgba(28, 33, 40, 0.82);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255,255,255,0.06) inset;
+  }
+
   /* CONTAINER */
   .fs-container {
-    @apply max-w-7xl mx-auto px-6 pb-28 lg:pb-0;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 pb-28 lg:pb-0;
   }
 
   /* NAV LINK */
@@ -197,6 +228,11 @@
 
   .fs-nav-link-idle {
     @apply text-fs-gray hover:text-fs-graphite hover:bg-fs-offwhite;
+  }
+
+  /* SKELETON */
+  .fs-skeleton {
+    @apply bg-fs-border animate-pulse rounded-lg;
   }
 }
 
@@ -218,6 +254,10 @@
 
   .bg-fs-primary\/8 {
     background-color: rgba(0, 91, 70, 0.08);
+  }
+
+  .dark\:shadow-dark {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
   }
 
   .border-gradient-green {

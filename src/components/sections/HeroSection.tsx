@@ -250,7 +250,7 @@ export default function HeroSection() {
 
       {/* BOTTOM FADE */}
       <div className="relative h-16 pointer-events-none" style={{
-        background: "linear-gradient(to bottom, transparent, #ffffff)",
+        background: "linear-gradient(to bottom, transparent, var(--page-bg))",
       }} />
     </section>
   )

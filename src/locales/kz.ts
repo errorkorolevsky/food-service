@@ -161,6 +161,7 @@ export const kz: Translations = {
     promo:             "Промокод",
     promoApply:        "Қолдану",
     remove:            "Жою",
+    addedToCart:       "Себетке қосылды",
     items_one:         "тауар",
     items_few:         "тауар",
     items_many:        "тауар",

@@ -66,8 +66,8 @@ export default function CartDrawer() {
         transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
         className="
           fixed top-0 right-0 h-screen w-full max-w-[440px]
-          bg-white border-l border-fs-border
-          z-[999] flex flex-col shadow-xl
+          bg-fs-white border-l border-fs-border
+          z-[999] flex flex-col shadow-xl dark:shadow-[0_0_60px_rgba(0,0,0,0.5)]
         "
       >
         {/* HEADER */}
@@ -152,7 +152,7 @@ export default function CartDrawer() {
                       {/* EMOJI */}
                       <div className="
                         w-14 h-14 rounded-lg flex-shrink-0
-                        bg-white border border-fs-border
+                        bg-fs-white border border-fs-border
                         flex items-center justify-center
                         text-3xl
                       ">
@@ -175,7 +175,7 @@ export default function CartDrawer() {
                             onClick={() => decreaseQuantity(item.id)}
                             className="
                               w-7 h-7 rounded-md
-                              border border-fs-border bg-white
+                              border border-fs-border bg-fs-white
                               flex items-center justify-center
                               text-fs-gray hover:text-fs-graphite hover:border-fs-primary/30
                               transition-all duration-150
@@ -234,7 +234,7 @@ export default function CartDrawer() {
                 const remain   = FREE_DELIVERY_THRESHOLD - total
                 const isFree   = total >= FREE_DELIVERY_THRESHOLD
                 return (
-                  <div className={`rounded-xl px-3.5 py-3 ${isFree ? "bg-emerald-50 border border-emerald-200/60" : "bg-white border border-fs-border"}`}>
+                  <div className={`rounded-xl px-3.5 py-3 ${isFree ? "bg-emerald-50 dark:bg-emerald-900/25 border border-emerald-200/60 dark:border-emerald-700/40" : "bg-fs-white border border-fs-border"}`}>
                     {isFree ? (
                       <div className="flex items-center gap-2">
                         <span className="text-emerald-500 text-base">🚚</span>
@@ -293,8 +293,8 @@ export default function CartDrawer() {
                 className="
                   w-full flex items-center justify-center gap-2
                   border border-fs-border rounded-xl py-2.5
-                  text-caption font-medium text-fs-gray bg-white
-                  hover:text-red-500 hover:border-red-200 hover:bg-red-50
+                  text-caption font-medium text-fs-gray bg-fs-white
+                  hover:text-red-500 hover:border-red-200 hover:bg-red-50 dark:hover:bg-red-950/30
                   transition-all duration-200
                 "
               >

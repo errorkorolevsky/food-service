@@ -4,11 +4,13 @@ import { AnimatePresence, motion } from "framer-motion"
 import { Check } from "lucide-react"
 
 import { useToastStore } from "@/store/toastStore"
+import { useLang } from "@/locales"
 
 const TOAST_MS = 2500
 
 export default function FloatingNotification() {
   const { visible, message, emoji } = useToastStore()
+  const { t } = useLang()
 
   return (
     <AnimatePresence>
@@ -25,7 +27,7 @@ export default function FloatingNotification() {
           "
         >
           <div className="
-            bg-white border border-fs-border rounded-2xl
+            bg-fs-white border border-fs-border rounded-2xl
             overflow-hidden
             shadow-card-hover
           ">
@@ -39,7 +41,7 @@ export default function FloatingNotification() {
                 </p>
                 <p className="text-label text-fs-gray mt-0.5 flex items-center gap-1.5">
                   <Check size={12} strokeWidth={2.5} className="text-fs-primary" />
-                  Добавлено в корзину
+                  {t.cart.addedToCart}
                 </p>
               </div>
             </div>

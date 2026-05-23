@@ -159,6 +159,7 @@ export const ru = {
     promo:             "Промокод",
     promoApply:        "Применить",
     remove:            "Удалить",
+    addedToCart:       "Добавлено в корзину",
     items_one:         "товар",
     items_few:         "товара",
     items_many:        "товаров",
