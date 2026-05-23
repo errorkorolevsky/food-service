@@ -20,10 +20,9 @@ const itemVariants: Variants = {
   show:   { opacity: 1, y: 0,  filter: "blur(0px)", transition: { duration: 0.55, ease: [0, 0, 0.2, 1] } },
 }
 
-const CATEGORY_PILLS = ["🥛 Молочное", "🍗 Мясо", "🥦 Овощи", "🧃 Напитки", "🍫 Сладости", "❄️ Заморозка", "🍞 Выпечка", "📦 HoReCa"]
-
 export default function HeroSection() {
   const { t } = useLang()
+  const CATEGORY_PILLS = t.hero.categoryPills
   const [orderCount, setOrderCount] = useState<number | null>(null)
 
   const { scrollY } = useScroll()
@@ -46,7 +45,7 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="relative overflow-hidden min-h-[92vh] flex flex-col" style={{
+    <section className="relative overflow-hidden min-h-[78vh] sm:min-h-[88vh] lg:min-h-[92vh] flex flex-col" style={{
       background: "radial-gradient(ellipse 130% 90% at 60% -10%, #0A7A5C 0%, #005B46 28%, #003D30 58%, #001A14 100%)",
     }}>
 
@@ -98,7 +97,7 @@ export default function HeroSection() {
         transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 3 }}
       />
 
-      <div className="fs-container relative z-10 pt-20 pb-10 lg:pt-28 lg:pb-14 flex-1 flex flex-col justify-center">
+      <div className="fs-container relative z-10 pt-14 pb-8 sm:pt-20 sm:pb-10 lg:pt-28 lg:pb-14 flex-1 flex flex-col justify-center">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 lg:gap-16 items-center">
 
           {/* LEFT */}
@@ -128,7 +127,7 @@ export default function HeroSection() {
             <motion.h1
               variants={itemVariants}
               className="leading-[0.90]"
-              style={{ fontSize: "clamp(3.2rem, 8.5vw, 7.5rem)", letterSpacing: "-0.04em" }}
+              style={{ fontSize: "clamp(2.2rem, 8.5vw, 7.5rem)", letterSpacing: "-0.04em" }}
             >
               <span className="block font-black text-white">{t.hero.title1}</span>
               <span className="block font-extralight text-white/50" style={{ letterSpacing: "-0.02em" }}>{t.hero.title2}</span>
@@ -168,7 +167,7 @@ export default function HeroSection() {
             {/* STATS */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap gap-6 mt-12 pt-8 border-t border-white/[0.08]"
+              className="flex flex-wrap gap-4 sm:gap-6 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/[0.08]"
             >
               {[
                 { icon: ShieldCheck, value: 500,  suffix: "+",    label: t.hero.stat_items,    color: "text-fs-accent"  },
@@ -205,7 +204,7 @@ export default function HeroSection() {
               {/* HEADER */}
               <div className="flex items-center justify-between mb-5">
                 <div>
-                  <p className="text-[10px] text-white/40 uppercase tracking-widest mb-1">Все категории</p>
+                  <p className="text-[10px] text-white/40 uppercase tracking-widest mb-1">{t.hero.cardTitle}</p>
                   <p className="text-base font-bold text-white">{t.categories.subtitle}</p>
                 </div>
                 <div className="w-10 h-10 rounded-xl bg-white/[0.07] border border-white/[0.09] flex items-center justify-center">
@@ -226,16 +225,15 @@ export default function HeroSection() {
 
               {/* FEATURES */}
               <div className="space-y-3">
-                {[
-                  { icon: <ShieldCheck size={14} />, text: "Свежие продукты с доставкой",  col: "text-fs-accent"  },
-                  { icon: <Clock size={14} />,       text: "Доставка 30 мин по Шымкенту", col: "text-blue-400"   },
-                  { icon: <Tag size={14} />,          text: "Акции и скидки каждый день",  col: "text-amber-400" },
-                ].map(({ icon, text, col }) => (
-                  <div key={text} className="flex items-center gap-3 text-xs text-white/65">
-                    <span className={`${col} flex-shrink-0`}>{icon}</span>
-                    {text}
-                  </div>
-                ))}
+                {t.hero.features.map((feat, i) => {
+                  const icons = [<ShieldCheck key={0} size={14} />, <Clock key={1} size={14} />, <Tag key={2} size={14} />]
+                  return (
+                    <div key={i} className="flex items-center gap-3 text-xs text-white/65">
+                      <span className={`${feat.color} flex-shrink-0`}>{icons[i]}</span>
+                      {feat.text}
+                    </div>
+                  )
+                })}
               </div>
 
               {/* CTA */}

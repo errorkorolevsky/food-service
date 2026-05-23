@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion"
 import { Plus, Minus, Star, Heart } from "lucide-react"
 import { useRef, useState } from "react"
@@ -9,6 +10,7 @@ import { useCartStore } from "@/store/cartStore"
 import { useToastStore } from "@/store/toastStore"
 import { useFavoritesStore } from "@/store/favoritesStore"
 import { useCursorAware } from "@/hooks/useCursorAware"
+import { useLang } from "@/locales"
 import type { Product } from "@/types"
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -35,7 +37,7 @@ const CATEGORY_COLORS: Record<string, string> = {
 
 type ProductCardProps = Pick<Product,
   "id" | "category" | "title" | "description" | "price" | "priceNum" |
-  "rating" | "emoji" | "isNew" | "isHit" | "inStock" | "oldPriceNum" | "discountPercent" | "unit"
+  "rating" | "emoji" | "image" | "isNew" | "isHit" | "inStock" | "oldPriceNum" | "discountPercent" | "unit"
 >
 
 export default function ProductCard({
@@ -50,6 +52,7 @@ export default function ProductCard({
   unit,
   rating,
   emoji,
+  image,
   isNew,
   isHit,
   inStock,
@@ -63,6 +66,7 @@ export default function ProductCard({
   const toggle           = useFavoritesStore((state) => state.toggle)
   const isFav            = useFavoritesStore((state) => state.isFav)
   const favorited        = isFav(id)
+  const { t }            = useLang()
 
   // 3D TILT + CURSOR-AWARE LIGHTING share the same ref
   const ref = useRef<HTMLDivElement>(null)
@@ -79,8 +83,10 @@ export default function ProductCard({
     mouseY.set((e.clientY - rect.top) / rect.height - 0.5)
   }
 
-  const [shining, setShining]     = useState(false)
-  const [burst,   setBurst]       = useState(false)
+  const [shining,    setShining]    = useState(false)
+  const [burst,      setBurst]      = useState(false)
+  const [imgError,   setImgError]   = useState(false)
+  const showImage = !!image && !imgError
 
   const handleMouseLeave = () => {
     mouseX.set(0)
@@ -120,6 +126,7 @@ export default function ProductCard({
       whileHover={{ y: -8, scale: 1.018 }}
       transition={{ type: "spring", stiffness: 280, damping: 22 }}
       className="
+        group
         bg-white border border-fs-border rounded-2xl
         overflow-hidden shadow-card
         transition-shadow duration-300
@@ -149,7 +156,7 @@ export default function ProductCard({
       {/* IMAGE — bigger, with ambient gradient */}
       <Link href={`/product/${id}`}>
         <div className="
-          h-56 flex items-center justify-center relative
+          h-40 sm:h-48 md:h-56 flex items-center justify-center relative
           cursor-pointer overflow-hidden
         " style={{
           background: `radial-gradient(ellipse 80% 70% at 50% 60%, ${CATEGORY_COLORS[category] ?? "#005B46"}18 0%, #F0F4F2 100%)`,
@@ -159,13 +166,24 @@ export default function ProductCard({
             background: `radial-gradient(ellipse 60% 55% at 50% 55%, ${CATEGORY_COLORS[category] ?? "#005B46"}22 0%, transparent 70%)`,
           }} />
 
-          <motion.span
-            className="text-7xl select-none inline-block relative z-10"
-            whileHover={{ scale: 1.28, y: -6, filter: "drop-shadow(0 12px 20px rgba(0,0,0,0.22))" }}
-            transition={{ type: "spring", stiffness: 350, damping: 18 }}
-          >
-            {emoji}
-          </motion.span>
+          {showImage ? (
+            <Image
+              src={image!}
+              alt={title}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              onError={() => setImgError(true)}
+            />
+          ) : (
+            <motion.span
+              className="text-5xl sm:text-6xl md:text-7xl select-none inline-block relative z-10"
+              whileHover={{ scale: 1.28, y: -6, filter: "drop-shadow(0 12px 20px rgba(0,0,0,0.22))" }}
+              transition={{ type: "spring", stiffness: 350, damping: 18 }}
+            >
+              {emoji}
+            </motion.span>
+          )}
 
           {/* BADGES */}
           <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-20">
@@ -176,17 +194,17 @@ export default function ProductCard({
             )}
             {isNew && !discountPercent && (
               <span className="text-label font-bold px-2.5 py-1 rounded-pill bg-fs-primary text-white shadow-sm">
-                NEW
+                {t.product.new}
               </span>
             )}
             {isHit && !discountPercent && (
               <span className="text-label font-bold px-2.5 py-1 rounded-pill bg-amber-500 text-white shadow-sm">
-                ХИТ
+                {t.product.hit}
               </span>
             )}
             {!inStock && (
               <span className="text-label font-bold px-2.5 py-1 rounded-pill bg-red-50 border border-red-200 text-red-500">
-                Нет в наличии
+                {t.product.outOfStock}
               </span>
             )}
           </div>
@@ -216,11 +234,11 @@ export default function ProductCard({
       </Link>
 
       {/* CONTENT */}
-      <div className="p-5 flex flex-col flex-1">
+      <div className="p-3 sm:p-5 flex flex-col flex-1">
 
         <div className="flex items-center justify-between mb-2.5">
           <span className="text-label uppercase tracking-widest font-bold" style={{ color: CATEGORY_COLORS[category] ?? "#005B46" }}>
-            {category}
+            {t.categories.labels[category as keyof typeof t.categories.labels] ?? category}
           </span>
           <div className="flex items-center gap-1 text-amber-500">
             <Star size={11} fill="currentColor" strokeWidth={0} />

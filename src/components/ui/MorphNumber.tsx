@@ -24,13 +24,14 @@ export default function MorphNumber({
   className = "",
   prefix    = "",
   suffix    = "",
-  format    = (n) => n.toLocaleString("ru-RU"),
+  format    = (n) => (n ?? 0).toLocaleString("ru-RU"),
 }: MorphNumberProps) {
-  const [display, setDisplay] = useState(value)
-  const direction = value >= display ? 1 : -1
+  const safeValue = value ?? 0
+  const [display, setDisplay] = useState(safeValue)
+  const direction = safeValue >= display ? 1 : -1
 
   // eslint-disable-next-line react-hooks/set-state-in-effect
-  useEffect(() => { setDisplay(value) }, [value])
+  useEffect(() => { setDisplay(safeValue) }, [safeValue])
 
   const formatted = format(display)
 

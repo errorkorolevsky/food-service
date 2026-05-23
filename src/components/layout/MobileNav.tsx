@@ -6,21 +6,26 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Home, Grid3x3, Package, User, Heart } from "lucide-react"
 
 import { useFavoritesStore } from "@/store/favoritesStore"
-
-const links = [
-  { href: "/",          icon: Home,     label: "Главная",   showFavBadge: false },
-  { href: "/catalog",   icon: Grid3x3,  label: "Каталог",   showFavBadge: false },
-  { href: "/favorites", icon: Heart,    label: "Избранное", showFavBadge: true  },
-  { href: "/tracking",  icon: Package,  label: "Доставка",  showFavBadge: false },
-  { href: "/profile",   icon: User,     label: "Профиль",   showFavBadge: false },
-]
+import { useLang } from "@/locales"
 
 export default function MobileNav() {
   const pathname  = usePathname()
   const favCount  = useFavoritesStore((state) => state.ids.length)
+  const { t, lang, setLang } = useLang()
+
+  const links = [
+    { href: "/",          icon: Home,     label: t.nav.home,      showFavBadge: false },
+    { href: "/catalog",   icon: Grid3x3,  label: t.nav.catalog,   showFavBadge: false },
+    { href: "/favorites", icon: Heart,    label: t.nav.favorites, showFavBadge: true  },
+    { href: "/tracking",  icon: Package,  label: t.nav.delivery,  showFavBadge: false },
+    { href: "/profile",   icon: User,     label: t.nav.profile,   showFavBadge: false },
+  ]
 
   return (
-    <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 lg:hidden">
+    <nav
+      className="fixed left-1/2 -translate-x-1/2 z-50 lg:hidden"
+      style={{ bottom: "max(env(safe-area-inset-bottom, 0px) + 8px, 16px)" }}
+    >
       {/* GLOW SHADOW */}
       <div
         className="absolute -inset-2 rounded-[40px] pointer-events-none"
@@ -40,6 +45,23 @@ export default function MobileNav() {
           shadow-[0_8px_32px_rgba(0,0,0,0.14),0_0_0_1px_rgba(255,255,255,0.6)_inset]
         "
       >
+        {/* LANG SWITCHER */}
+        <div className="flex items-center gap-0.5 pl-1 pr-1 border-r border-black/10 mr-0.5">
+          {(["ru", "kz"] as const).map((l) => (
+            <button
+              key={l}
+              onClick={() => setLang(l)}
+              className={`
+                px-1.5 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-wide
+                transition-all duration-150
+                ${lang === l ? "text-fs-primary" : "text-fs-muted hover:text-fs-gray"}
+              `}
+            >
+              {l.toUpperCase()}
+            </button>
+          ))}
+        </div>
+
         {links.map(({ href, icon: Icon, label, showFavBadge }) => {
           const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href)
 

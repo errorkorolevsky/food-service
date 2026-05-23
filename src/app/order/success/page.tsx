@@ -11,6 +11,7 @@ import Navbar from "@/components/layout/Navbar"
 import Badge from "@/components/ui/Badge"
 import Button from "@/components/ui/Button"
 import FadeIn from "@/components/ui/FadeIn"
+import { useLang } from "@/locales"
 
 // ─── TYPES ────────────────────────────────────────────────────────────────────
 
@@ -36,21 +37,10 @@ function formatOrderId(uuid: string | null): string {
   return `#FS-${uuid.slice(-6).toUpperCase()}`
 }
 
-const PAYMENT_LABEL: Record<string, { icon: React.ElementType; label: string }> = {
-  kaspi:   { icon: Smartphone, label: "Kaspi Pay"    },
-  freedom: { icon: CreditCard, label: "Freedom Pay"  },
-  cash:    { icon: CreditCard, label: "Наличные"     },
-}
-
-const STATUS_STEPS = [
-  { key: "pending",     label: "Заказ принят"         },
-  { key: "processing",  label: "Передан курьеру"      },
-  { key: "in_delivery", label: "В пути"               },
-  { key: "delivered",   label: "Доставлен"            },
-]
-
-function getStepIndex(status: string) {
-  return STATUS_STEPS.findIndex((s) => s.key === status)
+const PAYMENT_ICON: Record<string, React.ElementType> = {
+  kaspi:   Smartphone,
+  freedom: CreditCard,
+  cash:    CreditCard,
 }
 
 // ─── CONTENT ─────────────────────────────────────────────────────────────────
@@ -60,8 +50,16 @@ function SuccessContent() {
   const rawId              = params.get("id")
   const orderId            = formatOrderId(rawId)
   const { data: session }  = useSession()
+  const { t }              = useLang()
 
   const [order, setOrder] = useState<OrderData | null>(null)
+
+  const STATUS_STEPS = [
+    { key: "pending",     label: t.order.statuses.pending     },
+    { key: "processing",  label: t.order.statuses.processing  },
+    { key: "in_delivery", label: t.order.statuses.in_delivery },
+    { key: "delivered",   label: t.order.statuses.delivered   },
+  ]
 
   useEffect(() => {
     if (!rawId) return
@@ -73,8 +71,9 @@ function SuccessContent() {
       .catch(() => {})
   }, [rawId, orderId])
 
-  const stepIndex    = order ? getStepIndex(order.status) : 0
-  const paymentMeta  = order ? (PAYMENT_LABEL[order.payment] ?? { icon: CreditCard, label: order.payment }) : null
+  const stepIndex   = order ? STATUS_STEPS.findIndex((s) => s.key === order.status) : 0
+  const PayIcon     = order ? (PAYMENT_ICON[order.payment] ?? CreditCard) : CreditCard
+  const paymentLabel = order ? (t.order.payment[order.payment as keyof typeof t.order.payment] ?? order.payment) : "—"
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -96,14 +95,13 @@ function SuccessContent() {
           </motion.div>
 
           <Badge variant="success" dot className="mb-6">
-            Заказ оформлен
+            {t.order.successBadge}
           </Badge>
 
-          <h1 className="text-heading text-fs-graphite">Заказ принят!</h1>
+          <h1 className="text-heading text-fs-graphite">{t.order.successTitle}</h1>
 
           <p className="text-body-lg text-fs-gray mt-4 max-w-md mx-auto">
-            Мы уже готовим вашу поставку.
-            Курьер доставит заказ за 15–30 минут.
+            {t.order.successBody}
           </p>
         </div>
       </FadeIn>
@@ -114,26 +112,27 @@ function SuccessContent() {
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-3">
               <Package size={18} strokeWidth={1.5} className="text-fs-gray" />
-              <h2 className="text-title text-fs-graphite">Детали заказа</h2>
+              <h2 className="text-title text-fs-graphite">{t.order.details}</h2>
             </div>
             <span className="text-title font-black text-fs-graphite">{orderId}</span>
           </div>
 
           {/* STATS GRID */}
-          <div className="grid grid-cols-3 gap-4 mb-6">
-            <div className="bg-fs-offwhite border border-fs-border rounded-xl p-4 text-center">
-              <p className="text-label text-fs-gray uppercase tracking-widest mb-2">Оплата</p>
-              <p className="text-caption font-bold text-fs-graphite">
-                {paymentMeta ? paymentMeta.label : "—"}
-              </p>
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-6">
+            <div className="bg-fs-offwhite border border-fs-border rounded-xl p-2.5 sm:p-4 text-center">
+              <p className="text-[9px] sm:text-label text-fs-gray uppercase tracking-wide sm:tracking-widest mb-1 sm:mb-2 leading-tight">{t.order.paymentLabel}</p>
+              <div className="flex items-center justify-center gap-1">
+                <PayIcon size={11} strokeWidth={1.5} className="text-fs-subtle flex-shrink-0" />
+                <p className="text-[11px] sm:text-caption font-bold text-fs-graphite truncate">{paymentLabel}</p>
+              </div>
             </div>
-            <div className="bg-fs-offwhite border border-fs-border rounded-xl p-4 text-center">
-              <p className="text-label text-fs-gray uppercase tracking-widest mb-2">Доставка</p>
-              <p className="text-caption font-bold text-fs-graphite">15–30 мин</p>
+            <div className="bg-fs-offwhite border border-fs-border rounded-xl p-2.5 sm:p-4 text-center">
+              <p className="text-[9px] sm:text-label text-fs-gray uppercase tracking-wide sm:tracking-widest mb-1 sm:mb-2 leading-tight">{t.order.deliveryTime}</p>
+              <p className="text-[11px] sm:text-caption font-bold text-fs-graphite">15–30 мин</p>
             </div>
-            <div className="bg-fs-offwhite border border-fs-border rounded-xl p-4 text-center">
-              <p className="text-label text-fs-gray uppercase tracking-widest mb-2">Итого</p>
-              <p className="text-caption font-bold text-fs-graphite">
+            <div className="bg-fs-offwhite border border-fs-border rounded-xl p-2.5 sm:p-4 text-center">
+              <p className="text-[9px] sm:text-label text-fs-gray uppercase tracking-wide sm:tracking-widest mb-1 sm:mb-2 leading-tight">{t.order.totalLabel}</p>
+              <p className="text-[11px] sm:text-caption font-bold text-fs-graphite">
                 {order ? `₸${order.total.toLocaleString()}` : "—"}
               </p>
             </div>
@@ -150,7 +149,7 @@ function SuccessContent() {
           {/* ITEMS */}
           {order && order.items.length > 0 && (
             <div className="mt-5 space-y-2.5">
-              <p className="text-label text-fs-gray uppercase tracking-widest mb-3">Состав</p>
+              <p className="text-label text-fs-gray uppercase tracking-widest mb-3">{t.order.composition}</p>
               {order.items.map((item) => (
                 <div key={item.id} className="flex items-center gap-3">
                   <span className="text-xl flex-shrink-0">{item.emoji}</span>
@@ -168,7 +167,7 @@ function SuccessContent() {
       {/* STATUS STEPS */}
       <FadeIn delay={0.15}>
         <div className="bg-white border border-fs-border rounded-2xl p-8 mb-6">
-          <h2 className="text-title text-fs-graphite mb-8">Статус доставки</h2>
+          <h2 className="text-title text-fs-graphite mb-8">{t.order.statusTitle}</h2>
           <div className="space-y-5">
             {STATUS_STEPS.map((step, i) => {
               const done   = i < stepIndex
@@ -185,11 +184,8 @@ function SuccessContent() {
                   <p className={`text-body ${active ? "font-bold text-fs-graphite" : "text-fs-gray"}`}>
                     {step.label}
                   </p>
-                  {done && (
-                    <span className="ml-auto text-label text-fs-green font-medium">✓ Готово</span>
-                  )}
-                  {active && i === 0 && (
-                    <span className="ml-auto text-label text-fs-green font-medium">✓ Готово</span>
+                  {(done || (active && i === 0)) && (
+                    <span className="ml-auto text-label text-fs-green font-medium">{t.order.done}</span>
                   )}
                 </div>
               )
@@ -198,7 +194,7 @@ function SuccessContent() {
         </div>
       </FadeIn>
 
-      {/* GOOGLE LOGIN PROMPT — только если не залогинен */}
+      {/* GOOGLE LOGIN PROMPT */}
       {!session && (
         <FadeIn delay={0.18}>
           <motion.div
@@ -207,10 +203,8 @@ function SuccessContent() {
             className="bg-white border border-fs-border rounded-2xl p-6 mb-6 flex items-center justify-between gap-6 flex-wrap"
           >
             <div>
-              <p className="text-body font-bold text-fs-graphite">Войдите чтобы отслеживать заказы</p>
-              <p className="text-caption text-fs-gray mt-1">
-                Все ваши заказы сохранятся в профиле автоматически
-              </p>
+              <p className="text-body font-bold text-fs-graphite">{t.order.loginTitle}</p>
+              <p className="text-caption text-fs-gray mt-1">{t.order.loginDesc}</p>
             </div>
             <button
               onClick={() => signIn("google", { callbackUrl: "/profile" })}
@@ -223,7 +217,7 @@ function SuccessContent() {
               "
             >
               <LogIn size={15} strokeWidth={1.5} />
-              Войти через Google
+              {t.profile.login}
             </button>
           </motion.div>
         </FadeIn>
@@ -234,14 +228,14 @@ function SuccessContent() {
         <div className="flex flex-col sm:flex-row gap-4">
           <Link href={`/tracking?q=${encodeURIComponent(orderId)}`} className="flex-1">
             <Button size="lg" className="w-full">
-              Отследить заказ
+              {t.order.trackBtn}
               <ArrowRight size={18} strokeWidth={1.5} />
             </Button>
           </Link>
 
           <Link href="/catalog" className="flex-1">
             <Button variant="secondary" size="lg" className="w-full">
-              Продолжить закупку
+              {t.order.continueBtn}
             </Button>
           </Link>
         </div>
@@ -256,7 +250,7 @@ export default function OrderSuccessPage() {
   return (
     <main className="fs-page-bg text-fs-graphite min-h-screen">
       <Navbar />
-      <div className="fs-container py-20">
+      <div className="fs-container pt-10 pb-32 sm:py-20">
         <Suspense fallback={null}>
           <SuccessContent />
         </Suspense>

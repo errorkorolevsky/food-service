@@ -12,12 +12,14 @@ import Image from "next/image"
 
 import Navbar from "@/components/layout/Navbar"
 import CartDrawer from "@/components/layout/CartDrawer"
+import Footer from "@/components/layout/Footer"
 import Badge from "@/components/ui/Badge"
 import Button from "@/components/ui/Button"
 import FadeIn from "@/components/ui/FadeIn"
 import { useFavoritesStore } from "@/store/favoritesStore"
 import { useCartStore } from "@/store/cartStore"
 import { useCartUI } from "@/store/cartUIStore"
+import { useLang } from "@/locales"
 
 // ─── TYPES ────────────────────────────────────────────────────────────────────
 
@@ -58,7 +60,7 @@ function formatDate(iso: string) {
 
 // ─── ORDER ROW ────────────────────────────────────────────────────────────────
 
-function OrderRow({ order, onRepeat }: { order: DbOrder; onRepeat: (order: DbOrder) => void }) {
+function OrderRow({ order, onRepeat, trackLabel, repeatLabel }: { order: DbOrder; onRepeat: (order: DbOrder) => void; trackLabel: string; repeatLabel: string }) {
   const meta      = STATUS_BADGE[order.status]
   const itemCount = order.items.reduce((sum, i) => sum + i.quantity, 0)
   const [expanded, setExpanded] = useState(false)
@@ -117,14 +119,14 @@ function OrderRow({ order, onRepeat }: { order: DbOrder; onRepeat: (order: DbOrd
               </div>
               <div className="flex items-center justify-between">
                 <Link href={`/tracking?q=${encodeURIComponent(formatOrderId(order.id))}`}>
-                  <span className="text-[12px] text-fs-primary hover:underline">Отследить →</span>
+                  <span className="text-[12px] text-fs-primary hover:underline">{trackLabel}</span>
                 </Link>
                 <button
                   onClick={() => onRepeat(order)}
                   className="flex items-center gap-1.5 text-[12px] text-fs-gray hover:text-fs-primary transition-colors"
                 >
                   <RotateCcw size={12} strokeWidth={1.5} />
-                  Повторить заказ
+                  {repeatLabel}
                 </button>
               </div>
             </div>
@@ -144,15 +146,15 @@ function StatCard({ value, label, icon: Icon, color }: {
     <motion.div
       whileHover={{ y: -3, scale: 1.02 }}
       transition={{ type: "spring", stiffness: 380, damping: 26 }}
-      className="bg-white border border-fs-border rounded-2xl p-5 flex items-center gap-4"
+      className="bg-white border border-fs-border rounded-2xl p-4 sm:p-5 flex items-center gap-3 sm:gap-4"
     >
-      <div className="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0"
+      <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0"
         style={{ background: `${color}12` }}>
-        <Icon size={20} strokeWidth={1.5} style={{ color }} />
+        <Icon size={18} strokeWidth={1.5} style={{ color }} />
       </div>
-      <div>
-        <p className="text-[22px] font-black text-fs-graphite leading-none">{value}</p>
-        <p className="text-[12px] text-fs-gray mt-1">{label}</p>
+      <div className="min-w-0">
+        <p className="text-[18px] sm:text-[22px] font-black text-fs-graphite leading-none truncate">{value}</p>
+        <p className="text-[11px] sm:text-[12px] text-fs-gray mt-0.5 leading-tight">{label}</p>
       </div>
     </motion.div>
   )
@@ -179,14 +181,16 @@ function OrderSkeleton() {
 
 export default function ProfilePage() {
   const { data: session } = useSession()
+  const { t }   = useLang()
   const favorites = useFavoritesStore((state) => state.products)
   const toggle    = useFavoritesStore((state) => state.toggle)
   const addItem   = useCartStore((state) => state.addItem)
   const openCart  = useCartUI((state) => state.openCart)
 
-  const [orders,  setOrders]  = useState<DbOrder[]>([])
-  const [loading, setLoading] = useState(false)
-  const [phone,   setPhone]   = useState<string | null>(null)
+  const [orders,       setOrders]       = useState<DbOrder[]>([])
+  const [loading,      setLoading]      = useState(false)
+  const [phone,        setPhone]        = useState<string | null>(null)
+  const [savedAddress, setSavedAddress] = useState<string | null>(null)
 
   const fetchOrders = async (ph: string) => {
     setLoading(true)
@@ -210,6 +214,8 @@ export default function ProfilePage() {
       setPhone(saved)
       fetchOrders(saved)
     }
+    const addr = localStorage.getItem("fs_address")
+    if (addr) setSavedAddress(addr)
   }, [session])
 
   const handleRepeat = (order: DbOrder) => {
@@ -221,7 +227,7 @@ export default function ProfilePage() {
     openCart()
   }
 
-  const displayName  = session?.user?.name  ?? "HoReCa Client"
+  const displayName  = session?.user?.name  ?? t.profile.clientBadge
   const displayEmail = session?.user?.email ?? null
   const displayImage = session?.user?.image ?? null
 
@@ -269,7 +275,7 @@ export default function ProfilePage() {
                 <div className="flex-1">
                   <div className="flex items-center gap-3 flex-wrap">
                     <h1 className="text-[28px] font-black text-fs-graphite tracking-tight">{displayName}</h1>
-                    <Badge variant="ai" dot><Sparkles size={10} className="mr-1" />HoReCa Client</Badge>
+                    <Badge variant="ai" dot><Sparkles size={10} className="mr-1" />{t.profile.clientBadge}</Badge>
                   </div>
                   {displayEmail && (
                     <p className="text-[14px] text-fs-gray mt-1">{displayEmail}</p>
@@ -285,11 +291,11 @@ export default function ProfilePage() {
                 <div className="flex-shrink-0">
                   {session ? (
                     <Button variant="secondary" onClick={() => signOut({ callbackUrl: "/" })}>
-                      <LogOut size={16} strokeWidth={1.5} />Выйти
+                      <LogOut size={16} strokeWidth={1.5} />{t.profile.logout}
                     </Button>
                   ) : (
                     <Button onClick={() => signIn("google", { callbackUrl: "/profile" })}>
-                      <LogIn size={16} strokeWidth={1.5} />Войти через Google
+                      <LogIn size={16} strokeWidth={1.5} />{t.profile.login}
                     </Button>
                   )}
                 </div>
@@ -298,10 +304,10 @@ export default function ProfilePage() {
 
             {/* STATS ROW */}
             <FadeIn delay={0.1}>
-              <div className="grid grid-cols-3 gap-4 mt-8">
-                <StatCard value={String(orders.length || "0")} label="заказов"       icon={Package} color="#005B46" />
-                <StatCard value={String(favorites.length || "0")} label="в избранном" icon={Heart}   color="#ef4444" />
-                <StatCard value="HoReCa" label="уровень клиента"                     icon={Sparkles} color="#6366f1" />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mt-8">
+                <StatCard value={String(orders.length || "0")} label={t.profile.statOrders}  icon={Package} color="#005B46" />
+                <StatCard value={String(favorites.length || "0")} label={t.profile.inFavorites} icon={Heart}   color="#ef4444" />
+                <StatCard value={t.profile.clientBadge} label={t.profile.clientLevel}         icon={Sparkles} color="#6366f1" />
               </div>
             </FadeIn>
           </div>
@@ -319,13 +325,13 @@ export default function ProfilePage() {
                     <div className="w-9 h-9 bg-fs-light rounded-xl flex items-center justify-center">
                       <Package size={17} strokeWidth={1.5} className="text-fs-primary" />
                     </div>
-                    <h2 className="text-[18px] font-bold text-fs-graphite">История заказов</h2>
+                    <h2 className="text-[18px] font-bold text-fs-graphite">{t.profile.orders}</h2>
                   </div>
                   <div className="flex items-center gap-3">
                     {orders.length > 0 && (
                       <Link href={`/tracking?q=${encodeURIComponent(session?.user?.email ?? phone ?? "")}`}>
                         <span className="text-[12px] text-fs-gray hover:text-fs-primary transition-colors">
-                          Отследить →
+                          {t.profile.trackLink}
                         </span>
                       </Link>
                     )}
@@ -344,19 +350,19 @@ export default function ProfilePage() {
                   {loading ? (
                     <><OrderSkeleton /><OrderSkeleton /><OrderSkeleton /></>
                   ) : orders.length > 0 ? (
-                    orders.map((order) => <OrderRow key={order.id} order={order} onRepeat={handleRepeat} />)
+                    orders.map((order) => <OrderRow key={order.id} order={order} onRepeat={handleRepeat} trackLabel={t.profile.trackLink} repeatLabel={t.profile.repeatOrder} />)
                   ) : (
                     <div className="text-center py-14">
                       <div className="w-14 h-14 bg-fs-light rounded-2xl flex items-center justify-center mx-auto mb-4">
                         <Package size={24} strokeWidth={1} className="text-fs-primary/50" />
                       </div>
-                      <p className="text-[15px] font-semibold text-fs-graphite">Заказов пока нет</p>
+                      <p className="text-[15px] font-semibold text-fs-graphite">{t.profile.noOrders}</p>
                       <p className="text-[13px] text-fs-gray mt-2">
-                        {!phone && !session ? "Войдите или оформите первый заказ" : "Сделайте первый заказ — он появится здесь"}
+                        {!phone && !session ? t.profile.noOrdersAuth : t.profile.noOrdersHint}
                       </p>
                       <Link href="/catalog">
                         <button className="mt-5 px-5 py-2.5 rounded-xl bg-fs-primary text-white text-[13px] font-semibold hover:opacity-90 transition-opacity">
-                          Перейти в каталог
+                          {t.profile.toCatalog}
                         </button>
                       </Link>
                     </div>
@@ -376,12 +382,12 @@ export default function ProfilePage() {
                       <div className="w-9 h-9 bg-red-50 rounded-xl flex items-center justify-center">
                         <Heart size={17} strokeWidth={1.5} className="text-red-400" />
                       </div>
-                      <h2 className="text-[18px] font-bold text-fs-graphite">Избранное</h2>
+                      <h2 className="text-[18px] font-bold text-fs-graphite">{t.profile.favorites}</h2>
                     </div>
                     {favorites.length > 0 && (
                       <Link href="/favorites">
                         <span className="text-[12px] text-fs-gray hover:text-fs-primary transition-colors">
-                          {favorites.length} → все
+                          {favorites.length} {t.profile.favAll}
                         </span>
                       </Link>
                     )}
@@ -390,10 +396,10 @@ export default function ProfilePage() {
                   {favorites.length === 0 ? (
                     <div className="text-center py-8">
                       <Heart size={28} strokeWidth={1} className="text-fs-subtle mx-auto mb-3" />
-                      <p className="text-[13px] text-fs-gray">Нет избранных товаров</p>
+                      <p className="text-[13px] text-fs-gray">{t.profile.noFavorites}</p>
                       <Link href="/catalog">
                         <button className="mt-3 text-[12px] text-fs-gray hover:text-fs-primary transition-colors">
-                          Перейти в каталог →
+                          {t.profile.toCatalog} →
                         </button>
                       </Link>
                     </div>
@@ -417,7 +423,7 @@ export default function ProfilePage() {
                       {favorites.length > 4 && (
                         <Link href="/favorites">
                           <p className="text-center text-[12px] text-fs-gray hover:text-fs-primary transition-colors pt-2">
-                            Ещё {favorites.length - 4} →
+                            {t.profile.favMore} {favorites.length - 4} →
                           </p>
                         </Link>
                       )}
@@ -433,19 +439,19 @@ export default function ProfilePage() {
                     <div className="w-9 h-9 bg-blue-50 rounded-xl flex items-center justify-center">
                       <MapPin size={17} strokeWidth={1.5} className="text-blue-400" />
                     </div>
-                    <h2 className="text-[18px] font-bold text-fs-graphite">Адреса</h2>
+                    <h2 className="text-[18px] font-bold text-fs-graphite">{t.profile.addresses}</h2>
                   </div>
 
                   <div className="space-y-2.5">
-                    <div className="bg-fs-offwhite border border-fs-border rounded-2xl px-4 py-4">
-                      <div className="flex items-center gap-2 mb-1">
-                        <div className="w-1.5 h-1.5 rounded-full bg-fs-primary" />
-                        <p className="text-[12px] font-semibold text-fs-graphite">Основной адрес</p>
+                    {savedAddress && (
+                      <div className="bg-fs-offwhite border border-fs-border rounded-2xl px-4 py-4">
+                        <div className="flex items-center gap-2 mb-1">
+                          <div className="w-1.5 h-1.5 rounded-full bg-fs-primary" />
+                          <p className="text-[12px] font-semibold text-fs-graphite">{t.profile.mainAddress}</p>
+                        </div>
+                        <p className="text-[13px] text-fs-gray leading-relaxed pl-3.5">{savedAddress}</p>
                       </div>
-                      <p className="text-[13px] text-fs-gray leading-relaxed pl-3.5">
-                        Шымкент, Аль-Фараби 12,<br />Restaurant Hub
-                      </p>
-                    </div>
+                    )}
 
                     <button className="
                       w-full border border-dashed border-fs-border rounded-2xl py-4
@@ -453,7 +459,7 @@ export default function ProfilePage() {
                       hover:border-fs-primary/40 hover:text-fs-primary hover:bg-fs-light/30
                       transition-all duration-200
                     ">
-                      + Добавить адрес
+                      {t.profile.addAddress}
                     </button>
                   </div>
                 </div>
@@ -463,6 +469,8 @@ export default function ProfilePage() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </main>
   )
 }

@@ -7,14 +7,18 @@ import FadeIn from "@/components/ui/FadeIn"
 import Badge from "@/components/ui/Badge"
 import Button from "@/components/ui/Button"
 import AnalyticsCard from "@/components/cards/AnalyticsCard"
+import { useLang } from "@/locales"
 
-const features = [
-  { emoji: "✨", title: "Smart Reorder",  desc: "Автоматическое формирование закупок"     },
-  { emoji: "📈", title: "AI Analytics",   desc: "Анализ продаж и прогноз спроса"          },
-  { emoji: "⚡", title: "Fast Supply",    desc: "Мгновенные рекомендации поставок"        },
+const FEATURE_EMOJIS = ["✨", "📈", "⚡"]
+const CARD_POSITIONS = [
+  { top: "12%", left: "55%", delay: 0   },
+  { top: "55%", left: "48%", delay: 1.2 },
+  { top: "28%", left: "72%", delay: 2.4 },
 ]
 
 export default function AISection() {
+  const { t } = useLang()
+
   return (
     <section className="fs-section relative overflow-hidden bg-fs-light">
       <div className="fs-container py-28 relative z-10">
@@ -45,22 +49,18 @@ export default function AISection() {
             />
 
             {/* FLOATING CARDS */}
-            {[
-              { label: "Заказ #1247",    sub: "Суши × 3 кг",     val: "₸45 200",  top: "12%",  left: "55%", delay: 0    },
-              { label: "AI прогноз",     sub: "Лосось ↑ спрос",  val: "+18%",     top: "55%",  left: "48%", delay: 1.2  },
-              { label: "Smart Reorder",  sub: "Через 2 дня",     val: "★ auto",   top: "28%",  left: "72%", delay: 2.4  },
-            ].map((card) => (
+            {t.ai.floatingCards.map((card, i) => (
               <motion.div
-                key={card.label}
+                key={i}
                 className="
                   absolute pointer-events-none
                   bg-white/10 backdrop-blur-sm border border-white/20
                   rounded-2xl px-4 py-3
                   hidden lg:flex flex-col gap-0.5
                 "
-                style={{ top: card.top, left: card.left }}
+                style={{ top: CARD_POSITIONS[i].top, left: CARD_POSITIONS[i].left }}
                 animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4 + card.delay, repeat: Infinity, ease: "easeInOut", delay: card.delay }}
+                transition={{ duration: 4 + CARD_POSITIONS[i].delay, repeat: Infinity, ease: "easeInOut", delay: CARD_POSITIONS[i].delay }}
               >
                 <span className="text-label font-semibold text-white/90 whitespace-nowrap">{card.label}</span>
                 <span className="text-[10px] text-white/55 whitespace-nowrap">{card.sub}</span>
@@ -74,25 +74,23 @@ export default function AISection() {
               {/* LEFT */}
               <div className="p-10 lg:p-16">
                 <Badge variant="ai" dot>
-                  AI Supply System
+                  {t.ai.badge}
                 </Badge>
 
                 <h2 className="text-heading text-white mt-10">
-                  AI для
+                  {t.ai.title1}
                   <br />
-                  ресторанного
+                  {t.ai.title2}
                   <br />
-                  бизнеса.
+                  {t.ai.title3}
                 </h2>
 
                 <p className="text-body-lg text-white/70 mt-8 max-w-lg leading-relaxed">
-                  Умная система прогнозирования закупок,
-                  автоматических рекомендаций и аналитики
-                  продаж для HoReCa бизнеса.
+                  {t.ai.subtitle}
                 </p>
 
                 <div className="space-y-6 mt-12">
-                  {features.map((f) => (
+                  {t.ai.features.map((f, i) => (
                     <motion.div
                       key={f.title}
                       className="flex items-start gap-5"
@@ -102,7 +100,7 @@ export default function AISection() {
                       transition={{ duration: 0.4, ease: [0, 0, 0.2, 1] }}
                     >
                       <div className="w-12 h-12 rounded-xl flex-shrink-0 bg-white/10 border border-white/20 flex items-center justify-center text-2xl">
-                        {f.emoji}
+                        {FEATURE_EMOJIS[i]}
                       </div>
                       <div>
                         <h3 className="text-title text-white">{f.title}</h3>
@@ -126,19 +124,19 @@ export default function AISection() {
 
                 <div className="space-y-4 mt-10">
                   <AnalyticsCard
-                    title="Рост заказов"
-                    subtitle="За последние 30 дней"
+                    title={t.ai.analytics.orders.title}
+                    subtitle={t.ai.analytics.orders.subtitle}
                     value="+24%"
                     valueColor="text-fs-green"
                   />
                   <AnalyticsCard
-                    title="AI прогноз"
-                    subtitle="Высокий спрос на bakery"
+                    title={t.ai.analytics.forecast.title}
+                    subtitle={t.ai.analytics.forecast.subtitle}
                     value="📈"
                   />
                   <AnalyticsCard
-                    title="Экономия закупок"
-                    subtitle="Благодаря AI recommendations"
+                    title={t.ai.analytics.savings.title}
+                    subtitle={t.ai.analytics.savings.subtitle}
                     value="₸120K"
                     valueColor="text-purple-400"
                   />
@@ -147,7 +145,7 @@ export default function AISection() {
                 <div className="mt-10">
                   <Link href="/ai">
                     <Button variant="white" size="lg" className="w-full">
-                      Открыть AI ассистент
+                      {t.ai.openBtn}
                     </Button>
                   </Link>
                 </div>

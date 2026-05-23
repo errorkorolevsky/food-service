@@ -5,6 +5,7 @@ import { motion, useMotionValue, useTransform, useSpring } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { useRef } from "react"
 import { useCursorAware } from "@/hooks/useCursorAware"
+import { useLang } from "@/locales"
 
 type CategoryCardProps = {
   emoji:       string
@@ -31,6 +32,7 @@ export default function CategoryCard({
 }: CategoryCardProps) {
   const tiltRef = useRef<HTMLDivElement>(null)
   const { cursor } = useCursorAware(tiltRef)
+  const { t } = useLang()
 
   // 3D TILT
   const mouseX   = useMotionValue(0)
@@ -119,7 +121,7 @@ export default function CategoryCard({
       <div className="flex items-center justify-between mt-5 pt-4 border-t border-fs-border relative z-10">
         {count !== undefined ? (
           <span className="text-caption font-medium" style={{ color }}>
-            {count} позиций
+            {count} {t.categories.count}
           </span>
         ) : (
           <span />

@@ -6,6 +6,7 @@ import { ShoppingCart } from "lucide-react"
 
 import { useCartStore } from "@/store/cartStore"
 import { useCartUI } from "@/store/cartUIStore"
+import { useLang } from "@/locales"
 
 type CartButtonProps = {
   variant?: "fab" | "navbar"
@@ -15,6 +16,7 @@ export default function CartButton({ variant = "fab" }: CartButtonProps) {
   const items    = useCartStore((state) => state.items)
   const openCart = useCartUI((state) => state.openCart)
   const mounted  = useSyncExternalStore(() => () => {}, () => true, () => false)
+  const { t }    = useLang()
 
   const count = mounted ? items.reduce((sum, i) => sum + i.quantity, 0) : 0
 
@@ -35,7 +37,7 @@ export default function CartButton({ variant = "fab" }: CartButtonProps) {
         "
       >
         <ShoppingCart size={16} strokeWidth={2} />
-        Корзина
+        {t.nav.cart}
         <AnimatePresence>
           {count > 0 && (
             <motion.span
@@ -69,8 +71,9 @@ export default function CartButton({ variant = "fab" }: CartButtonProps) {
       whileTap={{ scale: 0.95 }}
       transition={{ duration: 0.15, ease: "easeOut" }}
       className="
-        fixed bottom-8 right-8 z-[997]
-        w-16 h-16 rounded-2xl
+        fixed bottom-[88px] right-4 z-[997]
+        lg:bottom-8 lg:right-8
+        w-14 h-14 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl
         bg-fs-primary text-white
         flex items-center justify-center
         shadow-green-lg

@@ -69,7 +69,7 @@ export default function LoadingScreen() {
                 FOOD SERVICE
               </h1>
               <p className="text-label text-white/60 tracking-widest mt-2">
-                AI-POWERED HORECA ECOSYSTEM
+                ДОСТАВКА ПРОДУКТОВ · ШЫМКЕНТ
               </p>
             </motion.div>
 

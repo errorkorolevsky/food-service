@@ -8,7 +8,8 @@ import { SlidersHorizontal, X, ChevronDown, ChevronUp, ChevronLeft, ChevronRight
 import SearchBar from "@/components/ui/SearchBar"
 import FadeIn from "@/components/ui/FadeIn"
 import ProductCard from "@/components/cards/ProductCard"
-import { StaggerGrid, StaggerItem } from "@/components/ui/StaggerGrid"
+import { useLang } from "@/locales"
+import type { Translations } from "@/locales/ru"
 
 import { products } from "@/data/products"
 import { plural } from "@/lib/utils"
@@ -16,8 +17,8 @@ import type { ProductCategory } from "@/types"
 
 // ─── CONSTANTS ──────────────────────────────────────────────────────────────
 
-const ALL          = "Все"
-const PAGE_SIZE    = 12
+const ALL       = "Все"
+const PAGE_SIZE = 12
 
 const CATEGORIES: (ProductCategory | typeof ALL)[] = [
   ALL,
@@ -39,13 +40,6 @@ const CATEGORIES: (ProductCategory | typeof ALL)[] = [
 ]
 
 type SortKey = "default" | "price_asc" | "price_desc" | "rating"
-
-const SORT_OPTIONS: { value: SortKey; label: string }[] = [
-  { value: "default",    label: "По умолчанию"            },
-  { value: "price_asc",  label: "Цена: низкая → высокая" },
-  { value: "price_desc", label: "Цена: высокая → низкая" },
-  { value: "rating",     label: "По рейтингу"             },
-]
 
 // ─── SKELETON CARD ───────────────────────────────────────────────────────────
 
@@ -76,10 +70,12 @@ function FilterChips({
   categories,
   active,
   onSelect,
+  labels,
 }: {
-  categories: (string)[]
+  categories: string[]
   active: string
   onSelect: (cat: string) => void
+  labels: Record<string, string>
 }) {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [canScrollLeft,  setCanScrollLeft]  = useState(false)
@@ -107,18 +103,16 @@ function FilterChips({
     scrollRef.current?.scrollBy({ left: dir * 200, behavior: "smooth" })
   }
 
-  // Auto-scroll active chip into view
   useEffect(() => {
     const el = scrollRef.current
     if (!el) return
-    const idx = categories.indexOf(active)
+    const idx  = categories.indexOf(active)
     const chip = el.children[idx] as HTMLElement | undefined
     chip?.scrollIntoView({ inline: "nearest", behavior: "smooth", block: "nearest" })
   }, [active, categories])
 
   return (
     <div className="relative flex items-center">
-      {/* LEFT FADE + ARROW */}
       <AnimatePresence>
         {canScrollLeft && (
           <motion.button
@@ -133,7 +127,6 @@ function FilterChips({
         )}
       </AnimatePresence>
 
-      {/* CHIPS SCROLL AREA */}
       <div
         ref={scrollRef}
         className="flex items-center gap-2 overflow-x-auto scrollbar-none px-1 py-1"
@@ -141,6 +134,7 @@ function FilterChips({
       >
         {categories.map((cat) => {
           const isActive = cat === active
+          const display  = labels[cat] ?? cat
           return (
             <motion.button
               key={cat}
@@ -163,13 +157,12 @@ function FilterChips({
                   transition={{ type: "spring", stiffness: 400, damping: 34 }}
                 />
               )}
-              {cat}
+              {display}
             </motion.button>
           )
         })}
       </div>
 
-      {/* RIGHT FADE + ARROW */}
       <AnimatePresence>
         {canScrollRight && (
           <motion.button
@@ -196,14 +189,18 @@ function StickyFilterBar({
   sortOpen,
   onlyNew,
   onlyStock,
+  onlyDiscount,
   hasFilters,
   onCategory,
   onSortOpen,
   onSort,
   onNew,
   onStock,
+  onDiscount,
   onClear,
-  currentSort,
+  currentSortLabel,
+  labels,
+  t,
 }: {
   categories: string[]
   category: string
@@ -211,22 +208,32 @@ function StickyFilterBar({
   sortOpen: boolean
   onlyNew: boolean
   onlyStock: boolean
+  onlyDiscount: boolean
   hasFilters: boolean
   onCategory: (c: string) => void
   onSortOpen: () => void
   onSort: (v: SortKey) => void
   onNew: () => void
   onStock: () => void
+  onDiscount: () => void
   onClear: () => void
-  currentSort: { value: string; label: string }
+  currentSortLabel: string
+  labels: Record<string, string>
+  t: Translations
 }) {
+  const sortOptions: { value: SortKey; label: string }[] = [
+    { value: "default",    label: t.catalog.sort.default    },
+    { value: "price_asc",  label: t.catalog.sort.price_asc  },
+    { value: "price_desc", label: t.catalog.sort.price_desc },
+    { value: "rating",     label: t.catalog.sort.rating     },
+  ]
+
   return (
     <div className="flex flex-col gap-3">
       {/* ROW 1: chips + sort */}
       <div className="flex items-center gap-3">
-        {/* CHIPS */}
         <div className="flex-1 min-w-0">
-          <FilterChips categories={categories} active={category} onSelect={onCategory} />
+          <FilterChips categories={categories} active={category} onSelect={onCategory} labels={labels} />
         </div>
 
         {/* SORT DROPDOWN */}
@@ -243,8 +250,8 @@ function StickyFilterBar({
             "
           >
             <SlidersHorizontal size={14} strokeWidth={1.5} />
-            <span className="hidden sm:inline">{currentSort.label}</span>
-            <span className="sm:hidden">Сорт.</span>
+            <span className="hidden sm:inline">{currentSortLabel}</span>
+            <span className="sm:hidden">{t.catalog.sort.label}</span>
             <ChevronDown
               size={13}
               strokeWidth={1.5}
@@ -265,7 +272,7 @@ function StickyFilterBar({
                   rounded-xl overflow-hidden shadow-lg
                 "
               >
-                {SORT_OPTIONS.map((opt) => (
+                {sortOptions.map((opt) => (
                   <button
                     key={opt.value}
                     onClick={() => onSort(opt.value)}
@@ -290,6 +297,20 @@ function StickyFilterBar({
       {/* ROW 2: toggles */}
       <div className="flex items-center gap-2 flex-wrap">
         <button
+          onClick={onDiscount}
+          className={`
+            px-4 py-1.5 rounded-full text-[13px] font-medium
+            border transition-all duration-200
+            ${onlyDiscount
+              ? "bg-red-50 text-red-600 border-red-300 shadow-[0_0_0_3px_rgba(239,68,68,0.1)]"
+              : "bg-white text-fs-gray border-fs-border hover:border-red-300/50 hover:text-red-600"
+            }
+          `}
+        >
+          {t.catalog.filter.sale}
+        </button>
+
+        <button
           onClick={onNew}
           className={`
             px-4 py-1.5 rounded-full text-[13px] font-medium
@@ -300,7 +321,7 @@ function StickyFilterBar({
             }
           `}
         >
-          ✦ Новинки
+          {t.catalog.filter.new}
         </button>
 
         <button
@@ -314,7 +335,7 @@ function StickyFilterBar({
             }
           `}
         >
-          В наличии
+          {t.catalog.filter.inStock}
         </button>
 
         <AnimatePresence>
@@ -333,7 +354,7 @@ function StickyFilterBar({
               "
             >
               <X size={12} strokeWidth={2.5} />
-              Сбросить
+              {t.catalog.filter.clear}
             </motion.button>
           )}
         </AnimatePresence>
@@ -348,35 +369,39 @@ function CatalogInner() {
   const searchParams = useSearchParams()
   const router       = useRouter()
   const pathname     = usePathname()
+  const { t }        = useLang()
 
   const [isPending, startTransition] = useTransition()
 
-  // Начальные значения из URL-параметров
   const initialCategory = (() => {
     const param = searchParams.get("category")
     return CATEGORIES.includes(param as ProductCategory) ? (param as ProductCategory) : ALL
   })()
   const initialSearch = searchParams.get("search") ?? ""
 
-  const [search,    setSearch]    = useState(initialSearch)
-  const [category,  setCategory]  = useState<ProductCategory | typeof ALL>(initialCategory)
-  const [sort,      setSort]      = useState<SortKey>("default")
-  const [sortOpen,  setSortOpen]  = useState(false)
-  const [onlyNew,   setOnlyNew]   = useState(false)
-  const [onlyStock, setOnlyStock] = useState(false)
-  const [page,      setPage]      = useState(1)
+  const [search,       setSearch]       = useState(initialSearch)
+  const [category,     setCategory]     = useState<ProductCategory | typeof ALL>(initialCategory)
+  const [sort,         setSort]         = useState<SortKey>("default")
+  const [sortOpen,     setSortOpen]     = useState(false)
+  const [onlyNew,      setOnlyNew]      = useState(false)
+  const [onlyStock,    setOnlyStock]    = useState(false)
+  const [onlyDiscount, setOnlyDiscount] = useState(() => searchParams.get("sale") === "true")
+  const [page,         setPage]         = useState(1)
 
-  // Синхронизируем фильтры с URL при навигации (напр. кнопка "назад")
   useEffect(() => {
     const catParam    = searchParams.get("category")
     const searchParam = searchParams.get("search") ?? ""
+    const saleParam   = searchParams.get("sale") === "true"
     const next = CATEGORIES.includes(catParam as ProductCategory) ? (catParam as ProductCategory) : ALL
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setCategory(next)
-    if (searchParam) setSearch(searchParam)
+    startTransition(() => {
+      setCategory(next)
+      if (searchParam) setSearch(searchParam)
+      if (saleParam) setOnlyDiscount(true)
+    })
   }, [searchParams])
 
-  // Обновляем URL при смене категории
+  const handleDiscount = () => { setOnlyDiscount((p) => !p); setPage(1) }
+
   const handleCategory = (cat: ProductCategory | typeof ALL) => {
     startTransition(() => {
       setCategory(cat)
@@ -391,9 +416,8 @@ function CatalogInner() {
     })
   }
 
-  // Сбрасываем страницу при любом изменении фильтров
   const handleSearch = (v: string) => { setSearch(v); setPage(1) }
-  const handleSort   = (v: SortKey) => { setSort(v);   setPage(1); setSortOpen(false) }
+  const handleSort   = (v: SortKey) => { setSort(v); setPage(1); setSortOpen(false) }
   const handleNew    = () => { setOnlyNew((p) => !p); setPage(1) }
   const handleStock  = () => { setOnlyStock((p) => !p); setPage(1) }
 
@@ -406,15 +430,16 @@ function CatalogInner() {
         p.title.toLowerCase().includes(q) ||
         p.category.toLowerCase().includes(q) ||
         p.description.toLowerCase().includes(q) ||
-        p.tags?.some((t) => t.toLowerCase().includes(q))
+        p.tags?.some((tag) => tag.toLowerCase().includes(q))
       )
     }
 
     if (category !== ALL)
       list = list.filter((p) => p.category === category)
 
-    if (onlyNew)   list = list.filter((p) => p.isNew)
-    if (onlyStock) list = list.filter((p) => p.inStock)
+    if (onlyNew)      list = list.filter((p) => p.isNew)
+    if (onlyStock)    list = list.filter((p) => p.inStock)
+    if (onlyDiscount) list = list.filter((p) => !!p.discountPercent)
 
     switch (sort) {
       case "price_asc":  list.sort((a, b) => a.priceNum - b.priceNum);              break
@@ -423,42 +448,50 @@ function CatalogInner() {
     }
 
     return list
-  }, [search, category, sort, onlyNew, onlyStock])
+  }, [search, category, sort, onlyNew, onlyStock, onlyDiscount])
 
   const paginated = filtered.slice(0, page * PAGE_SIZE)
   const hasMore   = paginated.length < filtered.length
-
-  const hasFilters = category !== ALL || onlyNew || onlyStock || sort !== "default"
+  const hasFilters = category !== ALL || onlyNew || onlyStock || onlyDiscount || sort !== "default"
 
   const clearFilters = () => {
     setSearch("")
     setOnlyNew(false)
     setOnlyStock(false)
+    setOnlyDiscount(false)
     setSort("default")
     setPage(1)
     handleCategory(ALL)
   }
 
-  const currentSort = SORT_OPTIONS.find((o) => o.value === sort)!
+  const sortOptions: { value: SortKey; label: string }[] = [
+    { value: "default",    label: t.catalog.sort.default    },
+    { value: "price_asc",  label: t.catalog.sort.price_asc  },
+    { value: "price_desc", label: t.catalog.sort.price_desc },
+    { value: "rating",     label: t.catalog.sort.rating     },
+  ]
+  const currentSortLabel = sortOptions.find((o) => o.value === sort)?.label ?? t.catalog.sort.default
+
+  const countLabel = plural(filtered.length, [t.catalog.count_one, t.catalog.count_few, t.catalog.count_many])
 
   return (
     <section className="fs-section">
-      <div className="fs-container py-20">
+      <div className="fs-container py-8 sm:py-14 lg:py-20">
 
         {/* HEADER */}
         <FadeIn>
-          <div className="flex items-end justify-between mb-10">
+          <div className="flex items-end justify-between mb-6 sm:mb-10">
             <div>
               <p className="text-label text-fs-gray uppercase tracking-widest mb-3">
-                Ассортимент
+                {t.catalog.subtitle}
               </p>
               <h2 className="text-heading text-fs-graphite">
-                Каталог поставок
+                {t.catalog.title}
               </h2>
             </div>
 
             <p className="text-caption text-fs-gray">
-              {filtered.length} {plural(filtered.length, ["товар", "товара", "товаров"])}
+              {filtered.length} {countLabel}
             </p>
           </div>
         </FadeIn>
@@ -484,23 +517,26 @@ function CatalogInner() {
               sortOpen={sortOpen}
               onlyNew={onlyNew}
               onlyStock={onlyStock}
+              onlyDiscount={onlyDiscount}
               hasFilters={hasFilters}
               onCategory={handleCategory}
               onSortOpen={() => setSortOpen((v) => !v)}
               onSort={handleSort}
               onNew={handleNew}
               onStock={handleStock}
+              onDiscount={handleDiscount}
               onClear={clearFilters}
-              currentSort={currentSort}
+              currentSortLabel={currentSortLabel}
+              labels={t.categories.labels}
+              t={t}
             />
           </motion.div>
         </div>
 
         {/* GRID */}
-        <div className="mt-10">
+        <div className="mt-6 sm:mt-10">
           <AnimatePresence mode="wait">
 
-            {/* SKELETON — показывается пока идёт переход */}
             {isPending ? (
               <motion.div
                 key="skeleton"
@@ -508,7 +544,7 @@ function CatalogInner() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15 }}
-                className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6"
+                className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6"
               >
                 {Array.from({ length: 8 }).map((_, i) => (
                   <SkeletonCard key={i} />
@@ -522,24 +558,28 @@ function CatalogInner() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
                   {paginated.map((product) => (
-                    <StaggerItem key={product.id}>
-                      <ProductCard
-                        id={product.id}
-                        category={product.category}
-                        title={product.title}
-                        description={product.description}
-                        price={product.price}
-                        priceNum={product.priceNum}
-                        rating={product.rating}
-                        emoji={product.emoji}
-                        isNew={product.isNew}
-                        inStock={product.inStock}
-                      />
-                    </StaggerItem>
+                    <ProductCard
+                      key={product.id}
+                      id={product.id}
+                      category={product.category}
+                      title={product.title}
+                      description={product.description}
+                      price={product.price}
+                      priceNum={product.priceNum}
+                      oldPriceNum={product.oldPriceNum}
+                      discountPercent={product.discountPercent}
+                      unit={product.unit}
+                      rating={product.rating}
+                      emoji={product.emoji}
+                      image={product.image}
+                      isNew={product.isNew}
+                      isHit={product.isHit}
+                      inStock={product.inStock}
+                    />
                   ))}
-                </StaggerGrid>
+                </div>
 
                 {/* LOAD MORE / COLLAPSE */}
                 <div className="flex items-center justify-center gap-4 mt-10">
@@ -556,7 +596,7 @@ function CatalogInner() {
                       "
                     >
                       <ChevronDown size={16} strokeWidth={1.5} />
-                      Показать ещё ({filtered.length - paginated.length})
+                      {t.catalog.loadMore} ({filtered.length - paginated.length})
                     </button>
                   ) : page > 1 ? (
                     <button
@@ -570,13 +610,13 @@ function CatalogInner() {
                       "
                     >
                       <ChevronUp size={14} strokeWidth={1.5} />
-                      Свернуть
+                      {t.catalog.collapse}
                     </button>
                   ) : null}
 
                   {filtered.length > PAGE_SIZE && (
                     <p className="text-label text-fs-subtle">
-                      {paginated.length} из {filtered.length}
+                      {paginated.length} {t.catalog.of} {filtered.length}
                     </p>
                   )}
                 </div>
@@ -599,11 +639,11 @@ function CatalogInner() {
                 </div>
 
                 <h3 className="text-heading text-fs-graphite">
-                  Ничего не найдено
+                  {t.empty.search}
                 </h3>
 
                 <p className="text-body text-fs-gray mt-4">
-                  Попробуйте изменить запрос или сбросить фильтры
+                  {t.empty.hint}
                 </p>
 
                 <button
@@ -615,7 +655,7 @@ function CatalogInner() {
                     transition-all duration-200 shadow-sm
                   "
                 >
-                  Сбросить фильтры
+                  {t.empty.clearFilters}
                 </button>
               </motion.div>
             )}

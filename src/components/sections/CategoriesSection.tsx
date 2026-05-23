@@ -8,19 +8,22 @@ import SectionTitle from "@/components/ui/SectionTitle"
 import FadeIn from "@/components/ui/FadeIn"
 import { StaggerGrid, StaggerItem } from "@/components/ui/StaggerGrid"
 import { CATEGORY_ICONS } from "@/components/ui/CategoryIcons"
+import { useLang } from "@/locales"
 
 import { categories, CATEGORY_FILTER, CATEGORY_COLORS } from "@/data/categories"
 import { products } from "@/data/products"
 
 export default function CategoriesSection() {
+  const { t } = useLang()
+
   return (
     <section className="fs-section bg-white">
       <div className="fs-container py-24 relative z-10">
 
         <FadeIn>
           <SectionTitle
-            title="Категории"
-            subtitle="Ассортимент"
+            title={t.categories.title}
+            subtitle={t.categories.subtitle}
           />
         </FadeIn>
 
@@ -34,13 +37,14 @@ export default function CategoriesSection() {
             const color = CATEGORY_COLORS[category.id] ?? "#005B46"
             const wide  = i === 0
 
+            const item = t.categories.items[category.id as keyof typeof t.categories.items]
             return (
               <StaggerItem key={category.id} className={wide ? "md:col-span-2" : ""}>
                 <CategoryCard
                   emoji={category.emoji}
                   icon={CATEGORY_ICONS[category.id]}
-                  title={category.title}
-                  description={category.description}
+                  title={item?.title ?? category.title}
+                  description={item?.description ?? category.description}
                   href={filterName ? `/catalog?category=${encodeURIComponent(filterName)}` : "/catalog"}
                   count={count}
                   color={color}
@@ -64,7 +68,7 @@ export default function CategoriesSection() {
                 group
               "
             >
-              Смотреть весь каталог
+              {t.categories.viewAll}
               <ArrowRight
                 size={16}
                 strokeWidth={1.5}

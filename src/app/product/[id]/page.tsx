@@ -1,11 +1,14 @@
 "use client"
 
+import { useState } from "react"
 import { notFound, useParams, useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowLeft, Star, ShoppingCart, Zap, Truck, Clock, Plus, Minus, Tag, Heart } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 import { products } from "@/data/products"
+import { useLang } from "@/locales"
 import { useCartStore } from "@/store/cartStore"
 import { useCartUI } from "@/store/cartUIStore"
 import { useToastStore } from "@/store/toastStore"
@@ -13,17 +16,13 @@ import { useFavoritesStore } from "@/store/favoritesStore"
 import { useCursorAware } from "@/hooks/useCursorAware"
 import Navbar from "@/components/layout/Navbar"
 import CartDrawer from "@/components/layout/CartDrawer"
+import CartButton from "@/components/layout/CartButton"
+import Footer from "@/components/layout/Footer"
 import Badge from "@/components/ui/Badge"
 import Button from "@/components/ui/Button"
 import FadeIn from "@/components/ui/FadeIn"
 import MorphNumber from "@/components/ui/MorphNumber"
 import ProductCard from "@/components/cards/ProductCard"
-
-const meta = [
-  { icon: Clock,  label: "Доставка", value: "15–30 мин" },
-  { icon: Truck,  label: "От",       value: "₸10 000"   },
-  { icon: Zap,    label: "AI Supply", value: "Активен"   },
-]
 
 export default function ProductPage() {
   const params   = useParams()
@@ -41,7 +40,16 @@ export default function ProductPage() {
   const isFav     = useFavoritesStore((state) => state.isFav)
   const favorited = isFav(productId)
 
+  const [imgError, setImgError] = useState(false)
+
   const { ref: imgRef, cursor } = useCursorAware<HTMLDivElement>()
+  const { t } = useLang()
+
+  const meta = [
+    { icon: Clock, label: t.product.delivery,  value: t.product.deliveryTime },
+    { icon: Truck, label: t.product.freeFrom,  value: t.product.freeFromVal  },
+    { icon: Zap,   label: t.product.aiLabel,   value: t.product.aiActive     },
+  ]
 
   const product = products.find((p) => p.id === productId)
   if (!product) notFound()
@@ -56,7 +64,7 @@ export default function ProductPage() {
   }
 
   const handleAI = () => {
-    const q = `Расскажи подробнее о ${product.title} (${product.category}). Как использовать, сколько заказывать для заведения, с чем сочетается?`
+    const q = `Расскажи подробнее о ${product.title} (${product.category}). Как использовать, с чем сочетается и сколько нужно для семьи?`
     router.push(`/ai?q=${encodeURIComponent(q)}`)
   }
 
@@ -64,6 +72,7 @@ export default function ProductPage() {
     <main className="fs-page-bg text-fs-graphite min-h-screen">
       <Navbar />
       <CartDrawer />
+      <CartButton />
 
       <div className="fs-container py-12">
 
@@ -80,7 +89,7 @@ export default function ProductPage() {
             "
           >
             <ArrowLeft size={16} strokeWidth={1.5} />
-            Назад в каталог
+            {t.catalog.title}
           </Link>
         </FadeIn>
 
@@ -95,7 +104,7 @@ export default function ProductPage() {
               className="
                 relative bg-white border border-fs-border rounded-2xl
                 flex items-center justify-center
-                min-h-[480px] lg:min-h-[560px]
+                min-h-[280px] sm:min-h-[380px] lg:min-h-[560px]
                 overflow-hidden
               "
               style={{
@@ -113,14 +122,33 @@ export default function ProductPage() {
                     : "none",
                 }}
               />
-              <motion.span
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="text-[160px] leading-none select-none relative z-10"
-              >
-                {product.emoji}
-              </motion.span>
+              {product.image && !imgError ? (
+                <motion.div
+                  initial={{ scale: 0.95, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="absolute inset-0 rounded-2xl overflow-hidden"
+                >
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
+                    onError={() => setImgError(true)}
+                  />
+                </motion.div>
+              ) : (
+                <motion.span
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="text-[100px] sm:text-[140px] lg:text-[160px] leading-none select-none relative z-10"
+                >
+                  {product.emoji}
+                </motion.span>
+              )}
             </motion.div>
           </FadeIn>
 
@@ -131,8 +159,8 @@ export default function ProductPage() {
               {/* CATEGORY + BADGES */}
               <div className="flex items-center gap-3 flex-wrap">
                 <Badge>{product.category}</Badge>
-                {product.isNew     && <Badge variant="warning">Новинка</Badge>}
-                {product.isPopular && <Badge variant="success">Популярное</Badge>}
+                {product.isNew     && <Badge variant="warning">{t.product.new}</Badge>}
+                {product.isPopular && <Badge variant="success">{t.sections.popular}</Badge>}
                 <div className="flex items-center gap-1.5 text-fs-amber">
                   <Star size={14} fill="currentColor" strokeWidth={0} />
                   <span className="text-caption font-bold text-fs-graphite">
@@ -180,22 +208,22 @@ export default function ProductPage() {
                   prefix="₸"
                   className="text-hero font-black text-fs-graphite"
                 />
-                <span className="text-body text-fs-gray">/ ед.</span>
+                <span className="text-body text-fs-gray">{t.product.per} ед.</span>
               </div>
 
               {/* META */}
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-2 sm:gap-4">
                 {meta.map(({ icon: Icon, label, value }) => (
                   <div
                     key={label}
                     className="
                       bg-white border border-fs-border rounded-xl
-                      p-4 text-center
+                      p-2.5 sm:p-4 text-center
                     "
                   >
-                    <Icon size={18} strokeWidth={1.5} className="text-fs-gray mx-auto mb-2" />
-                    <p className="text-label text-fs-gray uppercase tracking-wider">{label}</p>
-                    <p className="text-caption font-bold text-fs-graphite mt-1">{value}</p>
+                    <Icon size={16} strokeWidth={1.5} className="text-fs-gray mx-auto mb-1 sm:mb-2" />
+                    <p className="text-[9px] sm:text-label text-fs-gray uppercase tracking-wide sm:tracking-wider leading-tight">{label}</p>
+                    <p className="text-[11px] sm:text-caption font-bold text-fs-graphite mt-0.5 sm:mt-1">{value}</p>
                   </div>
                 ))}
               </div>
@@ -217,7 +245,7 @@ export default function ProductPage() {
                     >
                       <Button size="lg" onClick={handleAdd} className="w-full">
                         <ShoppingCart size={18} strokeWidth={1.5} />
-                        В корзину
+                        {t.product.addToCart}
                       </Button>
                     </motion.div>
                   ) : (
@@ -279,7 +307,7 @@ export default function ProductPage() {
                 {quantity > 0 && (
                   <Button size="lg" onClick={openCart}>
                     <ShoppingCart size={18} strokeWidth={1.5} />
-                    Корзина
+                    {t.nav.cart}
                   </Button>
                 )}
               </div>
@@ -293,10 +321,10 @@ export default function ProductPage() {
                 <span className="text-2xl">🛵</span>
                 <div>
                   <p className="text-caption font-bold text-fs-graphite">
-                    Доставка 15–30 минут
+                    {t.product.delivery} {t.product.deliveryTime}
                   </p>
                   <p className="text-label text-fs-gray mt-0.5">
-                    По Шымкенту · Бесплатно от ₸10 000
+                    {t.topbar.city} · {t.cart.freeDelivery} {t.product.freeFrom} {t.product.freeFromVal}
                   </p>
                 </div>
               </div>
@@ -314,19 +342,19 @@ export default function ProductPage() {
                     {product.category}
                   </p>
                   <h2 className="text-heading text-fs-graphite">
-                    Похожие товары
+                    {t.sections.popular}
                   </h2>
                 </div>
                 <Link
                   href={`/catalog?category=${encodeURIComponent(product.category)}`}
                   className="text-caption text-fs-gray hover:text-fs-primary transition-colors duration-200"
                 >
-                  Все {product.category} →
+                  {t.categories.labels[product.category as keyof typeof t.categories.labels] ?? product.category} →
                 </Link>
               </div>
             </FadeIn>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-6">
               {related.map((p, i) => (
                 <FadeIn key={p.id} delay={0.06 * i}>
                   <ProductCard
@@ -338,6 +366,7 @@ export default function ProductPage() {
                     priceNum={p.priceNum}
                     rating={p.rating}
                     emoji={p.emoji}
+                    image={p.image}
                     isNew={p.isNew}
                     inStock={p.inStock}
                   />
@@ -347,6 +376,8 @@ export default function ProductPage() {
           </div>
         )}
       </div>
+
+      <Footer />
     </main>
   )
 }

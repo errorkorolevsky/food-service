@@ -25,6 +25,7 @@ export type ProductCategory =
 export type Product = {
   id:               string
   emoji:            string
+  image?:           string
   category:         ProductCategory
   title:            string
   description:      string

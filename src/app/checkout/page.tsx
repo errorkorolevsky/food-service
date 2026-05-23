@@ -8,18 +8,14 @@ import { useSession } from "next-auth/react"
 
 import Navbar from "@/components/layout/Navbar"
 import CartDrawer from "@/components/layout/CartDrawer"
+import Footer from "@/components/layout/Footer"
 import Badge from "@/components/ui/Badge"
 import FadeIn from "@/components/ui/FadeIn"
 
 import { useCartStore } from "@/store/cartStore"
+import { useLang } from "@/locales"
 
 const DELIVERY_FEE = 1500
-
-const paymentMethods = [
-  { id: "kaspi",   icon: Smartphone,   label: "Kaspi Pay",    desc: "Онлайн оплата"    },
-  { id: "freedom", icon: CreditCard,   label: "Freedom Pay",  desc: "Банковская карта" },
-  { id: "cash",    icon: CreditCard,   label: "Наличные",     desc: "При получении"    },
-]
 
 // ─── GLASS INPUT ─────────────────────────────────────────────────────────────
 
@@ -60,6 +56,7 @@ function GlassInput({
 
 export default function CheckoutPage() {
   const { data: session } = useSession()
+  const { t } = useLang()
   const [payment,    setPayment]    = useState("kaspi")
   const [submitting, setSubmitting] = useState(false)
   const [error,      setError]      = useState<string | null>(null)
@@ -73,6 +70,8 @@ export default function CheckoutPage() {
   const [addrTouched,  setAddrTouched]  = useState(false)
   const [shakePhone,   setShakePhone]   = useState(false)
   const [shakeAddr,    setShakeAddr]    = useState(false)
+  const [deliveryDate, setDeliveryDate] = useState("today")
+  const [deliveryTime, setDeliveryTime] = useState(t.checkout.timeSlots[0])
 
   const router         = useRouter()
   const items          = useCartStore((state) => state.items)
@@ -84,7 +83,7 @@ export default function CheckoutPage() {
   const handleSubmit = async () => {
     if (items.length === 0) return
     if (!phone.trim() || !address.trim()) {
-      setError("Укажите телефон и адрес доставки")
+      setError(t.checkout.requiredFields)
       setPhoneTouched(true)
       setAddrTouched(true)
       if (!phone.trim())   { setShakePhone(true); setTimeout(() => setShakePhone(false), 500) }
@@ -101,6 +100,7 @@ export default function CheckoutPage() {
         headers: { "Content-Type": "application/json" },
         body:    JSON.stringify({
           company, phone, address, comment, payment,
+          delivery_date: deliveryDate, delivery_time: deliveryTime,
           items, subtotal, delivery: DELIVERY_FEE, total,
           user_email: session?.user?.email ?? null,
         }),
@@ -109,7 +109,7 @@ export default function CheckoutPage() {
       const data = await res.json()
 
       if (!res.ok) {
-        setError(data.error ?? "Ошибка при оформлении заказа")
+        setError(data.error ?? t.checkout.errorSubmit)
         setSubmitting(false)
         return
       }
@@ -120,7 +120,7 @@ export default function CheckoutPage() {
       clearCart()
       router.push(`/order/success?id=${data.id}`)
     } catch {
-      setError("Нет соединения с сервером")
+      setError(t.checkout.errorConn)
       setSubmitting(false)
     }
   }
@@ -139,22 +139,22 @@ export default function CheckoutPage() {
         <Navbar />
         <CartDrawer />
 
-        <div className="fs-container py-16">
+        <div className="fs-container pt-8 pb-44 sm:pt-16 sm:pb-16 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-14 items-start">
 
             {/* LEFT — FORM */}
             <FadeIn>
               <div>
                 <Badge variant="ai" dot className="mb-8">
-                  Быстрое оформление
+                  {t.checkout.badge}
                 </Badge>
 
                 <h1 className="text-heading text-fs-graphite">
-                  Оформление<br />заказа
+                  {t.checkout.title}
                 </h1>
 
                 <p className="text-body text-fs-gray mt-4">
-                  Доставка продуктов для вашего бизнеса
+                  {t.checkout.subtitle}
                 </p>
 
                 {/* CONTACT SECTION */}
@@ -165,13 +165,13 @@ export default function CheckoutPage() {
                   transition={{ duration: 0.45, ease: [0, 0, 0.2, 1], delay: 0.1 }}
                 >
                   <p className="text-label text-fs-gray uppercase tracking-widest mb-5">
-                    Контакты
+                    {t.checkout.contacts}
                   </p>
 
                   <div className="space-y-4">
                     <GlassInput
                       type="text"
-                      placeholder="Название компании / имя"
+                      placeholder={t.checkout.companyPlaceholder}
                       value={company}
                       onChange={(e) => setCompany((e.target as HTMLInputElement).value)}
                     />
@@ -179,7 +179,7 @@ export default function CheckoutPage() {
                     <motion.div animate={shakePhone ? { x: [-8, 8, -6, 6, -4, 4, 0] } : {}} transition={{ duration: 0.4 }}>
                       <GlassInput
                         type="tel"
-                        placeholder="Телефон *"
+                        placeholder={t.checkout.phonePlaceholder}
                         value={phone}
                         error={phoneTouched && !phone.trim()}
                         onChange={(e) => setPhone((e.target as HTMLInputElement).value)}
@@ -188,7 +188,7 @@ export default function CheckoutPage() {
                       {phoneTouched && !phone.trim() && (
                         <motion.p initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }}
                           className="text-label text-red-400 mt-1.5 ml-1">
-                          Укажите телефон
+                          {t.checkout.phoneMissing}
                         </motion.p>
                       )}
                     </motion.div>
@@ -196,7 +196,7 @@ export default function CheckoutPage() {
                     <motion.div animate={shakeAddr ? { x: [-8, 8, -6, 6, -4, 4, 0] } : {}} transition={{ duration: 0.4 }}>
                       <GlassInput
                         type="text"
-                        placeholder="Адрес доставки *"
+                        placeholder={t.checkout.addressPlaceholder}
                         value={address}
                         error={addrTouched && !address.trim()}
                         onChange={(e) => setAddress((e.target as HTMLInputElement).value)}
@@ -205,14 +205,14 @@ export default function CheckoutPage() {
                       {addrTouched && !address.trim() && (
                         <motion.p initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }}
                           className="text-label text-red-400 mt-1.5 ml-1">
-                          Укажите адрес доставки
+                          {t.checkout.addressMissing}
                         </motion.p>
                       )}
                     </motion.div>
 
                     <GlassInput
                       as="textarea"
-                      placeholder="Комментарий к заказу"
+                      placeholder={t.checkout.commentPlaceholder}
                       rows={4}
                       value={comment}
                       onChange={(e) => setComment((e.target as HTMLTextAreaElement).value)}
@@ -221,14 +221,68 @@ export default function CheckoutPage() {
                   </div>
                 </motion.div>
 
+                {/* DELIVERY DATE / TIME */}
+                <div className="mt-12">
+                  <p className="text-label text-fs-gray uppercase tracking-widest mb-5">
+                    {t.checkout.date}
+                  </p>
+                  <div className="flex gap-2 flex-wrap mb-6">
+                    {[
+                      { key: "today",    label: t.checkout.dateToday    },
+                      { key: "tomorrow", label: t.checkout.dateTomorrow },
+                    ].map(({ key, label }) => (
+                      <motion.button
+                        key={key}
+                        onClick={() => setDeliveryDate(key)}
+                        whileTap={{ scale: 0.97 }}
+                        className={`
+                          px-5 py-2.5 rounded-xl text-[14px] font-medium border transition-all duration-200
+                          ${deliveryDate === key
+                            ? "bg-fs-primary text-white border-fs-primary shadow-[0_0_0_3px_rgba(0,91,70,0.12)]"
+                            : "bg-white text-fs-gray border-fs-border hover:border-fs-primary/30 hover:text-fs-graphite"
+                          }
+                        `}
+                      >
+                        {label}
+                      </motion.button>
+                    ))}
+                  </div>
+
+                  <p className="text-label text-fs-gray uppercase tracking-widest mb-4">
+                    {t.checkout.time}
+                  </p>
+                  <div className="flex gap-2 flex-wrap">
+                    {t.checkout.timeSlots.map((slot) => (
+                      <motion.button
+                        key={slot}
+                        onClick={() => setDeliveryTime(slot)}
+                        whileTap={{ scale: 0.97 }}
+                        className={`
+                          px-4 py-2 rounded-xl text-[13px] font-medium border transition-all duration-200
+                          ${deliveryTime === slot
+                            ? "bg-fs-primary text-white border-fs-primary shadow-[0_0_0_3px_rgba(0,91,70,0.12)]"
+                            : "bg-white text-fs-gray border-fs-border hover:border-fs-primary/30 hover:text-fs-graphite"
+                          }
+                        `}
+                      >
+                        {slot}
+                      </motion.button>
+                    ))}
+                  </div>
+                </div>
+
                 {/* PAYMENT SECTION */}
                 <div className="mt-12">
                   <p className="text-label text-fs-gray uppercase tracking-widest mb-5">
-                    Способ оплаты
+                    {t.checkout.payment}
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    {paymentMethods.map(({ id, icon: Icon, label, desc }) => (
+                    {([
+                      { id: "kaspi",   icon: Smartphone, label: t.checkout.payKaspi,   desc: t.checkout.descKaspi   },
+                      { id: "freedom", icon: CreditCard, label: t.checkout.payFreedom, desc: t.checkout.descFreedom },
+                      { id: "cash",    icon: CreditCard, label: t.checkout.payCash,    desc: t.checkout.descCash    },
+                    ] as const).map(({ id, icon: Icon, label, desc }) => (
                       <motion.button
                         key={id}
                         onClick={() => setPayment(id)}
@@ -288,9 +342,9 @@ export default function CheckoutPage() {
                     <ShoppingBag size={18} strokeWidth={1.5} className="text-white" />
                   </div>
                   <div>
-                    <h2 className="text-[16px] font-bold text-white">Ваш заказ</h2>
+                    <h2 className="text-[16px] font-bold text-white">{t.checkout.summary}</h2>
                     <p className="text-[12px] text-white/70 mt-0.5">
-                      {items.length > 0 ? `${items.reduce((s, i) => s + i.quantity, 0)} позиций` : "Корзина пустая"}
+                      {items.length > 0 ? `${items.reduce((s, i) => s + i.quantity, 0)} ${t.catalog.count_many}` : t.checkout.cartEmpty}
                     </p>
                   </div>
                 </div>
@@ -300,7 +354,7 @@ export default function CheckoutPage() {
                   {items.length === 0 ? (
                     <div className="text-center py-8">
                       <ShoppingBag size={28} strokeWidth={1} className="text-fs-subtle mx-auto mb-3" />
-                      <p className="text-body text-fs-gray">Корзина пустая</p>
+                      <p className="text-body text-fs-gray">{t.checkout.cartEmpty}</p>
                     </div>
                   ) : (
                     <div className="space-y-2.5 max-h-[280px] overflow-y-auto scrollbar-none pr-1">
@@ -338,18 +392,18 @@ export default function CheckoutPage() {
                   {/* TOTALS */}
                   <div className="mt-5 pt-5 border-t border-fs-border space-y-3">
                     <div className="flex items-center justify-between text-[14px]">
-                      <span className="text-fs-gray">Товары</span>
+                      <span className="text-fs-gray">{t.cart.subtotal}</span>
                       <span className="text-fs-graphite font-medium">₸{subtotal.toLocaleString()}</span>
                     </div>
                     <div className="flex items-center justify-between text-[14px]">
                       <div className="flex items-center gap-2 text-fs-gray">
                         <Truck size={13} strokeWidth={1.5} />
-                        Доставка
+                        {t.cart.delivery}
                       </div>
                       <span className="text-fs-graphite font-medium">₸{DELIVERY_FEE.toLocaleString()}</span>
                     </div>
                     <div className="pt-3 border-t border-fs-border flex items-center justify-between">
-                      <span className="text-[15px] font-bold text-fs-graphite">Итого</span>
+                      <span className="text-[15px] font-bold text-fs-graphite">{t.cart.total}</span>
                       <span className="text-[22px] font-black text-fs-graphite">
                         ₸{total.toLocaleString()}
                       </span>
@@ -393,11 +447,11 @@ export default function CheckoutPage() {
                           <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" strokeOpacity="0.3" />
                           <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
                         </svg>
-                        Оформляем...
+                        {t.checkout.submitting}
                       </>
                     ) : (
                       <>
-                        Оплатить заказ
+                        {t.checkout.pay}
                         <ArrowRight size={16} strokeWidth={2.5} />
                       </>
                     )}
@@ -406,7 +460,7 @@ export default function CheckoutPage() {
                   {/* DELIVERY INFO */}
                   <div className="mt-4 flex items-center justify-center gap-2 text-[12px] text-fs-gray">
                     <Truck size={13} strokeWidth={1.5} />
-                    <span>Доставка <strong className="text-fs-primary">15–30 минут</strong> по Шымкенту</span>
+                    <span>{t.checkout.deliveryNote}</span>
                   </div>
                 </div>
               </div>
@@ -414,6 +468,35 @@ export default function CheckoutPage() {
           </div>
         </div>
       </div>
+
+      {/* MOBILE STICKY CHECKOUT BAR */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-[998] bg-white/95 backdrop-blur-md border-t border-fs-border shadow-[0_-4px_24px_rgba(0,0,0,0.08)]"
+        style={{ paddingBottom: "max(env(safe-area-inset-bottom, 0px) + 76px, 80px)" }}>
+        <div className="px-4 pt-3 pb-1">
+          <div className="flex items-center justify-between mb-2.5">
+            <span className="text-sm text-fs-gray">{t.cart.total}</span>
+            <span className="text-xl font-black text-fs-graphite">₸{total.toLocaleString()}</span>
+          </div>
+          <motion.button
+            onClick={handleSubmit}
+            disabled={submitting || items.length === 0}
+            whileTap={!submitting && items.length > 0 ? { scale: 0.98 } : {}}
+            className="
+              w-full flex items-center justify-center gap-2
+              py-4 rounded-2xl
+              bg-gradient-to-r from-fs-primary to-[#007A5A]
+              text-white text-[15px] font-bold
+              shadow-[0_4px_20px_rgba(0,91,70,0.35)]
+              disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none
+              transition-opacity duration-200
+            "
+          >
+            {submitting ? t.checkout.submitting : t.checkout.pay}
+          </motion.button>
+        </div>
+      </div>
+
+      <Footer />
     </main>
   )
 }

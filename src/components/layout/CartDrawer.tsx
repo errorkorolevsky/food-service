@@ -7,12 +7,25 @@ import { X, ShoppingBag, Minus, Plus, Trash2 } from "lucide-react"
 
 import { useCartStore } from "@/store/cartStore"
 import { useCartUI } from "@/store/cartUIStore"
+import { useLang } from "@/locales"
 import MorphNumber from "@/components/ui/MorphNumber"
+
+const FREE_DELIVERY_THRESHOLD = 10000
+
+function pluralizeItems(n: number, forms: [string, string, string]): string {
+  const mod10  = n % 10
+  const mod100 = n % 100
+  if (mod100 >= 11 && mod100 <= 14) return forms[2]
+  if (mod10 === 1)                   return forms[0]
+  if (mod10 >= 2 && mod10 <= 4)     return forms[1]
+  return forms[2]
+}
 
 export default function CartDrawer() {
   const isOpen  = useCartUI((state) => state.isOpen)
   const onClose = useCartUI((state) => state.closeCart)
   const mounted = useSyncExternalStore(() => () => {}, () => true, () => false)
+  const { t }   = useLang()
 
   const {
     items,
@@ -25,6 +38,9 @@ export default function CartDrawer() {
   } = useCartStore()
 
   if (!mounted) return null
+
+  const totalItems = getTotalItems()
+  const itemLabel  = pluralizeItems(totalItems, [t.cart.items_one, t.cart.items_few, t.cart.items_many])
 
   return (
     <>
@@ -54,15 +70,14 @@ export default function CartDrawer() {
           z-[999] flex flex-col shadow-xl
         "
       >
-
         {/* HEADER */}
         <div className="p-6 border-b border-fs-border flex items-center justify-between flex-shrink-0">
           <div>
             <h2 className="text-xl font-bold text-fs-graphite">
-              Корзина
+              {t.cart.title}
             </h2>
             <p className="text-caption text-fs-gray mt-1">
-              {getTotalItems()} {pluralize(getTotalItems(), ["товар", "товара", "товаров"])}
+              {totalItems} {itemLabel}
             </p>
           </div>
 
@@ -93,11 +108,11 @@ export default function CartDrawer() {
             </div>
 
             <h3 className="text-lg font-semibold text-fs-graphite">
-              Корзина пустая
+              {t.cart.empty}
             </h3>
 
             <p className="text-body text-fs-gray mt-3">
-              Добавьте товары из каталога
+              {t.cart.emptyHint}
             </p>
 
             <Link
@@ -111,7 +126,7 @@ export default function CartDrawer() {
                 transition-colors duration-200
               "
             >
-              Перейти в каталог
+              {t.cart.goToCatalog}
             </Link>
           </div>
         )}
@@ -136,10 +151,10 @@ export default function CartDrawer() {
 
                       {/* EMOJI */}
                       <div className="
-                        w-13 h-13 rounded-lg flex-shrink-0
+                        w-14 h-14 rounded-lg flex-shrink-0
                         bg-white border border-fs-border
                         flex items-center justify-center
-                        text-3xl w-14 h-14
+                        text-3xl
                       ">
                         {item.emoji}
                       </div>
@@ -212,10 +227,42 @@ export default function CartDrawer() {
             {/* FOOTER */}
             <div className="border-t border-fs-border p-5 space-y-3 flex-shrink-0 bg-fs-offwhite">
 
+              {/* FREE DELIVERY PROGRESS */}
+              {(() => {
+                const total    = getTotalPrice()
+                const pct      = Math.min((total / FREE_DELIVERY_THRESHOLD) * 100, 100)
+                const remain   = FREE_DELIVERY_THRESHOLD - total
+                const isFree   = total >= FREE_DELIVERY_THRESHOLD
+                return (
+                  <div className={`rounded-xl px-3.5 py-3 ${isFree ? "bg-emerald-50 border border-emerald-200/60" : "bg-white border border-fs-border"}`}>
+                    {isFree ? (
+                      <div className="flex items-center gap-2">
+                        <span className="text-emerald-500 text-base">🚚</span>
+                        <span className="text-[13px] font-semibold text-emerald-600">{t.cart.freeDelivery}!</span>
+                      </div>
+                    ) : (
+                      <>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-[12px] text-fs-gray">{t.cart.addMore} <span className="font-semibold text-fs-graphite">₸{remain.toLocaleString()}</span> {t.cart.forFreeDelivery}</span>
+                        </div>
+                        <div className="h-1.5 bg-fs-border rounded-full overflow-hidden">
+                          <motion.div
+                            className="h-full rounded-full bg-gradient-to-r from-fs-primary to-emerald-400"
+                            initial={{ width: 0 }}
+                            animate={{ width: `${pct}%` }}
+                            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                          />
+                        </div>
+                      </>
+                    )}
+                  </div>
+                )
+              })()}
+
               {/* TOTAL */}
               <div className="flex items-center justify-between py-1">
                 <span className="text-body text-fs-gray">
-                  Итого
+                  {t.cart.total}
                 </span>
                 <MorphNumber
                   value={getTotalPrice()}
@@ -237,7 +284,7 @@ export default function CartDrawer() {
                   transition-all duration-200 shadow-green
                 "
               >
-                Оформить заказ
+                {t.cart.checkout}
               </Link>
 
               {/* CLEAR */}
@@ -252,7 +299,7 @@ export default function CartDrawer() {
                 "
               >
                 <Trash2 size={13} strokeWidth={1.5} />
-                Очистить корзину
+                {t.cart.clearCart}
               </button>
             </div>
           </>
@@ -260,13 +307,4 @@ export default function CartDrawer() {
       </motion.div>
     </>
   )
-}
-
-function pluralize(n: number, forms: [string, string, string]): string {
-  const mod10 = n % 10
-  const mod100 = n % 100
-  if (mod100 >= 11 && mod100 <= 14) return forms[2]
-  if (mod10 === 1) return forms[0]
-  if (mod10 >= 2 && mod10 <= 4) return forms[1]
-  return forms[2]
 }

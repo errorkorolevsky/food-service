@@ -27,9 +27,9 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title:       "Food Service Kazakhstan — HoReCa поставки",
-  description: "Профессиональные поставки продуктов для ресторанов, кофеен и dark kitchen в Шымкенте. AI-powered HoReCa ecosystem.",
-  keywords:    ["food service", "horeca", "delivery", "AI supply", "restaurant supply", "Kazakhstan", "Шымкент"],
+  title:       "Food Service — Продукты с доставкой на дом · Шымкент",
+  description: "Онлайн-магазин продуктов и готовой еды с доставкой на дом в Шымкенте. Свежие продукты, мясо, молочное, напитки, заморозка и многое другое.",
+  keywords:    ["food service", "доставка продуктов", "онлайн магазин", "продукты Шымкент", "доставка еды", "Kazakhstan", "Шымкент"],
   robots:      { index: true, follow: true },
   manifest:    "/manifest.json",
   appleWebApp: {
@@ -38,23 +38,23 @@ export const metadata: Metadata = {
     title:      "Food Service",
   },
   openGraph: {
-    title:       "Food Service Kazakhstan — HoReCa поставки",
-    description: "Профессиональные поставки для ресторанов и кофеен Шымкента.",
-    siteName:    "Food Service Kazakhstan",
+    title:       "Food Service — Продукты с доставкой на дом · Шымкент",
+    description: "Онлайн-магазин продуктов и готовой еды с доставкой на дом в Шымкенте.",
+    siteName:    "Food Service",
     locale:      "ru_RU",
     type:        "website",
   },
   twitter: {
     card:        "summary_large_image",
-    title:       "Food Service Kazakhstan",
-    description: "Профессиональные поставки для HoReCa в Шымкенте.",
+    title:       "Food Service — Продукты с доставкой · Шымкент",
+    description: "Свежие продукты и готовая еда с доставкой на дом в Шымкенте.",
   },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ru" className={inter.variable}>
-      <body className="bg-white text-fs-graphite antialiased font-sans">
+      <body className="bg-white text-fs-graphite antialiased font-sans pb-24 lg:pb-0">
         <SessionProviderWrapper>
           <AnimatedLayout>
             {children}

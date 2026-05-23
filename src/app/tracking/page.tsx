@@ -7,11 +7,13 @@ import { Search, Package, MapPin, Phone, MessageSquare, RefreshCw, Wifi } from "
 
 import Navbar from "@/components/layout/Navbar"
 import CartDrawer from "@/components/layout/CartDrawer"
+import Footer from "@/components/layout/Footer"
 import Badge from "@/components/ui/Badge"
 import Button from "@/components/ui/Button"
 import FadeIn from "@/components/ui/FadeIn"
 import PageHero from "@/components/ui/PageHero"
 import { supabase } from "@/lib/supabase"
+import { useLang } from "@/locales"
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
 
@@ -34,19 +36,14 @@ type DbOrder = {
 
 // ─── STATUS CONFIG ────────────────────────────────────────────────────────────
 
-const STATUS_STEPS: { status: OrderStatus; label: string; desc: string }[] = [
-  { status: "pending",     label: "Заказ принят",          desc: "Ожидаем подтверждения"       },
-  { status: "processing",  label: "Готовится к отправке",  desc: "Комплектуем ваш заказ"        },
-  { status: "in_delivery", label: "Курьер в пути",         desc: "Заказ передан курьеру"        },
-  { status: "delivered",   label: "Доставлен",             desc: "Заказ успешно доставлен"      },
-]
+const STATUS_STEP_ORDER: OrderStatus[] = ["pending", "processing", "in_delivery", "delivered"]
 
-const STATUS_BADGE: Record<OrderStatus, { label: string; variant: "default" | "success" | "warning" | "ai" | "error" }> = {
-  pending:     { label: "Принят",    variant: "ai"      },
-  processing:  { label: "Обработка", variant: "warning" },
-  in_delivery: { label: "В пути",    variant: "warning" },
-  delivered:   { label: "Доставлен", variant: "success" },
-  cancelled:   { label: "Отменён",   variant: "error"   },
+const STATUS_BADGE_VARIANT: Record<OrderStatus, "default" | "success" | "warning" | "ai" | "error"> = {
+  pending:     "ai",
+  processing:  "warning",
+  in_delivery: "warning",
+  delivered:   "success",
+  cancelled:   "error",
 }
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
@@ -63,7 +60,7 @@ function formatDate(iso: string) {
 }
 
 function getStepIndex(status: OrderStatus) {
-  return STATUS_STEPS.findIndex((s) => s.status === status)
+  return STATUS_STEP_ORDER.indexOf(status)
 }
 
 // ─── REALTIME HOOK ────────────────────────────────────────────────────────────
@@ -109,6 +106,7 @@ function useRealtimeOrder(
 // ─── ORDER CARD ───────────────────────────────────────────────────────────────
 
 function OrderCard({ order: initial }: { order: DbOrder }) {
+  const { t }     = useLang()
   const [order,   setOrder]   = useState<DbOrder>(initial)
   const [flash,   setFlash]   = useState(false)
   const [online,  setOnline]  = useState(false)
@@ -130,9 +128,10 @@ function OrderCard({ order: initial }: { order: DbOrder }) {
     return () => { supabase.removeChannel(channel) }
   }, [order.id])
 
-  const meta      = STATUS_BADGE[order.status]
-  const stepIndex = getStepIndex(order.status)
-  const isCancelled = order.status === "cancelled"
+  const badgeVariant = STATUS_BADGE_VARIANT[order.status]
+  const badgeLabel   = t.tracking.statuses[order.status]
+  const stepIndex    = getStepIndex(order.status)
+  const isCancelled  = order.status === "cancelled"
 
   return (
     <motion.div
@@ -149,7 +148,7 @@ function OrderCard({ order: initial }: { order: DbOrder }) {
         <div className="flex items-center gap-4">
           <Package size={18} strokeWidth={1.5} className="text-fs-gray" />
           <span className="text-title font-black text-fs-graphite">{formatOrderId(order.id)}</span>
-          <Badge variant={meta.variant}>{meta.label}</Badge>
+          <Badge variant={badgeVariant}>{badgeLabel}</Badge>
           {online && (
             <div className="flex items-center gap-1.5 text-label text-fs-green">
               <Wifi size={12} strokeWidth={1.5} />
@@ -170,16 +169,17 @@ function OrderCard({ order: initial }: { order: DbOrder }) {
           {isCancelled ? (
             <div className="flex items-center gap-3 py-4">
               <div className="w-3 h-3 rounded-full bg-red-500 flex-shrink-0" />
-              <p className="text-body font-bold text-red-400">Заказ отменён</p>
+              <p className="text-body font-bold text-red-400">{t.tracking.statuses.cancelled}</p>
             </div>
           ) : (
             <div className="space-y-5">
-              {STATUS_STEPS.map((step, i) => {
+              {STATUS_STEP_ORDER.map((status, i) => {
                 const done   = i < stepIndex
                 const active = i === stepIndex
+                const step   = t.tracking.steps[status]
                 return (
                   <motion.div
-                    key={step.status}
+                    key={status}
                     animate={active && flash ? { x: [0, 4, 0] } : {}}
                     transition={{ duration: 0.3 }}
                     className={`flex items-start gap-4 ${!done && !active ? "opacity-35" : ""}`}
@@ -189,7 +189,7 @@ function OrderCard({ order: initial }: { order: DbOrder }) {
                         w-3 h-3 rounded-full
                         ${active ? "bg-fs-green animate-pulse" : done ? "bg-fs-primary" : "bg-fs-border"}
                       `} />
-                      {i < STATUS_STEPS.length - 1 && (
+                      {i < STATUS_STEP_ORDER.length - 1 && (
                         <div className={`w-px h-5 ${done ? "bg-fs-primary/30" : "bg-fs-border/60"}`} />
                       )}
                     </div>
@@ -229,7 +229,7 @@ function OrderCard({ order: initial }: { order: DbOrder }) {
 
         {/* RIGHT — ITEMS */}
         <div>
-          <p className="text-label text-fs-gray uppercase tracking-widest mb-4">Состав заказа</p>
+          <p className="text-label text-fs-gray uppercase tracking-widest mb-4">{t.tracking.orderItems}</p>
           <div className="space-y-3">
             {order.items.map((item) => (
               <div key={item.id} className="flex items-center gap-3">
@@ -244,13 +244,13 @@ function OrderCard({ order: initial }: { order: DbOrder }) {
 
           <div className="mt-5 pt-4 border-t border-fs-border space-y-1.5 text-caption">
             <div className="flex justify-between text-fs-gray">
-              <span>Товары</span><span>₸{order.subtotal.toLocaleString()}</span>
+              <span>{t.cart.subtotal}</span><span>₸{order.subtotal.toLocaleString()}</span>
             </div>
             <div className="flex justify-between text-fs-gray">
-              <span>Доставка</span><span>₸{order.delivery.toLocaleString()}</span>
+              <span>{t.cart.delivery}</span><span>₸{order.delivery.toLocaleString()}</span>
             </div>
             <div className="flex justify-between font-bold text-fs-graphite pt-1">
-              <span>Итого</span><span>₸{order.total.toLocaleString()}</span>
+              <span>{t.tracking.orderTotal}</span><span>₸{order.total.toLocaleString()}</span>
             </div>
           </div>
         </div>
@@ -262,6 +262,7 @@ function OrderCard({ order: initial }: { order: DbOrder }) {
 // ─── INNER ───────────────────────────────────────────────────────────────────
 
 function TrackingInner() {
+  const { t }    = useLang()
   const searchParams = useSearchParams()
   const [query,    setQuery]    = useState(searchParams.get("q") ?? "")
   const [orders,   setOrders]   = useState<DbOrder[]>([])
@@ -280,7 +281,7 @@ function TrackingInner() {
     const data = await res.json()
 
     if (!res.ok) {
-      setError(data.error ?? "Заказ не найден")
+      setError(data.error ?? t.tracking.notFound)
       setOrders([])
     } else {
       setOrders(Array.isArray(data) ? data : [data])
@@ -324,7 +325,7 @@ function TrackingInner() {
           <Button onClick={() => search()} disabled={!query.trim() || loading}>
             {loading
               ? <RefreshCw size={16} strokeWidth={1.5} className="animate-spin" />
-              : "Найти"
+              : t.tracking.search
             }
           </Button>
         </div>
@@ -360,11 +361,7 @@ function TrackingInner() {
               exit={{ opacity: 0 }}
               className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4"
             >
-              {[
-                { emoji: "📦", title: "Номер заказа",    desc: "Введите #FS-XXXXXX из письма или страницы успеха" },
-                { emoji: "📱", title: "По телефону",      desc: "Введите номер телефона — покажем все ваши заказы" },
-                { emoji: "⚡", title: "Реальный статус",  desc: "Статус обновляется в реальном времени без перезагрузки" },
-              ].map((item) => (
+              {t.tracking.hints.map((item) => (
                 <div key={item.title} className="bg-white border border-fs-border rounded-xl p-6">
                   <span className="text-3xl">{item.emoji}</span>
                   <p className="text-body font-bold text-fs-graphite mt-3">{item.title}</p>
@@ -381,24 +378,30 @@ function TrackingInner() {
 
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
 
-export default function TrackingPage() {
+function TrackingPageInner() {
+  const { t } = useLang()
   return (
     <main className="fs-page-bg text-fs-graphite min-h-screen">
       <Navbar />
       <PageHero
-        badge="Отслеживание заказа"
-        title={<>Доставка<br />заказа</>}
-        subtitle="Введите номер заказа (#FS-XXXXXX) или телефон чтобы узнать статус доставки."
+        badge={t.tracking.badge}
+        title={<>{t.tracking.title.split(" ")[0]}<br />{t.tracking.title.split(" ").slice(1).join(" ")}</>}
+        subtitle={t.tracking.subtitle}
         stats={[
-          { value: "15 мин", label: "среднее время" },
-          { value: "Live",   label: "обновление статуса" },
-          { value: "SMS",    label: "уведомления" },
+          { value: "15 мин", label: t.tracking.statAvgTime },
+          { value: "Live",   label: t.tracking.statLive    },
+          { value: "SMS",    label: t.tracking.statSms     },
         ]}
       />
       <CartDrawer />
       <Suspense fallback={null}>
         <TrackingInner />
       </Suspense>
+      <Footer />
     </main>
   )
+}
+
+export default function TrackingPage() {
+  return <TrackingPageInner />
 }

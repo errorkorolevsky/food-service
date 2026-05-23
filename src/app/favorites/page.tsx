@@ -7,31 +7,30 @@ import { Heart, ShoppingCart, Trash2, ArrowLeft, SlidersHorizontal } from "lucid
 
 import Navbar from "@/components/layout/Navbar"
 import CartDrawer from "@/components/layout/CartDrawer"
+import Footer from "@/components/layout/Footer"
 import ProductCard from "@/components/cards/ProductCard"
 import FadeIn from "@/components/ui/FadeIn"
 import PageHero from "@/components/ui/PageHero"
 import { useFavoritesStore } from "@/store/favoritesStore"
 import { useCartStore } from "@/store/cartStore"
 import { useCartUI } from "@/store/cartUIStore"
-
-// ─── SORT OPTIONS ─────────────────────────────────────────────────────────────
+import { useLang } from "@/locales"
 
 type SortKey = "added" | "price_asc" | "price_desc" | "name"
-
-const SORT_OPTIONS: { key: SortKey; label: string }[] = [
-  { key: "added",      label: "По добавлению"  },
-  { key: "price_asc",  label: "Дешевле сначала" },
-  { key: "price_desc", label: "Дороже сначала"  },
-  { key: "name",       label: "По названию"    },
-]
-
-// ─── PAGE ─────────────────────────────────────────────────────────────────────
 
 export default function FavoritesPage() {
   const products = useFavoritesStore((state) => state.products)
   const toggle   = useFavoritesStore((state) => state.toggle)
   const addItem  = useCartStore((state) => state.addItem)
   const openCart = useCartUI((state) => state.openCart)
+  const { t }    = useLang()
+
+  const SORT_OPTIONS: { key: SortKey; label: string }[] = [
+    { key: "added",      label: t.favorites.sortAdded     },
+    { key: "price_asc",  label: t.favorites.sortPriceAsc  },
+    { key: "price_desc", label: t.favorites.sortPriceDesc },
+    { key: "name",       label: t.favorites.sortName      },
+  ]
 
   const [sort, setSort] = useState<SortKey>("added")
 
@@ -57,12 +56,12 @@ export default function FavoritesPage() {
     <main className="fs-page-bg text-fs-graphite min-h-screen">
       <Navbar />
       <PageHero
-        badge="Избранные товары"
-        title={<>Избранное {products.length > 0 ? `· ${products.length}` : ""}</>}
-        subtitle="Сохранённые товары для быстрого заказа"
+        badge={t.favorites.badge}
+        title={<>{t.favorites.title} {products.length > 0 ? `· ${products.length}` : ""}</>}
+        subtitle={t.empty.favorites}
         stats={products.length > 0 ? [
-          { value: String(products.length), label: "товаров" },
-          { value: `₸${products.reduce((s, p) => s + p.priceNum, 0).toLocaleString()}`, label: "общая сумма" },
+          { value: String(products.length), label: t.favorites.itemsLabel },
+          { value: `₸${products.reduce((s, p) => s + p.priceNum, 0).toLocaleString()}`, label: t.favorites.totalLabel },
         ] : undefined}
       />
       <CartDrawer />
@@ -74,14 +73,14 @@ export default function FavoritesPage() {
           <FadeIn>
             <div className="flex items-center justify-between mb-8 pb-6 border-b border-fs-border">
               <Link href="/catalog" className="flex items-center gap-2 text-label text-fs-gray hover:text-fs-primary transition-colors duration-200">
-                <ArrowLeft size={14} strokeWidth={1.5} />Каталог
+                <ArrowLeft size={14} strokeWidth={1.5} />{t.nav.catalog}
               </Link>
               <div className="flex items-center gap-3">
                 <button onClick={handleClearAll} className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-fs-border text-fs-gray text-caption hover:border-fs-subtle hover:text-fs-primary transition-all duration-200">
-                  <Trash2 size={14} strokeWidth={1.5} />Очистить
+                  <Trash2 size={14} strokeWidth={1.5} />{t.catalog.filter.clear}
                 </button>
                 <button onClick={handleAddAll} className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-fs-primary text-white text-caption font-bold hover:bg-fs-soft transition-colors duration-200">
-                  <ShoppingCart size={14} strokeWidth={2} />Добавить всё в корзину
+                  <ShoppingCart size={14} strokeWidth={2} />{t.product.addToCart}
                 </button>
               </div>
             </div>
@@ -106,9 +105,9 @@ export default function FavoritesPage() {
               ">
                 <Heart size={36} strokeWidth={1} className="text-fs-subtle" />
               </div>
-              <h2 className="text-heading text-fs-graphite mb-3">Пусто</h2>
+              <h2 className="text-heading text-fs-graphite mb-3">{t.empty.favorites}</h2>
               <p className="text-body text-fs-gray max-w-sm leading-relaxed">
-                Нажмите ♥ на любом товаре — он появится здесь для быстрого заказа
+                {t.empty.hint}
               </p>
               <Link href="/catalog">
                 <button className="
@@ -116,7 +115,7 @@ export default function FavoritesPage() {
                   bg-fs-primary text-white text-caption font-bold
                   hover:bg-fs-soft transition-colors duration-200
                 ">
-                  Перейти в каталог
+                  {t.cart.goToCatalog}
                 </button>
               </Link>
             </motion.div>
@@ -152,7 +151,7 @@ export default function FavoritesPage() {
               </div>
 
               {/* CARDS */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+              <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-5">
                 <AnimatePresence>
                   {sorted.map((product, i) => (
                     <motion.div
@@ -172,11 +171,11 @@ export default function FavoritesPage() {
               {/* TOTAL */}
               <div className="mt-10 pt-8 border-t border-fs-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <p className="text-caption text-fs-gray">
-                  {products.length} товар{products.length === 1 ? "" : products.length < 5 ? "а" : "ов"} в избранном
+                  {products.length} {t.favorites.itemsLabel} {t.favorites.countIn}
                 </p>
                 <div className="flex items-center gap-4">
                   <p className="text-body text-fs-gray">
-                    Сумма: <span className="text-fs-primary font-black">
+                    {t.favorites.totalLabel}: <span className="text-fs-primary font-black">
                       ₸{products.reduce((sum, p) => sum + p.priceNum, 0).toLocaleString()}
                     </span>
                   </p>
@@ -189,7 +188,7 @@ export default function FavoritesPage() {
                     "
                   >
                     <ShoppingCart size={14} strokeWidth={2} />
-                    В корзину
+                    {t.product.addToCart}
                   </button>
                 </div>
               </div>
@@ -198,6 +197,8 @@ export default function FavoritesPage() {
         </AnimatePresence>
 
       </div>
+
+      <Footer />
     </main>
   )
 }
