@@ -45,7 +45,7 @@ export default function Navbar() {
       transition-all duration-500
       ${scrolled
         ? "bg-fs-dark/90 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_8px_32px_rgba(0,0,0,0.28)]"
-        : "bg-transparent border-b border-transparent"
+        : "bg-gradient-to-b from-black/30 to-transparent border-b border-transparent backdrop-blur-none"
       }
     `}>
       {/* SCROLL PROGRESS BAR */}
@@ -107,22 +107,23 @@ export default function Navbar() {
         {/* ACTIONS */}
         <div className="flex items-center gap-3">
 
-          {/* LANGUAGE SWITCHER */}
-          <div className="hidden sm:flex items-center gap-0.5 bg-white/[0.06] border border-white/[0.10] rounded-lg p-0.5">
+          {/* LANGUAGE SWITCHER — animated active pill */}
+          <div className="hidden sm:flex items-center gap-0.5 bg-white/[0.06] border border-white/[0.10] rounded-lg p-0.5 relative">
             {(["ru", "kz"] as const).map((l) => (
               <button
                 key={l}
                 onClick={() => setLang(l)}
-                className={`
-                  px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wide
-                  transition-all duration-150
-                  ${lang === l
-                    ? "bg-white/[0.14] text-white"
-                    : "text-white/45 hover:text-white/70"
-                  }
-                `}
+                className="relative px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wide transition-colors duration-150 z-10"
+                style={{ color: lang === l ? "white" : "rgba(255,255,255,0.45)" }}
               >
-                {t.language[l]}
+                {lang === l && (
+                  <motion.span
+                    layoutId="lang-indicator"
+                    className="absolute inset-0 rounded-md bg-white/[0.14]"
+                    transition={{ type: "spring", stiffness: 380, damping: 28 }}
+                  />
+                )}
+                <span className="relative z-10">{t.language[l]}</span>
               </button>
             ))}
           </div>

@@ -6,14 +6,16 @@ import {
   TrendingUp, ShoppingBag, CircleDollarSign, RefreshCw,
   ChevronDown, Package, Phone, MapPin, MessageSquare,
   Wifi, BarChart2, Lock, Download, Search, X, Calendar,
-  ArrowUpRight, Sparkles,
+  ArrowUpRight, Sparkles, Truck, Users, Clock, CheckCircle,
+  AlertCircle, Star, Activity, WifiOff,
 } from "lucide-react"
 
-import Navbar from "@/components/layout/Navbar"
+import Navbar    from "@/components/layout/Navbar"
 import CartDrawer from "@/components/layout/CartDrawer"
-import FadeIn from "@/components/ui/FadeIn"
+import FadeIn    from "@/components/ui/FadeIn"
 import MorphNumber from "@/components/ui/MorphNumber"
 import { supabase } from "@/lib/supabase"
+import { MOCK_ORDERS, MOCK_COURIERS, type MockOrder, type MockCourier, type CourierStatus } from "@/data/mock-orders"
 
 // ─── PIN GUARD ────────────────────────────────────────────────────────────────
 
@@ -33,8 +35,7 @@ function PinGuard({ onUnlock }: { onUnlock: () => void }) {
         sessionStorage.setItem("fs_admin", "1")
         onUnlock()
       } else {
-        setShake(true)
-        setError(true)
+        setShake(true); setError(true)
         setTimeout(() => { setPin(""); setShake(false); setError(false) }, 700)
       }
     }
@@ -83,23 +84,15 @@ function PinGuard({ onUnlock }: { onUnlock: () => void }) {
           {keys.map((k, i) => (
             k === "" ? <div key={i} /> :
             k === "⌫" ? (
-              <motion.button
-                key={i}
-                whileTap={{ scale: 0.93 }}
+              <motion.button key={i} whileTap={{ scale: 0.93 }}
                 onClick={() => setPin((p) => p.slice(0, -1))}
                 className="h-16 rounded-2xl bg-white border border-fs-border text-fs-gray text-xl flex items-center justify-center hover:border-fs-subtle hover:text-fs-primary transition-all shadow-sm"
-              >
-                {k}
-              </motion.button>
+              >{k}</motion.button>
             ) : (
-              <motion.button
-                key={i}
-                whileTap={{ scale: 0.93 }}
+              <motion.button key={i} whileTap={{ scale: 0.93 }}
                 onClick={() => handleKey(k)}
                 className="h-16 rounded-2xl bg-white border border-fs-border text-fs-graphite text-[22px] font-bold hover:bg-fs-light hover:border-fs-primary/30 transition-all shadow-sm"
-              >
-                {k}
-              </motion.button>
+              >{k}</motion.button>
             )
           ))}
         </div>
@@ -111,29 +104,12 @@ function PinGuard({ onUnlock }: { onUnlock: () => void }) {
 // ─── TYPES ───────────────────────────────────────────────────────────────────
 
 type OrderStatus = "pending" | "processing" | "in_delivery" | "delivered" | "cancelled"
-
-type DbOrder = {
-  id:         string
-  created_at: string
-  company:    string | null
-  phone:      string
-  address:    string
-  comment:    string | null
-  payment:    string
-  items:      { id: string; title: string; emoji: string; price: number; quantity: number }[]
-  subtotal:   number
-  delivery:   number
-  total:      number
-  status:     OrderStatus
-}
+type DbOrder = MockOrder
 
 // ─── STATUS CONFIG ────────────────────────────────────────────────────────────
 
 const STATUS_META: Record<OrderStatus, {
-  label: string
-  badge: "success" | "warning" | "ai" | "default" | "error"
-  color: string
-  bg: string
+  label: string; badge: string; color: string; bg: string
 }> = {
   pending:     { label: "Новый",      badge: "ai",      color: "#6366f1", bg: "#eef2ff" },
   processing:  { label: "Обработка",  badge: "warning", color: "#f59e0b", bg: "#fffbeb" },
@@ -144,11 +120,15 @@ const STATUS_META: Record<OrderStatus, {
 
 const STATUS_ORDER: OrderStatus[] = ["pending", "processing", "in_delivery", "delivered", "cancelled"]
 
+const COURIER_STATUS_META: Record<CourierStatus, { label: string; color: string; bg: string }> = {
+  active:  { label: "В доставке", color: "#10b981", bg: "#ecfdf5" },
+  idle:    { label: "Свободен",   color: "#6366f1", bg: "#eef2ff" },
+  offline: { label: "Офлайн",     color: "#9ca3af", bg: "#f3f4f6" },
+}
+
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
 
-function formatOrderId(uuid: string) {
-  return `#FS-${uuid.slice(-6).toUpperCase()}`
-}
+function formatOrderId(uuid: string) { return `#FS-${uuid.slice(-6).toUpperCase()}` }
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleString("ru-RU", {
@@ -160,33 +140,24 @@ function formatDate(iso: string) {
 // ─── METRIC CARD ─────────────────────────────────────────────────────────────
 
 function MetricCard({ icon: Icon, label, num, prefix, suffix, sub, color, bg, loading }: {
-  icon: React.ElementType
-  label: string
-  num: number
-  prefix?: string
-  suffix?: string
-  sub: string
-  color: string
-  bg: string
-  loading: boolean
+  icon: React.ElementType; label: string; num: number
+  prefix?: string; suffix?: string; sub: string
+  color: string; bg: string; loading: boolean
 }) {
   return (
     <motion.div
       whileHover={{ y: -3, scale: 1.02 }}
       transition={{ type: "spring", stiffness: 380, damping: 26 }}
-      className="bg-white border border-fs-border rounded-3xl p-6 shadow-sm relative overflow-hidden"
+      className="bg-white dark:bg-[#1a1a2e] border border-fs-border rounded-3xl p-6 shadow-sm relative overflow-hidden"
     >
-      {/* BG ACCENT */}
       <div className="absolute top-0 right-0 w-24 h-24 rounded-full -translate-y-8 translate-x-8 opacity-[0.07]"
         style={{ background: color }} />
-
       <div className="flex items-start justify-between mb-4">
         <div className="w-10 h-10 rounded-2xl flex items-center justify-center" style={{ background: bg }}>
           <Icon size={18} strokeWidth={1.5} style={{ color }} />
         </div>
         <ArrowUpRight size={14} strokeWidth={2} className="text-fs-muted" />
       </div>
-
       <p className="text-[28px] font-black text-fs-graphite leading-none">
         {loading ? (
           <span className="inline-block w-16 h-7 skeleton-green rounded-lg" />
@@ -194,7 +165,6 @@ function MetricCard({ icon: Icon, label, num, prefix, suffix, sub, color, bg, lo
           <MorphNumber value={num} prefix={prefix} suffix={suffix} format={(n) => String(n)} />
         )}
       </p>
-
       <p className="text-[13px] font-semibold text-fs-graphite mt-1">{label}</p>
       <p className="text-[12px] mt-0.5" style={{ color }}>{sub}</p>
     </motion.div>
@@ -207,9 +177,7 @@ function RevenueChart({ orders }: { orders: DbOrder[] }) {
   const [hovered, setHovered] = useState<number | null>(null)
 
   const days = Array.from({ length: 7 }, (_, i) => {
-    const d = new Date()
-    d.setDate(d.getDate() - (6 - i))
-    return d
+    const d = new Date(); d.setDate(d.getDate() - (6 - i)); return d
   })
 
   const data = days.map((day) => {
@@ -224,12 +192,11 @@ function RevenueChart({ orders }: { orders: DbOrder[] }) {
   })
 
   const maxRevenue = Math.max(...data.map((d) => d.revenue), 1)
-  const total7d = data.reduce((s, d) => s + d.revenue, 0)
+  const total7d    = data.reduce((s, d) => s + d.revenue, 0)
 
   const W = 600; const H = 160
-  const PL = 8;  const PR = 8; const PT = 20; const PB = 36
-  const chartW = W - PL - PR
-  const chartH = H - PT - PB
+  const PL = 8; const PR = 8; const PT = 20; const PB = 36
+  const chartW = W - PL - PR; const chartH = H - PT - PB
   const step   = chartW / (data.length - 1)
 
   const points = data.map((d, i) => ({
@@ -238,18 +205,16 @@ function RevenueChart({ orders }: { orders: DbOrder[] }) {
     ...d,
   }))
 
-  // Smooth bezier path
   const pathD = points.reduce((acc, p, i) => {
     if (i === 0) return `M ${p.x.toFixed(1)} ${p.y.toFixed(1)}`
-    const prev = points[i - 1]
-    const cpx = (prev.x + p.x) / 2
+    const prev = points[i - 1]; const cpx = (prev.x + p.x) / 2
     return acc + ` C ${cpx.toFixed(1)} ${prev.y.toFixed(1)}, ${cpx.toFixed(1)} ${p.y.toFixed(1)}, ${p.x.toFixed(1)} ${p.y.toFixed(1)}`
   }, "")
 
   const fillD = `M ${PL} ${PT + chartH} ` + pathD.replace(/^M/, "L") + ` L ${points[points.length - 1].x.toFixed(1)} ${(PT + chartH).toFixed(1)} Z`
 
   return (
-    <div className="bg-white border border-fs-border rounded-3xl p-7 shadow-sm">
+    <div className="bg-white dark:bg-[#1a1a2e] border border-fs-border rounded-3xl p-7 shadow-sm">
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 bg-fs-light rounded-xl flex items-center justify-center">
@@ -274,24 +239,15 @@ function RevenueChart({ orders }: { orders: DbOrder[] }) {
               <stop offset="100%" stopColor="#005B46" stopOpacity="0"    />
             </linearGradient>
           </defs>
-
-          {/* GRID LINES */}
           {[0.25, 0.5, 0.75, 1].map((frac) => (
-            <line
-              key={frac}
+            <line key={frac}
               x1={PL} y1={(PT + chartH * (1 - frac)).toFixed(1)}
               x2={W - PR} y2={(PT + chartH * (1 - frac)).toFixed(1)}
               stroke="#e5e7eb" strokeWidth="1" strokeDasharray="4 4"
             />
           ))}
-
-          {/* FILL */}
           <path d={fillD} fill="url(#chartGrad)" />
-
-          {/* LINE */}
           <path d={pathD} fill="none" stroke="#005B46" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-
-          {/* HOVER LINE */}
           {hovered !== null && (
             <line
               x1={points[hovered].x} y1={PT}
@@ -299,15 +255,11 @@ function RevenueChart({ orders }: { orders: DbOrder[] }) {
               stroke="#005B46" strokeWidth="1" strokeDasharray="4 3" strokeOpacity="0.4"
             />
           )}
-
-          {/* POINTS */}
           {points.map((p, i) => (
             <g key={i} onMouseEnter={() => setHovered(i)} style={{ cursor: "pointer" }}>
               <circle cx={p.x} cy={p.y} r="14" fill="transparent" />
-              <circle
-                cx={p.x} cy={p.y} r={hovered === i ? 5 : 3.5}
-                fill={hovered === i ? "#005B46" : "#fff"}
-                stroke="#005B46" strokeWidth="2"
+              <circle cx={p.x} cy={p.y} r={hovered === i ? 5 : 3.5}
+                fill={hovered === i ? "#005B46" : "#fff"} stroke="#005B46" strokeWidth="2"
                 style={{ transition: "r 0.15s" }}
               />
               {hovered === i && p.revenue > 0 && (
@@ -331,7 +283,6 @@ function RevenueChart({ orders }: { orders: DbOrder[] }) {
 
 function TopProducts({ orders }: { orders: DbOrder[] }) {
   const counts: Record<string, { title: string; emoji: string; qty: number; revenue: number }> = {}
-
   for (const order of orders) {
     for (const item of order.items) {
       if (!counts[item.id]) counts[item.id] = { title: item.title, emoji: item.emoji, qty: 0, revenue: 0 }
@@ -339,12 +290,11 @@ function TopProducts({ orders }: { orders: DbOrder[] }) {
       counts[item.id].revenue += item.quantity * item.price
     }
   }
-
   const top = Object.values(counts).sort((a, b) => b.revenue - a.revenue).slice(0, 5)
   const maxRevenue = top[0]?.revenue ?? 1
 
   return (
-    <div className="bg-white border border-fs-border rounded-3xl p-7 shadow-sm">
+    <div className="bg-white dark:bg-[#1a1a2e] border border-fs-border rounded-3xl p-7 shadow-sm">
       <div className="flex items-center gap-3 mb-6">
         <div className="w-9 h-9 bg-amber-50 rounded-xl flex items-center justify-center">
           <TrendingUp size={17} strokeWidth={1.5} className="text-amber-500" />
@@ -379,7 +329,7 @@ function TopProducts({ orders }: { orders: DbOrder[] }) {
                     animate={{ width: `${pct}%` }}
                     transition={{ duration: 0.7, delay: i * 0.1, ease: [0.4, 0, 0.2, 1] }}
                     className="h-full rounded-full"
-                    style={{ background: `linear-gradient(90deg, #005B46, #22c55e)` }}
+                    style={{ background: "linear-gradient(90deg, #005B46, #22c55e)" }}
                   />
                 </div>
               </div>
@@ -393,9 +343,10 @@ function TopProducts({ orders }: { orders: DbOrder[] }) {
 
 // ─── ORDER ROW ────────────────────────────────────────────────────────────────
 
-function OrderRow({ order, onStatusChange }: {
+function OrderRow({ order, onStatusChange, isDemo }: {
   order: DbOrder
   onStatusChange: (id: string, status: OrderStatus) => void
+  isDemo: boolean
 }) {
   const [open,    setOpen]    = useState(false)
   const [loading, setLoading] = useState(false)
@@ -412,23 +363,20 @@ function OrderRow({ order, onStatusChange }: {
   }
 
   return (
-    <motion.div
-      layout
-      className={`border rounded-2xl overflow-hidden transition-all duration-500 bg-white ${
+    <motion.div layout
+      className={`border rounded-2xl overflow-hidden transition-all duration-500 bg-white dark:bg-[#1a1a2e] ${
         flash ? "border-fs-primary shadow-[0_0_0_3px_rgba(0,91,70,0.1)]" : "border-fs-border hover:border-fs-subtle"
       }`}
     >
-      <button
-        onClick={() => setOpen((v) => !v)}
+      <button onClick={() => setOpen((v) => !v)}
         className="w-full text-left px-5 py-4 flex items-center gap-4 hover:bg-fs-offwhite/50 transition-colors duration-150"
       >
-        {/* STATUS DOT */}
         <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: meta.color }} />
-
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2.5 flex-wrap">
             <span className="text-[14px] font-bold text-fs-graphite">{formatOrderId(order.id)}</span>
-            <span className="text-[12px] font-semibold px-2 py-0.5 rounded-full" style={{ background: meta.bg, color: meta.color }}>
+            <span className="text-[12px] font-semibold px-2 py-0.5 rounded-full"
+              style={{ background: meta.bg, color: meta.color }}>
               {meta.label}
             </span>
             <span className="text-[12px] text-fs-muted">{formatDate(order.created_at)}</span>
@@ -437,7 +385,6 @@ function OrderRow({ order, onStatusChange }: {
             {order.company || order.phone} · {order.address}
           </p>
         </div>
-
         <div className="flex items-center gap-3 flex-shrink-0">
           <span className="text-[16px] font-black text-fs-graphite">₸{order.total.toLocaleString()}</span>
           <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}>
@@ -449,20 +396,16 @@ function OrderRow({ order, onStatusChange }: {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.22, ease: [0.4, 0, 0.2, 1] }}
+            initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.22, ease: [0.4, 0, 0.2, 1] }}
             className="overflow-hidden border-t border-fs-border"
           >
             <div className="px-5 py-5 grid grid-cols-1 lg:grid-cols-2 gap-6">
-
-              {/* LEFT — DETAILS */}
               <div className="space-y-4">
                 <div className="space-y-2.5">
                   {[
-                    { icon: Phone,       text: order.phone   },
-                    { icon: MapPin,      text: order.address },
+                    { icon: Phone,         text: order.phone   },
+                    { icon: MapPin,        text: order.address },
                     ...(order.comment ? [{ icon: MessageSquare, text: order.comment }] : []),
                   ].map(({ icon: Icon, text }, i) => (
                     <div key={i} className="flex items-start gap-2.5 text-[13px] text-fs-gray">
@@ -484,7 +427,9 @@ function OrderRow({ order, onStatusChange }: {
                   ))}
                   <div className="border-t border-fs-border pt-2 mt-2 flex justify-between text-[13px]">
                     <span className="text-fs-gray">Доставка</span>
-                    <span className="text-fs-graphite">₸{order.delivery.toLocaleString()}</span>
+                    <span className="text-fs-graphite">
+                      {order.delivery === 0 ? "Бесплатно" : `₸${order.delivery.toLocaleString()}`}
+                    </span>
                   </div>
                   <div className="flex justify-between text-[14px] font-bold">
                     <span className="text-fs-graphite">Итого</span>
@@ -493,28 +438,22 @@ function OrderRow({ order, onStatusChange }: {
                 </div>
               </div>
 
-              {/* RIGHT — STATUS SWITCHER */}
               <div>
                 <p className="text-[11px] text-fs-gray uppercase tracking-widest mb-3">
-                  Изменить статус
+                  Изменить статус{isDemo && <span className="ml-2 normal-case text-amber-500">(демо)</span>}
                 </p>
                 <div className="space-y-2">
                   {STATUS_ORDER.map((s) => {
                     const m      = STATUS_META[s]
                     const active = s === order.status
                     return (
-                      <motion.button
-                        key={s}
-                        whileTap={{ scale: 0.98 }}
-                        onClick={() => handleStatus(s)}
-                        disabled={loading}
+                      <motion.button key={s} whileTap={{ scale: 0.98 }}
+                        onClick={() => handleStatus(s)} disabled={loading}
                         className={`
                           w-full text-left px-4 py-3 rounded-xl text-[13px] font-medium
                           border transition-all duration-150 flex items-center gap-3
-                          ${active
-                            ? "border-transparent text-white shadow-sm"
-                            : "border-fs-border bg-white text-fs-gray hover:border-fs-subtle hover:text-fs-graphite"
-                          }
+                          ${active ? "border-transparent text-white shadow-sm"
+                            : "border-fs-border bg-white dark:bg-[#1a1a2e] text-fs-gray hover:border-fs-subtle hover:text-fs-graphite"}
                           disabled:opacity-50 disabled:cursor-wait
                         `}
                         style={active ? { background: m.color, borderColor: m.color } : {}}
@@ -536,36 +475,269 @@ function OrderRow({ order, onStatusChange }: {
   )
 }
 
+// ─── COURIERS PANEL ───────────────────────────────────────────────────────────
+
+function CouriersPanel({ orders }: { orders: DbOrder[] }) {
+  const [couriers, setCouriers] = useState<MockCourier[]>(MOCK_COURIERS)
+
+  const getOrder = (id: string | null) => id ? orders.find((o) => o.id === id) ?? null : null
+
+  const statusCycle: CourierStatus[] = ["active", "idle", "offline"]
+
+  const cycleStatus = (courierId: string) => {
+    setCouriers((prev) => prev.map((c) => {
+      if (c.id !== courierId) return c
+      const nextIdx = (statusCycle.indexOf(c.status) + 1) % statusCycle.length
+      return { ...c, status: statusCycle[nextIdx], orderId: statusCycle[nextIdx] === "active" ? c.orderId : null }
+    }))
+  }
+
+  const activeCount  = couriers.filter((c) => c.status === "active").length
+  const idleCount    = couriers.filter((c) => c.status === "idle").length
+  const offlineCount = couriers.filter((c) => c.status === "offline").length
+
+  return (
+    <div className="space-y-5">
+      {/* Summary strip */}
+      <div className="grid grid-cols-3 gap-3">
+        {[
+          { label: "В доставке", count: activeCount,  color: "#10b981", bg: "#ecfdf5", icon: Truck },
+          { label: "Свободны",   count: idleCount,    color: "#6366f1", bg: "#eef2ff", icon: CheckCircle },
+          { label: "Офлайн",     count: offlineCount, color: "#9ca3af", bg: "#f3f4f6", icon: WifiOff },
+        ].map(({ label, count, color, bg, icon: Icon }) => (
+          <div key={label} className="bg-white dark:bg-[#1a1a2e] border border-fs-border rounded-2xl p-4 flex flex-col gap-2">
+            <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: bg }}>
+              <Icon size={15} strokeWidth={1.5} style={{ color }} />
+            </div>
+            <p className="text-[22px] font-black text-fs-graphite leading-none">{count}</p>
+            <p className="text-[12px] text-fs-gray">{label}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Courier cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {couriers.map((courier) => {
+          const meta  = COURIER_STATUS_META[courier.status]
+          const order = getOrder(courier.orderId)
+          return (
+            <motion.div key={courier.id} layout
+              className="bg-white dark:bg-[#1a1a2e] border border-fs-border rounded-2xl p-5 hover:border-fs-subtle transition-all duration-200"
+            >
+              <div className="flex items-start gap-4">
+                {/* Avatar */}
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-white text-[14px] font-bold flex-shrink-0"
+                  style={{ background: courier.color }}>
+                  {courier.initials}
+                </div>
+
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-[15px] font-bold text-fs-graphite truncate">{courier.name}</span>
+                    <button
+                      onClick={() => cycleStatus(courier.id)}
+                      className="text-[11px] font-semibold px-2 py-0.5 rounded-full transition-all"
+                      style={{ background: meta.bg, color: meta.color }}
+                      title="Нажмите для смены статуса (демо)"
+                    >
+                      {meta.label}
+                    </button>
+                  </div>
+
+                  <div className="flex items-center gap-1.5 mt-1 text-[12px] text-fs-gray">
+                    <Phone size={11} strokeWidth={1.5} />
+                    <span>{courier.phone}</span>
+                  </div>
+
+                  <div className="flex items-center gap-1.5 mt-0.5 text-[12px] text-fs-gray">
+                    <MapPin size={11} strokeWidth={1.5} />
+                    <span>{courier.zone}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Active order */}
+              {order && courier.status === "active" && (
+                <div className="mt-4 bg-fs-offwhite border border-fs-border rounded-xl p-3">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <Truck size={12} strokeWidth={1.5} className="text-fs-primary flex-shrink-0" />
+                      <span className="text-[13px] font-bold text-fs-graphite">{formatOrderId(order.id)}</span>
+                      <span className="text-[12px] text-fs-gray truncate">→ {order.address}</span>
+                    </div>
+                    {courier.eta && (
+                      <div className="flex items-center gap-1 text-[12px] text-fs-primary font-semibold flex-shrink-0">
+                        <Clock size={11} strokeWidth={1.5} />
+                        {courier.eta}
+                      </div>
+                    )}
+                  </div>
+                  <p className="text-[11px] text-fs-gray mt-1.5">
+                    {order.items.slice(0, 2).map((i) => `${i.emoji} ${i.title}`).join(" · ")}
+                    {order.items.length > 2 && ` +${order.items.length - 2}`}
+                  </p>
+                </div>
+              )}
+
+              {courier.status === "idle" && (
+                <div className="mt-4 flex items-center gap-2 text-[12px] text-indigo-500">
+                  <CheckCircle size={13} strokeWidth={1.5} />
+                  <span>Готов принять новый заказ</span>
+                </div>
+              )}
+
+              {courier.status === "offline" && (
+                <div className="mt-4 flex items-center gap-2 text-[12px] text-fs-muted">
+                  <WifiOff size={13} strokeWidth={1.5} />
+                  <span>Не на связи</span>
+                </div>
+              )}
+            </motion.div>
+          )
+        })}
+      </div>
+
+      <p className="text-[12px] text-fs-muted text-center">
+        Нажмите на статус курьера для его смены (демо-режим)
+      </p>
+    </div>
+  )
+}
+
+// ─── ACTIVITY LOG ────────────────────────────────────────────────────────────
+
+type ActivityItem = {
+  id:   string
+  icon: React.ElementType
+  text: string
+  sub:  string
+  color: string
+  bg:   string
+}
+
+function buildActivity(orders: DbOrder[]): ActivityItem[] {
+  const items: ActivityItem[] = []
+  const sorted = [...orders].sort((a, b) =>
+    new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+  ).slice(0, 8)
+
+  for (const o of sorted) {
+    const meta = STATUS_META[o.status]
+    const icons: Record<OrderStatus, React.ElementType> = {
+      pending:     ShoppingBag,
+      processing:  RefreshCw,
+      in_delivery: Truck,
+      delivered:   CheckCircle,
+      cancelled:   AlertCircle,
+    }
+    items.push({
+      id:    o.id,
+      icon:  icons[o.status],
+      text:  `${formatOrderId(o.id)} — ${meta.label}`,
+      sub:   formatDate(o.created_at),
+      color: meta.color,
+      bg:    meta.bg,
+    })
+  }
+  return items
+}
+
+function ActivityLog({ orders }: { orders: DbOrder[] }) {
+  const items = buildActivity(orders)
+
+  return (
+    <div className="bg-white dark:bg-[#1a1a2e] border border-fs-border rounded-3xl p-7 shadow-sm">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-9 h-9 bg-violet-50 rounded-xl flex items-center justify-center">
+          <Activity size={17} strokeWidth={1.5} className="text-violet-500" />
+        </div>
+        <div>
+          <h2 className="text-[16px] font-bold text-fs-graphite">Активность</h2>
+          <p className="text-[12px] text-fs-gray">Последние события</p>
+        </div>
+      </div>
+      <div className="space-y-3">
+        {items.map((item, i) => {
+          const Icon = item.icon
+          return (
+            <motion.div key={item.id}
+              initial={{ opacity: 0, x: -8 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: i * 0.04 }}
+              className="flex items-center gap-3"
+            >
+              <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
+                style={{ background: item.bg }}>
+                <Icon size={14} strokeWidth={1.5} style={{ color: item.color }} />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-[13px] font-medium text-fs-graphite truncate">{item.text}</p>
+                <p className="text-[11px] text-fs-muted">{item.sub}</p>
+              </div>
+            </motion.div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+// ─── TAB BAR ─────────────────────────────────────────────────────────────────
+
+type Tab = "orders" | "analytics" | "couriers"
+
+const TABS: { value: Tab; label: string; icon: React.ElementType }[] = [
+  { value: "orders",    label: "Заказы",    icon: ShoppingBag },
+  { value: "analytics", label: "Аналитика", icon: BarChart2   },
+  { value: "couriers",  label: "Курьеры",   icon: Truck       },
+]
+
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
 
 export default function AdminPage() {
   const [unlocked, setUnlocked] = useState(() =>
     typeof window !== "undefined" && sessionStorage.getItem("fs_admin") === "1"
   )
-  const [orders,  setOrders]  = useState<DbOrder[]>([])
-  const [loading, setLoading] = useState(true)
-  const [filter,   setFilter]   = useState<OrderStatus | "all">("all")
-  const [search,   setSearch]   = useState("")
+  const [orders,    setOrders]    = useState<DbOrder[]>([])
+  const [loading,   setLoading]   = useState(true)
+  const [isDemo,    setIsDemo]    = useState(false)
+  const [filter,    setFilter]    = useState<OrderStatus | "all">("all")
+  const [search,    setSearch]    = useState("")
   const [dateRange, setDateRange] = useState<"all" | "today" | "week" | "month">("all")
-  const [live,     setLive]     = useState(false)
+  const [live,      setLive]      = useState(false)
+  const [tab,       setTab]       = useState<Tab>("orders")
 
   const fetchOrders = useCallback(async () => {
     setLoading(true)
-    const res  = await fetch("/api/orders")
-    const data = await res.json()
-    setOrders(Array.isArray(data) ? data : [])
-    setLoading(false)
+    try {
+      const res  = await fetch("/api/orders")
+      if (!res.ok) throw new Error("not-ok")
+      const data = await res.json()
+      if (Array.isArray(data) && data.length >= 0) {
+        setOrders(data)
+        setIsDemo(false)
+      } else {
+        throw new Error("bad-data")
+      }
+    } catch {
+      // Fall back to mock data for demo
+      setOrders(MOCK_ORDERS as DbOrder[])
+      setIsDemo(true)
+    } finally {
+      setLoading(false)
+    }
   }, [])
 
-  // eslint-disable-next-line react-hooks/set-state-in-effect
-  useEffect(() => { fetchOrders() }, [fetchOrders])
+  useEffect(() => { if (unlocked) fetchOrders() }, [unlocked, fetchOrders])
 
   useEffect(() => {
+    if (!unlocked) return
     const channel = supabase
       .channel("admin-orders")
       .on("postgres_changes", { event: "*", schema: "public", table: "orders" }, (payload) => {
         if (payload.eventType === "INSERT") {
           setOrders((prev) => [payload.new as DbOrder, ...prev])
+          setIsDemo(false)
         } else if (payload.eventType === "UPDATE") {
           setOrders((prev) => prev.map((o) => o.id === (payload.new as DbOrder).id ? payload.new as DbOrder : o))
         } else if (payload.eventType === "DELETE") {
@@ -574,9 +746,13 @@ export default function AdminPage() {
       })
       .subscribe((state) => setLive(state === "SUBSCRIBED"))
     return () => { supabase.removeChannel(channel) }
-  }, [])
+  }, [unlocked])
 
   const handleStatusChange = async (id: string, status: OrderStatus) => {
+    if (isDemo) {
+      setOrders((prev) => prev.map((o) => o.id === id ? { ...o, status } : o))
+      return
+    }
     await fetch(`/api/orders/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -633,7 +809,6 @@ export default function AdminPage() {
     let result = orders
     if (filter !== "all") result = result.filter((o) => o.status === filter)
     if (dateRange !== "all") {
-      // eslint-disable-next-line react-hooks/purity
       const now  = Date.now()
       const cuts: Record<string, number> = { today: now - 86400000, week: now - 604800000, month: now - 2592000000 }
       result = result.filter((o) => new Date(o.created_at).getTime() >= cuts[dateRange])
@@ -673,7 +848,7 @@ export default function AdminPage() {
 
         {/* HEADER */}
         <FadeIn>
-          <div className="flex flex-col sm:flex-row items-start justify-between gap-6 mb-12">
+          <div className="flex flex-col sm:flex-row items-start justify-between gap-6 mb-10">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-gradient-to-br from-fs-primary to-[#007A5A] rounded-2xl flex items-center justify-center shadow-[0_4px_16px_rgba(0,91,70,0.3)]">
@@ -684,8 +859,14 @@ export default function AdminPage() {
                   <p className="text-[12px] text-fs-gray mt-0.5">Food Service Kazakhstan</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                {live ? (
+
+              <div className="flex items-center gap-3 flex-wrap">
+                {isDemo ? (
+                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200">
+                    <Star size={11} strokeWidth={2} className="text-amber-500" />
+                    <span className="text-[12px] font-semibold text-amber-600">Демо-режим</span>
+                  </div>
+                ) : live ? (
                   <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200">
                     <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
                     <span className="text-[12px] font-semibold text-emerald-600">Live</span>
@@ -696,23 +877,27 @@ export default function AdminPage() {
                     <span className="text-[12px] text-fs-gray">Connecting...</span>
                   </div>
                 )}
-                <span className="text-[12px] text-fs-muted">{orders.length} заказов загружено</span>
+                <span className="text-[12px] text-fs-muted">
+                  {orders.length} заказов{isDemo ? " (mock data)" : ""}
+                </span>
               </div>
             </div>
 
-            <button
-              onClick={fetchOrders}
-              disabled={loading}
-              className="
-                flex items-center gap-2 px-4 py-2.5 rounded-xl
-                bg-white border border-fs-border text-[13px] text-fs-gray
-                hover:border-fs-subtle hover:text-fs-primary
-                transition-all duration-200 disabled:opacity-50 shadow-sm
-              "
-            >
-              <RefreshCw size={14} strokeWidth={1.5} className={loading ? "animate-spin" : ""} />
-              Обновить
-            </button>
+            <div className="flex items-center gap-2">
+              {isDemo && (
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-[12px] text-amber-700">
+                  <AlertCircle size={13} strokeWidth={1.5} />
+                  Суpabase не подключён
+                </div>
+              )}
+              <button
+                onClick={fetchOrders} disabled={loading}
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-fs-border text-[13px] text-fs-gray hover:border-fs-subtle hover:text-fs-primary transition-all duration-200 disabled:opacity-50 shadow-sm"
+              >
+                <RefreshCw size={14} strokeWidth={1.5} className={loading ? "animate-spin" : ""} />
+                Обновить
+              </button>
+            </div>
           </div>
         </FadeIn>
 
@@ -720,8 +905,7 @@ export default function AdminPage() {
         <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 mb-8">
           {metrics.map(({ icon, label, num, prefix, suffix, sub, color, bg }, i) => (
             <FadeIn key={label} delay={0.06 * i}>
-              <MetricCard
-                icon={icon} label={label} num={num}
+              <MetricCard icon={icon} label={label} num={num}
                 prefix={prefix} suffix={suffix}
                 sub={sub} color={color} bg={bg} loading={loading}
               />
@@ -729,151 +913,194 @@ export default function AdminPage() {
           ))}
         </div>
 
-        {/* ANALYTICS CHARTS */}
-        {!loading && orders.length > 0 && (
-          <FadeIn delay={0.1}>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-8">
-              <RevenueChart orders={orders} />
-              <TopProducts  orders={orders} />
-            </div>
-          </FadeIn>
-        )}
-
-        {/* ORDERS TABLE */}
-        <FadeIn delay={0.15}>
-          <div className="bg-white border border-fs-border rounded-3xl shadow-sm overflow-hidden">
-
-            {/* TABLE HEADER */}
-            <div className="px-7 py-5 border-b border-fs-border flex items-center justify-between gap-4">
-              <div>
-                <h2 className="text-[18px] font-bold text-fs-graphite">Заказы</h2>
-                {!loading && visible.length > 0 && (
-                  <p className="text-[12px] text-fs-gray mt-0.5">
-                    {visible.length} из {orders.length} · итого{" "}
-                    <span className="text-fs-graphite font-bold">₸{visibleTotal.toLocaleString()}</span>
-                  </p>
-                )}
-              </div>
-              {visible.length > 0 && (
-                <button
-                  onClick={exportCSV}
-                  className="
-                    flex items-center gap-1.5 px-3.5 py-2 rounded-xl
-                    bg-fs-offwhite border border-fs-border text-[12px] text-fs-gray
-                    hover:border-fs-subtle hover:text-fs-primary
+        {/* TAB NAV */}
+        <FadeIn delay={0.1}>
+          <div className="flex items-center gap-1 bg-white border border-fs-border rounded-2xl p-1 mb-6 w-fit">
+            {TABS.map(({ value, label, icon: Icon }) => {
+              const active = tab === value
+              return (
+                <button key={value} onClick={() => setTab(value)}
+                  className={`
+                    flex items-center gap-2 px-4 py-2.5 rounded-xl text-[13px] font-semibold
                     transition-all duration-200
-                  "
+                    ${active
+                      ? "bg-fs-primary text-white shadow-sm"
+                      : "text-fs-gray hover:text-fs-graphite hover:bg-fs-offwhite"}
+                  `}
                 >
-                  <Download size={13} strokeWidth={1.5} />
-                  Экспорт CSV
+                  <Icon size={15} strokeWidth={1.5} />
+                  {label}
                 </button>
-              )}
-            </div>
+              )
+            })}
+          </div>
+        </FadeIn>
 
-            <div className="px-7 py-5">
-              {/* SEARCH + DATE */}
-              <div className="flex flex-col sm:flex-row gap-3 mb-4">
-                <div className="relative flex-1">
-                  <Search size={14} strokeWidth={1.5} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-fs-subtle pointer-events-none" />
-                  <input
-                    type="text"
-                    placeholder="Поиск по номеру, телефону, компании..."
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    className="
-                      w-full pl-9 pr-9 py-3 rounded-xl
-                      bg-fs-offwhite border border-fs-border
-                      text-[13px] text-fs-graphite placeholder:text-fs-muted
-                      focus:border-fs-subtle focus:outline-none focus:bg-white
-                      transition-all duration-200
-                    "
-                  />
-                  {search && (
-                    <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-fs-subtle hover:text-fs-gray transition-colors">
-                      <X size={14} strokeWidth={1.5} />
-                    </button>
+        {/* TAB: ORDERS */}
+        {tab === "orders" && (
+          <FadeIn delay={0.12}>
+            <div className="bg-white dark:bg-[#1a1a2e] border border-fs-border rounded-3xl shadow-sm overflow-hidden">
+              <div className="px-7 py-5 border-b border-fs-border flex items-center justify-between gap-4">
+                <div>
+                  <h2 className="text-[18px] font-bold text-fs-graphite">Заказы</h2>
+                  {!loading && visible.length > 0 && (
+                    <p className="text-[12px] text-fs-gray mt-0.5">
+                      {visible.length} из {orders.length} · итого{" "}
+                      <span className="text-fs-graphite font-bold">₸{visibleTotal.toLocaleString()}</span>
+                    </p>
                   )}
                 </div>
+                {visible.length > 0 && (
+                  <button onClick={exportCSV}
+                    className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-fs-offwhite border border-fs-border text-[12px] text-fs-gray hover:border-fs-subtle hover:text-fs-primary transition-all duration-200"
+                  >
+                    <Download size={13} strokeWidth={1.5} />
+                    Экспорт CSV
+                  </button>
+                )}
+              </div>
 
-                <div className="flex items-center gap-1 bg-fs-offwhite border border-fs-border rounded-xl px-2 py-2 flex-shrink-0">
-                  <Calendar size={13} strokeWidth={1.5} className="text-fs-muted ml-1 mr-1" />
-                  {(["all", "today", "week", "month"] as const).map((range) => {
-                    const labels = { all: "Всё", today: "День", week: "Неделя", month: "Месяц" }
-                    const active = dateRange === range
+              <div className="px-7 py-5">
+                <div className="flex flex-col sm:flex-row gap-3 mb-4">
+                  <div className="relative flex-1">
+                    <Search size={14} strokeWidth={1.5} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-fs-subtle pointer-events-none" />
+                    <input
+                      type="text"
+                      placeholder="Поиск по номеру, телефону, адресу, товару..."
+                      value={search}
+                      onChange={(e) => setSearch(e.target.value)}
+                      className="w-full pl-9 pr-9 py-3 rounded-xl bg-fs-offwhite border border-fs-border text-[13px] text-fs-graphite placeholder:text-fs-muted focus:border-fs-subtle focus:outline-none focus:bg-white transition-all duration-200"
+                    />
+                    {search && (
+                      <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-fs-subtle hover:text-fs-gray transition-colors">
+                        <X size={14} strokeWidth={1.5} />
+                      </button>
+                    )}
+                  </div>
+
+                  <div className="flex items-center gap-1 bg-fs-offwhite border border-fs-border rounded-xl px-2 py-2 flex-shrink-0">
+                    <Calendar size={13} strokeWidth={1.5} className="text-fs-muted ml-1 mr-1" />
+                    {(["all", "today", "week", "month"] as const).map((range) => {
+                      const labels = { all: "Всё", today: "День", week: "Неделя", month: "Месяц" }
+                      const active = dateRange === range
+                      return (
+                        <button key={range} onClick={() => setDateRange(range)}
+                          className={`px-3 py-1.5 rounded-lg text-[12px] font-medium transition-all duration-150
+                            ${active ? "bg-white border border-fs-border text-fs-primary shadow-sm" : "text-fs-gray hover:text-fs-graphite"}`}
+                        >
+                          {labels[range]}
+                        </button>
+                      )
+                    })}
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {FILTER_TABS.map((ftab) => {
+                    const active = filter === ftab.value
+                    const count  = ftab.value === "all" ? orders.length : orders.filter((o) => o.status === ftab.value).length
+                    const meta   = ftab.value !== "all" ? STATUS_META[ftab.value] : null
                     return (
-                      <button
-                        key={range}
-                        onClick={() => setDateRange(range)}
-                        className={`
-                          px-3 py-1.5 rounded-lg text-[12px] font-medium transition-all duration-150
-                          ${active ? "bg-white border border-fs-border text-fs-primary shadow-sm" : "text-fs-gray hover:text-fs-graphite"}
-                        `}
+                      <button key={ftab.value} onClick={() => setFilter(ftab.value)}
+                        className={`px-3.5 py-1.5 rounded-full text-[12px] font-semibold border transition-all duration-200 flex items-center gap-1.5
+                          ${active ? "border-transparent text-white shadow-sm" : "border-fs-border bg-white dark:bg-[#1a1a2e] text-fs-gray hover:border-fs-subtle"}`}
+                        style={active && meta ? { background: meta.color } : active ? { background: "#005B46" } : {}}
                       >
-                        {labels[range]}
+                        {ftab.label}
+                        <span className={`text-[11px] ${active ? "opacity-70" : "opacity-50"}`}>{count}</span>
                       </button>
                     )
                   })}
                 </div>
-              </div>
 
-              {/* STATUS TABS */}
-              <div className="flex flex-wrap gap-2 mb-5">
-                {FILTER_TABS.map((tab) => {
-                  const active = filter === tab.value
-                  const count  = tab.value === "all" ? orders.length : orders.filter((o) => o.status === tab.value).length
-                  const meta   = tab.value !== "all" ? STATUS_META[tab.value] : null
-                  return (
-                    <button
-                      key={tab.value}
-                      onClick={() => setFilter(tab.value)}
-                      className={`
-                        px-3.5 py-1.5 rounded-full text-[12px] font-semibold
-                        border transition-all duration-200 flex items-center gap-1.5
-                        ${active
-                          ? "border-transparent text-white shadow-sm"
-                          : "border-fs-border bg-white text-fs-gray hover:border-fs-subtle"
-                        }
-                      `}
-                      style={active && meta ? { background: meta.color } : active ? { background: "#005B46" } : {}}
-                    >
-                      {tab.label}
-                      <span className={`text-[11px] ${active ? "opacity-70" : "opacity-50"}`}>{count}</span>
-                    </button>
-                  )
-                })}
-              </div>
-
-              {/* LIST */}
-              {loading ? (
-                <div className="space-y-3">
-                  {Array.from({ length: 4 }).map((_, i) => (
-                    <div key={i} className="h-16 skeleton-green rounded-2xl" />
-                  ))}
-                </div>
-              ) : visible.length === 0 ? (
-                <div className="text-center py-16">
-                  <div className="w-12 h-12 bg-fs-offwhite rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Package size={20} strokeWidth={1} className="text-fs-muted" />
+                {loading ? (
+                  <div className="space-y-3">
+                    {Array.from({ length: 4 }).map((_, i) => (
+                      <div key={i} className="h-16 skeleton-green rounded-2xl" />
+                    ))}
                   </div>
-                  <p className="text-[15px] text-fs-gray">
-                    {search ? `Ничего не найдено по "${search}"` : "Заказов нет"}
-                  </p>
-                  {search && (
-                    <button onClick={() => setSearch("")} className="mt-3 text-[13px] text-fs-gray hover:text-fs-primary transition-colors">
-                      Сбросить →
-                    </button>
-                  )}
-                </div>
+                ) : visible.length === 0 ? (
+                  <div className="text-center py-16">
+                    <div className="w-12 h-12 bg-fs-offwhite rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <Package size={20} strokeWidth={1} className="text-fs-muted" />
+                    </div>
+                    <p className="text-[15px] text-fs-gray">
+                      {search ? `Ничего не найдено по "${search}"` : "Заказов нет"}
+                    </p>
+                    {search && (
+                      <button onClick={() => setSearch("")} className="mt-3 text-[13px] text-fs-gray hover:text-fs-primary transition-colors">
+                        Сбросить →
+                      </button>
+                    )}
+                  </div>
+                ) : (
+                  <div className="space-y-2.5">
+                    {visible.map((order) => (
+                      <OrderRow key={order.id} order={order} onStatusChange={handleStatusChange} isDemo={isDemo} />
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </FadeIn>
+        )}
+
+        {/* TAB: ANALYTICS */}
+        {tab === "analytics" && (
+          <FadeIn delay={0.1}>
+            <div className="space-y-5">
+              {loading ? (
+                <div className="h-64 skeleton-green rounded-3xl" />
               ) : (
-                <div className="space-y-2.5">
-                  {visible.map((order) => (
-                    <OrderRow key={order.id} order={order} onStatusChange={handleStatusChange} />
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                  <RevenueChart orders={orders} />
+                  <TopProducts  orders={orders} />
+                </div>
+              )}
+              {!loading && <ActivityLog orders={orders} />}
+
+              {/* Stats row */}
+              {!loading && orders.length > 0 && (
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  {[
+                    {
+                      label: "Средний чек",
+                      value: `₸${Math.round(orders.reduce((s,o)=>s+o.total,0)/orders.length).toLocaleString()}`,
+                      icon: CircleDollarSign, color: "#005B46", bg: "#f0f7f4",
+                    },
+                    {
+                      label: "Доставлено",
+                      value: `${Math.round(orders.filter(o=>o.status==="delivered").length/orders.length*100)}%`,
+                      icon: CheckCircle, color: "#10b981", bg: "#ecfdf5",
+                    },
+                    {
+                      label: "Курьеров активно",
+                      value: `${MOCK_COURIERS.filter(c=>c.status==="active").length} из ${MOCK_COURIERS.length}`,
+                      icon: Users, color: "#6366f1", bg: "#eef2ff",
+                    },
+                  ].map(({ label, value, icon: Icon, color, bg }) => (
+                    <div key={label} className="bg-white dark:bg-[#1a1a2e] border border-fs-border rounded-2xl p-5 flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: bg }}>
+                        <Icon size={18} strokeWidth={1.5} style={{ color }} />
+                      </div>
+                      <div>
+                        <p className="text-[20px] font-black text-fs-graphite leading-none">{value}</p>
+                        <p className="text-[12px] text-fs-gray mt-1">{label}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               )}
             </div>
-          </div>
-        </FadeIn>
+          </FadeIn>
+        )}
+
+        {/* TAB: COURIERS */}
+        {tab === "couriers" && (
+          <FadeIn delay={0.1}>
+            <CouriersPanel orders={orders} />
+          </FadeIn>
+        )}
       </div>
     </main>
   )

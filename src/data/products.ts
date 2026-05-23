@@ -1433,7 +1433,7 @@ export const products: Product[] = [
   {
     id:              "milk-whole",
     emoji:           "🥛",
-    image:           "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=800&q=80",
+    image:           "/products/milk-whole.png",
     category:        "Молочные продукты",
     title:           "Молоко цельное 3.5%",
     description:     "Молоко пастеризованное цельное 3.5% жирности. Свежее ежедневно.",
@@ -1450,7 +1450,7 @@ export const products: Product[] = [
   {
     id:          "kefir",
     emoji:       "🥛",
-    image:       "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=800&q=80&crop=top",
+    image:       "/products/ryazhenka.png",
     category:    "Молочные продукты",
     title:       "Кефир 2.5%",
     description: "Кефир классический 2.5% жирности. Натуральный состав.",
@@ -1480,7 +1480,7 @@ export const products: Product[] = [
   {
     id:              "sour-cream",
     emoji:           "🫙",
-    image:           "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80&crop=top",
+    image:           "/products/smetana.png",
     category:        "Молочные продукты",
     title:           "Сметана 20%",
     description:     "Сметана 20% жирности, натуральная. Для блюд и выпечки.",
@@ -1526,7 +1526,7 @@ export const products: Product[] = [
   {
     id:              "ryazhenka",
     emoji:           "🥛",
-    image:           "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=800&q=80&crop=bottom",
+    image:           "/products/ryazhenka.png",
     category:        "Молочные продукты",
     title:           "Ряженка",
     description:     "Ряженка топлёная 4% жирности. Традиционный вкус.",
@@ -1560,7 +1560,7 @@ export const products: Product[] = [
   {
     id:              "lays-classic",
     emoji:           "🍿",
-    image:           "https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&w=800&q=80",
+    image:           "/products/lays-chips.png",
     category:        "Снеки",
     title:           "Чипсы Lays классик",
     description:     "Картофельные чипсы Lays классические, хрустящие.",
@@ -1621,7 +1621,7 @@ export const products: Product[] = [
   {
     id:              "chocolate-bar",
     emoji:           "🍫",
-    image:           "https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=800&q=80&crop=top",
+    image:           "/products/chocolate-bar.png",
     category:        "Снеки",
     title:           "Батончик шоколадный",
     description:     "Батончик с молочным шоколадом и карамелью. Быстрый перекус.",
@@ -1654,7 +1654,7 @@ export const products: Product[] = [
   {
     id:              "sushi-classic-set",
     emoji:           "🍣",
-    image:           "https://images.unsplash.com/photo-1562802378-063ec186a863?auto=format&fit=crop&w=800&q=80",
+    image:           "/products/sushi-set-classic.png",
     category:        "Готовая еда",
     title:           "Суши сет «Классик»",
     description:     "32 ролла: Калифорния, Филадельфия, запечённые. Для 2–3 персон.",
@@ -1717,7 +1717,7 @@ export const products: Product[] = [
   {
     id:              "blini-set",
     emoji:           "🥞",
-    image:           "https://images.unsplash.com/photo-1562917235-3e37c33a17bf?auto=format&fit=crop&w=800&q=80",
+    image:           "/products/blini-filled.png",
     category:        "Готовая еда",
     title:           "Блины с начинкой",
     description:     "Блины со сгущёнкой и творогом, 6 шт. Свежеприготовленные.",

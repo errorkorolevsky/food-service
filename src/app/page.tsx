@@ -17,39 +17,52 @@ import LoadingScreen from "@/components/ui/LoadingScreen";
 import GlowBackground from "@/components/ui/GlowBackground";
 import FloatingNotification from "@/components/ui/FloatingNotification";
 
+function SectionDivider({ variant = "green" }: { variant?: "green" | "warm" | "neutral" }) {
+  const gradients = {
+    green:   "from-transparent via-[rgba(0,91,70,0.45)] to-transparent",
+    warm:    "from-transparent via-[rgba(245,158,11,0.45)] to-transparent",
+    neutral: "from-transparent via-[rgba(107,114,128,0.30)] to-transparent",
+  }
+  return (
+    <div className={`h-[2px] bg-gradient-to-r ${gradients[variant]}`} />
+  )
+}
+
 export default function HomePage() {
   return (
-    <main className="fs-page-bg text-fs-graphite min-h-screen overflow-hidden relative">
-
-      <GlowBackground />
-
-      <LoadingScreen />
-
+    <>
       <Navbar />
 
-      <HeroSection />
+      <main className="text-fs-graphite min-h-screen relative" style={{ overflowX: "clip" }}>
 
-      <PromoTicker />
+        <HeroSection />
 
-      <AnimatedPromoBanner />
+        <PromoTicker />
 
-      <CategoriesSection />
+        <SectionDivider variant="warm" />
+        <LiveOffersSection />
 
-      <LiveOffersSection />
+        <SectionDivider variant="warm" />
+        <AnimatedPromoBanner />
 
-      <NewArrivalsSection />
+        <SectionDivider variant="green" />
+        <CategoriesSection />
 
-      <PopularSection />
+        <SectionDivider variant="neutral" />
+        <PopularSection />
 
-      <BusinessSection />
+        <SectionDivider variant="warm" />
+        <NewArrivalsSection />
 
-      <CartDrawer />
+        <SectionDivider variant="neutral" />
+        <BusinessSection />
 
-      <CartButton />
+        <CartDrawer />
+        <CartButton />
+        <FloatingNotification />
 
-      <FloatingNotification />
-
-      <Footer />
-    </main>
+        <Footer />
+      </main>
+    </>
   );
 }

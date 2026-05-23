@@ -1,17 +1,23 @@
 "use client"
 
 import Link from "next/link"
-import { motion, useScroll, useTransform, useSpring } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 import { MapPin, Clock, AtSign } from "lucide-react"
 import Logo from "@/components/ui/Logo"
 import { useLang } from "@/locales"
 
+const stagger: Variants = {
+  hidden: {},
+  show:   { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+}
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  show:   { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0, 0, 0.2, 1] as [number, number, number, number] } },
+}
+
 export default function Footer() {
-  const { scrollYProgress } = useScroll()
-  const rawY    = useTransform(scrollYProgress, [0.7, 1], [80, 0])
-  const y       = useSpring(rawY, { stiffness: 80, damping: 20 })
-  const opacity = useTransform(scrollYProgress, [0.7, 0.85], [0, 1])
-  const { t }   = useLang()
+  const { t } = useLang()
 
   const navCols = [
     {
@@ -46,10 +52,9 @@ export default function Footer() {
   ]
 
   return (
-    <motion.footer
-      style={{ y, opacity }}
-      className="border-t border-fs-border bg-fs-dark relative overflow-hidden"
-    >
+    <footer className="border-t border-fs-border bg-fs-dark relative overflow-hidden">
+      {/* Noise */}
+      <div className="absolute inset-0 noise-overlay" />
       {/* FSK WATERMARK */}
       <div
         className="absolute bottom-0 right-0 select-none pointer-events-none leading-none"
@@ -68,10 +73,16 @@ export default function Footer() {
       <div className="fs-container py-16 relative z-10">
 
         {/* TOP */}
-        <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-14">
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-14"
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+        >
 
           {/* LEFT — BRAND */}
-          <div>
+          <motion.div variants={fadeUp}>
             <Logo variant="white" />
 
             <p className="text-body text-white/65 mt-6 leading-relaxed">
@@ -113,10 +124,10 @@ export default function Footer() {
                 {t.footer.delivery}
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* RIGHT — NAV */}
-          <div className="grid grid-cols-3 gap-8">
+          <motion.div variants={fadeUp} className="grid grid-cols-3 gap-8">
             {navCols.map((col) => (
               <div key={col.title}>
                 <p className="text-label text-white/40 uppercase tracking-widest mb-5">
@@ -136,8 +147,8 @@ export default function Footer() {
                 </ul>
               </div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* BOTTOM */}
         <div className="border-t border-white/10 mt-14 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -150,6 +161,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </motion.footer>
+    </footer>
   )
 }

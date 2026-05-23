@@ -24,8 +24,22 @@ export default function NewArrivalsSection() {
   if (newProducts.length === 0) return null
 
   return (
-    <section className="fs-section bg-fs-white overflow-hidden">
-      <div className="fs-container py-10 sm:py-16 lg:py-20">
+    <section className="fs-section relative overflow-hidden">
+      {/* Warm amber background — alternates with mint/sky */}
+      <div className="absolute inset-0" style={{ background: "var(--section-warm-bg)" }} />
+      {/* Purple/violet glow — new arrivals = freshness accent */}
+      <div className="absolute -top-16 left-[10%] w-[500px] h-[380px] pointer-events-none" style={{
+        background: "radial-gradient(ellipse 60% 55% at 20% 10%, rgba(139,92,246,0.20) 0%, transparent 65%)",
+      }} />
+      <div className="absolute -bottom-10 right-[5%] w-[450px] h-[300px] pointer-events-none" style={{
+        background: "radial-gradient(ellipse 55% 50% at 80% 90%, rgba(0,91,70,0.22) 0%, transparent 70%)",
+      }} />
+      {/* Violet/purple top accent strip — "new" color */}
+      <div className="absolute top-0 left-0 right-0 h-[3px] pointer-events-none" style={{
+        background: "linear-gradient(90deg, transparent 0%, rgba(139,92,246,0.55) 30%, rgba(168,85,247,0.80) 50%, rgba(139,92,246,0.55) 70%, transparent 100%)",
+      }} />
+      <div className="absolute inset-0 noise-overlay" style={{ opacity: 0.025 }} />
+      <div className="fs-container py-10 sm:py-16 lg:py-20 relative z-10">
 
         <FadeIn>
           <div className="flex items-end justify-between mb-8">
@@ -84,10 +98,10 @@ export default function NewArrivalsSection() {
             <motion.div
               key={product.id}
               className="flex-shrink-0 w-[260px] sm:w-[280px]"
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 24, scale: 0.97 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.45, delay: i * 0.07, ease: [0, 0, 0.2, 1] }}
+              transition={{ duration: 0.5, delay: i * 0.06, ease: [0, 0, 0.2, 1] }}
             >
               <ProductCard
                 id={product.id}
