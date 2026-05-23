@@ -63,6 +63,7 @@ export type CartItem = {
   title:    string
   price:    number
   emoji:    string
+  image?:   string
   quantity: number
 }
 

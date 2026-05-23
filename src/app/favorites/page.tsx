@@ -43,7 +43,7 @@ export default function FavoritesPage() {
 
   const handleAddAll = () => {
     products.forEach((item) => {
-      addItem({ id: item.id, title: item.title, price: item.priceNum, emoji: item.emoji })
+      addItem({ id: item.id, title: item.title, price: item.priceNum, emoji: item.emoji, image: item.image })
     })
     openCart()
   }

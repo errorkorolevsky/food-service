@@ -95,7 +95,7 @@ export default function ProductCard({
   }
 
   const handleAddToCart = () => {
-    addItem({ id, title, price: priceNum, emoji })
+    addItem({ id, title, price: priceNum, emoji, image })
     showToast(title, emoji)
     setBurst(true)
     setTimeout(() => setBurst(false), 600)

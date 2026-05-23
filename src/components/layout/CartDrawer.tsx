@@ -2,6 +2,7 @@
 
 import { useSyncExternalStore } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, ShoppingBag, Minus, Plus, Trash2, ArrowRight } from "lucide-react"
 
@@ -179,14 +180,24 @@ export default function CartDrawer() {
                   >
                     <div className="flex items-start gap-4">
 
-                      {/* EMOJI */}
+                      {/* THUMBNAIL */}
                       <div className="
                         w-14 h-14 rounded-lg flex-shrink-0
                         bg-fs-white border border-fs-border
                         flex items-center justify-center
-                        text-3xl
+                        overflow-hidden text-3xl
                       ">
-                        {item.emoji}
+                        {item.image ? (
+                          <Image
+                            src={item.image}
+                            alt={item.title}
+                            width={56}
+                            height={56}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          item.emoji
+                        )}
                       </div>
 
                       {/* INFO */}

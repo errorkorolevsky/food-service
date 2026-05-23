@@ -173,7 +173,7 @@ export const ru = {
     phonePlaceholder: "Телефон *",
     phoneMissing:     "Укажите телефон",
     name:      "Имя",
-    companyPlaceholder: "Название компании / имя",
+    companyPlaceholder: "Ваше имя",
     address:   "Адрес доставки",
     addressPlaceholder: "Адрес доставки *",
     addressMissing:     "Укажите адрес доставки",

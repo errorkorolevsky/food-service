@@ -175,7 +175,7 @@ export const kz: Translations = {
     phonePlaceholder: "Телефон *",
     phoneMissing:     "Телефонды көрсетіңіз",
     name:      "Аты",
-    companyPlaceholder: "Компания атауы / аты",
+    companyPlaceholder: "Сіздің атыңыз",
     address:   "Жеткізу мекенжайы",
     addressPlaceholder: "Жеткізу мекенжайы *",
     addressMissing:     "Жеткізу мекенжайын көрсетіңіз",

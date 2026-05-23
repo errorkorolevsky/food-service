@@ -59,7 +59,7 @@ export default function ProductPage() {
     .slice(0, 4)
 
   const handleAdd = () => {
-    addItem({ id: product.id, title: product.title, price: product.priceNum, emoji: product.emoji })
+    addItem({ id: product.id, title: product.title, price: product.priceNum, emoji: product.emoji, image: product.image })
     showToast(product.title, product.emoji)
   }
 
