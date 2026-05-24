@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion"
 import { Plus, Minus, Star, Heart } from "lucide-react"
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 
 import { useCartStore } from "@/store/cartStore"
 import { useToastStore } from "@/store/toastStore"
@@ -76,7 +76,14 @@ export default function ProductCard({
   const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [6, -6]), { stiffness: 300, damping: 30 })
   const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-6, 6]), { stiffness: 300, damping: 30 })
 
+  // Disable 3D tilt and cursor effects on touch/coarse-pointer devices
+  const [isTouch, setIsTouch] = useState(false)
+  useEffect(() => {
+    setIsTouch(window.matchMedia("(pointer: coarse)").matches)
+  }, [])
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isTouch) return
     const rect = ref.current?.getBoundingClientRect()
     if (!rect) return
     mouseX.set((e.clientX - rect.left) / rect.width - 0.5)
@@ -106,13 +113,13 @@ export default function ProductCard({
     toggle({ id, title, price, priceNum, emoji, category, description, rating, inStock } as Product)
   }
 
-  // Cursor-aware gradient origin (follows cursor inside card)
-  const lightGradient = cursor.active
+  // Cursor-aware gradient origin (follows cursor inside card) — desktop only
+  const lightGradient = (!isTouch && cursor.active)
     ? `radial-gradient(ellipse 80% 70% at ${cursor.x * 100}% ${cursor.y * 100}%, rgba(0,91,70,0.07) 0%, transparent 70%)`
     : "none"
 
-  // Border glow intensity driven by cursor proximity to center
-  const borderGlow = cursor.active
+  // Border glow intensity driven by cursor proximity to center — desktop only
+  const borderGlow = (!isTouch && cursor.active)
     ? `0 0 0 1px rgba(0,91,70,${0.10 + (1 - cursor.dist) * 0.22}), 0 4px 24px rgba(0,91,70,${0.04 + (1 - cursor.dist) * 0.10})`
     : undefined
 
@@ -120,9 +127,12 @@ export default function ProductCard({
     <motion.div
       ref={ref}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setShining(true)}
+      onMouseEnter={() => { if (!isTouch) setShining(true) }}
       onMouseLeave={handleMouseLeave}
-      style={{ rotateX, rotateY, transformPerspective: 900, boxShadow: borderGlow }}
+      style={isTouch
+        ? { boxShadow: undefined }
+        : { rotateX, rotateY, transformPerspective: 900, boxShadow: borderGlow }
+      }
       whileHover={{ y: -8, scale: 1.018 }}
       transition={{ type: "spring", stiffness: 280, damping: 22 }}
       className="
@@ -145,8 +155,8 @@ export default function ProductCard({
         style={{ background: lightGradient }}
       />
 
-      {/* SHINE OVERLAY */}
-      {shining && (
+      {/* SHINE OVERLAY — desktop only */}
+      {(!isTouch && shining) && (
         <div
           className="absolute inset-0 z-20 pointer-events-none rounded-2xl overflow-hidden"
           style={{ animation: "card-shine 0.55s ease forwards" }}

@@ -65,12 +65,30 @@ function SuccessContent() {
 
   useEffect(() => {
     if (!rawId) return
-    fetch(`/api/orders/track?q=${encodeURIComponent(orderId)}`)
-      .then((r) => r.ok ? r.json() : null)
-      .then((data) => {
+
+    const fetchOrder = async () => {
+      try {
+        const r = await fetch(`/api/orders/track?q=${encodeURIComponent(orderId)}`)
+        if (!r.ok) return
+        const data = await r.json()
         if (Array.isArray(data) && data.length > 0) setOrder(data[0])
+      } catch {}
+    }
+
+    fetchOrder()
+
+    // Poll every 15s while order is not yet delivered/cancelled
+    const interval = setInterval(async () => {
+      await fetchOrder()
+      setOrder((prev) => {
+        if (prev?.status === "delivered" || prev?.status === "cancelled") {
+          clearInterval(interval)
+        }
+        return prev
       })
-      .catch(() => {})
+    }, 15_000)
+
+    return () => clearInterval(interval)
   }, [rawId, orderId])
 
   const stepIndex    = order ? STATUS_STEPS.findIndex((s) => s.key === order.status) : 0

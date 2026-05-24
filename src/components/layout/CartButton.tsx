@@ -1,6 +1,6 @@
 "use client"
 
-import { useSyncExternalStore } from "react"
+import { useSyncExternalStore, useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ShoppingCart } from "lucide-react"
 
@@ -18,15 +18,35 @@ export default function CartButton({ variant = "fab" }: CartButtonProps) {
   const mounted  = useSyncExternalStore(() => () => {}, () => true, () => false)
   const { t }    = useLang()
 
-  const count = mounted ? items.reduce((sum, i) => sum + i.quantity, 0) : 0
+  const count        = mounted ? items.reduce((sum, i) => sum + i.quantity, 0) : 0
+  const prevCountRef = useRef(count)
+  const [bump, setBump] = useState(false)
+
+  useEffect(() => {
+    if (count > prevCountRef.current && count > 0) {
+      setBump(true)
+      const timer = setTimeout(() => setBump(false), 400)
+      return () => clearTimeout(timer)
+    }
+    prevCountRef.current = count
+  }, [count])
+
+  const badgeAnim = bump
+    ? { scale: [1, 1.55, 0.88, 1.12, 1] as number[], opacity: 1 }
+    : { scale: 1, opacity: 1 }
+
+  const badgeTransition = bump
+    ? { duration: 0.38, times: [0, 0.28, 0.55, 0.78, 1] }
+    : { type: "spring" as const, stiffness: 400, damping: 20 }
 
   if (variant === "navbar") {
     return (
       <motion.button
         onClick={openCart}
+        animate={bump ? { scale: [1, 1.08, 1] } : {}}
+        transition={{ duration: 0.3 }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        transition={{ duration: 0.15, ease: "easeOut" }}
         className="
           relative
           flex items-center gap-2
@@ -43,9 +63,9 @@ export default function CartButton({ variant = "fab" }: CartButtonProps) {
             <motion.span
               key="count"
               initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
+              animate={badgeAnim}
               exit={{ scale: 0, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 400, damping: 20 }}
+              transition={badgeTransition}
               className="
                 absolute -top-2 -right-2
                 w-5 h-5 rounded-full
@@ -67,9 +87,10 @@ export default function CartButton({ variant = "fab" }: CartButtonProps) {
   return (
     <motion.button
       onClick={openCart}
+      animate={bump ? { scale: [1, 1.1, 1] } : {}}
+      transition={{ duration: 0.3 }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      transition={{ duration: 0.15, ease: "easeOut" }}
       className="
         fixed bottom-[88px] right-4 z-[997]
         lg:bottom-8 lg:right-8
@@ -86,9 +107,9 @@ export default function CartButton({ variant = "fab" }: CartButtonProps) {
           <motion.div
             key="badge"
             initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
+            animate={badgeAnim}
             exit={{ scale: 0, opacity: 0 }}
-            transition={{ type: "spring", stiffness: 400, damping: 20 }}
+            transition={badgeTransition}
             className="
               absolute -top-2 -right-2
               w-6 h-6 rounded-full

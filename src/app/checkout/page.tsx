@@ -38,14 +38,14 @@ function GlassInput({
         onBlur={(e)  => { setFocused(false); props.onBlur?.(e as never) }}
         className={`
           w-full px-5 py-4 rounded-2xl
-          bg-white border text-fs-graphite placeholder-fs-muted
+          bg-fs-white border text-fs-graphite placeholder:text-fs-gray
           text-[15px] outline-none
           transition-all duration-200
           ${error
             ? "border-red-400/60 shadow-[0_0_0_3px_rgba(239,68,68,0.1)]"
             : focused
               ? "border-fs-primary/50 shadow-[0_0_0_3px_rgba(0,91,70,0.08),0_2px_8px_rgba(0,0,0,0.06)]"
-              : "border-fs-border shadow-sm hover:border-fs-subtle"
+              : "border-fs-border shadow-sm hover:border-fs-primary/30"
           }
           ${className}
         `}
@@ -126,7 +126,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <main className="min-h-screen text-fs-graphite" style={{ background: "linear-gradient(135deg, #f8faf9 0%, #f0f7f4 50%, #f8faf9 100%)" }}>
+    <main className="min-h-screen text-fs-graphite bg-[var(--page-bg)]">
       {/* AMBIENT BLOBS */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full opacity-[0.04]"
@@ -239,7 +239,7 @@ export default function CheckoutPage() {
                           px-5 py-2.5 rounded-xl text-[14px] font-medium border transition-all duration-200
                           ${deliveryDate === key
                             ? "bg-fs-primary text-white border-fs-primary shadow-[0_0_0_3px_rgba(0,91,70,0.12)]"
-                            : "bg-white text-fs-gray border-fs-border hover:border-fs-primary/30 hover:text-fs-graphite"
+                            : "bg-fs-white text-fs-gray border-fs-border hover:border-fs-primary/30 hover:text-fs-graphite"
                           }
                         `}
                       >
@@ -261,7 +261,7 @@ export default function CheckoutPage() {
                           px-4 py-2 rounded-xl text-[13px] font-medium border transition-all duration-200
                           ${deliveryTime === slot
                             ? "bg-fs-primary text-white border-fs-primary shadow-[0_0_0_3px_rgba(0,91,70,0.12)]"
-                            : "bg-white text-fs-gray border-fs-border hover:border-fs-primary/30 hover:text-fs-graphite"
+                            : "bg-fs-white text-fs-gray border-fs-border hover:border-fs-primary/30 hover:text-fs-graphite"
                           }
                         `}
                       >
@@ -294,8 +294,8 @@ export default function CheckoutPage() {
                           border rounded-2xl p-5
                           transition-all duration-200
                           ${payment === id
-                            ? "border-fs-primary bg-gradient-to-br from-fs-light to-white shadow-[0_0_0_3px_rgba(0,91,70,0.1)]"
-                            : "border-fs-border bg-white hover:border-fs-subtle hover:shadow-sm"
+                            ? "border-fs-primary bg-gradient-to-br from-fs-light to-fs-white shadow-[0_0_0_3px_rgba(0,91,70,0.1)]"
+                            : "border-fs-border bg-fs-white hover:border-fs-primary/30 hover:shadow-sm"
                           }
                         `}
                       >
@@ -328,7 +328,7 @@ export default function CheckoutPage() {
             <FadeIn delay={0.15}>
               <div className="
                 sticky top-24
-                bg-white border border-fs-border rounded-3xl
+                bg-fs-white border border-fs-border rounded-3xl
                 overflow-hidden
                 shadow-[0_4px_40px_rgba(0,0,0,0.07)]
               ">
@@ -470,7 +470,7 @@ export default function CheckoutPage() {
       </div>
 
       {/* MOBILE STICKY CHECKOUT BAR */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-[998] bg-white/95 backdrop-blur-md border-t border-fs-border shadow-[0_-4px_24px_rgba(0,0,0,0.08)]"
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-[998] bg-white/95 dark:bg-[#1C2128]/95 backdrop-blur-md border-t border-fs-border shadow-[0_-4px_24px_rgba(0,0,0,0.08)]"
         style={{ paddingBottom: "max(env(safe-area-inset-bottom, 0px) + 76px, 80px)" }}>
         <div className="px-4 pt-3 pb-1">
           <div className="flex items-center justify-between mb-2.5">

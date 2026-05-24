@@ -20,16 +20,10 @@ const itemVariants: Variants = {
   show:   { opacity: 1, y: 0,  filter: "blur(0px)", transition: { duration: 0.6, ease: [0, 0, 0.2, 1] as [number,number,number,number] } },
 }
 
-const FLOATING_PILLS = [
-  { emoji: "🥩", label: "Мясо",     badge: "-20%",   color: "#ef4444", delay: 0.9 },
-  { emoji: "🐟", label: "Рыба",     badge: "Свежая", color: "#0ea5e9", delay: 1.1 },
-  { emoji: "🧀", label: "Молочное", badge: "NEW",    color: "#f59e0b", delay: 1.3 },
-  { emoji: "🥦", label: "Овощи",    badge: "Эко",    color: "#22c55e", delay: 1.5 },
-]
-
 export default function HeroSection() {
   const { t } = useLang()
-  const CATEGORY_PILLS = t.hero.categoryPills
+  const CATEGORY_PILLS   = t.hero.categoryPills
+  const FLOATING_PILLS   = t.hero.floatingPills
   const [orderCount, setOrderCount] = useState<number | null>(null)
 
   const { scrollY } = useScroll()
@@ -45,10 +39,15 @@ export default function HeroSection() {
   const cardY    = useSpring(rawCardY,    { stiffness: 70, damping: 20 })
 
   useEffect(() => {
-    supabase
-      .from("orders")
-      .select("id", { count: "exact", head: true })
-      .then(({ count }) => { if (count !== null) setOrderCount(count) })
+    const load = async () => {
+      try {
+        const { count, error } = await supabase
+          .from("orders")
+          .select("id", { count: "exact", head: true })
+        if (!error && count !== null) setOrderCount(count)
+      } catch { /* network / Supabase unavailable */ }
+    }
+    load()
   }, [])
 
   return (
@@ -127,9 +126,9 @@ export default function HeroSection() {
               y: [0, -(8 + i * 3), 0],
             }}
             transition={{
-              opacity: { duration: 0.5, delay: pill.delay },
-              x:       { duration: 0.5, delay: pill.delay },
-              scale:   { duration: 0.5, delay: pill.delay },
+              opacity: { duration: 0.5, delay: 0.9 + i * 0.2 },
+              x:       { duration: 0.5, delay: 0.9 + i * 0.2 },
+              scale:   { duration: 0.5, delay: 0.9 + i * 0.2 },
               y:       { duration: 4.5 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.6 },
             }}
           >

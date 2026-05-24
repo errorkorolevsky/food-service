@@ -32,6 +32,12 @@ export const kz: Translations = {
     stat_orders: "тапсырыс",
     cardTitle:   "Барлық санаттар",
     categoryPills: ["🥛 Сүт өнімдері", "🍗 Ет", "🥦 Көкөністер", "🧃 Сусындар", "🍫 Тәттілер", "❄️ Мұздатылған", "🍞 Нан", "📦 Жинақтар"],
+    floatingPills: [
+      { emoji: "🥩", label: "Ет",       badge: "-20%",   color: "#ef4444" },
+      { emoji: "🐟", label: "Балық",    badge: "Жаңа",   color: "#0ea5e9" },
+      { emoji: "🧀", label: "Сүт",      badge: "NEW",    color: "#f59e0b" },
+      { emoji: "🥦", label: "Көкөніс",  badge: "Эко",    color: "#22c55e" },
+    ],
     features: [
       { text: "Таза өнімдер жеткізумен",        color: "text-fs-accent" },
       { text: "Шымкент бойынша 30 мин жеткізу",  color: "text-blue-400"  },

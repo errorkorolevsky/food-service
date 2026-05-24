@@ -9,10 +9,14 @@ import { useFavoritesStore } from "@/store/favoritesStore"
 import { useLang } from "@/locales"
 import ThemeToggle from "@/components/ui/ThemeToggle"
 
+const HIDDEN_PATHS = ["/admin", "/checkout", "/login", "/order/success"]
+
 export default function MobileNav() {
   const pathname  = usePathname()
   const favCount  = useFavoritesStore((state) => state.ids.length)
   const { t, lang, setLang } = useLang()
+
+  if (HIDDEN_PATHS.some(p => pathname === p || pathname.startsWith(p + "/"))) return null
 
   const links = [
     { href: "/",          icon: Home,     label: t.nav.home,      showFavBadge: false },

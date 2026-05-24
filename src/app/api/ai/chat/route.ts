@@ -1,5 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk"
-import { NextRequest, NextResponse } from "next/server"
+import { NextRequest } from "next/server"
 
 export const dynamic = "force-dynamic"
 
@@ -106,21 +106,39 @@ export async function POST(req: NextRequest) {
   const { messages, orderContext }: { messages: Message[]; orderContext?: OrderContext[] } = await req.json()
 
   if (!messages?.length) {
-    return NextResponse.json({ error: "Нет сообщений" }, { status: 400 })
+    return new Response(JSON.stringify({ error: "Нет сообщений" }), { status: 400 })
   }
 
-  try {
-    const response = await client.messages.create({
-      model:      "claude-haiku-4-5-20251001",
-      max_tokens: 1024,
-      system:     buildSystemBlocks(orderContext),
-      messages,
-    })
+  const encoder = new TextEncoder()
 
-    const text = response.content[0].type === "text" ? response.content[0].text : ""
-    return NextResponse.json({ message: text })
-  } catch (err) {
-    console.error("Claude API error:", err)
-    return NextResponse.json({ error: "Ошибка AI сервиса" }, { status: 500 })
-  }
+  const readable = new ReadableStream({
+    async start(controller) {
+      try {
+        const stream = client.messages.stream({
+          model:      "claude-haiku-4-5-20251001",
+          max_tokens: 1024,
+          system:     buildSystemBlocks(orderContext),
+          messages,
+        })
+
+        for await (const event of stream) {
+          if (
+            event.type === "content_block_delta" &&
+            event.delta.type === "text_delta"
+          ) {
+            controller.enqueue(encoder.encode(event.delta.text))
+          }
+        }
+      } catch (err) {
+        console.error("Claude streaming error:", err)
+        controller.enqueue(encoder.encode("\n\nОшибка AI сервиса. Попробуйте снова."))
+      } finally {
+        controller.close()
+      }
+    },
+  })
+
+  return new Response(readable, {
+    headers: { "Content-Type": "text/plain; charset=utf-8" },
+  })
 }

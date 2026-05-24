@@ -51,9 +51,21 @@ const QUICK_PROMPTS = [
   "Помоги оптимизировать расходы на seafood",
 ]
 
+// ─── STREAMING CURSOR ─────────────────────────────────────────────────────────
+
+function StreamingCursor() {
+  return (
+    <motion.span
+      className="inline-block w-0.5 h-[1em] bg-current align-middle ml-[2px] rounded-[1px]"
+      animate={{ opacity: [1, 0, 1] }}
+      transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+    />
+  )
+}
+
 // ─── MESSAGE BUBBLE ───────────────────────────────────────────────────────────
 
-function MessageBubble({ msg }: { msg: Message }) {
+function MessageBubble({ msg, isStreaming }: { msg: Message; isStreaming?: boolean }) {
   const isUser = msg.role === "user"
 
   return (
@@ -80,15 +92,21 @@ function MessageBubble({ msg }: { msg: Message }) {
           : "bg-white border border-fs-border text-fs-graphite rounded-tl-sm"
         }
       `}>
-        {msg.content.split("\n").map((line, i) => (
-          <p key={i} className={i > 0 ? "mt-2" : ""}>{line}</p>
-        ))}
+        {msg.content
+          ? msg.content.split("\n").map((line, i) => (
+              <p key={i} className={i > 0 ? "mt-2" : ""}>
+                {line}
+                {isStreaming && i === msg.content.split("\n").length - 1 && <StreamingCursor />}
+              </p>
+            ))
+          : <StreamingCursor />
+        }
       </div>
     </motion.div>
   )
 }
 
-// ─── TYPING INDICATOR ─────────────────────────────────────────────────────────
+// ─── TYPING INDICATOR — shown while waiting for first byte ───────────────────
 
 function TypingIndicator() {
   return (
@@ -168,7 +186,8 @@ function AIPageInner() {
 
   const [messages,      setMessages]      = useState<Message[]>([WELCOME_MSG])
   const [input,         setInput]         = useState("")
-  const [loading,       setLoading]       = useState(false)
+  const [loading,       setLoading]       = useState(false)   // waiting for first byte
+  const [isStreaming,   setIsStreaming]   = useState(false)   // text is arriving
   const [orderContext,  setOrderContext]  = useState<OrderContext[]>([])
   const [savedHistory,  setSavedHistory]  = useState<Message[] | null>(null)
   const [showScrollBtn, setShowScrollBtn] = useState(false)
@@ -176,44 +195,73 @@ function AIPageInner() {
   const bottomRef   = useRef<HTMLDivElement>(null)
   const inputRef    = useRef<HTMLTextAreaElement>(null)
   const scrollRef   = useRef<HTMLDivElement>(null)
+  const abortRef    = useRef<AbortController | null>(null)
 
-  // ─── SEND ─────────────────────────────────────────────────────────────────
+  // ─── SEND (streaming) ─────────────────────────────────────────────────────
 
   const send = useCallback(async (text: string) => {
     const content = text.trim()
-    if (!content || loading) return
+    if (!content || loading || isStreaming) return
+
+    // Abort any in-flight stream
+    abortRef.current?.abort()
+    const controller = new AbortController()
+    abortRef.current = controller
 
     const userMsg: Message = { role: "user", content }
-    const next = [...messages, userMsg]
-    setMessages(next)
+    const context = [...messages, userMsg]
+    setMessages(context)
     setInput("")
     setLoading(true)
     setSavedHistory(null)
 
     try {
-      const res  = await fetch("/api/ai/chat", {
+      const res = await fetch("/api/ai/chat", {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
         body:    JSON.stringify({
-          messages:     next,
+          messages:     context,
           orderContext: orderContext.length ? orderContext : undefined,
         }),
+        signal: controller.signal,
       })
-      const data = await res.json()
 
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: data.message ?? "Ошибка. Попробуйте снова." },
-      ])
-    } catch {
+      if (!res.ok || !res.body) throw new Error("API error")
+
+      const reader  = res.body.getReader()
+      const decoder = new TextDecoder()
+      let accumulated = ""
+      let firstChunk  = true
+
+      while (true) {
+        const { done, value } = await reader.read()
+        if (done) break
+
+        accumulated += decoder.decode(value, { stream: true })
+
+        if (firstChunk) {
+          firstChunk = false
+          setLoading(false)
+          setIsStreaming(true)
+          setMessages((prev) => [...prev, { role: "assistant", content: accumulated }])
+        } else {
+          setMessages((prev) => [
+            ...prev.slice(0, -1),
+            { role: "assistant", content: accumulated },
+          ])
+        }
+      }
+    } catch (err: unknown) {
+      if (err instanceof Error && err.name === "AbortError") return
       setMessages((prev) => [
         ...prev,
         { role: "assistant", content: "Нет соединения с AI сервисом." },
       ])
     } finally {
       setLoading(false)
+      setIsStreaming(false)
     }
-  }, [messages, loading, orderContext])
+  }, [messages, loading, isStreaming, orderContext])
 
   // ─── LOAD ORDER CONTEXT ───────────────────────────────────────────────────
 
@@ -245,7 +293,6 @@ function AIPageInner() {
       const raw = localStorage.getItem(STORAGE_KEY)
       if (!raw) return
       const stored: Message[] = JSON.parse(raw)
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       if (stored.length > 1) setSavedHistory(stored)
     } catch {}
   }, [autoQuery])
@@ -255,8 +302,7 @@ function AIPageInner() {
   const handleScroll = useCallback(() => {
     const el = scrollRef.current
     if (!el) return
-    const distFromBottom = el.scrollHeight - el.scrollTop - el.clientHeight
-    setShowScrollBtn(distFromBottom > 120)
+    setShowScrollBtn(el.scrollHeight - el.scrollTop - el.clientHeight > 120)
   }, [])
 
   const scrollToBottom = useCallback((smooth = true) => {
@@ -267,15 +313,19 @@ function AIPageInner() {
     scrollToBottom()
   }, [messages, loading, scrollToBottom])
 
-  // ─── PERSIST HISTORY ──────────────────────────────────────────────────────
+  // ─── PERSIST HISTORY (only complete messages) ─────────────────────────────
 
   useEffect(() => {
-    if (messages.length <= 1) return
+    if (isStreaming || messages.length <= 1) return
     const toStore = messages.slice(-MAX_STORED)
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(toStore))
-    } catch {}
-  }, [messages])
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(toStore)) } catch {}
+  }, [messages, isStreaming])
+
+  // ─── CLEANUP on unmount ───────────────────────────────────────────────────
+
+  useEffect(() => {
+    return () => { abortRef.current?.abort() }
+  }, [])
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -285,9 +335,12 @@ function AIPageInner() {
   }
 
   const reset = () => {
+    abortRef.current?.abort()
     setMessages([WELCOME_MSG])
     setInput("")
     setSavedHistory(null)
+    setLoading(false)
+    setIsStreaming(false)
     localStorage.removeItem(STORAGE_KEY)
   }
 
@@ -297,8 +350,7 @@ function AIPageInner() {
   }
 
   const showQuickPrompts = messages.length === 1
-
-  // ─── DYNAMIC QUICK PROMPTS ────────────────────────────────────────────────
+  const isBusy = loading || isStreaming
 
   const prompts = orderContext.length > 0
     ? ["Что я заказывал раньше?", ...QUICK_PROMPTS.slice(0, 3)]
@@ -326,10 +378,7 @@ function AIPageInner() {
           <div className="flex items-center justify-end mb-8 gap-2">
             <div className="flex items-center gap-2">
               {orderContext.length > 0 && (
-                <div className="
-                  flex items-center gap-1.5 px-3 py-1.5 rounded-xl
-                  bg-purple-50 border border-purple-200
-                ">
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-50 border border-purple-200">
                   <div className="w-1.5 h-1.5 rounded-full bg-purple-500" />
                   <span className="text-label text-purple-600 font-medium">
                     {orderContext.length} заказ{orderContext.length === 1 ? "" : orderContext.length < 5 ? "а" : "ов"}
@@ -337,7 +386,7 @@ function AIPageInner() {
                 </div>
               )}
 
-              {messages.length > 1 && (
+              {messages.length > 1 && !isBusy && (
                 <button
                   onClick={reset}
                   className="
@@ -379,9 +428,16 @@ function AIPageInner() {
               onScroll={handleScroll}
               className="flex-1 overflow-y-auto p-6 space-y-5 min-h-[400px] max-h-[520px]"
             >
-              {messages.map((msg, i) => (
-                <MessageBubble key={i} msg={msg} />
-              ))}
+              {messages.map((msg, i) => {
+                const isLastAssistant = !loading && i === messages.length - 1 && msg.role === "assistant"
+                return (
+                  <MessageBubble
+                    key={i}
+                    msg={msg}
+                    isStreaming={isStreaming && isLastAssistant}
+                  />
+                )
+              })}
 
               <AnimatePresence>
                 {loading && <TypingIndicator />}
@@ -429,11 +485,13 @@ function AIPageInner() {
                       <button
                         key={prompt}
                         onClick={() => send(prompt)}
+                        disabled={isBusy}
                         className="
                           px-3 py-2 rounded-xl text-caption text-fs-gray
                           border border-fs-border bg-fs-offwhite
                           hover:border-fs-subtle hover:text-fs-primary
                           transition-all duration-200 text-left
+                          disabled:opacity-40 disabled:cursor-not-allowed
                         "
                       >
                         {prompt}
@@ -454,7 +512,7 @@ function AIPageInner() {
                   onKeyDown={handleKeyDown}
                   placeholder="Спросите об ассортименте, закупках, ценах..."
                   rows={1}
-                  disabled={loading}
+                  disabled={isBusy}
                   className="
                     flex-1 bg-white border border-fs-border rounded-xl
                     px-4 py-3 text-body text-fs-graphite
@@ -469,7 +527,7 @@ function AIPageInner() {
 
                 <motion.button
                   onClick={() => send(input)}
-                  disabled={!input.trim() || loading}
+                  disabled={!input.trim() || isBusy}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.15 }}

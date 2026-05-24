@@ -15,12 +15,12 @@ import { useFavoritesStore } from "@/store/favoritesStore"
 import { useLang } from "@/locales"
 
 const NAV_KEYS = [
-  { href: "/",          key: "home" as const,      showFavBadge: false },
-  { href: "/catalog",   key: "catalog" as const,   showFavBadge: false },
-  { href: "/ai",        key: "ai" as const,        showFavBadge: false },
-  { href: "/favorites", key: "favorites" as const, showFavBadge: true  },
-  { href: "/tracking",  key: "delivery" as const,  showFavBadge: false },
-  { href: "/admin",     key: "admin" as const,     showFavBadge: false },
+  { href: "/",          key: "home" as const,      showFavBadge: false, adminOnly: false },
+  { href: "/catalog",   key: "catalog" as const,   showFavBadge: false, adminOnly: false },
+  { href: "/ai",        key: "ai" as const,        showFavBadge: false, adminOnly: false },
+  { href: "/favorites", key: "favorites" as const, showFavBadge: true,  adminOnly: false },
+  { href: "/tracking",  key: "delivery" as const,  showFavBadge: false, adminOnly: false },
+  { href: "/admin",     key: "admin" as const,     showFavBadge: false, adminOnly: true  },
 ]
 
 export default function Navbar() {
@@ -61,7 +61,7 @@ export default function Navbar() {
 
         {/* NAV */}
         <nav className="hidden lg:flex items-center gap-1">
-          {NAV_KEYS.map(({ href, key, showFavBadge }) => {
+          {NAV_KEYS.filter(({ adminOnly }) => !adminOnly || !!session?.user).map(({ href, key, showFavBadge }) => {
             const isActive = href === "/"
               ? pathname === "/"
               : pathname.startsWith(href)

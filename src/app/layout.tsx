@@ -13,11 +13,9 @@ import { ThemeProvider } from "@/components/ui/ThemeProvider"
 import "./globals.css"
 
 export const viewport: Viewport = {
-  themeColor:        "#005B46",
-  width:             "device-width",
-  initialScale:      1,
-  maximumScale:      1,
-  userScalable:      false,
+  themeColor:   "#005B46",
+  width:        "device-width",
+  initialScale: 1,
 }
 
 export const metadata: Metadata = {

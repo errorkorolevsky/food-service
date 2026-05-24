@@ -1,6 +1,6 @@
 "use client"
 
-import { useSyncExternalStore } from "react"
+import { useSyncExternalStore, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
@@ -10,8 +10,42 @@ import { useCartStore } from "@/store/cartStore"
 import { useCartUI } from "@/store/cartUIStore"
 import { useLang } from "@/locales"
 import MorphNumber from "@/components/ui/MorphNumber"
+import type { CartItem } from "@/types"
 
 const FREE_DELIVERY_THRESHOLD = 10000
+
+// ─── CART ITEM THUMBNAIL with loading skeleton ───────────────────────────────
+
+function ItemThumbnail({ image, title, emoji }: Pick<CartItem, "image" | "title" | "emoji">) {
+  const [loaded, setLoaded] = useState(false)
+
+  return (
+    <div className="
+      w-14 h-14 rounded-lg flex-shrink-0 relative
+      bg-fs-white border border-fs-border
+      flex items-center justify-center
+      overflow-hidden text-3xl
+    ">
+      {image ? (
+        <>
+          {!loaded && (
+            <div className="absolute inset-0 skeleton-green" />
+          )}
+          <Image
+            src={image}
+            alt={title}
+            width={56}
+            height={56}
+            className={`w-full h-full object-cover transition-opacity duration-200 ${loaded ? "opacity-100" : "opacity-0"}`}
+            onLoad={() => setLoaded(true)}
+          />
+        </>
+      ) : (
+        emoji
+      )}
+    </div>
+  )
+}
 
 function pluralizeItems(n: number, forms: [string, string, string]): string {
   const mod10  = n % 10
@@ -181,24 +215,7 @@ export default function CartDrawer() {
                     <div className="flex items-start gap-4">
 
                       {/* THUMBNAIL */}
-                      <div className="
-                        w-14 h-14 rounded-lg flex-shrink-0
-                        bg-fs-white border border-fs-border
-                        flex items-center justify-center
-                        overflow-hidden text-3xl
-                      ">
-                        {item.image ? (
-                          <Image
-                            src={item.image}
-                            alt={item.title}
-                            width={56}
-                            height={56}
-                            className="w-full h-full object-cover"
-                          />
-                        ) : (
-                          item.emoji
-                        )}
-                      </div>
+                      <ItemThumbnail image={item.image} title={item.title} emoji={item.emoji} />
 
                       {/* INFO */}
                       <div className="flex-1 min-w-0">
