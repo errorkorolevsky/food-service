@@ -132,7 +132,7 @@ function SuccessContent() {
 
       {/* ORDER INFO */}
       <FadeIn delay={0.1}>
-        <div className="bg-white border border-fs-border rounded-2xl p-8 mb-6">
+        <div className="bg-fs-white border border-fs-border rounded-2xl p-8 mb-6">
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-3">
               <Package size={18} strokeWidth={1.5} className="text-fs-gray" />
@@ -190,7 +190,7 @@ function SuccessContent() {
 
       {/* STATUS STEPS */}
       <FadeIn delay={0.15}>
-        <div className="bg-white border border-fs-border rounded-2xl p-8 mb-6">
+        <div className="bg-fs-white border border-fs-border rounded-2xl p-8 mb-6">
           <h2 className="text-title text-fs-graphite mb-8">{t.order.statusTitle}</h2>
           <div className="space-y-5">
             {STATUS_STEPS.map((step, i) => {
@@ -224,7 +224,7 @@ function SuccessContent() {
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white border border-fs-border rounded-2xl p-6 mb-6 flex items-center justify-between gap-6 flex-wrap"
+            className="bg-fs-white border border-fs-border rounded-2xl p-6 mb-6 flex items-center justify-between gap-6 flex-wrap"
           >
             <div>
               <p className="text-body font-bold text-fs-graphite">{t.order.loginTitle}</p>

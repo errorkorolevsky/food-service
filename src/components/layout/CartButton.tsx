@@ -23,12 +23,13 @@ export default function CartButton({ variant = "fab" }: CartButtonProps) {
   const [bump, setBump] = useState(false)
 
   useEffect(() => {
-    if (count > prevCountRef.current && count > 0) {
+    const prev = prevCountRef.current
+    prevCountRef.current = count
+    if (count > prev && count > 0) {
       setBump(true)
       const timer = setTimeout(() => setBump(false), 400)
       return () => clearTimeout(timer)
     }
-    prevCountRef.current = count
   }, [count])
 
   const badgeAnim = bump
