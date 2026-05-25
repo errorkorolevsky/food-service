@@ -65,6 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <AnimatedLayout>
               {children}
             </AnimatedLayout>
+            <FavoritesSync />
           </SessionProviderWrapper>
           <NavigationProgress />
           <ScrollToTop />
@@ -73,7 +74,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <MobileNav />
           <ServiceWorkerRegister />
           <LangHtmlSync />
-          <FavoritesSync />
         </ThemeProvider>
       </body>
     </html>

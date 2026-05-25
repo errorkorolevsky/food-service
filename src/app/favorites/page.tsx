@@ -15,7 +15,6 @@ import { useFavoritesStore } from "@/store/favoritesStore"
 import { useCartStore } from "@/store/cartStore"
 import { useCartUI } from "@/store/cartUIStore"
 import { useLang } from "@/locales"
-import { useSession } from "next-auth/react"
 import { syncFavoriteToggle } from "@/hooks/useFavoritesSync"
 
 type SortKey = "added" | "price_asc" | "price_desc" | "name"
@@ -26,7 +25,6 @@ export default function FavoritesPage() {
   const addItem  = useCartStore((state) => state.addItem)
   const openCart = useCartUI((state) => state.openCart)
   const { t, lang } = useLang()
-  const { data: session } = useSession()
 
   const SORT_OPTIONS: { key: SortKey; label: string }[] = [
     { key: "added",      label: t.favorites.sortAdded     },
@@ -54,7 +52,7 @@ export default function FavoritesPage() {
   const handleClearAll = () => {
     products.forEach((item) => {
       toggle(item)
-      syncFavoriteToggle(item, true, session?.user?.email)
+      syncFavoriteToggle(item, true)
     })
   }
 

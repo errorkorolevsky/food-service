@@ -5,11 +5,24 @@ import { useSession } from "next-auth/react"
 import { useFavoritesStore } from "@/store/favoritesStore"
 import type { Product } from "@/types"
 
+// Module-level email ref — set by FavoritesSync, read by syncFavoriteToggle
+// This avoids calling useSession() in deeply-nested client components
+let _currentEmail: string | null = null
+
+export function setCurrentEmail(email: string | null) {
+  _currentEmail = email
+}
+
 export function useFavoritesSync() {
   const { data: session } = useSession()
   const email     = session?.user?.email ?? null
   const addProduct = useFavoritesStore((state) => state.addProduct)
   const synced     = useRef(false)
+
+  // Keep module-level ref in sync with session
+  useEffect(() => {
+    setCurrentEmail(email)
+  }, [email])
 
   // On login: pull favorites from Supabase and merge into local store
   useEffect(() => {
@@ -31,13 +44,9 @@ export function useFavoritesSync() {
   }, [email])
 }
 
-// Wrapper: toggle favorite + sync to Supabase if logged in
-export async function syncFavoriteToggle(
-  product: Product,
-  isCurrentlyFav: boolean,
-  userEmail: string | null | undefined,
-) {
-  if (!userEmail) return
+// Sync favorite toggle to Supabase — uses module-level email (no hook needed)
+export async function syncFavoriteToggle(product: Product, isCurrentlyFav: boolean) {
+  if (!_currentEmail) return
   try {
     if (isCurrentlyFav) {
       await fetch(`/api/favorites?id=${encodeURIComponent(product.id)}`, { method: "DELETE" })

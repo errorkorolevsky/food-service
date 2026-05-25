@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { useSession } from "next-auth/react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Star, ShoppingCart, Zap, Truck, Clock, Plus, Minus, Tag, Heart } from "lucide-react"
 import Link from "next/link"
@@ -47,7 +46,6 @@ export default function ProductClient({
   const toggle    = useFavoritesStore((state) => state.toggle)
   const isFav     = useFavoritesStore((state) => state.isFav)
   const favorited = isFav(product.id)
-  const { data: session } = useSession()
 
   const [imgError, setImgError] = useState(false)
 
@@ -306,7 +304,7 @@ export default function ProductClient({
                 </Button>
 
                 <motion.button
-                  onClick={() => { toggle(product); syncFavoriteToggle(product, favorited, session?.user?.email) }}
+                  onClick={() => { toggle(product); syncFavoriteToggle(product, favorited) }}
                   aria-label={favorited ? t.product.removeFromFavorites : t.product.addToFavorites}
                   aria-pressed={favorited}
                   whileHover={{ scale: 1.05 }}

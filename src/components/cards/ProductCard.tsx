@@ -5,7 +5,6 @@ import Image from "next/image"
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion"
 import { Plus, Minus, Star, Heart } from "lucide-react"
 import { useRef, useState } from "react"
-import { useSession } from "next-auth/react"
 
 import { useCartStore } from "@/store/cartStore"
 import { useToastStore } from "@/store/toastStore"
@@ -48,7 +47,6 @@ export default function ProductCard({
   const isFav            = useFavoritesStore((state) => state.isFav)
   const favorited        = isFav(id)
   const { t, lang }      = useLang()
-  const { data: session } = useSession()
 
   // 3D TILT + CURSOR-AWARE LIGHTING share the same ref
   const ref = useRef<HTMLDivElement>(null)
@@ -88,7 +86,7 @@ export default function ProductCard({
     e.preventDefault()
     const product = { id, title, price, priceNum, emoji, category, description, rating, inStock } as Product
     toggle(product)
-    syncFavoriteToggle(product, favorited, session?.user?.email)
+    syncFavoriteToggle(product, favorited)
   }
 
   // Cursor-aware gradient origin (follows cursor inside card) — desktop only
