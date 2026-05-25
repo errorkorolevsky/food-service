@@ -1,6 +1,6 @@
 "use client"
 
-import { useSyncExternalStore, useState, useEffect } from "react"
+import { useSyncExternalStore, useState, useEffect, useCallback } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
@@ -12,6 +12,16 @@ import { useLang } from "@/locales"
 import { FREE_DELIVERY_THRESHOLD } from "@/config/commerce"
 import MorphNumber from "@/components/ui/MorphNumber"
 import type { CartItem } from "@/types"
+
+type RecProduct = {
+  id:        string
+  title:     string
+  emoji:     string
+  image?:    string
+  price:     string
+  price_num: number
+  category:  string
+}
 
 // ─── CART ITEM THUMBNAIL with loading skeleton ───────────────────────────────
 
@@ -69,7 +79,29 @@ export default function CartDrawer() {
     clearCart,
     getTotalPrice,
     getTotalItems,
+    addItem,
   } = useCartStore()
+
+  const [recommended, setRecommended] = useState<RecProduct[]>([])
+
+  const fetchRecommended = useCallback(() => {
+    if (items.length === 0) { setRecommended([]); return }
+    const exclude = items.map((i) => i.id).join(",")
+    fetch(`/api/products/recommended?exclude=${encodeURIComponent(exclude)}`)
+      .then((r) => r.json())
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      .then((d) => setRecommended(d.products ?? []))
+      .catch(() => null)
+  }, [items])
+
+  useEffect(() => {
+    if (isOpen && items.length > 0) {
+      fetchRecommended()
+    } else {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setRecommended([])
+    }
+  }, [isOpen, items.length, fetchRecommended])
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose() }
@@ -338,6 +370,62 @@ export default function CartDrawer() {
                   </div>
                 )
               })()}
+
+              {/* RECOMMENDED UPSELL */}
+              <AnimatePresence>
+                {recommended.length > 0 && (
+                  <motion.div
+                    key="upsell"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.28, ease: [0.4, 0, 0.2, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <p className="text-[11px] font-semibold text-fs-gray uppercase tracking-wider mb-2">
+                      {t.cart.recommended}
+                    </p>
+                    <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none snap-x snap-mandatory">
+                      {recommended.map((p, i) => (
+                        <motion.div
+                          key={p.id}
+                          initial={{ opacity: 0, y: 6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.18, delay: i * 0.04 }}
+                          className="flex-shrink-0 snap-start w-[100px] bg-fs-white border border-fs-border rounded-xl p-2 flex flex-col items-center gap-1"
+                        >
+                          <div className="w-12 h-12 rounded-lg bg-fs-offwhite flex items-center justify-center text-xl overflow-hidden flex-shrink-0">
+                            {p.image ? (
+                              <Image
+                                src={p.image}
+                                alt={p.title}
+                                width={48}
+                                height={48}
+                                className="w-full h-full object-cover"
+                              />
+                            ) : (
+                              <span>{p.emoji}</span>
+                            )}
+                          </div>
+                          <p className="text-[10px] font-medium text-fs-graphite text-center leading-tight line-clamp-2 w-full">{p.title}</p>
+                          <p className="text-[11px] font-bold text-fs-primary">{p.price}</p>
+                          <motion.button
+                            onClick={() => addItem({ id: p.id, title: p.title, price: p.price_num, emoji: p.emoji, image: p.image })}
+                            aria-label={`${t.cart.addedToCart} ${p.title}`}
+                            whileHover={{ scale: 1.08 }}
+                            whileTap={{ scale: 0.92 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                            className="w-full bg-fs-primary/10 hover:bg-fs-primary text-fs-primary hover:text-white rounded-lg py-1 text-[11px] font-semibold transition-colors duration-150 flex items-center justify-center gap-1"
+                          >
+                            <Plus size={10} strokeWidth={2.5} />
+                            {t.cart.add}
+                          </motion.button>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               {/* TOTAL */}
               <div className="flex items-center justify-between py-1">

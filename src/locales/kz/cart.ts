@@ -23,5 +23,7 @@ export const kzCart = {
     items_one:        "тауар",
     items_few:        "тауар",
     items_many:       "тауар",
+    recommended:      "Бұлармен алады",
+    add:              "Себетке",
   },
 }
