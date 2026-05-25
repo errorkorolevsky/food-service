@@ -3,6 +3,7 @@ import { z } from "zod"
 import { createClient } from "@supabase/supabase-js"
 import { supabase } from "@/lib/supabase"
 import { sendOrderEmail } from "@/lib/email"
+import { notifyTelegramNewOrder } from "@/lib/telegram"
 import { auth } from "@/lib/auth"
 import { rateLimit, getIp } from "@/lib/rateLimiter"
 
@@ -114,6 +115,19 @@ export async function POST(req: NextRequest) {
       address,
     }).catch(console.error)
   }
+
+  notifyTelegramNewOrder({
+    orderId:   data.id,
+    phone,
+    address,
+    payment,
+    items,
+    total,
+    comment,
+    company,
+    promoCode: promo_code,
+    discount:  discount ?? 0,
+  }).catch(() => null)
 
   return NextResponse.json({ id: data.id }, { status: 201 })
 }
