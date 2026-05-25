@@ -7,7 +7,7 @@ import {
   ChevronDown, Package, Phone, MapPin, MessageSquare,
   Wifi, BarChart2, Lock, Download, Search, X, Calendar,
   ArrowUpRight, Sparkles, Truck, Users, Clock, CheckCircle,
-  AlertCircle, Star, Activity, WifiOff,
+  AlertCircle, Star, Activity, WifiOff, Tag, Plus, ToggleLeft, ToggleRight,
 } from "lucide-react"
 
 import Navbar    from "@/components/layout/Navbar"
@@ -691,12 +691,13 @@ function ActivityLog({ orders, locale }: { orders: DbOrder[]; locale: string }) 
 
 // ─── TAB BAR ─────────────────────────────────────────────────────────────────
 
-type Tab = "orders" | "analytics" | "couriers"
+type Tab = "orders" | "analytics" | "couriers" | "promos"
 
 const TABS: { value: Tab; label: string; icon: React.ElementType }[] = [
   { value: "orders",    label: "Заказы",    icon: ShoppingBag },
   { value: "analytics", label: "Аналитика", icon: BarChart2   },
   { value: "couriers",  label: "Курьеры",   icon: Truck       },
+  { value: "promos",    label: "Промокоды", icon: Tag         },
 ]
 
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
@@ -720,6 +721,64 @@ export default function AdminPage() {
   const [dateRange, setDateRange] = useState<"all" | "today" | "week" | "month">("all")
   const [live,      setLive]      = useState(false)
   const [tab,       setTab]       = useState<Tab>("orders")
+
+  type PromoCode = { code: string; discount_type: "percent" | "fixed"; discount_value: number; min_order: number; max_uses: number | null; uses: number; expires_at: string | null; is_active: boolean; created_at: string }
+  const [promos,       setPromos]       = useState<PromoCode[]>([])
+  const [promosLoading, setPromosLoading] = useState(false)
+  const [promoForm, setPromoForm] = useState({ code: "", discount_type: "percent" as "percent" | "fixed", discount_value: 10, min_order: 0, max_uses: "", expires_at: "" })
+  const [promoFormOpen, setPromoFormOpen] = useState(false)
+  const [promoSaving, setPromoSaving] = useState(false)
+  const [promoError, setPromoError] = useState<string | null>(null)
+
+  const fetchPromos = useCallback(async () => {
+    setPromosLoading(true)
+    const res = await fetch("/api/admin/promos")
+    if (res.ok) {
+      const data = await res.json()
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setPromos(data.promos ?? [])
+    }
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setPromosLoading(false)
+  }, [])
+
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => { if (tab === "promos" && unlocked) fetchPromos() }, [tab, unlocked, fetchPromos])
+
+  const handleCreatePromo = async () => {
+    setPromoSaving(true)
+    setPromoError(null)
+    const res = await fetch("/api/admin/promos", {
+      method:  "POST",
+      headers: { "Content-Type": "application/json" },
+      body:    JSON.stringify({
+        code:           promoForm.code.toUpperCase(),
+        discount_type:  promoForm.discount_type,
+        discount_value: Number(promoForm.discount_value),
+        min_order:      Number(promoForm.min_order) || 0,
+        max_uses:       promoForm.max_uses ? Number(promoForm.max_uses) : null,
+        expires_at:     promoForm.expires_at ? new Date(promoForm.expires_at).toISOString() : null,
+      }),
+    })
+    const data = await res.json()
+    if (res.ok) {
+      setPromos((prev) => [data.promo, ...prev])
+      setPromoFormOpen(false)
+      setPromoForm({ code: "", discount_type: "percent", discount_value: 10, min_order: 0, max_uses: "", expires_at: "" })
+    } else {
+      setPromoError(data.error ?? "Ошибка")
+    }
+    setPromoSaving(false)
+  }
+
+  const handleTogglePromo = async (code: string, current: boolean) => {
+    await fetch("/api/admin/promos", {
+      method:  "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body:    JSON.stringify({ code, is_active: !current }),
+    })
+    setPromos((prev) => prev.map((p) => p.code === code ? { ...p, is_active: !current } : p))
+  }
 
   const fetchOrders = useCallback(async () => {
     setLoading(true)
@@ -1115,6 +1174,169 @@ export default function AdminPage() {
         {tab === "couriers" && (
           <FadeIn delay={0.1}>
             <CouriersPanel orders={orders} />
+          </FadeIn>
+        )}
+
+        {/* TAB: PROMOS */}
+        {tab === "promos" && (
+          <FadeIn delay={0.1}>
+            <div className="space-y-5">
+              {/* CREATE BUTTON */}
+              <div className="flex items-center justify-between">
+                <h2 className="text-[18px] font-bold text-fs-graphite">Промокоды</h2>
+                <button
+                  onClick={() => { setPromoFormOpen((v) => !v); setPromoError(null) }}
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-fs-primary text-white text-[13px] font-bold hover:bg-fs-soft transition-colors"
+                >
+                  <Plus size={14} strokeWidth={2.5} />
+                  Создать промокод
+                </button>
+              </div>
+
+              {/* CREATE FORM */}
+              <AnimatePresence>
+                {promoFormOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="bg-fs-white border border-fs-border rounded-2xl p-6">
+                      <p className="text-[15px] font-bold text-fs-graphite mb-5">Новый промокод</p>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-5">
+                        <div>
+                          <label className="text-[12px] text-fs-gray mb-1.5 block uppercase tracking-wider">Код</label>
+                          <input
+                            type="text"
+                            value={promoForm.code}
+                            onChange={(e) => setPromoForm((f) => ({ ...f, code: e.target.value.toUpperCase() }))}
+                            placeholder="WELCOME10"
+                            maxLength={30}
+                            className="w-full px-4 py-2.5 bg-fs-offwhite border border-fs-border rounded-xl text-[13px] text-fs-graphite uppercase tracking-widest outline-none focus:border-fs-primary/40 transition-colors"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-[12px] text-fs-gray mb-1.5 block uppercase tracking-wider">Тип</label>
+                          <select
+                            value={promoForm.discount_type}
+                            onChange={(e) => setPromoForm((f) => ({ ...f, discount_type: e.target.value as "percent" | "fixed" }))}
+                            className="w-full px-4 py-2.5 bg-fs-offwhite border border-fs-border rounded-xl text-[13px] text-fs-graphite outline-none focus:border-fs-primary/40 transition-colors"
+                          >
+                            <option value="percent">Процент %</option>
+                            <option value="fixed">Фиксированная ₸</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="text-[12px] text-fs-gray mb-1.5 block uppercase tracking-wider">
+                            {promoForm.discount_type === "percent" ? "Размер скидки %" : "Размер скидки ₸"}
+                          </label>
+                          <input
+                            type="number"
+                            min={1}
+                            max={promoForm.discount_type === "percent" ? 100 : 1_000_000}
+                            value={promoForm.discount_value}
+                            onChange={(e) => setPromoForm((f) => ({ ...f, discount_value: Number(e.target.value) }))}
+                            className="w-full px-4 py-2.5 bg-fs-offwhite border border-fs-border rounded-xl text-[13px] text-fs-graphite outline-none focus:border-fs-primary/40 transition-colors"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-[12px] text-fs-gray mb-1.5 block uppercase tracking-wider">Минимальный заказ ₸</label>
+                          <input
+                            type="number"
+                            min={0}
+                            value={promoForm.min_order}
+                            onChange={(e) => setPromoForm((f) => ({ ...f, min_order: Number(e.target.value) }))}
+                            placeholder="0"
+                            className="w-full px-4 py-2.5 bg-fs-offwhite border border-fs-border rounded-xl text-[13px] text-fs-graphite outline-none focus:border-fs-primary/40 transition-colors"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-[12px] text-fs-gray mb-1.5 block uppercase tracking-wider">Макс. использований</label>
+                          <input
+                            type="number"
+                            min={1}
+                            value={promoForm.max_uses}
+                            onChange={(e) => setPromoForm((f) => ({ ...f, max_uses: e.target.value }))}
+                            placeholder="Без ограничений"
+                            className="w-full px-4 py-2.5 bg-fs-offwhite border border-fs-border rounded-xl text-[13px] text-fs-graphite outline-none focus:border-fs-primary/40 transition-colors"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-[12px] text-fs-gray mb-1.5 block uppercase tracking-wider">Срок действия</label>
+                          <input
+                            type="date"
+                            value={promoForm.expires_at}
+                            onChange={(e) => setPromoForm((f) => ({ ...f, expires_at: e.target.value }))}
+                            className="w-full px-4 py-2.5 bg-fs-offwhite border border-fs-border rounded-xl text-[13px] text-fs-graphite outline-none focus:border-fs-primary/40 transition-colors"
+                          />
+                        </div>
+                      </div>
+                      {promoError && <p className="text-[12px] text-red-400 mb-3">{promoError}</p>}
+                      <div className="flex items-center gap-3">
+                        <button
+                          onClick={handleCreatePromo}
+                          disabled={promoSaving || !promoForm.code.trim()}
+                          className="px-5 py-2.5 rounded-xl bg-fs-primary text-white text-[13px] font-bold hover:bg-fs-soft transition-colors disabled:opacity-40"
+                        >
+                          {promoSaving ? "Сохраняем..." : "Создать"}
+                        </button>
+                        <button onClick={() => setPromoFormOpen(false)} className="text-[13px] text-fs-gray hover:text-fs-graphite transition-colors">
+                          Отмена
+                        </button>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* PROMO LIST */}
+              {promosLoading ? (
+                <div className="space-y-2">
+                  {[1,2,3].map((i) => <div key={i} className="h-16 skeleton-green rounded-xl animate-pulse" />)}
+                </div>
+              ) : promos.length === 0 ? (
+                <div className="text-center py-16 text-[14px] text-fs-gray">
+                  Промокодов пока нет. Создайте первый!
+                </div>
+              ) : (
+                <div className="space-y-2">
+                  {promos.map((p) => (
+                    <div key={p.code} className={`bg-fs-white border rounded-2xl px-5 py-4 flex items-center justify-between gap-4 transition-colors duration-200 ${p.is_active ? "border-fs-border" : "border-fs-border opacity-50"}`}>
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 ${p.is_active ? "bg-fs-primary/10" : "bg-fs-offwhite"}`}>
+                          <Tag size={14} strokeWidth={1.5} className={p.is_active ? "text-fs-primary" : "text-fs-gray"} />
+                        </div>
+                        <div className="min-w-0">
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <span className="text-[14px] font-bold text-fs-graphite tracking-widest">{p.code}</span>
+                            <span className="text-[11px] px-2 py-0.5 rounded-full bg-fs-offwhite border border-fs-border text-fs-gray">
+                              {p.discount_type === "percent" ? `-${p.discount_value}%` : `-₸${p.discount_value.toLocaleString()}`}
+                            </span>
+                            {p.min_order > 0 && (
+                              <span className="text-[11px] text-fs-gray">от ₸{p.min_order.toLocaleString()}</span>
+                            )}
+                          </div>
+                          <p className="text-[11px] text-fs-gray mt-0.5">
+                            Использовано: {p.uses}{p.max_uses ? ` / ${p.max_uses}` : ""}
+                            {p.expires_at && ` · до ${new Date(p.expires_at).toLocaleDateString("ru-RU")}`}
+                          </p>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => handleTogglePromo(p.code, p.is_active)}
+                        aria-label={p.is_active ? "Деактивировать" : "Активировать"}
+                        className="flex items-center gap-1.5 text-[12px] text-fs-gray hover:text-fs-primary transition-colors flex-shrink-0"
+                      >
+                        {p.is_active ? <ToggleRight size={20} strokeWidth={1.5} className="text-fs-primary" /> : <ToggleLeft size={20} strokeWidth={1.5} />}
+                        {p.is_active ? "Активен" : "Выкл"}
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </FadeIn>
         )}
       </div>
