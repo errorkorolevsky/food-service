@@ -2,14 +2,16 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import { useSession } from "next-auth/react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ArrowLeft, Star, ShoppingCart, Zap, Truck, Clock, Plus, Minus, Tag, Heart } from "lucide-react"
+import { Star, ShoppingCart, Zap, Truck, Clock, Plus, Minus, Tag, Heart } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
 import { useLang } from "@/locales"
 import { CATEGORY_COLORS_BY_NAME } from "@/data/categories"
 import { useRecentlyViewed } from "@/hooks/useRecentlyViewed"
+import { syncFavoriteToggle } from "@/hooks/useFavoritesSync"
 import { useCartStore } from "@/store/cartStore"
 import { useCartUI } from "@/store/cartUIStore"
 import { useToastStore } from "@/store/toastStore"
@@ -45,6 +47,7 @@ export default function ProductClient({
   const toggle    = useFavoritesStore((state) => state.toggle)
   const isFav     = useFavoritesStore((state) => state.isFav)
   const favorited = isFav(product.id)
+  const { data: session } = useSession()
 
   const [imgError, setImgError] = useState(false)
 
@@ -303,7 +306,7 @@ export default function ProductClient({
                 </Button>
 
                 <motion.button
-                  onClick={() => toggle(product)}
+                  onClick={() => { toggle(product); syncFavoriteToggle(product, favorited, session?.user?.email) }}
                   aria-label={favorited ? t.product.removeFromFavorites : t.product.addToFavorites}
                   aria-pressed={favorited}
                   whileHover={{ scale: 1.05 }}

@@ -9,6 +9,7 @@ import SmoothScroll from "@/components/ui/SmoothScroll"
 import NavigationProgress from "@/components/ui/NavigationProgress"
 import ScrollToTop from "@/components/ui/ScrollToTop"
 import LangHtmlSync from "@/components/ui/LangHtmlSync"
+import FavoritesSync from "@/components/ui/FavoritesSync"
 import { ThemeProvider } from "@/components/ui/ThemeProvider"
 import { BASE_URL, META_RU, LANG_ALTERNATES } from "@/lib/seo"
 
@@ -72,6 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <MobileNav />
           <ServiceWorkerRegister />
           <LangHtmlSync />
+          <FavoritesSync />
         </ThemeProvider>
       </body>
     </html>

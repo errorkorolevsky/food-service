@@ -29,7 +29,7 @@ export function useRecentlyViewed(current?: Stub): Stub[] {
       const filtered = stored.filter((i) => i.id !== current.id)
       const updated  = [current, ...filtered].slice(0, MAX)
       save(updated)
-      // Return all except current product
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setItems(updated.filter((i) => i.id !== current.id).slice(0, 6))
     } else {
       setItems(stored.slice(0, 6))

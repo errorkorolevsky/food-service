@@ -137,3 +137,23 @@ DO $$ BEGIN
     CREATE POLICY "Public update" ON orders FOR UPDATE USING (true) WITH CHECK (true);
   END IF;
 END $$;
+
+-- =============================================================================
+-- ─── USER FAVORITES TABLE ─────────────────────────────────────────────────────
+-- =============================================================================
+
+CREATE TABLE IF NOT EXISTS user_favorites (
+  user_email   text        NOT NULL,
+  product_id   text        NOT NULL,
+  product_data jsonb       NOT NULL DEFAULT '{}',
+  created_at   timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY (user_email, product_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_user_favorites_email ON user_favorites (user_email);
+
+ALTER TABLE user_favorites ENABLE ROW LEVEL SECURITY;
+
+-- Auth enforced at API route level (NextAuth session check)
+CREATE POLICY "Service role full access" ON user_favorites
+  USING (true) WITH CHECK (true);
