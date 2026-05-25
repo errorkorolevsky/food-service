@@ -1,4 +1,5 @@
 import { Resend } from "resend"
+import { BASE_URL } from "@/lib/seo"
 
 function getResend() {
   const key = process.env.RESEND_API_KEY
@@ -202,7 +203,7 @@ export async function sendOrderEmail({
 
   const info        = STATUS_INFO[status]
   const shortId     = formatOrderId(orderId)
-  const trackingUrl = `${process.env.NEXTAUTH_URL ?? "https://food-service-agswd4se0-errorkorolevskys-projects.vercel.app"}/tracking?q=${encodeURIComponent(shortId)}`
+  const trackingUrl = `${BASE_URL}/tracking?q=${encodeURIComponent(shortId)}`
 
   await resend.emails.send({
     from:    "Food Service <onboarding@resend.dev>",

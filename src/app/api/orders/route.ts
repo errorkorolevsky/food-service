@@ -3,6 +3,7 @@ import { z } from "zod"
 import { supabase } from "@/lib/supabase"
 import { sendOrderEmail } from "@/lib/email"
 import { auth } from "@/lib/auth"
+import { rateLimit, getIp } from "@/lib/rateLimiter"
 
 export const dynamic = "force-dynamic"
 
@@ -55,6 +56,10 @@ export async function GET() {
 // ─── POST — создать заказ (checkout) ─────────────────────────────────────────
 
 export async function POST(req: NextRequest) {
+  if (!rateLimit(getIp(req), 10, 10 * 60_000)) {
+    return NextResponse.json({ error: "Слишком много запросов. Попробуйте через 10 минут." }, { status: 429 })
+  }
+
   const raw = await req.json().catch(() => null)
   const parsed = CreateOrderSchema.safeParse(raw)
   if (!parsed.success) {

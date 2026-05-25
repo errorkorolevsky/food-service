@@ -1,6 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk"
 import { NextRequest } from "next/server"
 import { z } from "zod"
+import { rateLimit, getIp } from "@/lib/rateLimiter"
 
 export const dynamic = "force-dynamic"
 
@@ -139,6 +140,14 @@ function buildSystemBlocks(orders?: OrderContext[], locale = "ru"): SystemBlock[
 }
 
 export async function POST(req: NextRequest) {
+  // 30 messages per IP per minute
+  if (!rateLimit(getIp(req), 30, 60_000)) {
+    const errMsg = req.headers.get("accept-language")?.includes("kk")
+      ? "Өтінім шектеуі. 1 минуттан кейін қайталап көріңіз."
+      : "Слишком много запросов. Попробуйте через минуту."
+    return new Response(JSON.stringify({ error: errMsg }), { status: 429 })
+  }
+
   const raw    = await req.json().catch(() => null)
   const parsed = ChatSchema.safeParse(raw)
   if (!parsed.success) {
