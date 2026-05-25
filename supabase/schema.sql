@@ -54,7 +54,7 @@ CREATE TRIGGER trg_products_updated_at
   BEFORE UPDATE ON products
   FOR EACH ROW EXECUTE FUNCTION set_updated_at();
 
--- ─── ROW LEVEL SECURITY ───────────────────────────────────────────────────────
+-- ─── ROW LEVEL SECURITY (products) ───────────────────────────────────────────
 
 ALTER TABLE products ENABLE ROW LEVEL SECURITY;
 
@@ -66,3 +66,74 @@ CREATE POLICY "Public read" ON products
 -- (admin check is done at API route level, not DB level for simplicity)
 CREATE POLICY "Anon insert for seeding" ON products
   FOR ALL USING (true) WITH CHECK (true);
+
+-- =============================================================================
+-- ─── ORDERS TABLE ─────────────────────────────────────────────────────────────
+-- =============================================================================
+
+CREATE TABLE IF NOT EXISTS orders (
+  id            uuid        PRIMARY KEY DEFAULT gen_random_uuid(),
+  created_at    timestamptz NOT NULL DEFAULT now(),
+  updated_at    timestamptz NOT NULL DEFAULT now(),
+
+  -- Customer info
+  phone         text        NOT NULL,
+  address       text        NOT NULL,
+  company       text,
+  comment       text,
+  user_email    text,
+
+  -- Order details
+  payment       text        NOT NULL CHECK (payment IN ('kaspi', 'freedom', 'cash')),
+  items         jsonb       NOT NULL DEFAULT '[]',
+  subtotal      integer     NOT NULL CHECK (subtotal >= 0),
+  delivery      integer     NOT NULL CHECK (delivery >= 0),
+  total         integer     NOT NULL CHECK (total > 0),
+
+  -- Delivery schedule
+  delivery_date text,
+  delivery_time text,
+
+  -- Status lifecycle
+  status        text        NOT NULL DEFAULT 'pending'
+                            CHECK (status IN ('pending', 'processing', 'in_delivery', 'delivered', 'cancelled'))
+);
+
+-- ─── INDEXES ─────────────────────────────────────────────────────────────────
+
+CREATE INDEX IF NOT EXISTS idx_orders_status      ON orders (status);
+CREATE INDEX IF NOT EXISTS idx_orders_phone       ON orders (phone);
+CREATE INDEX IF NOT EXISTS idx_orders_user_email  ON orders (user_email);
+CREATE INDEX IF NOT EXISTS idx_orders_created_at  ON orders (created_at DESC);
+
+-- ─── UPDATED_AT TRIGGER ───────────────────────────────────────────────────────
+
+DROP TRIGGER IF EXISTS trg_orders_updated_at ON orders;
+CREATE TRIGGER trg_orders_updated_at
+  BEFORE UPDATE ON orders
+  FOR EACH ROW EXECUTE FUNCTION set_updated_at();
+
+-- ─── ROW LEVEL SECURITY (orders) ─────────────────────────────────────────────
+
+ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
+
+-- Anyone can place an order
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Public insert' AND tablename = 'orders') THEN
+    CREATE POLICY "Public insert" ON orders FOR INSERT WITH CHECK (true);
+  END IF;
+END $$;
+
+-- Anyone can read orders (auth enforced at API route level)
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Public select' AND tablename = 'orders') THEN
+    CREATE POLICY "Public select" ON orders FOR SELECT USING (true);
+  END IF;
+END $$;
+
+-- Anyone can update orders (auth enforced at API route level for admin PATCH)
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Public update' AND tablename = 'orders') THEN
+    CREATE POLICY "Public update" ON orders FOR UPDATE USING (true) WITH CHECK (true);
+  END IF;
+END $$;
