@@ -12,12 +12,7 @@ export default function LoadingScreen() {
   const [stage,    setStage]    = useState(0)
   const [visible,  setVisible]  = useState(false)
 
-  const STAGES = [
-    { progress: 30,  label: t.loading.catalog, delay: 0   },
-    { progress: 60,  label: t.loading.ai,      delay: 280 },
-    { progress: 85,  label: t.loading.data,    delay: 560 },
-    { progress: 100, label: t.loading.ready,   delay: 800 },
-  ]
+  const stageLabels = [t.loading.catalog, t.loading.ai, t.loading.data, t.loading.ready]
 
   useEffect(() => {
     // Skip on repeat visits within the same browser session
@@ -29,7 +24,13 @@ export default function LoadingScreen() {
     setVisible(true)
     sessionStorage.setItem(SESSION_KEY, "1")
 
-    STAGES.forEach(({ progress: p, delay }, i) => {
+    const stages = [
+      { progress: 30,  delay: 0   },
+      { progress: 60,  delay: 280 },
+      { progress: 85,  delay: 560 },
+      { progress: 100, delay: 800 },
+    ]
+    stages.forEach(({ progress: p, delay }, i) => {
       setTimeout(() => {
         setProgress(p)
         setStage(i)
@@ -122,7 +123,7 @@ export default function LoadingScreen() {
                     transition={{ duration: 0.2 }}
                     className="text-label text-white/50"
                   >
-                    {STAGES[stage]?.label}
+                    {stageLabels[stage]}
                   </motion.span>
                 </AnimatePresence>
                 <span className="text-label text-white/40 tabular-nums">

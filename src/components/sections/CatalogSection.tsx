@@ -462,7 +462,7 @@ function CatalogInner({ products }: { products: Product[] }) {
     }
 
     return list
-  }, [search, category, sort, onlyNew, onlyStock, onlyDiscount])
+  }, [search, category, sort, onlyNew, onlyStock, onlyDiscount, products, t])
 
   const paginated = filtered.slice(0, page * PAGE_SIZE)
   const hasMore   = paginated.length < filtered.length

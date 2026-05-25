@@ -58,8 +58,6 @@ const ChatSchema = z.object({
   locale:       z.enum(["ru", "kz"]).optional(),
 })
 
-type Message      = z.infer<typeof MessageSchema>
-type OrderItem    = z.infer<typeof OrderItemSchema>
 type OrderContext = z.infer<typeof OrderContextSchema>
 
 type SystemBlock = Anthropic.TextBlockParam & { cache_control?: { type: "ephemeral" } }

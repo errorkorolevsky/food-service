@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, useCallback } from "react"
+import { useEffect, useState, useCallback, useMemo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   TrendingUp, ShoppingBag, CircleDollarSign, RefreshCw,
@@ -707,13 +707,10 @@ export default function AdminPage() {
   const locale             = lang === "kz" ? "kk-KZ" : "ru-RU"
   const isAdminSession = session?.user?.email === ADMIN_EMAIL
 
-  const [unlocked, setUnlocked] = useState(() =>
+  const [pinUnlocked, setPinUnlocked] = useState(() =>
     typeof window !== "undefined" && sessionStorage.getItem("fs_admin") === "1"
   )
-
-  useEffect(() => {
-    if (isAdminSession) setUnlocked(true)
-  }, [isAdminSession])
+  const unlocked = pinUnlocked || isAdminSession
 
   const [orders,    setOrders]    = useState<DbOrder[]>([])
   const [loading,   setLoading]   = useState(true)
@@ -822,7 +819,7 @@ export default function AdminPage() {
 
   // ─── FILTERS ───────────────────────────────────────────────────────────────
 
-  const visible = (() => {
+  const visible = useMemo(() => {
     let result = orders
     if (filter !== "all") result = result.filter((o) => o.status === filter)
     if (dateRange !== "all") {
@@ -841,7 +838,7 @@ export default function AdminPage() {
       )
     }
     return result
-  })()
+  }, [orders, filter, dateRange, search])
 
   const visibleTotal = visible.reduce((s, o) => s + o.total, 0)
 
@@ -854,7 +851,7 @@ export default function AdminPage() {
     { value: "cancelled",   label: "Отменены"   },
   ]
 
-  if (!unlocked) return <PinGuard onUnlock={() => setUnlocked(true)} />
+  if (!unlocked) return <PinGuard onUnlock={() => setPinUnlocked(true)} />
 
   return (
     <main className="fs-page-bg text-fs-graphite min-h-screen">
