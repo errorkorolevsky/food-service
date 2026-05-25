@@ -386,49 +386,78 @@ function CatalogInner({ products }: { products: Product[] }) {
     const param = searchParams.get("category")
     return CATEGORIES.includes(param as ProductCategory) ? (param as ProductCategory) : FILTER_ALL
   })()
-  const initialSearch = searchParams.get("search") ?? ""
+  const initialSearch   = searchParams.get("search") ?? ""
+  const initialSort     = (["default", "price_asc", "price_desc", "rating"].includes(searchParams.get("sort") ?? "")
+    ? searchParams.get("sort") as SortKey
+    : "default")
 
   const [search,       setSearch]       = useState(initialSearch)
   const [category,     setCategory]     = useState<ProductCategory | typeof FILTER_ALL>(initialCategory)
-  const [sort,         setSort]         = useState<SortKey>("default")
+  const [sort,         setSort]         = useState<SortKey>(initialSort)
   const [sortOpen,     setSortOpen]     = useState(false)
-  const [onlyNew,      setOnlyNew]      = useState(false)
-  const [onlyStock,    setOnlyStock]    = useState(false)
+  const [onlyNew,      setOnlyNew]      = useState(() => searchParams.get("new") === "true")
+  const [onlyStock,    setOnlyStock]    = useState(() => searchParams.get("stock") === "true")
   const [onlyDiscount, setOnlyDiscount] = useState(() => searchParams.get("sale") === "true")
   const [page,         setPage]         = useState(1)
+
+  const setParam = (key: string, value: string | null) => {
+    const params = new URLSearchParams(searchParams.toString())
+    if (!value) params.delete(key)
+    else params.set(key, value)
+    const qs = params.toString()
+    router.replace(`${pathname}${qs ? `?${qs}` : ""}`, { scroll: false })
+  }
 
   useEffect(() => {
     const catParam    = searchParams.get("category")
     const searchParam = searchParams.get("search") ?? ""
     const saleParam   = searchParams.get("sale") === "true"
+    const newParam    = searchParams.get("new") === "true"
+    const stockParam  = searchParams.get("stock") === "true"
+    const sortParam   = searchParams.get("sort") as SortKey | null
     const next = CATEGORIES.includes(catParam as ProductCategory) ? (catParam as ProductCategory) : FILTER_ALL
     startTransition(() => {
       setCategory(next)
-      if (searchParam) setSearch(searchParam)
-      if (saleParam) setOnlyDiscount(true)
+      if (searchParam !== undefined) setSearch(searchParam)
+      setOnlyDiscount(saleParam)
+      setOnlyNew(newParam)
+      setOnlyStock(stockParam)
+      if (sortParam && ["default", "price_asc", "price_desc", "rating"].includes(sortParam)) setSort(sortParam)
     })
   }, [searchParams])
 
-  const handleDiscount = () => { setOnlyDiscount((p) => !p); setPage(1) }
+  const handleDiscount = () => {
+    const next = !onlyDiscount
+    setOnlyDiscount(next); setPage(1)
+    setParam("sale", next ? "true" : null)
+  }
 
   const handleCategory = (cat: ProductCategory | typeof FILTER_ALL) => {
     startTransition(() => {
       setCategory(cat)
       setPage(1)
-      const params = new URLSearchParams(searchParams.toString())
-      if (cat === FILTER_ALL) {
-        params.delete("category")
-      } else {
-        params.set("category", cat)
-      }
-      router.replace(`${pathname}?${params.toString()}`, { scroll: false })
+      setParam("category", cat === FILTER_ALL ? null : cat)
     })
   }
 
-  const handleSearch = (v: string) => { setSearch(v); setPage(1) }
-  const handleSort   = (v: SortKey) => { setSort(v); setPage(1); setSortOpen(false) }
-  const handleNew    = () => { setOnlyNew((p) => !p); setPage(1) }
-  const handleStock  = () => { setOnlyStock((p) => !p); setPage(1) }
+  const handleSearch = (v: string) => {
+    setSearch(v); setPage(1)
+    setParam("search", v || null)
+  }
+  const handleSort = (v: SortKey) => {
+    setSort(v); setPage(1); setSortOpen(false)
+    setParam("sort", v === "default" ? null : v)
+  }
+  const handleNew = () => {
+    const next = !onlyNew
+    setOnlyNew(next); setPage(1)
+    setParam("new", next ? "true" : null)
+  }
+  const handleStock = () => {
+    const next = !onlyStock
+    setOnlyStock(next); setPage(1)
+    setParam("stock", next ? "true" : null)
+  }
 
   const filtered = useMemo(() => {
     let list = [...products]
