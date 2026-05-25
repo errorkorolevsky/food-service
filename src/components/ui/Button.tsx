@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 
-const MotionLink = motion(Link)
+const MotionLink = motion.create(Link)
 
 type ButtonProps = {
   children: React.ReactNode

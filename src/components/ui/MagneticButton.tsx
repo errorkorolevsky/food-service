@@ -4,7 +4,7 @@ import { useRef } from "react"
 import { motion, useMotionValue, useSpring } from "framer-motion"
 import Link from "next/link"
 
-const MotionLink = motion(Link)
+const MotionLink = motion.create(Link)
 
 type MagneticButtonProps = {
   children:  React.ReactNode
