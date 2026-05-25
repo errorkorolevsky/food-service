@@ -120,14 +120,20 @@ export const useCartStore = create<CartStore>()(
       },
     }),
     {
-      name: "nova-food-cart",
+      name: "fs-cart",
       merge(persisted, current) {
         const p = persisted as typeof current
         return {
           ...current,
           items: Array.isArray(p?.items)
             ? p.items.filter(
-                (i) => i && typeof i.price === "number" && typeof i.id === "string"
+                (i) =>
+                  i &&
+                  typeof i.id       === "string" &&
+                  typeof i.title    === "string" &&
+                  typeof i.price    === "number" &&
+                  typeof i.quantity === "number" && i.quantity > 0 &&
+                  typeof i.emoji    === "string"
               )
             : [],
         }

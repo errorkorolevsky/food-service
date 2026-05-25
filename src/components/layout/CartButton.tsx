@@ -88,14 +88,15 @@ export default function CartButton({ variant = "fab" }: CartButtonProps) {
   return (
     <motion.button
       onClick={openCart}
+      aria-label={t.nav.cart}
       animate={bump ? { scale: [1, 1.1, 1] } : {}}
       transition={{ duration: 0.3 }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className="
         fixed bottom-[88px] right-4 z-[997]
-        lg:bottom-8 lg:right-8
-        w-14 h-14 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl
+        lg:hidden
+        w-14 h-14 rounded-xl
         bg-fs-primary text-white
         flex items-center justify-center
         shadow-green-lg

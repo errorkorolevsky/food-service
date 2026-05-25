@@ -37,12 +37,12 @@ type DbOrder = {
 
 // ─── STATUS CONFIG ─────────────────────────────────────────────────────────────
 
-const STATUS_BADGE: Record<OrderStatus, { label: string; variant: "default" | "success" | "warning" | "ai" | "error"; color: string }> = {
-  pending:     { label: "Принят",    variant: "ai",      color: "#6366f1" },
-  processing:  { label: "Обработка", variant: "warning", color: "#f59e0b" },
-  in_delivery: { label: "В пути",    variant: "warning", color: "#f59e0b" },
-  delivered:   { label: "Доставлен", variant: "success", color: "#10b981" },
-  cancelled:   { label: "Отменён",   variant: "error",   color: "#ef4444" },
+const STATUS_STYLE: Record<OrderStatus, { variant: "default" | "success" | "warning" | "ai" | "error"; color: string }> = {
+  pending:     { variant: "ai",      color: "#6366f1" },
+  processing:  { variant: "warning", color: "#f59e0b" },
+  in_delivery: { variant: "warning", color: "#f59e0b" },
+  delivered:   { variant: "success", color: "#10b981" },
+  cancelled:   { variant: "error",   color: "#ef4444" },
 }
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
@@ -51,8 +51,8 @@ function formatOrderId(uuid: string) {
   return `#FS-${uuid.slice(-6).toUpperCase()}`
 }
 
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleString("ru-RU", {
+function formatDate(iso: string, lang: string) {
+  return new Date(iso).toLocaleString(lang === "kz" ? "kk-KZ" : "ru-RU", {
     day: "2-digit", month: "2-digit", year: "2-digit",
     hour: "2-digit", minute: "2-digit",
   })
@@ -61,34 +61,37 @@ function formatDate(iso: string) {
 // ─── ORDER ROW ────────────────────────────────────────────────────────────────
 
 function OrderRow({ order, onRepeat, trackLabel, repeatLabel }: { order: DbOrder; onRepeat: (order: DbOrder) => void; trackLabel: string; repeatLabel: string }) {
-  const meta      = STATUS_BADGE[order.status]
+  const { t, lang } = useLang()
+  const style     = STATUS_STYLE[order.status]
+  const label     = t.order.statuses[order.status] ?? order.status
   const itemCount = order.items.reduce((sum, i) => sum + i.quantity, 0)
   const [expanded, setExpanded] = useState(false)
 
   return (
     <motion.div
       layout
-      className="border border-fs-border rounded-2xl overflow-hidden bg-white hover:border-fs-subtle transition-colors duration-200"
+      className="border border-fs-border rounded-2xl overflow-hidden bg-fs-white hover:border-fs-subtle transition-colors duration-200"
     >
       <button
         onClick={() => setExpanded((v) => !v)}
+        aria-expanded={expanded}
         className="w-full text-left px-5 py-4 flex items-center justify-between gap-4"
       >
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
-            style={{ background: `${meta.color}18` }}>
-            <Package size={15} strokeWidth={1.5} style={{ color: meta.color }} />
+            style={{ background: `${style.color}18` }}>
+            <Package size={15} strokeWidth={1.5} style={{ color: style.color }} />
           </div>
           <div className="min-w-0">
             <p className="text-[14px] font-bold text-fs-graphite">{formatOrderId(order.id)}</p>
             <p className="text-[12px] text-fs-gray mt-0.5">
-              {itemCount} позиц. · {formatDate(order.created_at)}
+              {itemCount} {t.profile.itemsCount} · {formatDate(order.created_at, lang)}
             </p>
           </div>
         </div>
         <div className="flex items-center gap-3 flex-shrink-0">
           <span className="text-[14px] font-bold text-fs-graphite">₸{order.total.toLocaleString()}</span>
-          <Badge variant={meta.variant} dot>{meta.label}</Badge>
+          <Badge variant={style.variant} dot>{label}</Badge>
           <motion.div animate={{ rotate: expanded ? 90 : 0 }} transition={{ duration: 0.2 }}>
             <ChevronRight size={14} strokeWidth={2} className="text-fs-muted" />
           </motion.div>
@@ -146,7 +149,7 @@ function StatCard({ value, label, icon: Icon, color }: {
     <motion.div
       whileHover={{ y: -3, scale: 1.02 }}
       transition={{ type: "spring", stiffness: 380, damping: 26 }}
-      className="bg-white border border-fs-border rounded-2xl p-4 sm:p-5 flex items-center gap-3 sm:gap-4"
+      className="bg-fs-white border border-fs-border rounded-2xl p-4 sm:p-5 flex items-center gap-3 sm:gap-4"
     >
       <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0"
         style={{ background: `${color}12` }}>
@@ -164,7 +167,7 @@ function StatCard({ value, label, icon: Icon, color }: {
 
 function OrderSkeleton() {
   return (
-    <div className="border border-fs-border rounded-2xl px-5 py-4 flex items-center justify-between gap-4 animate-pulse bg-white">
+    <div className="border border-fs-border rounded-2xl px-5 py-4 flex items-center justify-between gap-4 animate-pulse bg-fs-white">
       <div className="flex items-center gap-3">
         <div className="w-8 h-8 rounded-xl bg-fs-border" />
         <div className="space-y-2">
@@ -232,7 +235,7 @@ export default function ProfilePage() {
   const displayImage = session?.user?.image ?? null
 
   return (
-    <main className="min-h-screen text-fs-graphite" style={{ background: "linear-gradient(160deg, #f8faf9 0%, #f0f7f4 60%, #f8faf9 100%)" }}>
+    <main className="min-h-screen text-fs-graphite" style={{ background: "linear-gradient(160deg, var(--page-bg) 0%, rgb(var(--fs-light)) 60%, var(--page-bg) 100%)" }}>
       {/* AMBIENT BLOBS */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute -top-60 -right-60 w-[700px] h-[700px] rounded-full opacity-[0.04]"
@@ -319,7 +322,7 @@ export default function ProfilePage() {
 
             {/* ORDERS PANEL */}
             <FadeIn delay={0.05} className="lg:col-span-2">
-              <div className="bg-white border border-fs-border rounded-3xl p-7 shadow-sm">
+              <div className="bg-fs-white border border-fs-border rounded-3xl p-7 shadow-sm">
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
                     <div className="w-9 h-9 bg-fs-light rounded-xl flex items-center justify-center">
@@ -338,6 +341,7 @@ export default function ProfilePage() {
                     {(phone || session?.user?.email) && (
                       <button
                         onClick={() => fetchOrders(session?.user?.email ?? phone ?? "")}
+                        aria-label={t.refresh}
                         className="w-8 h-8 rounded-xl bg-fs-offwhite border border-fs-border flex items-center justify-center text-fs-gray hover:text-fs-primary transition-colors"
                       >
                         <RefreshCw size={13} strokeWidth={1.5} className={loading ? "animate-spin" : ""} />
@@ -360,10 +364,11 @@ export default function ProfilePage() {
                       <p className="text-[13px] text-fs-gray mt-2">
                         {!phone && !session ? t.profile.noOrdersAuth : t.profile.noOrdersHint}
                       </p>
-                      <Link href="/catalog">
-                        <button className="mt-5 px-5 py-2.5 rounded-xl bg-fs-primary text-white text-[13px] font-semibold hover:opacity-90 transition-opacity">
-                          {t.profile.toCatalog}
-                        </button>
+                      <Link
+                        href="/catalog"
+                        className="inline-block mt-5 px-5 py-2.5 rounded-xl bg-fs-primary text-white text-[13px] font-semibold hover:opacity-90 transition-opacity"
+                      >
+                        {t.profile.toCatalog}
                       </Link>
                     </div>
                   )}
@@ -376,7 +381,7 @@ export default function ProfilePage() {
 
               {/* FAVORITES */}
               <FadeIn delay={0.1}>
-                <div className="bg-white border border-fs-border rounded-3xl p-7 shadow-sm">
+                <div className="bg-fs-white border border-fs-border rounded-3xl p-7 shadow-sm">
                   <div className="flex items-center justify-between mb-5">
                     <div className="flex items-center gap-3">
                       <div className="w-9 h-9 bg-red-50 rounded-xl flex items-center justify-center">
@@ -397,10 +402,8 @@ export default function ProfilePage() {
                     <div className="text-center py-8">
                       <Heart size={28} strokeWidth={1} className="text-fs-subtle mx-auto mb-3" />
                       <p className="text-[13px] text-fs-gray">{t.profile.noFavorites}</p>
-                      <Link href="/catalog">
-                        <button className="mt-3 text-[12px] text-fs-gray hover:text-fs-primary transition-colors">
-                          {t.profile.toCatalog} →
-                        </button>
+                      <Link href="/catalog" className="mt-3 inline-block text-[12px] text-fs-gray hover:text-fs-primary transition-colors">
+                        {t.profile.toCatalog} →
                       </Link>
                     </div>
                   ) : (
@@ -415,7 +418,7 @@ export default function ProfilePage() {
                               <p className="text-[11px] text-fs-gray mt-0.5">{item.category}</p>
                             </div>
                           </div>
-                          <button onClick={() => toggle(item)} className="text-fs-gray hover:text-red-400 transition-colors flex-shrink-0">
+                          <button onClick={() => toggle(item)} aria-label={t.product.removeFromFavorites} className="text-fs-gray hover:text-red-400 transition-colors flex-shrink-0">
                             <Star size={15} strokeWidth={1.5} />
                           </button>
                         </div>
@@ -434,7 +437,7 @@ export default function ProfilePage() {
 
               {/* ADDRESSES */}
               <FadeIn delay={0.15}>
-                <div className="bg-white border border-fs-border rounded-3xl p-7 shadow-sm">
+                <div className="bg-fs-white border border-fs-border rounded-3xl p-7 shadow-sm">
                   <div className="flex items-center gap-3 mb-5">
                     <div className="w-9 h-9 bg-blue-50 rounded-xl flex items-center justify-center">
                       <MapPin size={17} strokeWidth={1.5} className="text-blue-400" />

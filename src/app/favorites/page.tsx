@@ -23,7 +23,7 @@ export default function FavoritesPage() {
   const toggle   = useFavoritesStore((state) => state.toggle)
   const addItem  = useCartStore((state) => state.addItem)
   const openCart = useCartUI((state) => state.openCart)
-  const { t }    = useLang()
+  const { t, lang } = useLang()
 
   const SORT_OPTIONS: { key: SortKey; label: string }[] = [
     { key: "added",      label: t.favorites.sortAdded     },
@@ -37,7 +37,7 @@ export default function FavoritesPage() {
   const sorted = [...products].sort((a, b) => {
     if (sort === "price_asc")  return a.priceNum - b.priceNum
     if (sort === "price_desc") return b.priceNum - a.priceNum
-    if (sort === "name")       return a.title.localeCompare(b.title, "ru")
+    if (sort === "name")       return a.title.localeCompare(b.title, lang === "kz" ? "kk-KZ" : "ru-RU")
     return 0 // added — original order
   })
 
@@ -109,14 +109,15 @@ export default function FavoritesPage() {
               <p className="text-body text-fs-gray max-w-sm leading-relaxed">
                 {t.empty.hint}
               </p>
-              <Link href="/catalog">
-                <button className="
-                  mt-8 px-6 py-3 rounded-xl
+              <Link
+                href="/catalog"
+                className="
+                  inline-block mt-8 px-6 py-3 rounded-xl
                   bg-fs-primary text-white text-caption font-bold
                   hover:bg-fs-soft transition-colors duration-200
-                ">
-                  {t.cart.goToCatalog}
-                </button>
+                "
+              >
+                {t.cart.goToCatalog}
               </Link>
             </motion.div>
           )}
@@ -137,6 +138,7 @@ export default function FavoritesPage() {
                   <button
                     key={opt.key}
                     onClick={() => setSort(opt.key)}
+                    aria-pressed={sort === opt.key}
                     className={`
                       px-3.5 py-1.5 rounded-xl text-label transition-all duration-200
                       ${sort === opt.key

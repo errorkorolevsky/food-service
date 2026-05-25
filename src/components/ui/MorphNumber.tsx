@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
+import { useLang } from "@/locales"
 
 type MorphNumberProps = {
   value:      number
@@ -24,8 +25,11 @@ export default function MorphNumber({
   className = "",
   prefix    = "",
   suffix    = "",
-  format    = (n) => (n ?? 0).toLocaleString("ru-RU"),
+  format,
 }: MorphNumberProps) {
+  const { lang } = useLang()
+  const defaultFormat = (n: number) => (n ?? 0).toLocaleString(lang === "kz" ? "kk-KZ" : "ru-RU")
+  const fmt = format ?? defaultFormat
   const safeValue = value ?? 0
   const [display, setDisplay] = useState(safeValue)
   const direction = safeValue >= display ? 1 : -1
@@ -33,7 +37,7 @@ export default function MorphNumber({
   // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { setDisplay(safeValue) }, [safeValue])
 
-  const formatted = format(display)
+  const formatted = fmt(display)
 
   return (
     <span className={`inline-flex items-baseline overflow-hidden ${className}`}>

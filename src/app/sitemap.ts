@@ -1,19 +1,32 @@
 import type { MetadataRoute } from "next"
-import { products } from "@/data/products"
+import { getAllProductIds } from "@/lib/db/products"
+import { BASE_URL } from "@/lib/seo"
 
-const BASE = "https://food-service.kz"
+function withAlternates(url: string) {
+  return {
+    url,
+    alternates: {
+      languages: {
+        "ru-RU": url,
+        "kk-KZ": url,
+      },
+    },
+  }
+}
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date()
 
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: BASE,              lastModified: now, changeFrequency: "weekly",  priority: 1.0 },
-    { url: `${BASE}/catalog`, lastModified: now, changeFrequency: "daily",   priority: 0.9 },
-    { url: `${BASE}/ai`,      lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { ...withAlternates(BASE_URL),              lastModified: now, changeFrequency: "weekly",  priority: 1.0 },
+    { ...withAlternates(`${BASE_URL}/catalog`), lastModified: now, changeFrequency: "daily",   priority: 0.9 },
+    { ...withAlternates(`${BASE_URL}/ai`),      lastModified: now, changeFrequency: "monthly", priority: 0.6 },
   ]
 
-  const productRoutes: MetadataRoute.Sitemap = products.map((p) => ({
-    url:             `${BASE}/product/${p.id}`,
+  const ids = await getAllProductIds()
+
+  const productRoutes: MetadataRoute.Sitemap = ids.map((id) => ({
+    ...withAlternates(`${BASE_URL}/product/${id}`),
     lastModified:    now,
     changeFrequency: "weekly",
     priority:        0.7,

@@ -1,339 +1,465 @@
-# 07_CART_AND_CATALOG_RULES.md
-
 # FOOD SERVICE — CART & CATALOG SYSTEM RULES
 
-## SYSTEM PURPOSE
+# SYSTEM PURPOSE
 
 Этот файл определяет:
 - как должен работать каталог
 - как должна работать корзина
 - как должен ощущаться shopping experience
 - как построить premium ecommerce UX
-- как избежать chaotic marketplace feeling
+- как избежать marketplace chaos
 
 Главная цель:
-создать luxury-tech grocery experience мирового уровня.
+создать:
+- modern grocery ecosystem
+- premium ecommerce experience
+- production-grade shopping flow
+- calm and intuitive product interaction
 
+НЕ:
+- noisy marketplace
+- overloaded ecommerce UI
+- AI-generated shopping demo
+- chaotic grocery application
 
 ---
 
-# GLOBAL ECOMMERCE PHILOSOPHY
+# PRIMARY ECOMMERCE PRINCIPLE
 
-Food Service НЕ должен ощущаться как:
-- дешёвый marketplace
-- overloaded grocery app
-- chaotic ecommerce template
-- noisy catalog
+Главный приоритет:
+SHOPPING COMFORT > VISUAL EFFECTS
 
-Food Service должен ощущаться как:
-- curated ecosystem
-- premium grocery experience
-- cinematic ecommerce product
-- intelligent product platform
+Пользователь должен:
+- быстро понимать интерфейс
+- быстро находить товары
+- легко добавлять товары
+- комфортно оформлять заказ
 
-## USER MUST FEEL
+UX важнее:
+- cinematic effects
+- excessive motion
+- visual experiments
 
+---
+
+# GLOBAL SHOPPING PHILOSOPHY
+
+Food Service должен ощущаться:
+- curated
+- organized
+- trustworthy
+- premium
+- responsive
+- lightweight
+
+Интерфейс НЕ должен ощущаться:
+- noisy
+- stressful
+- overloaded
+- chaotic
+- marketplace-heavy
+
+---
+
+# USER EXPERIENCE GOALS
+
+Пользователь должен чувствовать:
+- контроль
 - скорость
-- лёгкость
-- premium quality
-- smoothness
-- control
+- простоту
 - visual comfort
+- responsiveness
+- confidence
 
+---
+
+# REAL PRODUCT PRINCIPLE
+
+Каталог обязан ощущаться:
+- production-ready
+- usable
+- fast
+- scalable
+- real
+
+НЕ:
+- как concept showcase
+- как visual demo
+- как overly-designed AI ecommerce
 
 ---
 
 # CATALOG EXPERIENCE PHILOSOPHY
 
-## THE CATALOG IS THE HEART OF THE PRODUCT
+# THE CATALOG IS THE HEART OF THE PRODUCT
 
-Каталог — это не список товаров.
+Каталог — это НЕ:
+- просто список товаров
+- random grid
+- набор карточек
 
-Это:
-- визуальная система
-- curated experience
-- digital shelf ecosystem
+Каталог — это:
+- digital shelf system
+- curated product experience
+- shopping ecosystem
 
-Каталог обязан:
-- быть чистым
-- быть понятным
-- быть визуально сбалансированным
-- быть responsive
-- быть fast
-- быть emotionally pleasant
+---
 
+# CATALOG MUST FEEL
+
+- breathable
+- organized
+- calm
+- premium
+- intuitive
+- lightweight
+
+---
+
+# AVOID
+
+- marketplace chaos
+- overcrowded grids
+- excessive labels
+- visual clutter
+- aggressive UI density
 
 ---
 
 # PRODUCT GRID SYSTEM
 
-## GRID PHILOSOPHY
+# GRID PHILOSOPHY
 
-Сетка должна:
+Grid обязан:
 - иметь breathing space
-- ощущаться organized
+- иметь clear rhythm
+- быть scalable
 - быть responsive
-- масштабироваться cleanly
+- быть легко сканируемым
 
-## GRID MUST FEEL
+---
 
-- premium
-- clean
-- modern
-- breathable
+# GRID MUST NEVER FEEL
 
-## NEVER
+- cramped
+- chaotic
+- visually exhausting
+- overloaded
 
-- overcrowded cards
-- tiny spacing
-- chaotic alignment
-- inconsistent sizing
+---
 
-## RESPONSIVE GRID RULES
+# RESPONSIVE GRID RULES
 
-### MOBILE
-- 2-column optimized
+## MOBILE
+
+- clean 2-column layout
 - thumb-friendly spacing
-- readable cards
+- readable hierarchy
 
-### TABLET
-- balanced grid density
+---
 
-### DESKTOP
+## TABLET
+
+- balanced density
+- clear spacing rhythm
+
+---
+
+## DESKTOP
+
 - cinematic spacing
 - premium breathing room
-
+- comfortable scanning
 
 ---
 
 # PRODUCT CARD SYSTEM
 
-## PRODUCT CARD PHILOSOPHY
+# PRODUCT CARD PRINCIPLE
 
-Карточка товара = главный UI элемент проекта.
+Карточка товара —
+главный UI элемент проекта.
 
 Карточка обязана:
-- выглядеть дорого
-- ощущаться clean
+- выглядеть clean
 - быть highly readable
-- иметь subtle depth
+- быстро сканироваться
+- ощущаться premium
 - быть visually balanced
 
-## CARD STRUCTURE
+---
+
+# PRODUCT CARD HIERARCHY
+
+# PRIORITY ORDER
+
+1. Product image
+2. Product title
+3. Price
+4. CTA
+5. Secondary info
+
+---
+
+# IMPORTANT
+
+Пользователь должен:
+- мгновенно понимать товар
+- мгновенно видеть цену
+- быстро взаимодействовать с CTA
+
+---
+
+# CARD STRUCTURE
 
 Карточка должна содержать:
-- product image
-- product title
+- image
+- title
 - category/subtitle
 - pricing
 - CTA/add-to-cart
-- optional status tags
+- optional lightweight status tags
 
-## IMPORTANT
+---
 
-Иерархия должна быть:
-1. image
-2. title
-3. price
-4. CTA
+# NEVER
 
-## NEVER
-
-- clutter
-- excessive labels
-- giant badges
-- visual overload
-- too much text
-
+- giant labels
+- excessive badges
+- overloaded text
+- marketplace-style chaos
+- visual noise
 
 ---
 
 # PRODUCT IMAGE SYSTEM
 
-## IMAGE PHILOSOPHY
+# IMAGE PHILOSOPHY
 
-Все product images должны:
+Все изображения обязаны:
 - выглядеть как единая фотосессия
-- иметь одинаковое lighting behavior
-- иметь premium grocery aesthetic
-- иметь consistent background logic
+- иметь consistent lighting
+- ощущаться premium
+- иметь realistic textures
+- поддерживать brand atmosphere
 
-## IMAGE STYLE
+---
 
-Allowed:
-- cinematic studio lighting
-- dark premium ecommerce
-- realistic textures
-- matte atmosphere
+# ALLOWED STYLE
+
+- cinematic grocery photography
+- matte surfaces
 - realistic shadows
+- restrained lighting
+- premium catalog aesthetic
 
-Forbidden:
+---
+
+# FORBIDDEN STYLE
+
 - random PNG cutouts
-- inconsistent styles
-- low-quality images
-- chaotic backgrounds
-- poster-style advertising
+- inconsistent backgrounds
+- advertising-banner aesthetics
+- noisy compositions
+- cheap ecommerce feeling
 
-## IMAGE INTERACTIONS
+---
 
-Добавить:
-- smooth loading
+# IMAGE INTERACTIONS
+
+Разрешено:
 - subtle zoom
 - soft hover transitions
-- cinematic image reveal
+- smooth image loading
+- cinematic reveal
 
-## IMPORTANT
+---
 
-Изображения НЕ должны:
-- прыгать
-- лагать
-- резко менять размер
+# AVOID
 
+- aggressive scaling
+- distracting motion
+- flashy transitions
+- heavy hover effects
 
 ---
 
 # PRODUCT CARD MOTION SYSTEM
 
-## HOVER BEHAVIOR
+# MOTION PRINCIPLE
 
-Hover должен:
-- ощущаться мягко
-- быть subtle
-- добавлять depth feeling
+Motion обязан:
+- усиливать responsiveness
+- улучшать tactile feeling
+- поддерживать hierarchy
 
-## ALLOWED
-
-- slight elevation
-- soft glow
-- subtle scale
-- smooth transition
-- image depth motion
-
-## FORBIDDEN
-
-- aggressive scale
-- flashy effects
-- heavy shadows
-- exaggerated motion
-
-## MOTION TIMING
-
-Hover:
-150ms–250ms
-
-Reveal:
-300ms–500ms
-
-## USE
-
-- Framer Motion
-- transform
-- opacity
-- GPU-friendly animations
-
+НЕ:
+- отвлекать
+- перегружать интерфейс
+- существовать ради wow-effect
 
 ---
 
-# PRODUCT INFORMATION HIERARCHY
+# ALLOWED CARD MOTION
 
-## TYPOGRAPHY PRIORITY
+- subtle elevation
+- soft glow
+- gentle scaling
+- smooth transitions
+- lightweight transforms
 
-### PRIMARY
+---
+
+# FORBIDDEN CARD MOTION
+
+- dramatic scaling
+- bounce animations
+- flashy hover effects
+- exaggerated shadows
+- motion overload
+
+---
+
+# MOTION TIMING
+
+## HOVER
+150ms–250ms
+
+## REVEALS
+300ms–500ms
+
+---
+
+# PERFORMANCE RULE
+
+Hover interactions НЕ должны:
+- лагать
+- снижать FPS
+- перегружать rendering
+
+---
+
+# PRODUCT INFORMATION SYSTEM
+
+# TYPOGRAPHY PRIORITY
+
+## PRIMARY
 Product title
 
-### SECONDARY
+## SECONDARY
 Price
 
-### TERTIARY
-Category / description
+## TERTIARY
+Category / details
 
-### CTA
-Clear but not aggressive
+## CTA
+Visible but non-aggressive
 
-## IMPORTANT
+---
 
-Пользователь должен:
-- мгновенно понимать товар
-- мгновенно видеть цену
-- не теряться в интерфейсе
+# IMPORTANT
 
+Информация должна:
+- быстро сканироваться
+- быть readable
+- не создавать cognitive overload
 
 ---
 
 # ADD TO CART EXPERIENCE
 
-## ADD TO CART MUST FEEL
+# ADD TO CART MUST FEEL
 
 - instant
-- satisfying
 - responsive
-- premium
+- satisfying
+- lightweight
+- tactile
 
-## REQUIRED INTERACTIONS
+---
 
-### BUTTON FEEDBACK
-- soft press effect
-- smooth state transition
-- loading indication
+# REQUIRED INTERACTIONS
 
-### SUCCESS FEEDBACK
+## BUTTON FEEDBACK
+
+- soft press response
+- smooth transition
+- clear interaction state
+
+---
+
+## SUCCESS FEEDBACK
+
 - subtle confirmation
-- cart counter animation
-- smooth drawer update
+- cart counter update
+- smooth drawer refresh
 
-## FORBIDDEN
+---
+
+# FORBIDDEN
 
 - laggy updates
 - confusing states
-- instant jarring UI changes
-
+- jarring UI changes
+- delayed interaction feedback
 
 ---
 
 # CARTDRAWER SYSTEM
 
-# CARTDRAWER IS A PREMIUM EXPERIENCE
+# CARTDRAWER PRINCIPLE
 
-Корзина обязана ощущаться:
+Корзина —
+один из важнейших UX элементов.
+
+Она обязана ощущаться:
 - smooth
-- modern
-- lightweight
+- calm
+- organized
 - responsive
-- elegant
+- premium
 
-## DRAWER OPENING
+---
+
+# DRAWER OPENING
 
 Drawer должен:
 - открываться плавно
-- иметь inertia feel
+- иметь lightweight animation
 - не вызывать FPS drops
 
-## USE
+---
 
-- spring animations
-- soft opacity transitions
-- backdrop blur
+# USE
+
+- spring transitions
+- opacity transitions
+- subtle blur
 - cinematic entrance
 
-## AVOID
+---
+
+# AVOID
 
 - instant popping
-- lag
-- blocking animations
-
+- heavy rendering
+- laggy motion
+- blocking transitions
 
 ---
 
 # CART ITEM SYSTEM
 
-## CART ITEMS MUST FEEL
+# CART ITEMS MUST FEEL
 
 - organized
 - readable
-- interactive
-- clean
+- tactile
+- visually balanced
 
-## ITEM CONTENT
+---
+
+# REQUIRED CONTENT
 
 Каждый item:
 - image
@@ -342,285 +468,272 @@ Drawer должен:
 - price
 - remove action
 
-## QUANTITY CONTROLS
+---
 
-Quantity controls обязаны:
-- быть tactile
-- responsive
-- smooth
-- mobile-friendly
+# QUANTITY CONTROLS
 
-## REMOVE ACTION
+Quantity interactions обязаны:
+- быть responsive
+- быть mobile-friendly
+- ощущаться tactile
+- работать instantly
 
-Удаление должно:
+---
+
+# REMOVE INTERACTION
+
+Удаление товара должно:
 - быть animated
 - быть smooth
 - не ломать layout
-
+- сохранять calm UX
 
 ---
 
 # CART STATE SYSTEM
 
-## REQUIRED STATES
+# REQUIRED STATES
 
-### EMPTY CART
-Даже пустая корзина должна:
+## EMPTY CART
+
+Даже пустая корзина обязана:
 - выглядеть premium
 - иметь atmosphere
-- не ощущаться broken
+- не ощущаться unfinished
 
-### LOADING STATE
+---
+
+## LOADING STATE
+
 Добавить:
 - skeletons
 - shimmer
-- soft placeholders
+- smooth placeholders
 
-### ERROR STATE
-Ошибки должны:
-- быть clean
-- быть understandable
+---
+
+## ERROR STATE
+
+Ошибки обязаны:
+- быть понятными
+- выглядеть clean
 - не ломать UX
 
+---
+
 ## SUCCESS STATE
+
 Добавить:
-- subtle confirmation
+- subtle feedback
 - smooth transitions
-
-
----
-
-# CART UX RULES
-
-## USER MUST ALWAYS UNDERSTAND
-
-- что добавлено
-- сколько товаров
-- итоговую цену
-- как изменить количество
-- как удалить товар
-
-## NEVER
-
-- hidden interactions
-- confusing controls
-- unclear totals
-- broken updates
-
+- calm confirmation
 
 ---
 
-# CHECKOUT EXPERIENCE RULES
+# CHECKOUT EXPERIENCE
 
-## CHECKOUT MUST FEEL
+# CHECKOUT MUST FEEL
 
 - trustworthy
 - simple
-- fast
+- lightweight
+- safe
 - modern
-
-## UX GOALS
-
-Минимизировать:
-- friction
-- confusion
-- unnecessary steps
-
-## IMPORTANT
-
-Checkout НЕ должен:
-- ощущаться stressful
-- быть перегруженным
-- ломаться на mobile
-
 
 ---
 
-# FILTER & SEARCH SYSTEM
+# UX PRIORITY
 
-## SEARCH EXPERIENCE
+Минимизировать:
+- friction
+- unnecessary steps
+- confusion
+- visual overload
+
+---
+
+# IMPORTANT
+
+Checkout UX важнее:
+- atmosphere
+- motion
+- cinematic presentation
+
+---
+
+# SEARCH & FILTER SYSTEM
+
+# SEARCH EXPERIENCE
 
 Поиск обязан:
-- быть быстрым
+- работать instantly
 - быть responsive
-- иметь clean UI
+- иметь clear UI
 
-## FILTERS
+---
 
-Фильтры должны:
-- быть понятными
-- не перегружать интерфейс
-- быть mobile-friendly
+# FILTERS MUST FEEL
 
-## MOBILE FILTER UX
+- organized
+- lightweight
+- understandable
+- mobile-friendly
+
+---
+
+# MOBILE FILTER UX
 
 Mobile filters обязаны:
-- работать через drawer/sheet
-- быть smooth
-- не ломать scroll
-
+- использовать drawer/sheet UX
+- не ломать scrolling
+- работать smoothly
 
 ---
 
 # RESPONSIVE ECOMMERCE RULES
 
-## MOBILE SHOPPING EXPERIENCE
+# MOBILE SHOPPING EXPERIENCE
 
-Mobile UX — критически важен.
+Mobile UX —
+критически важен.
 
-## MUST SUPPORT
+---
+
+# MUST SUPPORT
 
 - one-hand usage
+- thumb-friendly interactions
 - fast navigation
-- touch-friendly controls
 - smooth scrolling
 
-## CHECK
+---
+
+# ALWAYS CHECK
 
 - cart drawer
 - catalog grid
-- buttons
-- filters
+- touch targets
 - typography
 - checkout flow
+- filter behavior
 
-## NEVER
+---
 
-- tiny touch targets
-- overflow bugs
-- broken spacing
+# NEVER
+
+- tiny buttons
 - desktop-only layouts
-
+- overflow bugs
+- cramped spacing
+- overloaded mobile UI
 
 ---
 
 # PERFORMANCE RULES
 
-## CATALOG PERFORMANCE
+# CATALOG PERFORMANCE
 
 Обязательно:
 - lazy loading images
 - optimized rendering
-- virtualized lists if needed
 - smooth scrolling
+- lightweight interactions
 
-## AVOID
+---
+
+# AVOID
 
 - rerender storms
 - layout shifts
-- laggy interactions
-- oversized product assets
+- laggy catalog interactions
+- oversized assets
 
-## IMAGE OPTIMIZATION
+---
+
+# IMAGE OPTIMIZATION
 
 Использовать:
-- Next/Image
+- optimized image formats
 - responsive sizing
 - blur placeholders
-- optimized formats
-
-
----
-
-# ZUSTAND CART RULES
-
-## STORE PHILOSOPHY
-
-Cart store обязан:
-- быть predictable
-- быть typed
-- быть modular
-- быть scalable
-
-## STORE MUST HANDLE
-
-- add item
-- remove item
-- update quantity
-- calculate totals
-- persist cart
-- sync UI state
-
-## NEVER
-
-- duplicate logic
-- mutate state unsafely
-- create hidden side effects
-
+- lazy loading
 
 ---
 
-# DESIGN CONSISTENCY RULES
+# ACCESSIBILITY RULES
 
-Все ecommerce элементы обязаны:
-- соответствовать design system
-- соответствовать motion system
-- соответствовать spacing system
-
-## NEVER
-
-- random card sizes
-- inconsistent buttons
-- inconsistent hover states
-- chaotic pricing styles
-
+Shopping UX обязан:
+- поддерживать keyboard navigation
+- сохранять readability
+- иметь clear focus states
+- поддерживать accessible interactions
 
 ---
 
-# QA CHECKLIST
+# IMPORTANT
 
-Перед завершением ecommerce задачи проверить:
-
-## UX
-- intuitive?
-- fast?
-- clean?
-
-## VISUAL
-- balanced?
-- premium?
-- readable?
-
-## MOTION
-- smooth?
-- subtle?
-- responsive?
-
-## MOBILE
-- touch-friendly?
-- responsive?
-- stable?
-
-## PERFORMANCE
-- optimized?
-- no lag?
-- no layout shifts?
-
+Premium ecommerce UX =
+accessible ecommerce UX.
 
 ---
 
-# FINAL EXPERIENCE TARGET
+# QA VALIDATION CHECKLIST
 
-Пользователь должен ощущать:
+Перед production release проверить:
 
-“Это premium AI-powered grocery ecosystem.”
+## FUNCTIONAL QA
+
+- cart updates work
+- quantity logic stable
+- checkout flow functional
+- no broken states
+
+---
+
+## UI QA
+
+- spacing consistent
+- hierarchy readable
+- responsive stable
+- cards visually balanced
+
+---
+
+## UX QA
+
+- shopping flow intuitive
+- interactions responsive
+- checkout comfortable
+- no unnecessary friction
+
+---
+
+## PERFORMANCE QA
+
+- smooth rendering
+- optimized image loading
+- no interaction lag
+- stable scrolling
+
+---
+
+# FINAL ECOMMERCE PRINCIPLE
+
+Shopping experience должен ощущаться:
+- calm
+- premium
+- responsive
+- trustworthy
+- fast
+- production-ready
+
+Пользователь должен чувствовать:
+что это:
+- настоящий ecommerce ecosystem
+- качественный grocery product
+- удобный сервис
 
 А НЕ:
-“очередной интернет-магазин.”
-
-
----
-
-# FINAL DIRECTIVE
-
-Claude Code обязан:
-- строить premium catalog experience
-- создавать satisfying cart interactions
-- поддерживать responsive ecommerce UX
-- избегать marketplace chaos
-- сохранять cinematic luxury-tech aesthetic
-
-
----
-
-# END OF FILE
+- AI-generated marketplace demo
+- overloaded shopping UI
+- chaotic ecommerce template.

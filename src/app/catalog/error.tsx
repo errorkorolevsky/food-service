@@ -2,6 +2,7 @@
 
 import { useEffect } from "react"
 import Link from "next/link"
+import { useLang } from "@/locales"
 
 export default function CatalogError({
   error,
@@ -10,9 +11,8 @@ export default function CatalogError({
   error: Error & { digest?: string }
   reset: () => void
 }) {
-  useEffect(() => {
-    console.error(error)
-  }, [error])
+  const { t } = useLang()
+  useEffect(() => { console.error(error) }, [error])
 
   return (
     <main className="fs-page-bg text-fs-graphite min-h-screen flex items-center justify-center">
@@ -20,24 +20,20 @@ export default function CatalogError({
         <div className="w-16 h-16 rounded-2xl bg-fs-light border border-fs-border flex items-center justify-center text-3xl mx-auto mb-6">
           🛒
         </div>
-        <h1 className="text-2xl font-bold text-fs-graphite mb-3">
-          Не удалось загрузить каталог
-        </h1>
-        <p className="text-fs-gray text-sm mb-8 max-w-xs mx-auto">
-          Попробуйте обновить страницу или вернитесь позже.
-        </p>
+        <h1 className="text-2xl font-bold text-fs-graphite mb-3">{t.errors.serverError}</h1>
+        <p className="text-fs-gray text-sm mb-8 max-w-xs mx-auto">{t.errors.errorDesc}</p>
         <div className="flex items-center justify-center gap-3">
           <button
             onClick={reset}
             className="px-6 py-3 rounded-xl bg-fs-primary text-white text-sm font-medium hover:bg-fs-soft transition-colors"
           >
-            Попробовать снова
+            {t.errors.tryAgain}
           </button>
           <Link
             href="/"
             className="px-6 py-3 rounded-xl border border-fs-border text-fs-slate text-sm font-medium hover:border-fs-primary/30 hover:text-fs-primary transition-all"
           >
-            На главную
+            {t.errors.goHome}
           </Link>
         </div>
       </div>

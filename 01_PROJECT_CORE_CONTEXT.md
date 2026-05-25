@@ -2,294 +2,358 @@
 
 # FOOD SERVICE AI ECOSYSTEM — MASTER PROJECT CONTEXT
 
-## PROJECT IDENTITY
+# PROJECT IDENTITY
 
-Food Service Kazakhstan — это не просто ecommerce сайт.
-Это современная AI-powered digital ecosystem платформа для food service сегмента.
+Food Service Kazakhstan — это современная digital ecosystem платформа для food service сегмента.
 
-Проект должен выглядеть как:
-- premium grocery platform
-- modern AI startup
-- cinematic ecommerce experience
-- next-generation digital product ecosystem
+Проект объединяет:
+- ecommerce experience
+- premium grocery UX
+- AI-assisted systems
+- modern product design
+- cinematic brand atmosphere
+- scalable digital infrastructure
 
-Основная задача:
-Создать ощущение дорогого, живого, технологичного и современного продукта мирового уровня.
-
-Проект НЕ должен выглядеть:
-- как шаблонный marketplace
-- как обычный интернет-магазин
-- как bootstrap/admin template
-- как дешёвый корпоративный сайт
-- как устаревший ecommerce 2018 года
-
-Проект ДОЛЖЕН выглядеть:
-- дорого
-- современно
-- атмосферно
-- технологично
-- плавно
-- кинематографично
-- минималистично
-- responsive
-- intelligent
-- luxury-tech
-
+Главная задача:
+создать продукт, который ощущается:
+- современным
+- удобным
+- быстрым
+- премиальным
+- живым
+- технологичным
+- production-ready
 
 ---
 
-# GLOBAL PROJECT GOAL
+# CORE PRODUCT PRINCIPLE
+
+Food Service — это НЕ:
+- concept art
+- футуристичная демка
+- AI showcase
+- Dribbble-only проект
+- overly cinematic experiment
+
+Food Service — это:
+- реальный digital product
+- production-grade ecosystem
+- современный ecommerce experience
+- usable platform
+- trustworthy service
+- scalable product infrastructure
+
+Главный приоритет:
+реальный пользовательский опыт.
+
+UX всегда важнее:
+- wow-эффектов
+- сложных анимаций
+- визуальной демонстрации возможностей
+
+---
+
+# GLOBAL PRODUCT GOAL
 
 Создать лучший food service digital experience в Казахстане,
-который визуально и технически ощущается как продукт уровня:
+который ощущается как:
+- современный продукт мирового уровня
+- premium grocery ecosystem
+- AI-assisted ecommerce platform
+- fast and intuitive service
 
-- Apple
-- Stripe
-- Linear
-- Vercel
-- Framer
-- Arc Browser
-- Raycast
-- Yandex Lavka
-- Arbuz
-- Notion
-- современные AI startups
+Проект должен вдохновляться уровнем качества:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
 
-Но при этом:
+НО:
 - не копировать их напрямую
-- сохранить собственный уникальный стиль Food Service
+- сохранить собственный visual identity
 - сохранить локальную идентичность
-
+- сохранить уникальный стиль Food Service
 
 ---
 
-# PROJECT PHILOSOPHY
-
-## ОСНОВНАЯ ИДЕЯ
-
-Food Service = living ecosystem.
+# PRODUCT EXPERIENCE PHILOSOPHY
 
 Сайт должен ощущаться:
-- живым
-- плавным
+- спокойным
+- уверенным
 - responsive
-- intelligent
-- reactive
-- premium
-- curated
-
-Каждое взаимодействие пользователя должно ощущаться:
-- мягким
+- tactile
 - быстрым
-- дорогим
-- понятным
-- естественным
+- продуманным
+- визуально чистым
 
-Нельзя делать:
-- резкие анимации
-- дешёвые эффекты
-- перегруженный интерфейс
-- хаотичную типографику
-- слишком яркие цвета
-- тяжёлые UI элементы
+Пользователь не должен:
+- перегружаться интерфейсом
+- думать куда нажимать
+- искать основные действия
+- уставать от визуального шума
 
-
----
-
-# CURRENT TECH STACK
-
-## FRONTEND
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
-- Framer Motion
-
-## STATE MANAGEMENT
-- Zustand
-
-## BACKEND
-- Supabase
-
-## DEPLOYMENT
-- Vercel
-- Railway
-
-## VERSION CONTROL
-- GitHub
-
-## POSSIBLE FUTURE
-- AI integrations
-- recommendation system
-- smart catalog
-- AI search
-- AI assistant
-- smart logistics UI
-- admin AI dashboard
-
+Интерфейс обязан:
+- помогать
+- направлять
+- ускорять действия
+- вызывать доверие
+- создавать ощущение качества
 
 ---
 
-# DESIGN SYSTEM PHILOSOPHY
+# REAL PRODUCT PRINCIPLE
 
-## VISUAL STYLE
+Интерфейс обязан ощущаться:
+- реальным
+- используемым
+- стабильным
+- practical
+- trustworthy
 
-Главный стиль:
+Интерфейс НЕ должен выглядеть:
+- как AI-generated demo
+- как Behance-concept
+- как futuristic showcase
+- как startup template
+- как набор эффектов
+
+Главный фокус:
+- usability
+- clarity
+- responsiveness
+- ecommerce logic
+- smooth interactions
+- real customer comfort
+
+---
+
+# HUMAN EXPERIENCE PRINCIPLE
+
+Интерфейс обязан ощущаться:
+- человечным
+- спокойным
+- tactile
+- natural
+- emotionally comfortable
+
+Необходимо избегать:
+- sterile AI feeling
+- robotic layouts
+- excessive symmetry
+- generic AI startup aesthetics
+- emotionally cold interfaces
+
+Интерфейс должен:
+- иметь ритм
+- иметь breathing space
+- иметь visual calmness
+- ощущаться живым
+- ощущаться intentional
+
+---
+
+# VISUAL STYLE PHILOSOPHY
+
+Основной visual direction:
 - dark premium ecommerce
-- cinematic UI
-- expensive minimalism
-- luxury-tech aesthetic
-- soft gradients
+- restrained luxury-tech
+- cinematic minimalism
+- premium grocery atmosphere
+- soft depth
 - matte surfaces
-- smooth glow
+- controlled lighting
 - subtle motion
-- premium typography
-- soft shadows
-- atmospheric depth
 
-## COLOR BEHAVIOR
+Интерфейс должен ощущаться:
+- clean
+- expensive
+- atmospheric
+- modern
+- calm
+- polished
 
-Цвета должны:
-- быть глубокими
-- мягкими
-- premium
-- не кислотными
-- не “кричащими”
+---
 
-Интерфейс:
-- преимущественно dark
-- с аккуратными акцентами
-- с cinematic lighting feeling
+# ANTI-OVERDESIGN RULES
 
-Нельзя:
-- random colors
-- дешёвые градиенты
-- overly saturated UI
-- rainbow interfaces
-- crypto-bro aesthetics
+Если интерфейс начинает ощущаться:
+- слишком шумным
+- слишком glowing
+- слишком animated
+- слишком futuristic
+- слишком overloaded
 
+необходимо:
+- уменьшить эффекты
+- упростить композицию
+- убрать лишний motion
+- увеличить visual silence
+- усилить readability
+- усилить usability
+
+Premium feeling создаётся:
+не количеством эффектов,
+а quality of restraint.
+
+---
+
+# VISUAL RESTRICTION RULES
+
+Избегать:
+- excessive glow
+- crypto aesthetics
+- cyberpunk visuals
+- rainbow gradients
+- aggressive glassmorphism
+- flashy motion
+- visual clutter
+- oversized hero sections
+- “wow ради wow”
+
+Интерфейс НЕ должен ощущаться:
+- дешёвым
+- overly futuristic
+- AI-generated
+- experimental
+- overproduced
 
 ---
 
 # UI/UX PRINCIPLES
 
-## USER EXPERIENCE
+Главные UX приоритеты:
 
-Пользователь не должен думать.
-Интерфейс должен ощущаться интуитивным.
+1. Clarity
+2. Speed
+3. Simplicity
+4. Responsiveness
+5. Trust
+6. Emotional comfort
+7. Visual quality
 
-Главные принципы:
-- минимальное трение
-- плавная навигация
-- быстрые взаимодействия
-- clear hierarchy
-- visual breathing space
-- focus on content
-
-## EVERY UI ELEMENT MUST FEEL:
+Каждый UI элемент обязан быть:
 - intentional
-- polished
+- readable
+- accessible
 - responsive
-- alive
-- premium
-
-## AVOID:
-- clutter
-- overdesign
-- unnecessary text
-- aggressive effects
-- old UI patterns
-
+- intuitive
+- visually balanced
 
 ---
 
-# MOTION DESIGN PHILOSOPHY
+# DESIGN SYSTEM PHILOSOPHY
+Интерфейс обязан строиться на:
+- spacing consistency
+- typography hierarchy
+- motion consistency
+- clean composition
+- responsive logic
+- reusable systems
 
-Анимации — обязательная часть проекта.
+Нельзя:
+- random spacing
+- inconsistent UI
+- chaotic hierarchy
+- duplicated styles
+- visual fragmentation
 
-Но:
-анимации должны быть subtle и premium.
+---
 
-## ALLOWED ANIMATION STYLE
+# MOTION PHILOSOPHY
 
-- smooth fade
-- soft reveal
-- cinematic transitions
-- inertia movement
-- smooth hover response
-- parallax depth
-- magnetic interactions
-- scroll reveal
+Motion — часть UX.
+
+Animation должна:
+- помогать navigation
+- усиливать hierarchy
+- делать интерфейс живым
+- поддерживать emotional pacing
+
+Animation НЕ должна:
+- отвлекать
+- перегружать
+- замедлять UX
+- существовать без причины
+
+Лучший motion:
+почти незаметен,
+но делает интерфейс ощущаемо лучше.
+
+---
+
+# ALLOWED MOTION STYLE
+
+Разрешено:
+- soft fade
+- smooth reveal
+- subtle transitions
 - opacity transitions
-- soft scaling
+- gentle hover interactions
+- cinematic pacing
+- lightweight transforms
+- smooth feedback
 
-## FORBIDDEN
-
+Запрещено:
 - bounce overload
-- meme animations
-- exaggerated motion
-- cheap neon effects
-- laggy transitions
-- random motion
-- too much movement
-
-## MOTION MUST FEEL:
-- expensive
-- smooth
-- intelligent
-- invisible but noticeable
-
+- exaggerated movement
+- flashy effects
+- random animations
+- constant motion
+- distracting parallax
 
 ---
 
 # PRODUCT CARD PHILOSOPHY
 
-Карточки товаров — ключевой элемент проекта.
+Карточки товаров — ключевая часть experience.
 
 Они должны:
-- выглядеть как premium grocery catalog
 - быть clean
-- иметь breathing space
-- быть visually balanced
-- иметь subtle hover interactions
-- быть mobile friendly
+- быть breathable
+- быть highly readable
+- выглядеть как premium grocery catalog
 
-## PRODUCT IMAGES
-
-Изображения должны:
-- быть единым стилем
-- realistic
-- premium grocery photography
-- cinematic studio lighting
-- dark premium catalog aesthetic
-
-Нельзя:
-- дешёвые PNG
-- inconsistent styles
-- random shadows
-- яркие рекламные баннеры
-
+Пользователь должен:
+- мгновенно понимать товар
+- мгновенно видеть цену
+- быстро взаимодействовать с CTA
 
 ---
 
-# CART UX PHILOSOPHY
+# PRODUCT IMAGE PHILOSOPHY
 
-Корзина — критически важный UX элемент.
+Все изображения обязаны:
+- быть единым стилем
+- иметь realistic lighting
+- ощущаться premium
+- выглядеть как curated catalog
 
-CartDrawer должен:
-- открываться плавно
-- быть responsive
-- быть быстрым
-- не ломать scroll
-- иметь красивые loading states
-- иметь intuitive controls
+Избегать:
+- inconsistent styles
+- noisy backgrounds
+- cheap PNG feeling
+- advertising-banner aesthetics
 
-## USER MUST FEEL:
-- control
-- speed
-- smoothness
-- simplicity
+---
 
+# CART EXPERIENCE PHILOSOPHY
+
+Корзина обязана ощущаться:
+- лёгкой
+- плавной
+- понятной
+- responsive
+- satisfying
+
+Пользователь должен чувствовать:
+- контроль
+- скорость
+- уверенность
+- отсутствие friction
 
 ---
 
@@ -297,182 +361,102 @@ CartDrawer должен:
 
 Mobile-first обязательно.
 
-Сайт должен идеально работать:
+Продукт обязан ощущаться premium:
 - desktop
-- laptop
 - tablet
 - mobile
 
-## MOBILE UX MUST BE:
-- clean
-- lightweight
+Mobile UX особенно важен.
+
+Мобильная версия должна быть:
 - smooth
 - thumb-friendly
-
-Нельзя:
-- desktop-only thinking
-- broken adaptive layouts
-- giant spacing issues
-- overflow bugs
-
+- lightweight
+- tactile
+- fast
 
 ---
 
 # PERFORMANCE PHILOSOPHY
 
-Сайт должен ощущаться:
-- extremely fast
-- lightweight
+Сайт обязан ощущаться:
+- быстрым
+- лёгким
+- responsive
 - optimized
 
-## PRIORITIES:
-- lazy loading
-- optimized animations
-- image optimization
-- reduced layout shift
-- smooth hydration
-- responsive rendering
+Приоритет:
+- smooth rendering
+- lightweight animations
+- optimized images
+- minimal layout shift
+- responsive hydration
 
-## FORBIDDEN:
+Запрещено:
+- laggy interactions
+- oversized bundles
+- heavy rendering
+- animation overload
 - unnecessary rerenders
-- giant bundles
-- animation lag
-- memory leaks
-- blocking rendering
-
 
 ---
 
 # DEVELOPMENT PHILOSOPHY
 
-Claude Code НЕ должен:
-- хаотично переписывать проект
-- ломать существующий функционал
-- удалять рабочие компоненты
-- делать unsafe refactoring
-- менять архитектуру без анализа
+Любые изменения должны:
+- усиливать UX
+- усиливать consistency
+- сохранять architecture cleanliness
+- сохранять scalability
+- улучшать usability
 
-Claude Code ОБЯЗАН:
-- сначала анализировать
-- потом планировать
-- потом действовать
-- проверять ошибки
-- сохранять consistency
-- сохранять архитектурную чистоту
-
-## BEFORE EVERY CHANGE:
-1. Analyze current implementation
-2. Understand dependencies
-3. Explain improvement strategy
+Перед любыми изменениями необходимо:
+1. Analyze
+2. Understand
+3. Plan
 4. Implement safely
-5. Verify functionality
-6. Check responsive behavior
-7. Check performance impact
-
+5. Verify
+6. Polish
 
 ---
 
 # CODE QUALITY RULES
 
-Код должен быть:
+Код обязан быть:
 - scalable
 - modular
 - readable
-- reusable
 - typed
 - production-ready
 
-## PREFER:
+Предпочтительно:
 - reusable components
-- clean architecture
-- composition
-- atomic structure
-- consistent naming
+- isolated logic
+- predictable architecture
+- clean composition
 
-## AVOID:
+Избегать:
+- spaghetti logic
 - giant components
 - duplicated code
-- inline chaos
-- hardcoded values
-- spaghetti logic
-
+- unsafe refactoring
+- hardcoded chaos
 
 ---
 
-# BRAND EXPERIENCE
+# FINAL PRODUCT FEELING
 
-Food Service должен ощущаться:
-- как бренд будущего
-- как AI-powered platform
-- как premium ecosystem
-- как curated digital experience
+Финальный продукт должен ощущаться:
+- finished
+- trustworthy
+- modern
+- premium
+- calm
+- intelligent
+- usable
+- real
 
-Это не просто каталог товаров.
-Это digital product experience.
-
-
----
-
-# FUTURE EXPANSION
-
-Архитура проекта должна быть готова к:
-- AI features
-- smart search
-- recommendation systems
-- analytics
-- dashboards
-- automation
-- personalization
-- multilingual scaling
-- mobile app
-- admin systems
-
-
----
-
-# CLAUDE CODE PRIMARY DIRECTIVE
-
-Ты НЕ обычный code assistant.
-
-Ты:
-- Senior Frontend Architect
-- Premium UI/UX Designer
-- Motion Designer
-- Product Designer
-- Performance Engineer
-- Creative Technologist
-
-Твоя задача:
-Сделать Food Service Kazakhstan проектом мирового уровня.
-
-Каждое изменение должно:
-- улучшать UX
-- усиливать visual identity
-- сохранять consistency
-- улучшать responsiveness
-- улучшать performance
-- усиливать premium feeling
-
-Никогда не делай дешёвые решения.
-Никогда не жертвуй качеством ради скорости.
-Всегда думай как senior-level product team.
-
-
----
-
-# FINAL PRIORITY ORDER
-
-При принятии решений всегда соблюдать приоритет:
-
-1. UX
-2. Visual Quality
-3. Performance
-4. Consistency
-5. Scalability
-6. Clean Architecture
-7. Developer Experience
-
-
----
-
-# END OF FILE
+Пользователь должен думать:
+“это настоящий современный digital product”,
+а не:
+“это AI-generated concept”.

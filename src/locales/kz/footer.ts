@@ -1,0 +1,33 @@
+export const kzFooter = {
+  footer: {
+    tagline:  "Шымкентте үйге жеткізілетін таза өнімдер мен дайын тамақ.",
+    city:     "Шымкент, Қазақстан",
+    aiActive: "AI белсенді",
+    delivery: "🚚 Жеткізу 15–30 мин",
+    schedule: "Дс–Сб: 08:00 – 20:00",
+    col: {
+      catalog:  "Каталог",
+      platform: "Платформа",
+      company:  "Компания",
+    },
+    links: {
+      seafood:      "Балық және теңіз өнімдері",
+      sushi:        "Суши ингредиенттері",
+      coffee:       "Кофе және бар",
+      confectionery:"Кондитерлік",
+      packaging:    "Орама HoReCa",
+      ai:           "AI ұсыныстар",
+      catalog:      "Каталог",
+      favorites:    "Таңдаулылар",
+      tracking:     "Қадағалау",
+      dashboard:    "Dashboard",
+      about:        "Біз туралы",
+      delivery:     "Жеткізу",
+      profile:      "Профиль",
+      login:        "Кіру",
+    },
+    copyright:"© 2026 Food Service Kazakhstan. Барлық құқықтар қорғалған.",
+    privacy:  "Құпиялылық",
+    terms:    "Шарттар",
+  },
+}

@@ -5,7 +5,16 @@ type TokenEntry = { email: string; expires: number }
 
 const store = new Map<string, TokenEntry>()
 
+function purgeExpired() {
+  const now = Date.now()
+  for (const [token, entry] of store) {
+    if (now > entry.expires) store.delete(token)
+  }
+}
+
 export function createToken(email: string): string {
+  // Purge stale tokens on every creation — keeps the map bounded
+  purgeExpired()
   const token   = crypto.randomUUID() + crypto.randomUUID()
   const expires = Date.now() + 15 * 60 * 1000
   store.set(token, { email, expires })

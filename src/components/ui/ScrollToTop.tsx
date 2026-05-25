@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowUp } from "lucide-react"
+import { useLang } from "@/locales"
 
 export default function ScrollToTop() {
+  const { t }             = useLang()
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -37,7 +39,7 @@ export default function ScrollToTop() {
             transition-colors duration-200
             md:bottom-8 md:right-8
           "
-          aria-label="Наверх"
+          aria-label={t.scrollTop}
         >
           <ArrowUp size={18} strokeWidth={2} />
         </motion.button>

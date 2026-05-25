@@ -16,19 +16,24 @@ import PromoTicker from "@/components/ui/PromoTicker";
 import LoadingScreen from "@/components/ui/LoadingScreen";
 import GlowBackground from "@/components/ui/GlowBackground";
 import FloatingNotification from "@/components/ui/FloatingNotification";
+import SectionDivider from "@/components/ui/SectionDivider";
 
-function SectionDivider({ variant = "green" }: { variant?: "green" | "warm" | "neutral" }) {
-  const gradients = {
-    green:   "from-transparent via-[rgba(0,91,70,0.45)] to-transparent",
-    warm:    "from-transparent via-[rgba(245,158,11,0.45)] to-transparent",
-    neutral: "from-transparent via-[rgba(107,114,128,0.30)] to-transparent",
+import { getAllProducts } from "@/lib/db/products";
+import { CATEGORY_FILTER } from "@/data/categories";
+
+export default async function HomePage() {
+  const allProducts = await getAllProducts();
+
+  const popularProducts = allProducts.filter((p) => p.isPopular).slice(0, 8);
+  const newProducts     = allProducts.filter((p) => p.isNew).slice(0, 8);
+  const saleProducts    = allProducts.filter((p) => !!p.discountPercent).slice(0, 8);
+
+  const categoryCounts: Record<string, number> = {};
+  for (const filterName of Object.values(CATEGORY_FILTER)) {
+    if (filterName) {
+      categoryCounts[filterName] = allProducts.filter((p) => p.category === filterName).length;
+    }
   }
-  return (
-    <div className={`h-[2px] bg-gradient-to-r ${gradients[variant]}`} />
-  )
-}
-
-export default function HomePage() {
   return (
     <>
       <Navbar />
@@ -40,19 +45,19 @@ export default function HomePage() {
         <PromoTicker />
 
         <SectionDivider variant="warm" />
-        <LiveOffersSection />
+        <LiveOffersSection products={saleProducts} />
 
         <SectionDivider variant="warm" />
         <AnimatedPromoBanner />
 
         <SectionDivider variant="green" />
-        <CategoriesSection />
+        <CategoriesSection categoryCounts={categoryCounts} />
 
         <SectionDivider variant="neutral" />
-        <PopularSection />
+        <PopularSection products={popularProducts} />
 
         <SectionDivider variant="warm" />
-        <NewArrivalsSection />
+        <NewArrivalsSection products={newProducts} />
 
         <SectionDivider variant="neutral" />
         <BusinessSection />

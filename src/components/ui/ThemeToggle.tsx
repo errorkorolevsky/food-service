@@ -3,17 +3,24 @@
 import { Sun, Moon, Monitor } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useTheme, type Theme } from "@/components/ui/ThemeProvider"
+import { useLang } from "@/locales"
 
 type Variant = "navbar" | "mobile"
 
-const THEMES: { value: Theme; icon: React.ElementType; label: string }[] = [
-  { value: "light",  icon: Sun,     label: "Светлая" },
-  { value: "system", icon: Monitor, label: "Системная" },
-  { value: "dark",   icon: Moon,    label: "Тёмная" },
+type ThemeConfig = { value: Theme; icon: React.ElementType }
+const THEME_CONFIGS: ThemeConfig[] = [
+  { value: "light",  icon: Sun     },
+  { value: "system", icon: Monitor },
+  { value: "dark",   icon: Moon    },
 ]
 
 export default function ThemeToggle({ variant = "navbar" }: { variant?: Variant }) {
+  const { t }            = useLang()
   const { theme, setTheme } = useTheme()
+  const THEMES = THEME_CONFIGS.map((c) => ({
+    ...c,
+    label: t.theme[c.value as keyof typeof t.theme] as string,
+  }))
 
   const cycle = () => {
     const idx  = THEMES.findIndex((t) => t.value === theme)
@@ -28,7 +35,7 @@ export default function ThemeToggle({ variant = "navbar" }: { variant?: Variant 
     return (
       <button
         onClick={cycle}
-        aria-label={`Тема: ${current.label}`}
+        aria-label={`${t.theme.label}: ${current.label}`}
         className={`
           px-1.5 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-wide
           transition-all duration-150

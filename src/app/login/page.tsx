@@ -8,20 +8,18 @@ import { signIn } from "next-auth/react"
 import Navbar from "@/components/layout/Navbar"
 import Badge from "@/components/ui/Badge"
 import FadeIn from "@/components/ui/FadeIn"
+import { useLang } from "@/locales"
 
-const PERKS = [
-  { icon: Package,     text: "История всех заказов в одном месте"      },
-  { icon: ShieldCheck, text: "Безопасный вход без пароля"               },
-  { icon: Sparkles,    text: "AI рекомендации на основе ваших закупок"  },
-]
+const PERK_ICONS = [Package, ShieldCheck, Sparkles]
 
 type View = "default" | "email" | "sent"
 
 export default function LoginPage() {
-  const [view,      setView]      = useState<View>("default")
-  const [email,     setEmail]     = useState("")
-  const [loading,   setLoading]   = useState(false)
-  const [error,     setError]     = useState("")
+  const { t }                         = useLang()
+  const [view,    setView]    = useState<View>("default")
+  const [email,   setEmail]   = useState("")
+  const [loading, setLoading] = useState(false)
+  const [error,   setError]   = useState("")
 
   const handleGoogle = async () => {
     setLoading(true)
@@ -30,20 +28,20 @@ export default function LoginPage() {
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!email.includes("@")) { setError("Введите корректный email"); return }
+    if (!email.includes("@")) { setError(t.login.emailError); return }
     setLoading(true)
     setError("")
     try {
-      const res = await fetch("/api/auth/magic", {
+      const res  = await fetch("/api/auth/magic", {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
         body:    JSON.stringify({ email }),
       })
       const data = await res.json()
-      if (!res.ok) { setError(data.error ?? "Ошибка"); setLoading(false); return }
+      if (!res.ok) { setError(data.error ?? t.login.networkError); setLoading(false); return }
       setView("sent")
     } catch {
-      setError("Ошибка сети")
+      setError(t.login.networkError)
     } finally {
       setLoading(false)
     }
@@ -56,7 +54,7 @@ export default function LoginPage() {
       <div className="fs-container py-20">
         <div className="max-w-md mx-auto">
           <FadeIn>
-            <div className="bg-white border border-fs-border rounded-2xl p-10">
+            <div className="bg-fs-white border border-fs-border rounded-2xl p-10">
 
               <AnimatePresence mode="wait">
 
@@ -71,25 +69,28 @@ export default function LoginPage() {
                   >
                     <div className="mb-10">
                       <Badge variant="ai" dot className="mb-8">
-                        Food Service Account
+                        {t.login.badge}
                       </Badge>
-                      <h1 className="text-heading text-fs-graphite">
-                        Войдите<br />в аккаунт
+                      <h1 className="text-heading text-fs-graphite whitespace-pre-line">
+                        {t.login.title}
                       </h1>
                       <p className="text-body text-fs-gray mt-4">
-                        Управляйте заказами и поставками из одного места
+                        {t.login.subtitle}
                       </p>
                     </div>
 
                     <div className="space-y-3 mb-10">
-                      {PERKS.map(({ icon: Icon, text }) => (
-                        <div key={text} className="flex items-center gap-3">
-                          <div className="w-7 h-7 rounded-lg bg-fs-offwhite border border-fs-border flex items-center justify-center flex-shrink-0">
-                            <Icon size={13} strokeWidth={1.5} className="text-fs-gray" />
+                      {t.login.perks.map((text, i) => {
+                        const Icon = PERK_ICONS[i]
+                        return (
+                          <div key={i} className="flex items-center gap-3">
+                            <div className="w-7 h-7 rounded-lg bg-fs-offwhite border border-fs-border flex items-center justify-center flex-shrink-0">
+                              <Icon size={13} strokeWidth={1.5} className="text-fs-gray" />
+                            </div>
+                            <span className="text-caption text-fs-gray">{text}</span>
                           </div>
-                          <span className="text-caption text-fs-gray">{text}</span>
-                        </div>
-                      ))}
+                        )
+                      })}
                     </div>
 
                     {/* GOOGLE */}
@@ -118,13 +119,13 @@ export default function LoginPage() {
                           <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 00.957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
                         </svg>
                       )}
-                      {loading ? "Перенаправление..." : "Войти через Google"}
+                      {loading ? t.login.googleLoading : t.login.google}
                     </motion.button>
 
                     {/* EMAIL DIVIDER */}
                     <div className="flex items-center gap-3 my-4">
                       <div className="flex-1 h-px bg-fs-border" />
-                      <span className="text-label text-fs-subtle">или</span>
+                      <span className="text-label text-fs-subtle">{t.login.orDivider}</span>
                       <div className="flex-1 h-px bg-fs-border" />
                     </div>
 
@@ -139,7 +140,7 @@ export default function LoginPage() {
                       "
                     >
                       <Mail size={17} strokeWidth={1.5} />
-                      Войти по email
+                      {t.login.emailBtn}
                     </button>
                   </motion.div>
                 )}
@@ -158,16 +159,16 @@ export default function LoginPage() {
                       className="flex items-center gap-1.5 text-label text-fs-gray hover:text-fs-primary transition-colors mb-8"
                     >
                       <ArrowLeft size={14} strokeWidth={1.5} />
-                      Назад
+                      {t.login.back}
                     </button>
 
                     <div className="mb-8">
                       <div className="w-12 h-12 rounded-2xl bg-fs-offwhite border border-fs-border flex items-center justify-center mb-6">
                         <Mail size={20} strokeWidth={1.5} className="text-fs-gray" />
                       </div>
-                      <h2 className="text-title font-black text-fs-graphite mb-2">Вход по email</h2>
+                      <h2 className="text-title font-black text-fs-graphite mb-2">{t.login.emailTitle}</h2>
                       <p className="text-caption text-fs-gray leading-relaxed">
-                        Отправим ссылку для входа на ваш email. Действительна 15 минут.
+                        {t.login.emailSubtitle}
                       </p>
                     </div>
 
@@ -209,7 +210,7 @@ export default function LoginPage() {
                         ) : (
                           <Mail size={17} strokeWidth={2} />
                         )}
-                        {loading ? "Отправляем..." : "Отправить ссылку"}
+                        {loading ? t.login.emailSending : t.login.emailSend}
                       </motion.button>
                     </form>
                   </motion.div>
@@ -233,19 +234,19 @@ export default function LoginPage() {
                       <CheckCircle2 size={28} strokeWidth={1.5} className="text-fs-green" />
                     </motion.div>
 
-                    <h2 className="text-title font-black text-fs-graphite mb-3">Письмо отправлено</h2>
+                    <h2 className="text-title font-black text-fs-graphite mb-3">{t.login.sentTitle}</h2>
                     <p className="text-body text-fs-gray leading-relaxed mb-2">
-                      Проверьте <span className="text-fs-graphite font-medium">{email}</span>
+                      {t.login.sentBody} <span className="text-fs-graphite font-medium">{email}</span>
                     </p>
                     <p className="text-caption text-fs-subtle">
-                      Нажмите на ссылку в письме чтобы войти. Ссылка действительна 15 минут.
+                      {t.login.sentHint}
                     </p>
 
                     <button
                       onClick={() => { setView("email"); setLoading(false) }}
                       className="mt-8 text-label text-fs-gray hover:text-fs-primary transition-colors"
                     >
-                      Отправить повторно
+                      {t.login.sentResend}
                     </button>
                   </motion.div>
                 )}

@@ -4,7 +4,6 @@ import { useSearchParams } from "next/navigation"
 import { Suspense, useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { CheckCircle2, ArrowRight, Package, LogIn, MapPin, CreditCard, Smartphone } from "lucide-react"
-import Link from "next/link"
 import { useSession, signIn } from "next-auth/react"
 
 import Navbar from "@/components/layout/Navbar"
@@ -152,7 +151,7 @@ function SuccessContent() {
             </div>
             <div className="bg-fs-offwhite border border-fs-border rounded-xl p-2.5 sm:p-4 text-center">
               <p className="text-[9px] sm:text-label text-fs-gray uppercase tracking-wide sm:tracking-widest mb-1 sm:mb-2 leading-tight">{t.order.deliveryTime}</p>
-              <p className="text-[11px] sm:text-caption font-bold text-fs-graphite">15–30 мин</p>
+              <p className="text-[11px] sm:text-caption font-bold text-fs-graphite">{t.order.deliveryTimeValue}</p>
             </div>
             <div className="bg-fs-offwhite border border-fs-border rounded-xl p-2.5 sm:p-4 text-center">
               <p className="text-[9px] sm:text-label text-fs-gray uppercase tracking-wide sm:tracking-widest mb-1 sm:mb-2 leading-tight">{t.order.totalLabel}</p>
@@ -250,18 +249,14 @@ function SuccessContent() {
       {/* ACTIONS */}
       <FadeIn delay={0.2}>
         <div className="flex flex-col sm:flex-row gap-4">
-          <Link href={`/tracking?q=${encodeURIComponent(orderId)}`} className="flex-1">
-            <Button size="lg" className="w-full">
-              {t.order.trackBtn}
-              <ArrowRight size={18} strokeWidth={1.5} />
-            </Button>
-          </Link>
+          <Button href={`/tracking?q=${encodeURIComponent(orderId)}`} size="lg" className="flex-1">
+            {t.order.trackBtn}
+            <ArrowRight size={18} strokeWidth={1.5} />
+          </Button>
 
-          <Link href="/catalog" className="flex-1">
-            <Button variant="secondary" size="lg" className="w-full">
-              {t.order.continueBtn}
-            </Button>
-          </Link>
+          <Button href="/catalog" variant="secondary" size="lg" className="flex-1">
+            {t.order.continueBtn}
+          </Button>
         </div>
       </FadeIn>
     </div>

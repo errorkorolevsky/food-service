@@ -2,29 +2,58 @@
 
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { useLang } from "@/locales"
 
-const STAGES = [
-  { progress: 30,  label: "Загрузка каталога...", delay: 0   },
-  { progress: 60,  label: "AI система...",         delay: 280 },
-  { progress: 85,  label: "Проверка данных...",    delay: 560 },
-  { progress: 100, label: "Готово",                delay: 800 },
-]
+const SESSION_KEY = "fs-loading-shown"
 
 export default function LoadingScreen() {
+  const { t }      = useLang()
   const [progress, setProgress] = useState(0)
   const [stage,    setStage]    = useState(0)
-  const [visible,  setVisible]  = useState(true)
+  const [visible,  setVisible]  = useState(false)
+
+  const STAGES = [
+    { progress: 30,  label: t.loading.catalog, delay: 0   },
+    { progress: 60,  label: t.loading.ai,      delay: 280 },
+    { progress: 85,  label: t.loading.data,    delay: 560 },
+    { progress: 100, label: t.loading.ready,   delay: 800 },
+  ]
 
   useEffect(() => {
+    // Skip on repeat visits within the same browser session
+    if (sessionStorage.getItem(SESSION_KEY)) return
+
+    // Skip if page is already fully loaded (fast connection / cache hit)
+    if (document.readyState === "complete") return
+
+    setVisible(true)
+    sessionStorage.setItem(SESSION_KEY, "1")
+
     STAGES.forEach(({ progress: p, delay }, i) => {
       setTimeout(() => {
         setProgress(p)
         setStage(i)
       }, delay)
     })
-    // Fade out after progress reaches 100
-    const fadeTimer = setTimeout(() => setVisible(false), 1100)
-    return () => clearTimeout(fadeTimer)
+
+    const MIN_DISPLAY = 900
+    const start = Date.now()
+
+    const dismiss = () => {
+      const remaining = Math.max(0, MIN_DISPLAY - (Date.now() - start))
+      setTimeout(() => setVisible(false), remaining)
+    }
+
+    // Dismiss as soon as page is loaded, but never before MIN_DISPLAY
+    window.addEventListener("load", dismiss, { once: true })
+
+    // Hard fallback — never block the user longer than 3s
+    const fallback = setTimeout(() => setVisible(false), 3000)
+
+    return () => {
+      window.removeEventListener("load", dismiss)
+      clearTimeout(fallback)
+    }
   }, [])
 
   return (
@@ -69,7 +98,7 @@ export default function LoadingScreen() {
                 FOOD SERVICE
               </h1>
               <p className="text-label text-white/60 tracking-widest mt-2">
-                ДОСТАВКА ПРОДУКТОВ · ШЫМКЕНТ
+                {t.loading.tagline}
               </p>
             </motion.div>
 
@@ -101,6 +130,7 @@ export default function LoadingScreen() {
                 </span>
               </div>
             </div>
+
           </div>
         </motion.div>
       )}

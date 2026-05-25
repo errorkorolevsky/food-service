@@ -11,11 +11,18 @@ interface CursorAwareState {
 
 const OUTSIDE: CursorAwareState = { x: 0.5, y: 0.5, active: false, dist: 1 }
 
+function isCoarsePointer(): boolean {
+  return typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches
+}
+
 export function useCursorAware<T extends HTMLElement = HTMLDivElement>(
   externalRef?: React.RefObject<T | null>
-) {
+): { ref: React.RefObject<T | null>; cursor: CursorAwareState; isTouch: boolean } {
   const internalRef = useRef<T>(null)
   const activeRef   = (externalRef ?? internalRef) as React.RefObject<T | null>
+
+  // Stable check — coarse pointer never changes during a session
+  const [isTouch]       = useState(isCoarsePointer)
   const [cursor, setCursor] = useState<CursorAwareState>(OUTSIDE)
 
   const onMove = useCallback((e: MouseEvent) => {
@@ -35,6 +42,8 @@ export function useCursorAware<T extends HTMLElement = HTMLDivElement>(
   const onLeave = useCallback(() => setCursor(OUTSIDE), [])
 
   useEffect(() => {
+    // Skip event listener registration on touch devices — mousemove never fires there anyway
+    if (isTouch) return
     const el = activeRef.current
     if (!el) return
     el.addEventListener("mousemove",  onMove,  { passive: true })
@@ -43,7 +52,7 @@ export function useCursorAware<T extends HTMLElement = HTMLDivElement>(
       el.removeEventListener("mousemove",  onMove)
       el.removeEventListener("mouseleave", onLeave)
     }
-  }, [activeRef, onMove, onLeave])
+  }, [isTouch, activeRef, onMove, onLeave])
 
-  return { ref: internalRef, cursor }
+  return { ref: internalRef, cursor, isTouch }
 }

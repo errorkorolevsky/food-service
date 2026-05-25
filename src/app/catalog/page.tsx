@@ -1,11 +1,17 @@
 import type { Metadata } from "next"
+import { META_RU, buildAlternates } from "@/lib/seo"
+import { getAllProducts } from "@/lib/db/products"
 
 export const metadata: Metadata = {
-  title: "Каталог — Food Service Шымкент",
-  description: "Более 200 позиций: мясо, рыба, молочные, напитки, заморозка и многое другое с доставкой на дом по Шымкенту.",
+  title:       META_RU.catalog.title,
+  description: META_RU.catalog.description,
+  alternates:  buildAlternates("/catalog"),
   openGraph: {
-    title: "Каталог Food Service — доставка продуктов в Шымкенте",
+    title:       "Каталог Food Service — доставка продуктов в Шымкенте",
     description: "Свежие продукты, готовая еда и товары для дома с доставкой 15–30 мин по Шымкенту.",
+    url:         "https://food-service.kz/catalog",
+    locale:      "ru_RU",
+    alternateLocale: ["kk_KZ"],
   },
 }
 
@@ -17,14 +23,16 @@ import CatalogSection from "@/components/sections/CatalogSection"
 import CatalogHero from "@/components/sections/CatalogHero"
 import FloatingNotification from "@/components/ui/FloatingNotification"
 
-export default function CatalogPage() {
+export default async function CatalogPage() {
+  const products = await getAllProducts()
+
   return (
     <main className="fs-page-bg text-fs-graphite min-h-screen">
       <Navbar />
 
       <CatalogHero />
 
-      <CatalogSection />
+      <CatalogSection products={products} />
 
       <CartDrawer />
       <CartButton />

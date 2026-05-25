@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect, useCallback, Suspense } from "react"
+import { useState, useRef, useEffect, useCallback, Suspense, type ReactNode } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Send, Sparkles, RotateCcw, History, ChevronDown } from "lucide-react"
 import { useSession } from "next-auth/react"
@@ -10,6 +10,7 @@ import Navbar from "@/components/layout/Navbar"
 import CartDrawer from "@/components/layout/CartDrawer"
 import FadeIn from "@/components/ui/FadeIn"
 import PageHero from "@/components/ui/PageHero"
+import { useLang } from "@/locales"
 
 // ─── TYPES ────────────────────────────────────────────────────────────────────
 
@@ -39,17 +40,6 @@ type OrderContext = {
 const STORAGE_KEY = "fs_ai_history"
 const MAX_STORED  = 40
 
-const WELCOME_MSG: Message = {
-  role:    "assistant",
-  content: "Привет! Я AI-ассистент Food Service 👋\n\nПомогу подобрать продукты, спланировать закупки и оптимизировать расходы для вашего заведения. Расскажите, что вам нужно?",
-}
-
-const QUICK_PROMPTS = [
-  "Что нужно для открытия суши-бара на 40 мест?",
-  "Составь закупку для кофейни на неделю",
-  "Какие продукты нужны для пиццерии?",
-  "Помоги оптимизировать расходы на seafood",
-]
 
 // ─── STREAMING CURSOR ─────────────────────────────────────────────────────────
 
@@ -61,6 +51,59 @@ function StreamingCursor() {
       transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
     />
   )
+}
+
+// ─── MARKDOWN RENDERER ────────────────────────────────────────────────────────
+
+function parseBold(text: string): ReactNode[] {
+  return text.split(/(\*\*[^*]+\*\*)/).map((part, i) =>
+    part.startsWith("**") && part.endsWith("**")
+      ? <strong key={i} className="font-bold">{part.slice(2, -2)}</strong>
+      : part
+  )
+}
+
+function renderMarkdown(text: string, isStreaming?: boolean): ReactNode {
+  const lines  = text.split("\n")
+  const result: ReactNode[] = []
+  let listBuffer: ReactNode[] = []
+  let listType: "ul" | "ol" | null = null
+
+  const flushList = () => {
+    if (!listBuffer.length) return
+    if (listType === "ul") result.push(<ul key={`ul-${result.length}`} className="list-disc pl-5 space-y-1 my-2">{listBuffer}</ul>)
+    else                   result.push(<ol key={`ol-${result.length}`} className="list-decimal pl-5 space-y-1 my-2">{listBuffer}</ol>)
+    listBuffer = []
+    listType   = null
+  }
+
+  lines.forEach((line, i) => {
+    const isLast = i === lines.length - 1
+    const cursor = isStreaming && isLast ? <StreamingCursor /> : null
+
+    const bulletMatch    = line.match(/^[-*]\s(.+)/)
+    const numberedMatch  = line.match(/^\d+\.\s(.+)/)
+    const headingMatch   = line.match(/^#{1,3}\s(.+)/)
+
+    if (bulletMatch) {
+      if (listType !== "ul") { flushList(); listType = "ul" }
+      listBuffer.push(<li key={i}>{parseBold(bulletMatch[1])}{cursor}</li>)
+    } else if (numberedMatch) {
+      if (listType !== "ol") { flushList(); listType = "ol" }
+      listBuffer.push(<li key={i}>{parseBold(numberedMatch[1])}{cursor}</li>)
+    } else {
+      flushList()
+      if (headingMatch) {
+        result.push(<p key={i} className="font-bold text-[15px] mt-2 mb-0.5">{parseBold(headingMatch[1])}{cursor}</p>)
+      } else if (!line.trim()) {
+        result.push(<div key={i} className="h-2" />)
+      } else {
+        result.push(<p key={i} className={result.length > 0 ? "mt-1" : ""}>{parseBold(line)}{cursor}</p>)
+      }
+    }
+  })
+  flushList()
+  return result
 }
 
 // ─── MESSAGE BUBBLE ───────────────────────────────────────────────────────────
@@ -89,16 +132,11 @@ function MessageBubble({ msg, isStreaming }: { msg: Message; isStreaming?: boole
         max-w-[80%] rounded-2xl px-5 py-4 text-body leading-relaxed
         ${isUser
           ? "bg-fs-primary text-white rounded-tr-sm"
-          : "bg-white border border-fs-border text-fs-graphite rounded-tl-sm"
+          : "bg-fs-white border border-fs-border text-fs-graphite rounded-tl-sm"
         }
       `}>
         {msg.content
-          ? msg.content.split("\n").map((line, i) => (
-              <p key={i} className={i > 0 ? "mt-2" : ""}>
-                {line}
-                {isStreaming && i === msg.content.split("\n").length - 1 && <StreamingCursor />}
-              </p>
-            ))
+          ? renderMarkdown(msg.content, isStreaming)
           : <StreamingCursor />
         }
       </div>
@@ -118,7 +156,7 @@ function TypingIndicator() {
       ">
         <Sparkles size={14} className="text-purple-300" />
       </div>
-      <div className="bg-white border border-fs-border rounded-2xl rounded-tl-sm px-5 py-4">
+      <div className="bg-fs-white border border-fs-border rounded-2xl rounded-tl-sm px-5 py-4">
         <div className="flex gap-1.5 items-center h-5">
           {[0, 1, 2].map((i) => (
             <motion.div
@@ -141,6 +179,7 @@ function HistoryBanner({ count, onLoad, onDismiss }: {
   onLoad:    () => void
   onDismiss: () => void
 }) {
+  const { t } = useLang()
   return (
     <motion.div
       initial={{ opacity: 0, y: -8 }}
@@ -155,7 +194,7 @@ function HistoryBanner({ count, onLoad, onDismiss }: {
       <div className="flex items-center gap-2.5 min-w-0">
         <History size={14} className="text-purple-500 flex-shrink-0" />
         <p className="text-caption text-purple-700 truncate">
-          Найдена история: {count} сообщений
+          {t.ai.historyFound}: {count} {t.ai.historySuffix}
         </p>
       </div>
       <div className="flex items-center gap-2 flex-shrink-0">
@@ -163,14 +202,14 @@ function HistoryBanner({ count, onLoad, onDismiss }: {
           onClick={onLoad}
           className="text-label text-purple-600 hover:text-purple-800 transition-colors font-medium"
         >
-          Загрузить
+          {t.ai.historyLoad}
         </button>
         <span className="text-fs-border text-label">·</span>
         <button
           onClick={onDismiss}
           className="text-label text-fs-gray hover:text-fs-graphite transition-colors"
         >
-          Нет
+          {t.ai.historyDismiss}
         </button>
       </div>
     </motion.div>
@@ -180,11 +219,12 @@ function HistoryBanner({ count, onLoad, onDismiss }: {
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
 
 function AIPageInner() {
+  const { t, lang }       = useLang()
   const { data: session } = useSession()
   const searchParams      = useSearchParams()
   const autoQuery         = searchParams.get("q")
 
-  const [messages,      setMessages]      = useState<Message[]>([WELCOME_MSG])
+  const [messages,      setMessages]      = useState<Message[]>(() => [{ role: "assistant" as const, content: t.ai.greeting }])
   const [input,         setInput]         = useState("")
   const [loading,       setLoading]       = useState(false)   // waiting for first byte
   const [isStreaming,   setIsStreaming]   = useState(false)   // text is arriving
@@ -222,6 +262,7 @@ function AIPageInner() {
         body:    JSON.stringify({
           messages:     context,
           orderContext: orderContext.length ? orderContext : undefined,
+          locale:       lang,
         }),
         signal: controller.signal,
       })
@@ -255,13 +296,13 @@ function AIPageInner() {
       if (err instanceof Error && err.name === "AbortError") return
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", content: "Нет соединения с AI сервисом." },
+        { role: "assistant", content: t.ai.noConn },
       ])
     } finally {
       setLoading(false)
       setIsStreaming(false)
     }
-  }, [messages, loading, isStreaming, orderContext])
+  }, [messages, loading, isStreaming, orderContext, t, lang])
 
   // ─── LOAD ORDER CONTEXT ───────────────────────────────────────────────────
 
@@ -336,7 +377,7 @@ function AIPageInner() {
 
   const reset = () => {
     abortRef.current?.abort()
-    setMessages([WELCOME_MSG])
+    setMessages([{ role: "assistant", content: t.ai.greeting }])
     setInput("")
     setSavedHistory(null)
     setLoading(false)
@@ -353,20 +394,20 @@ function AIPageInner() {
   const isBusy = loading || isStreaming
 
   const prompts = orderContext.length > 0
-    ? ["Что я заказывал раньше?", ...QUICK_PROMPTS.slice(0, 3)]
-    : QUICK_PROMPTS
+    ? [t.ai.historyBtn, ...t.ai.quickPrompts.slice(0, 3)]
+    : t.ai.quickPrompts
 
   return (
     <main className="fs-page-bg text-fs-graphite min-h-screen flex flex-col">
       <Navbar />
       <PageHero
-        badge="AI Procurement Assistant"
-        title={<>Smart закупки<br />для HoReCa</>}
-        subtitle="Умный ассистент для подбора продуктов, планирования закупок и оптимизации расходов"
+        badge={t.ai.pageBadge}
+        title={<>{t.ai.pageTitle1}<br />{t.ai.pageTitle2}</>}
+        subtitle={t.ai.pageSubtitle}
         stats={[
-          { value: "AI",     label: "Claude Sonnet" },
-          { value: "500+",   label: "позиций в базе" },
-          { value: "HoReCa", label: "специализация" },
+          { value: "AI",     label: t.ai.statAI      },
+          { value: "500+",   label: t.ai.statsItems   },
+          { value: "HoReCa", label: t.ai.statsSpec    },
         ]}
       />
       <CartDrawer />
@@ -381,7 +422,7 @@ function AIPageInner() {
                 <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-50 border border-purple-200">
                   <div className="w-1.5 h-1.5 rounded-full bg-purple-500" />
                   <span className="text-label text-purple-600 font-medium">
-                    {orderContext.length} заказ{orderContext.length === 1 ? "" : orderContext.length < 5 ? "а" : "ов"}
+                    {orderContext.length} {orderContext.length === 1 ? t.ai.ordersContext : orderContext.length < 5 ? t.ai.ordersContextFew : t.ai.ordersContextMany}
                   </span>
                 </div>
               )}
@@ -397,7 +438,7 @@ function AIPageInner() {
                   "
                 >
                   <RotateCcw size={14} strokeWidth={1.5} />
-                  Новый чат
+                  {t.ai.newChat}
                 </button>
               )}
             </div>
@@ -407,7 +448,7 @@ function AIPageInner() {
         {/* CHAT AREA */}
         <FadeIn delay={0.1} className="flex-1 flex flex-col">
           <div className="
-            flex-1 bg-white border border-fs-border rounded-2xl
+            flex-1 bg-fs-white border border-fs-border rounded-2xl
             flex flex-col overflow-hidden relative
           ">
 
@@ -454,6 +495,7 @@ function AIPageInner() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   onClick={() => scrollToBottom()}
+                  aria-label={t.scrollDown}
                   className="
                     absolute bottom-24 right-6
                     w-8 h-8 rounded-full
@@ -478,7 +520,7 @@ function AIPageInner() {
                   className="px-6 pb-4 border-t border-fs-border pt-4"
                 >
                   <p className="text-label text-fs-gray uppercase tracking-widest mb-3">
-                    Быстрый старт
+                    {t.ai.quickStart}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {prompts.map((prompt) => (
@@ -507,14 +549,15 @@ function AIPageInner() {
               <div className="flex gap-3 items-end">
                 <textarea
                   ref={inputRef}
+                  aria-label={t.ai.placeholder}
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Спросите об ассортименте, закупках, ценах..."
+                  placeholder={t.ai.placeholder}
                   rows={1}
                   disabled={isBusy}
                   className="
-                    flex-1 bg-white border border-fs-border rounded-xl
+                    flex-1 bg-fs-white border border-fs-border rounded-xl
                     px-4 py-3 text-body text-fs-graphite
                     placeholder:text-fs-gray
                     resize-none focus:outline-none focus:border-fs-primary focus:ring-2 focus:ring-fs-primary/10
@@ -527,6 +570,7 @@ function AIPageInner() {
 
                 <motion.button
                   onClick={() => send(input)}
+                  aria-label={t.ai.send}
                   disabled={!input.trim() || isBusy}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -544,7 +588,7 @@ function AIPageInner() {
               </div>
 
               <p className="text-label text-fs-subtle mt-2 text-center">
-                Enter — отправить · Shift+Enter — новая строка
+                {t.ai.enterHint}
               </p>
             </div>
           </div>

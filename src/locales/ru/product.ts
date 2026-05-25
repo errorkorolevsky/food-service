@@ -1,0 +1,21 @@
+export const ruProduct = {
+  product: {
+    addToCart:         "В корзину",
+    inCart:            "В корзине",
+    addToFavorites:    "В избранное",
+    removeFromFavorites: "Из избранного",
+    outOfStock:   "Нет в наличии",
+    new:          "NEW",
+    hit:          "ХИТ",
+    sale:         "АКЦИЯ",
+    top:          "ТОП",
+    per:          "/",
+    delivery:     "Доставка",
+    deliveryTime: "15–30 мин",
+    freeFrom:     "от",
+    freeFromVal:  "₸10 000",
+    aiLabel:      "AI Помощник",
+    aiActive:     "Активен",
+    aiQuery:      (title: string, category: string) => `Расскажи подробнее о ${title} (${category}). Как использовать, с чем сочетается и сколько нужно для семьи?`,
+  },
+}

@@ -52,8 +52,8 @@ function formatOrderId(uuid: string) {
   return `#FS-${uuid.slice(-6).toUpperCase()}`
 }
 
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleString("ru-RU", {
+function formatDate(iso: string, lang: string) {
+  return new Date(iso).toLocaleString(lang === "kz" ? "kk-KZ" : "ru-RU", {
     day: "2-digit", month: "2-digit", year: "2-digit",
     hour: "2-digit", minute: "2-digit",
   })
@@ -106,7 +106,7 @@ function useRealtimeOrder(
 // ─── ORDER CARD ───────────────────────────────────────────────────────────────
 
 function OrderCard({ order: initial }: { order: DbOrder }) {
-  const { t }     = useLang()
+  const { t, lang } = useLang()
   const [order,   setOrder]   = useState<DbOrder>(initial)
   const [flash,   setFlash]   = useState(false)
   const [online,  setOnline]  = useState(false)
@@ -139,7 +139,7 @@ function OrderCard({ order: initial }: { order: DbOrder }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.25 }}
       className={`
-        bg-white border rounded-2xl overflow-hidden transition-colors duration-500
+        bg-fs-white border rounded-2xl overflow-hidden transition-colors duration-500
         ${flash ? "border-fs-green" : "border-fs-border"}
       `}
     >
@@ -158,7 +158,7 @@ function OrderCard({ order: initial }: { order: DbOrder }) {
         </div>
         <div className="text-right">
           <p className="text-title font-black text-fs-graphite">₸{order.total.toLocaleString()}</p>
-          <p className="text-label text-fs-gray mt-1">{formatDate(order.created_at)}</p>
+          <p className="text-label text-fs-gray mt-1">{formatDate(order.created_at, lang)}</p>
         </div>
       </div>
 
@@ -314,11 +314,12 @@ function TrackingInner() {
               className="absolute left-4 top-1/2 -translate-y-1/2 text-fs-subtle"
             />
             <input
-              type="text"
+              type="search"
+              aria-label={t.tracking.placeholder}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={handleKey}
-              placeholder="#FS-B7CD4B или +7999..."
+              placeholder={t.tracking.placeholder}
               className="w-full fs-input pl-11 text-body text-fs-graphite placeholder:text-fs-subtle"
             />
           </div>
@@ -362,7 +363,7 @@ function TrackingInner() {
               className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4"
             >
               {t.tracking.hints.map((item) => (
-                <div key={item.title} className="bg-white border border-fs-border rounded-xl p-6">
+                <div key={item.title} className="bg-fs-white border border-fs-border rounded-xl p-6">
                   <span className="text-3xl">{item.emoji}</span>
                   <p className="text-body font-bold text-fs-graphite mt-3">{item.title}</p>
                   <p className="text-caption text-fs-gray mt-2 leading-relaxed">{item.desc}</p>
@@ -388,7 +389,7 @@ function TrackingPageInner() {
         title={<>{t.tracking.title.split(" ")[0]}<br />{t.tracking.title.split(" ").slice(1).join(" ")}</>}
         subtitle={t.tracking.subtitle}
         stats={[
-          { value: "15 мин", label: t.tracking.statAvgTime },
+          { value: "15",      label: t.tracking.statAvgTime },
           { value: "Live",   label: t.tracking.statLive    },
           { value: "SMS",    label: t.tracking.statSms     },
         ]}

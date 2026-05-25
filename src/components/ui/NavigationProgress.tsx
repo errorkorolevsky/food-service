@@ -41,6 +41,7 @@ export default function NavigationProgress() {
       {active && (
         <motion.div
           key="nprogress"
+          aria-hidden="true"
           className="fixed top-0 left-0 z-[9999] h-[3px] pointer-events-none"
           style={{ width: `${progress}%` }}
           initial={{ opacity: 1 }}

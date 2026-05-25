@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Search, X } from "lucide-react"
+import { useLang } from "@/locales"
 
 type SearchBarProps = {
   value: string
@@ -14,10 +15,12 @@ type SearchBarProps = {
 export default function SearchBar({
   value,
   onChange,
-  placeholder = "Поиск товаров, брендов, категорий...",
+  placeholder,
   className = "",
 }: SearchBarProps) {
+  const { t } = useLang()
   const [focused, setFocused] = useState(false)
+  const resolvedPlaceholder = placeholder ?? t.catalog.searchPlaceholder
 
   return (
     <motion.div
@@ -54,12 +57,13 @@ export default function SearchBar({
       </motion.div>
 
       <input
-        type="text"
+        type="search"
+        aria-label={resolvedPlaceholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
-        placeholder={placeholder}
+        placeholder={resolvedPlaceholder}
         className={`
           w-full bg-fs-white border rounded-xl
           pl-14 pr-14 py-4
@@ -84,6 +88,7 @@ export default function SearchBar({
             exit={{ opacity: 0, scale: 0.7 }}
             transition={{ duration: 0.15 }}
             onClick={() => onChange("")}
+            aria-label={t.close}
             className="
               absolute right-5 top-1/2 -translate-y-1/2
               text-fs-gray hover:text-fs-graphite

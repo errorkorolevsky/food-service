@@ -16,12 +16,17 @@ import FadeIn    from "@/components/ui/FadeIn"
 import MorphNumber from "@/components/ui/MorphNumber"
 import { supabase } from "@/lib/supabase"
 import { MOCK_ORDERS, MOCK_COURIERS, type MockOrder, type MockCourier, type CourierStatus } from "@/data/mock-orders"
+import { useSession } from "next-auth/react"
+import { useLang } from "@/locales"
 
 // ─── PIN GUARD ────────────────────────────────────────────────────────────────
 
-const ADMIN_PIN = "2048"
+const ADMIN_EMAIL = "artemfi435@gmail.com"
+// Demo PIN for non-authenticated preview — real data requires admin session via API
+const ADMIN_PIN = process.env.NEXT_PUBLIC_ADMIN_PIN ?? "2048"
 
 function PinGuard({ onUnlock }: { onUnlock: () => void }) {
+  const { t }             = useLang()
   const [pin,   setPin]   = useState("")
   const [shake, setShake] = useState(false)
   const [error, setError] = useState(false)
@@ -60,7 +65,7 @@ function PinGuard({ onUnlock }: { onUnlock: () => void }) {
             <Lock size={24} strokeWidth={1.5} className="text-white" />
           </motion.div>
           <h1 className="text-[24px] font-black text-fs-graphite">Admin Dashboard</h1>
-          <p className="text-[14px] text-fs-gray mt-2">Введите PIN-код для входа</p>
+          <p className="text-[14px] text-fs-gray mt-2">{t.admin.pinSubtitle}</p>
         </div>
 
         <div className="flex justify-center gap-4 mb-10">
@@ -86,6 +91,7 @@ function PinGuard({ onUnlock }: { onUnlock: () => void }) {
             k === "⌫" ? (
               <motion.button key={i} whileTap={{ scale: 0.93 }}
                 onClick={() => setPin((p) => p.slice(0, -1))}
+                aria-label={t.deleteChar}
                 className="h-16 rounded-2xl bg-white border border-fs-border text-fs-gray text-xl flex items-center justify-center hover:border-fs-subtle hover:text-fs-primary transition-all shadow-sm"
               >{k}</motion.button>
             ) : (
@@ -130,8 +136,8 @@ const COURIER_STATUS_META: Record<CourierStatus, { label: string; color: string;
 
 function formatOrderId(uuid: string) { return `#FS-${uuid.slice(-6).toUpperCase()}` }
 
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleString("ru-RU", {
+function formatDate(iso: string, locale: string) {
+  return new Date(iso).toLocaleString(locale, {
     day: "2-digit", month: "2-digit", year: "2-digit",
     hour: "2-digit", minute: "2-digit",
   })
@@ -173,7 +179,7 @@ function MetricCard({ icon: Icon, label, num, prefix, suffix, sub, color, bg, lo
 
 // ─── REVENUE CHART ────────────────────────────────────────────────────────────
 
-function RevenueChart({ orders }: { orders: DbOrder[] }) {
+function RevenueChart({ orders, locale }: { orders: DbOrder[]; locale: string }) {
   const [hovered, setHovered] = useState<number | null>(null)
 
   const days = Array.from({ length: 7 }, (_, i) => {
@@ -181,7 +187,7 @@ function RevenueChart({ orders }: { orders: DbOrder[] }) {
   })
 
   const data = days.map((day) => {
-    const label = day.toLocaleDateString("ru-RU", { day: "2-digit", month: "2-digit" })
+    const label = day.toLocaleDateString(locale, { day: "2-digit", month: "2-digit" })
     const revenue = orders
       .filter((o) => {
         const od = new Date(o.created_at)
@@ -343,10 +349,11 @@ function TopProducts({ orders }: { orders: DbOrder[] }) {
 
 // ─── ORDER ROW ────────────────────────────────────────────────────────────────
 
-function OrderRow({ order, onStatusChange, isDemo }: {
+function OrderRow({ order, onStatusChange, isDemo, locale }: {
   order: DbOrder
   onStatusChange: (id: string, status: OrderStatus) => void
   isDemo: boolean
+  locale: string
 }) {
   const [open,    setOpen]    = useState(false)
   const [loading, setLoading] = useState(false)
@@ -379,7 +386,7 @@ function OrderRow({ order, onStatusChange, isDemo }: {
               style={{ background: meta.bg, color: meta.color }}>
               {meta.label}
             </span>
-            <span className="text-[12px] text-fs-muted">{formatDate(order.created_at)}</span>
+            <span className="text-[12px] text-fs-muted">{formatDate(order.created_at, locale)}</span>
           </div>
           <p className="text-[12px] text-fs-gray mt-0.5 truncate">
             {order.company || order.phone} · {order.address}
@@ -615,7 +622,7 @@ type ActivityItem = {
   bg:   string
 }
 
-function buildActivity(orders: DbOrder[]): ActivityItem[] {
+function buildActivity(orders: DbOrder[], locale: string): ActivityItem[] {
   const items: ActivityItem[] = []
   const sorted = [...orders].sort((a, b) =>
     new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
@@ -634,7 +641,7 @@ function buildActivity(orders: DbOrder[]): ActivityItem[] {
       id:    o.id,
       icon:  icons[o.status],
       text:  `${formatOrderId(o.id)} — ${meta.label}`,
-      sub:   formatDate(o.created_at),
+      sub:   formatDate(o.created_at, locale),
       color: meta.color,
       bg:    meta.bg,
     })
@@ -642,8 +649,8 @@ function buildActivity(orders: DbOrder[]): ActivityItem[] {
   return items
 }
 
-function ActivityLog({ orders }: { orders: DbOrder[] }) {
-  const items = buildActivity(orders)
+function ActivityLog({ orders, locale }: { orders: DbOrder[]; locale: string }) {
+  const items = buildActivity(orders, locale)
 
   return (
     <div className="bg-white dark:bg-[#1a1a2e] border border-fs-border rounded-3xl p-7 shadow-sm">
@@ -695,9 +702,19 @@ const TABS: { value: Tab; label: string; icon: React.ElementType }[] = [
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
 
 export default function AdminPage() {
+  const { data: session } = useSession()
+  const { t, lang }       = useLang()
+  const locale             = lang === "kz" ? "kk-KZ" : "ru-RU"
+  const isAdminSession = session?.user?.email === ADMIN_EMAIL
+
   const [unlocked, setUnlocked] = useState(() =>
     typeof window !== "undefined" && sessionStorage.getItem("fs_admin") === "1"
   )
+
+  useEffect(() => {
+    if (isAdminSession) setUnlocked(true)
+  }, [isAdminSession])
+
   const [orders,    setOrders]    = useState<DbOrder[]>([])
   const [loading,   setLoading]   = useState(true)
   const [isDemo,    setIsDemo]    = useState(false)
@@ -780,7 +797,7 @@ export default function AdminPage() {
   const exportCSV = () => {
     const rows = visible.map((o) => ({
       id:       formatOrderId(o.id),
-      date:     formatDate(o.created_at),
+      date:     formatDate(o.created_at, locale),
       company:  o.company ?? "",
       phone:    o.phone,
       address:  o.address,
@@ -972,7 +989,7 @@ export default function AdminPage() {
                       className="w-full pl-9 pr-9 py-3 rounded-xl bg-fs-offwhite border border-fs-border text-[13px] text-fs-graphite placeholder:text-fs-muted focus:border-fs-subtle focus:outline-none focus:bg-white transition-all duration-200"
                     />
                     {search && (
-                      <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-fs-subtle hover:text-fs-gray transition-colors">
+                      <button onClick={() => setSearch("")} aria-label={t.close} className="absolute right-3 top-1/2 -translate-y-1/2 text-fs-subtle hover:text-fs-gray transition-colors">
                         <X size={14} strokeWidth={1.5} />
                       </button>
                     )}
@@ -1036,7 +1053,7 @@ export default function AdminPage() {
                 ) : (
                   <div className="space-y-2.5">
                     {visible.map((order) => (
-                      <OrderRow key={order.id} order={order} onStatusChange={handleStatusChange} isDemo={isDemo} />
+                      <OrderRow key={order.id} order={order} onStatusChange={handleStatusChange} isDemo={isDemo} locale={locale} />
                     ))}
                   </div>
                 )}
@@ -1053,11 +1070,11 @@ export default function AdminPage() {
                 <div className="h-64 skeleton-green rounded-3xl" />
               ) : (
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-                  <RevenueChart orders={orders} />
+                  <RevenueChart orders={orders} locale={locale} />
                   <TopProducts  orders={orders} />
                 </div>
               )}
-              {!loading && <ActivityLog orders={orders} />}
+              {!loading && <ActivityLog orders={orders} locale={locale} />}
 
               {/* Stats row */}
               {!loading && orders.length > 0 && (

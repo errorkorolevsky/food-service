@@ -1,565 +1,492 @@
-# 08_DESIGN_REFERENCE_SYSTEM.md
+# FOOD SERVICE — DESIGN REFERENCE & VISUAL DIRECTION SYSTEM
 
-# FOOD SERVICE — DESIGN REFERENCE SYSTEM
-
-## SYSTEM PURPOSE
+# SYSTEM PURPOSE
 
 Этот файл определяет:
-- какими продуктами вдохновляться
-- как анализировать референсы
-- что разрешено заимствовать
-- что запрещено копировать
-- как сформировать уникальный visual language Food Service
+- visual direction проекта
+- design references
+- aesthetic philosophy
+- atmosphere principles
+- inspiration boundaries
+- anti-generic rules
 
-Главная цель:
-использовать лучшие идеи мировых digital products,
-но создать собственную premium identity.
-
-
----
-
-# CORE PHILOSOPHY
-
-## REFERENCES ARE NOT FOR COPYING
-
-Референсы используются:
-- для анализа UX
-- для анализа motion
-- для анализа atmosphere
-- для анализа interaction language
-- для анализа premium feeling
+Главная задача:
+создать:
+- уникальный premium ecommerce identity
+- современный digital ecosystem
+- calm cinematic atmosphere
+- production-grade visual language
 
 НЕ:
-- для прямого копирования
-- для cloning UI
-- для duplication layouts
+- generic AI startup
+- crypto aesthetic
+- futuristic overload
+- template SaaS interface
 
-## IMPORTANT
+---
+
+# PRIMARY VISUAL PRINCIPLE
+
+Главный приоритет:
+IDENTITY > TRENDS
 
 Food Service обязан:
-- иметь собственный visual DNA
-- иметь собственный motion language
-- иметь собственный ecommerce identity
+- иметь собственный visual language
+- ощущаться уникально
+- иметь recognizable atmosphere
+- выглядеть production-ready
 
+НЕ:
+- копировать тренды
+- выглядеть как clone startup
+- быть “ещё одним AI dark UI”
 
 ---
 
-# MASTER DESIGN INSPIRATION SOURCES
+# GLOBAL VISUAL DIRECTION
 
-# PRIMARY REFERENCES
+# PROJECT MUST FEEL
 
-## APPLE
+- calm
+- premium
+- cinematic
+- tactile
+- modern
+- intelligent
+- curated
+- emotionally balanced
 
-### ANALYZE
+---
+
+# PROJECT MUST NOT FEEL
+
+- noisy
+- flashy
+- crypto-style
+- cyberpunk
+- AI-generated
+- over-glowing
+- template-based
+- overdesigned
+
+---
+
+# REAL PRODUCT PRINCIPLE
+
+Интерфейс обязан ощущаться:
+- как реальный сервис
+- как finished product
+- как scalable ecosystem
+- как trustworthy platform
+
+НЕ:
+- как concept art
+- как futuristic experiment
+- как Behance showcase
+- как visual demo
+
+---
+
+# CORE VISUAL IDENTITY
+
+Основной visual direction:
+
+- dark premium grocery ecosystem
+- restrained luxury-tech
+- cinematic minimalism
+- matte visual atmosphere
+- subtle depth
+- tactile UI feeling
+- calm product-focused UX
+
+---
+
+# VISUAL ATMOSPHERE SYSTEM
+
+Интерфейс обязан создавать ощущение:
+- спокойствия
+- глубины
+- качества
+- уверенности
+- premium simplicity
+
+---
+
+# ATMOSPHERE MUST COME FROM
+
 - spacing
-- typography hierarchy
-- motion subtlety
-- premium minimalism
-- visual calmness
-- lighting feel
+- rhythm
+- typography
+- lighting balance
+- restrained motion
+- calm hierarchy
 
-### LEARN FROM
-- clean layouts
-- visual confidence
-- product presentation
-- interaction softness
-
-### DO NOT COPY
-- exact layouts
-- Apple visual branding
-
+НЕ:
+- из количества эффектов
+- из glow overload
+- из flashy visuals
 
 ---
 
-## LINEAR
+# DESIGN INSPIRATION REFERENCES
 
-### ANALYZE
-- responsiveness
-- interaction speed
-- interface clarity
-- motion smoothness
-- UX simplicity
+# DIGITAL PRODUCT REFERENCES
 
-### LEARN FROM
-- fluid UI
-- subtle transitions
-- clean information density
+Разрешено вдохновляться quality level:
 
-### DO NOT COPY
-- exact interface structure
-
-
----
-
-## FRAMER
-
-### ANALYZE
-- animations
-- scroll experience
-- cinematic transitions
-- modern interaction design
-
-### LEARN FROM
-- motion language
-- hover interactions
-- premium transitions
-- visual storytelling
-
-### DO NOT COPY
-- exact effects
-- page structures
-
-
----
-
-## STRIPE
-
-### ANALYZE
-- premium gradients
-- layered sections
-- layout rhythm
-- content presentation
-
-### LEARN FROM
-- modern SaaS aesthetics
-- structured composition
-- visual confidence
-
-### DO NOT COPY
-- exact gradient style
-- branding language
-
-
----
-
-## ARC BROWSER
-
-### ANALYZE
-- futuristic feeling
-- glass effects
-- motion depth
-- visual identity
-
-### LEARN FROM
-- modern atmosphere
-- premium interaction behavior
-- emotional design language
-
-### DO NOT COPY
-- signature Arc identity
-
-
----
-
-## VERCEL
-
-### ANALYZE
-- typography balance
-- dark UI
-- premium minimalism
-- technical elegance
-
-### LEARN FROM
-- clean architecture feeling
-- restrained visual language
-- developer-grade polish
-
+- :contentReference[oaicite:0]{index=0}
+- :contentReference[oaicite:1]{index=1}
+- :contentReference[oaicite:2]{index=2}
+- :contentReference[oaicite:3]{index=3}
+- :contentReference[oaicite:4]{index=4}
+- :contentReference[oaicite:5]{index=5}
+- :contentReference[oaicite:6]{index=6}
 
 ---
 
 # ECOMMERCE REFERENCES
 
-## YANDEX LAVKA
+Разрешено вдохновляться:
 
-### ANALYZE
-- grocery UX
-- catalog flow
-- mobile shopping experience
-- card readability
-
-### LEARN FROM
-- shopping simplicity
-- fast browsing UX
-- clean product hierarchy
-
-### DO NOT COPY
-- visual style directly
-
+- :contentReference[oaicite:7]{index=7}
+- :contentReference[oaicite:8]{index=8}
+- :contentReference[oaicite:9]{index=9}
+- :contentReference[oaicite:10]{index=10}
 
 ---
 
-## ARBUZ
+# CINEMATIC / ATMOSPHERIC REFERENCES
 
-### ANALYZE
-- Kazakhstan grocery experience
-- local ecommerce behavior
-- product organization
-
-### LEARN FROM
-- regional UX understanding
-- grocery navigation logic
-
-### DO NOT COPY
-- layouts
-- branding
-- colors
-
+Разрешено вдохновляться:
+- premium editorial photography
+- luxury hospitality interfaces
+- modern industrial design
+- cinematic product photography
+- tactile packaging aesthetics
 
 ---
 
-## MAGNUM
+# IMPORTANT RULE
 
-### ANALYZE
-- local retail expectations
-- product categorization
+Использовать references:
+- как inspiration
+- как quality benchmark
+- как atmosphere direction
 
-### LEARN FROM
-- local market familiarity
-
-### IMPROVE UPON
-- outdated patterns
-- old ecommerce behavior
-
+НЕ:
+- как template
+- как copy source
+- как cloning reference
 
 ---
 
-# AI STARTUP REFERENCES
+# ANTI-GENERIC AI RULES
 
-## IMPORTANT
+# CRITICAL
 
-Food Service должен ощущаться:
-не только как grocery platform,
-но и как AI ecosystem.
+Избегать:
+- generic AI startup aesthetic
+- crypto UI feeling
+- cyberpunk overload
+- excessive gradients
+- floating glassmorphism
+- AI-generated glow patterns
+- “future tech” clichés
 
-## ANALYZE AI PRODUCTS
+---
 
-### Raycast
-### Perplexity
-### Notion AI
-### Cursor
-### OpenAI
-### modern AI dashboards
+# PROJECT MUST NEVER LOOK LIKE
 
-## LEARN FROM
+- crypto dashboard
+- NFT marketplace
+- AI tool landing page
+- futuristic concept demo
+- template SaaS website
 
-- futuristic atmosphere
-- modern UX confidence
-- interaction simplicity
-- visual intelligence
+---
 
-## RESULT
+# COLOR SYSTEM PHILOSOPHY
 
-Food Service должен ощущаться:
-- intelligent
-- modern
-- AI-powered
+# COLORS MUST FEEL
+
+- deep
+- calm
+- restrained
 - premium
-
-
----
-
-# VISUAL LANGUAGE RULES
-
-# FOOD SERVICE VISUAL DNA
-
-## VISUAL STYLE MUST FEEL
-
 - cinematic
-- atmospheric
-- luxurious
-- intelligent
-- minimal
-- modern
-- alive
-
-## INTERFACE MUST NOT FEEL
-
-- corporate-heavy
-- overloaded
-- cheap
-- neon-cyberpunk
-- crypto-style
-- template-based
-- outdated
-
 
 ---
 
-# ATMOSPHERE SYSTEM
+# ALLOWED COLOR BEHAVIOR
 
-## INTERFACE ATMOSPHERE
+- matte dark surfaces
+- subtle gradients
+- restrained highlights
+- warm depth
+- soft contrast
 
-Интерфейс должен:
-- иметь depth
-- иметь breathing room
-- иметь ambient lighting feel
-- ощущаться layered
+---
 
-## ALLOWED
+# FORBIDDEN COLOR BEHAVIOR
 
-- soft gradients
-- ambient glow
-- subtle blur
-- cinematic shadows
-- matte surfaces
-
-## FORBIDDEN
-
-- aggressive glow
 - rainbow gradients
-- hard shadows
-- oversaturated UI
-- flashy effects
-
+- neon colors
+- aggressive saturation
+- flashy contrast
+- glowing overload
 
 ---
 
-# MOTION REFERENCE RULES
+# LIGHTING PHILOSOPHY
 
-## MOTION MUST FEEL LIKE
-
-- Apple
-- Framer
-- Arc
-- premium startup products
-
-## MOTION CHARACTERISTICS
-
-- subtle
-- smooth
-- intelligent
+Интерфейс обязан ощущаться:
+- softly lit
 - cinematic
-- responsive
-
-## NEVER
-
-- meme animations
-- exaggerated motion
-- bounce overload
-- random movement
-- “dribbble-only” effects
-
-
----
-
-# TYPOGRAPHY REFERENCE RULES
-
-## TYPOGRAPHY MUST FEEL
-
-- clean
-- confident
-- breathable
+- layered
 - premium
-- readable
-
-## LEARN FROM
-
-- Apple
-- Linear
-- Vercel
-- Stripe
-
-## AVOID
-
-- oversized headings everywhere
-- aggressive bold usage
-- chaotic text hierarchy
-
 
 ---
 
-# SPACING SYSTEM RULES
+# LIGHTING MUST BE
 
-## SPACING MUST CREATE
+- restrained
+- subtle
+- atmospheric
+- controlled
 
-- rhythm
-- calmness
+---
+
+# AVOID
+
+- artificial glow
+- visual fog
+- excessive bloom
+- fake luxury lighting
+
+---
+
+# TYPOGRAPHY REFERENCE SYSTEM
+
+Typography обязана:
+- выглядеть confident
+- быть highly readable
+- иметь calm rhythm
+- поддерживать premium perception
+
+---
+
+# TYPOGRAPHY MUST NEVER FEEL
+
+- chaotic
+- oversized everywhere
+- aggressive
+- trendy ради трендов
+
+---
+
+# LAYOUT PHILOSOPHY
+
+Layouts обязаны:
+- дышать
+- иметь pacing
+- поддерживать narrative flow
+- ощущаться intentional
+
+---
+
+# AVOID
+
+- giant hero overload
+- too many competing sections
+- constant visual intensity
+- overcrowded compositions
+
+---
+
+# VISUAL SILENCE PRINCIPLE
+
+Очень важный принцип.
+
+Не каждая секция должна:
+- удивлять
+- анимироваться
+- кричать визуально
+
+Интерфейс обязан иметь:
+- quiet zones
 - breathing space
-- premium feeling
+- calm transitions
+- emotional pauses
 
-## LEARN FROM
-
-- Apple layouts
-- Notion whitespace
-- Linear spacing systems
-
-## NEVER
-
-- cramped UI
-- random margins
-- inconsistent spacing
-
+Именно это создаёт:
+ощущение дорогого продукта.
 
 ---
 
-# CARD DESIGN RULES
+# HUMANIZATION PRINCIPLE
 
-## PRODUCT CARDS MUST FEEL
+Интерфейс обязан ощущаться:
+- human-made
+- natural
+- emotionally balanced
+- tactile
+- intentional
 
-- curated
-- balanced
+---
+
+# AVOID
+
+- sterile AI feeling
+- robotic symmetry
+- emotionally cold UI
+- perfect artificial compositions
+
+---
+
+# PRODUCT PHOTOGRAPHY SYSTEM
+
+# ALL PRODUCT IMAGES MUST FEEL
+
 - premium
-- minimal
-
-## LEARN FROM
-
-- premium ecommerce
-- luxury catalogs
-- modern grocery platforms
-
-## AVOID
-
-- marketplace chaos
-- overloaded labels
-- banner-style cards
-
-
----
-
-# INTERACTION DESIGN RULES
-
-## INTERACTIONS MUST FEEL
-
-- immediate
-- responsive
-- elegant
+- realistic
+- consistent
+- cinematic
 - tactile
 
-## LEARN FROM
+---
 
-- Apple hover behavior
-- Arc responsiveness
-- Framer transitions
+# PRODUCT PHOTOGRAPHY STYLE
 
-## NEVER
-
-- delayed feedback
-- janky motion
-- robotic interactions
-
+- dark premium grocery
+- matte surfaces
+- realistic textures
+- controlled reflections
+- soft shadows
+- studio realism
 
 ---
 
-# DESIGN ANALYSIS FRAMEWORK
+# FORBIDDEN PRODUCT STYLE
 
-Перед использованием любого референса Claude Code обязан анализировать:
-
-## 1. WHY IT FEELS PREMIUM
-Что создаёт premium feeling?
-
-## 2. WHAT UX PROBLEM IT SOLVES
-Какую UX проблему решает?
-
-## 3. WHAT CAN BE ADAPTED
-Что можно адаптировать?
-
-## 4. WHAT SHOULD NOT BE COPIED
-Что нельзя копировать напрямую?
-
-## 5. HOW TO MAKE IT UNIQUE
-Как превратить это в уникальный Food Service style?
-
+- random lighting
+- inconsistent aesthetics
+- cheap ecommerce look
+- advertising-banner compositions
+- oversaturated products
 
 ---
 
-# REFERENCE ADAPTATION SYSTEM
+# MOTION VISUAL PRINCIPLE
 
-## PROCESS
-
-### STEP 1
-Analyze reference.
-
-### STEP 2
-Extract UX principle.
-
-### STEP 3
-Extract motion principle.
-
-### STEP 4
-Adapt to Food Service ecosystem.
-
-### STEP 5
-Modernize further.
-
-### STEP 6
-Maintain unique identity.
-
-## IMPORTANT
-
-Никогда:
-- не делать clones
-- не копировать layouts 1-в-1
-- не копировать branding
-
+Motion обязан:
+- усиливать atmosphere
+- поддерживать UX
+- быть subtle
+- ощущаться expensive
 
 ---
 
-# DESIGN CONSISTENCY RULES
+# AVOID
 
-Все новые решения обязаны:
-- соответствовать Food Service identity
-- соответствовать motion system
-- соответствовать spacing system
-- соответствовать atmosphere system
-
-## NEVER
-
-- introduce foreign styles
-- create inconsistent visual language
-- mix unrelated aesthetics
-
+- motion overload
+- flashy reveals
+- exaggerated transforms
+- constant movement
 
 ---
 
-# FUTURE VISUAL DIRECTION
+# PREMIUM RESTRAINT SYSTEM
 
-Food Service должен эволюционировать в:
+# IMPORTANT RULE
 
-- premium AI ecosystem
-- cinematic ecommerce platform
-- modern grocery operating system
-- luxury-tech interface
+Если интерфейс начинает ощущаться:
+- слишком cinematic
+- слишком futuristic
+- слишком glowing
+- слишком animated
 
-## LONG TERM FEELING
+необходимо:
+- уменьшить эффекты
+- усилить simplicity
+- усилить usability
+- увеличить calmness
+- убрать лишнее
 
-Пользователь должен думать:
+---
 
-“Это выглядит как продукт будущего.”
+# REMEMBER
+
+Premium feeling создаётся:
+не complexity,
+а:
+- restraint
+- confidence
+- rhythm
+- silence
+- consistency
+
+---
+
+# MOBILE VISUAL PHILOSOPHY
+
+Mobile интерфейс обязан:
+- ощущаться native
+- быть tactile
+- быть lightweight
+- быть calm
+- быть responsive
+
+---
+
+# MOBILE MUST NEVER FEEL
+
+- cramped
+- overloaded
+- desktop-adapted
+- visually exhausting
+
+---
+
+# VISUAL CONSISTENCY RULES
+
+Все элементы обязаны:
+- ощущаться частью одной системы
+- иметь единый rhythm
+- иметь unified spacing
+- иметь unified lighting behavior
+- иметь unified motion language
+
+---
+
+# NEVER ALLOW
+
+- fragmented UI
+- inconsistent sections
+- random atmospheres
+- mixed aesthetics
+- visual identity drift
+
+---
+
+# FINAL VISUAL GOAL
+
+Финальный продукт должен ощущаться:
+- calm
+- premium
+- cinematic
+- modern
+- trustworthy
+- tactile
+- emotionally balanced
+- production-ready
+
+Пользователь должен чувствовать:
+что это:
+- настоящий digital ecosystem
+- качественный современный сервис
+- premium ecommerce product
 
 А НЕ:
-“очередной магазин.”
-
-
----
-
-# FINAL DESIGN TARGET
-
-## FINAL EXPERIENCE SHOULD FEEL LIKE
-
-- Apple-level polish
-- Framer-level motion
-- Linear-level clarity
-- Arc-level atmosphere
-- modern AI startup energy
-- premium grocery ecosystem
-
-НО:
-с собственной уникальной identity Food Service.
-
-
----
-
-# FINAL DIRECTIVE
-
-Claude Code обязан:
-- анализировать лучшие продукты мира
-- извлекать UX principles
-- адаптировать их intelligently
-- создавать уникальный visual language
-- избегать копирования
-- постоянно усиливать premium feeling
-
-
----
-
-# END OF FILE
+- AI-generated showcase
+- futuristic startup demo
+- trendy concept website.

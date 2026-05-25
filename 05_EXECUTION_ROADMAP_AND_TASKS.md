@@ -2,18 +2,47 @@
 
 # FOOD SERVICE — MASTER EXECUTION ROADMAP & TASK SYSTEM
 
-## SYSTEM PURPOSE
+# SYSTEM PURPOSE
 
 Этот файл определяет:
 - как Claude Code должен развивать проект
 - в каком порядке внедрять улучшения
-- как выполнять задачи безопасно
-- как избегать хаоса
-- как превратить Food Service в premium AI-powered ecosystem
+- как безопасно масштабировать систему
+- как сохранять product consistency
+- как превратить Food Service в production-grade ecosystem
 
 Главная цель:
-создать системный pipeline развития проекта мирового уровня.
+создать:
+- реальный продукт
+- стабильную архитектуру
+- premium ecommerce experience
+- scalable AI-assisted platform
 
+НЕ:
+- хаотичный AI-generated project
+- бесконечный visual experiment
+- перегруженный cinematic showcase
+
+---
+
+# PRIMARY EXECUTION PRINCIPLE
+
+Главный приоритет:
+REAL PRODUCT > VISUAL SHOWCASE
+
+Каждое изменение обязано:
+- улучшать UX
+- улучшать usability
+- улучшать responsiveness
+- усиливать trust
+- усиливать consistency
+- сохранять simplicity
+
+НЕ:
+- усложнять продукт
+- перегружать UI
+- добавлять wow ради wow
+- создавать unnecessary abstraction
 
 ---
 
@@ -21,640 +50,709 @@
 
 Claude Code НЕ должен:
 - хаотично менять проект
-- randomly refactor everything
-- ломать рабочие системы
-- делать giant rewrites
+- randomly rewrite systems
+- ломать рабочую архитектуру
 - создавать technical debt
+- делать overengineering
 
 Claude Code ОБЯЗАН:
-- работать по roadmap
-- двигаться этапами
-- проверять стабильность
-- усиливать UX
-- усиливать visual identity
-- сохранять архитектурную чистоту
+- работать этапами
+- двигаться modular way
+- сохранять stability
+- улучшать UX-first
+- проверять quality
+- улучшать production readiness
 
-## PROJECT DEVELOPMENT MUST FEEL LIKE:
-- professional product evolution
-- startup engineering pipeline
-- premium SaaS development workflow
+---
 
+# CORE PRODUCT DEVELOPMENT PRINCIPLE
+
+Food Service должен эволюционировать:
+не как:
+- AI concept
+- demo product
+- visual experiment
+
+а как:
+- настоящий ecommerce ecosystem
+- production-grade service
+- scalable digital platform
+- usable product infrastructure
 
 ---
 
 # MASTER DEVELOPMENT PHASES
 
-# PHASE 1 — PROJECT AUDIT & FOUNDATION ANALYSIS
+# PHASE 1 — PROJECT AUDIT & REALITY CHECK
 
-## GOAL
+# GOAL
 
-Полностью понять проект перед изменениями.
+Полностью понять текущее состояние проекта.
 
-## TASKS
+---
 
-### ARCHITECTURE ANALYSIS
+# REQUIRED ANALYSIS
+
+## ARCHITECTURE ANALYSIS
+
 Изучить:
 - folder structure
 - routing
-- layout system
-- component hierarchy
+- layout systems
 - Zustand stores
-- shared UI components
+- shared components
 - hooks
-- API structure
-- Supabase integration
+- API integration
+- Supabase architecture
 
-### UI ANALYSIS
+---
+
+## UI ANALYSIS
+
 Проверить:
-- typography
-- spacing
-- responsive behavior
-- card consistency
-- hover behavior
+- typography consistency
+- spacing rhythm
 - visual hierarchy
+- card systems
+- navigation clarity
+- responsive behavior
 
-### PERFORMANCE ANALYSIS
+---
+
+## UX ANALYSIS
+
 Проверить:
-- bundle size
+- shopping flow
+- cart usability
+- onboarding clarity
+- CTA hierarchy
+- mobile interactions
+- customer friction
+
+---
+
+## PERFORMANCE ANALYSIS
+
+Проверить:
 - rerenders
 - hydration issues
-- image optimization
 - animation performance
+- image optimization
+- bundle size
+- layout stability
 
-### UX ANALYSIS
-Проверить:
-- navigation flow
-- cart UX
-- catalog UX
-- mobile usability
-- CTA hierarchy
+---
 
-## REQUIRED OUTPUT
+# REQUIRED OUTPUT
 
 Claude Code обязан:
-1. составить полный audit report
-2. перечислить проблемы
+1. составить audit report
+2. определить сильные стороны
 3. определить слабые места
-4. определить сильные стороны
-5. предложить roadmap улучшений
+4. определить UX risks
+5. определить architecture risks
+6. предложить safe roadmap
 
-## IMPORTANT
+---
+
+# IMPORTANT
 
 На этом этапе:
 - ничего не ломать
 - не делать giant rewrites
-- сначала понять проект
-
+- сначала понять продукт
 
 ---
 
 # PHASE 2 — DESIGN SYSTEM FOUNDATION
 
-## GOAL
+# GOAL
 
-Создать unified premium visual system.
+Создать unified scalable system.
 
-## TASKS
+---
 
-### CREATE CONSISTENT:
-- spacing system
-- typography hierarchy
-- radius system
-- color system
+# REQUIRED SYSTEMS
+
+## STANDARDIZE
+
+- spacing
+- typography
+- border radius
 - shadows
+- hover behavior
 - motion timing
-- container widths
-- grid rhythm
+- containers
+- section rhythm
 
-### STANDARDIZE:
+---
+
+## CREATE CONSISTENT SYSTEMS
+
 - buttons
 - cards
-- sections
-- headings
-- badges
 - inputs
+- drawers
+- modals
 - navigation
+- CTA hierarchy
 
-## REMOVE:
-- inconsistent values
+---
+
+# REMOVE
+
 - random spacing
+- inconsistent values
+- fragmented styles
+- duplicated patterns
 - visual chaos
-- duplicated UI styles
 
-## RESULT
+---
 
-Проект должен начать ощущаться:
+# RESULT
+
+Интерфейс должен ощущаться:
 - cleaner
+- calmer
 - more premium
 - more intentional
 
+---
+
+# PHASE 3 — UX & PRODUCT CLARITY PASS
+
+# GOAL
+
+Сделать продукт:
+- понятным
+- usable
+- trustworthy
+- comfortable
 
 ---
 
-# PHASE 3 — MOTION SYSTEM IMPLEMENTATION
+# PRIORITIES
 
-## GOAL
+## IMPROVE
 
-Добавить cinematic motion language.
-
-## TASKS
-
-### IMPLEMENT:
-- page transitions
-- scroll reveals
-- hover interactions
-- card motion
-- button feedback
-- loading animations
-- stagger animations
-- smooth transitions
-
-### USE:
-- Framer Motion
-- spring physics
-- GPU optimized transforms
-
-### AVOID:
-- flashy motion
-- exaggerated effects
-- animation overload
-
-## REQUIRED RESULT
-
-Сайт должен:
-- ощущаться живым
-- ощущаться responsive
-- ощущаться premium
-
+- navigation clarity
+- CTA visibility
+- catalog readability
+- checkout simplicity
+- interaction comfort
 
 ---
 
-# PHASE 4 — HOMEPAGE REBUILD & ATMOSPHERE
+## REMOVE
 
-## GOAL
+- unnecessary friction
+- hidden actions
+- overloaded layouts
+- confusing interactions
 
-Сделать homepage flagship experience.
+---
 
-## HERO SECTION
+# IMPORTANT
+
+Красивый UI бесполезен,
+если:
+- пользователь теряется
+- не понимает flow
+- не доверяет checkout
+- устаёт от интерфейса
+
+---
+
+# PHASE 4 — MOTION SYSTEM IMPLEMENTATION
+
+# GOAL
 
 Добавить:
-- cinematic lighting
-- layered depth
-- animated glow
-- responsive typography
-- subtle motion atmosphere
-
-## SECTION EXPERIENCE
-
-Каждая секция должна:
-- иметь цель
-- иметь narrative flow
-- ощущаться connected
-
-## ADD:
-- ambient depth
-- visual rhythm
-- premium section transitions
-
-## RESULT
-
-Главная страница должна:
-- продавать бренд
-- создавать wow-feeling
-- ощущаться futuristic
-
+- subtle motion
+- tactile feedback
+- premium responsiveness
 
 ---
 
-# PHASE 5 — PRODUCT CATALOG SYSTEM
+# MOTION PRINCIPLE
 
-## GOAL
+Motion существует:
+- для UX
+- для hierarchy
+- для pacing
+- для feedback
+
+НЕ:
+- для flashy experience
+- для animation showcase
+- для перегрузки интерфейса
+
+---
+
+# IMPLEMENT
+- hover feedback
+- smooth transitions
+- subtle reveals
+- responsive interactions
+- drawer animations
+- loading transitions
+
+---
+
+# MOTION MUST FEEL
+
+- calm
+- lightweight
+- premium
+- responsive
+- almost invisible
+
+---
+
+# AVOID
+
+- motion overload
+- exaggerated effects
+- distracting movement
+- dramatic scaling
+- bounce spam
+
+---
+
+# PHASE 5 — HOMEPAGE EXPERIENCE
+
+# GOAL
+
+Сделать homepage:
+- flagship experience
+- brand introduction
+- trust-building system
+
+---
+
+# HOMEPAGE MUST
+
+- объяснять продукт
+- создавать confidence
+- вести пользователя
+- ощущаться intentional
+
+---
+
+# AVOID
+
+- giant cinematic overload
+- endless hero sections
+- atmosphere without UX purpose
+- overcomplicated storytelling
+
+---
+
+# IMPORTANT
+
+Homepage должен:
+не демонстрировать эффекты,
+а:
+- помогать понять продукт
+- вызывать доверие
+- создавать quality perception
+
+---
+
+# PHASE 6 — PRODUCT CATALOG SYSTEM
+
+# GOAL
 
 Создать premium grocery catalog experience.
 
-## TASKS
+---
 
-### PRODUCT GRID
-Сделать:
-- balanced
+# PRODUCT GRID MUST FEEL
+
 - breathable
-- responsive
-- scalable
-
-### PRODUCT CARDS
-Добавить:
-- premium hover
-- image transitions
-- clean hierarchy
-- smooth interactions
-
-### PRODUCT IMAGES
-Все изображения:
-- unified style
-- premium grocery aesthetic
-- cinematic lighting
-- consistent background
-
-### FILTERING UX
-Улучшить:
-- readability
-- usability
-- mobile interaction
-
-## RESULT
-
-Каталог должен ощущаться:
+- organized
 - curated
-- premium
-- modern
-
+- readable
+- lightweight
 
 ---
 
-# PHASE 6 — CART & CHECKOUT EXPERIENCE
+# PRODUCT CARDS MUST
 
-## GOAL
+- быть понятными
+- быть visually balanced
+- иметь clear hierarchy
+- быстро сканироваться
 
-Сделать shopping experience world-class.
+---
 
-## TASKS
+# PRODUCT PRIORITY
 
-### CARTDRAWER
-Улучшить:
-- animation
-- responsiveness
-- spacing
-- quantity interactions
-- remove transitions
+1. Image
+2. Title
+3. Price
+4. CTA
 
-### ADD:
-- loading states
-- skeleton UI
-- smooth updates
-- better empty state
+---
 
-### CHECKOUT FLOW
-Проверить:
-- friction
-- clarity
-- mobile usability
+# REMOVE
 
-## RESULT
+- excessive labels
+- visual clutter
+- marketplace chaos
+- overloaded cards
 
-Корзина должна ощущаться:
+---
+
+# PHASE 7 — CART & CHECKOUT EXPERIENCE
+
+# GOAL
+
+Сделать shopping experience:
+- simple
+- smooth
+- trustworthy
 - satisfying
-- fast
-- polished
-
 
 ---
 
-# PHASE 7 — MOBILE-FIRST OPTIMIZATION
+# CART MUST FEEL
 
-## GOAL
+- responsive
+- lightweight
+- clear
+- premium
 
-Сделать mobile experience flagship-level.
+---
 
-## TASKS
+# REQUIRED IMPROVEMENTS
 
-### MOBILE UX
-Улучшить:
+## ADD
+
+- smooth quantity updates
+- loading states
+- skeletons
+- subtle feedback
+- polished empty states
+
+---
+
+# REMOVE
+
+- laggy interactions
+- confusing controls
+- visual overload
+- friction-heavy checkout
+
+---
+
+# IMPORTANT
+
+Checkout UX важнее:
+чем visual atmosphere.
+
+---
+
+# PHASE 8 — MOBILE-FIRST OPTIMIZATION
+
+# GOAL
+
+Сделать mobile experience:
+- flagship-level
+- native-feeling
+- tactile
+- fast
+
+---
+
+# MOBILE PRIORITIES
+
+## IMPROVE
+
 - touch targets
 - navigation
-- spacing
-- drawer behavior
 - scrolling
-
-### PERFORMANCE
-Оптимизировать:
-- rendering
-- animation cost
-- image loading
-- hydration
-
-### RESPONSIVE SYSTEM
-Проверить:
-- every breakpoint
-- overflow
-- typography scaling
-- card behavior
-
-## RESULT
-
-Мобильная версия должна ощущаться:
-- native
-- smooth
-- premium
-
+- spacing
+- drawer interactions
+- one-hand usage
 
 ---
 
-# PHASE 8 — RU/KZ LOCALIZATION SYSTEM
+# MOBILE MUST NEVER FEEL
 
-## GOAL
+- cramped
+- desktop-adapted
+- laggy
+- overloaded
 
-Создать scalable multilingual architecture.
+---
 
-## TASKS
+# IMPORTANT
 
-### IMPLEMENT:
+Mobile experience = главный experience проекта.
+
+---
+
+# PHASE 9 — LOCALIZATION SYSTEM
+
+# GOAL
+
+Создать scalable RU/KZ localization architecture.
+
+---
+
+# REQUIRED
+
 - centralized translations
-- language provider
 - dynamic switching
-- scalable dictionary system
+- hydration-safe localization
+- responsive multilingual layouts
 
-### REMOVE:
-- hardcoded text
+---
+
+# REMOVE
+
+- hardcoded strings
 - inconsistent translations
-
-### CHECK:
-- responsive localization
-- text overflow
-- typography adaptation
-
-## RESULT
-
-Переключение языка должно:
-- быть seamless
-- быть быстрым
-- не ломать layout
-
+- layout breakage
 
 ---
 
-# PHASE 9 — PERFORMANCE & OPTIMIZATION PASS
+# IMPORTANT
 
-## GOAL
+KZ localization должна ощущаться:
+не secondary translation,
+а полноценной частью продукта.
 
-Сделать проект production-grade.
+---
 
-## TASKS
+# PHASE 10 — PERFORMANCE & STABILITY PASS
 
-### OPTIMIZE:
-- bundle size
-- rerenders
-- lazy loading
-- image optimization
-- animation performance
-- hydration flow
+# GOAL
 
-### CHECK:
-- Lighthouse
-- mobile performance
-- Core Web Vitals
-
-## REMOVE:
-- unnecessary dependencies
-- heavy rendering
-- dead code
-
-## RESULT
-
-Сайт должен ощущаться:
-- extremely fast
+Сделать проект:
+- production-grade
+- stable
 - lightweight
-- smooth
-
+- optimized
 
 ---
 
-# PHASE 10 — FINAL PREMIUM POLISH
+# OPTIMIZE
 
-## GOAL
+- rerenders
+- image loading
+- bundle size
+- hydration
+- animation cost
+- rendering flow
 
-Добавить invisible premium quality.
+---
 
-## TASKS
+# REMOVE
 
-### POLISH:
-- hover timing
-- microinteractions
-- typography rhythm
-- cinematic depth
-- subtle shadows
-- motion consistency
+- dead code
+- oversized dependencies
+- rendering bottlenecks
+- unnecessary complexity
 
-### FINAL QA
-Проверить:
-- UX
-- visual quality
-- performance
-- responsive behavior
-- animation quality
+---
 
-## RESULT
+# IMPORTANT
 
-Проект должен ощущаться:
+Даже premium UI ощущается дешёвым,
+если:
+- интерфейс лагает
+- interactions тормозят
+- mobile перегружается
+
+---
+
+# PHASE 11 — FINAL HUMANIZATION & POLISH
+
+# GOAL
+
+Убрать:
+- AI-smell
+- overdesign
+- generic startup feeling
+
+---
+
+# ADD
+
+- restraint
+- visual calmness
+- emotional comfort
+- tactile rhythm
+- quiet spacing
+- natural pacing
+
+---
+
+# REMOVE
+
+- excessive glow
+- AI gradients
+- generic SaaS aesthetics
+- motion overload
+- sterile layouts
+
+---
+
+# FINAL PRODUCT FEELING
+
+Продукт должен ощущаться:
+- реальным
 - finished
+- calm
 - premium
-- modern
-- world-class
-
+- trustworthy
+- production-ready
 
 ---
 
-# DAILY EXECUTION MODEL
+# DAILY EXECUTION PIPELINE
 
-# EVERY TASK MUST FOLLOW THIS PIPELINE
+# EVERY TASK MUST FOLLOW THIS FLOW
 
-## STEP 1 — ANALYZE
+---
 
-Изучить:
-- текущую реализацию
-- architecture
-- dependencies
-- UX flow
+# STEP 1 — ANALYZE
 
-## STEP 2 — IDENTIFY PROBLEMS
+Перед любыми изменениями:
+- изучить реализацию
+- изучить dependencies
+- изучить UX flow
+- понять architecture impact
+
+---
+
+# STEP 2 — IDENTIFY PROBLEMS
 
 Определить:
 - UX issues
-- visual issues
-- performance issues
 - responsive issues
+- performance bottlenecks
+- architecture risks
+- consistency problems
 
-## STEP 3 — CREATE PLAN
+---
 
-Перед кодом:
-- объяснить strategy
-- объяснить implementation plan
-- объяснить impact
+# STEP 3 — CREATE STRATEGY
 
-## STEP 4 — IMPLEMENT SAFELY
+Перед кодом объяснить:
+- current state
+- problems
+- implementation strategy
+- expected result
 
+---
+
+# STEP 4 — IMPLEMENT SAFELY
 Изменения должны быть:
 - modular
-- reversible
 - isolated
-- clean
+- scalable
+- reversible
 
-## STEP 5 — VERIFY
+---
+
+# STEP 5 — VERIFY
 
 После изменений проверить:
 - functionality
 - responsiveness
-- animations
+- motion smoothness
+- accessibility
+- hydration safety
 - performance
-- consistency
-
-## STEP 6 — POLISH
-
-После working implementation:
-- улучшить spacing
-- улучшить motion
-- улучшить visual hierarchy
-
 
 ---
 
-# TASK PRIORITY SYSTEM
+# STEP 6 — POLISH
 
-## PRIORITY ORDER
+После working implementation:
+- улучшить spacing
+- улучшить rhythm
+- улучшить hierarchy
+- убрать лишнее
+- усилить calmness
 
-### P0 — CRITICAL
+---
+
+# PRIORITY SYSTEM
+
+# P0 — CRITICAL
+
+- runtime bugs
 - broken UX
-- broken functionality
-- runtime errors
-- hydration issues
+- hydration mismatch
+- broken cart
+- deployment issues
 
-### P1 — HIGH
+---
+
+# P1 — HIGH
+
 - mobile UX
 - cart UX
 - catalog UX
-- performance bottlenecks
+- navigation clarity
+- checkout simplicity
 
-### P2 — MEDIUM
+---
+
+# P2 — MEDIUM
+
 - motion polish
 - visual consistency
 - microinteractions
+- spacing refinement
 
-### P3 — LOW
-- experimental features
-- advanced visuals
-- future systems
+---
 
+# P3 — LOW
+
+- experimental ideas
+- advanced atmosphere systems
+- future enhancements
 
 ---
 
 # SAFE DEVELOPMENT RULES
 
-## NEVER:
-- rewrite entire architecture blindly
-- break working components
-- create inconsistent systems
-- overengineer
-- introduce unnecessary complexity
+# NEVER
 
-## ALWAYS:
+- rewrite architecture blindly
+- overengineer
+- create unnecessary abstractions
+- overload the interface
+- prioritize visuals over UX
+
+---
+
+# ALWAYS
+
 - preserve stability
 - improve progressively
-- think long-term
-- optimize UX first
-
-
----
-
-# GIT WORKFLOW SYSTEM
-
-## COMMIT STRATEGY
-
-Каждый commit должен:
-- иметь clear purpose
-- быть reversible
-- быть scoped
-- быть understandable
-
-## AVOID:
-- giant commits
-- unrelated changes
-- chaotic modifications
-
-## EXAMPLE COMMITS
-
-- improve hero motion system
-- refactor product card layout
-- optimize cart drawer animations
-- implement responsive spacing system
-
+- maintain simplicity
+- prioritize usability
+- think production-first
 
 ---
 
-# QA VALIDATION SYSTEM
+# FINAL EXECUTION PRINCIPLE
 
-Перед завершением каждой задачи проверить:
+Каждое изменение обязано делать продукт:
+- проще
+- понятнее
+- быстрее
+- стабильнее
+- удобнее
+- production-ready
 
-## FUNCTIONAL QA
-- работает ли логика?
-- есть ли errors?
-- есть ли warnings?
-
-## VISUAL QA
-- spacing consistent?
-- typography clean?
-- hover polished?
-
-## RESPONSIVE QA
-- mobile working?
-- tablet working?
-- desktop working?
-
-## PERFORMANCE QA
-- animations smooth?
-- no FPS drops?
-- optimized rendering?
-
-
----
-
-# AI DECISION FRAMEWORK
-
-Перед любым решением Claude Code обязан спросить себя:
-
-## UX
-Улучшает ли это experience?
-
-## VISUAL
-Делает ли это интерфейс более premium?
-
-## PERFORMANCE
-Не ухудшает ли это performance?
-
-## ARCHITECTURE
-Масштабируется ли это решение?
-
-## CONSISTENCY
-Соответствует ли это design system?
-
-
----
-
-# FINAL PRODUCT TARGET
-
-Конечный результат должен ощущаться как:
-
-- premium AI startup
-- luxury-tech ecosystem
-- cinematic ecommerce platform
-- next-generation grocery experience
-
-НЕ:
-- обычный интернет-магазин
-- шаблонный marketplace
-- дешёвый ecommerce template
-
-
----
-
-# FINAL DIRECTIVE
-
-Claude Code обязан:
-- действовать системно
-- развивать проект по roadmap
-- постоянно усиливать качество
-- избегать хаоса
-- создавать world-class digital product experience
-
-
----
-
-# END OF FILE
+А НЕ:
+- просто “более cinematic”
+- “более futuristic”
+- “более AI-looking”.

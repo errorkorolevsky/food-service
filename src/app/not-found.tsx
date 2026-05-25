@@ -9,15 +9,18 @@ import CartDrawer from "@/components/layout/CartDrawer"
 import Badge from "@/components/ui/Badge"
 import Button from "@/components/ui/Button"
 import FadeIn from "@/components/ui/FadeIn"
-
-const quickLinks = [
-  { href: "/",          icon: Home,      label: "Главная",        desc: "Назад на старт"           },
-  { href: "/catalog",   icon: Grid3x3,   label: "Каталог",        desc: "Весь ассортимент"          },
-  { href: "/ai",        icon: Sparkles,  label: "AI Ассистент",   desc: "Подберём что нужно"        },
-  { href: "/tracking",  icon: Package,   label: "Отследить заказ", desc: "Статус доставки"          },
-]
+import { useLang } from "@/locales"
 
 export default function NotFound() {
+  const { t } = useLang()
+
+  const quickLinks = [
+    { href: "/",         icon: Home,     label: t.nav.home,     desc: t.errors.goHome      },
+    { href: "/catalog",  icon: Grid3x3,  label: t.nav.catalog,  desc: t.errors.openCatalog },
+    { href: "/ai",       icon: Sparkles, label: t.nav.ai,       desc: t.ai.placeholder     },
+    { href: "/tracking", icon: Package,  label: t.nav.tracking, desc: t.tracking.subtitle  },
+  ]
+
   return (
     <main className="fs-page-bg text-fs-graphite min-h-screen">
       <Navbar />
@@ -28,14 +31,13 @@ export default function NotFound() {
         {/* BADGE */}
         <FadeIn>
           <Badge variant="ai" dot className="mb-10">
-            Страница не найдена
+            {t.errors.notFound}
           </Badge>
         </FadeIn>
 
         {/* 404 GLITCH */}
         <FadeIn delay={0.05}>
           <div className="relative select-none mb-6">
-            {/* shadow layers */}
             <motion.div
               className="absolute inset-0 text-[120px] lg:text-[180px] font-black leading-none text-fs-green/10"
               animate={{ x: [0, -4, 4, 0], y: [0, 2, -2, 0] }}
@@ -50,7 +52,6 @@ export default function NotFound() {
             >
               404
             </motion.div>
-            {/* main */}
             <div className="relative text-[120px] lg:text-[180px] font-black leading-none text-fs-graphite">
               404
             </div>
@@ -60,28 +61,23 @@ export default function NotFound() {
         {/* TEXT */}
         <FadeIn delay={0.1}>
           <h1 className="text-heading text-fs-graphite">
-            Такой страницы нет
+            {t.errors.notFoundTitle}
           </h1>
           <p className="text-body text-fs-gray mt-4 max-w-sm leading-relaxed">
-            Она могла переехать или никогда не существовала.
-            Выберите куда отправиться дальше.
+            {t.errors.notFoundDesc}
           </p>
         </FadeIn>
 
         {/* CTA BUTTONS */}
         <FadeIn delay={0.15}>
           <div className="flex flex-wrap items-center justify-center gap-3 mt-10">
-            <Link href="/">
-              <Button size="lg">
-                <ArrowLeft size={16} strokeWidth={1.5} />
-                На главную
-              </Button>
-            </Link>
-            <Link href="/catalog">
-              <Button variant="secondary" size="lg">
-                Открыть каталог
-              </Button>
-            </Link>
+            <Button href="/" size="lg">
+              <ArrowLeft size={16} strokeWidth={1.5} />
+              {t.errors.goHome}
+            </Button>
+            <Button href="/catalog" variant="secondary" size="lg">
+              {t.errors.openCatalog}
+            </Button>
           </div>
         </FadeIn>
 
@@ -89,7 +85,7 @@ export default function NotFound() {
         <FadeIn delay={0.2}>
           <div className="mt-16 w-full max-w-2xl">
             <p className="text-label text-fs-subtle uppercase tracking-widest mb-6">
-              Куда пойти
+              {t.errors.whereToGo}
             </p>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
               {quickLinks.map(({ href, icon: Icon, label, desc }) => (
@@ -98,7 +94,7 @@ export default function NotFound() {
                     whileHover={{ y: -3 }}
                     transition={{ duration: 0.15 }}
                     className="
-                      bg-white border border-fs-border rounded-xl
+                      bg-fs-white border border-fs-border rounded-xl
                       p-5 flex flex-col items-center gap-3
                       hover:border-fs-subtle transition-colors duration-200
                       cursor-pointer

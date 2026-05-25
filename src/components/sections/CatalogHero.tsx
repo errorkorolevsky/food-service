@@ -9,7 +9,7 @@ export default function CatalogHero() {
 
   const stats = [
     { icon: Package, value: "200+",    label: t.catalog.stat1 },
-    { icon: Truck,   value: "15 мин",  label: t.catalog.stat2 },
+    { icon: Truck,   value: "15",       label: t.catalog.stat2 },
     { icon: Zap,     value: "AI",      label: t.catalog.stat3 },
   ]
 

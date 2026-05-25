@@ -72,3 +72,10 @@ export const CATEGORY_COLORS: Record<string, string> = {
   new:           "#0D9E76",
   top:           "#F59E0B",
 }
+
+// Maps Russian display name (as stored in Product.category) → accent color
+export const CATEGORY_COLORS_BY_NAME: Record<string, string> = Object.fromEntries(
+  Object.entries(CATEGORY_FILTER)
+    .filter(([, name]) => name)
+    .map(([id, name]) => [name, CATEGORY_COLORS[id] ?? "#005B46"])
+)

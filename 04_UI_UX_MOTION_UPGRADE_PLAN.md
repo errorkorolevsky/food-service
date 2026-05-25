@@ -1,639 +1,583 @@
 # 04_UI_UX_MOTION_UPGRADE_PLAN.md
 
-# FOOD SERVICE — UI / UX / MOTION MASTER UPGRADE PLAN
+# FOOD SERVICE — UI / UX / MOTION MASTER SYSTEM
 
-## SYSTEM PURPOSE
+# SYSTEM PURPOSE
 
 Этот файл определяет:
-- как вывести Food Service на новый визуальный уровень
-- какие UI/UX системы должны быть внедрены
-- какие motion systems должны быть добавлены
-- как создать premium cinematic ecommerce experience
-- как внедрять анимации без удешевления интерфейса
+- visual philosophy проекта
+- UX behavior
+- motion language
+- interaction systems
+- atmospheric balance
+- premium product feeling
 
-Главная цель:
-создать ощущение next-generation luxury-tech ecosystem.
+Главная задача:
+создать:
+- production-grade experience
+- premium ecommerce ecosystem
+- modern digital product
+- calm cinematic interface
 
+НЕ:
+- перегруженный AI showcase
+- futuristic demo
+- visual experiment
+
+---
+
+# PRIMARY EXPERIENCE PRINCIPLE
+
+Главный приоритет:
+REAL UX > WOW EFFECT
+
+Интерфейс обязан:
+- помогать пользователю
+- ускорять действия
+- вызывать доверие
+- ощущаться естественным
+- быть production-ready
+
+Интерфейс НЕ должен:
+- демонстрировать эффекты ради эффектов
+- перегружать пользователя motion
+- отвлекать от ecommerce experience
+- ощущаться artificial
 
 ---
 
 # CORE EXPERIENCE GOAL
 
 Пользователь должен ощущать:
-
-- плавность
+- спокойствие
+- уверенность
 - скорость
-- глубину интерфейса
+- responsiveness
+- visual comfort
+- tactile interactions
 - premium quality
-- визуальную чистоту
-- эмоциональный комфорт
-- дорогой digital product experience
 
-Сайт должен ощущаться:
+Интерфейс должен ощущаться:
+- лёгким
 - живым
-- responsive
-- cinematic
-- intelligent
-- premium
-- modern
-- atmospheric
-
+- современным
+- clean
+- curated
+- trustworthy
 
 ---
 
 # GLOBAL UI PHILOSOPHY
 
-## INTERFACE MUST FEEL
+# INTERFACE MUST FEEL
 
-- soft
+- calm
 - intelligent
 - polished
-- cinematic
-- lightweight
+- breathable
+- responsive
+- tactile
 - minimal
-- premium
+- emotionally comfortable
 
-## INTERFACE MUST NOT FEEL
+---
 
-- corporate
-- template-based
-- bootstrap-like
-- outdated
-- overloaded
+# INTERFACE MUST NOT FEEL
+
 - noisy
-- generic
+- overcrowded
+- generic AI startup
+- crypto-style
+- cyberpunk
+- overanimated
+- overly futuristic
+- concept-art-like
+- template-based
 
+---
+
+# REAL PRODUCT PRINCIPLE
+
+Интерфейс обязан ощущаться:
+- используемым
+- production-ready
+- practical
+- stable
+- intuitive
+
+НЕ:
+- как Behance showcase
+- как AI-generated demo
+- как motion experiment
+- как futuristic presentation
+
+---
+
+# HUMAN EXPERIENCE PRINCIPLE
+
+UI обязан ощущаться:
+- человечным
+- естественным
+- спокойным
+- tactile
+- эмоционально комфортным
+
+Необходимо избегать:
+- sterile layouts
+- robotic symmetry
+- emotionally cold interfaces
+- overly perfect compositions
 
 ---
 
 # DESIGN INSPIRATION SYSTEM
 
-## ALLOWED INSPIRATION
+Разрешено вдохновляться:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
 
-Вдохновляться:
-- Apple
-- Arc Browser
-- Linear
-- Framer
-- Stripe
-- Raycast
-- Vercel
-- Notion
-- Yandex Lavka
-- premium AI startups
-
-## IMPORTANT
-
-Нельзя копировать напрямую.
-
-Нужно:
-- адаптировать идеи
-- модернизировать их
-- объединять
-- создавать уникальный visual language
-
+НО:
+- не копировать layouts
+- не копировать branding
+- не копировать visual signatures
+- не создавать clone aesthetics
 
 ---
 
-# VISUAL UPGRADE PLAN
+# VISUAL LANGUAGE SYSTEM
 
-# STAGE 1 — FOUNDATION POLISH
+# VISUAL STYLE
 
-## GOAL
-
-Очистить интерфейс и привести к единому premium состоянию.
-
-## TASKS
-
-### TYPOGRAPHY SYSTEM
-Проверить:
-- font hierarchy
-- spacing between text
-- heading consistency
-- line-height rhythm
-- readability
-
-### SPACING SYSTEM
-Привести к единому ритму:
-- margins
-- paddings
-- section spacing
-- card spacing
-- grid spacing
-
-### BORDER RADIUS SYSTEM
-Сделать consistent:
-- buttons
-- cards
-- inputs
-- drawers
-- modals
-
-### COLOR SYSTEM
-Унифицировать:
-- background tones
-- accent colors
-- hover states
-- borders
-- muted colors
-
-## RESULT
-
-Интерфейс должен начать ощущаться:
-- cleaner
-- more premium
-- visually balanced
-
+Основной visual direction:
+- dark premium ecommerce
+- restrained luxury-tech
+- cinematic minimalism
+- matte atmosphere
+- soft depth
+- premium grocery aesthetic
 
 ---
 
-# STAGE 2 — MOTION SYSTEM
+# COLOR SYSTEM PHILOSOPHY
 
-## GOAL
-
-Добавить motion language проекта.
-
-Сайт должен начать “оживать”.
-
-## REQUIRED SYSTEMS
-
-### PAGE TRANSITIONS
-Добавить:
-- soft fade transitions
-- cinematic entrance
-- smooth route feeling
-
-### SCROLL REVEAL
-Добавить:
-- stagger reveal
-- opacity reveal
-- soft upward motion
-- delayed reveal timing
-
-## IMPORTANT
-
-Reveal должен быть subtle.
-
-НЕ:
-- aggressive
-- flashy
-- exaggerated
-
-### HOVER INTERACTIONS
-
-Добавить:
-- soft scaling
-- glow transitions
-- elevation feeling
-- smooth color transitions
-- responsive hover timing
-
-### BUTTON FEEDBACK
-
-Кнопки должны:
-- ощущаться физическими
-- иметь мягкий response
-- иметь premium hover behavior
-
-### CARD INTERACTIONS
-
-Карточки должны:
-- слегка оживать
-- иметь depth feeling
-- иметь cinematic hover
-
-## MOTION STACK
-
-Использовать:
-- Framer Motion
-- spring physics
-- optimized transforms
-- GPU-friendly animations
-
-## RESULT
-
-Сайт должен ощущаться:
-- interactive
-- alive
+Цвета обязаны быть:
+- глубокими
+- спокойными
+- restrained
 - premium
-- responsive
-
-
----
-
-# STAGE 3 — DEPTH & ATMOSPHERE SYSTEM
-
-## GOAL
-
-Создать cinematic depth feeling.
-
-## TASKS
-
-### BACKGROUND ATMOSPHERE
-
-Добавить:
-- subtle gradients
-- ambient glow
-- soft blur
-- layered depth
-
-### LIGHTING FEELING
-
-Интерфейс должен ощущаться:
-- matte
 - cinematic
-- softly illuminated
 
-### SECTION TRANSITIONS
-
-Секции должны:
-- перетекать друг в друга
-- ощущаться connected
-- не быть “блоками”
-
-### VISUAL BREATHING
-
-Увеличить:
-- whitespace
-- visual hierarchy
-- spacing rhythm
-
-## RESULT
-
-Сайт должен ощущаться:
-- expensive
-- atmospheric
-- immersive
-
+Избегать:
+- кислотных цветов
+- rainbow gradients
+- crypto gradients
+- oversaturated UI
+- visual aggression
 
 ---
 
-# STAGE 4 — HOMEPAGE EXPERIENCE UPGRADE
+# ATMOSPHERE SYSTEM
 
-## HERO SECTION
+Интерфейс обязан:
+- иметь depth
+- иметь breathing space
+- ощущаться layered
+- ощущаться мягким
 
-Hero должен:
-- выглядеть как AI startup
-- иметь premium atmosphere
-- иметь subtle motion
-- иметь layered depth
+Разрешено:
+- subtle gradients
+- ambient depth
+- soft shadows
+- matte surfaces
+- restrained glow
 
-## ADD:
-- animated background glow
-- parallax layers
-- smooth text reveal
-- floating light effects
-- cinematic CTA behavior
-
-## REMOVE:
-- static feeling
-- flat sections
-- empty space without intention
-
-## SECTION FLOW
-
-Главная страница должна:
-- рассказывать историю
-- вести пользователя
-- создавать emotional flow
-
-## RESULT
-
-Homepage должна ощущаться:
-- futuristic
-- premium
-- memorable
-
+Запрещено:
+- aggressive glow
+- glow overload
+- excessive blur
+- visual fog
+- flashy lighting
 
 ---
 
-# STAGE 5 — PRODUCT CATALOG EXPERIENCE
+# ANTI-OVERDESIGN SYSTEM
 
-## GOAL
+# CRITICAL RULE
 
-Каталог должен ощущаться как premium grocery ecosystem.
+Если интерфейс начинает ощущаться:
+- слишком cinematic
+- слишком glowing
+- слишком futuristic
+- слишком animated
+- слишком atmospheric
 
-## PRODUCT GRID
+необходимо:
+- убрать эффекты
+- упростить layout
+- уменьшить motion
+- увеличить whitespace
+- усилить hierarchy
+- усилить readability
 
-Сетка должна:
-- быть clean
-- balanced
+Premium feeling создаётся:
+через restraint,
+а не через количество эффектов.
+
+---
+
+# TYPOGRAPHY SYSTEM
+
+Typography обязана быть:
+- clean
+- readable
 - breathable
-- responsive
-
-## PRODUCT CARDS
-
-Карточки должны:
-- иметь soft hover
-- subtle depth
-- cinematic image behavior
-- premium spacing
-
-## PRODUCT IMAGES
-
-Все изображения должны:
-- быть единым стилем
-- realistic
-- dark premium catalog style
-- иметь consistent lighting
-
-## ADD:
-- smooth image loading
-- subtle hover zoom
-- soft shadow transitions
-
-## REMOVE:
-- clutter
-- oversized labels
-- noisy layouts
-
-## RESULT
-
-Каталог должен ощущаться:
-- curated
-- premium
+- confident
 - modern
 
+---
+
+# TYPOGRAPHY RULES
+
+Заголовки:
+- сильные
+- но не oversized everywhere
+
+Текст:
+- readable
+- balanced
+- calm
+
+Spacing:
+- consistent
+- rhythmic
+- intentional
 
 ---
 
-# STAGE 6 — CART EXPERIENCE SYSTEM
+# AVOID
 
-## GOAL
-
-Сделать CartDrawer premium-level.
-
-## REQUIRED FEATURES
-
-### OPEN/CLOSE MOTION
-Drawer должен:
-- открываться плавно
-- иметь inertia feel
-- не лагать
-
-### ITEM INTERACTIONS
-
-Добавить:
-- smooth quantity updates
-- animated remove states
-- subtle item transitions
-
-### LOADING STATES
-
-Добавить:
-- skeleton loading
-- smooth placeholders
-- animated feedback
-
-### EMPTY CART STATE
-
-Даже пустая корзина должна:
-- выглядеть красиво
-- иметь атмосферу
-- не ощущаться unfinished
-
-## RESULT
-
-Корзина должна ощущаться:
-- polished
-- smooth
-- satisfying
-
+- giant typography
+- aggressive bold usage
+- cramped text
+- chaotic hierarchy
 
 ---
 
-# STAGE 7 — MOBILE EXPERIENCE UPGRADE
+# SPACING SYSTEM
 
-## GOAL
+Spacing обязан создавать:
+- calmness
+- rhythm
+- breathing space
+- premium feeling
 
-Mobile UX должен ощущаться native-level.
+---
 
-## MOBILE RULES
+# SPACING MUST NEVER FEEL
 
-### TOUCH INTERACTIONS
-Все элементы должны:
-- удобно нажиматься
-- иметь responsive feedback
-- быть thumb-friendly
+- cramped
+- random
+- fragmented
+- chaotic
 
-### MOBILE NAVIGATION
-Навигация должна:
-- быть минималистичной
-- быть быстрой
-- не перегружать экран
+---
 
-### PERFORMANCE
-Мобильная версия обязана:
-- работать плавно
-- не лагать
-- не перегревать устройство
+# LAYOUT PHILOSOPHY
 
-## RESULT
+Layouts обязаны:
+- направлять пользователя
+- создавать narrative flow
+- поддерживать hierarchy
+- ощущаться intentional
 
-Mobile experience должен ощущаться:
-- как native app
-- smooth
+---
+
+# AVOID
+
+- giant hero overload
+- section chaos
+- too many competing elements
+- одинаковую visual density everywhere
+
+---
+
+# VISUAL SILENCE SYSTEM
+Очень важно:
+не каждая секция должна кричать.
+
+Необходимо:
+- quiet sections
+- empty breathing space
+- visual pauses
+- calm transitions
+- pacing between content
+
+Именно visual silence создаёт:
+ощущение дорогого продукта.
+
+---
+
+# MOTION SYSTEM
+
+# MOTION PRINCIPLE
+
+Motion существует:
+- для UX
+- для hierarchy
+- для feedback
+- для emotional pacing
+
+НЕ:
+- для демонстрации motion skills
+- для flashy experience
+- для постоянного wow-effect
+
+---
+
+# MOTION MUST FEEL
+
+- subtle
+- intelligent
 - lightweight
-
-
----
-
-# STAGE 8 — MICROINTERACTION SYSTEM
-
-## GOAL
-
-Добавить invisible polish.
-
-## MICROINTERACTIONS
-
-Добавить:
-- hover glow
-- soft magnetic movement
-- loading shimmer
-- smooth counters
-- subtle icon animation
-- responsive inputs
-
-## IMPORTANT
-
-Микровзаимодействия должны:
-- чувствоваться
-- но не бросаться в глаза
-
-## RESULT
-
-Интерфейс начнёт ощущаться:
-- дорогим
-- продуманным
-- “живым”
-
+- responsive
+- cinematic
+- calm
 
 ---
 
-# STAGE 9 — ADVANCED CINEMATIC SYSTEM
+# MOTION RESTRAINT SYSTEM
 
-## OPTIONAL FUTURE SYSTEMS
-
-### PARALLAX
-Subtle layered motion.
-
-### DEPTH SYSTEM
-Foreground/background separation.
-
-### SMART LIGHTING
-Mouse-based lighting response.
-
-### AI ATMOSPHERE
-Ambient AI-inspired visual identity.
-
-### PREMIUM LOADING EXPERIENCE
-Beautiful loading transitions.
-
-## IMPORTANT
-
-Все эффекты должны:
-- усиливать experience
-- а не отвлекать
-
+Лучший motion:
+почти незаметен,
+но делает интерфейс:
+- smoother
+- clearer
+- more tactile
+- more premium
 
 ---
 
-# MOTION TIMING RULES
+# ALLOWED MOTION
 
-## STANDARD ANIMATION SPEED
+Разрешено:
+- soft fade
+- opacity reveal
+- subtle hover feedback
+- gentle transforms
+- smooth transitions
+- lightweight parallax
+- tactile button response
+
+---
+
+# FORBIDDEN MOTION
+
+Запрещено:
+- bounce overload
+- dramatic scaling
+- constant movement
+- distracting parallax
+- flashy reveals
+- motion spam
+- exaggerated transforms
+
+---
+
+# MOTION TIMING SYSTEM
 
 ### FAST
 150ms–250ms
 
-Для:
+Использовать:
 - hover
-- small interactions
+- button feedback
 
 ### MEDIUM
 300ms–500ms
 
-Для:
+Использовать:
 - reveals
-- transitions
+- drawer transitions
+- section transitions
 
 ### SLOW
-600ms–1200ms
-
-Для:
-- cinematic sections
-- ambient motion
-
-## EASING
+600ms–900ms
 
 Использовать:
-- ease-out
-- spring
-- smooth bezier curves
-
-Избегать:
-- linear robotic feeling
-
+- atmospheric transitions
+- cinematic depth
 
 ---
 
-# PERFORMANCE RULES
+# PERFORMANCE-FIRST MOTION
 
-Все анимации обязаны:
-- быть GPU-friendly
-- использовать transform/opacity
-- избегать layout thrashing
+Motion НЕ должен:
+- лагать
+- нагружать rendering
+- снижать FPS
+- ломать UX
 
-## NEVER:
-- animate width/height excessively
-- create FPS drops
-- overload DOM
-
-## ALWAYS:
-- optimize motion
-- lazy load heavy visuals
-- reduce unnecessary effects
-
+Использовать:
+- GPU-friendly transforms
+- opacity
+- optimized animation logic
 
 ---
 
-# DESIGN SYSTEM CONSISTENCY
+# PRODUCT CARD EXPERIENCE
 
-Все новые UI элементы обязаны:
-- соответствовать spacing system
-- соответствовать motion system
-- соответствовать color language
-- соответствовать premium aesthetic
-
-## NEVER:
-- random styles
-- inconsistent hover states
-- chaotic animation timing
-
+Карточки товаров обязаны:
+- ощущаться curated
+- быть highly readable
+- быть visually balanced
+- иметь breathing room
 
 ---
 
-# UX QUALITY CHECKLIST
+# CARD INTERACTIONS
 
-Перед завершением любой UI задачи проверить:
-
-## UX
-- intuitive?
-- clean?
-- responsive?
-- premium?
-
-## VISUAL
-- spacing balanced?
-- typography clean?
-- hierarchy clear?
-
-## MOTION
-- smooth?
-- subtle?
-- cinematic?
-- optimized?
-
-## MOBILE
-- thumb-friendly?
-- responsive?
-- performant?
-
-## PERFORMANCE
-- no lag?
-- no layout shifts?
-- optimized?
-
+Hover обязан:
+- быть subtle
+- быть tactile
+- добавлять depth
+- не отвлекать
 
 ---
 
-# FINAL EXPERIENCE TARGET
+# AVOID
 
-Конечное ощущение от сайта:
-
-“Это выглядит как premium AI-powered ecosystem product мирового уровня.”
-
-Не:
-“обычный интернет-магазин”.
-
-А:
-“современная luxury-tech платформа”.
-
+- giant hover effects
+- flashy scaling
+- aggressive glow
+- heavy shadows
 
 ---
 
-# FINAL DIRECTIVE
+# CATALOG EXPERIENCE
 
-Claude Code обязан:
-- постоянно улучшать visual quality
-- усиливать emotional experience
-- делать интерфейс живым
-- но сохранять минимализм
-- и избегать дешёвых эффектов
+Каталог обязан ощущаться:
+- organized
+- premium
+- lightweight
+- fast
+- emotionally comfortable
 
-Главная цель:
-premium cinematic digital experience.
-
+НЕ:
+- как marketplace chaos
+- как overloaded grocery app
 
 ---
 
-# END OF FILE
+# CART EXPERIENCE
+
+Корзина обязана ощущаться:
+- smooth
+- responsive
+- satisfying
+- lightweight
+
+Пользователь должен чувствовать:
+- контроль
+- скорость
+- простоту
+
+---
+
+# MOBILE EXPERIENCE SYSTEM
+
+Mobile-first обязателен.
+
+Mobile UX должен быть:
+- thumb-friendly
+- tactile
+- lightweight
+- responsive
+- native-feeling
+
+---
+
+# MOBILE MUST NEVER FEEL
+
+- cramped
+- overloaded
+- desktop-adapted
+- laggy
+
+---
+
+# MICROINTERACTION SYSTEM
+
+Microinteractions обязаны:
+- ощущаться
+- но не отвлекать
+
+Добавлять:
+- tactile feeling
+- responsiveness
+- premium polish
+
+---
+
+# MICROINTERACTIONS MUST NEVER FEEL
+
+- gimmicky
+- distracting
+- flashy
+- overdesigned
+
+---
+
+# PERFORMANCE UX PRINCIPLE
+
+Интерфейс обязан ощущаться:
+- мгновенным
+- responsive
+- lightweight
+
+Даже красивый UI становится дешёвым,
+если:
+- он лагает
+- долго грузится
+- тормозит interactions
+
+---
+
+# UX PRIORITY ORDER
+
+1. Clarity
+2. Speed
+3. Simplicity
+4. Trust
+5. Responsiveness
+6. Emotional comfort
+7. Visual atmosphere
+
+---
+
+# FINAL PRODUCT FEELING
+
+Финальный продукт должен ощущаться:
+- calm
+- premium
+- modern
+- trustworthy
+- tactile
+- emotionally comfortable
+- production-ready
+
+Пользователь должен чувствовать:
+что это:
+- реальный digital product
+- современный ecommerce ecosystem
+- качественный сервис
+
+А НЕ:
+- AI-generated concept
+- futuristic demo
+- visual experiment.

@@ -12,9 +12,8 @@ import { CATEGORY_ICONS } from "@/components/ui/CategoryIcons"
 import { useLang } from "@/locales"
 
 import { categories, CATEGORY_FILTER, CATEGORY_COLORS } from "@/data/categories"
-import { products } from "@/data/products"
 
-export default function CategoriesSection() {
+export default function CategoriesSection({ categoryCounts }: { categoryCounts: Record<string, number> }) {
   const { t }     = useLang()
   const scrollRef = useRef<HTMLDivElement>(null)
 
@@ -52,30 +51,36 @@ export default function CategoriesSection() {
 
             <div className="flex items-center gap-3">
               <div className="hidden sm:flex items-center gap-1">
-                <button
+                <motion.button
                   onClick={() => scrollBy(-1)}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.88 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
                   className="
                     w-9 h-9 rounded-xl
                     border border-fs-border bg-fs-white
                     flex items-center justify-center
                     text-fs-gray hover:text-fs-primary hover:border-fs-primary/30
-                    transition-all duration-200 shadow-sm
+                    transition-colors duration-200 shadow-sm
                   "
                 >
                   <ChevronLeft size={16} strokeWidth={1.5} />
-                </button>
-                <button
+                </motion.button>
+                <motion.button
                   onClick={() => scrollBy(1)}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.88 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
                   className="
                     w-9 h-9 rounded-xl
                     border border-fs-border bg-fs-white
                     flex items-center justify-center
                     text-fs-gray hover:text-fs-primary hover:border-fs-primary/30
-                    transition-all duration-200 shadow-sm
+                    transition-colors duration-200 shadow-sm
                   "
                 >
                   <ChevronRight size={16} strokeWidth={1.5} />
-                </button>
+                </motion.button>
               </div>
 
               <Link
@@ -97,7 +102,7 @@ export default function CategoriesSection() {
           {categories.map((category, i) => {
             const filterName = CATEGORY_FILTER[category.id]
             const count = filterName
-              ? products.filter((p) => p.category === filterName).length
+              ? (categoryCounts[filterName] ?? 0)
               : undefined
             const color = CATEGORY_COLORS[category.id] ?? "#005B46"
             const item  = t.categories.items[category.id as keyof typeof t.categories.items]

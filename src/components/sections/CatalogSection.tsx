@@ -11,17 +11,18 @@ import ProductCard from "@/components/cards/ProductCard"
 import { useLang } from "@/locales"
 import type { Translations } from "@/locales/ru"
 
-import { products } from "@/data/products"
 import { plural } from "@/lib/utils"
-import type { ProductCategory } from "@/types"
+import type { Product, ProductCategory } from "@/types"
 
 // ─── CONSTANTS ──────────────────────────────────────────────────────────────
 
-const ALL       = "Все"
-const PAGE_SIZE = 12
+// Language-neutral sentinel for "show all categories" state.
+// Display label comes from t.categories.labels["__all__"] in each locale.
+const FILTER_ALL = "__all__" as const
+const PAGE_SIZE  = 12
 
-const CATEGORIES: (ProductCategory | typeof ALL)[] = [
-  ALL,
+const CATEGORIES: (ProductCategory | typeof FILTER_ALL)[] = [
+  FILTER_ALL,
   "Рыба и морепродукты",
   "Суши ингредиенты",
   "Пицца и итальянское",
@@ -45,7 +46,7 @@ type SortKey = "default" | "price_asc" | "price_desc" | "rating"
 
 function SkeletonCard() {
   return (
-    <div className="bg-white border border-fs-border rounded-xl overflow-hidden flex flex-col shadow-sm">
+    <div className="bg-fs-white border border-fs-border rounded-xl overflow-hidden flex flex-col shadow-sm">
       <div className="h-48 skeleton-green border-b border-fs-border" />
       <div className="p-5 flex flex-col gap-3">
         <div className="flex justify-between">
@@ -71,11 +72,13 @@ function FilterChips({
   active,
   onSelect,
   labels,
+  t,
 }: {
   categories: string[]
   active: string
   onSelect: (cat: string) => void
   labels: Record<string, string>
+  t: Translations
 }) {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [canScrollLeft,  setCanScrollLeft]  = useState(false)
@@ -120,7 +123,8 @@ function FilterChips({
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 4 }}
             onClick={() => scrollBy(-1)}
-            className="absolute left-0 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-white border border-fs-border shadow-md text-fs-gray hover:text-fs-primary transition-colors"
+            aria-label={t.catalog.filter.prevCategories}
+            className="absolute left-0 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-fs-white border border-fs-border shadow-md text-fs-gray hover:text-fs-primary transition-colors"
           >
             <ChevronLeft size={14} strokeWidth={2} />
           </motion.button>
@@ -139,13 +143,14 @@ function FilterChips({
             <motion.button
               key={cat}
               onClick={() => onSelect(cat)}
+              aria-pressed={isActive}
               whileTap={{ scale: 0.95 }}
               className={`
                 relative flex-shrink-0 px-4 py-2 rounded-full text-[13px] font-medium
                 border transition-all duration-200 whitespace-nowrap
                 ${isActive
                   ? "bg-fs-primary text-white border-fs-primary shadow-[0_0_0_4px_rgba(0,91,70,0.12)]"
-                  : "bg-white text-fs-gray border-fs-border hover:border-fs-primary/40 hover:text-fs-graphite hover:shadow-sm"
+                  : "bg-fs-white text-fs-gray border-fs-border hover:border-fs-primary/40 hover:text-fs-graphite hover:shadow-sm"
                 }
               `}
             >
@@ -170,7 +175,8 @@ function FilterChips({
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -4 }}
             onClick={() => scrollBy(1)}
-            className="absolute right-0 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-white border border-fs-border shadow-md text-fs-gray hover:text-fs-primary transition-colors"
+            aria-label={t.catalog.filter.nextCategories}
+            className="absolute right-0 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-fs-white border border-fs-border shadow-md text-fs-gray hover:text-fs-primary transition-colors"
           >
             <ChevronRight size={14} strokeWidth={2} />
           </motion.button>
@@ -233,7 +239,7 @@ function StickyFilterBar({
       {/* ROW 1: chips + sort */}
       <div className="flex items-center gap-3">
         <div className="flex-1 min-w-0">
-          <FilterChips categories={categories} active={category} onSelect={onCategory} labels={labels} />
+          <FilterChips categories={categories} active={category} onSelect={onCategory} labels={labels} t={t} />
         </div>
 
         {/* SORT DROPDOWN */}
@@ -243,7 +249,7 @@ function StickyFilterBar({
             className="
               flex items-center gap-2
               px-4 py-2.5 rounded-xl
-              bg-white border border-fs-border
+              bg-fs-white border border-fs-border
               text-[13px] text-fs-slate font-medium
               hover:border-fs-primary/30 transition-all duration-200
               whitespace-nowrap shadow-sm
@@ -268,7 +274,7 @@ function StickyFilterBar({
                 transition={{ duration: 0.15 }}
                 className="
                   absolute right-0 top-full mt-2 z-50
-                  w-64 bg-white border border-fs-border
+                  w-64 bg-fs-white border border-fs-border
                   rounded-xl overflow-hidden shadow-lg
                 "
               >
@@ -298,12 +304,13 @@ function StickyFilterBar({
       <div className="flex items-center gap-2 flex-wrap">
         <button
           onClick={onDiscount}
+          aria-pressed={onlyDiscount}
           className={`
             px-4 py-1.5 rounded-full text-[13px] font-medium
             border transition-all duration-200
             ${onlyDiscount
               ? "bg-red-50 text-red-600 border-red-300 shadow-[0_0_0_3px_rgba(239,68,68,0.1)]"
-              : "bg-white text-fs-gray border-fs-border hover:border-red-300/50 hover:text-red-600"
+              : "bg-fs-white text-fs-gray border-fs-border hover:border-red-300/50 hover:text-red-600"
             }
           `}
         >
@@ -312,12 +319,13 @@ function StickyFilterBar({
 
         <button
           onClick={onNew}
+          aria-pressed={onlyNew}
           className={`
             px-4 py-1.5 rounded-full text-[13px] font-medium
             border transition-all duration-200
             ${onlyNew
               ? "bg-amber-50 text-amber-700 border-amber-300 shadow-[0_0_0_3px_rgba(217,119,6,0.1)]"
-              : "bg-white text-fs-gray border-fs-border hover:border-amber-300/50 hover:text-amber-700"
+              : "bg-fs-white text-fs-gray border-fs-border hover:border-amber-300/50 hover:text-amber-700"
             }
           `}
         >
@@ -326,12 +334,13 @@ function StickyFilterBar({
 
         <button
           onClick={onStock}
+          aria-pressed={onlyStock}
           className={`
             px-4 py-1.5 rounded-full text-[13px] font-medium
             border transition-all duration-200
             ${onlyStock
               ? "bg-fs-primary/8 text-fs-primary border-fs-primary/30 shadow-[0_0_0_3px_rgba(0,91,70,0.08)]"
-              : "bg-white text-fs-gray border-fs-border hover:border-fs-primary/30 hover:text-fs-primary"
+              : "bg-fs-white text-fs-gray border-fs-border hover:border-fs-primary/30 hover:text-fs-primary"
             }
           `}
         >
@@ -350,7 +359,7 @@ function StickyFilterBar({
                 px-4 py-1.5 rounded-full text-[13px]
                 text-fs-gray hover:text-red-400
                 border border-fs-border hover:border-red-300/50
-                transition-all duration-200 bg-white
+                transition-all duration-200 bg-fs-white
               "
             >
               <X size={12} strokeWidth={2.5} />
@@ -365,7 +374,7 @@ function StickyFilterBar({
 
 // ─── INNER (нужен Suspense из-за useSearchParams) ────────────────────────────
 
-function CatalogInner() {
+function CatalogInner({ products }: { products: Product[] }) {
   const searchParams = useSearchParams()
   const router       = useRouter()
   const pathname     = usePathname()
@@ -375,12 +384,12 @@ function CatalogInner() {
 
   const initialCategory = (() => {
     const param = searchParams.get("category")
-    return CATEGORIES.includes(param as ProductCategory) ? (param as ProductCategory) : ALL
+    return CATEGORIES.includes(param as ProductCategory) ? (param as ProductCategory) : FILTER_ALL
   })()
   const initialSearch = searchParams.get("search") ?? ""
 
   const [search,       setSearch]       = useState(initialSearch)
-  const [category,     setCategory]     = useState<ProductCategory | typeof ALL>(initialCategory)
+  const [category,     setCategory]     = useState<ProductCategory | typeof FILTER_ALL>(initialCategory)
   const [sort,         setSort]         = useState<SortKey>("default")
   const [sortOpen,     setSortOpen]     = useState(false)
   const [onlyNew,      setOnlyNew]      = useState(false)
@@ -392,7 +401,7 @@ function CatalogInner() {
     const catParam    = searchParams.get("category")
     const searchParam = searchParams.get("search") ?? ""
     const saleParam   = searchParams.get("sale") === "true"
-    const next = CATEGORIES.includes(catParam as ProductCategory) ? (catParam as ProductCategory) : ALL
+    const next = CATEGORIES.includes(catParam as ProductCategory) ? (catParam as ProductCategory) : FILTER_ALL
     startTransition(() => {
       setCategory(next)
       if (searchParam) setSearch(searchParam)
@@ -402,12 +411,12 @@ function CatalogInner() {
 
   const handleDiscount = () => { setOnlyDiscount((p) => !p); setPage(1) }
 
-  const handleCategory = (cat: ProductCategory | typeof ALL) => {
+  const handleCategory = (cat: ProductCategory | typeof FILTER_ALL) => {
     startTransition(() => {
       setCategory(cat)
       setPage(1)
       const params = new URLSearchParams(searchParams.toString())
-      if (cat === ALL) {
+      if (cat === FILTER_ALL) {
         params.delete("category")
       } else {
         params.set("category", cat)
@@ -425,16 +434,21 @@ function CatalogInner() {
     let list = [...products]
 
     if (search) {
-      const q = search.toLowerCase()
-      list = list.filter((p) =>
-        p.title.toLowerCase().includes(q) ||
-        p.category.toLowerCase().includes(q) ||
-        p.description.toLowerCase().includes(q) ||
-        p.tags?.some((tag) => tag.toLowerCase().includes(q))
-      )
+      const q      = search.toLowerCase()
+      const labels = t.categories.labels as Record<string, string>
+      list = list.filter((p) => {
+        const localLabel = (labels[p.category] ?? "").toLowerCase()
+        return (
+          p.title.toLowerCase().includes(q) ||
+          p.category.toLowerCase().includes(q) ||
+          localLabel.includes(q) ||
+          p.description.toLowerCase().includes(q) ||
+          p.tags?.some((tag) => tag.toLowerCase().includes(q))
+        )
+      })
     }
 
-    if (category !== ALL)
+    if (category !== FILTER_ALL)
       list = list.filter((p) => p.category === category)
 
     if (onlyNew)      list = list.filter((p) => p.isNew)
@@ -452,7 +466,7 @@ function CatalogInner() {
 
   const paginated = filtered.slice(0, page * PAGE_SIZE)
   const hasMore   = paginated.length < filtered.length
-  const hasFilters = category !== ALL || onlyNew || onlyStock || onlyDiscount || sort !== "default"
+  const hasFilters = category !== FILTER_ALL || onlyNew || onlyStock || onlyDiscount || sort !== "default"
 
   const clearFilters = () => {
     setSearch("")
@@ -461,7 +475,7 @@ function CatalogInner() {
     setOnlyDiscount(false)
     setSort("default")
     setPage(1)
-    handleCategory(ALL)
+    handleCategory(FILTER_ALL)
   }
 
   const sortOptions: { value: SortKey; label: string }[] = [
@@ -498,14 +512,14 @@ function CatalogInner() {
 
         {/* SEARCH BAR */}
         <FadeIn delay={0.08}>
-          <SearchBar value={search} onChange={handleSearch} />
+          <SearchBar value={search} onChange={handleSearch} placeholder={t.catalog.searchPlaceholder} />
         </FadeIn>
 
         {/* STICKY FILTER BAR */}
         <div className="sticky top-[72px] z-30 mt-4 -mx-4 px-4 sm:-mx-6 sm:px-6 xl:-mx-8 xl:px-8">
           <motion.div
             className="
-              bg-white/90 backdrop-blur-xl
+              bg-white/90 dark:bg-[#1C2128]/90 backdrop-blur-xl
               border-b border-fs-border/60
               py-3
             "
@@ -590,7 +604,7 @@ function CatalogInner() {
                         flex items-center gap-2
                         px-8 py-3.5 rounded-xl
                         border border-fs-border text-caption text-fs-slate font-medium
-                        bg-white shadow-sm
+                        bg-fs-white shadow-sm
                         hover:border-fs-primary/30 hover:text-fs-primary
                         transition-all duration-200
                       "
@@ -650,7 +664,7 @@ function CatalogInner() {
                   onClick={clearFilters}
                   className="
                     mt-8 px-6 py-3 rounded-xl
-                    border border-fs-border text-fs-slate text-caption font-medium bg-white
+                    border border-fs-border text-fs-slate text-caption font-medium bg-fs-white
                     hover:border-fs-primary/30 hover:text-fs-primary
                     transition-all duration-200 shadow-sm
                   "
@@ -668,7 +682,7 @@ function CatalogInner() {
 
 // ─── EXPORT (Suspense нужен для useSearchParams в Next.js) ───────────────────
 
-export default function CatalogSection() {
+export default function CatalogSection({ products }: { products: Product[] }) {
   return (
     <Suspense fallback={
       <section className="fs-section">
@@ -681,7 +695,7 @@ export default function CatalogSection() {
         </div>
       </section>
     }>
-      <CatalogInner />
+      <CatalogInner products={products} />
     </Suspense>
   )
 }

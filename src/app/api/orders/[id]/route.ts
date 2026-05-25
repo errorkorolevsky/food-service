@@ -1,13 +1,21 @@
 import { NextRequest, NextResponse } from "next/server"
 import { supabase } from "@/lib/supabase"
 import { sendOrderEmail } from "@/lib/email"
+import { auth } from "@/lib/auth"
 
 export const dynamic = "force-dynamic"
+
+const ADMIN_EMAIL = "artemfi435@gmail.com"
 
 export async function PATCH(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  const session = await auth()
+  if (!session?.user?.email || session.user.email !== ADMIN_EMAIL) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+  }
+
   const { id }     = await params
   const { status } = await req.json()
 

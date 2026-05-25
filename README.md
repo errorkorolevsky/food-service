@@ -1,36 +1,333 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FOOD SERVICE KAZAKHSTAN
 
-## Getting Started
+# PREMIUM AI-POWERED ECOMMERCE ECOSYSTEM
 
-First, run the development server:
+Food Service Kazakhstan — это современный AI-assisted ecommerce ecosystem для food service сегмента.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Проект объединяет:
+- premium grocery UX
+- cinematic ecommerce design
+- scalable frontend architecture
+- multilingual experience
+- AI-assisted product systems
+- production-grade UI/UX philosophy
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# PROJECT VISION
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Создать:
+- современный digital продукт мирового уровня
+- premium grocery ecosystem
+- production-grade ecommerce platform
+- calm cinematic user experience
+- scalable AI-assisted infrastructure
 
-## Learn More
+Главный приоритет:
+реальный пользовательский опыт.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# CORE PRODUCT PRINCIPLES
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## REAL PRODUCT > VISUAL SHOWCASE
 
-## Deploy on Vercel
+Food Service НЕ должен ощущаться:
+- как AI-generated demo
+- как futuristic concept
+- как Behance showcase
+- как overdesigned startup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Food Service должен ощущаться:
+- production-ready
+- trustworthy
+- usable
+- calm
+- premium
+- scalable
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+# UX-FIRST PHILOSOPHY
+
+Главные приоритеты проекта:
+
+1. Usability
+2. Clarity
+3. Speed
+4. Trust
+5. Responsiveness
+6. Emotional comfort
+7. Visual polish
+
+---
+
+# DESIGN PHILOSOPHY
+
+Основной visual direction:
+- dark premium ecommerce
+- restrained luxury-tech
+- cinematic minimalism
+- tactile interactions
+- calm atmosphere
+- premium grocery aesthetic
+
+---
+
+# IMPORTANT
+
+Интерфейс НЕ должен:
+- быть noisy
+- быть overanimated
+- выглядеть generic AI startup
+- использовать crypto aesthetics
+- перегружаться эффектами
+
+Premium feeling создаётся:
+через:
+- restraint
+- spacing
+- rhythm
+- consistency
+- polish
+
+---
+
+# TECHNOLOGY STACK
+
+## FRONTEND
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Zustand
+
+---
+
+## BACKEND / INFRASTRUCTURE
+
+- Supabase
+- Vercel
+- Railway
+
+---
+
+# PROJECT ARCHITECTURE PHILOSOPHY
+
+Архитектура обязана быть:
+- modular
+- scalable
+- readable
+- production-safe
+- maintainable
+
+---
+
+# NEVER ALLOW
+
+- spaghetti code
+- giant components
+- duplicated logic
+- unsafe refactors
+- chaotic architecture
+
+---
+
+# DESIGN SYSTEM
+
+Проект использует:
+- spacing system
+- typography hierarchy
+- motion system
+- reusable UI primitives
+- responsive-first layouts
+- calm visual rhythm
+
+---
+
+# MOTION PHILOSOPHY
+
+Motion существует:
+- для UX
+- для hierarchy
+- для tactile feeling
+- для responsiveness
+
+НЕ:
+- для flashy visuals
+- для wow-effects
+- для visual overload
+
+---
+
+# MOTION MUST FEEL
+
+- subtle
+- lightweight
+- cinematic
+- responsive
+- smooth
+
+---
+
+# MOBILE-FIRST EXPERIENCE
+
+Mobile UX —
+главный experience проекта.
+
+Каждый интерфейс обязан:
+- быть thumb-friendly
+- быть responsive
+- быть tactile
+- быть lightweight
+
+---
+
+# LOCALIZATION
+
+Проект поддерживает:
+- RU localization
+- KZ localization
+
+Localization обязан ощущаться:
+- native
+- seamless
+- production-ready
+
+---
+
+# ECOMMERCE EXPERIENCE
+
+Главная задача:
+создать:
+- premium shopping flow
+- calm catalog experience
+- smooth cart interactions
+- trustworthy checkout system
+
+---
+
+# CATALOG PRINCIPLES
+
+Каталог обязан:
+- быть breathable
+- быть organized
+- быть visually calm
+- быть easily scannable
+
+---
+
+# PRODUCT CARDS
+
+Карточки обязаны:
+- быть clean
+- быть readable
+- иметь clear hierarchy
+- ощущаться premium
+
+---
+
+# PERFORMANCE PRINCIPLES
+
+Даже красивый интерфейс ощущается дешёвым,
+если:
+- он лагает
+- дёргается
+- тормозит
+- нестабилен
+
+---
+
+# ALWAYS OPTIMIZE
+
+- rendering
+- animations
+- images
+- bundle size
+- hydration
+- responsiveness
+
+---
+
+# QA & STABILITY
+
+Перед production release обязательно проверять:
+
+- responsiveness
+- cart logic
+- localization
+- hydration safety
+- rendering stability
+- performance
+- UX consistency
+
+---
+
+# AI PRODUCT DEVELOPMENT SYSTEM
+
+Проект использует:
+- AI-assisted development workflow
+- modular execution system
+- UX-first development philosophy
+- production-grade QA approach
+
+---
+
+# CORE AI PRINCIPLE
+
+AI используется:
+как инструмент.
+
+НО:
+- product decisions
+- UX quality
+- visual identity
+- emotional atmosphere
+- architecture direction
+
+должны оставаться:
+- intentional
+- human-centered
+- product-oriented
+
+---
+
+# PROJECT GOAL
+
+Финальный продукт должен ощущаться:
+- calm
+- premium
+- trustworthy
+- tactile
+- modern
+- production-ready
+
+Пользователь должен чувствовать:
+что Food Service —
+это:
+- настоящий digital ecosystem
+- современный ecommerce product
+- usable сервис
+- premium grocery platform
+
+А НЕ:
+- AI-generated showcase
+- startup demo
+- visual experiment.
+
+---
+
+# DEVELOPMENT PRINCIPLE
+
+Каждое изменение обязано делать продукт:
+- проще
+- быстрее
+- стабильнее
+- понятнее
+- качественнее
+- production-ready
+
+Главная цель:
+создать продукт,
+которым реально удобно пользоваться каждый день.

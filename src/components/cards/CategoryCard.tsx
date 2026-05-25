@@ -67,7 +67,7 @@ export default function CategoryCard({
       className={`
         group relative overflow-hidden
         border border-fs-border rounded-2xl p-7 h-full
-        bg-white shadow-card
+        bg-fs-white shadow-card
         transition-shadow duration-300
         cursor-pointer flex flex-col
         ${wide ? "md:col-span-2" : ""}

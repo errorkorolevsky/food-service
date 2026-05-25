@@ -1,86 +1,101 @@
-# 06_LOCALIZATION_RU_KZ_SYSTEM.md
-
-# FOOD SERVICE — RU/KZ LOCALIZATION SYSTEM
-
-## SYSTEM PURPOSE
+FOOD SERVICE — RU/KZ LOCALIZATION SYSTEM
+SYSTEM PURPOSE
 
 Этот файл определяет:
-- как должна работать multilingual architecture
-- как реализовать RU/KZ localization
-- как избежать localization chaos
-- как сделать language switching seamless
-- как построить scalable internationalization system
 
-Главная цель:
-создать production-grade multilingual architecture мирового уровня.
+как должна работать multilingual architecture
+как реализовать scalable RU/KZ localization
+как сохранить premium UX на двух языках
+как избежать localization chaos
+как сделать language switching seamless
 
+Главная задача:
+создать:
 
----
-
-# GLOBAL LOCALIZATION PHILOSOPHY
-
-Localization — это НЕ:
-- просто перевод текста
-- random string replacement
-- хаотичные JSON-файлы
-
-Localization = полноценная архитектурная система.
-
-Языковая система обязана:
-- масштабироваться
-- быть maintainable
-- быть consistent
-- быть fast
-- быть UX-friendly
-
-## USER MUST FEEL
-
-Переключение языка должно ощущаться:
-- мгновенным
-- естественным
-- seamless
-- integrated
+production-grade localization system
+scalable multilingual architecture
+natural bilingual experience
 
 НЕ:
-- broken
-- laggy
-- inconsistent
 
+machine-translation feeling
+хаотичный multilingual UI
+broken responsive layouts
+PRIMARY LOCALIZATION PRINCIPLE
 
----
+Localization — это НЕ:
 
-# SUPPORTED LANGUAGES
+просто перевод текста
+random string replacement
+giant JSON dump
+secondary feature
 
-## PRIMARY LANGUAGES
+Localization = полноценная product system.
 
-### RU
+GLOBAL LOCALIZATION PHILOSOPHY
+
+RU и KZ должны ощущаться:
+
+одинаково качественно
+одинаково premium
+одинаково production-ready
+
+Пользователь НЕ должен чувствовать:
+что один язык:
+
+хуже
+менее проработан
+secondary
+machine-generated
+SUPPORTED LANGUAGES
+PRIMARY LANGUAGES
+RU
+
 Русский язык — основной язык платформы.
 
-### KZ
-Казахский язык — полноценный equal-first language.
+KZ
 
-## IMPORTANT
+Казахский язык — equal-first language.
+
+IMPORTANT PRINCIPLE
 
 KZ localization НЕ должна:
-- выглядеть как machine translation
-- ощущаться secondary
-- ломать layout
 
-Оба языка должны:
-- иметь одинаковое качество
-- одинаковую UX ценность
-- одинаковую visual consistency
+ощущаться как “дополнительный перевод”
+ломать layout
+ухудшать UX
+выглядеть robotic
+USER EXPERIENCE PRINCIPLE
 
+Language switching обязан ощущаться:
 
----
+мгновенным
+smooth
+responsive
+integrated
+production-ready
 
-# LOCALIZATION ARCHITECTURE
+НЕ:
 
-# REQUIRED STRUCTURE
+laggy
+flashing
+broken
+disruptive
+REAL PRODUCT PRINCIPLE
 
-## CREATE
+Localization обязан ощущаться:
 
-```bash
+как часть продукта
+как native UX
+как scalable architecture
+
+НЕ:
+
+как temporary solution
+как patched system
+как AI translation layer
+LOCALIZATION ARCHITECTURE
+REQUIRED STRUCTURE
 /src
   /locales
     /ru
@@ -100,18 +115,19 @@ KZ localization НЕ должна:
       checkout.json
       navbar.json
       footer.json
-
-      IMPORTANT
+IMPORTANT RULES
 
 НЕ использовать:
 
 giant translation file
-хаотичные ключи
-duplicated translations
-ALWAYS:
-split by feature/module
-keep translations organized
-use scalable naming
+random translation structure
+duplicated strings
+chaotic keys
+ALWAYS
+split translations by feature
+keep translations modular
+maintain semantic structure
+keep naming scalable
 TRANSLATION KEY SYSTEM
 CORRECT EXAMPLE
 {
@@ -125,36 +141,39 @@ WRONG EXAMPLE
   "title1": "Каталог",
   "searchText": "Поиск"
 }
-RULES
+KEY RULES
 
-Keys должны:
+Keys обязаны быть:
 
-быть semantic
-быть predictable
-быть scalable
-быть grouped logically
-NEVER:
-random names
-duplicated keys
+semantic
+predictable
+scalable
+grouped logically
+NEVER
 vague naming
+duplicated keys
+random structures
+inconsistent terminology
 LANGUAGE PROVIDER SYSTEM
 REQUIRED
 
 Создать centralized localization provider.
 
-RESPONSIBILITIES
+PROVIDER RESPONSIBILITIES
 
-Provider обязан:
+Localization provider обязан:
 
 хранить current locale
 управлять language switching
 предоставлять translations
-sync language state globally
+sync language globally
+safely hydrate on client/server
 MUST SUPPORT
 dynamic switching
 persistence
+hydration safety
 SSR compatibility
-client hydration safety
+responsive updates
 PREFER
 Context API
 или
@@ -164,46 +183,51 @@ IMPORTANT
 Localization system НЕ должен:
 
 вызывать hydration mismatch
+создавать flashing language
 ломать rendering
-создавать flashing
+вызывать rerender storms
 LANGUAGE SWITCHER SYSTEM
 GOAL
 
-Language switcher должен ощущаться premium.
+Language switcher обязан ощущаться:
 
-REQUIRED BEHAVIOR
-SWITCHING MUST BE:
+clean
+subtle
+premium
+responsive
+SWITCHING MUST BE
 instant
 smooth
-responsive
-visually polished
-SWITCHER MUST:
+stable
+visually calm
+SWITCHER MUST
 clearly indicate active language
-have subtle hover states
-work perfectly on mobile
 preserve route state
-AVOID:
-full page refresh
-flashing
+work perfectly on mobile
+have subtle interactions
+AVOID
+full page reload
+flashing UI
 layout jumps
-inconsistent state
+broken active state
 LOCALIZATION UX RULES
 TEXT LENGTH HANDLING
 
-KZ и RU тексты могут иметь:
+RU и KZ имеют:
 
-разную длину
+разную длину текста
 разную плотность
-разную typography rhythm
-UI MUST HANDLE:
-long labels
+разный visual rhythm
+UI MUST HANDLE
 multiline text
 adaptive spacing
 responsive wrapping
-NEVER:
-hardcode widths
-assume same text length
-clip translations
+flexible layouts
+NEVER
+hardcoded widths
+fixed assumptions
+clipped translations
+broken buttons
 RESPONSIVE LOCALIZATION
 MOBILE LOCALIZATION
 
@@ -212,56 +236,59 @@ Localization обязана:
 корректно работать на mobile
 не ломать spacing
 не ломать cards
-не ломать buttons
-CHECK:
+не ломать navigation
+ALWAYS CHECK
 navbar
+catalog
+cart
 buttons
-cards
 filters
 drawers
-cart
 checkout
+product cards
 IMPORTANT
 
-Kazakh language НЕ должен ломать:
+KZ localization НЕ должен:
 
-alignment
-typography
-layout hierarchy
-TRANSLATION QUALITY SYSTEM
-TRANSLATIONS MUST FEEL
+ломать hierarchy
+ломать alignment
+ухудшать readability
+TRANSLATION QUALITY PRINCIPLE
+
+Translations обязаны ощущаться:
+
 natural
+human
 modern
 premium
-native
-human
+readable
 AVOID
-robotic translation
+robotic wording
 awkward phrasing
 literal machine translation
 inconsistent terminology
 TONE OF VOICE
 
-Tone должен быть:
+Tone обязан быть:
 
 clean
 modern
 professional
-premium
 friendly
+calm
+AVOID
+bureaucratic language
+outdated phrasing
+corporate heaviness
+unnatural wording
+TERMINOLOGY CONSISTENCY SYSTEM
+IMPORTANT
 
-НЕ:
-
-corporate-heavy
-outdated
-bureaucratic
-TERMINOLOGY CONSISTENCY
-CREATE SHARED TERMINOLOGY SYSTEM
-
-Одинаковые термины должны:
+Одинаковые термины обязаны:
 
 переводиться одинаково
 использоваться consistently
+быть centralized
 EXAMPLES
 RU
 Каталог
@@ -273,18 +300,16 @@ KZ
 Себет
 Тапсырысты рәсімдеу
 Танымал тауарлар
-IMPORTANT
-
-Нельзя:
-
-менять терминологию хаотично
+NEVER
 использовать несколько переводов одного слова
+хаотично менять терминологию
+смешивать стили языка
 LOCALIZATION PERFORMANCE RULES
 MUST OPTIMIZE
 translation loading
 bundle splitting
 locale hydration
-dynamic imports
+dictionary imports
 PREFER
 lazy-loaded dictionaries
 route-based translation loading
@@ -294,25 +319,25 @@ loading all locales at once
 giant translation payloads
 unnecessary rerenders
 SEO LOCALIZATION SYSTEM
-REQUIRED
 
-Localization architecture должна быть готова к:
+Localization architecture обязана быть готова к:
 
 multilingual SEO
+localized metadata
+alternate indexing
 locale routes
-metadata translations
-alternate language indexing
 FUTURE SUPPORT
 /ru
 /kz
-META TAGS
+META SUPPORT
 
-Каждый язык должен поддерживать:
+Каждый язык обязан поддерживать:
 
 translated titles
 translated descriptions
-localized OpenGraph metadata
-LOCALIZATION DEVELOPMENT RULES
+localized OpenGraph
+localized SEO metadata
+DEVELOPMENT RULES
 NEVER HARDCODE TEXT
 FORBIDDEN
 <h1>Каталог</h1>
@@ -326,12 +351,13 @@ IMPORTANT
 быть centralized
 быть scalable
 COMPONENT LOCALIZATION RULES
-EVERY COMPONENT MUST:
-support translations
-support dynamic text
-support responsive localization
-avoid fixed-width assumptions
-COMPONENTS TO PRIORITIZE
+
+Каждый компонент обязан:
+
+поддерживать translations
+корректно адаптироваться под длину текста
+поддерживать responsive localization
+PRIORITY COMPONENTS
 HIGH PRIORITY
 navbar
 catalog
@@ -341,82 +367,89 @@ checkout
 MEDIUM PRIORITY
 homepage sections
 footer
-buttons
 forms
+buttons
 STATE MANAGEMENT RULES
 
-Localization state обязан:
+Localization state обязан быть:
 
-быть predictable
-быть globally available
-быть persistent
-MUST PERSIST:
+predictable
+globally accessible
+hydration-safe
+persistent
+MUST PERSIST
 selected language
 user preference
-PREFER:
+PREFER
 localStorage persistence
-cookie sync if SSR needed
+SSR-safe initialization
+optional cookie sync
 HYDRATION SAFETY RULES
 
 Localization НЕ должен:
 
-создавать hydration mismatch
-вызывать flashing language
-ломать SSR rendering
-ALWAYS:
-initialize safely
-sync client/server locale
-avoid rendering mismatch
-LOCALIZATION QA CHECKLIST
+вызывать SSR mismatch
+создавать flashing content
+ломать hydration
+ALWAYS
+safely initialize locale
+sync client/server state
+guard browser APIs
+ACCESSIBILITY RULES
 
-Перед завершением localization задачи проверить:
+Localization обязан:
 
-FUNCTIONAL
-language switching works?
-translations loading?
-persistence working?
-UI
-no overflow?
-no layout breaking?
-typography balanced?
-RESPONSIVE
-mobile safe?
-tablet safe?
-desktop safe?
-PERFORMANCE
-no rerender storms?
-no hydration issues?
-optimized loading?
-FUTURE SCALABILITY
-
-Архитура обязана быть готова к:
-
-EN localization
-Uzbek localization
-AI translations
-CMS integration
-admin translation panel
+сохранять readability
+сохранять contrast
+сохранять hierarchy
+поддерживать keyboard navigation
 IMPORTANT
 
-Система должна масштабироваться:
-без полного rewrite.
+Premium multilingual UX =
+accessible multilingual UX.
 
-FINAL LOCALIZATION EXPERIENCE GOAL
+QA VALIDATION CHECKLIST
 
-Пользователь должен ощущать:
+Перед production release обязательно проверить:
 
-“Этот продукт изначально создавался multilingual-first.”
+FUNCTIONAL QA
+language switching works
+translations load correctly
+no missing keys
+no fallback errors
+UI QA
+responsive layouts stable
+no text overflow
+hierarchy preserved
+spacing remains clean
+UX QA
+switching feels seamless
+no visual flashing
+no confusing behavior
+PERFORMANCE QA
+no unnecessary rerenders
+optimized locale loading
+no hydration instability
+FINAL LOCALIZATION PRINCIPLE
+
+Localization должен ощущаться:
+
+native
+invisible
+seamless
+scalable
+production-ready
+
+Пользователь должен чувствовать:
+что оба языка —
+это:
+
+полноценная часть продукта
+качественный digital experience
+modern ecosystem UX
 
 А НЕ:
-“сюда потом добавили второй язык.”
 
-FINAL DIRECTIVE
-
-Claude Code обязан:
-
-строить scalable localization architecture
-поддерживать premium UX
-избегать localization chaos
-обеспечивать seamless language switching
-сохранять visual consistency между языками
-END OF FILE
+AI translation layer
+secondary feature
+temporary localization solution.

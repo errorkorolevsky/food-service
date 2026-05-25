@@ -14,8 +14,7 @@ import FadeIn from "@/components/ui/FadeIn"
 
 import { useCartStore } from "@/store/cartStore"
 import { useLang } from "@/locales"
-
-const DELIVERY_FEE = 1500
+import { calcDelivery } from "@/config/commerce"
 
 // ─── GLASS INPUT ─────────────────────────────────────────────────────────────
 
@@ -54,6 +53,20 @@ function GlassInput({
   )
 }
 
+function formatKZPhone(raw: string): string {
+  const digits = raw.replace(/\D/g, "")
+  const local  = digits.startsWith("77") ? digits.slice(1)
+                : digits.startsWith("87") ? digits.slice(1)
+                : digits.startsWith("7")  ? digits
+                : digits
+  const d = local.startsWith("7") ? local.slice(1, 11) : local.slice(0, 10)
+  if (d.length === 0) return ""
+  if (d.length <= 3)  return `+7 (${d}`
+  if (d.length <= 6)  return `+7 (${d.slice(0, 3)}) ${d.slice(3)}`
+  if (d.length <= 8)  return `+7 (${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6)}`
+  return `+7 (${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6, 8)}-${d.slice(8, 10)}`
+}
+
 export default function CheckoutPage() {
   const { data: session } = useSession()
   const { t } = useLang()
@@ -78,7 +91,8 @@ export default function CheckoutPage() {
   const getTotalPrice  = useCartStore((state) => state.getTotalPrice)
   const clearCart      = useCartStore((state) => state.clearCart)
   const subtotal       = getTotalPrice()
-  const total          = subtotal + DELIVERY_FEE
+  const deliveryFee    = calcDelivery(subtotal)
+  const total          = subtotal + deliveryFee
 
   const handleSubmit = async () => {
     if (items.length === 0) return
@@ -101,7 +115,7 @@ export default function CheckoutPage() {
         body:    JSON.stringify({
           company, phone, address, comment, payment,
           delivery_date: deliveryDate, delivery_time: deliveryTime,
-          items, subtotal, delivery: DELIVERY_FEE, total,
+          items, subtotal, delivery: deliveryFee, total,
           user_email: session?.user?.email ?? null,
         }),
       })
@@ -182,7 +196,7 @@ export default function CheckoutPage() {
                         placeholder={t.checkout.phonePlaceholder}
                         value={phone}
                         error={phoneTouched && !phone.trim()}
-                        onChange={(e) => setPhone((e.target as HTMLInputElement).value)}
+                        onChange={(e) => setPhone(formatKZPhone((e.target as HTMLInputElement).value))}
                         onBlur={() => setPhoneTouched(true)}
                       />
                       {phoneTouched && !phone.trim() && (
@@ -234,6 +248,7 @@ export default function CheckoutPage() {
                       <motion.button
                         key={key}
                         onClick={() => setDeliveryDate(key)}
+                        aria-pressed={deliveryDate === key}
                         whileTap={{ scale: 0.97 }}
                         className={`
                           px-5 py-2.5 rounded-xl text-[14px] font-medium border transition-all duration-200
@@ -256,6 +271,7 @@ export default function CheckoutPage() {
                       <motion.button
                         key={slot}
                         onClick={() => setDeliveryTime(slot)}
+                        aria-pressed={deliveryTime === slot}
                         whileTap={{ scale: 0.97 }}
                         className={`
                           px-4 py-2 rounded-xl text-[13px] font-medium border transition-all duration-200
@@ -286,6 +302,7 @@ export default function CheckoutPage() {
                       <motion.button
                         key={id}
                         onClick={() => setPayment(id)}
+                        aria-pressed={payment === id}
                         whileHover={{ scale: 1.02, y: -2 }}
                         whileTap={{ scale: 0.98 }}
                         transition={{ type: "spring", stiffness: 380, damping: 26 }}
@@ -369,7 +386,7 @@ export default function CheckoutPage() {
                           "
                         >
                           <div className="flex items-center gap-3">
-                            <div className="w-9 h-9 bg-white rounded-xl flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
+                            <div className="w-9 h-9 bg-fs-white rounded-xl flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
                               {item.emoji}
                             </div>
                             <div className="min-w-0">
@@ -400,7 +417,9 @@ export default function CheckoutPage() {
                         <Truck size={13} strokeWidth={1.5} />
                         {t.cart.delivery}
                       </div>
-                      <span className="text-fs-graphite font-medium">₸{DELIVERY_FEE.toLocaleString()}</span>
+                      <span className={deliveryFee === 0 ? "text-emerald-600 font-medium" : "text-fs-graphite font-medium"}>
+                        {deliveryFee === 0 ? t.cart.freeDelivery : `₸${deliveryFee.toLocaleString()}`}
+                      </span>
                     </div>
                     <div className="pt-3 border-t border-fs-border flex items-center justify-between">
                       <span className="text-[15px] font-bold text-fs-graphite">{t.cart.total}</span>

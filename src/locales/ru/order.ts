@@ -1,0 +1,32 @@
+export const ruOrder = {
+  order: {
+    successTitle:   "Заказ принят!",
+    successSubtitle:"Ваш заказ успешно оформлен",
+    successBadge:   "Заказ оформлен",
+    successBody:    "Мы уже готовим ваш заказ к доставке. Курьер доставит за 15–30 минут.",
+    details:        "Детали заказа",
+    paymentLabel:   "Оплата",
+    deliveryTime:      "Доставка",
+    deliveryTimeValue: "15–30 мин",
+    totalLabel:     "Итого",
+    composition:    "Состав",
+    statusTitle:    "Статус доставки",
+    done:           "✓ Готово",
+    loginTitle:     "Войдите чтобы отслеживать заказы",
+    loginDesc:      "Все ваши заказы сохранятся в профиле автоматически",
+    trackBtn:       "Отследить заказ",
+    continueBtn:    "Продолжить покупки",
+    statuses: {
+      pending:     "Заказ принят",
+      processing:  "Передан курьеру",
+      in_delivery: "В пути",
+      delivered:   "Доставлен",
+      cancelled:   "Отменён",
+    },
+    payment: {
+      kaspi:   "Kaspi Pay",
+      freedom: "Freedom Pay",
+      cash:    "Наличные",
+    },
+  },
+}

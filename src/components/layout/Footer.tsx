@@ -93,7 +93,7 @@ export default function Footer() {
             <div className="mt-8 space-y-3">
               <div className="flex items-center gap-3 text-caption text-white/60">
                 <MapPin size={14} className="text-white/40 flex-shrink-0" strokeWidth={1.5} />
-                Шымкент, Казахстан
+                {t.footer.city}
               </div>
               <div className="flex items-center gap-3 text-caption text-white/60">
                 <Clock size={14} className="text-white/40 flex-shrink-0" strokeWidth={1.5} />
@@ -138,7 +138,7 @@ export default function Footer() {
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-caption text-white/55 hover:text-white transition-colors duration-200"
+                        className="text-caption text-white/55 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
                       >
                         {link.label}
                       </Link>

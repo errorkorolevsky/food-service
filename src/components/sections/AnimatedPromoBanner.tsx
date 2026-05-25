@@ -94,56 +94,72 @@ export default function AnimatedPromoBanner() {
               </p>
             </div>
 
-            <Link
-              href="/catalog"
-              className="
-                flex-shrink-0
-                inline-flex items-center gap-2
-                bg-white text-gray-900
-                font-semibold px-6 py-3 rounded-xl
-                hover:bg-white/90 active:scale-[0.97]
-                transition-all duration-200
-                shadow-[0_8px_24px_rgba(0,0,0,0.25)]
-                whitespace-nowrap
-              "
+            <motion.div
+              whileHover={{ scale: 1.04, y: -2 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 380, damping: 22 }}
+              className="flex-shrink-0"
             >
-              {banner.cta}
-              <ChevronRight size={15} strokeWidth={2.5} />
-            </Link>
+              <Link
+                href="/catalog"
+                className="
+                  inline-flex items-center gap-2
+                  bg-white text-fs-dark
+                  font-semibold px-6 py-3 rounded-xl
+                  hover:bg-white/90
+                  transition-colors duration-200
+                  shadow-[0_8px_24px_rgba(0,0,0,0.25)]
+                  whitespace-nowrap
+                "
+              >
+                {banner.cta}
+                <ChevronRight size={15} strokeWidth={2.5} />
+              </Link>
+            </motion.div>
           </div>
         </motion.div>
       </AnimatePresence>
 
       {/* NAV ARROWS */}
-      <button
+      <motion.button
         onClick={prev}
+        aria-label={t.promo.prevBanner}
+        whileHover={{ scale: 1.12 }}
+        whileTap={{ scale: 0.88 }}
+        transition={{ type: "spring", stiffness: 400, damping: 20 }}
         className="
           absolute left-4 top-1/2 -translate-y-1/2 z-20
           w-9 h-9 rounded-full bg-white/15 backdrop-blur-sm border border-white/20
           flex items-center justify-center text-white
-          hover:bg-white/25 transition-all duration-200
+          hover:bg-white/25 transition-colors duration-200
         "
       >
         <ChevronLeft size={16} strokeWidth={2} />
-      </button>
-      <button
+      </motion.button>
+      <motion.button
         onClick={next}
+        aria-label={t.promo.nextBanner}
+        whileHover={{ scale: 1.12 }}
+        whileTap={{ scale: 0.88 }}
+        transition={{ type: "spring", stiffness: 400, damping: 20 }}
         className="
           absolute right-4 top-1/2 -translate-y-1/2 z-20
           w-9 h-9 rounded-full bg-white/15 backdrop-blur-sm border border-white/20
           flex items-center justify-center text-white
-          hover:bg-white/25 transition-all duration-200
+          hover:bg-white/25 transition-colors duration-200
         "
       >
         <ChevronRight size={16} strokeWidth={2} />
-      </button>
+      </motion.button>
 
       {/* DOTS */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5">
-        {banners.map((_, i) => (
+        {banners.map((b, i) => (
           <button
             key={i}
             onClick={() => goTo(i, i > idx ? 1 : -1)}
+            aria-label={b.title}
+            aria-pressed={i === idx}
             className={`
               rounded-full transition-all duration-300
               ${i === idx ? "w-6 h-2 bg-white" : "w-2 h-2 bg-white/40 hover:bg-white/60"}

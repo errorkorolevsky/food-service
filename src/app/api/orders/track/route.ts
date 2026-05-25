@@ -6,7 +6,8 @@ export const dynamic = "force-dynamic"
 // GET /api/orders/track?q=#FS-B7CD4B | ?q=+79991234567 | ?q=email@example.com
 export async function GET(req: NextRequest) {
   const q = req.nextUrl.searchParams.get("q")?.trim()
-  if (!q) return NextResponse.json({ error: "Укажите номер заказа или телефон" }, { status: 400 })
+  if (!q)          return NextResponse.json({ error: "Укажите номер заказа или телефон" }, { status: 400 })
+  if (q.length > 200) return NextResponse.json({ error: "Некорректный запрос" }, { status: 400 })
 
   // По UUID-суффиксу (#FS-XXXXXX)
   if (q.startsWith("#")) {

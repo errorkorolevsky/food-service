@@ -214,18 +214,14 @@ export default function HeroSection() {
 
             {/* CTA */}
             <motion.div variants={itemVariants} className="flex flex-wrap gap-3 mt-8">
-              <Link href="/catalog">
-                <MagneticButton className="ripple-btn inline-flex items-center gap-2.5 bg-white text-fs-dark font-semibold px-7 py-3.5 rounded-xl hover:bg-white/90 active:scale-[0.98] transition-all duration-200 shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
-                  {t.hero.cta1}
-                  <ArrowRight size={16} strokeWidth={2.5} />
-                </MagneticButton>
-              </Link>
-              <Link href="/catalog?sale=true">
-                <MagneticButton className="ripple-btn inline-flex items-center gap-2.5 border border-white/20 text-white bg-white/[0.10] backdrop-blur-md font-semibold px-7 py-3.5 rounded-xl hover:bg-white/[0.18] hover:border-white/30 active:scale-[0.98] transition-all duration-200">
-                  <Tag size={16} strokeWidth={2} />
-                  {t.hero.cta2}
-                </MagneticButton>
-              </Link>
+              <MagneticButton href="/catalog" className="ripple-btn inline-flex items-center gap-2.5 bg-white text-fs-dark font-semibold px-7 py-3.5 rounded-xl hover:bg-white/90 active:scale-[0.98] transition-all duration-200 shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
+                {t.hero.cta1}
+                <ArrowRight size={16} strokeWidth={2.5} />
+              </MagneticButton>
+              <MagneticButton href="/catalog?sale=true" className="ripple-btn inline-flex items-center gap-2.5 border border-white/20 text-white bg-white/[0.10] backdrop-blur-md font-semibold px-7 py-3.5 rounded-xl hover:bg-white/[0.18] hover:border-white/30 active:scale-[0.98] transition-all duration-200">
+                <Tag size={16} strokeWidth={2} />
+                {t.hero.cta2}
+              </MagneticButton>
             </motion.div>
 
             {/* STATS */}
@@ -332,15 +328,11 @@ export default function HeroSection() {
                 </motion.div>
 
                 {/* CTA */}
-                <Link href="/catalog" className="block mt-6">
-                  <motion.button
-                    whileHover={{ scale: 1.02, y: -1 }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 24 }}
-                    className="w-full bg-white text-fs-dark font-semibold py-3.5 rounded-xl hover:bg-white/90 transition-colors duration-200 text-sm shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
-                  >
-                    {t.hero.cta1} →
-                  </motion.button>
+                <Link
+                  href="/catalog"
+                  className="block mt-6 w-full bg-white text-fs-dark font-semibold py-3.5 rounded-xl hover:bg-white/90 active:scale-[0.98] transition-all duration-200 text-sm shadow-[0_4px_20px_rgba(0,0,0,0.3)] text-center"
+                >
+                  {t.hero.cta1} →
                 </Link>
               </div>
             </div>

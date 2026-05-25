@@ -43,6 +43,6 @@ export const useFavoritesStore = create<FavoritesStore>()(
         }
       },
     }),
-    { name: "nova-food-favorites" }
+    { name: "fs-favorites" }
   )
 )

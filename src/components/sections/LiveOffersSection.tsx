@@ -9,13 +9,10 @@ import ProductCard from "@/components/cards/ProductCard"
 import FadeIn from "@/components/ui/FadeIn"
 import SectionTitle from "@/components/ui/SectionTitle"
 import { useLang } from "@/locales"
-import { products } from "@/data/products"
+import type { Product } from "@/types"
 
-const saleProducts = products
-  .filter((p) => p.discountPercent && p.discountPercent > 0)
-  .slice(0, 8)
-
-export default function LiveOffersSection() {
+export default function LiveOffersSection({ products }: { products: Product[] }) {
+  const saleProducts = products
   const { t }     = useLang()
   const scrollRef = useRef<HTMLDivElement>(null)
 
@@ -69,12 +66,24 @@ export default function LiveOffersSection() {
 
             <div className="flex items-center gap-3">
               <div className="hidden sm:flex items-center gap-1">
-                <button onClick={() => scrollBy(-1)} className="w-9 h-9 rounded-xl border border-fs-border bg-fs-white flex items-center justify-center text-fs-gray hover:text-fs-primary hover:border-fs-primary/30 transition-all duration-200 shadow-sm">
+                <motion.button
+                  onClick={() => scrollBy(-1)}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.88 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                  className="w-9 h-9 rounded-xl border border-fs-border bg-fs-white flex items-center justify-center text-fs-gray hover:text-fs-primary hover:border-fs-primary/30 transition-colors duration-200 shadow-sm"
+                >
                   <ChevronLeft size={16} strokeWidth={1.5} />
-                </button>
-                <button onClick={() => scrollBy(1)} className="w-9 h-9 rounded-xl border border-fs-border bg-fs-white flex items-center justify-center text-fs-gray hover:text-fs-primary hover:border-fs-primary/30 transition-all duration-200 shadow-sm">
+                </motion.button>
+                <motion.button
+                  onClick={() => scrollBy(1)}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.88 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                  className="w-9 h-9 rounded-xl border border-fs-border bg-fs-white flex items-center justify-center text-fs-gray hover:text-fs-primary hover:border-fs-primary/30 transition-colors duration-200 shadow-sm"
+                >
                   <ChevronRight size={16} strokeWidth={1.5} />
-                </button>
+                </motion.button>
               </div>
               <Link href="/catalog?sale=true" className="hidden sm:inline-flex items-center gap-2 text-caption font-medium text-fs-gray hover:text-fs-primary transition-colors duration-200 group">
                 {t.promo.viewAll}

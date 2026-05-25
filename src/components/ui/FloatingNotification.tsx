@@ -26,7 +26,10 @@ export default function FloatingNotification() {
             z-50 pointer-events-none
           "
         >
-          <div className="
+          <div
+            role="status"
+            aria-live="polite"
+            className="
             bg-fs-white border border-fs-border rounded-2xl
             overflow-hidden
             shadow-card-hover

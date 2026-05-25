@@ -4,36 +4,15 @@ import Link from "next/link"
 import Image from "next/image"
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion"
 import { Plus, Minus, Star, Heart } from "lucide-react"
-import { useRef, useState, useEffect } from "react"
+import { useRef, useState } from "react"
 
 import { useCartStore } from "@/store/cartStore"
 import { useToastStore } from "@/store/toastStore"
 import { useFavoritesStore } from "@/store/favoritesStore"
 import { useCursorAware } from "@/hooks/useCursorAware"
 import { useLang } from "@/locales"
+import { CATEGORY_COLORS_BY_NAME } from "@/data/categories"
 import type { Product } from "@/types"
-
-const CATEGORY_COLORS: Record<string, string> = {
-  "Рыба и море":         "#0EA5E9",
-  "Рыба и морепродукты": "#0EA5E9",
-  "Суши ингредиенты":    "#F59E0B",
-  "Пицца и итальянское": "#EF4444",
-  "Кофе и бар":          "#92400E",
-  "Кондитерское":        "#EC4899",
-  "Заморозка":           "#6366F1",
-  "Птица и мясо":        "#DC2626",
-  "Упаковка HoReCa":     "#64748B",
-  "Молочные продукты":   "#0891B2",
-  "Сыры и молочное":     "#0891B2",
-  "Снеки":               "#B45309",
-  "Готовая еда":         "#059669",
-  "Напитки":             "#7C3AED",
-  "Овощи и фрукты":      "#16A34A",
-  "Бакалея":             "#CA8A04",
-  "Соусы и специи":      "#EA580C",
-  "Выпечка и снеки":     "#D97706",
-  "Наборы":              "#6D28D9",
-}
 
 type ProductCardProps = Pick<Product,
   "id" | "category" | "title" | "description" | "price" | "priceNum" |
@@ -66,21 +45,15 @@ export default function ProductCard({
   const toggle           = useFavoritesStore((state) => state.toggle)
   const isFav            = useFavoritesStore((state) => state.isFav)
   const favorited        = isFav(id)
-  const { t }            = useLang()
+  const { t, lang }      = useLang()
 
   // 3D TILT + CURSOR-AWARE LIGHTING share the same ref
   const ref = useRef<HTMLDivElement>(null)
-  const { cursor } = useCursorAware(ref)
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [6, -6]), { stiffness: 300, damping: 30 })
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-6, 6]), { stiffness: 300, damping: 30 })
-
-  // Disable 3D tilt and cursor effects on touch/coarse-pointer devices
-  const [isTouch, setIsTouch] = useState(false)
-  useEffect(() => {
-    setIsTouch(window.matchMedia("(pointer: coarse)").matches)
-  }, [])
+  const { cursor, isTouch } = useCursorAware(ref)
+  const mouseX  = useMotionValue(0)
+  const mouseY  = useMotionValue(0)
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [6, -6]), { stiffness: 200, damping: 40 })
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-6, 6]), { stiffness: 200, damping: 40 })
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (isTouch) return
@@ -146,7 +119,7 @@ export default function ProductCard({
       {/* CATEGORY COLOR STRIPE */}
       <div
         className="absolute top-0 left-0 right-0 h-[2px] z-30 pointer-events-none"
-        style={{ background: CATEGORY_COLORS[category] ?? "#005B46" }}
+        style={{ background: CATEGORY_COLORS_BY_NAME[category] ?? "#005B46" }}
       />
 
       {/* CURSOR-AWARE LIGHT LAYER */}
@@ -169,11 +142,11 @@ export default function ProductCard({
           h-40 sm:h-48 md:h-56 flex items-center justify-center relative
           cursor-pointer overflow-hidden
         " style={{
-          background: `radial-gradient(ellipse 80% 70% at 50% 60%, ${CATEGORY_COLORS[category] ?? "#005B46"}18 0%, rgb(var(--fs-light)) 100%)`,
+          background: `radial-gradient(ellipse 80% 70% at 50% 60%, ${CATEGORY_COLORS_BY_NAME[category] ?? "#005B46"}18 0%, rgb(var(--fs-light)) 100%)`,
         }}>
           {/* ambient inner glow */}
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{
-            background: `radial-gradient(ellipse 60% 55% at 50% 55%, ${CATEGORY_COLORS[category] ?? "#005B46"}22 0%, transparent 70%)`,
+            background: `radial-gradient(ellipse 60% 55% at 50% 55%, ${CATEGORY_COLORS_BY_NAME[category] ?? "#005B46"}22 0%, transparent 70%)`,
           }} />
 
           {showImage ? (
@@ -222,6 +195,8 @@ export default function ProductCard({
           {/* FAVORITE */}
           <motion.button
             onClick={handleFavorite}
+            aria-label={favorited ? t.product.removeFromFavorites : t.product.addToFavorites}
+            aria-pressed={favorited}
             whileHover={{ scale: 1.12 }}
             whileTap={{ scale: 0.88 }}
             transition={{ duration: 0.15 }}
@@ -247,7 +222,7 @@ export default function ProductCard({
       <div className="p-3 sm:p-5 flex flex-col flex-1">
 
         <div className="flex items-center justify-between mb-2.5">
-          <span className="text-label uppercase tracking-widest font-bold" style={{ color: CATEGORY_COLORS[category] ?? "#005B46" }}>
+          <span className="text-label uppercase tracking-widest font-bold" style={{ color: CATEGORY_COLORS_BY_NAME[category] ?? "#005B46" }}>
             {t.categories.labels[category as keyof typeof t.categories.labels] ?? category}
           </span>
           <div className="flex items-center gap-1 text-amber-500">
@@ -274,7 +249,7 @@ export default function ProductCard({
               </span>
               {oldPriceNum && (
                 <span className="text-sm text-fs-gray line-through">
-                  ₸{oldPriceNum.toLocaleString("ru-RU")}
+                  ₸{oldPriceNum.toLocaleString(lang === "kz" ? "kk-KZ" : "ru-RU")}
                 </span>
               )}
             </div>
@@ -287,6 +262,7 @@ export default function ProductCard({
             <div className="flex items-center gap-1.5">
               <motion.button
                 onClick={() => decreaseQuantity(id)}
+                aria-label={t.cart.decrease}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ duration: 0.15 }}
@@ -307,6 +283,7 @@ export default function ProductCard({
 
               <motion.button
                 onClick={() => increaseQuantity(id)}
+                aria-label={t.cart.increase}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ duration: 0.15 }}
@@ -345,6 +322,7 @@ export default function ProductCard({
               )}
               <motion.button
                 onClick={handleAddToCart}
+                aria-label={t.product.addToCart}
                 disabled={!inStock}
                 whileHover={{ scale: inStock ? 1.1 : 1, y: inStock ? -1 : 0 }}
                 whileTap={{ scale: inStock ? 0.9 : 1 }}

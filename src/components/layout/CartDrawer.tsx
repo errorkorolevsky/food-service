@@ -1,6 +1,6 @@
 "use client"
 
-import { useSyncExternalStore, useState } from "react"
+import { useSyncExternalStore, useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
@@ -9,10 +9,9 @@ import { X, ShoppingBag, Minus, Plus, Trash2, ArrowRight } from "lucide-react"
 import { useCartStore } from "@/store/cartStore"
 import { useCartUI } from "@/store/cartUIStore"
 import { useLang } from "@/locales"
+import { FREE_DELIVERY_THRESHOLD } from "@/config/commerce"
 import MorphNumber from "@/components/ui/MorphNumber"
 import type { CartItem } from "@/types"
-
-const FREE_DELIVERY_THRESHOLD = 10000
 
 // ─── CART ITEM THUMBNAIL with loading skeleton ───────────────────────────────
 
@@ -72,6 +71,12 @@ export default function CartDrawer() {
     getTotalItems,
   } = useCartStore()
 
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose() }
+    if (isOpen) document.addEventListener("keydown", onKey)
+    return () => document.removeEventListener("keydown", onKey)
+  }, [isOpen, onClose])
+
   if (!mounted) return null
 
   const totalItems = getTotalItems()
@@ -122,6 +127,7 @@ export default function CartDrawer() {
 
           <motion.button
             onClick={onClose}
+            aria-label={t.close}
             whileHover={{ scale: 1.08, rotate: 90 }}
             whileTap={{ scale: 0.92 }}
             transition={{ type: "spring", stiffness: 380, damping: 22 }}
@@ -231,6 +237,7 @@ export default function CartDrawer() {
                         <div className="flex items-center gap-2 mt-3">
                           <motion.button
                             onClick={() => decreaseQuantity(item.id)}
+                            aria-label={t.cart.decrease}
                             whileHover={{ scale: 1.12 }}
                             whileTap={{ scale: 0.88 }}
                             transition={{ type: "spring", stiffness: 400, damping: 20 }}
@@ -251,6 +258,7 @@ export default function CartDrawer() {
 
                           <motion.button
                             onClick={() => increaseQuantity(item.id)}
+                            aria-label={t.cart.increase}
                             whileHover={{ scale: 1.12 }}
                             whileTap={{ scale: 0.88 }}
                             transition={{ type: "spring", stiffness: 400, damping: 20 }}
@@ -273,6 +281,7 @@ export default function CartDrawer() {
                       {/* REMOVE */}
                       <motion.button
                         onClick={() => removeItem(item.id)}
+                        aria-label={`${t.cart.remove} ${item.title}`}
                         whileHover={{ scale: 1.1, color: "#ef4444" }}
                         whileTap={{ scale: 0.9 }}
                         transition={{ duration: 0.12 }}

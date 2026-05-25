@@ -8,7 +8,9 @@ import CursorAura from "@/components/ui/CursorAura"
 import SmoothScroll from "@/components/ui/SmoothScroll"
 import NavigationProgress from "@/components/ui/NavigationProgress"
 import ScrollToTop from "@/components/ui/ScrollToTop"
+import LangHtmlSync from "@/components/ui/LangHtmlSync"
 import { ThemeProvider } from "@/components/ui/ThemeProvider"
+import { BASE_URL, META_RU, LANG_ALTERNATES } from "@/lib/seo"
 
 import "./globals.css"
 
@@ -19,22 +21,26 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title:       "Food Service — Продукты с доставкой на дом · Шымкент",
-  description: "Онлайн-магазин продуктов и готовой еды с доставкой на дом в Шымкенте. Свежие продукты, мясо, молочное, напитки, заморозка и многое другое.",
-  keywords:    ["food service", "доставка продуктов", "онлайн магазин", "продукты Шымкент", "доставка еды", "Kazakhstan", "Шымкент"],
-  robots:      { index: true, follow: true },
-  manifest:    "/manifest.json",
+  metadataBase: new URL(BASE_URL),
+  title:        META_RU.home.title,
+  description:  META_RU.home.description,
+  keywords:     ["food service", "доставка продуктов", "онлайн магазин", "продукты Шымкент", "доставка еды", "Kazakhstan", "Шымкент", "азық-түлік жеткізу"],
+  robots:       { index: true, follow: true },
+  manifest:     "/manifest.json",
+  alternates:   LANG_ALTERNATES,
   appleWebApp: {
-    capable:    true,
+    capable:        true,
     statusBarStyle: "black-translucent",
-    title:      "Food Service",
+    title:          "Food Service",
   },
   openGraph: {
-    title:       "Food Service — Продукты с доставкой на дом · Шымкент",
-    description: "Онлайн-магазин продуктов и готовой еды с доставкой на дом в Шымкенте.",
+    title:       META_RU.home.title,
+    description: META_RU.home.description,
     siteName:    "Food Service",
     locale:      "ru_RU",
+    alternateLocale: ["kk_KZ"],
     type:        "website",
+    url:         BASE_URL,
   },
   twitter: {
     card:        "summary_large_image",
@@ -65,6 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <CursorAura />
           <MobileNav />
           <ServiceWorkerRegister />
+          <LangHtmlSync />
         </ThemeProvider>
       </body>
     </html>

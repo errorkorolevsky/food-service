@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import { motion } from "framer-motion"
 
 import FadeIn from "@/components/ui/FadeIn"
@@ -143,11 +142,9 @@ export default function AISection() {
                 </div>
 
                 <div className="mt-10">
-                  <Link href="/ai">
-                    <Button variant="white" size="lg" className="w-full">
-                      {t.ai.openBtn}
-                    </Button>
-                  </Link>
+                  <Button href="/ai" variant="white" size="lg" className="w-full">
+                    {t.ai.openBtn}
+                  </Button>
                 </div>
               </div>
             </div>

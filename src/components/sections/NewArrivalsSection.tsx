@@ -9,11 +9,10 @@ import ProductCard from "@/components/cards/ProductCard"
 import SectionTitle from "@/components/ui/SectionTitle"
 import FadeIn from "@/components/ui/FadeIn"
 import { useLang } from "@/locales"
-import { products } from "@/data/products"
+import type { Product } from "@/types"
 
-const newProducts = products.filter((p) => p.isNew).slice(0, 8)
-
-export default function NewArrivalsSection() {
+export default function NewArrivalsSection({ products }: { products: Product[] }) {
+  const newProducts = products
   const { t }       = useLang()
   const scrollRef   = useRef<HTMLDivElement>(null)
 
@@ -51,30 +50,36 @@ export default function NewArrivalsSection() {
             <div className="flex items-center gap-3">
               {/* SCROLL ARROWS */}
               <div className="hidden sm:flex items-center gap-1">
-                <button
+                <motion.button
                   onClick={() => scrollBy(-1)}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.88 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
                   className="
                     w-9 h-9 rounded-xl
                     border border-fs-border bg-fs-white
                     flex items-center justify-center
                     text-fs-gray hover:text-fs-primary hover:border-fs-primary/30
-                    transition-all duration-200 shadow-sm
+                    transition-colors duration-200 shadow-sm
                   "
                 >
                   <ChevronLeft size={16} strokeWidth={1.5} />
-                </button>
-                <button
+                </motion.button>
+                <motion.button
                   onClick={() => scrollBy(1)}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.88 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
                   className="
                     w-9 h-9 rounded-xl
                     border border-fs-border bg-fs-white
                     flex items-center justify-center
                     text-fs-gray hover:text-fs-primary hover:border-fs-primary/30
-                    transition-all duration-200 shadow-sm
+                    transition-colors duration-200 shadow-sm
                   "
                 >
                   <ChevronRight size={16} strokeWidth={1.5} />
-                </button>
+                </motion.button>
               </div>
 
               <Link

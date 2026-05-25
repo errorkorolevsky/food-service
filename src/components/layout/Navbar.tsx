@@ -70,6 +70,7 @@ export default function Navbar() {
               <MagneticDiv key={href} strength={0.22}>
                 <Link
                   href={href}
+                  aria-current={isActive ? "page" : undefined}
                   className={`
                     relative px-4 py-2 rounded-lg text-caption font-medium
                     transition-all duration-200
@@ -113,6 +114,8 @@ export default function Navbar() {
               <button
                 key={l}
                 onClick={() => setLang(l)}
+                aria-pressed={lang === l}
+                aria-label={t.language[l]}
                 className="relative px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wide transition-colors duration-150 z-10"
                 style={{ color: lang === l ? "white" : "rgba(255,255,255,0.45)" }}
               >

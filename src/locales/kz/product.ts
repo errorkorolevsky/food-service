@@ -1,0 +1,21 @@
+export const kzProduct = {
+  product: {
+    addToCart:         "Себетке",
+    inCart:            "Себетте",
+    addToFavorites:    "Таңдаулыларға",
+    removeFromFavorites: "Таңдаулылардан алу",
+    outOfStock:   "Қорда жоқ",
+    new:          "ЖАҢА",
+    hit:          "ХИТ",
+    sale:         "АКЦИЯ",
+    top:          "ТОП",
+    per:          "/",
+    delivery:     "Жеткізу",
+    deliveryTime: "15–30 мин",
+    freeFrom:     "бастап",
+    freeFromVal:  "₸10 000",
+    aiLabel:      "AI Көмекші",
+    aiActive:     "Белсенді",
+    aiQuery:      (title: string, category: string) => `${title} (${category}) туралы толығырақ айтып бер. Қалай қолданылады, немен жарасады және отбасыға қанша қажет?`,
+  },
+}

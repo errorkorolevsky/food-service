@@ -1,8 +1,8 @@
 "use client"
 
-import Link from "next/link"
 import { motion, type Variants } from "framer-motion"
 import { Building2, ArrowRight, CheckCircle } from "lucide-react"
+import Button from "@/components/ui/Button"
 import { useLang } from "@/locales"
 
 const containerVariants: Variants = {
@@ -15,14 +15,9 @@ const itemVariants: Variants = {
   show:   { opacity: 1, y: 0,  filter: "blur(0px)", transition: { duration: 0.6, ease: [0, 0, 0.2, 1] as [number, number, number, number] } },
 }
 
-const PERKS = [
-  "Крупный опт и мелкий опт",
-  "Счёт-фактуры и документы",
-  "Персональный менеджер",
-]
-
 export default function BusinessSection() {
   const { t } = useLang()
+  const PERKS = t.business.perks
 
   return (
     <section className="fs-section bg-fs-dark overflow-hidden relative">
@@ -97,25 +92,10 @@ export default function BusinessSection() {
 
           {/* CTA */}
           <motion.div variants={itemVariants} className="mt-10">
-            <Link href="/ai">
-              <motion.button
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                className="
-                  inline-flex items-center gap-3
-                  bg-white text-fs-dark
-                  font-semibold px-8 py-4 rounded-2xl
-                  hover:bg-white/90
-                  transition-colors duration-200
-                  shadow-[0_8px_32px_rgba(0,0,0,0.3)]
-                  relative overflow-hidden
-                "
-              >
-                {t.business.cta}
-                <ArrowRight size={18} strokeWidth={2} />
-              </motion.button>
-            </Link>
+            <Button href="/ai" variant="white" size="lg">
+              {t.business.cta}
+              <ArrowRight size={18} strokeWidth={2} />
+            </Button>
           </motion.div>
 
           {/* Decorative divider lines */}

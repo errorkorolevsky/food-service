@@ -1,0 +1,32 @@
+export const kzOrder = {
+  order: {
+    successTitle:   "Тапсырыс қабылданды!",
+    successSubtitle:"Тапсырысыңыз сәтті рәсімделді",
+    successBadge:   "Тапсырыс рәсімделді",
+    successBody:    "Тапсырысыңызды жеткізуге дайындап жатырмыз. Курьер 15–30 минутта жеткізеді.",
+    details:        "Тапсырыс мәліметтері",
+    paymentLabel:   "Төлем",
+    deliveryTime:      "Жеткізу",
+    deliveryTimeValue: "15–30 мин",
+    totalLabel:     "Барлығы",
+    composition:    "Құрам",
+    statusTitle:    "Жеткізу мәртебесі",
+    done:           "✓ Дайын",
+    loginTitle:     "Тапсырысты бақылау үшін кіріңіз",
+    loginDesc:      "Барлық тапсырыстарыңыз профильге автоматты сақталады",
+    trackBtn:       "Тапсырысты бақылау",
+    continueBtn:    "Сауда жалғастыру",
+    statuses: {
+      pending:     "Тапсырыс қабылданды",
+      processing:  "Курьерге берілді",
+      in_delivery: "Жолда",
+      delivered:   "Жеткізілді",
+      cancelled:   "Бас тартылды",
+    },
+    payment: {
+      kaspi:   "Kaspi Pay",
+      freedom: "Freedom Pay",
+      cash:    "Қолма-қол",
+    },
+  },
+}

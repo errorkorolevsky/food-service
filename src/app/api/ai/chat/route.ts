@@ -1,13 +1,19 @@
 import Anthropic from "@anthropic-ai/sdk"
 import { NextRequest } from "next/server"
+import { z } from "zod"
 
 export const dynamic = "force-dynamic"
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
-const BASE_SYSTEM_PROMPT = `Ты — AI-помощник Food Service, онлайн-магазина продуктов с доставкой на дом по Шымкенту, Казахстан.
+const LANG_DIRECTIVE: Record<string, string> = {
+  kz: "Қазақ тілінде жауап бер, қысқаша және нақты. Эмодзиді орташа қолдан.",
+  ru: "Отвечай на русском языке, кратко и по делу. Используй эмодзи умеренно.",
+}
 
-Ты помогаешь покупателям подбирать продукты для семьи, составлять списки покупок, находить акции и планировать домашнее меню. Отвечай на русском языке, кратко и по делу. Используй эмодзи умеренно.
+const BASE_SYSTEM_PROMPT_BODY = `Ты — AI-помощник Food Service, онлайн-магазина продуктов с доставкой на дом по Шымкенту, Казахстан.
+
+Ты помогаешь покупателям подбирать продукты для семьи, составлять списки покупок, находить акции и планировать домашнее меню.
 
 АССОРТИМЕНТ FOOD SERVICE (актуальные позиции и цены в тенге):
 
@@ -71,16 +77,46 @@ const BASE_SYSTEM_PROMPT = `Ты — AI-помощник Food Service, онла�
 - Давай советы по хранению, приготовлению и сочетаемости продуктов
 - Будь дружелюбным и полезным помощником для домашней кухни`
 
-type Message      = { role: "user" | "assistant"; content: string }
-type OrderItem    = { id: string; title: string; emoji: string; price: number; quantity: number }
-type OrderContext = { id: string; created_at: string; items: OrderItem[]; total: number; status: string }
+const MessageSchema = z.object({
+  role:    z.enum(["user", "assistant"]),
+  content: z.string().min(1).max(4000),
+})
+
+const OrderItemSchema = z.object({
+  id:       z.string(),
+  title:    z.string(),
+  emoji:    z.string(),
+  price:    z.number(),
+  quantity: z.number(),
+})
+
+const OrderContextSchema = z.object({
+  id:         z.string(),
+  created_at: z.string(),
+  items:      z.array(OrderItemSchema),
+  total:      z.number(),
+  status:     z.string(),
+})
+
+const ChatSchema = z.object({
+  messages:     z.array(MessageSchema).min(1).max(50),
+  orderContext: z.array(OrderContextSchema).max(5).optional(),
+  locale:       z.enum(["ru", "kz"]).optional(),
+})
+
+type Message      = z.infer<typeof MessageSchema>
+type OrderItem    = z.infer<typeof OrderItemSchema>
+type OrderContext = z.infer<typeof OrderContextSchema>
 
 type SystemBlock = Anthropic.TextBlockParam & { cache_control?: { type: "ephemeral" } }
 
-function buildSystemBlocks(orders?: OrderContext[]): SystemBlock[] {
+function buildSystemBlocks(orders?: OrderContext[], locale = "ru"): SystemBlock[] {
+  const langDirective = LANG_DIRECTIVE[locale] ?? LANG_DIRECTIVE.ru
+  const fullPrompt    = `${BASE_SYSTEM_PROMPT_BODY}\n\n${langDirective}`
+
   const base: SystemBlock = {
     type:          "text",
-    text:          BASE_SYSTEM_PROMPT,
+    text:          fullPrompt,
     cache_control: { type: "ephemeral" },
   }
 
@@ -103,13 +139,18 @@ function buildSystemBlocks(orders?: OrderContext[]): SystemBlock[] {
 }
 
 export async function POST(req: NextRequest) {
-  const { messages, orderContext }: { messages: Message[]; orderContext?: OrderContext[] } = await req.json()
-
-  if (!messages?.length) {
-    return new Response(JSON.stringify({ error: "Нет сообщений" }), { status: 400 })
+  const raw    = await req.json().catch(() => null)
+  const parsed = ChatSchema.safeParse(raw)
+  if (!parsed.success) {
+    return new Response(JSON.stringify({ error: "Некорректный запрос" }), { status: 400 })
   }
 
-  const encoder = new TextEncoder()
+  const { messages, orderContext, locale = "ru" } = parsed.data
+
+  const encoder  = new TextEncoder()
+  const errMsg   = locale === "kz"
+    ? "\n\nAI қызметінде қате. Қайталап көріңіз."
+    : "\n\nОшибка AI сервиса. Попробуйте снова."
 
   const readable = new ReadableStream({
     async start(controller) {
@@ -117,7 +158,7 @@ export async function POST(req: NextRequest) {
         const stream = client.messages.stream({
           model:      "claude-haiku-4-5-20251001",
           max_tokens: 1024,
-          system:     buildSystemBlocks(orderContext),
+          system:     buildSystemBlocks(orderContext, locale),
           messages,
         })
 
@@ -131,7 +172,7 @@ export async function POST(req: NextRequest) {
         }
       } catch (err) {
         console.error("Claude streaming error:", err)
-        controller.enqueue(encoder.encode("\n\nОшибка AI сервиса. Попробуйте снова."))
+        controller.enqueue(encoder.encode(errMsg))
       } finally {
         controller.close()
       }

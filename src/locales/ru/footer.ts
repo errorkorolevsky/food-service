@@ -1,0 +1,33 @@
+export const ruFooter = {
+  footer: {
+    tagline:  "Свежие продукты и готовая еда с доставкой на дом в Шымкенте.",
+    city:     "Шымкент, Казахстан",
+    aiActive: "AI активен",
+    delivery: "🚚 Доставка 15–30 мин",
+    schedule: "Пн–Сб: 08:00 – 20:00",
+    col: {
+      catalog:  "Каталог",
+      platform: "Платформа",
+      company:  "Компания",
+    },
+    links: {
+      seafood:      "Рыба и морепродукты",
+      sushi:        "Суши ингредиенты",
+      coffee:       "Кофе и бар",
+      confectionery:"Кондитерское",
+      packaging:    "Упаковка HoReCa",
+      ai:           "AI рекомендации",
+      catalog:      "Каталог",
+      favorites:    "Избранное",
+      tracking:     "Отслеживание",
+      dashboard:    "Dashboard",
+      about:        "О нас",
+      delivery:     "Доставка",
+      profile:      "Профиль",
+      login:        "Войти",
+    },
+    copyright:"© 2026 Food Service Kazakhstan. Все права защищены.",
+    privacy:  "Конфиденциальность",
+    terms:    "Условия",
+  },
+}

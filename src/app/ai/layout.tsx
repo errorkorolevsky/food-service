@@ -1,11 +1,16 @@
 import type { Metadata } from "next"
+import { META_RU, buildAlternates } from "@/lib/seo"
 
 export const metadata: Metadata = {
-  title: "AI Ассистент — Food Service",
-  description: "AI-powered procurement assistant для HoReCa. Умные рекомендации по закупкам, ценам и ассортименту для ресторанов и кофеен Шымкента.",
+  title:       META_RU.ai.title,
+  description: META_RU.ai.description,
+  alternates:  buildAlternates("/ai"),
   openGraph: {
-    title: "AI Ассистент — Food Service",
+    title:       META_RU.ai.title,
     description: "Умный помощник по закупкам для HoReCa бизнеса.",
+    url:         "https://food-service.kz/ai",
+    locale:      "ru_RU",
+    alternateLocale: ["kk_KZ"],
   },
 }
 

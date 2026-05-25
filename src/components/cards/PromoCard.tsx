@@ -18,7 +18,7 @@ export default function PromoCard({
       whileHover={{ x: 4 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
       className="
-        bg-white border border-fs-border rounded-xl
+        bg-fs-white border border-fs-border rounded-xl
         px-5 py-4
         flex items-center justify-between
         hover:border-fs-primary/30 transition-colors duration-200

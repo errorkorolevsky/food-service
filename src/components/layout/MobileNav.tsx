@@ -33,7 +33,7 @@ export default function MobileNav() {
     >
       {/* GLOW SHADOW */}
       <div
-        className="absolute -inset-2 rounded-[40px] pointer-events-none"
+        className="absolute -inset-2 rounded-3xl pointer-events-none"
         style={{ background: "radial-gradient(ellipse 70% 50% at 50% 100%, rgba(0,91,70,0.18) 0%, transparent 70%)" }}
       />
 
@@ -45,7 +45,7 @@ export default function MobileNav() {
           relative
           bg-white/90 dark:bg-[#1C2128]/92 backdrop-blur-2xl
           border border-white/60 dark:border-white/10
-          rounded-[32px] px-2 py-2
+          rounded-2xl px-2 py-2
           flex items-center gap-0
           shadow-[0_8px_32px_rgba(0,0,0,0.14),0_0_0_1px_rgba(255,255,255,0.6)_inset]
           dark:shadow-[0_8px_32px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.06)_inset]
@@ -57,6 +57,8 @@ export default function MobileNav() {
             <button
               key={l}
               onClick={() => setLang(l)}
+              aria-pressed={lang === l}
+              aria-label={t.language[l]}
               className={`
                 px-1.5 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-wide
                 transition-all duration-150
@@ -76,13 +78,14 @@ export default function MobileNav() {
             <Link
               key={href}
               href={href}
-              className="relative flex flex-col items-center justify-center gap-0.5 px-4 py-2 rounded-[24px] min-w-[56px]"
+              aria-current={isActive ? "page" : undefined}
+              className="relative flex flex-col items-center justify-center gap-0.5 px-4 py-2 rounded-xl min-w-[56px]"
             >
               {/* ACTIVE PILL BG */}
               {isActive && (
                 <motion.div
                   layoutId="mobile-nav-active"
-                  className="absolute inset-0 rounded-[24px] bg-fs-primary"
+                  className="absolute inset-0 rounded-xl bg-fs-primary"
                   transition={{ type: "spring", stiffness: 400, damping: 34 }}
                 />
               )}
