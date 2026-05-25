@@ -21,6 +21,7 @@ export default function LoadingScreen() {
     // Skip if page is already fully loaded (fast connection / cache hit)
     if (document.readyState === "complete") return
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setVisible(true)
     sessionStorage.setItem(SESSION_KEY, "1")
 

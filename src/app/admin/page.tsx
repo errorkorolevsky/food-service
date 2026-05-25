@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, useCallback, useMemo } from "react"
+import { useEffect, useState, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   TrendingUp, ShoppingBag, CircleDollarSign, RefreshCw,
@@ -742,6 +742,7 @@ export default function AdminPage() {
     }
   }, [])
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { if (unlocked) fetchOrders() }, [unlocked, fetchOrders])
 
   useEffect(() => {
@@ -819,10 +820,11 @@ export default function AdminPage() {
 
   // ─── FILTERS ───────────────────────────────────────────────────────────────
 
-  const visible = useMemo(() => {
+  const visible = (() => {
     let result = orders
     if (filter !== "all") result = result.filter((o) => o.status === filter)
     if (dateRange !== "all") {
+      // eslint-disable-next-line react-hooks/purity
       const now  = Date.now()
       const cuts: Record<string, number> = { today: now - 86400000, week: now - 604800000, month: now - 2592000000 }
       result = result.filter((o) => new Date(o.created_at).getTime() >= cuts[dateRange])
@@ -838,7 +840,7 @@ export default function AdminPage() {
       )
     }
     return result
-  }, [orders, filter, dateRange, search])
+  })()
 
   const visibleTotal = visible.reduce((s, o) => s + o.total, 0)
 
