@@ -334,6 +334,7 @@ function AIPageInner() {
       const raw = localStorage.getItem(STORAGE_KEY)
       if (!raw) return
       const stored: Message[] = JSON.parse(raw)
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       if (stored.length > 1) setSavedHistory(stored)
     } catch {}
   }, [autoQuery])

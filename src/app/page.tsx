@@ -13,8 +13,6 @@ import AnimatedPromoBanner from "@/components/sections/AnimatedPromoBanner";
 import BusinessSection from "@/components/sections/BusinessSection";
 
 import PromoTicker from "@/components/ui/PromoTicker";
-import LoadingScreen from "@/components/ui/LoadingScreen";
-import GlowBackground from "@/components/ui/GlowBackground";
 import FloatingNotification from "@/components/ui/FloatingNotification";
 import SectionDivider from "@/components/ui/SectionDivider";
 
