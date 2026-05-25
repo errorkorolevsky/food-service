@@ -691,13 +691,14 @@ function ActivityLog({ orders, locale }: { orders: DbOrder[]; locale: string }) 
 
 // ─── TAB BAR ─────────────────────────────────────────────────────────────────
 
-type Tab = "orders" | "analytics" | "couriers" | "promos"
+type Tab = "orders" | "analytics" | "couriers" | "promos" | "products"
 
 const TABS: { value: Tab; label: string; icon: React.ElementType }[] = [
   { value: "orders",    label: "Заказы",    icon: ShoppingBag },
   { value: "analytics", label: "Аналитика", icon: BarChart2   },
   { value: "couriers",  label: "Курьеры",   icon: Truck       },
   { value: "promos",    label: "Промокоды", icon: Tag         },
+  { value: "products",  label: "Продукты",  icon: Package     },
 ]
 
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
@@ -779,6 +780,52 @@ export default function AdminPage() {
     })
     setPromos((prev) => prev.map((p) => p.code === code ? { ...p, is_active: !current } : p))
   }
+
+  type AdminProduct = { id: string; emoji: string; image: string | null; category: string; title: string; price: string; price_num: number; in_stock: boolean; is_hit: boolean; is_new: boolean }
+  const [adminProducts,        setAdminProducts]        = useState<AdminProduct[]>([])
+  const [adminProductsLoading, setAdminProductsLoading] = useState(false)
+  const [productSearch,        setProductSearch]        = useState("")
+  const [editingPrice,         setEditingPrice]         = useState<{ id: string; val: string } | null>(null)
+
+  const fetchAdminProducts = useCallback(async () => {
+    setAdminProductsLoading(true)
+    const res = await fetch("/api/admin/products")
+    if (res.ok) {
+      const data = await res.json()
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setAdminProducts(data.products ?? [])
+    }
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setAdminProductsLoading(false)
+  }, [])
+
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => { if (tab === "products" && unlocked) fetchAdminProducts() }, [tab, unlocked, fetchAdminProducts])
+
+  const handleToggleStock = async (id: string, current: boolean) => {
+    setAdminProducts((prev) => prev.map((p) => p.id === id ? { ...p, in_stock: !current } : p))
+    await fetch("/api/admin/products", {
+      method:  "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body:    JSON.stringify({ id, in_stock: !current }),
+    })
+  }
+
+  const handleSavePrice = async (id: string, valStr: string) => {
+    const num = parseInt(valStr.replace(/\D/g, ""), 10)
+    if (!num || num <= 0) { setEditingPrice(null); return }
+    setAdminProducts((prev) => prev.map((p) => p.id === id ? { ...p, price_num: num, price: `₸${num.toLocaleString("ru-RU")}` } : p))
+    setEditingPrice(null)
+    await fetch("/api/admin/products", {
+      method:  "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body:    JSON.stringify({ id, price_num: num }),
+    })
+  }
+
+  const filteredAdminProducts = adminProducts.filter((p) =>
+    !productSearch || p.title.toLowerCase().includes(productSearch.toLowerCase()) || p.category.toLowerCase().includes(productSearch.toLowerCase())
+  )
 
   const fetchOrders = useCallback(async () => {
     setLoading(true)
@@ -1339,6 +1386,98 @@ export default function AdminPage() {
             </div>
           </FadeIn>
         )}
+        {/* TAB: PRODUCTS */}
+        {tab === "products" && (
+          <FadeIn delay={0.1}>
+            <div className="space-y-5">
+              <div className="flex items-center justify-between gap-4">
+                <h2 className="text-[18px] font-bold text-fs-graphite">Каталог продуктов</h2>
+                <div className="flex items-center gap-2">
+                  <span className="text-[13px] text-fs-gray">{filteredAdminProducts.length} из {adminProducts.length}</span>
+                  <button onClick={fetchAdminProducts} className="w-8 h-8 rounded-xl bg-fs-offwhite border border-fs-border flex items-center justify-center text-fs-gray hover:text-fs-primary transition-colors">
+                    <RefreshCw size={13} strokeWidth={1.5} className={adminProductsLoading ? "animate-spin" : ""} />
+                  </button>
+                </div>
+              </div>
+
+              {/* SEARCH */}
+              <div className="relative">
+                <Search size={15} strokeWidth={1.5} className="absolute left-4 top-1/2 -translate-y-1/2 text-fs-gray pointer-events-none" />
+                <input
+                  type="text"
+                  placeholder="Поиск по названию или категории..."
+                  value={productSearch}
+                  onChange={(e) => setProductSearch(e.target.value)}
+                  className="w-full pl-10 pr-10 py-2.5 bg-fs-offwhite border border-fs-border rounded-xl text-[13px] text-fs-graphite outline-none focus:border-fs-primary/40 transition-colors"
+                />
+                {productSearch && (
+                  <button onClick={() => setProductSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-fs-gray hover:text-fs-graphite">
+                    <X size={14} strokeWidth={2} />
+                  </button>
+                )}
+              </div>
+
+              {/* LIST */}
+              {adminProductsLoading ? (
+                <div className="space-y-2">
+                  {[1,2,3,4,5].map((i) => <div key={i} className="h-14 skeleton-green rounded-xl animate-pulse" />)}
+                </div>
+              ) : filteredAdminProducts.length === 0 ? (
+                <div className="text-center py-12 text-[14px] text-fs-gray">Продукты не найдены</div>
+              ) : (
+                <div className="space-y-1.5">
+                  {filteredAdminProducts.map((p) => (
+                    <div key={p.id} className="bg-fs-white border border-fs-border rounded-xl px-4 py-3 flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-lg bg-fs-offwhite flex items-center justify-center text-xl flex-shrink-0">
+                        {p.emoji}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-[13px] font-semibold text-fs-graphite truncate">{p.title}</p>
+                        <p className="text-[11px] text-fs-gray">{p.category}</p>
+                      </div>
+                      {/* PRICE EDIT */}
+                      <div className="flex-shrink-0">
+                        {editingPrice?.id === p.id ? (
+                          <input
+                            type="number"
+                            autoFocus
+                            value={editingPrice.val}
+                            onChange={(e) => setEditingPrice({ id: p.id, val: e.target.value })}
+                            onBlur={() => handleSavePrice(p.id, editingPrice.val)}
+                            onKeyDown={(e) => { if (e.key === "Enter") handleSavePrice(p.id, editingPrice.val); if (e.key === "Escape") setEditingPrice(null) }}
+                            className="w-20 px-2 py-1 bg-fs-offwhite border border-fs-primary/40 rounded-lg text-[12px] text-fs-graphite outline-none text-right"
+                          />
+                        ) : (
+                          <button
+                            onClick={() => setEditingPrice({ id: p.id, val: String(p.price_num) })}
+                            className="text-[12px] font-bold text-fs-graphite hover:text-fs-primary transition-colors tabular-nums"
+                          >
+                            {p.price}
+                          </button>
+                        )}
+                      </div>
+                      {/* STOCK TOGGLE */}
+                      <button
+                        onClick={() => handleToggleStock(p.id, p.in_stock)}
+                        aria-label={p.in_stock ? "Убрать из наличия" : "Вернуть в наличие"}
+                        className="flex-shrink-0 flex items-center gap-1.5 text-[11px] transition-colors duration-200"
+                      >
+                        {p.in_stock
+                          ? <ToggleRight size={20} strokeWidth={1.5} className="text-fs-primary" />
+                          : <ToggleLeft  size={20} strokeWidth={1.5} className="text-fs-gray" />
+                        }
+                        <span className={p.in_stock ? "text-fs-primary font-medium" : "text-fs-gray"}>
+                          {p.in_stock ? "В наличии" : "Нет"}
+                        </span>
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </FadeIn>
+        )}
+
       </div>
     </main>
   )
