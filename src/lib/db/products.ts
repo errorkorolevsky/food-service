@@ -152,6 +152,52 @@ export const getRelatedProducts = unstable_cache(
   { tags: ["products"], revalidate: 3600 },
 )
 
+// ─── AI CATALOG STRING (for system prompt) ───────────────────────────────────
+
+async function _fetchCatalogForAI(): Promise<string> {
+  const client = getServerClient()
+  const source = client ? await (async () => {
+    const { data, error } = await client
+      .from("products")
+      .select("emoji,title,price,unit,category,in_stock,discount_percent")
+      .eq("in_stock", true)
+      .order("category")
+    return error || !data?.length ? localProducts : data
+  })() : localProducts
+
+  const byCat: Record<string, { emoji: string; title: string; price: string; unit?: string | null; discount_percent?: number | null }[]> = {}
+  for (const p of source) {
+    const cat = (p as { category: string }).category
+    if (!byCat[cat]) byCat[cat] = []
+    byCat[cat].push({
+      emoji:            (p as { emoji: string }).emoji,
+      title:            (p as { title: string }).title,
+      price:            "price" in p && typeof (p as { price: string }).price === "string"
+                          ? (p as { price: string }).price
+                          : `₸${(p as { priceNum: number }).priceNum?.toLocaleString("ru-RU")}`,
+      unit:             (p as { unit?: string | null }).unit,
+      discount_percent: (p as { discount_percent?: number | null }).discount_percent
+                          ?? (p as { discountPercent?: number }).discountPercent,
+    })
+  }
+
+  return Object.entries(byCat)
+    .map(([cat, items]) => {
+      const lines = items.map((i) => {
+        const sale = i.discount_percent ? ` (скидка ${i.discount_percent}%)` : ""
+        return `  - ${i.emoji} ${i.title} — ${i.price}${i.unit ? `/${i.unit}` : ""}${sale}`
+      }).join("\n")
+      return `${cat}:\n${lines}`
+    })
+    .join("\n\n")
+}
+
+export const getProductsCatalogForAI = unstable_cache(
+  _fetchCatalogForAI,
+  ["products-ai-catalog"],
+  { tags: ["products"], revalidate: 3600 },
+)
+
 // ─── FETCH ALL IDS (for generateStaticParams) ─────────────────────────────────
 
 async function _fetchAllProductIds(): Promise<string[]> {
