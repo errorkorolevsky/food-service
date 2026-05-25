@@ -157,3 +157,30 @@ ALTER TABLE user_favorites ENABLE ROW LEVEL SECURITY;
 -- Auth enforced at API route level (NextAuth session check)
 CREATE POLICY "Service role full access" ON user_favorites
   USING (true) WITH CHECK (true);
+
+-- =============================================================================
+-- ─── REVIEWS TABLE ────────────────────────────────────────────────────────────
+-- =============================================================================
+
+CREATE TABLE IF NOT EXISTS reviews (
+  id           uuid        PRIMARY KEY DEFAULT gen_random_uuid(),
+  product_id   text        NOT NULL,
+  user_email   text        NOT NULL,
+  user_name    text,
+  rating       integer     NOT NULL CHECK (rating BETWEEN 1 AND 5),
+  text         text,
+  created_at   timestamptz NOT NULL DEFAULT now(),
+  UNIQUE (product_id, user_email)
+);
+
+CREATE INDEX IF NOT EXISTS idx_reviews_product_id ON reviews (product_id);
+CREATE INDEX IF NOT EXISTS idx_reviews_user_email  ON reviews (user_email);
+CREATE INDEX IF NOT EXISTS idx_reviews_created_at  ON reviews (product_id, created_at DESC);
+
+ALTER TABLE reviews ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Public read reviews" ON reviews
+  FOR SELECT USING (true);
+
+CREATE POLICY "Service role full access reviews" ON reviews
+  USING (true) WITH CHECK (true);

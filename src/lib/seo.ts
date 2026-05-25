@@ -36,6 +36,45 @@ export const META_RU = {
   },
 }
 
+export function buildProductJsonLd(product: {
+  id: string
+  title: string
+  description: string
+  image?: string
+  priceNum: number
+  rating: string
+  category: string
+  inStock: boolean
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.title,
+    description: product.description,
+    image: product.image
+      ? product.image.startsWith("http") ? product.image : `${BASE_URL}${product.image}`
+      : undefined,
+    sku: product.id,
+    category: product.category,
+    offers: {
+      "@type": "Offer",
+      price: product.priceNum,
+      priceCurrency: "KZT",
+      availability: product.inStock
+        ? "https://schema.org/InStock"
+        : "https://schema.org/OutOfStock",
+      seller: { "@type": "Organization", name: "Food Service" },
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: product.rating,
+      bestRating: "5",
+      worstRating: "1",
+      ratingCount: "1",
+    },
+  }
+}
+
 export const META_KZ = {
   home: {
     title:       "Food Service — Тауарлар үйге жеткізу · Шымкент",

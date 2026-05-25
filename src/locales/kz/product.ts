@@ -19,5 +19,13 @@ export const kzProduct = {
     aiQuery:      (title: string, category: string) => `${title} (${category}) туралы толығырақ айтып бер. Қалай қолданылады, немен жарасады және отбасыға қанша қажет?`,
     recentlyViewed:      "Сіз қарадыңыз",
     recentlyViewedTitle: "Жақында қаралған",
+    reviews:             "Пікірлер",
+    reviewsTitle:        "Сатып алушылардың пікірлері",
+    reviewsEmpty:        "Пікірлер жоқ. Бірінші болыңыз!",
+    reviewSubmit:        "Пікір қалдыру",
+    reviewPlaceholder:   "Пікіріңіз (міндетті емес)",
+    reviewLoginPrompt:   "Пікір қалдыру үшін кіріңіз",
+    reviewSuccess:       "Пікір жіберілді — рақмет!",
+    reviewCount:         (n: number) => `${n} пікір`,
   },
 }

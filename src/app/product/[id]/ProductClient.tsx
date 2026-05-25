@@ -1,7 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
+import { useSession } from "next-auth/react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Star, ShoppingCart, Zap, Truck, Clock, Plus, Minus, Tag, Heart } from "lucide-react"
 import Link from "next/link"
@@ -50,7 +51,52 @@ export default function ProductClient({
   const [imgError, setImgError] = useState(false)
 
   const { ref: imgRef, cursor } = useCursorAware<HTMLDivElement>()
-  const { t } = useLang()
+  const { t, lang } = useLang()
+  const { data: session } = useSession()
+
+  type Review = { id: string; user_email: string; user_name: string | null; rating: number; text: string | null; created_at: string }
+  const [reviews,          setReviews]          = useState<Review[]>([])
+  const [reviewsLoading,   setReviewsLoading]   = useState(true)
+  const [reviewStars,      setReviewStars]       = useState(5)
+  const [reviewHover,      setReviewHover]       = useState(0)
+  const [reviewText,       setReviewText]        = useState("")
+  const [reviewSubmitting, setReviewSubmitting]  = useState(false)
+  const [reviewDone,       setReviewDone]        = useState(false)
+
+  useEffect(() => {
+    fetch(`/api/reviews?product_id=${product.id}`)
+      .then((r) => r.json())
+      .then((data) => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setReviews(data.reviews ?? [])
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setReviewsLoading(false)
+      })
+      .catch(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setReviewsLoading(false)
+      })
+  }, [product.id])
+
+  const avgRating = reviews.length > 0
+    ? reviews.reduce((s, r) => s + r.rating, 0) / reviews.length
+    : 0
+
+  const handleReviewSubmit = async () => {
+    setReviewSubmitting(true)
+    const res = await fetch("/api/reviews", {
+      method:  "POST",
+      headers: { "Content-Type": "application/json" },
+      body:    JSON.stringify({ product_id: product.id, rating: reviewStars, text: reviewText.trim() || undefined }),
+    })
+    if (res.ok) {
+      const body = await res.json()
+      setReviews((prev) => [body.review, ...prev.filter((r: Review) => r.user_email !== body.review.user_email)])
+      setReviewDone(true)
+      setReviewText("")
+    }
+    setReviewSubmitting(false)
+  }
 
   const recentlyViewed = useRecentlyViewed({
     id:       product.id,
@@ -398,6 +444,137 @@ export default function ProductClient({
             </div>
           </div>
         )}
+
+        {/* REVIEWS */}
+        <div className="mt-24">
+          <FadeIn>
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <p className="text-label text-fs-gray uppercase tracking-widest mb-3">{t.product.reviews}</p>
+                <h2 className="text-heading text-fs-graphite">{t.product.reviewsTitle}</h2>
+              </div>
+              {reviews.length > 0 && (
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-0.5">
+                    {[1,2,3,4,5].map((s) => (
+                      <Star key={s} size={13} fill={s <= Math.round(avgRating) ? "currentColor" : "none"} strokeWidth={1.5} className="text-amber-400" />
+                    ))}
+                  </div>
+                  <span className="text-caption text-fs-gray">
+                    {avgRating.toFixed(1)} · {t.product.reviewCount(reviews.length)}
+                  </span>
+                </div>
+              )}
+            </div>
+          </FadeIn>
+
+          {/* SUBMIT FORM — logged-in users */}
+          {session?.user && !reviewDone && (
+            <FadeIn>
+              <div className="bg-fs-white border border-fs-border rounded-2xl p-6 mb-8">
+                <p className="text-caption font-bold text-fs-graphite mb-4">{t.product.reviewSubmit}</p>
+                <div className="flex gap-1.5 mb-4">
+                  {[1,2,3,4,5].map((s) => (
+                    <motion.button
+                      key={s}
+                      onClick={() => setReviewStars(s)}
+                      onMouseEnter={() => setReviewHover(s)}
+                      onMouseLeave={() => setReviewHover(0)}
+                      whileHover={{ scale: 1.2 }}
+                      whileTap={{ scale: 0.9 }}
+                      transition={{ duration: 0.1 }}
+                      aria-label={`${s}`}
+                    >
+                      <Star
+                        size={22}
+                        fill={s <= (reviewHover || reviewStars) ? "currentColor" : "none"}
+                        strokeWidth={1.5}
+                        className="text-amber-400"
+                      />
+                    </motion.button>
+                  ))}
+                </div>
+                <textarea
+                  value={reviewText}
+                  onChange={(e) => setReviewText(e.target.value)}
+                  placeholder={t.product.reviewPlaceholder}
+                  maxLength={500}
+                  rows={3}
+                  className="w-full bg-fs-offwhite border border-fs-border rounded-xl px-4 py-3 text-caption text-fs-graphite placeholder:text-fs-subtle resize-none focus:outline-none focus:border-fs-primary/40 transition-colors duration-200 mb-4"
+                />
+                <Button size="sm" onClick={handleReviewSubmit} disabled={reviewSubmitting}>
+                  {reviewSubmitting ? "..." : t.product.reviewSubmit}
+                </Button>
+              </div>
+            </FadeIn>
+          )}
+
+          {session?.user && reviewDone && (
+            <FadeIn>
+              <div className="bg-fs-offwhite border border-fs-border rounded-2xl px-6 py-4 mb-8 flex items-center gap-3">
+                <span className="text-lg">✓</span>
+                <p className="text-caption text-fs-gray">{t.product.reviewSuccess}</p>
+              </div>
+            </FadeIn>
+          )}
+
+          {!session?.user && (
+            <FadeIn>
+              <div className="bg-fs-offwhite border border-fs-border rounded-2xl px-6 py-4 mb-8">
+                <Link href="/login" className="text-caption text-fs-primary hover:underline transition-colors duration-200">
+                  {t.product.reviewLoginPrompt} →
+                </Link>
+              </div>
+            </FadeIn>
+          )}
+
+          {/* LIST */}
+          {reviewsLoading ? (
+            <div className="space-y-3">
+              {[1,2,3].map((i) => (
+                <div key={i} className="h-20 bg-fs-offwhite border border-fs-border rounded-2xl animate-pulse" />
+              ))}
+            </div>
+          ) : reviews.length === 0 ? (
+            <FadeIn>
+              <p className="text-caption text-fs-gray py-10 text-center">{t.product.reviewsEmpty}</p>
+            </FadeIn>
+          ) : (
+            <div className="space-y-4">
+              {reviews.map((r, i) => (
+                <FadeIn key={r.id} delay={0.05 * i}>
+                  <div className="bg-fs-white border border-fs-border rounded-2xl px-6 py-5">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-lg bg-fs-primary/10 flex items-center justify-center flex-shrink-0">
+                          <span className="text-xs font-bold text-fs-primary">
+                            {(r.user_name ?? r.user_email)[0]?.toUpperCase()}
+                          </span>
+                        </div>
+                        <div>
+                          <p className="text-caption font-bold text-fs-graphite">
+                            {r.user_name ?? r.user_email.split("@")[0]}
+                          </p>
+                          <p className="text-[11px] text-fs-gray">
+                            {new Date(r.created_at).toLocaleDateString(lang === "kz" ? "kk-KZ" : "ru-RU")}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex gap-0.5">
+                        {[1,2,3,4,5].map((s) => (
+                          <Star key={s} size={11} fill={s <= r.rating ? "currentColor" : "none"} strokeWidth={1.5} className="text-amber-400" />
+                        ))}
+                      </div>
+                    </div>
+                    {r.text && (
+                      <p className="text-caption text-fs-gray leading-relaxed">{r.text}</p>
+                    )}
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+          )}
+        </div>
 
         {/* RECENTLY VIEWED */}
         {recentlyViewed.length > 0 && (

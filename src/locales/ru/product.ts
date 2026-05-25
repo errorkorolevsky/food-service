@@ -19,5 +19,13 @@ export const ruProduct = {
     aiQuery:      (title: string, category: string) => `Расскажи подробнее о ${title} (${category}). Как использовать, с чем сочетается и сколько нужно для семьи?`,
     recentlyViewed:      "Вы смотрели",
     recentlyViewedTitle: "Недавно просмотренные",
+    reviews:             "Отзывы",
+    reviewsTitle:        "Отзывы покупателей",
+    reviewsEmpty:        "Отзывов пока нет. Будьте первым!",
+    reviewSubmit:        "Оставить отзыв",
+    reviewPlaceholder:   "Ваш отзыв (необязательно)",
+    reviewLoginPrompt:   "Войдите, чтобы оставить отзыв",
+    reviewSuccess:       "Отзыв отправлен — спасибо!",
+    reviewCount:         (n: number) => `${n} ${n === 1 ? "отзыв" : n >= 2 && n <= 4 ? "отзыва" : "отзывов"}`,
   },
 }
