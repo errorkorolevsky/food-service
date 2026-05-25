@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { META_RU, buildAlternates } from "@/lib/seo"
+import { META_RU, BASE_URL, buildAlternates } from "@/lib/seo"
 import { getAllProducts } from "@/lib/db/products"
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title:       "Каталог Food Service — доставка продуктов в Шымкенте",
     description: "Свежие продукты, готовая еда и товары для дома с доставкой 15–30 мин по Шымкенту.",
-    url:         "https://food-service.kz/catalog",
+    url:         `${BASE_URL}/catalog`,
     locale:      "ru_RU",
     alternateLocale: ["kk_KZ"],
   },

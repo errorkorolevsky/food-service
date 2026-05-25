@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { META_RU, buildAlternates } from "@/lib/seo"
+import { META_RU, BASE_URL, buildAlternates } from "@/lib/seo"
 
 export const metadata: Metadata = {
   title:       META_RU.ai.title,
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title:       META_RU.ai.title,
     description: "Умный помощник по закупкам для HoReCa бизнеса.",
-    url:         "https://food-service.kz/ai",
+    url:         `${BASE_URL}/ai`,
     locale:      "ru_RU",
     alternateLocale: ["kk_KZ"],
   },

@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { getProductById } from "@/lib/db/products"
-import { buildAlternates } from "@/lib/seo"
+import { BASE_URL, buildAlternates } from "@/lib/seo"
 
 type Props = { params: Promise<{ id: string }> }
 
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      url:    `https://food-service.kz/product/${id}`,
+      url:    `${BASE_URL}/product/${id}`,
       locale: "ru_RU",
       alternateLocale: ["kk_KZ"],
       ...(product.image ? { images: [{ url: product.image, alt: product.title }] } : {}),

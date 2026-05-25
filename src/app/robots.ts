@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next"
+import { BASE_URL } from "@/lib/seo"
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -9,6 +10,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin", "/api/", "/order/success"],
       },
     ],
-    sitemap: "https://food-service.kz/sitemap.xml",
+    sitemap: `${BASE_URL}/sitemap.xml`,
   }
 }
