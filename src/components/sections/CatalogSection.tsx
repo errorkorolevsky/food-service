@@ -5,7 +5,7 @@ import { useSearchParams, useRouter, usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { SlidersHorizontal, X, ChevronDown, ChevronUp, ChevronLeft, ChevronRight } from "lucide-react"
 
-import SearchBar from "@/components/ui/SearchBar"
+import SearchBar, { type SearchSuggestion } from "@/components/ui/SearchBar"
 import FadeIn from "@/components/ui/FadeIn"
 import ProductCard from "@/components/cards/ProductCard"
 import { useLang } from "@/locales"
@@ -464,6 +464,19 @@ function CatalogInner({ products }: { products: Product[] }) {
     return list
   }, [search, category, sort, onlyNew, onlyStock, onlyDiscount, products, t])
 
+  const suggestions = useMemo<SearchSuggestion[]>(() => {
+    if (search.length < 2) return []
+    const q = search.toLowerCase()
+    return products
+      .filter((p) => p.title.toLowerCase().includes(q) || p.tags?.some((tag) => tag.toLowerCase().includes(q)))
+      .slice(0, 6)
+      .map((p) => ({ id: p.id, title: p.title, emoji: p.emoji, image: p.image, category: p.category, price: p.price }))
+  }, [search, products])
+
+  const handleSuggestionSelect = (s: SearchSuggestion) => {
+    router.push(`/product/${s.id}`)
+  }
+
   const paginated = filtered.slice(0, page * PAGE_SIZE)
   const hasMore   = paginated.length < filtered.length
   const hasFilters = category !== FILTER_ALL || onlyNew || onlyStock || onlyDiscount || sort !== "default"
@@ -512,7 +525,13 @@ function CatalogInner({ products }: { products: Product[] }) {
 
         {/* SEARCH BAR */}
         <FadeIn delay={0.08}>
-          <SearchBar value={search} onChange={handleSearch} placeholder={t.catalog.searchPlaceholder} />
+          <SearchBar
+            value={search}
+            onChange={handleSearch}
+            placeholder={t.catalog.searchPlaceholder}
+            suggestions={suggestions}
+            onSuggestionSelect={handleSuggestionSelect}
+          />
         </FadeIn>
 
         {/* STICKY FILTER BAR */}
