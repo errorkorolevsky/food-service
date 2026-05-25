@@ -184,3 +184,31 @@ CREATE POLICY "Public read reviews" ON reviews
 
 CREATE POLICY "Service role full access reviews" ON reviews
   USING (true) WITH CHECK (true);
+
+-- =============================================================================
+-- ─── PROMO CODES TABLE ────────────────────────────────────────────────────────
+-- =============================================================================
+
+CREATE TABLE IF NOT EXISTS promo_codes (
+  code           text PRIMARY KEY,
+  discount_type  text        NOT NULL CHECK (discount_type IN ('percent', 'fixed')),
+  discount_value integer     NOT NULL CHECK (discount_value > 0),
+  min_order      integer     NOT NULL DEFAULT 0,
+  max_uses       integer,
+  uses           integer     NOT NULL DEFAULT 0,
+  expires_at     timestamptz,
+  is_active      boolean     NOT NULL DEFAULT true,
+  created_at     timestamptz NOT NULL DEFAULT now()
+);
+
+ALTER TABLE promo_codes ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Service role full access promos" ON promo_codes
+  USING (true) WITH CHECK (true);
+
+-- =============================================================================
+-- ─── ORDERS — add promo_code column ──────────────────────────────────────────
+-- =============================================================================
+
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS promo_code text;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS discount   integer NOT NULL DEFAULT 0;

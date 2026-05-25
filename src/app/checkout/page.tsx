@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { CreditCard, Smartphone, Truck, CheckCircle2, ShoppingBag, ArrowRight } from "lucide-react"
+import { CreditCard, Smartphone, Truck, CheckCircle2, ShoppingBag, ArrowRight, Tag, X } from "lucide-react"
 import { useSession } from "next-auth/react"
 
 import Navbar from "@/components/layout/Navbar"
@@ -86,13 +86,39 @@ export default function CheckoutPage() {
   const [deliveryDate, setDeliveryDate] = useState("today")
   const [deliveryTime, setDeliveryTime] = useState(t.checkout.timeSlots[0])
 
+  const [promoInput,   setPromoInput]   = useState("")
+  const [promoLoading, setPromoLoading] = useState(false)
+  const [promoError,   setPromoError]   = useState<string | null>(null)
+  const [appliedPromo, setAppliedPromo] = useState<{ code: string; discount: number } | null>(null)
+
   const router         = useRouter()
   const items          = useCartStore((state) => state.items)
   const getTotalPrice  = useCartStore((state) => state.getTotalPrice)
   const clearCart      = useCartStore((state) => state.clearCart)
   const subtotal       = getTotalPrice()
   const deliveryFee    = calcDelivery(subtotal)
-  const total          = subtotal + deliveryFee
+  const discountAmount = appliedPromo?.discount ?? 0
+  const total          = subtotal + deliveryFee - discountAmount
+
+  const handleApplyPromo = async () => {
+    const code = promoInput.trim()
+    if (!code) return
+    setPromoLoading(true)
+    setPromoError(null)
+    const res = await fetch("/api/promo/validate", {
+      method:  "POST",
+      headers: { "Content-Type": "application/json" },
+      body:    JSON.stringify({ code: code.toUpperCase(), subtotal }),
+    })
+    const data = await res.json()
+    if (res.ok) {
+      setAppliedPromo({ code: data.code, discount: data.amount })
+      setPromoInput("")
+    } else {
+      setPromoError(data.error ?? t.checkout.promoInvalid)
+    }
+    setPromoLoading(false)
+  }
 
   const handleSubmit = async () => {
     if (items.length === 0) return
@@ -117,6 +143,8 @@ export default function CheckoutPage() {
           delivery_date: deliveryDate, delivery_time: deliveryTime,
           items, subtotal, delivery: deliveryFee, total,
           user_email: session?.user?.email ?? null,
+          promo_code: appliedPromo?.code ?? null,
+          discount:   discountAmount,
         }),
       })
 
@@ -406,8 +434,59 @@ export default function CheckoutPage() {
                     </div>
                   )}
 
+                  {/* PROMO CODE */}
+                  <div className="mt-4 pt-4 border-t border-fs-border">
+                    {appliedPromo ? (
+                      <div className="flex items-center justify-between px-3 py-2.5 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800/40 rounded-xl">
+                        <div className="flex items-center gap-2">
+                          <Tag size={12} strokeWidth={1.5} className="text-emerald-600" />
+                          <span className="text-[13px] font-bold text-emerald-700 dark:text-emerald-400 tracking-widest">{appliedPromo.code}</span>
+                          <span className="text-[12px] text-emerald-600 dark:text-emerald-500">−₸{appliedPromo.discount.toLocaleString()}</span>
+                        </div>
+                        <button
+                          onClick={() => { setAppliedPromo(null); setPromoError(null) }}
+                          aria-label={t.checkout.promoRemove}
+                          className="text-emerald-500 hover:text-red-400 transition-colors duration-200"
+                        >
+                          <X size={14} strokeWidth={2} />
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="flex gap-2">
+                        <input
+                          type="text"
+                          placeholder={t.checkout.promoPlaceholder}
+                          value={promoInput}
+                          onChange={(e) => setPromoInput(e.target.value.toUpperCase())}
+                          onKeyDown={(e) => e.key === "Enter" && handleApplyPromo()}
+                          maxLength={30}
+                          className="flex-1 px-4 py-2.5 rounded-xl bg-fs-offwhite border border-fs-border text-[13px] text-fs-graphite placeholder:text-fs-subtle outline-none focus:border-fs-primary/40 transition-colors duration-200 uppercase tracking-widest"
+                        />
+                        <button
+                          onClick={handleApplyPromo}
+                          disabled={!promoInput.trim() || promoLoading}
+                          className="px-4 py-2.5 rounded-xl bg-fs-primary text-white text-[13px] font-bold hover:bg-fs-soft transition-colors duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
+                        >
+                          {promoLoading ? "..." : t.checkout.promoApply}
+                        </button>
+                      </div>
+                    )}
+                    <AnimatePresence>
+                      {promoError && (
+                        <motion.p
+                          initial={{ opacity: 0, y: -4 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0 }}
+                          className="text-[12px] text-red-400 mt-2"
+                        >
+                          {promoError}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
                   {/* TOTALS */}
-                  <div className="mt-5 pt-5 border-t border-fs-border space-y-3">
+                  <div className="mt-4 pt-4 border-t border-fs-border space-y-3">
                     <div className="flex items-center justify-between text-[14px]">
                       <span className="text-fs-gray">{t.cart.subtotal}</span>
                       <span className="text-fs-graphite font-medium">₸{subtotal.toLocaleString()}</span>
@@ -421,6 +500,15 @@ export default function CheckoutPage() {
                         {deliveryFee === 0 ? t.cart.freeDelivery : `₸${deliveryFee.toLocaleString()}`}
                       </span>
                     </div>
+                    {appliedPromo && (
+                      <div className="flex items-center justify-between text-[14px]">
+                        <span className="text-emerald-600 flex items-center gap-1.5">
+                          <Tag size={11} strokeWidth={1.5} />
+                          {t.checkout.promoDiscount}
+                        </span>
+                        <span className="text-emerald-600 font-medium">−₸{discountAmount.toLocaleString()}</span>
+                      </div>
+                    )}
                     <div className="pt-3 border-t border-fs-border flex items-center justify-between">
                       <span className="text-[15px] font-bold text-fs-graphite">{t.cart.total}</span>
                       <span className="text-[22px] font-black text-fs-graphite">
@@ -493,7 +581,10 @@ export default function CheckoutPage() {
         style={{ paddingBottom: "max(env(safe-area-inset-bottom, 0px) + 76px, 80px)" }}>
         <div className="px-4 pt-3 pb-1">
           <div className="flex items-center justify-between mb-2.5">
-            <span className="text-sm text-fs-gray">{t.cart.total}</span>
+            <div>
+              <span className="text-sm text-fs-gray">{t.cart.total}</span>
+              {appliedPromo && <span className="text-[11px] text-emerald-600 ml-2">−₸{discountAmount.toLocaleString()}</span>}
+            </div>
             <span className="text-xl font-black text-fs-graphite">₸{total.toLocaleString()}</span>
           </div>
           <motion.button

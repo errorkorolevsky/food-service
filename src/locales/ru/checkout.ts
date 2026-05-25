@@ -37,5 +37,10 @@ export const ruCheckout = {
     errorSubmit:        "Ошибка при оформлении заказа",
     errorConn:          "Нет соединения с сервером",
     deliveryNote:       "Доставка 15–30 минут по Шымкенту",
+    promoPlaceholder:   "Промокод",
+    promoApply:         "Применить",
+    promoInvalid:       "Промокод недействителен",
+    promoRemove:        "Убрать",
+    promoDiscount:      "Промокод",
   },
 }

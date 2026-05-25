@@ -37,5 +37,10 @@ export const kzCheckout = {
     errorSubmit:        "Тапсырысты рәсімдеуде қате",
     errorConn:          "Серверге қосылу жоқ",
     deliveryNote:       "Шымкент бойынша 15–30 минутта жеткізу",
+    promoPlaceholder:   "Промокод",
+    promoApply:         "Қолдану",
+    promoInvalid:       "Промокод жарамсыз",
+    promoRemove:        "Жою",
+    promoDiscount:      "Промокод",
   },
 }

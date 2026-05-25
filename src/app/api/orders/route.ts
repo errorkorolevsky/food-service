@@ -1,9 +1,17 @@
 import { NextRequest, NextResponse } from "next/server"
 import { z } from "zod"
+import { createClient } from "@supabase/supabase-js"
 import { supabase } from "@/lib/supabase"
 import { sendOrderEmail } from "@/lib/email"
 import { auth } from "@/lib/auth"
 import { rateLimit, getIp } from "@/lib/rateLimiter"
+
+function getAdminClient() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY
+  if (!url || !key || url.includes("placeholder")) return null
+  return createClient(url, key, { auth: { persistSession: false } })
+}
 
 export const dynamic = "force-dynamic"
 
@@ -31,6 +39,8 @@ const CreateOrderSchema = z.object({
   delivery_date: z.string().max(50).optional().nullable(),
   delivery_time: z.string().max(100).optional().nullable(),
   user_email:    z.string().email().optional().nullable(),
+  promo_code:    z.string().max(50).optional().nullable(),
+  discount:      z.number().nonnegative().optional(),
 })
 
 // ─── GET — список заказов для admin panel ────────────────────────────────────
@@ -66,13 +76,28 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Некорректные данные заказа" }, { status: 400 })
   }
 
-  const { company, phone, address, comment, payment, items, subtotal, delivery, total, delivery_date, delivery_time, user_email } = parsed.data
+  const { company, phone, address, comment, payment, items, subtotal, delivery, total, delivery_date, delivery_time, user_email, promo_code, discount } = parsed.data
 
   const { data, error } = await supabase
     .from("orders")
-    .insert({ company, phone, address, comment, payment, items, subtotal, delivery, total, delivery_date, delivery_time, user_email: user_email ?? null, status: "pending" })
+    .insert({
+      company, phone, address, comment, payment, items, subtotal, delivery, total,
+      delivery_date, delivery_time, user_email: user_email ?? null, status: "pending",
+      promo_code: promo_code ?? null, discount: discount ?? 0,
+    })
     .select("id")
     .single()
+
+  if (!error && promo_code) {
+    const adminClient = getAdminClient()
+    if (adminClient) {
+      const upper = promo_code.toUpperCase();
+      (async () => {
+        const { data: p } = await adminClient.from("promo_codes").select("uses").eq("code", upper).single()
+        if (p) await adminClient.from("promo_codes").update({ uses: p.uses + 1 }).eq("code", upper)
+      })().catch(() => null)
+    }
+  }
 
   if (error) {
     console.error("Supabase error:", error)
