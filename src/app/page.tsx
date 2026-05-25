@@ -11,6 +11,7 @@ import NewArrivalsSection from "@/components/sections/NewArrivalsSection";
 import LiveOffersSection from "@/components/sections/LiveOffersSection";
 import AnimatedPromoBanner from "@/components/sections/AnimatedPromoBanner";
 import BusinessSection from "@/components/sections/BusinessSection";
+import RecentlyViewedSection from "@/components/sections/RecentlyViewedSection";
 
 import PromoTicker from "@/components/ui/PromoTicker";
 import FloatingNotification from "@/components/ui/FloatingNotification";
@@ -56,6 +57,9 @@ export default async function HomePage() {
 
         <SectionDivider variant="warm" />
         <NewArrivalsSection products={newProducts} />
+
+        <SectionDivider variant="neutral" />
+        <RecentlyViewedSection />
 
         <SectionDivider variant="neutral" />
         <BusinessSection />
