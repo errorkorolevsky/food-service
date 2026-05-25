@@ -17,5 +17,7 @@ export const ruProduct = {
     aiLabel:      "AI Помощник",
     aiActive:     "Активен",
     aiQuery:      (title: string, category: string) => `Расскажи подробнее о ${title} (${category}). Как использовать, с чем сочетается и сколько нужно для семьи?`,
+    recentlyViewed:      "Вы смотрели",
+    recentlyViewedTitle: "Недавно просмотренные",
   },
 }

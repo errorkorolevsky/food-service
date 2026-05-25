@@ -17,5 +17,7 @@ export const kzProduct = {
     aiLabel:      "AI Көмекші",
     aiActive:     "Белсенді",
     aiQuery:      (title: string, category: string) => `${title} (${category}) туралы толығырақ айтып бер. Қалай қолданылады, немен жарасады және отбасыға қанша қажет?`,
+    recentlyViewed:      "Сіз қарадыңыз",
+    recentlyViewedTitle: "Жақында қаралған",
   },
 }

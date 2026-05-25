@@ -8,6 +8,8 @@ import Link from "next/link"
 import Image from "next/image"
 
 import { useLang } from "@/locales"
+import { CATEGORY_COLORS_BY_NAME } from "@/data/categories"
+import { useRecentlyViewed } from "@/hooks/useRecentlyViewed"
 import { useCartStore } from "@/store/cartStore"
 import { useCartUI } from "@/store/cartUIStore"
 import { useToastStore } from "@/store/toastStore"
@@ -49,6 +51,15 @@ export default function ProductClient({
   const { ref: imgRef, cursor } = useCursorAware<HTMLDivElement>()
   const { t } = useLang()
 
+  const recentlyViewed = useRecentlyViewed({
+    id:       product.id,
+    title:    product.title,
+    emoji:    product.emoji,
+    price:    product.price,
+    category: product.category,
+    image:    product.image,
+  })
+
   const meta = [
     { icon: Clock, label: t.product.delivery,  value: t.product.deliveryTime },
     { icon: Truck, label: t.product.freeFrom,  value: t.product.freeFromVal  },
@@ -73,21 +84,27 @@ export default function ProductClient({
 
       <div className="fs-container py-12">
 
-        {/* BACK */}
+        {/* BREADCRUMB */}
         <FadeIn>
-          <Link
-            href="/catalog"
-            className="
-              inline-flex items-center gap-2
-              text-caption text-fs-gray
-              hover:text-fs-primary
-              transition-colors duration-200
-              mb-10
-            "
-          >
-            <ArrowLeft size={16} strokeWidth={1.5} />
-            {t.catalog.title}
-          </Link>
+          <nav aria-label="breadcrumb" className="flex items-center gap-1.5 text-caption text-fs-gray mb-10 flex-wrap">
+            <Link href="/" className="hover:text-fs-primary transition-colors duration-150">{t.nav.home}</Link>
+            <span className="text-fs-border">/</span>
+            <Link href="/catalog" className="hover:text-fs-primary transition-colors duration-150">{t.catalog.title}</Link>
+            {product.category && (
+              <>
+                <span className="text-fs-border">/</span>
+                <Link
+                  href={`/catalog?category=${encodeURIComponent(product.category)}`}
+                  className="hover:text-fs-primary transition-colors duration-150"
+                  style={{ color: CATEGORY_COLORS_BY_NAME[product.category] ?? undefined }}
+                >
+                  {product.category}
+                </Link>
+              </>
+            )}
+            <span className="text-fs-border">/</span>
+            <span className="text-fs-graphite font-medium truncate max-w-[180px]">{product.title}</span>
+          </nav>
         </FadeIn>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
@@ -375,6 +392,49 @@ export default function ProductClient({
                     isHit={p.isHit}
                     inStock={p.inStock}
                   />
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* RECENTLY VIEWED */}
+        {recentlyViewed.length > 0 && (
+          <div className="mt-24">
+            <FadeIn>
+              <div className="flex items-end justify-between mb-8">
+                <div>
+                  <p className="text-label text-fs-gray uppercase tracking-widest mb-3">{t.product.recentlyViewed}</p>
+                  <h2 className="text-heading text-fs-graphite">{t.product.recentlyViewedTitle}</h2>
+                </div>
+              </div>
+            </FadeIn>
+
+            <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-none">
+              {recentlyViewed.map((item, i) => (
+                <FadeIn key={item.id} delay={0.05 * i}>
+                  <Link href={`/product/${item.id}`} className="flex-shrink-0 w-40 sm:w-48 group">
+                    <motion.div
+                      whileHover={{ y: -4 }}
+                      transition={{ type: "spring", stiffness: 380, damping: 26 }}
+                      className="bg-fs-white border border-fs-border rounded-2xl p-4 flex flex-col gap-3 hover:border-fs-subtle transition-colors duration-200"
+                    >
+                      {item.image ? (
+                        <div className="w-full h-20 rounded-xl overflow-hidden bg-fs-offwhite">
+                          <Image src={item.image} alt={item.title} width={192} height={80}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        </div>
+                      ) : (
+                        <div className="w-full h-20 rounded-xl bg-fs-offwhite flex items-center justify-center text-3xl">
+                          {item.emoji}
+                        </div>
+                      )}
+                      <div>
+                        <p className="text-[12px] font-semibold text-fs-graphite leading-tight line-clamp-2">{item.title}</p>
+                        <p className="text-[13px] font-bold text-fs-primary mt-1">{item.price}</p>
+                      </div>
+                    </motion.div>
+                  </Link>
                 </FadeIn>
               ))}
             </div>
