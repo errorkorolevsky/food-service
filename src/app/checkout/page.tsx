@@ -13,6 +13,7 @@ import Badge from "@/components/ui/Badge"
 import FadeIn from "@/components/ui/FadeIn"
 
 import { useCartStore } from "@/store/cartStore"
+import { ymGoal } from "@/components/ui/YandexMetrica"
 import { useLang } from "@/locales"
 import { calcDelivery } from "@/config/commerce"
 
@@ -159,6 +160,7 @@ export default function CheckoutPage() {
       localStorage.setItem("fs_phone",   phone.trim())
       if (address.trim()) localStorage.setItem("fs_address", address.trim())
       if (company.trim()) localStorage.setItem("fs_company", company.trim())
+      ymGoal("order_placed", { total, payment })
       clearCart()
       router.push(`/order/success?id=${data.id}&payment=${payment}&total=${total}`)
     } catch {
