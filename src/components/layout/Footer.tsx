@@ -156,8 +156,8 @@ export default function Footer() {
             {t.footer.copyright}
           </p>
           <div className="flex items-center gap-6 text-label text-white/40">
-            <span className="hover:text-white/70 cursor-pointer transition-colors duration-200">{t.footer.privacy}</span>
-            <span className="hover:text-white/70 cursor-pointer transition-colors duration-200">{t.footer.terms}</span>
+            <Link href="/privacy" className="hover:text-white/70 transition-colors duration-200">{t.footer.privacy}</Link>
+            <Link href="/terms"   className="hover:text-white/70 transition-colors duration-200">{t.footer.terms}</Link>
           </div>
         </div>
       </div>
