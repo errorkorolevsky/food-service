@@ -199,6 +199,50 @@ export function IconSets({ size = 24, color = "currentColor" }: { size?: number;
   )
 }
 
+export function IconEggs({ size = 24, color = "currentColor" }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 3C8 3 5 7.5 5 12c0 3.9 3.1 7 7 7s7-3.1 7-7c0-4.5-3-9-7-9z" />
+      <path d="M9 12c0-1.7 1.3-3 3-3s3 1.3 3 3" />
+    </svg>
+  )
+}
+
+export function IconOils({ size = 24, color = "currentColor" }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M10 2h4l1 4H9L10 2z" />
+      <path d="M9 6v13a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V6" />
+      <path d="M15 11c1.5 0 3 .5 3 2s-1.5 2-3 2" />
+      <path d="M9 13c-1 0-2 .4-2 1.5S8 16 9 16" />
+      <path d="M11 6c0 1.1.9 2 2 2" />
+    </svg>
+  )
+}
+
+export function IconBaby({ size = 24, color = "currentColor" }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="6" r="3" />
+      <path d="M8 14c0-2.2 1.8-4 4-4s4 1.8 4 4v4H8v-4z" />
+      <path d="M5 12c0 0-1 1-1 3s1 3 1 3" />
+      <path d="M19 12c0 0 1 1 1 3s-1 3-1 3" />
+      <path d="M8 18v2" />
+      <path d="M16 18v2" />
+    </svg>
+  )
+}
+
+export function IconHealthy({ size = 24, color = "currentColor" }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 21C8 17.5 3 14 3 9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5-5 8.5-9 12z" />
+      <path d="M12 21V9" />
+      <path d="M9 12l3-3 3 3" />
+    </svg>
+  )
+}
+
 export const CATEGORY_ICONS: Record<string, React.ComponentType<{ size?: number; color?: string }>> = {
   seafood:       IconSeafood,
   sushi:         IconSushi,
@@ -209,12 +253,16 @@ export const CATEGORY_ICONS: Record<string, React.ComponentType<{ size?: number;
   meat:          IconMeat,
   packaging:     IconPackaging,
   dairy:         IconDairy,
+  eggs:          IconEggs,
   vegetables:    IconVegetables,
   drinks:        IconDrinks,
   confectionery: IconConfectionery,
   grocery:       IconGrocery,
   sauces:        IconSauces,
+  oils:          IconOils,
   snacks:        IconSnacks,
   readyfood:     IconReadyfood,
+  baby:          IconBaby,
+  healthy:       IconHealthy,
   sets:          IconSets,
 }
