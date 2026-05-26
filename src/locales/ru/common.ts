@@ -33,6 +33,11 @@ export const ruCommon = {
     pinSubtitle: "Введите PIN-код для входа",
     pinError:    "Неверный PIN",
   },
+  pwa: {
+    title:    "Установить приложение",
+    subtitle: "Быстрый доступ с рабочего стола",
+    install:  "Установить",
+  },
   close:      "Закрыть",
   refresh:    "Обновить",
   deleteChar: "Удалить",

@@ -1,15 +1,21 @@
 {
-  "name": "Food Service — AI HoReCa",
+  "name": "Food Service — Продукты с доставкой",
   "short_name": "Food Service",
-  "description": "AI-powered поставки продуктов для HoReCa бизнеса в Шымкенте",
+  "description": "Свежие продукты и готовая еда с доставкой на дом в Шымкенте",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0a0a",
-  "theme_color": "#0a0a0a",
+  "theme_color": "#005B46",
   "orientation": "portrait-primary",
   "lang": "ru",
-  "categories": ["food", "business", "shopping"],
+  "categories": ["food", "shopping", "lifestyle"],
   "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
     {
       "src": "/icons/icon-192.png",
       "sizes": "192x192",
@@ -28,13 +34,13 @@
       "name": "Каталог",
       "short_name": "Каталог",
       "url": "/catalog",
-      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+      "icons": [{ "src": "/icons/icon.svg", "sizes": "any" }]
     },
     {
       "name": "AI Ассистент",
       "short_name": "AI",
       "url": "/ai",
-      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+      "icons": [{ "src": "/icons/icon.svg", "sizes": "any" }]
     }
   ]
 }

@@ -33,6 +33,11 @@ export const kzCommon = {
     pinSubtitle: "Кіру үшін PIN-код енгізіңіз",
     pinError:    "Қате PIN",
   },
+  pwa: {
+    title:    "Қолданбаны орнату",
+    subtitle: "Жұмыс үстелінен жылдам кіру",
+    install:  "Орнату",
+  },
   close:      "Жабу",
   refresh:    "Жаңарту",
   deleteChar: "Жою",
