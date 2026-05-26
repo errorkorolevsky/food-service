@@ -12,9 +12,9 @@ export const ruFooter = {
     },
     links: {
       seafood:      "Рыба и морепродукты",
-      sushi:        "Суши ингредиенты",
-      coffee:       "Кофе и бар",
-      confectionery:"Кондитерское",
+      meat:         "Мясо и птица",
+      coffee:       "Кофе, чай и какао",
+      confectionery:"Кондитерские изделия",
       packaging:    "Упаковка HoReCa",
       ai:           "AI рекомендации",
       catalog:      "Каталог",

@@ -12,9 +12,9 @@ export const kzFooter = {
     },
     links: {
       seafood:      "Балық және теңіз өнімдері",
-      sushi:        "Суши ингредиенттері",
-      coffee:       "Кофе және бар",
-      confectionery:"Кондитерлік",
+      meat:         "Ет және құс",
+      coffee:       "Кофе, шай және какао",
+      confectionery:"Кондитерлік өнімдер",
       packaging:    "Орама HoReCa",
       ai:           "AI ұсыныстар",
       catalog:      "Каталог",
