@@ -108,7 +108,7 @@ function buildEmailHtml({
         <!-- FOOTER -->
         <tr><td style="padding-top:24px;text-align:center;">
           <p style="color:#4b5563;font-size:12px;margin:0;">
-            Food Service — AI HoReCa Ecosystem · Шымкент<br>
+            Food Service Kazakhstan · Шымкент<br>
             <a href="${trackingUrl}" style="color:#6b7280;">Отслеживание заказа</a>
           </p>
         </td></tr>
@@ -160,7 +160,7 @@ function buildMagicLinkHtml(url: string) {
         </td></tr>
 
         <tr><td style="padding-top:24px;text-align:center;">
-          <p style="color:#4b5563;font-size:12px;margin:0;">Food Service — AI HoReCa Ecosystem · Шымкент</p>
+          <p style="color:#4b5563;font-size:12px;margin:0;">Food Service Kazakhstan · Шымкент</p>
         </td></tr>
 
       </table>

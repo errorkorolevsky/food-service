@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Профиль — Food Service",
-  description: "Ваш профиль и история заказов в Food Service HoReCa платформе.",
+  description: "Ваш профиль, история заказов и избранные товары в Food Service Kazakhstan.",
   robots: { index: false, follow: false },
 }
 

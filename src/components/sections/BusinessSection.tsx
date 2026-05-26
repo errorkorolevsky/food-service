@@ -104,7 +104,7 @@ export default function BusinessSection() {
             className="mt-16 flex items-center gap-4 opacity-20"
           >
             <div className="flex-1 h-px bg-gradient-to-r from-transparent to-white/40" />
-            <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">HoReCa</span>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">B2B</span>
             <div className="flex-1 h-px bg-gradient-to-l from-transparent to-white/40" />
           </motion.div>
         </motion.div>

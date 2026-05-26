@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   alternates:  buildAlternates("/ai"),
   openGraph: {
     title:       META_RU.ai.title,
-    description: "Умный помощник по закупкам для HoReCa бизнеса.",
+    description: "AI ассистент Food Service — подбор продуктов, рекомендации и ответы на вопросы о каталоге.",
     url:         `${BASE_URL}/ai`,
     locale:      "ru_RU",
     alternateLocale: ["kk_KZ"],

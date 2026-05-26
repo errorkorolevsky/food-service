@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Оформление заказа — Food Service",
-  description: "Оформите заказ на доставку HoReCa продуктов и ингредиентов для вашего ресторана или кофейни.",
+  description: "Оформите заказ на доставку свежих продуктов на дом по Шымкенту — быстро и удобно.",
   robots: { index: false, follow: false },
 }
 

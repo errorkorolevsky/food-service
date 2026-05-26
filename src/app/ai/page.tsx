@@ -408,7 +408,7 @@ function AIPageInner() {
         stats={[
           { value: "AI",     label: t.ai.statAI      },
           { value: "500+",   label: t.ai.statsItems   },
-          { value: "HoReCa", label: t.ai.statsSpec    },
+          { value: "24/7",   label: t.ai.statsSpec    },
         ]}
       />
       <CartDrawer />
