@@ -715,7 +715,7 @@ function ActivityLog({ orders, locale }: { orders: DbOrder[]; locale: string }) 
 
 // ─── TAB BAR ─────────────────────────────────────────────────────────────────
 
-type Tab = "orders" | "analytics" | "couriers" | "promos" | "products"
+type Tab = "orders" | "analytics" | "couriers" | "promos" | "products" | "reviews"
 
 const TABS: { value: Tab; label: string; icon: React.ElementType }[] = [
   { value: "orders",    label: "Заказы",    icon: ShoppingBag },
@@ -723,6 +723,7 @@ const TABS: { value: Tab; label: string; icon: React.ElementType }[] = [
   { value: "couriers",  label: "Курьеры",   icon: Truck       },
   { value: "promos",    label: "Промокоды", icon: Tag         },
   { value: "products",  label: "Продукты",  icon: Package     },
+  { value: "reviews",   label: "Отзывы",    icon: Star        },
 ]
 
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
@@ -850,6 +851,34 @@ export default function AdminPage() {
   const filteredAdminProducts = adminProducts.filter((p) =>
     !productSearch || p.title.toLowerCase().includes(productSearch.toLowerCase()) || p.category.toLowerCase().includes(productSearch.toLowerCase())
   )
+
+  type AdminReview = { id: string; product_id: string; user_email: string; user_name: string | null; rating: number; text: string | null; created_at: string }
+  const [adminReviews,        setAdminReviews]        = useState<AdminReview[]>([])
+  const [adminReviewsLoading, setAdminReviewsLoading] = useState(false)
+
+  const fetchAdminReviews = useCallback(async () => {
+    setAdminReviewsLoading(true)
+    const res = await fetch("/api/admin/reviews")
+    if (res.ok) {
+      const data = await res.json()
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setAdminReviews(data.reviews ?? [])
+    }
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setAdminReviewsLoading(false)
+  }, [])
+
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => { if (tab === "reviews" && unlocked) fetchAdminReviews() }, [tab, unlocked, fetchAdminReviews])
+
+  const handleDeleteReview = async (id: string) => {
+    setAdminReviews((prev) => prev.filter((r) => r.id !== id))
+    await fetch("/api/admin/reviews", {
+      method:  "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body:    JSON.stringify({ id }),
+    })
+  }
 
   const fetchOrders = useCallback(async () => {
     setLoading(true)
@@ -1498,6 +1527,83 @@ export default function AdminPage() {
                   ))}
                 </div>
               )}
+            </div>
+          </FadeIn>
+        )}
+
+        {/* TAB: REVIEWS */}
+        {tab === "reviews" && (
+          <FadeIn delay={0.1}>
+            <div className="bg-white dark:bg-[#1a1a2e] border border-fs-border rounded-3xl shadow-sm overflow-hidden">
+              <div className="px-7 py-5 border-b border-fs-border flex items-center justify-between gap-4">
+                <div>
+                  <h2 className="text-[18px] font-bold text-fs-graphite">Отзывы</h2>
+                  {!adminReviewsLoading && (
+                    <p className="text-[12px] text-fs-gray mt-0.5">{adminReviews.length} отзывов</p>
+                  )}
+                </div>
+              </div>
+
+              <div className="px-7 py-5">
+                {adminReviewsLoading ? (
+                  <div className="space-y-3">
+                    {[1,2,3,4].map((i) => <div key={i} className="h-20 skeleton-green rounded-2xl animate-pulse" />)}
+                  </div>
+                ) : adminReviews.length === 0 ? (
+                  <div className="text-center py-16">
+                    <div className="w-12 h-12 bg-fs-offwhite rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <Star size={20} strokeWidth={1} className="text-fs-muted" />
+                    </div>
+                    <p className="text-[15px] text-fs-gray">Отзывов пока нет</p>
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    {adminReviews.map((r) => (
+                      <motion.div key={r.id} layout
+                        className="bg-fs-white border border-fs-border rounded-2xl px-5 py-4 flex items-start gap-4"
+                      >
+                        <div className="w-9 h-9 rounded-xl bg-amber-50 flex items-center justify-center flex-shrink-0">
+                          <span className="text-[13px] font-bold text-amber-600">
+                            {(r.user_name ?? r.user_email)[0]?.toUpperCase()}
+                          </span>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2.5 flex-wrap mb-1">
+                            <span className="text-[13px] font-semibold text-fs-graphite">
+                              {r.user_name ?? r.user_email.split("@")[0]}
+                            </span>
+                            <div className="flex gap-0.5">
+                              {[1,2,3,4,5].map((s) => (
+                                <Star key={s} size={11}
+                                  fill={s <= r.rating ? "currentColor" : "none"}
+                                  strokeWidth={1.5}
+                                  className="text-amber-400"
+                                />
+                              ))}
+                            </div>
+                            <span className="text-[11px] text-fs-muted">
+                              {new Date(r.created_at).toLocaleDateString("ru-RU")}
+                            </span>
+                            <span className="text-[10px] text-fs-subtle font-mono truncate max-w-[120px]">
+                              {r.product_id.slice(-8)}
+                            </span>
+                          </div>
+                          {r.text && (
+                            <p className="text-[13px] text-fs-gray leading-relaxed">{r.text}</p>
+                          )}
+                        </div>
+                        <button
+                          onClick={() => handleDeleteReview(r.id)}
+                          aria-label="Удалить отзыв"
+                          className="flex-shrink-0 w-8 h-8 rounded-xl flex items-center justify-center text-fs-subtle hover:text-red-400 hover:bg-red-50 transition-all duration-150"
+                        >
+                          <X size={14} strokeWidth={2} />
+                        </button>
+                      </motion.div>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </FadeIn>
         )}
