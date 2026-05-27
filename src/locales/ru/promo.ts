@@ -22,6 +22,7 @@ export const ruPromo = {
     viewAll:         "Все акции",
     prevBanner:      "Предыдущий баннер",
     nextBanner:      "Следующий баннер",
+    dealsTimerLabel: "Предложение действует ещё",
   },
   sections: {
     popular:        "Популярное сейчас",

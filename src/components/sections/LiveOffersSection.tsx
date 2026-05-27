@@ -1,9 +1,9 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 import Link from "next/link"
-import { motion } from "framer-motion"
-import { ArrowRight, Flame, ChevronLeft, ChevronRight } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ArrowRight, Flame, ChevronLeft, ChevronRight, Clock } from "lucide-react"
 
 import ProductCard from "@/components/cards/ProductCard"
 import FadeIn from "@/components/ui/FadeIn"
@@ -11,10 +11,56 @@ import SectionTitle from "@/components/ui/SectionTitle"
 import { useLang } from "@/locales"
 import type { Product } from "@/types"
 
+// ─── COUNTDOWN TIMER ─────────────────────────────────────────────────────────
+
+function getMsUntilMidnightAlmaty(): number {
+  // Shymkent is UTC+5 (same as Almaty)
+  const now = new Date()
+  const utcMs = now.getTime() + now.getTimezoneOffset() * 60_000
+  const almatyMs = utcMs + 5 * 60 * 60_000
+  const almaty = new Date(almatyMs)
+  const nextMidnight = new Date(almaty)
+  nextMidnight.setHours(24, 0, 0, 0)
+  return nextMidnight.getTime() - almaty.getTime()
+}
+
+function DealsCountdown({ label }: { label: string }) {
+  const [remaining, setRemaining] = useState(getMsUntilMidnightAlmaty)
+
+  useEffect(() => {
+    const id = setInterval(() => setRemaining(getMsUntilMidnightAlmaty()), 1000)
+    return () => clearInterval(id)
+  }, [])
+
+  const h = String(Math.floor(remaining / 3_600_000)).padStart(2, "0")
+  const m = String(Math.floor((remaining % 3_600_000) / 60_000)).padStart(2, "0")
+  const s = String(Math.floor((remaining % 60_000) / 1000)).padStart(2, "0")
+
+  return (
+    <div className="flex items-center gap-2 bg-red-50 border border-red-100 rounded-xl px-3 py-1.5">
+      <Clock size={12} strokeWidth={1.5} className="text-red-400 flex-shrink-0" />
+      <span className="text-[11px] text-red-500 font-medium">{label}</span>
+      <div className="flex items-center gap-0.5 font-black text-[13px] text-red-600 tabular-nums">
+        <AnimatePresence mode="popLayout">
+          <motion.span key={h} initial={{ y: -6, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 6, opacity: 0 }} transition={{ duration: 0.2 }}>{h}</motion.span>
+        </AnimatePresence>
+        <span>:</span>
+        <AnimatePresence mode="popLayout">
+          <motion.span key={m} initial={{ y: -6, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 6, opacity: 0 }} transition={{ duration: 0.2 }}>{m}</motion.span>
+        </AnimatePresence>
+        <span>:</span>
+        <AnimatePresence mode="popLayout">
+          <motion.span key={s} initial={{ y: -6, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 6, opacity: 0 }} transition={{ duration: 0.2 }}>{s}</motion.span>
+        </AnimatePresence>
+      </div>
+    </div>
+  )
+}
+
 export default function LiveOffersSection({ products }: { products: Product[] }) {
   const saleProducts = products
-  const { t }     = useLang()
-  const scrollRef = useRef<HTMLDivElement>(null)
+  const { t }        = useLang()
+  const scrollRef    = useRef<HTMLDivElement>(null)
 
   const scrollBy = (dir: 1 | -1) => {
     scrollRef.current?.scrollBy({ left: dir * 320, behavior: "smooth" })
@@ -64,7 +110,8 @@ export default function LiveOffersSection({ products }: { products: Product[] })
               />
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 flex-wrap justify-end">
+              <DealsCountdown label={t.promo.dealsTimerLabel} />
               <div className="hidden sm:flex items-center gap-1">
                 <motion.button
                   onClick={() => scrollBy(-1)}

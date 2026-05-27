@@ -22,6 +22,7 @@ export const kzPromo = {
     viewAll:         "Барлық акциялар",
     prevBanner:      "Алдыңғы баннер",
     nextBanner:      "Келесі баннер",
+    dealsTimerLabel: "Ұсыныс әлі де жарамды",
   },
   sections: {
     popular:        "Қазір танымал",
