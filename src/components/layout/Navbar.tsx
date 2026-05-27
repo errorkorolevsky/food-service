@@ -27,7 +27,8 @@ export default function Navbar() {
   const pathname          = usePathname()
   const { data: session } = useSession()
   const favCount          = useFavoritesStore((state) => state.ids.length)
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled,        setScrolled]        = useState(false)
+  const [hasActiveOrders, setHasActiveOrders] = useState(false)
   const { lang, setLang, t }    = useLang()
 
   const { scrollYProgress } = useScroll()
@@ -38,6 +39,19 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
+
+  useEffect(() => {
+    const identifier = session?.user?.email ?? (typeof window !== "undefined" ? localStorage.getItem("fs_phone") : null)
+    if (!identifier) return
+    fetch(`/api/orders/track?q=${encodeURIComponent(identifier)}`)
+      .then((r) => r.ok ? r.json() : [])
+      .then((data: { status: string }[]) => {
+        if (Array.isArray(data)) {
+          setHasActiveOrders(data.some((o) => o.status === "processing" || o.status === "in_delivery"))
+        }
+      })
+      .catch(() => {})
+  }, [session])
 
   return (
     <header className={`
@@ -98,6 +112,9 @@ export default function Navbar() {
                     ">
                       {favCount > 99 ? "99+" : favCount}
                     </span>
+                  )}
+                  {href === "/tracking" && hasActiveOrders && (
+                    <span className="absolute -top-0.5 -right-0.5 z-20 w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse border-2 border-transparent" />
                   )}
                 </Link>
               </MagneticDiv>

@@ -2,8 +2,10 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Home, Grid3x3, Zap, User, Heart } from "lucide-react"
+import { useSession } from "next-auth/react"
 
 import { useFavoritesStore } from "@/store/favoritesStore"
 import { useLang } from "@/locales"
@@ -12,9 +14,24 @@ import ThemeToggle from "@/components/ui/ThemeToggle"
 const HIDDEN_PATHS = ["/admin", "/checkout", "/login", "/order/success"]
 
 export default function MobileNav() {
-  const pathname  = usePathname()
-  const favCount  = useFavoritesStore((state) => state.ids.length)
+  const pathname          = usePathname()
+  const { data: session } = useSession()
+  const favCount          = useFavoritesStore((state) => state.ids.length)
   const { t, lang, setLang } = useLang()
+  const [hasActiveOrders, setHasActiveOrders] = useState(false)
+
+  useEffect(() => {
+    const identifier = session?.user?.email ?? (typeof window !== "undefined" ? localStorage.getItem("fs_phone") : null)
+    if (!identifier) return
+    fetch(`/api/orders/track?q=${encodeURIComponent(identifier)}`)
+      .then((r) => r.ok ? r.json() : [])
+      .then((data: { status: string }[]) => {
+        if (Array.isArray(data)) {
+          setHasActiveOrders(data.some((o) => o.status === "processing" || o.status === "in_delivery"))
+        }
+      })
+      .catch(() => {})
+  }, [session])
 
   if (HIDDEN_PATHS.some(p => pathname === p || pathname.startsWith(p + "/"))) return null
 
@@ -121,6 +138,11 @@ export default function MobileNav() {
                       {favCount > 99 ? "99+" : favCount}
                     </motion.span>
                   </AnimatePresence>
+                )}
+
+                {/* ACTIVE ORDER DOT — on profile link */}
+                {href === "/profile" && hasActiveOrders && !isActive && (
+                  <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 )}
               </motion.div>
 
