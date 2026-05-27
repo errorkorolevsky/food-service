@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { Search, Package, MapPin, Phone, MessageSquare, RefreshCw, Wifi } from "lucide-react"
+import { Search, Package, MapPin, Phone, MessageSquare, RefreshCw, Wifi, RotateCcw } from "lucide-react"
 
 import Navbar from "@/components/layout/Navbar"
 import CartDrawer from "@/components/layout/CartDrawer"
@@ -14,6 +14,8 @@ import FadeIn from "@/components/ui/FadeIn"
 import PageHero from "@/components/ui/PageHero"
 import { supabase } from "@/lib/supabase"
 import { useLang } from "@/locales"
+import { useCartStore } from "@/store/cartStore"
+import { useCartUI } from "@/store/cartUIStore"
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
 
@@ -107,9 +109,20 @@ function useRealtimeOrder(
 
 function OrderCard({ order: initial }: { order: DbOrder }) {
   const { t, lang } = useLang()
+  const addItem  = useCartStore((state) => state.addItem)
+  const openCart = useCartUI((state) => state.openCart)
   const [order,   setOrder]   = useState<DbOrder>(initial)
   const [flash,   setFlash]   = useState(false)
   const [online,  setOnline]  = useState(false)
+
+  const handleRepeat = () => {
+    order.items.forEach((item) => {
+      for (let i = 0; i < item.quantity; i++) {
+        addItem({ id: item.id, title: item.title, price: item.price, emoji: item.emoji })
+      }
+    })
+    openCart()
+  }
 
   // Subscribe to realtime updates for this order
   useRealtimeOrder(order.id, (updated) => {
@@ -156,9 +169,20 @@ function OrderCard({ order: initial }: { order: DbOrder }) {
             </div>
           )}
         </div>
-        <div className="text-right">
-          <p className="text-title font-black text-fs-graphite">₸{order.total.toLocaleString()}</p>
-          <p className="text-label text-fs-gray mt-1">{formatDate(order.created_at, lang)}</p>
+        <div className="flex items-center gap-3">
+          {order.status === "delivered" && (
+            <button
+              onClick={handleRepeat}
+              className="flex items-center gap-1.5 text-caption text-fs-gray hover:text-fs-primary transition-colors"
+            >
+              <RotateCcw size={13} strokeWidth={1.5} />
+              {t.profile.repeatOrder}
+            </button>
+          )}
+          <div className="text-right">
+            <p className="text-title font-black text-fs-graphite">₸{order.total.toLocaleString()}</p>
+            <p className="text-label text-fs-gray mt-1">{formatDate(order.created_at, lang)}</p>
+          </div>
         </div>
       </div>
 
