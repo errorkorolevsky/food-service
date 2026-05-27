@@ -12,6 +12,7 @@ import { useLang } from "@/locales"
 import type { Translations } from "@/locales/ru"
 
 import { plural } from "@/lib/utils"
+import { CATEGORY_INFO_BY_NAME, CATEGORY_COLORS_BY_NAME } from "@/data/categories"
 import type { Product, ProductCategory } from "@/types"
 
 // ─── CONSTANTS ──────────────────────────────────────────────────────────────
@@ -808,6 +809,35 @@ function CatalogInner({ products }: { products: Product[] }) {
             />
           </motion.div>
         </div>
+
+        {/* CATEGORY BANNER */}
+        <AnimatePresence>
+          {category !== FILTER_ALL && (() => {
+            const info  = CATEGORY_INFO_BY_NAME[category]
+            const color = CATEGORY_COLORS_BY_NAME[category] ?? "#005B46"
+            if (!info) return null
+            return (
+              <motion.div
+                key={`cat-banner-${category}`}
+                initial={{ opacity: 0, y: -8, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -8, scale: 0.98 }}
+                transition={{ duration: 0.22, ease: [0, 0, 0.2, 1] }}
+                className="mt-5 px-5 py-4 rounded-2xl border flex items-center gap-4"
+                style={{ background: `${color}0d`, borderColor: `${color}30` }}
+              >
+                <span className="text-3xl flex-shrink-0">{info.emoji}</span>
+                <div className="flex-1 min-w-0">
+                  <p className="text-[15px] font-bold text-fs-graphite">{category}</p>
+                  <p className="text-[13px] text-fs-gray mt-0.5 truncate">{info.description}</p>
+                </div>
+                <span className="text-[13px] font-semibold flex-shrink-0" style={{ color }}>
+                  {countLabel}
+                </span>
+              </motion.div>
+            )
+          })()}
+        </AnimatePresence>
 
         {/* GRID */}
         <div className="mt-6 sm:mt-10">

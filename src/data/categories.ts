@@ -85,3 +85,10 @@ export const CATEGORY_COLORS_BY_NAME: Record<string, string> = Object.fromEntrie
     .filter(([, name]) => name)
     .map(([id, name]) => [name, CATEGORY_COLORS[id] ?? "#005B46"])
 )
+
+// Maps Russian display name → { emoji, description }
+export const CATEGORY_INFO_BY_NAME: Record<string, { emoji: string; description: string }> = Object.fromEntries(
+  categories
+    .filter((c) => CATEGORY_FILTER[c.id])
+    .map((c) => [CATEGORY_FILTER[c.id], { emoji: c.emoji, description: c.description }])
+)
