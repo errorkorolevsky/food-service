@@ -29,5 +29,11 @@ export const kzOrder = {
       freedom: "Freedom Pay",
       cash:    "Қолма-қол",
     },
+    welcome: {
+      reorderTitle: "Тапсырысты қайталау?",
+      items:        "тауар",
+      trackBtn:     "Бақылау",
+      reorderBtn:   "Қайталау",
+    },
   },
 }

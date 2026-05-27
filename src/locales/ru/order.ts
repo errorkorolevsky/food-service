@@ -29,5 +29,11 @@ export const ruOrder = {
       freedom: "Freedom Pay",
       cash:    "Наличные",
     },
+    welcome: {
+      reorderTitle: "Повторить заказ?",
+      items:        "тов.",
+      trackBtn:     "Отследить",
+      reorderBtn:   "Повторить",
+    },
   },
 }
