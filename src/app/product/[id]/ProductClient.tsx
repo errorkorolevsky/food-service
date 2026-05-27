@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useRouter } from "next/navigation"
 import { useSession } from "next-auth/react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -48,8 +48,21 @@ export default function ProductClient({
   const isFav     = useFavoritesStore((state) => state.isFav)
   const favorited = isFav(product.id)
 
-  const [imgError,    setImgError]    = useState(false)
-  const [shareCopied, setShareCopied] = useState(false)
+  const [imgError,       setImgError]       = useState(false)
+  const [shareCopied,    setShareCopied]    = useState(false)
+  const [showStickyBar,  setShowStickyBar]  = useState(false)
+  const actionsRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = actionsRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowStickyBar(!entry.isIntersecting),
+      { threshold: 0 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   const { ref: imgRef, cursor } = useCursorAware<HTMLDivElement>()
   const { t, lang } = useLang()
@@ -305,7 +318,7 @@ export default function ProductClient({
               <div className="border-t border-fs-border" />
 
               {/* ACTIONS */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div ref={actionsRef} className="flex flex-col sm:flex-row gap-4">
                 <AnimatePresence mode="wait">
                   {quantity === 0 ? (
                     <motion.div
@@ -673,6 +686,63 @@ export default function ProductClient({
       </div>
 
       <Footer />
+
+      {/* STICKY BUY BAR — mobile only, appears when main CTA scrolls out of view */}
+      <AnimatePresence>
+        {showStickyBar && (
+          <motion.div
+            key="sticky-bar"
+            initial={{ y: 80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 80, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 360, damping: 32 }}
+            className="fixed bottom-20 left-4 right-4 z-40 lg:hidden"
+          >
+            <div className="
+              bg-white/95 dark:bg-[#1C2128]/95 backdrop-blur-xl
+              border border-white/60 dark:border-white/10
+              rounded-2xl px-4 py-3
+              shadow-[0_8px_32px_rgba(0,0,0,0.14)]
+              flex items-center gap-3
+            ">
+              <span className="text-2xl flex-shrink-0">{product.emoji}</span>
+              <div className="flex-1 min-w-0">
+                <p className="text-[13px] font-bold text-fs-graphite dark:text-white truncate leading-tight">
+                  {product.title}
+                </p>
+                <p className="text-[12px] font-black text-fs-primary mt-0.5">{product.price}</p>
+              </div>
+
+              {quantity === 0 ? (
+                <Button size="sm" onClick={handleAdd} className="flex-shrink-0">
+                  <ShoppingCart size={15} strokeWidth={1.5} />
+                  {t.product.addToCart}
+                </Button>
+              ) : (
+                <div className="flex items-center gap-2 flex-shrink-0">
+                  <button
+                    onClick={() => decreaseQuantity(product.id)}
+                    aria-label={t.cart.decrease}
+                    className="w-8 h-8 rounded-lg bg-fs-offwhite border border-fs-border flex items-center justify-center text-fs-graphite"
+                  >
+                    <Minus size={14} strokeWidth={2} />
+                  </button>
+                  <span className="w-5 text-center text-[14px] font-black text-fs-graphite dark:text-white">
+                    {quantity}
+                  </span>
+                  <button
+                    onClick={() => increaseQuantity(product.id)}
+                    aria-label={t.cart.increase}
+                    className="w-8 h-8 rounded-lg bg-fs-primary text-white flex items-center justify-center"
+                  >
+                    <Plus size={14} strokeWidth={2} />
+                  </button>
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   )
 }
