@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 import { supabase } from "@/lib/supabase"
 import { sendOrderEmail } from "@/lib/email"
+import { notifyTelegramStatusChange } from "@/lib/telegram"
 import { auth } from "@/lib/auth"
 
 export const dynamic = "force-dynamic"
@@ -36,7 +37,7 @@ export async function PATCH(
   // Отправляем email уведомление если у заказа есть email
   const { data: order } = await supabase
     .from("orders")
-    .select("user_email, items, total, address")
+    .select("user_email, phone, items, total, address")
     .eq("id", id)
     .single()
 
@@ -48,6 +49,14 @@ export async function PATCH(
       items:   order.items,
       total:   order.total,
       address: order.address,
+    }).catch(console.error)
+  }
+
+  if (order?.phone) {
+    notifyTelegramStatusChange({
+      orderId: id,
+      status,
+      phone:   order.phone,
     }).catch(console.error)
   }
 

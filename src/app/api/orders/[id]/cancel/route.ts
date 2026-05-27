@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { supabase } from "@/lib/supabase"
+import { notifyTelegramStatusChange } from "@/lib/telegram"
 
 export const dynamic = "force-dynamic"
 
@@ -49,6 +50,13 @@ export async function POST(
   if (updateErr) {
     return NextResponse.json({ error: updateErr.message }, { status: 500 })
   }
+
+  notifyTelegramStatusChange({
+    orderId:             id,
+    status:              "cancelled",
+    phone:               order.phone,
+    cancelledByCustomer: true,
+  }).catch(console.error)
 
   return NextResponse.json({ ok: true })
 }
