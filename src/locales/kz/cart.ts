@@ -26,5 +26,9 @@ export const kzCart = {
     recommended:      "Бұлармен алады",
     add:              "Себетке",
     savings:          "Үнемдеу",
+    noteAdd:          "Тілек қосу",
+    notePlaceholder:  "Тапсырысқа тілек (пияз жоқ, жақсы қуыру...)",
+    noteSave:         "Сақтау",
+    noteCancel:       "Болдырмау",
   },
 }

@@ -26,5 +26,9 @@ export const ruCart = {
     recommended:      "С этим берут",
     add:              "В корзину",
     savings:          "Вы экономите",
+    noteAdd:          "Добавить комментарий",
+    notePlaceholder:  "Пожелания к заказу (без лука, хорошо прожарить...)",
+    noteSave:         "Сохранить",
+    noteCancel:       "Отмена",
   },
 }

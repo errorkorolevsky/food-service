@@ -65,6 +65,7 @@ export type CartItem = {
   emoji:     string
   image?:    string
   quantity:  number
+  note?:     string
 }
 
 // ─── ORDER ───────────────────────────────────────────────────────────────────

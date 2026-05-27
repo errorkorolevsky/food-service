@@ -20,6 +20,8 @@ type CartStore = {
 
   decreaseQuantity: (id: string) => void
 
+  setItemNote: (id: string, note: string) => void
+
   clearCart: () => void
 
   getTotalPrice: () => number
@@ -94,6 +96,14 @@ export const useCartStore = create<CartStore>()(
                 : item
             )
             .filter((item) => item.quantity > 0),
+        })
+      },
+
+      setItemNote: (id, note) => {
+        set({
+          items: get().items.map((item) =>
+            item.id === id ? { ...item, note: note.trim() || undefined } : item
+          ),
         })
       },
 

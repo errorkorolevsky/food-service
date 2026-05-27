@@ -4,7 +4,7 @@ import { useSyncExternalStore, useState, useEffect, useCallback } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { X, ShoppingBag, Minus, Plus, Trash2, ArrowRight } from "lucide-react"
+import { X, ShoppingBag, Minus, Plus, Trash2, ArrowRight, MessageSquare } from "lucide-react"
 
 import { useCartStore } from "@/store/cartStore"
 import { useCartUI } from "@/store/cartUIStore"
@@ -65,6 +65,214 @@ function pluralizeItems(n: number, forms: [string, string, string]): string {
   return forms[2]
 }
 
+// ─── CART ITEM ROW with note support ─────────────────────────────────────────
+
+function CartItemRow({
+  item,
+  onDecrease,
+  onIncrease,
+  onRemove,
+  onNoteChange,
+}: {
+  item: CartItem
+  onDecrease: () => void
+  onIncrease: () => void
+  onRemove: () => void
+  onNoteChange: (note: string) => void
+}) {
+  const { t } = useLang()
+  const [noteOpen, setNoteOpen] = useState(false)
+  const [noteValue, setNoteValue] = useState(item.note ?? "")
+
+  const handleNoteSave = () => {
+    onNoteChange(noteValue)
+    setNoteOpen(false)
+  }
+
+  const handleNoteCancel = () => {
+    setNoteValue(item.note ?? "")
+    setNoteOpen(false)
+  }
+
+  return (
+    <motion.div
+      layoutId={`cart-item-${item.id}`}
+      layout="position"
+      initial={{ opacity: 0, y: 12, scale: 0.97 }}
+      animate={{ opacity: 1, y: 0,  scale: 1    }}
+      exit={{ opacity: 0, x: 56, scale: 0.93, height: 0, marginTop: 0, paddingTop: 0, paddingBottom: 0 }}
+      transition={{ layout: { type: "spring", stiffness: 340, damping: 28 }, duration: 0.22 }}
+      className="bg-fs-offwhite border border-fs-border rounded-xl p-4"
+    >
+      <div className="flex items-start gap-4">
+
+        {/* THUMBNAIL */}
+        <ItemThumbnail image={item.image} title={item.title} emoji={item.emoji} />
+
+        {/* INFO */}
+        <div className="flex-1 min-w-0">
+          <h4 className="text-sm font-semibold text-fs-graphite leading-snug">
+            {item.title}
+          </h4>
+
+          <p className="text-sm font-bold text-fs-primary mt-1">
+            <MorphNumber value={item.price} prefix="₸" />
+          </p>
+
+          {/* QUANTITY + NOTE TOGGLE */}
+          <div className="flex items-center gap-2 mt-3">
+            <motion.button
+              onClick={onDecrease}
+              aria-label={t.cart.decrease}
+              whileHover={{ scale: 1.12 }}
+              whileTap={{ scale: 0.88 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
+              className="
+                w-7 h-7 rounded-md
+                border border-fs-border bg-fs-white
+                flex items-center justify-center
+                text-fs-gray hover:text-fs-graphite hover:border-fs-primary/30
+                transition-colors duration-150
+              "
+            >
+              <Minus size={12} strokeWidth={2.5} />
+            </motion.button>
+
+            <span className="text-sm font-bold text-fs-graphite w-7 text-center flex justify-center">
+              <MorphNumber value={item.quantity} format={(n) => String(n)} />
+            </span>
+
+            <motion.button
+              onClick={onIncrease}
+              aria-label={t.cart.increase}
+              whileHover={{ scale: 1.12 }}
+              whileTap={{ scale: 0.88 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
+              className="
+                w-7 h-7 rounded-md
+                bg-fs-primary text-white
+                flex items-center justify-center
+                hover:bg-fs-soft transition-colors duration-150
+              "
+            >
+              <Plus size={12} strokeWidth={2.5} />
+            </motion.button>
+
+            <span className="text-caption text-fs-gray ml-1">
+              = <MorphNumber value={item.price * item.quantity} prefix="₸" />
+            </span>
+
+            {/* NOTE BUTTON */}
+            <motion.button
+              onClick={() => setNoteOpen((v) => !v)}
+              aria-label={t.cart.noteAdd}
+              aria-pressed={noteOpen}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ duration: 0.12 }}
+              className={`
+                ml-auto w-6 h-6 rounded-md flex items-center justify-center
+                transition-colors duration-150
+                ${item.note
+                  ? "text-fs-primary bg-fs-primary/10"
+                  : "text-fs-muted hover:text-fs-primary hover:bg-fs-primary/5"
+                }
+              `}
+            >
+              <MessageSquare size={12} strokeWidth={1.8} />
+            </motion.button>
+          </div>
+
+          {/* EXISTING NOTE CHIP */}
+          <AnimatePresence>
+            {item.note && !noteOpen && (
+              <motion.button
+                initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                animate={{ opacity: 1, height: "auto", marginTop: 6 }}
+                exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                transition={{ duration: 0.18 }}
+                onClick={() => setNoteOpen(true)}
+                className="w-full text-left"
+              >
+                <span className="inline-flex items-center gap-1.5 text-[11px] text-fs-gray bg-fs-white border border-fs-border rounded-lg px-2.5 py-1 leading-tight max-w-full">
+                  <MessageSquare size={10} strokeWidth={1.5} className="flex-shrink-0 text-fs-primary" />
+                  <span className="truncate">{item.note}</span>
+                </span>
+              </motion.button>
+            )}
+          </AnimatePresence>
+
+          {/* NOTE INPUT */}
+          <AnimatePresence>
+            {noteOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                animate={{ opacity: 1, height: "auto", marginTop: 8 }}
+                exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+                className="overflow-hidden"
+              >
+                <textarea
+                  autoFocus
+                  value={noteValue}
+                  onChange={(e) => setNoteValue(e.target.value)}
+                  placeholder={t.cart.notePlaceholder}
+                  maxLength={120}
+                  rows={2}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); handleNoteSave() }
+                    if (e.key === "Escape") handleNoteCancel()
+                  }}
+                  className="
+                    w-full bg-fs-white border border-fs-border rounded-lg
+                    px-3 py-2 text-[12px] text-fs-graphite
+                    placeholder:text-fs-subtle
+                    resize-none focus:outline-none focus:border-fs-primary/40
+                    transition-colors duration-200
+                  "
+                />
+                <div className="flex items-center gap-2 mt-1.5">
+                  <button
+                    onClick={handleNoteSave}
+                    className="text-[11px] font-semibold text-fs-primary hover:text-fs-soft transition-colors"
+                  >
+                    {t.cart.noteSave}
+                  </button>
+                  <span className="text-[10px] text-fs-border">·</span>
+                  <button
+                    onClick={handleNoteCancel}
+                    className="text-[11px] text-fs-gray hover:text-fs-graphite transition-colors"
+                  >
+                    {t.cart.noteCancel}
+                  </button>
+                  <span className="ml-auto text-[10px] text-fs-subtle">{noteValue.length}/120</span>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        {/* REMOVE */}
+          <motion.button
+            onClick={onRemove}
+            aria-label={`${t.cart.remove} ${item.title}`}
+            whileHover={{ scale: 1.1, color: "#ef4444" }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.12 }}
+            className="
+              w-8 h-8 rounded-md flex-shrink-0
+              flex items-center justify-center
+              text-fs-muted hover:bg-red-50 dark:hover:bg-red-950/30
+              transition-colors duration-150
+            "
+          >
+            <X size={14} strokeWidth={2} />
+          </motion.button>
+        </div>
+    </motion.div>
+  )
+}
+
 export default function CartDrawer() {
   const isOpen  = useCartUI((state) => state.isOpen)
   const onClose = useCartUI((state) => state.closeCart)
@@ -76,6 +284,7 @@ export default function CartDrawer() {
     removeItem,
     increaseQuantity,
     decreaseQuantity,
+    setItemNote,
     clearCart,
     getTotalPrice,
     getTotalItems,
@@ -240,94 +449,14 @@ export default function CartDrawer() {
             <div className="flex-1 overflow-y-auto p-5 space-y-3">
               <AnimatePresence initial={false}>
                 {items.map((item) => (
-                  <motion.div
+                  <CartItemRow
                     key={item.id}
-                    layoutId={`cart-item-${item.id}`}
-                    layout="position"
-                    initial={{ opacity: 0, y: 12, scale: 0.97 }}
-                    animate={{ opacity: 1, y: 0,  scale: 1    }}
-                    exit={{ opacity: 0, x: 56, scale: 0.93, height: 0, marginTop: 0, paddingTop: 0, paddingBottom: 0 }}
-                    transition={{ layout: { type: "spring", stiffness: 340, damping: 28 }, duration: 0.22 }}
-                    className="bg-fs-offwhite border border-fs-border rounded-xl p-4"
-                  >
-                    <div className="flex items-start gap-4">
-
-                      {/* THUMBNAIL */}
-                      <ItemThumbnail image={item.image} title={item.title} emoji={item.emoji} />
-
-                      {/* INFO */}
-                      <div className="flex-1 min-w-0">
-                        <h4 className="text-sm font-semibold text-fs-graphite leading-snug">
-                          {item.title}
-                        </h4>
-
-                        <p className="text-sm font-bold text-fs-primary mt-1">
-                          <MorphNumber value={item.price} prefix="₸" />
-                        </p>
-
-                        {/* QUANTITY */}
-                        <div className="flex items-center gap-2 mt-3">
-                          <motion.button
-                            onClick={() => decreaseQuantity(item.id)}
-                            aria-label={t.cart.decrease}
-                            whileHover={{ scale: 1.12 }}
-                            whileTap={{ scale: 0.88 }}
-                            transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                            className="
-                              w-7 h-7 rounded-md
-                              border border-fs-border bg-fs-white
-                              flex items-center justify-center
-                              text-fs-gray hover:text-fs-graphite hover:border-fs-primary/30
-                              transition-colors duration-150
-                            "
-                          >
-                            <Minus size={12} strokeWidth={2.5} />
-                          </motion.button>
-
-                          <span className="text-sm font-bold text-fs-graphite w-7 text-center flex justify-center">
-                            <MorphNumber value={item.quantity} format={(n) => String(n)} />
-                          </span>
-
-                          <motion.button
-                            onClick={() => increaseQuantity(item.id)}
-                            aria-label={t.cart.increase}
-                            whileHover={{ scale: 1.12 }}
-                            whileTap={{ scale: 0.88 }}
-                            transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                            className="
-                              w-7 h-7 rounded-md
-                              bg-fs-primary text-white
-                              flex items-center justify-center
-                              hover:bg-fs-soft transition-colors duration-150
-                            "
-                          >
-                            <Plus size={12} strokeWidth={2.5} />
-                          </motion.button>
-
-                          <span className="text-caption text-fs-gray ml-1">
-                            = <MorphNumber value={item.price * item.quantity} prefix="₸" />
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* REMOVE */}
-                      <motion.button
-                        onClick={() => removeItem(item.id)}
-                        aria-label={`${t.cart.remove} ${item.title}`}
-                        whileHover={{ scale: 1.1, color: "#ef4444" }}
-                        whileTap={{ scale: 0.9 }}
-                        transition={{ duration: 0.12 }}
-                        className="
-                          w-8 h-8 rounded-md flex-shrink-0
-                          flex items-center justify-center
-                          text-fs-muted hover:bg-red-50 dark:hover:bg-red-950/30
-                          transition-colors duration-150
-                        "
-                      >
-                        <X size={14} strokeWidth={2} />
-                      </motion.button>
-                    </div>
-                  </motion.div>
+                    item={item}
+                    onDecrease={() => decreaseQuantity(item.id)}
+                    onIncrease={() => increaseQuantity(item.id)}
+                    onRemove={() => removeItem(item.id)}
+                    onNoteChange={(note) => setItemNote(item.id, note)}
+                  />
                 ))}
               </AnimatePresence>
             </div>
