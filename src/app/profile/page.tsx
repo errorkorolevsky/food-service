@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import {
   Star, MapPin, Package, Heart, RefreshCw, Phone,
   LogIn, LogOut, RotateCcw, ChevronRight, Sparkles, Trophy,
+  X, Check,
 } from "lucide-react"
 import { useSession, signIn, signOut } from "next-auth/react"
 import Image from "next/image"
@@ -249,6 +250,7 @@ export default function ProfilePage() {
   const [loading,      setLoading]      = useState(false)
   const [phone,        setPhone]        = useState<string | null>(null)
   const [savedAddress, setSavedAddress] = useState<string | null>(null)
+  const [addrHistory,  setAddrHistory]  = useState<string[]>([])
 
   const fetchOrders = async (ph: string) => {
     setLoading(true)
@@ -274,6 +276,11 @@ export default function ProfilePage() {
     }
     const addr = localStorage.getItem("fs_address")
     if (addr) setSavedAddress(addr)
+
+    const hist: string[] = (() => {
+      try { return JSON.parse(localStorage.getItem("fs_address_history") ?? "[]") } catch { return [] }
+    })()
+    setAddrHistory(hist)
   }, [session])
 
   const handleRepeat = (order: DbOrder) => {
@@ -299,6 +306,23 @@ export default function ProfilePage() {
         prev.map((o) => o.id === orderId ? { ...o, status: "cancelled" as OrderStatus } : o)
       )
     }
+  }
+
+  const handleDeleteAddr = (addr: string) => {
+    const next = addrHistory.filter((a) => a !== addr)
+    setAddrHistory(next)
+    localStorage.setItem("fs_address_history", JSON.stringify(next))
+    if (savedAddress === addr) {
+      const nextMain = next[0] ?? null
+      setSavedAddress(nextMain)
+      if (nextMain) localStorage.setItem("fs_address", nextMain)
+      else           localStorage.removeItem("fs_address")
+    }
+  }
+
+  const handleSetMain = (addr: string) => {
+    setSavedAddress(addr)
+    localStorage.setItem("fs_address", addr)
   }
 
   const displayName  = session?.user?.name  ?? t.profile.clientBadge
@@ -541,25 +565,77 @@ export default function ProfilePage() {
                     <h2 className="text-[18px] font-bold text-fs-graphite">{t.profile.addresses}</h2>
                   </div>
 
-                  <div className="space-y-2.5">
-                    {savedAddress && (
-                      <div className="bg-fs-offwhite border border-fs-border rounded-2xl px-4 py-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-1.5 h-1.5 rounded-full bg-fs-primary" />
-                          <p className="text-[12px] font-semibold text-fs-graphite">{t.profile.mainAddress}</p>
-                        </div>
-                        <p className="text-[13px] text-fs-gray leading-relaxed pl-3.5">{savedAddress}</p>
-                      </div>
-                    )}
+                  <div className="space-y-2">
+                    <AnimatePresence initial={false}>
+                      {addrHistory.length === 0 ? (
+                        <motion.div
+                          key="no-addr"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          className="text-center py-6"
+                        >
+                          <MapPin size={26} strokeWidth={1} className="text-fs-subtle mx-auto mb-3" />
+                          <p className="text-[13px] font-semibold text-fs-graphite">{t.profile.noAddresses}</p>
+                          <p className="text-[11px] text-fs-gray mt-1.5 leading-relaxed">{t.profile.addAddressHint}</p>
+                        </motion.div>
+                      ) : (
+                        addrHistory.map((addr) => {
+                          const isMain = addr === savedAddress
+                          return (
+                            <motion.div
+                              key={addr}
+                              layout
+                              initial={{ opacity: 0, y: -6 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, scale: 0.96 }}
+                              transition={{ duration: 0.2, ease: [0, 0, 0.2, 1] }}
+                              className={`
+                                rounded-2xl px-4 py-3 border transition-colors duration-200
+                                ${isMain
+                                  ? "bg-fs-light/60 border-fs-primary/30"
+                                  : "bg-fs-offwhite border-fs-border hover:border-fs-subtle"
+                                }
+                              `}
+                            >
+                              <div className="flex items-start gap-2.5">
+                                <MapPin size={13} strokeWidth={1.5} className={`flex-shrink-0 mt-0.5 ${isMain ? "text-fs-primary" : "text-fs-subtle"}`} />
+                                <p className="text-[13px] text-fs-graphite leading-snug flex-1">{addr}</p>
+                                <div className="flex items-center gap-1 flex-shrink-0 ml-1">
+                                  {isMain ? (
+                                    <span className="flex items-center gap-1 text-[11px] font-semibold text-fs-primary">
+                                      <Check size={11} strokeWidth={2.5} />{t.profile.mainAddress}
+                                    </span>
+                                  ) : (
+                                    <button
+                                      onClick={() => handleSetMain(addr)}
+                                      className="text-[11px] text-fs-gray hover:text-fs-primary transition-colors"
+                                    >
+                                      {t.profile.makeMain}
+                                    </button>
+                                  )}
+                                  <button
+                                    onClick={() => handleDeleteAddr(addr)}
+                                    aria-label={t.profile.deleteAddress}
+                                    className="w-6 h-6 rounded-lg flex items-center justify-center text-fs-muted hover:text-red-400 hover:bg-red-50 transition-all duration-150 ml-1"
+                                  >
+                                    <X size={12} strokeWidth={2} />
+                                  </button>
+                                </div>
+                              </div>
+                            </motion.div>
+                          )
+                        })
+                      )}
+                    </AnimatePresence>
 
-                    <button className="
-                      w-full border border-dashed border-fs-border rounded-2xl py-4
-                      text-[13px] text-fs-gray
+                    <Link href="/checkout" className="
+                      block w-full border border-dashed border-fs-border rounded-2xl py-3.5
+                      text-[13px] text-fs-gray text-center
                       hover:border-fs-primary/40 hover:text-fs-primary hover:bg-fs-light/30
                       transition-all duration-200
                     ">
                       {t.profile.addAddress}
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </FadeIn>
