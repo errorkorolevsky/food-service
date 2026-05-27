@@ -20,6 +20,8 @@ import type { Product, ProductCategory } from "@/types"
 // Display label comes from t.categories.labels["__all__"] in each locale.
 const FILTER_ALL = "__all__" as const
 const PAGE_SIZE  = 12
+const PRICE_MIN  = 0
+const PRICE_MAX  = 6000
 
 const CATEGORIES: (ProductCategory | typeof FILTER_ALL)[] = [
   FILTER_ALL,
@@ -200,6 +202,10 @@ function StickyFilterBar({
   onlyNew,
   onlyStock,
   onlyDiscount,
+  priceMin,
+  priceMax,
+  priceOpen,
+  priceActive,
   hasFilters,
   onCategory,
   onSortOpen,
@@ -207,6 +213,8 @@ function StickyFilterBar({
   onNew,
   onStock,
   onDiscount,
+  onPriceOpen,
+  onPriceChange,
   onClear,
   currentSortLabel,
   labels,
@@ -219,6 +227,10 @@ function StickyFilterBar({
   onlyNew: boolean
   onlyStock: boolean
   onlyDiscount: boolean
+  priceMin: number
+  priceMax: number
+  priceOpen: boolean
+  priceActive: boolean
   hasFilters: boolean
   onCategory: (c: string) => void
   onSortOpen: () => void
@@ -226,11 +238,20 @@ function StickyFilterBar({
   onNew: () => void
   onStock: () => void
   onDiscount: () => void
+  onPriceOpen: () => void
+  onPriceChange: (min: number, max: number) => void
   onClear: () => void
   currentSortLabel: string
   labels: Record<string, string>
   t: Translations
 }) {
+  const [localMin, setLocalMin] = useState(priceMin)
+  const [localMax, setLocalMax] = useState(priceMax)
+
+  useEffect(() => {
+    setLocalMin(priceMin)
+    setLocalMax(priceMax)
+  }, [priceMin, priceMax, priceOpen])
   const sortOptions: { value: SortKey; label: string }[] = [
     { value: "default",    label: t.catalog.sort.default    },
     { value: "price_asc",  label: t.catalog.sort.price_asc  },
@@ -351,6 +372,102 @@ function StickyFilterBar({
           {t.catalog.filter.inStock}
         </button>
 
+        {/* PRICE FILTER */}
+        <div className="relative">
+          <button
+            onClick={onPriceOpen}
+            aria-pressed={priceActive}
+            className={`
+              px-4 py-1.5 rounded-full text-[13px] font-medium
+              border transition-all duration-200
+              ${priceActive
+                ? "bg-fs-primary/8 text-fs-primary border-fs-primary/30 shadow-[0_0_0_3px_rgba(0,91,70,0.08)]"
+                : "bg-fs-white text-fs-gray border-fs-border hover:border-fs-primary/30 hover:text-fs-primary"
+              }
+            `}
+          >
+            {priceActive
+              ? `₸${priceMin > PRICE_MIN ? priceMin.toLocaleString() : "0"} — ₸${priceMax < PRICE_MAX ? priceMax.toLocaleString() : "..."}`
+              : t.catalog.filter.price
+            }
+          </button>
+
+          <AnimatePresence>
+            {priceOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0,  scale: 1    }}
+                exit={{ opacity: 0, y: 8,  scale: 0.97 }}
+                transition={{ duration: 0.15 }}
+                className="
+                  absolute left-0 top-full mt-2 z-50
+                  w-64 bg-fs-white border border-fs-border
+                  rounded-xl overflow-hidden shadow-lg p-4
+                "
+              >
+                <p className="text-[11px] font-semibold text-fs-gray uppercase tracking-widest mb-3">
+                  {t.catalog.filter.price}, ₸
+                </p>
+                <div className="flex items-center gap-2">
+                  <div className="flex-1">
+                    <label className="text-[11px] text-fs-subtle mb-1 block">{t.catalog.filter.priceFrom}</label>
+                    <input
+                      type="number"
+                      min={PRICE_MIN}
+                      max={localMax}
+                      value={localMin === PRICE_MIN ? "" : localMin}
+                      placeholder={String(PRICE_MIN)}
+                      onChange={(e) => {
+                        const v = parseInt(e.target.value)
+                        setLocalMin(isNaN(v) ? PRICE_MIN : Math.max(PRICE_MIN, Math.min(v, localMax)))
+                      }}
+                      className="
+                        w-full px-3 py-2 rounded-lg text-[13px]
+                        border border-fs-border bg-fs-offwhite
+                        text-fs-graphite placeholder:text-fs-subtle
+                        focus:outline-none focus:border-fs-primary/50
+                        transition-colors duration-150
+                      "
+                    />
+                  </div>
+                  <span className="text-fs-subtle text-[13px] mt-4">—</span>
+                  <div className="flex-1">
+                    <label className="text-[11px] text-fs-subtle mb-1 block">{t.catalog.filter.priceTo}</label>
+                    <input
+                      type="number"
+                      min={localMin}
+                      max={PRICE_MAX}
+                      value={localMax === PRICE_MAX ? "" : localMax}
+                      placeholder={String(PRICE_MAX)}
+                      onChange={(e) => {
+                        const v = parseInt(e.target.value)
+                        setLocalMax(isNaN(v) ? PRICE_MAX : Math.min(PRICE_MAX, Math.max(v, localMin)))
+                      }}
+                      className="
+                        w-full px-3 py-2 rounded-lg text-[13px]
+                        border border-fs-border bg-fs-offwhite
+                        text-fs-graphite placeholder:text-fs-subtle
+                        focus:outline-none focus:border-fs-primary/50
+                        transition-colors duration-150
+                      "
+                    />
+                  </div>
+                </div>
+                <button
+                  onClick={() => onPriceChange(localMin, localMax)}
+                  className="
+                    mt-3 w-full py-2.5 rounded-lg
+                    bg-fs-primary text-white text-[13px] font-medium
+                    hover:bg-fs-primary/90 transition-colors duration-150
+                  "
+                >
+                  {t.catalog.filter.priceApply}
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
         <AnimatePresence>
           {hasFilters && (
             <motion.button
@@ -402,12 +519,25 @@ function CatalogInner({ products }: { products: Product[] }) {
   const [onlyNew,      setOnlyNew]      = useState(() => searchParams.get("new") === "true")
   const [onlyStock,    setOnlyStock]    = useState(() => searchParams.get("stock") === "true")
   const [onlyDiscount, setOnlyDiscount] = useState(() => searchParams.get("sale") === "true")
+  const [priceMin,     setPriceMin]     = useState(() => { const v = parseInt(searchParams.get("pmin") ?? ""); return isNaN(v) ? PRICE_MIN : v })
+  const [priceMax,     setPriceMax]     = useState(() => { const v = parseInt(searchParams.get("pmax") ?? ""); return isNaN(v) ? PRICE_MAX : v })
+  const [priceOpen,    setPriceOpen]    = useState(false)
   const [page,         setPage]         = useState(1)
 
   const setParam = (key: string, value: string | null) => {
     const params = new URLSearchParams(searchParams.toString())
     if (!value) params.delete(key)
     else params.set(key, value)
+    const qs = params.toString()
+    router.replace(`${pathname}${qs ? `?${qs}` : ""}`, { scroll: false })
+  }
+
+  const setParams = (pairs: [string, string | null][]) => {
+    const params = new URLSearchParams(searchParams.toString())
+    for (const [key, value] of pairs) {
+      if (!value) params.delete(key)
+      else params.set(key, value)
+    }
     const qs = params.toString()
     router.replace(`${pathname}${qs ? `?${qs}` : ""}`, { scroll: false })
   }
@@ -419,6 +549,8 @@ function CatalogInner({ products }: { products: Product[] }) {
     const newParam    = searchParams.get("new") === "true"
     const stockParam  = searchParams.get("stock") === "true"
     const sortParam   = searchParams.get("sort") as SortKey | null
+    const pminParam   = parseInt(searchParams.get("pmin") ?? "")
+    const pmaxParam   = parseInt(searchParams.get("pmax") ?? "")
     const next = CATEGORIES.includes(catParam as ProductCategory) ? (catParam as ProductCategory) : FILTER_ALL
     startTransition(() => {
       setCategory(next)
@@ -427,6 +559,8 @@ function CatalogInner({ products }: { products: Product[] }) {
       setOnlyNew(newParam)
       setOnlyStock(stockParam)
       if (sortParam && ["default", "price_asc", "price_desc", "rating"].includes(sortParam)) setSort(sortParam)
+      setPriceMin(isNaN(pminParam) ? PRICE_MIN : pminParam)
+      setPriceMax(isNaN(pmaxParam) ? PRICE_MAX : pmaxParam)
     })
   }, [searchParams])
 
@@ -463,6 +597,21 @@ function CatalogInner({ products }: { products: Product[] }) {
     setParam("stock", next ? "true" : null)
   }
 
+  const handlePriceOpen = () => setPriceOpen((v) => !v)
+
+  const handlePriceChange = (min: number, max: number) => {
+    setPriceMin(min)
+    setPriceMax(max)
+    setPriceOpen(false)
+    setPage(1)
+    setParams([
+      ["pmin", min > PRICE_MIN ? String(min) : null],
+      ["pmax", max < PRICE_MAX ? String(max) : null],
+    ])
+  }
+
+  const priceActive = priceMin > PRICE_MIN || priceMax < PRICE_MAX
+
   const filtered = useMemo(() => {
     let list = [...products]
 
@@ -487,6 +636,7 @@ function CatalogInner({ products }: { products: Product[] }) {
     if (onlyNew)      list = list.filter((p) => p.isNew)
     if (onlyStock)    list = list.filter((p) => p.inStock)
     if (onlyDiscount) list = list.filter((p) => !!p.discountPercent)
+    if (priceActive)  list = list.filter((p) => p.priceNum >= priceMin && p.priceNum <= priceMax)
 
     switch (sort) {
       case "price_asc":  list.sort((a, b) => a.priceNum - b.priceNum);              break
@@ -495,7 +645,7 @@ function CatalogInner({ products }: { products: Product[] }) {
     }
 
     return list
-  }, [search, category, sort, onlyNew, onlyStock, onlyDiscount, products, t])
+  }, [search, category, sort, onlyNew, onlyStock, onlyDiscount, priceMin, priceMax, priceActive, products, t])
 
   const suggestions = useMemo<SearchSuggestion[]>(() => {
     if (search.length < 2) return []
@@ -512,7 +662,7 @@ function CatalogInner({ products }: { products: Product[] }) {
 
   const paginated = filtered.slice(0, page * PAGE_SIZE)
   const hasMore   = paginated.length < filtered.length
-  const hasFilters = category !== FILTER_ALL || onlyNew || onlyStock || onlyDiscount || sort !== "default"
+  const hasFilters = category !== FILTER_ALL || onlyNew || onlyStock || onlyDiscount || sort !== "default" || priceActive
 
   const clearFilters = () => {
     setSearch("")
@@ -520,8 +670,11 @@ function CatalogInner({ products }: { products: Product[] }) {
     setOnlyStock(false)
     setOnlyDiscount(false)
     setSort("default")
+    setPriceMin(PRICE_MIN)
+    setPriceMax(PRICE_MAX)
+    setPriceOpen(false)
     setPage(1)
-    handleCategory(FILTER_ALL)
+    router.replace(pathname, { scroll: false })
   }
 
   const sortOptions: { value: SortKey; label: string }[] = [
@@ -584,6 +737,10 @@ function CatalogInner({ products }: { products: Product[] }) {
               onlyNew={onlyNew}
               onlyStock={onlyStock}
               onlyDiscount={onlyDiscount}
+              priceMin={priceMin}
+              priceMax={priceMax}
+              priceOpen={priceOpen}
+              priceActive={priceActive}
               hasFilters={hasFilters}
               onCategory={handleCategory}
               onSortOpen={() => setSortOpen((v) => !v)}
@@ -591,6 +748,8 @@ function CatalogInner({ products }: { products: Product[] }) {
               onNew={handleNew}
               onStock={handleStock}
               onDiscount={handleDiscount}
+              onPriceOpen={handlePriceOpen}
+              onPriceChange={handlePriceChange}
               onClear={clearFilters}
               currentSortLabel={currentSortLabel}
               labels={t.categories.labels}
