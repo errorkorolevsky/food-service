@@ -1,4 +1,4 @@
-const CACHE = "fs-v1"
+const CACHE = "fs-v2"
 
 const PRECACHE = [
   "/",
@@ -24,6 +24,35 @@ self.addEventListener("activate", (e) => {
     )
   )
   self.clients.claim()
+})
+
+// ─── FETCH — network first, cache fallback ────────────────────────────────────
+
+// ─── PUSH ─────────────────────────────────────────────────────────────────────
+
+self.addEventListener("push", (e) => {
+  const data = e.data?.json?.() ?? {}
+  e.waitUntil(
+    self.registration.showNotification(data.title ?? "Food Service", {
+      body:  data.body  ?? "",
+      icon:  data.icon  ?? "/icon-192.png",
+      badge: "/icon-72.png",
+      data:  { url: data.url ?? "/" },
+      vibrate: [100, 50, 100],
+    })
+  )
+})
+
+self.addEventListener("notificationclick", (e) => {
+  e.notification.close()
+  const url = e.notification.data?.url ?? "/"
+  e.waitUntil(
+    clients.matchAll({ type: "window", includeUncontrolled: true }).then((cs) => {
+      const existing = cs.find((c) => c.url === url && "focus" in c)
+      if (existing) return existing.focus()
+      return clients.openWindow(url)
+    })
+  )
 })
 
 // ─── FETCH — network first, cache fallback ────────────────────────────────────

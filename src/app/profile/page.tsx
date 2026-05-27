@@ -17,6 +17,7 @@ import Footer from "@/components/layout/Footer"
 import Badge from "@/components/ui/Badge"
 import Button from "@/components/ui/Button"
 import FadeIn from "@/components/ui/FadeIn"
+import PushNotificationToggle from "@/components/ui/PushNotificationToggle"
 import { useFavoritesStore } from "@/store/favoritesStore"
 import { useCartStore } from "@/store/cartStore"
 import { useCartUI } from "@/store/cartUIStore"
@@ -740,6 +741,15 @@ export default function ProfilePage() {
                   </div>
                 </div>
               </FadeIn>
+
+              {/* PUSH NOTIFICATIONS */}
+              {session?.user && (
+                <FadeIn delay={0.2}>
+                  <div className="bg-fs-white border border-fs-border rounded-3xl p-7 shadow-sm">
+                    <PushNotificationToggle />
+                  </div>
+                </FadeIn>
+              )}
 
             </div>
           </div>

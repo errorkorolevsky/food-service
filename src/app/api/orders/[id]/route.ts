@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from "next/server"
-import { supabase } from "@/lib/supabase"
-import { sendOrderEmail } from "@/lib/email"
+import { supabase }                  from "@/lib/supabase"
+import { sendOrderEmail }            from "@/lib/email"
 import { notifyTelegramStatusChange } from "@/lib/telegram"
-import { auth } from "@/lib/auth"
+import { sendPushToUser }            from "@/lib/push"
+import { sendSms }                   from "@/lib/sms"
+import { auth }                      from "@/lib/auth"
 
 export const dynamic = "force-dynamic"
 
@@ -60,6 +62,36 @@ export async function PATCH(
       status,
       phone:   order.phone,
     }).catch(console.error)
+  }
+
+  if (order?.phone) {
+    const smsLabels: Record<string, string> = {
+      processing:  `Food Service: ваш заказ #FS-${id.slice(-6).toUpperCase()} принят в обработку`,
+      in_delivery: `Food Service: ваш заказ передан курьеру`,
+      delivered:   `Food Service: заказ доставлен! Спасибо за покупку`,
+      cancelled:   `Food Service: ваш заказ отменён`,
+    }
+    const smsText = smsLabels[status]
+    if (smsText) {
+      sendSms({ to: order.phone, message: smsText }).catch(console.error)
+    }
+  }
+
+  if (order?.user_email) {
+    const statusLabels: Record<string, string> = {
+      processing:  "Заказ принят в обработку",
+      in_delivery: "Заказ передан курьеру",
+      delivered:   "Заказ доставлен",
+      cancelled:   "Заказ отменён",
+    }
+    const label = statusLabels[status]
+    if (label) {
+      sendPushToUser(order.user_email, {
+        title: "Food Service",
+        body:  label,
+        url:   `/order/track/${id}`,
+      }).catch(console.error)
+    }
   }
 
   return NextResponse.json({ ok: true })

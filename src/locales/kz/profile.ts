@@ -41,5 +41,9 @@ export const kzProfile = {
     loyaltyMax:   "Максималды деңгейге жеттіңіз! 💎",
     loyaltyGoal:  (amount: number, emoji: string, name: string) =>
       `${emoji} ${name} дейін ₸${amount.toLocaleString("kk-KZ")} қалды`,
+    pushOn:       "Хабарландырулар қосылды",
+    pushOff:      "Хабарландыруларды қосу",
+    pushOnSub:    "Тапсырыс мәртебесі туралы push аласыз",
+    pushOffSub:   "Тапсырыс мәртебесін бірден біліңіз",
   },
 }

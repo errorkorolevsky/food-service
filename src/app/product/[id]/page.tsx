@@ -1,14 +1,11 @@
 import { notFound } from "next/navigation"
-import { getProductById, getRelatedProducts, getAllProductIds } from "@/lib/db/products"
+import { getProductById, getRelatedProducts } from "@/lib/db/products"
 import { buildProductJsonLd } from "@/lib/seo"
 import ProductClient from "./ProductClient"
 
 type Props = { params: Promise<{ id: string }> }
 
-export async function generateStaticParams() {
-  const ids = await getAllProductIds()
-  return ids.map((id) => ({ id }))
-}
+export const revalidate = 3600
 
 export default async function ProductPage({ params }: Props) {
   const { id }  = await params

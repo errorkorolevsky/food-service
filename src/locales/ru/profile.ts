@@ -41,5 +41,9 @@ export const ruProfile = {
     loyaltyMax:   "Максимальный уровень достигнут! 💎",
     loyaltyGoal:  (amount: number, emoji: string, name: string) =>
       `Ещё ₸${amount.toLocaleString("ru-RU")} до ${emoji} ${name}`,
+    pushOn:       "Уведомления включены",
+    pushOff:      "Включить уведомления",
+    pushOnSub:    "Вы получаете push о статусе заказов",
+    pushOffSub:   "Узнавайте о статусе заказа мгновенно",
   },
 }

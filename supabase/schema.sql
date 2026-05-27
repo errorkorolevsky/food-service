@@ -212,3 +212,22 @@ CREATE POLICY "Service role full access promos" ON promo_codes
 
 ALTER TABLE orders ADD COLUMN IF NOT EXISTS promo_code text;
 ALTER TABLE orders ADD COLUMN IF NOT EXISTS discount   integer NOT NULL DEFAULT 0;
+
+-- =============================================================================
+-- ─── PUSH SUBSCRIPTIONS ───────────────────────────────────────────────────────
+-- =============================================================================
+
+CREATE TABLE IF NOT EXISTS push_subscriptions (
+  id         uuid        DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_email text        NOT NULL,
+  endpoint   text        NOT NULL UNIQUE,
+  keys       jsonb       NOT NULL,
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS push_subscriptions_user_email_idx ON push_subscriptions (user_email);
+
+ALTER TABLE push_subscriptions ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Service role full access push_subscriptions" ON push_subscriptions
+  USING (true) WITH CHECK (true);

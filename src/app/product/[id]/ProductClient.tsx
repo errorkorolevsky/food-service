@@ -320,7 +320,18 @@ export default function ProductClient({
               {/* ACTIONS */}
               <div ref={actionsRef} className="flex flex-col sm:flex-row gap-4">
                 <AnimatePresence mode="wait">
-                  {quantity === 0 ? (
+                  {product.inStock === false ? (
+                    <motion.div
+                      key="oos"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      transition={{ duration: 0.15 }}
+                      className="flex-1 py-4 rounded-xl bg-fs-offwhite border border-fs-border text-center text-caption text-fs-gray font-semibold"
+                    >
+                      {t.product.outOfStock}
+                    </motion.div>
+                  ) : quantity === 0 ? (
                     <motion.div
                       key="add"
                       initial={{ opacity: 0, scale: 0.95 }}
@@ -713,7 +724,11 @@ export default function ProductClient({
                 <p className="text-[12px] font-black text-fs-primary mt-0.5">{product.price}</p>
               </div>
 
-              {quantity === 0 ? (
+              {product.inStock === false ? (
+                <span className="flex-shrink-0 px-4 py-2 rounded-xl bg-fs-offwhite border border-fs-border text-[12px] text-fs-gray font-semibold">
+                  {t.product.outOfStock}
+                </span>
+              ) : quantity === 0 ? (
                 <Button size="sm" onClick={handleAdd} className="flex-shrink-0">
                   <ShoppingCart size={15} strokeWidth={1.5} />
                   {t.product.addToCart}
