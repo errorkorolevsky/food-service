@@ -117,7 +117,7 @@ export async function POST(req: NextRequest) {
   }
 
   notifyTelegramNewOrder({
-    orderId:   data.id,
+    orderId:      data.id,
     phone,
     address,
     payment,
@@ -125,8 +125,10 @@ export async function POST(req: NextRequest) {
     total,
     comment,
     company,
-    promoCode: promo_code,
-    discount:  discount ?? 0,
+    promoCode:    promo_code,
+    discount:     discount ?? 0,
+    deliveryDate: delivery_date,
+    deliveryTime: delivery_time,
   }).catch(() => null)
 
   return NextResponse.json({ id: data.id }, { status: 201 })

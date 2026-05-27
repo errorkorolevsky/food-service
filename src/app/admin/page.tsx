@@ -431,6 +431,7 @@ function OrderRow({ order, onStatusChange, isDemo, locale }: {
                     { icon: Phone,         text: order.phone   },
                     { icon: MapPin,        text: order.address },
                     ...(order.comment ? [{ icon: MessageSquare, text: order.comment }] : []),
+                    ...((order.delivery_date || order.delivery_time) ? [{ icon: Clock, text: [order.delivery_date === "today" ? "Сегодня" : order.delivery_date === "tomorrow" ? "Завтра" : order.delivery_date, order.delivery_time].filter(Boolean).join(" · ") }] : []),
                   ].map(({ icon: Icon, text }, i) => (
                     <div key={i} className="flex items-start gap-2.5 text-[13px] text-fs-gray">
                       <Icon size={13} strokeWidth={1.5} className="mt-0.5 flex-shrink-0 text-fs-muted" />

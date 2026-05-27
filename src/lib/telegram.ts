@@ -63,16 +63,18 @@ type OrderItem = {
 }
 
 type TelegramOrderParams = {
-  orderId:   string
-  phone:     string
-  address:   string
-  payment:   string
-  items:     OrderItem[]
-  total:     number
-  comment?:  string | null
-  company?:  string | null
-  promoCode?: string | null
-  discount?:  number
+  orderId:       string
+  phone:         string
+  address:       string
+  payment:       string
+  items:         OrderItem[]
+  total:         number
+  comment?:      string | null
+  company?:      string | null
+  promoCode?:    string | null
+  discount?:     number
+  deliveryDate?: string | null
+  deliveryTime?: string | null
 }
 
 export async function notifyTelegramNewOrder(params: TelegramOrderParams): Promise<void> {
@@ -80,12 +82,15 @@ export async function notifyTelegramNewOrder(params: TelegramOrderParams): Promi
   const chatId = process.env.TELEGRAM_CHAT_ID
   if (!token || !chatId) return
 
-  const { orderId, phone, address, payment, items, total, comment, company, promoCode, discount } = params
+  const { orderId, phone, address, payment, items, total, comment, company, promoCode, discount, deliveryDate, deliveryTime } = params
 
   const shortId = `#FS-${orderId.slice(-6).toUpperCase()}`
   const itemLines = items
     .map((i) => `  ${i.emoji} ${i.title} × ${i.quantity} — ₸${(i.price * i.quantity).toLocaleString("ru-RU")}`)
     .join("\n")
+
+  const dateLabel = deliveryDate === "today" ? "Сегодня" : deliveryDate === "tomorrow" ? "Завтра" : deliveryDate
+  const deliveryLine = (deliveryDate || deliveryTime) ? `🕐 ${[dateLabel, deliveryTime].filter(Boolean).join(" · ")}` : null
 
   const lines: string[] = [
     `🛒 <b>Новый заказ ${shortId}</b>`,
@@ -94,6 +99,7 @@ export async function notifyTelegramNewOrder(params: TelegramOrderParams): Promi
     `📍 ${address}`,
     ...(company ? [`🏢 ${company}`] : []),
     `💳 ${PAYMENT_LABEL[payment] ?? payment}`,
+    ...(deliveryLine ? [deliveryLine] : []),
     "",
     itemLines,
     "",

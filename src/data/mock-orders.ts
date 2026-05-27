@@ -3,18 +3,23 @@
 export type OrderStatus = "pending" | "processing" | "in_delivery" | "delivered" | "cancelled"
 
 export type MockOrder = {
-  id:         string
-  created_at: string
-  company:    string | null
-  phone:      string
-  address:    string
-  comment:    string | null
-  payment:    string
-  items:      { id: string; title: string; emoji: string; price: number; quantity: number; note?: string }[]
-  subtotal:   number
-  delivery:   number
-  total:      number
-  status:     OrderStatus
+  id:              string
+  created_at:      string
+  company:         string | null
+  phone:           string
+  address:         string
+  comment:         string | null
+  payment:         string
+  items:           { id: string; title: string; emoji: string; price: number; quantity: number; note?: string }[]
+  subtotal:        number
+  delivery:        number
+  total:           number
+  status:          OrderStatus
+  delivery_date?:  string | null
+  delivery_time?:  string | null
+  user_email?:     string | null
+  promo_code?:     string | null
+  discount?:       number
 }
 
 function daysAgo(n: number, hour = 12, min = 0) {
