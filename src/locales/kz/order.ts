@@ -35,5 +35,7 @@ export const kzOrder = {
       trackBtn:     "Бақылау",
       reorderBtn:   "Қайталау",
     },
+    moreProducts:    "Кепілді сынап көріңіз",
+    moreProductsSub: "Курьер жолда — келесі тапсырысқа қосыңыз",
   },
 }

@@ -1,10 +1,11 @@
 "use client"
 
 import { useSearchParams } from "next/navigation"
-import { Suspense, useEffect, useState } from "react"
+import { Suspense, useEffect, useState, useCallback } from "react"
 import { motion } from "framer-motion"
-import { CheckCircle2, ArrowRight, Package, LogIn, MapPin, CreditCard, Smartphone, RotateCcw } from "lucide-react"
+import { CheckCircle2, ArrowRight, Package, LogIn, MapPin, CreditCard, Smartphone, RotateCcw, Plus } from "lucide-react"
 import { useSession, signIn } from "next-auth/react"
+import Image from "next/image"
 
 import Navbar from "@/components/layout/Navbar"
 import CartDrawer from "@/components/layout/CartDrawer"
@@ -14,6 +15,7 @@ import FadeIn from "@/components/ui/FadeIn"
 import { useLang } from "@/locales"
 import { useCartStore } from "@/store/cartStore"
 import { useCartUI } from "@/store/cartUIStore"
+import { useToastStore } from "@/store/toastStore"
 
 // ─── TYPES ────────────────────────────────────────────────────────────────────
 
@@ -57,8 +59,20 @@ function SuccessContent() {
   const { t }              = useLang()
   const addItem            = useCartStore((state) => state.addItem)
   const openCart           = useCartUI((state) => state.openCart)
+  const showToast          = useToastStore((state) => state.show)
 
-  const [order, setOrder] = useState<OrderData | null>(null)
+  const [order,       setOrder]       = useState<OrderData | null>(null)
+  const [recommended, setRecommended] = useState<Array<{
+    id: string; emoji: string; image?: string; title: string; price: string; price_num: number; category: string
+  }>>([])
+
+  const fetchRecommended = useCallback((excludeIds: string[]) => {
+    const exclude = excludeIds.join(",")
+    fetch(`/api/products/recommended?exclude=${encodeURIComponent(exclude)}`)
+      .then((r) => r.ok ? r.json() : { products: [] })
+      .then((d) => setRecommended(d.products ?? []))
+      .catch(() => {})
+  }, [])
 
   const handleRepeat = () => {
     if (!order) return
@@ -104,6 +118,12 @@ function SuccessContent() {
 
     return () => clearInterval(interval)
   }, [rawId, orderId])
+
+  // Fetch recommendations once order items are known
+  useEffect(() => {
+    if (!order) return
+    fetchRecommended(order.items.map((i) => i.id))
+  }, [order, fetchRecommended])
 
   const stepIndex    = order ? STATUS_STEPS.findIndex((s) => s.key === order.status) : 0
   const paymentKey   = order?.payment ?? urlPayment
@@ -288,6 +308,77 @@ function SuccessContent() {
           </Button>
         </div>
       </FadeIn>
+
+      {/* RECOMMENDED PRODUCTS */}
+      {recommended.length > 0 && (
+        <FadeIn delay={0.25}>
+          <div className="mt-14">
+            <div className="mb-6">
+              <p className="text-label text-fs-gray uppercase tracking-widest mb-1">
+                {t.order.moreProducts}
+              </p>
+              <p className="text-[13px] text-fs-muted">{t.order.moreProductsSub}</p>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {recommended.map((p, i) => (
+                <motion.div
+                  key={p.id}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.25, delay: 0.05 * i }}
+                  className="
+                    bg-fs-white border border-fs-border rounded-2xl p-4
+                    flex flex-col gap-3
+                    hover:border-fs-subtle transition-colors duration-200
+                  "
+                >
+                  {/* IMAGE / EMOJI */}
+                  <div className="w-full h-20 rounded-xl overflow-hidden bg-fs-offwhite flex items-center justify-center flex-shrink-0">
+                    {p.image ? (
+                      <Image
+                        src={p.image}
+                        alt={p.title}
+                        width={120}
+                        height={80}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <span className="text-3xl">{p.emoji}</span>
+                    )}
+                  </div>
+
+                  {/* INFO */}
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[13px] font-semibold text-fs-graphite leading-tight line-clamp-2">{p.title}</p>
+                    <p className="text-[14px] font-black text-fs-primary mt-1">
+                      {p.price ?? `₸${p.price_num.toLocaleString()}`}
+                    </p>
+                  </div>
+
+                  {/* ADD BUTTON */}
+                  <button
+                    onClick={() => {
+                      addItem({ id: p.id, title: p.title, price: p.price_num, emoji: p.emoji, image: p.image })
+                      showToast(p.title, p.emoji)
+                      openCart()
+                    }}
+                    className="
+                      w-full flex items-center justify-center gap-1.5
+                      py-2 rounded-xl
+                      bg-fs-primary text-white text-[12px] font-semibold
+                      hover:opacity-90 transition-opacity duration-150
+                    "
+                  >
+                    <Plus size={13} strokeWidth={2.5} />
+                    {t.product.addToCart}
+                  </button>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
+      )}
     </div>
   )
 }

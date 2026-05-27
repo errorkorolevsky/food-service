@@ -35,5 +35,7 @@ export const ruOrder = {
       trackBtn:     "Отследить",
       reorderBtn:   "Повторить",
     },
+    moreProducts:    "Попробуйте также",
+    moreProductsSub: "Пока курьер в пути — добавьте к следующему заказу",
   },
 }
