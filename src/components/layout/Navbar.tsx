@@ -26,7 +26,7 @@ const NAV_KEYS = [
 
 export default function Navbar() {
   const pathname          = usePathname()
-  const { data: session } = useSession()
+  const { data: session } = useSession() ?? {}
   const favCount          = useFavoritesStore((state) => state.ids.length)
   const [scrolled,        setScrolled]        = useState(false)
   const [hasActiveOrders, setHasActiveOrders] = useState(false)

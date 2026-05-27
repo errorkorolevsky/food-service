@@ -69,7 +69,7 @@ function formatKZPhone(raw: string): string {
 }
 
 export default function CheckoutPage() {
-  const { data: session } = useSession()
+  const { data: session } = useSession() ?? {}
   const { t } = useLang()
   const [payment,    setPayment]    = useState("kaspi")
   const [submitting, setSubmitting] = useState(false)

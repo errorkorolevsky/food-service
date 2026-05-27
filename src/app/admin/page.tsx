@@ -730,7 +730,7 @@ const TABS: { value: Tab; label: string; icon: React.ElementType }[] = [
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
 
 export default function AdminPage() {
-  const { data: session } = useSession()
+  const { data: session } = useSession() ?? {}
   const { t, lang }       = useLang()
   const locale             = lang === "kz" ? "kk-KZ" : "ru-RU"
   const isAdminSession = session?.user?.email === ADMIN_EMAIL

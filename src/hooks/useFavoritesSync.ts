@@ -14,7 +14,7 @@ export function setCurrentEmail(email: string | null) {
 }
 
 export function useFavoritesSync() {
-  const { data: session } = useSession()
+  const { data: session } = useSession() ?? {}
   const email     = session?.user?.email ?? null
   const addProduct = useFavoritesStore((state) => state.addProduct)
   const synced     = useRef(false)

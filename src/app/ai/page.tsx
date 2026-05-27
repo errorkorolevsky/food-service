@@ -240,7 +240,7 @@ function HistoryBanner({ count, onLoad, onDismiss }: {
 
 function AIPageInner() {
   const { t, lang }       = useLang()
-  const { data: session } = useSession()
+  const { data: session } = useSession() ?? {}
   const searchParams      = useSearchParams()
   const autoQuery         = searchParams.get("q")
   const cartItems         = useCartStore((state) => state.items)

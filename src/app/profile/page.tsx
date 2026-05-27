@@ -336,7 +336,7 @@ function OrderSkeleton() {
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
 
 export default function ProfilePage() {
-  const { data: session } = useSession()
+  const { data: session } = useSession() ?? {}
   const { t }   = useLang()
   const favorites = useFavoritesStore((state) => state.products)
   const toggle    = useFavoritesStore((state) => state.toggle)

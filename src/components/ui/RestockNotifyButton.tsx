@@ -9,7 +9,7 @@ import { useLang }     from "@/locales"
 type Props = { productId: string; productTitle: string }
 
 export default function RestockNotifyButton({ productId, productTitle }: Props) {
-  const { data: session } = useSession()
+  const { data: session } = useSession() ?? {}
   const router            = useRouter()
   const { t }             = useLang()
   const [subscribed, setSubscribed] = useState(false)

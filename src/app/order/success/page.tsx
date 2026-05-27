@@ -55,7 +55,7 @@ function SuccessContent() {
   const orderId            = formatOrderId(rawId)
   const urlPayment         = params.get("payment") ?? ""
   const urlTotal           = Number(params.get("total") ?? 0)
-  const { data: session }  = useSession()
+  const { data: session } = useSession() ?? {}
   const { t }              = useLang()
   const addItem            = useCartStore((state) => state.addItem)
   const openCart           = useCartUI((state) => state.openCart)

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { useSession }          from "next-auth/react"
 
 export function usePushNotifications() {
-  const { data: session } = useSession()
+  const { data: session } = useSession() ?? {}
   const [supported,  setSupported]  = useState(false)
   const [subscribed, setSubscribed] = useState(false)
   const [loading,    setLoading]    = useState(false)

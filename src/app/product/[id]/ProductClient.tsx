@@ -67,7 +67,7 @@ export default function ProductClient({
 
   const { ref: imgRef, cursor } = useCursorAware<HTMLDivElement>()
   const { t, lang } = useLang()
-  const { data: session } = useSession()
+  const { data: session } = useSession() ?? {}
 
   type Review = { id: string; user_email: string; user_name: string | null; rating: number; text: string | null; created_at: string }
   const [reviews,          setReviews]          = useState<Review[]>([])

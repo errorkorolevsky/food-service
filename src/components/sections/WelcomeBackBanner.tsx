@@ -36,7 +36,7 @@ const STATUS_BADGE: Record<OrderStatus, "default" | "success" | "warning" | "ai"
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 
 export default function WelcomeBackBanner() {
-  const { data: session, status: sessionStatus } = useSession()
+  const { data: session, status: sessionStatus } = useSession() ?? {}
   const { t }    = useLang()
   const addItem  = useCartStore((state) => state.addItem)
   const openCart = useCartUI((state) => state.openCart)

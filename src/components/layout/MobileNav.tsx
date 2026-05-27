@@ -15,7 +15,7 @@ const HIDDEN_PATHS = ["/admin", "/checkout", "/login", "/order/success"]
 
 export default function MobileNav() {
   const pathname          = usePathname()
-  const { data: session } = useSession()
+  const { data: session } = useSession() ?? {}
   const favCount          = useFavoritesStore((state) => state.ids.length)
   const { t, lang, setLang } = useLang()
   const [hasActiveOrders, setHasActiveOrders] = useState(false)
