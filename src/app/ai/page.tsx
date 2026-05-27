@@ -11,6 +11,7 @@ import CartDrawer from "@/components/layout/CartDrawer"
 import FadeIn from "@/components/ui/FadeIn"
 import PageHero from "@/components/ui/PageHero"
 import { useLang } from "@/locales"
+import { useCartStore } from "@/store/cartStore"
 
 // ─── TYPES ────────────────────────────────────────────────────────────────────
 
@@ -223,6 +224,7 @@ function AIPageInner() {
   const { data: session } = useSession()
   const searchParams      = useSearchParams()
   const autoQuery         = searchParams.get("q")
+  const cartItems         = useCartStore((state) => state.items)
 
   const [messages,      setMessages]      = useState<Message[]>(() => [{ role: "assistant" as const, content: t.ai.greeting }])
   const [input,         setInput]         = useState("")
@@ -262,6 +264,10 @@ function AIPageInner() {
         body:    JSON.stringify({
           messages:     context,
           orderContext: orderContext.length ? orderContext : undefined,
+          cartContext:  cartItems.length ? cartItems.map((i) => ({
+            id: i.id, title: i.title, emoji: i.emoji,
+            price: i.price, quantity: i.quantity, note: i.note,
+          })) : undefined,
           locale:       lang,
         }),
         signal: controller.signal,
@@ -419,6 +425,14 @@ function AIPageInner() {
         <FadeIn>
           <div className="flex items-center justify-end mb-8 gap-2">
             <div className="flex items-center gap-2">
+              {cartItems.length > 0 && (
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 border border-emerald-200">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  <span className="text-label text-emerald-700 font-medium">
+                    🛒 {cartItems.length}
+                  </span>
+                </div>
+              )}
               {orderContext.length > 0 && (
                 <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-50 border border-purple-200">
                   <div className="w-1.5 h-1.5 rounded-full bg-purple-500" />

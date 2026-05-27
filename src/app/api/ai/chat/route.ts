@@ -52,17 +52,28 @@ const OrderContextSchema = z.object({
   status:     z.string(),
 })
 
+const CartItemSchema = z.object({
+  id:       z.string(),
+  title:    z.string(),
+  emoji:    z.string(),
+  price:    z.number(),
+  quantity: z.number(),
+  note:     z.string().optional(),
+})
+
 const ChatSchema = z.object({
   messages:     z.array(MessageSchema).min(1).max(50),
   orderContext: z.array(OrderContextSchema).max(5).optional(),
+  cartContext:  z.array(CartItemSchema).max(20).optional(),
   locale:       z.enum(["ru", "kz"]).optional(),
 })
 
 type OrderContext = z.infer<typeof OrderContextSchema>
+type CartContext  = z.infer<typeof CartItemSchema>
 
 type SystemBlock = Anthropic.TextBlockParam & { cache_control?: { type: "ephemeral" } }
 
-function buildSystemBlocks(catalog: string, orders?: OrderContext[], locale = "ru"): SystemBlock[] {
+function buildSystemBlocks(catalog: string, orders?: OrderContext[], cart?: CartContext[], locale = "ru"): SystemBlock[] {
   const langDirective = LANG_DIRECTIVE[locale] ?? LANG_DIRECTIVE.ru
   const fullPrompt    = `${SYSTEM_PROMPT_HEADER}\n\nАССОРТИМЕНТ FOOD SERVICE (актуальные позиции и цены в тенге):\n\n${catalog}${SYSTEM_PROMPT_FOOTER}\n\n${langDirective}`
 
@@ -72,22 +83,38 @@ function buildSystemBlocks(catalog: string, orders?: OrderContext[], locale = "r
     cache_control: { type: "ephemeral" },
   }
 
-  if (!orders?.length) return [base]
+  if (!orders?.length && !cart?.length) return [base]
 
-  const ordersText = orders.slice(0, 5).map((o) => {
-    const shortId  = `#FS-${o.id.slice(-6).toUpperCase()}`
-    const date     = new Date(o.created_at).toLocaleDateString("ru-RU", { day: "2-digit", month: "2-digit", year: "2-digit" })
-    const itemList = o.items.map((i) => `${i.emoji} ${i.title} ×${i.quantity}`).join(", ")
-    return `${shortId} от ${date}: ${itemList} — итого ₸${o.total.toLocaleString()} (${o.status})`
-  }).join("\n")
+  const extra: SystemBlock[] = []
 
-  return [
-    base,
-    {
+  if (orders?.length) {
+    const ordersText = orders.slice(0, 5).map((o) => {
+      const shortId  = `#FS-${o.id.slice(-6).toUpperCase()}`
+      const date     = new Date(o.created_at).toLocaleDateString("ru-RU", { day: "2-digit", month: "2-digit", year: "2-digit" })
+      const itemList = o.items.map((i) => `${i.emoji} ${i.title} ×${i.quantity}`).join(", ")
+      return `${shortId} от ${date}: ${itemList} — итого ₸${o.total.toLocaleString()} (${o.status})`
+    }).join("\n")
+
+    extra.push({
       type: "text",
       text: `ИСТОРИЯ ЗАКАЗОВ ЭТОГО КЛИЕНТА (используй для персонализированных рекомендаций):\n${ordersText}\n\nЕсли клиент спрашивает про "мои заказы" или "что я заказывал" — отвечай на основе этих данных. Можешь предложить повторить заказ или порекомендовать похожие товары.`,
-    },
-  ]
+    })
+  }
+
+  if (cart?.length) {
+    const cartTotal = cart.reduce((s, i) => s + i.price * i.quantity, 0)
+    const cartList  = cart.map((i) => {
+      const noteStr = i.note ? ` [${i.note}]` : ""
+      return `${i.emoji} ${i.title} ×${i.quantity} — ₸${(i.price * i.quantity).toLocaleString()}${noteStr}`
+    }).join("\n")
+
+    extra.push({
+      type: "text",
+      text: `ТЕКУЩАЯ КОРЗИНА КЛИЕНТА (что сейчас добавлено в корзину):\n${cartList}\nИтого в корзине: ₸${cartTotal.toLocaleString()}\n\nЕсли клиент спрашивает что у него в корзине или что к этому подойдёт — используй эти данные. Можешь посоветовать что добавить к уже выбранным товарам.`,
+    })
+  }
+
+  return [base, ...extra]
 }
 
 export async function POST(req: NextRequest) {
@@ -105,7 +132,7 @@ export async function POST(req: NextRequest) {
     return new Response(JSON.stringify({ error: "Некорректный запрос" }), { status: 400 })
   }
 
-  const { messages, orderContext, locale = "ru" } = parsed.data
+  const { messages, orderContext, cartContext, locale = "ru" } = parsed.data
 
   const catalog = await getProductsCatalogForAI()
   const encoder  = new TextEncoder()
@@ -119,7 +146,7 @@ export async function POST(req: NextRequest) {
         const stream = client.messages.stream({
           model:      "claude-haiku-4-5-20251001",
           max_tokens: 1024,
-          system:     buildSystemBlocks(catalog, orderContext, locale),
+          system:     buildSystemBlocks(catalog, orderContext, cartContext, locale),
           messages,
         })
 
