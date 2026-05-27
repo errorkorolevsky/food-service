@@ -21,6 +21,7 @@ import { useFavoritesStore } from "@/store/favoritesStore"
 import { useCartStore } from "@/store/cartStore"
 import { useCartUI } from "@/store/cartUIStore"
 import { useLang } from "@/locales"
+import type { Translations } from "@/locales/ru"
 
 // ─── TYPES ────────────────────────────────────────────────────────────────────
 
@@ -48,13 +49,108 @@ const STATUS_STYLE: Record<OrderStatus, { variant: "default" | "success" | "warn
 
 // ─── LOYALTY ──────────────────────────────────────────────────────────────────
 
-type LoyaltyTier = { key: "new" | "regular" | "vip" | "elite"; color: string; emoji: string }
+type TierKey = "new" | "regular" | "vip" | "elite"
+type LoyaltyTier = { key: TierKey; color: string; emoji: string }
+
+const TIER_ORDER: TierKey[] = ["new", "regular", "vip", "elite"]
+const TIER_MIN: Record<TierKey, number> = { new: 0, regular: 10_000, vip: 50_000, elite: 200_000 }
 
 function getLoyaltyTier(totalSpent: number): LoyaltyTier {
   if (totalSpent >= 200_000) return { key: "elite",   color: "#f59e0b", emoji: "💎" }
   if (totalSpent >=  50_000) return { key: "vip",     color: "#6366f1", emoji: "⭐" }
   if (totalSpent >=  10_000) return { key: "regular", color: "#10b981", emoji: "🌿" }
   return                            { key: "new",     color: "#9ca3af", emoji: "🌱" }
+}
+
+function getLoyaltyProgress(totalSpent: number, tier: LoyaltyTier) {
+  const idx = TIER_ORDER.indexOf(tier.key)
+  if (idx === TIER_ORDER.length - 1) return { progress: 100, remaining: 0, nextKey: null as TierKey | null }
+  const nextKey  = TIER_ORDER[idx + 1]
+  const rangeMin = TIER_MIN[tier.key]
+  const rangeMax = TIER_MIN[nextKey]
+  const progress = Math.min(100, ((totalSpent - rangeMin) / (rangeMax - rangeMin)) * 100)
+  const remaining = rangeMax - totalSpent
+  return { progress, remaining, nextKey }
+}
+
+function LoyaltyProgressCard({
+  totalSpent, tier, t,
+}: {
+  totalSpent: number
+  tier: LoyaltyTier
+  t: Translations
+}) {
+  const { progress, remaining, nextKey } = getLoyaltyProgress(totalSpent, tier)
+  const nextTier = nextKey ? getLoyaltyTier(TIER_MIN[nextKey]) : null
+
+  const tierLabel = (key: TierKey) =>
+    t.profile[`tier${key.charAt(0).toUpperCase()}${key.slice(1)}` as keyof typeof t.profile] as string
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: [0, 0, 0.2, 1] }}
+      className="bg-fs-white border border-fs-border rounded-2xl px-6 py-5 mt-4 sm:mt-6"
+    >
+      {nextTier ? (
+        <>
+          {/* HEADER */}
+          <div className="flex items-center justify-between mb-4">
+            <p className="text-label text-fs-gray uppercase tracking-widest">
+              {t.profile.loyaltyTitle}
+            </p>
+            <span className="text-[12px] font-bold text-fs-gray">
+              {Math.round(progress)}%
+            </span>
+          </div>
+
+          {/* TIER LABELS */}
+          <div className="flex items-center justify-between mb-2.5">
+            <div className="flex items-center gap-1.5">
+              <span className="text-lg">{tier.emoji}</span>
+              <span className="text-[12px] font-semibold" style={{ color: tier.color }}>
+                {tierLabel(tier.key)}
+              </span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-[12px] font-semibold text-fs-muted">
+                {tierLabel(nextKey!)}
+              </span>
+              <span className="text-lg">{nextTier.emoji}</span>
+            </div>
+          </div>
+
+          {/* PROGRESS BAR */}
+          <div className="h-2 bg-fs-offwhite border border-fs-border rounded-full overflow-hidden">
+            <motion.div
+              className="h-full rounded-full"
+              style={{ background: `linear-gradient(90deg, ${tier.color}, ${nextTier.color})` }}
+              initial={{ width: 0 }}
+              animate={{ width: `${progress}%` }}
+              transition={{ duration: 1, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
+            />
+          </div>
+
+          {/* GOAL */}
+          <p className="text-[12px] text-fs-gray mt-2.5">
+            {t.profile.loyaltyGoal(remaining, nextTier.emoji, tierLabel(nextKey!))}
+          </p>
+        </>
+      ) : (
+        <div className="flex items-center gap-3">
+          <span className="text-2xl">{tier.emoji}</span>
+          <div>
+            <p className="text-[14px] font-bold text-fs-graphite">{t.profile.loyaltyMax}</p>
+            <p className="text-[12px] text-fs-gray mt-0.5">{tierLabel(tier.key)}</p>
+          </div>
+          <div className="ml-auto h-2 w-32 bg-fs-offwhite border border-fs-border rounded-full overflow-hidden">
+            <div className="h-full w-full rounded-full" style={{ background: tier.color }} />
+          </div>
+        </div>
+      )}
+    </motion.div>
+  )
 }
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
@@ -423,6 +519,11 @@ export default function ProfilePage() {
                   color={tier.color}
                 />
               </div>
+            </FadeIn>
+
+            {/* LOYALTY PROGRESS */}
+            <FadeIn delay={0.15}>
+              <LoyaltyProgressCard totalSpent={totalSpent} tier={tier} t={t} />
             </FadeIn>
           </div>
         </div>

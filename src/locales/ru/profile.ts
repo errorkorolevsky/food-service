@@ -37,5 +37,9 @@ export const ruProfile = {
     tierRegular:  "Постоянный",
     tierVip:      "VIP клиент",
     tierElite:    "Elite",
+    loyaltyTitle: "До следующего уровня",
+    loyaltyMax:   "Максимальный уровень достигнут! 💎",
+    loyaltyGoal:  (amount: number, emoji: string, name: string) =>
+      `Ещё ₸${amount.toLocaleString("ru-RU")} до ${emoji} ${name}`,
   },
 }

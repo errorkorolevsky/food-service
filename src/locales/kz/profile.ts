@@ -37,5 +37,9 @@ export const kzProfile = {
     tierRegular:  "Тұрақты",
     tierVip:      "VIP клиент",
     tierElite:    "Elite",
+    loyaltyTitle: "Келесі деңгейге дейін",
+    loyaltyMax:   "Максималды деңгейге жеттіңіз! 💎",
+    loyaltyGoal:  (amount: number, emoji: string, name: string) =>
+      `${emoji} ${name} дейін ₸${amount.toLocaleString("kk-KZ")} қалды`,
   },
 }
