@@ -41,6 +41,25 @@ type OrderContext = {
 const STORAGE_KEY = "fs_ai_history"
 const MAX_STORED  = 40
 
+// Pick 3 contextual follow-up suggestions based on keywords in the last response
+function pickFollowUps(text: string, followUps: Record<string, string[]>): string[] {
+  const lower = text.toLowerCase()
+  const checks: [string, string[]][] = [
+    ["seafood",  ["рыб", "лосось", "морепродукт", "креветк", "икр", "суш", "балық", "лосось", "теңіз"]],
+    ["meat",     ["мяс", "говядин", "курин", "свинин", "стейк", "ет", "бройлер"]],
+    ["dairy",    ["молок", "сыр", "творог", "кефир", "йогурт", "сметан", "масл", "сүт", "ірімшік"]],
+    ["bakery",   ["хлеб", "выпечк", "булк", "батон", "нан", "печен"]],
+    ["coffee",   ["кофе", "чай", "какао", "капучин", "эспрессо", "латте"]],
+  ]
+  for (const [key, kws] of checks) {
+    if (kws.some((kw) => lower.includes(kw)) && followUps[key]) {
+      const pool = [...followUps[key], ...followUps.general]
+      return pool.slice(0, 3)
+    }
+  }
+  return followUps.general.slice(0, 3)
+}
+
 
 // ─── STREAMING CURSOR ─────────────────────────────────────────────────────────
 
@@ -233,6 +252,7 @@ function AIPageInner() {
   const [orderContext,  setOrderContext]  = useState<OrderContext[]>([])
   const [savedHistory,  setSavedHistory]  = useState<Message[] | null>(null)
   const [showScrollBtn, setShowScrollBtn] = useState(false)
+  const [followUpChips, setFollowUpChips] = useState<string[]>([])
 
   const bottomRef   = useRef<HTMLDivElement>(null)
   const inputRef    = useRef<HTMLTextAreaElement>(null)
@@ -255,6 +275,7 @@ function AIPageInner() {
     setMessages(context)
     setInput("")
     setLoading(true)
+    setFollowUpChips([])
     setSavedHistory(null)
 
     try {
@@ -307,6 +328,13 @@ function AIPageInner() {
     } finally {
       setLoading(false)
       setIsStreaming(false)
+      setMessages((prev) => {
+        const last = prev[prev.length - 1]
+        if (last?.role === "assistant" && last.content) {
+          setFollowUpChips(pickFollowUps(last.content, t.ai.followUps))
+        }
+        return prev
+      })
     }
   }, [messages, loading, isStreaming, orderContext, t, lang])
 
@@ -387,6 +415,7 @@ function AIPageInner() {
     setMessages([{ role: "assistant", content: t.ai.greeting }])
     setInput("")
     setSavedHistory(null)
+    setFollowUpChips([])
     setLoading(false)
     setIsStreaming(false)
     localStorage.removeItem(STORAGE_KEY)
@@ -494,6 +523,37 @@ function AIPageInner() {
                   />
                 )
               })}
+
+              {/* FOLLOW-UP CHIPS */}
+              <AnimatePresence>
+                {followUpChips.length > 0 && !isBusy && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 6 }}
+                    transition={{ duration: 0.22 }}
+                    className="flex flex-wrap gap-2 pl-11"
+                  >
+                    {followUpChips.map((chip, i) => (
+                      <motion.button
+                        key={chip}
+                        initial={{ opacity: 0, scale: 0.92 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: i * 0.06, duration: 0.18 }}
+                        onClick={() => send(chip)}
+                        className="
+                          px-3 py-1.5 rounded-xl text-[12px] text-fs-gray
+                          border border-fs-border bg-fs-offwhite
+                          hover:border-fs-primary/40 hover:text-fs-primary hover:bg-fs-light
+                          transition-all duration-150 text-left
+                        "
+                      >
+                        {chip}
+                      </motion.button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               <AnimatePresence>
                 {loading && <TypingIndicator />}
