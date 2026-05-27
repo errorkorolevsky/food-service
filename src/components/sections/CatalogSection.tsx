@@ -639,6 +639,13 @@ function CatalogInner({ products }: { products: Product[] }) {
     if (priceActive)  list = list.filter((p) => p.priceNum >= priceMin && p.priceNum <= priceMax)
 
     switch (sort) {
+      case "default":
+        list.sort((a, b) => {
+          const scoreA = (a.isHit ? 4 : 0) + (a.isPopular ? 2 : 0) + (a.isNew ? 1 : 0)
+          const scoreB = (b.isHit ? 4 : 0) + (b.isPopular ? 2 : 0) + (b.isNew ? 1 : 0)
+          return scoreB - scoreA
+        })
+        break
       case "price_asc":  list.sort((a, b) => a.priceNum - b.priceNum);              break
       case "price_desc": list.sort((a, b) => b.priceNum - a.priceNum);              break
       case "rating":     list.sort((a, b) => Number(b.rating) - Number(a.rating));  break
@@ -698,9 +705,21 @@ function CatalogInner({ products }: { products: Product[] }) {
               <p className="text-label text-fs-gray uppercase tracking-widest mb-3">
                 {t.catalog.subtitle}
               </p>
-              <h2 className="text-heading text-fs-graphite">
-                {t.catalog.title}
-              </h2>
+              <AnimatePresence mode="wait">
+                <motion.h2
+                  key={category}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.22, ease: [0, 0, 0.2, 1] }}
+                  className="text-heading text-fs-graphite"
+                >
+                  {category === FILTER_ALL
+                    ? t.catalog.title
+                    : (t.categories.labels as Record<string, string>)[category] ?? category
+                  }
+                </motion.h2>
+              </AnimatePresence>
             </div>
 
             <p className="text-caption text-fs-gray">
