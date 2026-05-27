@@ -9,6 +9,7 @@ import CategoriesSection from "@/components/sections/CategoriesSection";
 import PopularSection from "@/components/sections/PopularSection";
 import NewArrivalsSection from "@/components/sections/NewArrivalsSection";
 import LiveOffersSection from "@/components/sections/LiveOffersSection";
+import FavoritesOnSaleSection from "@/components/sections/FavoritesOnSaleSection";
 import AnimatedPromoBanner from "@/components/sections/AnimatedPromoBanner";
 import BusinessSection from "@/components/sections/BusinessSection";
 import RecentlyViewedSection from "@/components/sections/RecentlyViewedSection";
@@ -45,6 +46,8 @@ export default async function HomePage() {
 
         <SectionDivider variant="warm" />
         <LiveOffersSection products={saleProducts} />
+
+        <FavoritesOnSaleSection products={saleProducts} />
 
         <SectionDivider variant="warm" />
         <AnimatedPromoBanner />
