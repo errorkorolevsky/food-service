@@ -12,8 +12,9 @@ export function usePushNotifications() {
 
   useEffect(() => {
     if (typeof window === "undefined") return
-    setSupported("serviceWorker" in navigator && "PushManager" in window && "Notification" in window)
-    setPermission(Notification.permission)
+    const ok = "serviceWorker" in navigator && "PushManager" in window && "Notification" in window
+    setSupported(ok)
+    if (ok) setPermission(Notification.permission)
   }, [])
 
   useEffect(() => {

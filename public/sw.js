@@ -1,32 +1,21 @@
-const CACHE = "fs-v2"
-
-const PRECACHE = [
-  "/",
-  "/catalog",
-  "/manifest.json",
-]
+const CACHE = "fs-v3"
 
 // ─── INSTALL ─────────────────────────────────────────────────────────────────
 
-self.addEventListener("install", (e) => {
-  e.waitUntil(
-    caches.open(CACHE).then((cache) => cache.addAll(PRECACHE))
-  )
+self.addEventListener("install", () => {
   self.skipWaiting()
 })
 
-// ─── ACTIVATE ────────────────────────────────────────────────────────────────
+// ─── ACTIVATE — clear every old cache ────────────────────────────────────────
 
 self.addEventListener("activate", (e) => {
   e.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))
+      Promise.all(keys.map((k) => caches.delete(k)))
     )
   )
   self.clients.claim()
 })
-
-// ─── FETCH — network first, cache fallback ────────────────────────────────────
 
 // ─── PUSH ─────────────────────────────────────────────────────────────────────
 
@@ -34,10 +23,10 @@ self.addEventListener("push", (e) => {
   const data = e.data?.json?.() ?? {}
   e.waitUntil(
     self.registration.showNotification(data.title ?? "Food Service", {
-      body:  data.body  ?? "",
-      icon:  data.icon  ?? "/icon-192.png",
-      badge: "/icon-72.png",
-      data:  { url: data.url ?? "/" },
+      body:    data.body  ?? "",
+      icon:    data.icon  ?? "/icon-192.png",
+      badge:   "/icon-72.png",
+      data:    { url: data.url ?? "/" },
       vibrate: [100, 50, 100],
     })
   )
@@ -55,23 +44,36 @@ self.addEventListener("notificationclick", (e) => {
   )
 })
 
-// ─── FETCH — network first, cache fallback ────────────────────────────────────
+// ─── FETCH — static public assets only ────────────────────────────────────────
+// Navigation requests (HTML) are NEVER intercepted — browser fetches them directly.
+// API routes are NEVER intercepted.
+// Next.js internal chunks (/_next/) are NEVER intercepted.
+// Only /public static files (images, icons, manifest) use cache-first.
+// respondWith ALWAYS returns a valid Response — never undefined.
 
 self.addEventListener("fetch", (e) => {
-  // Только GET, только same-origin, не API
+  const url = e.request.url
+
   if (
-    e.request.method !== "GET" ||
-    !e.request.url.startsWith(self.location.origin) ||
-    e.request.url.includes("/api/")
+    e.request.method  !== "GET"       ||
+    e.request.mode    === "navigate"  ||
+    !url.startsWith(self.location.origin) ||
+    url.includes("/api/")             ||
+    url.includes("/_next/")
   ) return
 
   e.respondWith(
-    fetch(e.request)
-      .then((res) => {
-        const clone = res.clone()
-        caches.open(CACHE).then((cache) => cache.put(e.request, clone))
-        return res
-      })
-      .catch(() => caches.match(e.request))
+    caches.match(e.request).then((cached) => {
+      if (cached) return cached
+      return fetch(e.request)
+        .then((res) => {
+          if (res && res.ok) {
+            const clone = res.clone()
+            caches.open(CACHE).then((c) => c.put(e.request, clone))
+          }
+          return res
+        })
+        .catch(() => new Response("", { status: 503 }))
+    })
   )
 })
