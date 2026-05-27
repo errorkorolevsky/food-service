@@ -58,12 +58,13 @@ export type Category = {
 // ─── CART ────────────────────────────────────────────────────────────────────
 
 export type CartItem = {
-  id:       string
-  title:    string
-  price:    number
-  emoji:    string
-  image?:   string
-  quantity: number
+  id:        string
+  title:     string
+  price:     number
+  oldPrice?: number
+  emoji:     string
+  image?:    string
+  quantity:  number
 }
 
 // ─── ORDER ───────────────────────────────────────────────────────────────────

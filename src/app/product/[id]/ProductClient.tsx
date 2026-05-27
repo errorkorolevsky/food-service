@@ -128,7 +128,7 @@ export default function ProductClient({
   ]
 
   const handleAdd = () => {
-    addItem({ id: product.id, title: product.title, price: product.priceNum, emoji: product.emoji, image: product.image })
+    addItem({ id: product.id, title: product.title, price: product.priceNum, oldPrice: product.oldPriceNum, emoji: product.emoji, image: product.image })
     showToast(product.title, product.emoji)
   }
 

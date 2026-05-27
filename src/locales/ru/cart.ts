@@ -25,5 +25,6 @@ export const ruCart = {
     items_many:       "товаров",
     recommended:      "С этим берут",
     add:              "В корзину",
+    savings:          "Вы экономите",
   },
 }

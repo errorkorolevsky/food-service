@@ -427,6 +427,33 @@ export default function CartDrawer() {
                 )}
               </AnimatePresence>
 
+              {/* SAVINGS BADGE */}
+              {(() => {
+                const savings = items.reduce((s, i) => {
+                  if (i.oldPrice && i.oldPrice > i.price) return s + (i.oldPrice - i.price) * i.quantity
+                  return s
+                }, 0)
+                return savings > 0 ? (
+                  <AnimatePresence>
+                    <motion.div
+                      key="savings"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                      className="flex items-center justify-between px-4 py-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800"
+                    >
+                      <span className="text-[13px] font-semibold text-emerald-700 dark:text-emerald-400">
+                        {t.cart.savings}
+                      </span>
+                      <span className="text-[13px] font-black text-emerald-600 dark:text-emerald-400">
+                        −₸{savings.toLocaleString()}
+                      </span>
+                    </motion.div>
+                  </AnimatePresence>
+                ) : null
+              })()}
+
               {/* TOTAL */}
               <div className="flex items-center justify-between py-1">
                 <span className="text-body text-fs-gray">
