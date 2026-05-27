@@ -386,6 +386,12 @@ function OrderRow({ order, onStatusChange, isDemo, locale }: {
               style={{ background: meta.bg, color: meta.color }}>
               {meta.label}
             </span>
+            {order.items.some((i) => i.note) && (
+              <span className="flex items-center gap-1 text-[11px] font-medium text-amber-600 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5">
+                <MessageSquare size={10} strokeWidth={2} />
+                Note
+              </span>
+            )}
             <span className="text-[12px] text-fs-muted">{formatDate(order.created_at, locale)}</span>
           </div>
           <p className="text-[12px] text-fs-gray mt-0.5 truncate">
@@ -393,7 +399,13 @@ function OrderRow({ order, onStatusChange, isDemo, locale }: {
           </p>
         </div>
         <div className="flex items-center gap-3 flex-shrink-0">
-          <span className="text-[16px] font-black text-fs-graphite">₸{order.total.toLocaleString()}</span>
+          <div className="hidden sm:flex flex-col items-end gap-0.5">
+            <span className="text-[16px] font-black text-fs-graphite">₸{order.total.toLocaleString()}</span>
+            <span className="text-[11px] text-fs-muted">
+              {order.items.reduce((s, i) => s + i.quantity, 0)} позиц.
+            </span>
+          </div>
+          <span className="sm:hidden text-[16px] font-black text-fs-graphite">₸{order.total.toLocaleString()}</span>
           <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}>
             <ChevronDown size={15} strokeWidth={1.5} className="text-fs-muted" />
           </motion.div>
