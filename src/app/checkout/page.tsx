@@ -426,6 +426,11 @@ export default function CheckoutPage() {
                               <p className="text-[11px] text-fs-gray mt-0.5">
                                 {item.quantity} × ₸{item.price.toLocaleString()}
                               </p>
+                              {item.note && (
+                                <p className="text-[10px] text-amber-600 bg-amber-50 border border-amber-100 rounded-md px-1.5 py-0.5 mt-1 truncate">
+                                  {item.note}
+                                </p>
+                              )}
                             </div>
                           </div>
                           <span className="text-[13px] font-bold text-fs-graphite flex-shrink-0">
