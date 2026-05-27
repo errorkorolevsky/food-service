@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { Home, Grid3x3, Package, User, Heart } from "lucide-react"
+import { Home, Grid3x3, Zap, User, Heart } from "lucide-react"
 
 import { useFavoritesStore } from "@/store/favoritesStore"
 import { useLang } from "@/locales"
@@ -19,11 +19,11 @@ export default function MobileNav() {
   if (HIDDEN_PATHS.some(p => pathname === p || pathname.startsWith(p + "/"))) return null
 
   const links = [
-    { href: "/",          icon: Home,     label: t.nav.home,      showFavBadge: false },
-    { href: "/catalog",   icon: Grid3x3,  label: t.nav.catalog,   showFavBadge: false },
-    { href: "/favorites", icon: Heart,    label: t.nav.favorites, showFavBadge: true  },
-    { href: "/tracking",  icon: Package,  label: t.nav.delivery,  showFavBadge: false },
-    { href: "/profile",   icon: User,     label: t.nav.profile,   showFavBadge: false },
+    { href: "/",          icon: Home,    label: t.nav.home,      showFavBadge: false },
+    { href: "/catalog",   icon: Grid3x3, label: t.nav.catalog,   showFavBadge: false },
+    { href: "/favorites", icon: Heart,   label: t.nav.favorites, showFavBadge: true  },
+    { href: "/ai",        icon: Zap,     label: t.nav.ai,        showFavBadge: false },
+    { href: "/profile",   icon: User,    label: t.nav.profile,   showFavBadge: false },
   ]
 
   return (

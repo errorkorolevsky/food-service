@@ -30,7 +30,7 @@ export default async function CatalogPage() {
     <main className="fs-page-bg text-fs-graphite min-h-screen">
       <Navbar />
 
-      <CatalogHero />
+      <CatalogHero productCount={products.length} />
 
       <CatalogSection products={products} />
 

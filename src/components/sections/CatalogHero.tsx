@@ -4,13 +4,13 @@ import { Package, Truck, Zap } from "lucide-react"
 import FadeIn from "@/components/ui/FadeIn"
 import { useLang } from "@/locales"
 
-export default function CatalogHero() {
+export default function CatalogHero({ productCount }: { productCount?: number }) {
   const { t } = useLang()
 
   const stats = [
-    { icon: Package, value: "200+",    label: t.catalog.stat1 },
-    { icon: Truck,   value: "15",       label: t.catalog.stat2 },
-    { icon: Zap,     value: "AI",      label: t.catalog.stat3 },
+    { icon: Package, value: productCount ? `${productCount}+` : "357+", label: t.catalog.stat1 },
+    { icon: Truck,   value: "15",                                        label: t.catalog.stat2 },
+    { icon: Zap,     value: "AI",                                        label: t.catalog.stat3 },
   ]
 
   return (
