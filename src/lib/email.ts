@@ -22,6 +22,8 @@ function formatOrderId(uuid: string) {
   return `#FS-${uuid.slice(-6).toUpperCase()}`
 }
 
+const SUPPORT_WHATSAPP = "+77770000000"
+
 function buildEmailHtml({
   orderId,
   status,
@@ -29,13 +31,17 @@ function buildEmailHtml({
   total,
   address,
   trackingUrl,
+  deliveryDate,
+  deliveryTime,
 }: {
-  orderId:     string
-  status:      OrderStatus
-  items:       OrderItem[]
-  total:       number
-  address:     string
-  trackingUrl: string
+  orderId:       string
+  status:        OrderStatus
+  items:         OrderItem[]
+  total:         number
+  address:       string
+  trackingUrl:   string
+  deliveryDate?: string | null
+  deliveryTime?: string | null
 }) {
   const info = STATUS_INFO[status]
   const shortId = formatOrderId(orderId)
@@ -88,10 +94,17 @@ function buildEmailHtml({
           </table>
 
           <!-- TOTAL -->
-          <div style="display:flex;justify-content:space-between;padding:16px;background:#0a0a0a;border-radius:10px;margin-bottom:20px;">
+          <div style="display:flex;justify-content:space-between;padding:16px;background:#0a0a0a;border-radius:10px;margin-bottom:8px;">
             <span style="color:#9ca3af;font-size:14px;">Адрес доставки</span>
             <span style="color:#e5e7eb;font-size:14px;text-align:right;max-width:60%;">${address}</span>
           </div>
+          ${(deliveryDate || deliveryTime) ? `
+          <div style="display:flex;justify-content:space-between;padding:16px;background:#0a0a0a;border-radius:10px;margin-bottom:8px;">
+            <span style="color:#9ca3af;font-size:14px;">Время доставки</span>
+            <span style="color:#e5e7eb;font-size:14px;text-align:right;">
+              ${[deliveryDate === "today" ? "Сегодня" : deliveryDate === "tomorrow" ? "Завтра" : deliveryDate, deliveryTime].filter(Boolean).join(" · ")}
+            </span>
+          </div>` : ""}
           <div style="display:flex;justify-content:space-between;padding:16px;background:#0a0a0a;border-radius:10px;">
             <span style="color:#fff;font-weight:700;font-size:15px;">Итого</span>
             <span style="color:#fff;font-weight:900;font-size:18px;">₸${total.toLocaleString("ru-RU")}</span>
@@ -108,9 +121,12 @@ function buildEmailHtml({
 
         <!-- FOOTER -->
         <tr><td style="padding-top:24px;text-align:center;">
-          <p style="color:#4b5563;font-size:12px;margin:0;">
+          <p style="color:#4b5563;font-size:12px;margin:0 0 8px;">
             Food Service Kazakhstan · Шымкент<br>
             <a href="${trackingUrl}" style="color:#6b7280;">Отслеживание заказа</a>
+          </p>
+          <p style="color:#4b5563;font-size:12px;margin:0;">
+            Вопросы? Напишите нам в&nbsp;<a href="https://wa.me/${SUPPORT_WHATSAPP.replace(/\D/g, "")}" style="color:#22c55e;text-decoration:none;">WhatsApp</a>
           </p>
         </td></tr>
 
@@ -191,13 +207,17 @@ export async function sendOrderEmail({
   items,
   total,
   address,
+  deliveryDate,
+  deliveryTime,
 }: {
-  to:      string
-  orderId: string
-  status:  OrderStatus
-  items:   OrderItem[]
-  total:   number
-  address: string
+  to:            string
+  orderId:       string
+  status:        OrderStatus
+  items:         OrderItem[]
+  total:         number
+  address:       string
+  deliveryDate?: string | null
+  deliveryTime?: string | null
 }) {
   const resend = getResend()
   if (!resend) return
@@ -210,6 +230,6 @@ export async function sendOrderEmail({
     from:    "Food Service <onboarding@resend.dev>",
     to,
     subject: `${info.subject} ${shortId}`,
-    html:    buildEmailHtml({ orderId, status, items, total, address, trackingUrl }),
+    html:    buildEmailHtml({ orderId, status, items, total, address, trackingUrl, deliveryDate, deliveryTime }),
   })
 }

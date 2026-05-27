@@ -107,12 +107,14 @@ export async function POST(req: NextRequest) {
 
   if (user_email) {
     sendOrderEmail({
-      to:      user_email,
-      orderId: data.id,
-      status:  "pending",
+      to:           user_email,
+      orderId:      data.id,
+      status:       "pending",
       items,
       total,
       address,
+      deliveryDate: delivery_date,
+      deliveryTime: delivery_time,
     }).catch(console.error)
   }
 
