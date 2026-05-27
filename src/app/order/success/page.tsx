@@ -3,14 +3,17 @@
 import { useSearchParams } from "next/navigation"
 import { Suspense, useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { CheckCircle2, ArrowRight, Package, LogIn, MapPin, CreditCard, Smartphone } from "lucide-react"
+import { CheckCircle2, ArrowRight, Package, LogIn, MapPin, CreditCard, Smartphone, RotateCcw } from "lucide-react"
 import { useSession, signIn } from "next-auth/react"
 
 import Navbar from "@/components/layout/Navbar"
+import CartDrawer from "@/components/layout/CartDrawer"
 import Badge from "@/components/ui/Badge"
 import Button from "@/components/ui/Button"
 import FadeIn from "@/components/ui/FadeIn"
 import { useLang } from "@/locales"
+import { useCartStore } from "@/store/cartStore"
+import { useCartUI } from "@/store/cartUIStore"
 
 // ─── TYPES ────────────────────────────────────────────────────────────────────
 
@@ -52,8 +55,20 @@ function SuccessContent() {
   const urlTotal           = Number(params.get("total") ?? 0)
   const { data: session }  = useSession()
   const { t }              = useLang()
+  const addItem            = useCartStore((state) => state.addItem)
+  const openCart           = useCartUI((state) => state.openCart)
 
   const [order, setOrder] = useState<OrderData | null>(null)
+
+  const handleRepeat = () => {
+    if (!order) return
+    order.items.forEach((item) => {
+      for (let i = 0; i < item.quantity; i++) {
+        addItem({ id: item.id, title: item.title, price: item.price, emoji: item.emoji })
+      }
+    })
+    openCart()
+  }
 
   const STATUS_STEPS = [
     { key: "pending",     label: t.order.statuses.pending     },
@@ -261,6 +276,13 @@ function SuccessContent() {
             <ArrowRight size={18} strokeWidth={1.5} />
           </Button>
 
+          {order && order.items.length > 0 && (
+            <Button onClick={handleRepeat} variant="secondary" size="lg" className="flex-1">
+              <RotateCcw size={16} strokeWidth={1.5} />
+              {t.order.repeatBtn}
+            </Button>
+          )}
+
           <Button href="/catalog" variant="secondary" size="lg" className="flex-1">
             {t.order.continueBtn}
           </Button>
@@ -281,6 +303,7 @@ export default function OrderSuccessPage() {
           <SuccessContent />
         </Suspense>
       </div>
+      <CartDrawer />
     </main>
   )
 }

@@ -16,6 +16,7 @@ export const kzOrder = {
     loginDesc:      "Барлық тапсырыстарыңыз профильге автоматты сақталады",
     trackBtn:       "Тапсырысты бақылау",
     continueBtn:    "Сауда жалғастыру",
+    repeatBtn:      "Тапсырысты қайталау",
     statuses: {
       pending:     "Тапсырыс қабылданды",
       processing:  "Курьерге берілді",

@@ -16,6 +16,7 @@ export const ruOrder = {
     loginDesc:      "Все ваши заказы сохранятся в профиле автоматически",
     trackBtn:       "Отследить заказ",
     continueBtn:    "Продолжить покупки",
+    repeatBtn:      "Повторить заказ",
     statuses: {
       pending:     "Заказ принят",
       processing:  "Передан курьеру",
