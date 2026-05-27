@@ -30,6 +30,8 @@ export const ruTracking = {
     refreshBtn:   "Обновить",
     support:      "Поддержка",
     callSupport:  "Позвонить",
+    whatsapp:     "WhatsApp",
+    whatsappMsg:  (orderId: string) => `Здравствуйте! Мой заказ ${orderId}, помогите пожалуйста.`,
     statAvgTime:  "мин. в среднем",
     statLive:     "обновление статуса",
     statSms:      "уведомления",

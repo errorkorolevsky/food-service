@@ -30,6 +30,8 @@ export const kzTracking = {
     refreshBtn:   "Жаңарту",
     support:      "Қолдау",
     callSupport:  "Қоңырау шалу",
+    whatsapp:     "WhatsApp",
+    whatsappMsg:  (orderId: string) => `Сәлеметсіз бе! Менің тапсырысым ${orderId}, көмектесіңізші.`,
     statAvgTime:  "мин. орташа",
     statLive:     "статус жаңартуы",
     statSms:      "хабарламалар",
