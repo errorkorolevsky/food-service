@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Search, X } from "lucide-react"
+import { Search, X, Clock, TrendingUp } from "lucide-react"
 import Image from "next/image"
 import { useLang } from "@/locales"
 
@@ -22,6 +22,10 @@ type SearchBarProps = {
   className?:          string
   suggestions?:        SearchSuggestion[]
   onSuggestionSelect?: (s: SearchSuggestion) => void
+  history?:            string[]
+  trending?:           string[]
+  onHistorySelect?:    (term: string) => void
+  onHistoryClear?:     () => void
 }
 
 export default function SearchBar({
@@ -31,6 +35,10 @@ export default function SearchBar({
   className = "",
   suggestions,
   onSuggestionSelect,
+  history = [],
+  trending = [],
+  onHistorySelect,
+  onHistoryClear,
 }: SearchBarProps) {
   const { t } = useLang()
   const [focused, setFocused] = useState(false)
@@ -47,6 +55,7 @@ export default function SearchBar({
   }
 
   const showSuggestions = focused && !!suggestions && suggestions.length > 0 && value.length >= 2
+  const showHistory     = focused && value.length === 0 && (history.length > 0 || trending.length > 0)
 
   return (
     <motion.div
@@ -158,6 +167,70 @@ export default function SearchBar({
                 <span className="text-[13px] font-bold text-fs-primary flex-shrink-0">{s.price}</span>
               </motion.button>
             ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* HISTORY + TRENDING PANEL */}
+      <AnimatePresence>
+        {showHistory && (
+          <motion.div
+            key="history"
+            initial={{ opacity: 0, y: -8, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -8, scale: 0.98 }}
+            transition={{ duration: 0.18, ease: [0.4, 0, 0.2, 1] }}
+            className="absolute left-0 right-0 top-full mt-2 z-50 bg-fs-white border border-fs-border rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.12)] overflow-hidden"
+          >
+            {history.length > 0 && (
+              <div className="px-4 pt-3 pb-1">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[11px] font-semibold text-fs-gray uppercase tracking-widest">
+                    {t.catalog.searchRecent}
+                  </span>
+                  {onHistoryClear && (
+                    <button
+                      onMouseDown={(e) => { e.preventDefault(); onHistoryClear() }}
+                      className="text-[11px] text-fs-subtle hover:text-red-400 transition-colors duration-150"
+                    >
+                      {t.catalog.searchClearHist}
+                    </button>
+                  )}
+                </div>
+                <div className="flex flex-wrap gap-1.5 pb-2">
+                  {history.slice(0, 6).map((term) => (
+                    <button
+                      key={term}
+                      onMouseDown={(e) => { e.preventDefault(); onHistorySelect?.(term) }}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-fs-offwhite border border-fs-border text-[12px] text-fs-gray hover:border-fs-primary/40 hover:text-fs-primary transition-all duration-150"
+                    >
+                      <Clock size={11} strokeWidth={1.5} />
+                      {term}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {trending.length > 0 && (
+              <div className={`px-4 ${history.length > 0 ? "border-t border-fs-border" : ""} pt-3 pb-3`}>
+                <p className="text-[11px] font-semibold text-fs-gray uppercase tracking-widest mb-2">
+                  {t.catalog.searchTrending}
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {trending.map((term, i) => (
+                    <button
+                      key={term}
+                      onMouseDown={(e) => { e.preventDefault(); onHistorySelect?.(term) }}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-fs-light border border-fs-border text-[12px] text-fs-slate hover:border-fs-primary/40 hover:text-fs-primary transition-all duration-150"
+                    >
+                      <TrendingUp size={11} strokeWidth={1.5} className={i < 3 ? "text-fs-primary" : "text-fs-subtle"} />
+                      {term}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

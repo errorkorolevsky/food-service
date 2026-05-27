@@ -23,6 +23,10 @@ const PAGE_SIZE  = 12
 const PRICE_MIN  = 0
 const PRICE_MAX  = 6000
 
+const HISTORY_KEY     = "fs-search-history"
+const HISTORY_MAX     = 8
+const TRENDING_TERMS  = ["Молоко", "Говядина", "Курица", "Хлеб", "Яблоки", "Творог", "Сметана", "Лосось"]
+
 const CATEGORIES: (ProductCategory | typeof FILTER_ALL)[] = [
   FILTER_ALL,
   "Мясо и птица",
@@ -523,6 +527,10 @@ function CatalogInner({ products }: { products: Product[] }) {
   const [priceMax,     setPriceMax]     = useState(() => { const v = parseInt(searchParams.get("pmax") ?? ""); return isNaN(v) ? PRICE_MAX : v })
   const [priceOpen,    setPriceOpen]    = useState(false)
   const [page,         setPage]         = useState(1)
+  const [searchHistory, setSearchHistory] = useState<string[]>(() => {
+    if (typeof window === "undefined") return []
+    try { return JSON.parse(localStorage.getItem(HISTORY_KEY) ?? "[]") } catch { return [] }
+  })
 
   const setParam = (key: string, value: string | null) => {
     const params = new URLSearchParams(searchParams.toString())
@@ -578,9 +586,29 @@ function CatalogInner({ products }: { products: Product[] }) {
     })
   }
 
+  const saveToHistory = (term: string) => {
+    const trimmed = term.trim()
+    if (!trimmed || trimmed.length < 2) return
+    setSearchHistory((prev) => {
+      const next = [trimmed, ...prev.filter((h) => h.toLowerCase() !== trimmed.toLowerCase())].slice(0, HISTORY_MAX)
+      try { localStorage.setItem(HISTORY_KEY, JSON.stringify(next)) } catch {}
+      return next
+    })
+  }
+
   const handleSearch = (v: string) => {
     setSearch(v); setPage(1)
     setParam("search", v || null)
+    if (v.trim().length >= 2) saveToHistory(v.trim())
+  }
+
+  const handleHistorySelect = (term: string) => {
+    handleSearch(term)
+  }
+
+  const handleHistoryClear = () => {
+    setSearchHistory([])
+    try { localStorage.removeItem(HISTORY_KEY) } catch {}
   }
   const handleSort = (v: SortKey) => {
     setSort(v); setPage(1); setSortOpen(false)
@@ -736,6 +764,10 @@ function CatalogInner({ products }: { products: Product[] }) {
             placeholder={t.catalog.searchPlaceholder}
             suggestions={suggestions}
             onSuggestionSelect={handleSuggestionSelect}
+            history={searchHistory}
+            trending={TRENDING_TERMS}
+            onHistorySelect={handleHistorySelect}
+            onHistoryClear={handleHistoryClear}
           />
         </FadeIn>
 
