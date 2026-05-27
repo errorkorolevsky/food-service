@@ -397,6 +397,11 @@ function OrderRow({ order, onStatusChange, isDemo, locale }: {
           <p className="text-[12px] text-fs-gray mt-0.5 truncate">
             {order.company || order.phone} · {order.address}
           </p>
+          {order.comment && (
+            <p className="text-[11px] text-blue-600 bg-blue-50 border border-blue-100 rounded-lg px-2 py-0.5 mt-1 truncate max-w-xs">
+              💬 {order.comment}
+            </p>
+          )}
         </div>
         <div className="flex items-center gap-3 flex-shrink-0">
           <div className="hidden sm:flex flex-col items-end gap-0.5">
