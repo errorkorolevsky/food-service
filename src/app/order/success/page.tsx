@@ -14,7 +14,7 @@ import { useLang } from "@/locales"
 
 // ─── TYPES ────────────────────────────────────────────────────────────────────
 
-type OrderItem = { id: string; title: string; emoji: string; price: number; quantity: number }
+type OrderItem = { id: string; title: string; emoji: string; price: number; quantity: number; note?: string }
 
 type OrderData = {
   id:         string
@@ -174,12 +174,19 @@ function SuccessContent() {
             <div className="mt-5 space-y-2.5">
               <p className="text-label text-fs-gray uppercase tracking-widest mb-3">{t.order.composition}</p>
               {order.items.map((item) => (
-                <div key={item.id} className="flex items-center gap-3">
-                  <span className="text-xl flex-shrink-0">{item.emoji}</span>
-                  <span className="text-caption text-fs-gray flex-1 leading-snug">{item.title}</span>
-                  <span className="text-caption text-fs-gray whitespace-nowrap">
-                    {item.quantity} × ₸{item.price.toLocaleString()}
-                  </span>
+                <div key={item.id} className="flex flex-col gap-1">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl flex-shrink-0">{item.emoji}</span>
+                    <span className="text-caption text-fs-gray flex-1 leading-snug">{item.title}</span>
+                    <span className="text-caption text-fs-gray whitespace-nowrap">
+                      {item.quantity} × ₸{item.price.toLocaleString()}
+                    </span>
+                  </div>
+                  {item.note && (
+                    <p className="text-[11px] text-amber-700 bg-amber-50 border border-amber-100 rounded-lg px-2.5 py-1 ml-8">
+                      {item.note}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>

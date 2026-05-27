@@ -7,7 +7,7 @@ function getResend() {
   return new Resend(key)
 }
 
-type OrderItem = { title: string; emoji: string; price: number; quantity: number }
+type OrderItem = { title: string; emoji: string; price: number; quantity: number; note?: string }
 type OrderStatus = "pending" | "processing" | "in_delivery" | "delivered" | "cancelled"
 
 const STATUS_INFO: Record<OrderStatus, { subject: string; headline: string; desc: string; color: string }> = {
@@ -45,8 +45,9 @@ function buildEmailHtml({
       <td style="padding:10px 0;border-bottom:1px solid #1f2937;">
         <span style="font-size:20px;margin-right:10px;">${item.emoji}</span>
         <span style="color:#e5e7eb;font-size:14px;">${item.title}</span>
+        ${item.note ? `<div style="display:inline-block;margin-top:4px;margin-left:30px;padding:3px 10px;background:#451a03;border:1px solid #78350f;border-radius:6px;color:#fbbf24;font-size:11px;">${item.note}</div>` : ""}
       </td>
-      <td style="padding:10px 0;border-bottom:1px solid #1f2937;text-align:right;color:#9ca3af;font-size:14px;white-space:nowrap;">
+      <td style="padding:10px 0;border-bottom:1px solid #1f2937;text-align:right;color:#9ca3af;font-size:14px;white-space:nowrap;vertical-align:top;">
         ${item.quantity} × ₸${item.price.toLocaleString("ru-RU")}
       </td>
     </tr>
