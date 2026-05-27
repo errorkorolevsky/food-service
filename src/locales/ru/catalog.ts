@@ -39,7 +39,11 @@ export const ruCatalog = {
     count_one:         "товар",
     count_few:         "товара",
     count_many:        "товаров",
-    recentlyViewed:    "Вы смотрели",
-    recentlyViewedSub: "Вернитесь к просмотренным товарам",
+    recentlyViewed:      "Вы смотрели",
+    recentlyViewedSub:   "Вернитесь к просмотренным товарам",
+    searchOpen:          "Поиск",
+    searchAll:           "Все результаты",
+    searchNoResults:     "Ничего не найдено",
+    searchTrendingTerms: ["Молоко", "Говядина", "Курица", "Хлеб", "Яблоки", "Творог", "Сметана", "Лосось"],
   },
 }

@@ -39,7 +39,11 @@ export const kzCatalog = {
     count_one:         "тауар",
     count_few:         "тауар",
     count_many:        "тауар",
-    recentlyViewed:    "Қараған тауарлар",
-    recentlyViewedSub: "Соңғы қараған тауарларыңызға оралыңыз",
+    recentlyViewed:      "Қараған тауарлар",
+    recentlyViewedSub:   "Соңғы қараған тауарларыңызға оралыңыз",
+    searchOpen:          "Іздеу",
+    searchAll:           "Барлық нәтижелер",
+    searchNoResults:     "Ештеңе табылмады",
+    searchTrendingTerms: ["Сүт", "Сиыр еті", "Тауық еті", "Нан", "Алма", "Іркіт", "Қаймақ", "Лосось"],
   },
 }
