@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useSession } from "next-auth/react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Star, ShoppingCart, Zap, Truck, Clock, Plus, Minus, Tag, Heart } from "lucide-react"
+import { Star, ShoppingCart, Zap, Truck, Clock, Plus, Minus, Tag, Heart, Share2 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -48,7 +48,8 @@ export default function ProductClient({
   const isFav     = useFavoritesStore((state) => state.isFav)
   const favorited = isFav(product.id)
 
-  const [imgError, setImgError] = useState(false)
+  const [imgError,    setImgError]    = useState(false)
+  const [shareCopied, setShareCopied] = useState(false)
 
   const { ref: imgRef, cursor } = useCursorAware<HTMLDivElement>()
   const { t, lang } = useLang()
@@ -116,6 +117,17 @@ export default function ProductClient({
   const handleAdd = () => {
     addItem({ id: product.id, title: product.title, price: product.priceNum, emoji: product.emoji, image: product.image })
     showToast(product.title, product.emoji)
+  }
+
+  const handleShare = async () => {
+    const url = window.location.href
+    if (typeof navigator.share === "function") {
+      await navigator.share({ title: product.title, text: product.description, url }).catch(() => {})
+    } else {
+      await navigator.clipboard.writeText(url).catch(() => {})
+      setShareCopied(true)
+      setTimeout(() => setShareCopied(false), 2000)
+    }
   }
 
   const handleAI = () => {
@@ -367,6 +379,46 @@ export default function ProductClient({
                   `}
                 >
                   <Heart size={20} strokeWidth={1.5} fill={favorited ? "currentColor" : "none"} />
+                </motion.button>
+
+                <motion.button
+                  onClick={handleShare}
+                  aria-label={t.product.share}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ duration: 0.15 }}
+                  className={`
+                    flex-shrink-0 w-12 h-12 rounded-xl
+                    border flex items-center justify-center
+                    transition-all duration-200
+                    ${shareCopied
+                      ? "bg-fs-primary/10 border-fs-primary/40 text-fs-primary"
+                      : "bg-fs-white border-fs-border text-fs-gray hover:border-fs-subtle hover:text-fs-primary"
+                    }
+                  `}
+                >
+                  <AnimatePresence mode="wait">
+                    {shareCopied ? (
+                      <motion.span
+                        key="copied"
+                        initial={{ scale: 0.5, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.5, opacity: 0 }}
+                        className="text-[10px] font-bold leading-none text-center"
+                      >
+                        ✓
+                      </motion.span>
+                    ) : (
+                      <motion.span
+                        key="icon"
+                        initial={{ scale: 0.5, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.5, opacity: 0 }}
+                      >
+                        <Share2 size={18} strokeWidth={1.5} />
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
                 </motion.button>
 
                 {quantity > 0 && (

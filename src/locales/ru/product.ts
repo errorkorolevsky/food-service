@@ -27,5 +27,7 @@ export const ruProduct = {
     reviewLoginPrompt:   "Войдите, чтобы оставить отзыв",
     reviewSuccess:       "Отзыв отправлен — спасибо!",
     reviewCount:         (n: number) => `${n} ${n === 1 ? "отзыв" : n >= 2 && n <= 4 ? "отзыва" : "отзывов"}`,
+    share:               "Поделиться",
+    shareCopied:         "Ссылка скопирована",
   },
 }

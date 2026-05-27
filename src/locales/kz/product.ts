@@ -27,5 +27,7 @@ export const kzProduct = {
     reviewLoginPrompt:   "Пікір қалдыру үшін кіріңіз",
     reviewSuccess:       "Пікір жіберілді — рақмет!",
     reviewCount:         (n: number) => `${n} пікір`,
+    share:               "Бөлісу",
+    shareCopied:         "Сілтеме көшірілді",
   },
 }
