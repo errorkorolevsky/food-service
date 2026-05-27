@@ -903,36 +903,54 @@ function CatalogInner({ products }: { products: Product[] }) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="text-center py-32"
+                className="py-16"
               >
-                <div className="
-                  w-16 h-16 rounded-2xl
-                  bg-fs-light border border-fs-border
-                  flex items-center justify-center
-                  text-3xl mx-auto mb-6
-                ">
-                  🔍
+                <div className="text-center mb-14">
+                  <div className="w-16 h-16 rounded-2xl bg-fs-light border border-fs-border flex items-center justify-center text-3xl mx-auto mb-6">
+                    🔍
+                  </div>
+                  <h3 className="text-heading text-fs-graphite">{t.empty.search}</h3>
+                  <p className="text-body text-fs-gray mt-4">{t.empty.hint}</p>
+                  <button
+                    onClick={clearFilters}
+                    className="mt-8 px-6 py-3 rounded-xl border border-fs-border text-fs-slate text-caption font-medium bg-fs-white hover:border-fs-primary/30 hover:text-fs-primary transition-all duration-200 shadow-sm"
+                  >
+                    {t.empty.clearFilters}
+                  </button>
                 </div>
 
-                <h3 className="text-heading text-fs-graphite">
-                  {t.empty.search}
-                </h3>
-
-                <p className="text-body text-fs-gray mt-4">
-                  {t.empty.hint}
-                </p>
-
-                <button
-                  onClick={clearFilters}
-                  className="
-                    mt-8 px-6 py-3 rounded-xl
-                    border border-fs-border text-fs-slate text-caption font-medium bg-fs-white
-                    hover:border-fs-primary/30 hover:text-fs-primary
-                    transition-all duration-200 shadow-sm
-                  "
-                >
-                  {t.empty.clearFilters}
-                </button>
+                {/* POPULAR SUGGESTIONS */}
+                {(() => {
+                  const popular = products.filter((p) => p.isPopular || p.isHit).slice(0, 4)
+                  if (popular.length === 0) return null
+                  return (
+                    <div>
+                      <p className="text-label text-fs-gray uppercase tracking-widest mb-6 text-center">{t.empty.popular}</p>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
+                        {popular.map((p) => (
+                          <ProductCard
+                            key={p.id}
+                            id={p.id}
+                            category={p.category}
+                            title={p.title}
+                            description={p.description}
+                            price={p.price}
+                            priceNum={p.priceNum}
+                            oldPriceNum={p.oldPriceNum}
+                            discountPercent={p.discountPercent}
+                            unit={p.unit}
+                            rating={p.rating}
+                            emoji={p.emoji}
+                            image={p.image}
+                            isNew={p.isNew}
+                            isHit={p.isHit}
+                            inStock={p.inStock}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )
+                })()}
               </motion.div>
             )}
           </AnimatePresence>
