@@ -29,5 +29,7 @@ export const kzProduct = {
     reviewCount:         (n: number) => `${n} пікір`,
     share:               "Бөлісу",
     shareCopied:         "Сілтеме көшірілді",
+    quickView:           "Жылдам қарау",
+    quickViewDetails:    "Толығырақ →",
   },
 }

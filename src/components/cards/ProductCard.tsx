@@ -9,6 +9,7 @@ import { useRef, useState } from "react"
 import { useCartStore } from "@/store/cartStore"
 import { useToastStore } from "@/store/toastStore"
 import { useFavoritesStore } from "@/store/favoritesStore"
+import { useQuickViewStore } from "@/store/quickViewStore"
 import { syncFavoriteToggle } from "@/hooks/useFavoritesSync"
 import { useCursorAware } from "@/hooks/useCursorAware"
 import { useLang } from "@/locales"
@@ -46,6 +47,7 @@ export default function ProductCard({
   const toggle           = useFavoritesStore((state) => state.toggle)
   const isFav            = useFavoritesStore((state) => state.isFav)
   const favorited        = isFav(id)
+  const openQuickView    = useQuickViewStore((state) => state.open)
   const { t, lang }      = useLang()
 
   // 3D TILT + CURSOR-AWARE LIGHTING share the same ref
@@ -218,6 +220,30 @@ export default function ProductCard({
               className={favorited ? "text-red-500 fill-red-500" : "text-fs-gray"}
             />
           </motion.button>
+
+          {/* QUICK VIEW — desktop hover only */}
+          {!isTouch && (
+            <button
+              onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                openQuickView({ id, category, title, description, price, priceNum, oldPriceNum, discountPercent, unit, rating, emoji, image, isNew, isHit, inStock })
+              }}
+              aria-label={t.product.quickView}
+              className="
+                absolute bottom-3 left-1/2 -translate-x-1/2 z-20
+                px-3.5 py-1.5 rounded-full
+                bg-white/90 backdrop-blur-sm border border-fs-border shadow-sm
+                text-[11px] font-semibold text-fs-graphite
+                opacity-0 group-hover:opacity-100
+                translate-y-2 group-hover:translate-y-0
+                transition-all duration-200
+                whitespace-nowrap
+              "
+            >
+              {t.product.quickView}
+            </button>
+          )}
         </div>
       </Link>
 

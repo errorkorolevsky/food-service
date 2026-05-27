@@ -29,5 +29,7 @@ export const ruProduct = {
     reviewCount:         (n: number) => `${n} ${n === 1 ? "отзыв" : n >= 2 && n <= 4 ? "отзыва" : "отзывов"}`,
     share:               "Поделиться",
     shareCopied:         "Ссылка скопирована",
+    quickView:           "Быстрый просмотр",
+    quickViewDetails:    "Подробнее →",
   },
 }

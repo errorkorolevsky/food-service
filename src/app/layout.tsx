@@ -10,6 +10,7 @@ import NavigationProgress from "@/components/ui/NavigationProgress"
 import ScrollToTop from "@/components/ui/ScrollToTop"
 import LangHtmlSync from "@/components/ui/LangHtmlSync"
 import FavoritesSync from "@/components/ui/FavoritesSync"
+import ProductQuickView from "@/components/ui/ProductQuickView"
 import PWAInstallPrompt from "@/components/ui/PWAInstallPrompt"
 import YandexMetrica    from "@/components/ui/YandexMetrica"
 import { ThemeProvider } from "@/components/ui/ThemeProvider"
@@ -68,6 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {children}
             </AnimatedLayout>
             <FavoritesSync />
+            <ProductQuickView />
           </SessionProviderWrapper>
           <NavigationProgress />
           <ScrollToTop />
