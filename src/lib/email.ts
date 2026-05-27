@@ -1,5 +1,6 @@
 import { Resend } from "resend"
 import { BASE_URL } from "@/lib/seo"
+import { SUPPORT_WHATSAPP } from "@/config/commerce"
 
 function getResend() {
   const key = process.env.RESEND_API_KEY
@@ -21,8 +22,6 @@ const STATUS_INFO: Record<OrderStatus, { subject: string; headline: string; desc
 function formatOrderId(uuid: string) {
   return `#FS-${uuid.slice(-6).toUpperCase()}`
 }
-
-const SUPPORT_WHATSAPP = "+77770000000"
 
 function buildEmailHtml({
   orderId,

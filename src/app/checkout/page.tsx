@@ -1,9 +1,9 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { CreditCard, Smartphone, Truck, CheckCircle2, ShoppingBag, ArrowRight, Tag, X } from "lucide-react"
+import { CreditCard, Smartphone, Truck, CheckCircle2, ShoppingBag, ArrowRight, Tag, X, MapPin } from "lucide-react"
 import { useSession } from "next-auth/react"
 
 import Navbar from "@/components/layout/Navbar"
@@ -87,6 +87,23 @@ export default function CheckoutPage() {
   const [deliveryDate, setDeliveryDate] = useState("today")
   const [deliveryTime, setDeliveryTime] = useState(t.checkout.timeSlots[0])
 
+  const [addrSuggestOpen, setAddrSuggestOpen] = useState(false)
+  const addrBlurTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const addrHistory: string[] = (() => {
+    if (typeof window === "undefined") return []
+    try { return JSON.parse(localStorage.getItem("fs_address_history") ?? "[]") } catch { return [] }
+  })()
+  const addrSuggestions = addrHistory.filter((a) => a !== address && a.toLowerCase().includes(address.toLowerCase().trim())).slice(0, 5)
+
+  const saveAddressToHistory = (addr: string) => {
+    if (!addr.trim()) return
+    const prev: string[] = (() => {
+      try { return JSON.parse(localStorage.getItem("fs_address_history") ?? "[]") } catch { return [] }
+    })()
+    const next = [addr, ...prev.filter((a) => a !== addr)].slice(0, 5)
+    localStorage.setItem("fs_address_history", JSON.stringify(next))
+  }
+
   const [promoInput,   setPromoInput]   = useState("")
   const [promoLoading, setPromoLoading] = useState(false)
   const [promoError,   setPromoError]   = useState<string | null>(null)
@@ -158,7 +175,7 @@ export default function CheckoutPage() {
       }
 
       localStorage.setItem("fs_phone",   phone.trim())
-      if (address.trim()) localStorage.setItem("fs_address", address.trim())
+      if (address.trim()) { localStorage.setItem("fs_address", address.trim()); saveAddressToHistory(address.trim()) }
       if (company.trim()) localStorage.setItem("fs_company", company.trim())
       ymGoal("order_placed", { total, payment })
       clearCart()
@@ -238,14 +255,41 @@ export default function CheckoutPage() {
                     </motion.div>
 
                     <motion.div animate={shakeAddr ? { x: [-8, 8, -6, 6, -4, 4, 0] } : {}} transition={{ duration: 0.4 }}>
-                      <GlassInput
-                        type="text"
-                        placeholder={t.checkout.addressPlaceholder}
-                        value={address}
-                        error={addrTouched && !address.trim()}
-                        onChange={(e) => setAddress((e.target as HTMLInputElement).value)}
-                        onBlur={() => setAddrTouched(true)}
-                      />
+                      <div className="relative">
+                        <GlassInput
+                          type="text"
+                          placeholder={t.checkout.addressPlaceholder}
+                          value={address}
+                          error={addrTouched && !address.trim()}
+                          onChange={(e) => setAddress((e.target as HTMLInputElement).value)}
+                          onFocus={() => { if (addrBlurTimer.current) clearTimeout(addrBlurTimer.current); setAddrSuggestOpen(true) }}
+                          onBlur={() => { addrBlurTimer.current = setTimeout(() => { setAddrSuggestOpen(false); setAddrTouched(true) }, 150) }}
+                        />
+                        <AnimatePresence>
+                          {addrSuggestOpen && addrSuggestions.length > 0 && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                              transition={{ duration: 0.15 }}
+                              className="absolute left-0 right-0 top-full mt-1 z-50 bg-fs-white border border-fs-border rounded-2xl shadow-lg overflow-hidden"
+                            >
+                              {addrSuggestions.map((a) => (
+                                <button
+                                  key={a}
+                                  type="button"
+                                  onMouseDown={(e) => e.preventDefault()}
+                                  onClick={() => { setAddress(a); setAddrSuggestOpen(false) }}
+                                  className="w-full text-left flex items-center gap-3 px-4 py-3 text-[14px] text-fs-gray hover:text-fs-graphite hover:bg-fs-offwhite transition-colors duration-150 border-b border-fs-border last:border-0"
+                                >
+                                  <MapPin size={13} strokeWidth={1.5} className="flex-shrink-0 text-fs-subtle" />
+                                  <span className="truncate">{a}</span>
+                                </button>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
                       {addrTouched && !address.trim() && (
                         <motion.p initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }}
                           className="text-label text-red-400 mt-1.5 ml-1">

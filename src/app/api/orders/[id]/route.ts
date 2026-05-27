@@ -37,18 +37,20 @@ export async function PATCH(
   // Отправляем email уведомление если у заказа есть email
   const { data: order } = await supabase
     .from("orders")
-    .select("user_email, phone, items, total, address")
+    .select("user_email, phone, items, total, address, delivery_date, delivery_time")
     .eq("id", id)
     .single()
 
   if (order?.user_email) {
     sendOrderEmail({
-      to:      order.user_email,
-      orderId: id,
+      to:           order.user_email,
+      orderId:      id,
       status,
-      items:   order.items,
-      total:   order.total,
-      address: order.address,
+      items:        order.items,
+      total:        order.total,
+      address:      order.address,
+      deliveryDate: order.delivery_date,
+      deliveryTime: order.delivery_time,
     }).catch(console.error)
   }
 
