@@ -711,7 +711,8 @@ export default function ProductClient({
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 80, opacity: 0 }}
             transition={{ type: "spring", stiffness: 360, damping: 32 }}
-            className="fixed bottom-20 left-4 right-4 z-40 lg:hidden"
+            className="fixed left-4 right-4 z-40 lg:hidden"
+            style={{ bottom: "calc(max(env(safe-area-inset-bottom, 0px) + 8px, 16px) + 72px)" }}
           >
             <div className="
               bg-white/95 dark:bg-[#1C2128]/95 backdrop-blur-xl

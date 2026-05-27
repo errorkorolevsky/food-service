@@ -128,7 +128,7 @@ function CartItemRow({
               whileTap={{ scale: 0.88 }}
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
               className="
-                w-7 h-7 rounded-md
+                w-9 h-9 rounded-lg
                 border border-fs-border bg-fs-white
                 flex items-center justify-center
                 text-fs-gray hover:text-fs-graphite hover:border-fs-primary/30
@@ -149,7 +149,7 @@ function CartItemRow({
               whileTap={{ scale: 0.88 }}
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
               className="
-                w-7 h-7 rounded-md
+                w-9 h-9 rounded-lg
                 bg-fs-primary text-white
                 flex items-center justify-center
                 hover:bg-fs-soft transition-colors duration-150
@@ -171,7 +171,7 @@ function CartItemRow({
               whileTap={{ scale: 0.9 }}
               transition={{ duration: 0.12 }}
               className={`
-                ml-auto w-6 h-6 rounded-md flex items-center justify-center
+                ml-auto w-8 h-8 rounded-md flex items-center justify-center
                 transition-colors duration-150
                 ${item.note
                   ? "text-fs-primary bg-fs-primary/10"
@@ -346,7 +346,7 @@ export default function CartDrawer() {
         animate={{ x: isOpen ? "0%" : "100%" }}
         transition={{ type: "spring", stiffness: 340, damping: 36, mass: 0.8 }}
         className="
-          fixed top-0 right-0 h-screen w-full max-w-[440px]
+          fixed top-0 right-0 h-dvh w-full max-w-[440px]
           bg-fs-white border-l border-fs-border
           z-[999] flex flex-col
           shadow-[0_0_60px_rgba(0,0,0,0.15)] dark:shadow-[0_0_80px_rgba(0,0,0,0.5)]
