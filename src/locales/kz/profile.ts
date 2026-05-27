@@ -28,5 +28,10 @@ export const kzProfile = {
     cancelYes:    "Иә, бас тарту",
     cancelNo:     "Жоқ",
     cancelDone:   "Тапсырыс бас тартылды",
+    totalSpent:   "жұмсалды",
+    tierNew:      "Жаңа",
+    tierRegular:  "Тұрақты",
+    tierVip:      "VIP клиент",
+    tierElite:    "Elite",
   },
 }

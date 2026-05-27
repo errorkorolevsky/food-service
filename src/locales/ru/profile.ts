@@ -28,5 +28,10 @@ export const ruProfile = {
     cancelYes:    "Да, отменить",
     cancelNo:     "Нет",
     cancelDone:   "Заказ отменён",
+    totalSpent:   "потрачено",
+    tierNew:      "Новичок",
+    tierRegular:  "Постоянный",
+    tierVip:      "VIP клиент",
+    tierElite:    "Elite",
   },
 }

@@ -5,7 +5,7 @@ import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   Star, MapPin, Package, Heart, RefreshCw, Phone,
-  LogIn, LogOut, RotateCcw, ChevronRight, Sparkles,
+  LogIn, LogOut, RotateCcw, ChevronRight, Sparkles, Trophy,
 } from "lucide-react"
 import { useSession, signIn, signOut } from "next-auth/react"
 import Image from "next/image"
@@ -43,6 +43,17 @@ const STATUS_STYLE: Record<OrderStatus, { variant: "default" | "success" | "warn
   in_delivery: { variant: "warning", color: "#f59e0b" },
   delivered:   { variant: "success", color: "#10b981" },
   cancelled:   { variant: "error",   color: "#ef4444" },
+}
+
+// ─── LOYALTY ──────────────────────────────────────────────────────────────────
+
+type LoyaltyTier = { key: "new" | "regular" | "vip" | "elite"; color: string; emoji: string }
+
+function getLoyaltyTier(totalSpent: number): LoyaltyTier {
+  if (totalSpent >= 200_000) return { key: "elite",   color: "#f59e0b", emoji: "💎" }
+  if (totalSpent >=  50_000) return { key: "vip",     color: "#6366f1", emoji: "⭐" }
+  if (totalSpent >=  10_000) return { key: "regular", color: "#10b981", emoji: "🌿" }
+  return                            { key: "new",     color: "#9ca3af", emoji: "🌱" }
 }
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
@@ -294,6 +305,12 @@ export default function ProfilePage() {
   const displayEmail = session?.user?.email ?? null
   const displayImage = session?.user?.image ?? null
 
+  const totalSpent = orders
+    .filter((o) => o.status !== "cancelled")
+    .reduce((sum, o) => sum + o.total, 0)
+  const tier       = getLoyaltyTier(totalSpent)
+  const tierLabel  = t.profile[`tier${tier.key.charAt(0).toUpperCase() + tier.key.slice(1)}` as keyof typeof t.profile] as string
+
   return (
     <main className="min-h-screen text-fs-graphite" style={{ background: "linear-gradient(160deg, var(--page-bg) 0%, rgb(var(--fs-light)) 60%, var(--page-bg) 100%)" }}>
       {/* AMBIENT BLOBS */}
@@ -338,7 +355,7 @@ export default function ProfilePage() {
                 <div className="flex-1">
                   <div className="flex items-center gap-3 flex-wrap">
                     <h1 className="text-[28px] font-black text-fs-graphite tracking-tight">{displayName}</h1>
-                    <Badge variant="ai" dot><Sparkles size={10} className="mr-1" />{t.profile.clientBadge}</Badge>
+                    <Badge variant="ai" dot><span className="mr-1">{tier.emoji}</span>{tierLabel}</Badge>
                   </div>
                   {displayEmail && (
                     <p className="text-[14px] text-fs-gray mt-1">{displayEmail}</p>
@@ -368,9 +385,19 @@ export default function ProfilePage() {
             {/* STATS ROW */}
             <FadeIn delay={0.1}>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mt-8">
-                <StatCard value={String(orders.length || "0")} label={t.profile.statOrders}  icon={Package} color="#005B46" />
-                <StatCard value={String(favorites.length || "0")} label={t.profile.inFavorites} icon={Heart}   color="#ef4444" />
-                <StatCard value={t.profile.clientBadge} label={t.profile.clientLevel}         icon={Sparkles} color="#6366f1" />
+                <StatCard value={String(orders.length || "0")}    label={t.profile.statOrders}   icon={Package} color="#005B46" />
+                <StatCard
+                  value={totalSpent > 0 ? `₸${totalSpent.toLocaleString()}` : "—"}
+                  label={t.profile.totalSpent}
+                  icon={Trophy}
+                  color={tier.color}
+                />
+                <StatCard
+                  value={`${tier.emoji} ${tierLabel}`}
+                  label={t.profile.clientLevel}
+                  icon={Sparkles}
+                  color={tier.color}
+                />
               </div>
             </FadeIn>
           </div>
