@@ -60,12 +60,27 @@ function formatDate(iso: string, lang: string) {
 
 // ─── ORDER ROW ────────────────────────────────────────────────────────────────
 
-function OrderRow({ order, onRepeat, trackLabel, repeatLabel }: { order: DbOrder; onRepeat: (order: DbOrder) => void; trackLabel: string; repeatLabel: string }) {
+function OrderRow({ order, onRepeat, onCancel, trackLabel, repeatLabel }: {
+  order: DbOrder
+  onRepeat:  (order: DbOrder) => void
+  onCancel:  (id: string) => Promise<void>
+  trackLabel:  string
+  repeatLabel: string
+}) {
   const { t, lang } = useLang()
   const style     = STATUS_STYLE[order.status]
   const label     = t.order.statuses[order.status] ?? order.status
   const itemCount = order.items.reduce((sum, i) => sum + i.quantity, 0)
-  const [expanded, setExpanded] = useState(false)
+  const [expanded,       setExpanded]       = useState(false)
+  const [confirmCancel,  setConfirmCancel]  = useState(false)
+  const [cancelling,     setCancelling]     = useState(false)
+
+  const handleConfirmCancel = async () => {
+    setCancelling(true)
+    await onCancel(order.id)
+    setCancelling(false)
+    setConfirmCancel(false)
+  }
 
   return (
     <motion.div
@@ -120,17 +135,46 @@ function OrderRow({ order, onRepeat, trackLabel, repeatLabel }: { order: DbOrder
                   </div>
                 ))}
               </div>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between flex-wrap gap-2">
                 <Link href={`/tracking?q=${encodeURIComponent(formatOrderId(order.id))}`}>
                   <span className="text-[12px] text-fs-primary hover:underline">{trackLabel}</span>
                 </Link>
-                <button
-                  onClick={() => onRepeat(order)}
-                  className="flex items-center gap-1.5 text-[12px] text-fs-gray hover:text-fs-primary transition-colors"
-                >
-                  <RotateCcw size={12} strokeWidth={1.5} />
-                  {repeatLabel}
-                </button>
+                <div className="flex items-center gap-3">
+                  {order.status === "pending" && (
+                    confirmCancel ? (
+                      <div className="flex items-center gap-2">
+                        <span className="text-[12px] text-fs-gray">{t.profile.cancelConfirm}</span>
+                        <button
+                          onClick={handleConfirmCancel}
+                          disabled={cancelling}
+                          className="text-[12px] font-semibold text-red-500 hover:text-red-600 transition-colors disabled:opacity-50"
+                        >
+                          {cancelling ? "…" : t.profile.cancelYes}
+                        </button>
+                        <button
+                          onClick={() => setConfirmCancel(false)}
+                          className="text-[12px] text-fs-gray hover:text-fs-graphite transition-colors"
+                        >
+                          {t.profile.cancelNo}
+                        </button>
+                      </div>
+                    ) : (
+                      <button
+                        onClick={() => setConfirmCancel(true)}
+                        className="text-[12px] text-red-400 hover:text-red-500 transition-colors"
+                      >
+                        {t.profile.cancelOrder}
+                      </button>
+                    )
+                  )}
+                  <button
+                    onClick={() => onRepeat(order)}
+                    className="flex items-center gap-1.5 text-[12px] text-fs-gray hover:text-fs-primary transition-colors"
+                  >
+                    <RotateCcw size={12} strokeWidth={1.5} />
+                    {repeatLabel}
+                  </button>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -228,6 +272,22 @@ export default function ProfilePage() {
       }
     })
     openCart()
+  }
+
+  const handleCancel = async (orderId: string) => {
+    const identifier = session?.user?.email ?? phone ?? null
+    if (!identifier) return
+    const body = identifier.includes("@") ? { email: identifier } : { phone: identifier }
+    const res  = await fetch(`/api/orders/${orderId}/cancel`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body:    JSON.stringify(body),
+    })
+    if (res.ok) {
+      setOrders((prev) =>
+        prev.map((o) => o.id === orderId ? { ...o, status: "cancelled" as OrderStatus } : o)
+      )
+    }
   }
 
   const displayName  = session?.user?.name  ?? t.profile.clientBadge
@@ -354,7 +414,16 @@ export default function ProfilePage() {
                   {loading ? (
                     <><OrderSkeleton /><OrderSkeleton /><OrderSkeleton /></>
                   ) : orders.length > 0 ? (
-                    orders.map((order) => <OrderRow key={order.id} order={order} onRepeat={handleRepeat} trackLabel={t.profile.trackLink} repeatLabel={t.profile.repeatOrder} />)
+                    orders.map((order) => (
+                      <OrderRow
+                        key={order.id}
+                        order={order}
+                        onRepeat={handleRepeat}
+                        onCancel={handleCancel}
+                        trackLabel={t.profile.trackLink}
+                        repeatLabel={t.profile.repeatOrder}
+                      />
+                    ))
                   ) : (
                     <div className="text-center py-14">
                       <div className="w-14 h-14 bg-fs-light rounded-2xl flex items-center justify-center mx-auto mb-4">

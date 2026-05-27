@@ -23,5 +23,10 @@ export const kzProfile = {
     inFavorites:  "таңдаулыда",
     statOrders:   "тапсырыс",
     itemsCount:   "позиция",
+    cancelOrder:  "Тапсырысты бас тарту",
+    cancelConfirm:"Шынымен бас тартасыз ба?",
+    cancelYes:    "Иә, бас тарту",
+    cancelNo:     "Жоқ",
+    cancelDone:   "Тапсырыс бас тартылды",
   },
 }

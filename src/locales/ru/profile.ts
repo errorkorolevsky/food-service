@@ -23,5 +23,10 @@ export const ruProfile = {
     inFavorites:  "в избранном",
     statOrders:   "заказов",
     itemsCount:   "позиц.",
+    cancelOrder:  "Отменить заказ",
+    cancelConfirm:"Точно отменить?",
+    cancelYes:    "Да, отменить",
+    cancelNo:     "Нет",
+    cancelDone:   "Заказ отменён",
   },
 }
