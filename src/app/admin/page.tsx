@@ -424,12 +424,19 @@ function OrderRow({ order, onStatusChange, isDemo, locale }: {
 
                 <div className="bg-fs-offwhite border border-fs-border rounded-2xl p-4 space-y-2">
                   {order.items.map((item) => (
-                    <div key={item.id} className="flex items-center gap-3">
-                      <span className="text-lg">{item.emoji}</span>
-                      <span className="text-[13px] text-fs-graphite flex-1 truncate">{item.title}</span>
-                      <span className="text-[12px] text-fs-gray whitespace-nowrap">
-                        {item.quantity} × ₸{item.price.toLocaleString()}
-                      </span>
+                    <div key={item.id} className="flex flex-col gap-0.5">
+                      <div className="flex items-center gap-3">
+                        <span className="text-lg">{item.emoji}</span>
+                        <span className="text-[13px] text-fs-graphite flex-1 truncate">{item.title}</span>
+                        <span className="text-[12px] text-fs-gray whitespace-nowrap">
+                          {item.quantity} × ₸{item.price.toLocaleString()}
+                        </span>
+                      </div>
+                      {item.note && (
+                        <p className="text-[11px] text-amber-700 bg-amber-50 border border-amber-100 rounded-lg px-2.5 py-1 ml-8">
+                          {item.note}
+                        </p>
+                      )}
                     </div>
                   ))}
                   <div className="border-t border-fs-border pt-2 mt-2 flex justify-between text-[13px]">

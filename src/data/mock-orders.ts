@@ -10,7 +10,7 @@ export type MockOrder = {
   address:    string
   comment:    string | null
   payment:    string
-  items:      { id: string; title: string; emoji: string; price: number; quantity: number }[]
+  items:      { id: string; title: string; emoji: string; price: number; quantity: number; note?: string }[]
   subtotal:   number
   delivery:   number
   total:      number
