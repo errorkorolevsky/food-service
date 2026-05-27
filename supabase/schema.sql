@@ -214,6 +214,24 @@ ALTER TABLE orders ADD COLUMN IF NOT EXISTS promo_code text;
 ALTER TABLE orders ADD COLUMN IF NOT EXISTS discount   integer NOT NULL DEFAULT 0;
 
 -- =============================================================================
+-- ─── RESTOCK SUBSCRIPTIONS ────────────────────────────────────────────────────
+-- =============================================================================
+
+CREATE TABLE IF NOT EXISTS restock_subscriptions (
+  id            uuid        DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_email    text        NOT NULL,
+  product_id    text        NOT NULL,
+  product_title text        NOT NULL DEFAULT '',
+  created_at    timestamptz NOT NULL DEFAULT now(),
+  UNIQUE (user_email, product_id)
+);
+
+CREATE INDEX IF NOT EXISTS restock_subscriptions_product_id_idx ON restock_subscriptions (product_id);
+
+ALTER TABLE restock_subscriptions ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Service role full access restock" ON restock_subscriptions USING (true) WITH CHECK (true);
+
+-- =============================================================================
 -- ─── PUSH SUBSCRIPTIONS ───────────────────────────────────────────────────────
 -- =============================================================================
 

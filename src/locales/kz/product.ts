@@ -31,5 +31,7 @@ export const kzProduct = {
     shareCopied:         "Сілтеме көшірілді",
     quickView:           "Жылдам қарау",
     quickViewDetails:    "Толығырақ →",
+    restockNotify:       "Түскенде хабарла",
+    restockCancel:       "Хабарлауды болдырма",
   },
 }

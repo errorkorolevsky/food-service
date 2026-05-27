@@ -23,6 +23,7 @@ import CartButton from "@/components/layout/CartButton"
 import Footer from "@/components/layout/Footer"
 import Badge from "@/components/ui/Badge"
 import Button from "@/components/ui/Button"
+import RestockNotifyButton from "@/components/ui/RestockNotifyButton"
 import FadeIn from "@/components/ui/FadeIn"
 import MorphNumber from "@/components/ui/MorphNumber"
 import ProductCard from "@/components/cards/ProductCard"
@@ -327,9 +328,12 @@ export default function ProductClient({
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
                       transition={{ duration: 0.15 }}
-                      className="flex-1 py-4 rounded-xl bg-fs-offwhite border border-fs-border text-center text-caption text-fs-gray font-semibold"
+                      className="flex-1 flex items-center gap-3 flex-wrap"
                     >
-                      {t.product.outOfStock}
+                      <span className="flex-1 py-4 rounded-xl bg-fs-offwhite border border-fs-border text-center text-caption text-fs-gray font-semibold">
+                        {t.product.outOfStock}
+                      </span>
+                      <RestockNotifyButton productId={product.id} productTitle={product.title} />
                     </motion.div>
                   ) : quantity === 0 ? (
                     <motion.div

@@ -31,5 +31,7 @@ export const ruProduct = {
     shareCopied:         "Ссылка скопирована",
     quickView:           "Быстрый просмотр",
     quickViewDetails:    "Подробнее →",
+    restockNotify:       "Уведомить о поступлении",
+    restockCancel:       "Отменить уведомление",
   },
 }

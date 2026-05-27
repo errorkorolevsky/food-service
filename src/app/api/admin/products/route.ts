@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server"
 import { createClient } from "@supabase/supabase-js"
-import { auth } from "@/lib/auth"
-import { z } from "zod"
+import { auth }         from "@/lib/auth"
+import { sendPushToUser } from "@/lib/push"
+import { z }            from "zod"
 
 export const dynamic = "force-dynamic"
 
@@ -69,6 +70,26 @@ export async function PATCH(req: NextRequest) {
     .eq("id", parsed.data.id)
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 })
+
+  // Notify restock subscribers when product comes back in stock
+  if (parsed.data.in_stock === true) {
+    const productId = parsed.data.id;
+    (async () => {
+      const { data: subs } = await client
+        .from("restock_subscriptions")
+        .select("user_email, product_title")
+        .eq("product_id", productId)
+      if (!subs?.length) return
+      await Promise.allSettled(subs.map((s) =>
+        sendPushToUser(s.user_email, {
+          title: "Food Service",
+          body:  `${s.product_title} снова в наличии!`,
+          url:   `/product/${productId}`,
+        })
+      ))
+      await client.from("restock_subscriptions").delete().eq("product_id", productId)
+    })().catch(console.error)
+  }
 
   return NextResponse.json({ ok: true })
 }
