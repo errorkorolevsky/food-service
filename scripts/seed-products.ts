@@ -11,6 +11,22 @@
 
 import { createClient } from "@supabase/supabase-js"
 import { products } from "../src/data/products"
+import { readFileSync } from "fs"
+import { join } from "path"
+
+// Load .env.local manually (tsx doesn't auto-load it)
+try {
+  const envFile = readFileSync(join(process.cwd(), ".env.local"), "utf-8")
+  for (const line of envFile.split("\n")) {
+    const t = line.trim()
+    if (!t || t.startsWith("#")) continue
+    const eq = t.indexOf("=")
+    if (eq === -1) continue
+    const k = t.slice(0, eq).trim()
+    const v = t.slice(eq + 1).trim().replace(/^["']|["']$/g, "")
+    if (!process.env[k]) process.env[k] = v
+  }
+} catch {}
 
 const url     = process.env.NEXT_PUBLIC_SUPABASE_URL
 const svcKey  = process.env.SUPABASE_SERVICE_ROLE_KEY

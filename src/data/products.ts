@@ -1207,7 +1207,7 @@ export const products: Product[] = [
     tags: ["сок", "мультифрукт", "напитки"],
   },
   {
-    id: "cola", image: "/products/cola.webp", emoji: "🥤",
+    id: "cola", emoji: "🥤",
     category: "Напитки",
     title: "Кока-Кола",
     description: "Кока-Кола газированный напиток. Бутылка 1.5л.",
