@@ -1,0 +1,2442 @@
+[
+  {
+    "id": "chicken-legs",
+    "title": "Куриные ножки",
+    "category": "Мясо и птица",
+    "filename": "/products/chicken-legs.webp",
+    "prompt": "Куриные ножки, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "chicken-thighs",
+    "title": "Куриные бёдра",
+    "category": "Мясо и птица",
+    "filename": "/products/chicken-thighs.webp",
+    "prompt": "Куриные бёдра, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "whole-chicken",
+    "title": "Курица целая охлаждённая",
+    "category": "Мясо и птица",
+    "filename": "/products/whole-chicken.webp",
+    "prompt": "Курица целая охлаждённая, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "chicken-wings",
+    "title": "Куриные крылья",
+    "category": "Мясо и птица",
+    "filename": "/products/chicken-wings.webp",
+    "prompt": "Куриные крылья, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "beef-tenderloin",
+    "title": "Говядина вырезка",
+    "category": "Мясо и птица",
+    "filename": "/products/beef-tenderloin.webp",
+    "prompt": "Говядина вырезка, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "beef-minced",
+    "title": "Фарш говяжий",
+    "category": "Мясо и птица",
+    "filename": "/products/beef-minced.webp",
+    "prompt": "Фарш говяжий, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "beef-ribs",
+    "title": "Говяжьи рёбра",
+    "category": "Мясо и птица",
+    "filename": "/products/beef-ribs.webp",
+    "prompt": "Говяжьи рёбра, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pork-neck",
+    "title": "Свинина шея",
+    "category": "Мясо и птица",
+    "filename": "/products/pork-neck.webp",
+    "prompt": "Свинина шея, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pork-minced",
+    "title": "Фарш свино-говяжий",
+    "category": "Мясо и птица",
+    "filename": "/products/pork-minced.webp",
+    "prompt": "Фарш свино-говяжий, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "lamb-leg",
+    "title": "Баранина мякоть",
+    "category": "Мясо и птица",
+    "filename": "/products/lamb-leg.webp",
+    "prompt": "Баранина мякоть, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "sausage-smoked",
+    "title": "Колбаса Краковская",
+    "category": "Мясо и птица",
+    "filename": "/products/sausage-smoked.webp",
+    "prompt": "Колбаса Краковская, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "frankfurters",
+    "title": "Сосиски молочные",
+    "category": "Мясо и птица",
+    "filename": "/products/frankfurters.webp",
+    "prompt": "Сосиски молочные, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "ham-boiled",
+    "title": "Ветчина варёная",
+    "category": "Мясо и птица",
+    "filename": "/products/ham-boiled.webp",
+    "prompt": "Ветчина варёная, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "turkey-fillet",
+    "title": "Индейка филе",
+    "category": "Мясо и птица",
+    "filename": "/products/turkey-fillet.webp",
+    "prompt": "Индейка филе, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "chicken-liver",
+    "title": "Печень куриная",
+    "category": "Мясо и птица",
+    "filename": "/products/chicken-liver.webp",
+    "prompt": "Печень куриная, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "beef-liver",
+    "title": "Печень говяжья",
+    "category": "Мясо и птица",
+    "filename": "/products/beef-liver.webp",
+    "prompt": "Печень говяжья, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "chorizo",
+    "title": "Чоризо испанское",
+    "category": "Мясо и птица",
+    "filename": "/products/chorizo.webp",
+    "prompt": "Чоризо испанское, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "carbonate",
+    "title": "Карбонат свиной",
+    "category": "Мясо и птица",
+    "filename": "/products/carbonate.webp",
+    "prompt": "Карбонат свиной, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "duck-fillet",
+    "title": "Утиное филе",
+    "category": "Мясо и птица",
+    "filename": "/products/duck-fillet.webp",
+    "prompt": "Утиное филе, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "chicken-breast-smoked",
+    "title": "Грудка куриная копчёная",
+    "category": "Мясо и птица",
+    "filename": "/products/chicken-breast-smoked.webp",
+    "prompt": "Грудка куриная копчёная, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pork-ribs",
+    "title": "Свиные рёбра",
+    "category": "Мясо и птица",
+    "filename": "/products/pork-ribs.webp",
+    "prompt": "Свиные рёбра, fresh raw meat cut on white background, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "mackerel-smoked",
+    "title": "Скумбрия горячего копчения",
+    "category": "Рыба и морепродукты",
+    "filename": "/products/mackerel-smoked.webp",
+    "prompt": "Скумбрия горячего копчения, fresh seafood on ice, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pollock-fillet",
+    "title": "Минтай филе",
+    "category": "Рыба и морепродукты",
+    "filename": "/products/pollock-fillet.webp",
+    "prompt": "Минтай филе, fresh seafood on ice, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "herring-salted",
+    "title": "Сельдь атлантическая",
+    "category": "Рыба и морепродукты",
+    "filename": "/products/herring-salted.webp",
+    "prompt": "Сельдь атлантическая, fresh seafood on ice, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "squid-rings",
+    "title": "Кольца кальмара",
+    "category": "Рыба и морепродукты",
+    "filename": "/products/squid-rings.webp",
+    "prompt": "Кольца кальмара, fresh seafood on ice, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "mussels",
+    "title": "Мидии в ракушках",
+    "category": "Рыба и морепродукты",
+    "filename": "/products/mussels.webp",
+    "prompt": "Мидии в ракушках, fresh seafood on ice, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "crab-sticks",
+    "title": "Крабовые палочки Vici",
+    "category": "Рыба и морепродукты",
+    "filename": "/products/crab-sticks.webp",
+    "prompt": "Крабовые палочки Vici, fresh seafood on ice, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cod-fillet",
+    "title": "Треска филе",
+    "category": "Рыба и морепродукты",
+    "filename": "/products/cod-fillet.webp",
+    "prompt": "Треска филе, fresh seafood on ice, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pike-perch",
+    "title": "Судак свежий",
+    "category": "Рыба и морепродукты",
+    "filename": "/products/pike-perch.webp",
+    "prompt": "Судак свежий, fresh seafood on ice, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "capelin-smoked",
+    "title": "Мойва копчёная",
+    "category": "Рыба и морепродукты",
+    "filename": "/products/capelin-smoked.webp",
+    "prompt": "Мойва копчёная, fresh seafood on ice, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "octopus-mini",
+    "title": "Осьминог мини",
+    "category": "Рыба и морепродукты",
+    "filename": "/products/octopus-mini.webp",
+    "prompt": "Осьминог мини, fresh seafood on ice, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "anchovy",
+    "title": "Анчоусы в масле",
+    "category": "Рыба и морепродукты",
+    "filename": "/products/anchovy.webp",
+    "prompt": "Анчоусы в масле, fresh seafood on ice, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "catfish-fillet",
+    "title": "Сом филе",
+    "category": "Рыба и морепродукты",
+    "filename": "/products/catfish-fillet.webp",
+    "prompt": "Сом филе, fresh seafood on ice, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "milk-32",
+    "title": "Молоко 3.2% отборное",
+    "category": "Молочные продукты",
+    "filename": "/products/milk-32.webp",
+    "prompt": "Молоко 3.2% отборное, dairy product packaging on white background, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "milk-ultra",
+    "title": "Молоко ультрапастеризованное 3.5%",
+    "category": "Молочные продукты",
+    "filename": "/products/milk-ultra.webp",
+    "prompt": "Молоко ультрапастеризованное 3.5%, dairy product packaging on white background, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "kefir-1",
+    "title": "Кефир 1% нежирный",
+    "category": "Молочные продукты",
+    "filename": "/products/kefir-1.webp",
+    "prompt": "Кефир 1% нежирный, dairy product packaging on white background, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "kefir-25",
+    "title": "Кефир 2.5% классический",
+    "category": "Молочные продукты",
+    "filename": "/products/kefir-25.webp",
+    "prompt": "Кефир 2.5% классический, dairy product packaging on white background, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "yogurt-natural",
+    "title": "Йогурт натуральный Активиа",
+    "category": "Молочные продукты",
+    "filename": "/products/yogurt-natural.webp",
+    "prompt": "Йогурт натуральный Активиа, dairy product packaging on white background, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "yogurt-berry",
+    "title": "Йогурт клубничный",
+    "category": "Молочные продукты",
+    "filename": "/products/yogurt-berry.webp",
+    "prompt": "Йогурт клубничный, dairy product packaging on white background, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "sour-cream-20",
+    "title": "Сметана 20% классическая",
+    "category": "Молочные продукты",
+    "filename": "/products/sour-cream-20.webp",
+    "prompt": "Сметана 20% классическая, dairy product packaging on white background, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cottage-cheese",
+    "title": "Творог зернистый 5%",
+    "category": "Молочные продукты",
+    "filename": "/products/cottage-cheese.webp",
+    "prompt": "Творог зернистый 5%, dairy product packaging on white background, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cottage-cheese-soft",
+    "title": "Творог мягкий President",
+    "category": "Молочные продукты",
+    "filename": "/products/cottage-cheese-soft.webp",
+    "prompt": "Творог мягкий President, dairy product packaging on white background, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "butter-725",
+    "title": "Масло сливочное 72.5%",
+    "category": "Молочные продукты",
+    "filename": "/products/butter-725.webp",
+    "prompt": "Масло сливочное 72.5%, dairy product packaging on white background, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cheese-russian",
+    "title": "Сыр Российский",
+    "category": "Молочные продукты",
+    "filename": "/products/cheese-russian.webp",
+    "prompt": "Сыр Российский, dairy product packaging on white background, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cheese-adygei",
+    "title": "Сыр Адыгейский",
+    "category": "Молочные продукты",
+    "filename": "/products/cheese-adygei.webp",
+    "prompt": "Сыр Адыгейский, dairy product packaging on white background, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cheese-suluguni",
+    "title": "Сулугуни косичка",
+    "category": "Молочные продукты",
+    "filename": "/products/cheese-suluguni.webp",
+    "prompt": "Сулугуни косичка, dairy product packaging on white background, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cream-10",
+    "title": "Сливки 10% питьевые",
+    "category": "Молочные продукты",
+    "filename": "/products/cream-10.webp",
+    "prompt": "Сливки 10% питьевые, dairy product packaging on white background, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "processed-cheese",
+    "title": "Плавленый сыр Президент",
+    "category": "Молочные продукты",
+    "filename": "/products/processed-cheese.webp",
+    "prompt": "Плавленый сыр Президент, dairy product packaging on white background, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "curd-snack",
+    "title": "Творожный сырок шоколадный",
+    "category": "Молочные продукты",
+    "filename": "/products/curd-snack.webp",
+    "prompt": "Творожный сырок шоколадный, dairy product packaging on white background, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "eggs-c1",
+    "title": "Яйца куриные столовые С1",
+    "category": "Яйца",
+    "filename": "/products/eggs-c1.webp",
+    "prompt": "Яйца куриные столовые С1, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "eggs-c0",
+    "title": "Яйца куриные отборные С0",
+    "category": "Яйца",
+    "filename": "/products/eggs-c0.webp",
+    "prompt": "Яйца куриные отборные С0, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "eggs-sv",
+    "title": "Яйца высшей категории СВ",
+    "category": "Яйца",
+    "filename": "/products/eggs-sv.webp",
+    "prompt": "Яйца высшей категории СВ, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "eggs-quail",
+    "title": "Яйца перепелиные",
+    "category": "Яйца",
+    "filename": "/products/eggs-quail.webp",
+    "prompt": "Яйца перепелиные, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "eggs-farm",
+    "title": "Яйца фермерские",
+    "category": "Яйца",
+    "filename": "/products/eggs-farm.webp",
+    "prompt": "Яйца фермерские, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "potatoes",
+    "title": "Картофель",
+    "category": "Овощи и фрукты",
+    "filename": "/products/potatoes.webp",
+    "prompt": "Картофель, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "carrots",
+    "title": "Морковь",
+    "category": "Овощи и фрукты",
+    "filename": "/products/carrots.webp",
+    "prompt": "Морковь, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "onions",
+    "title": "Лук репчатый",
+    "category": "Овощи и фрукты",
+    "filename": "/products/onions.webp",
+    "prompt": "Лук репчатый, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cabbage",
+    "title": "Капуста белокочанная",
+    "category": "Овощи и фрукты",
+    "filename": "/products/cabbage.webp",
+    "prompt": "Капуста белокочанная, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "tomatoes",
+    "title": "Помидоры",
+    "category": "Овощи и фрукты",
+    "filename": "/products/tomatoes.webp",
+    "prompt": "Помидоры, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cucumbers",
+    "title": "Огурцы",
+    "category": "Овощи и фрукты",
+    "filename": "/products/cucumbers.webp",
+    "prompt": "Огурцы, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "bell-pepper",
+    "title": "Перец болгарский",
+    "category": "Овощи и фрукты",
+    "filename": "/products/bell-pepper.webp",
+    "prompt": "Перец болгарский, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "eggplant",
+    "title": "Баклажаны",
+    "category": "Овощи и фрукты",
+    "filename": "/products/eggplant.webp",
+    "prompt": "Баклажаны, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "garlic",
+    "title": "Чеснок",
+    "category": "Овощи и фрукты",
+    "filename": "/products/garlic.webp",
+    "prompt": "Чеснок, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "bananas",
+    "title": "Бананы",
+    "category": "Овощи и фрукты",
+    "filename": "/products/bananas.webp",
+    "prompt": "Бананы, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "apples",
+    "title": "Яблоки Голден",
+    "category": "Овощи и фрукты",
+    "filename": "/products/apples.webp",
+    "prompt": "Яблоки Голден, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "oranges",
+    "title": "Апельсины",
+    "category": "Овощи и фрукты",
+    "filename": "/products/oranges.webp",
+    "prompt": "Апельсины, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "mandarins",
+    "title": "Мандарины",
+    "category": "Овощи и фрукты",
+    "filename": "/products/mandarins.webp",
+    "prompt": "Мандарины, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "grapes",
+    "title": "Виноград Кишмиш",
+    "category": "Овощи и фрукты",
+    "filename": "/products/grapes.webp",
+    "prompt": "Виноград Кишмиш, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pears",
+    "title": "Груши",
+    "category": "Овощи и фрукты",
+    "filename": "/products/pears.webp",
+    "prompt": "Груши, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "mango",
+    "title": "Манго",
+    "category": "Овощи и фрукты",
+    "filename": "/products/mango.webp",
+    "prompt": "Манго, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pineapple",
+    "title": "Ананас",
+    "category": "Овощи и фрукты",
+    "filename": "/products/pineapple.webp",
+    "prompt": "Ананас, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "kiwi",
+    "title": "Киви",
+    "category": "Овощи и фрукты",
+    "filename": "/products/kiwi.webp",
+    "prompt": "Киви, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "strawberry",
+    "title": "Клубника",
+    "category": "Овощи и фрукты",
+    "filename": "/products/strawberry.webp",
+    "prompt": "Клубника, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "lemon",
+    "title": "Лимоны",
+    "category": "Овощи и фрукты",
+    "filename": "/products/lemon.webp",
+    "prompt": "Лимоны, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pomegranate",
+    "title": "Гранат",
+    "category": "Овощи и фрукты",
+    "filename": "/products/pomegranate.webp",
+    "prompt": "Гранат, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cherry",
+    "title": "Черешня",
+    "category": "Овощи и фрукты",
+    "filename": "/products/cherry.webp",
+    "prompt": "Черешня, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "dill",
+    "title": "Укроп пучок",
+    "category": "Овощи и фрукты",
+    "filename": "/products/dill.webp",
+    "prompt": "Укроп пучок, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "parsley",
+    "title": "Петрушка пучок",
+    "category": "Овощи и фрукты",
+    "filename": "/products/parsley.webp",
+    "prompt": "Петрушка пучок, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "mushrooms",
+    "title": "Шампиньоны",
+    "category": "Овощи и фрукты",
+    "filename": "/products/mushrooms.webp",
+    "prompt": "Шампиньоны, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "zucchini",
+    "title": "Кабачки",
+    "category": "Овощи и фрукты",
+    "filename": "/products/zucchini.webp",
+    "prompt": "Кабачки, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "beet",
+    "title": "Свёкла",
+    "category": "Овощи и фрукты",
+    "filename": "/products/beet.webp",
+    "prompt": "Свёкла, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "blueberry",
+    "title": "Черника",
+    "category": "Овощи и фрукты",
+    "filename": "/products/blueberry.webp",
+    "prompt": "Черника, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "spinach",
+    "title": "Шпинат",
+    "category": "Овощи и фрукты",
+    "filename": "/products/spinach.webp",
+    "prompt": "Шпинат, fresh produce on white background, natural lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "white-bread",
+    "title": "Хлеб белый нарезной",
+    "category": "Хлеб и выпечка",
+    "filename": "/products/white-bread.webp",
+    "prompt": "Хлеб белый нарезной, fresh baked goods on wooden board, warm lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "dark-bread",
+    "title": "Хлеб Бородинский",
+    "category": "Хлеб и выпечка",
+    "filename": "/products/dark-bread.webp",
+    "prompt": "Хлеб Бородинский, fresh baked goods on wooden board, warm lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "whole-wheat-bread",
+    "title": "Хлеб цельнозерновой",
+    "category": "Хлеб и выпечка",
+    "filename": "/products/whole-wheat-bread.webp",
+    "prompt": "Хлеб цельнозерновой, fresh baked goods on wooden board, warm lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baton",
+    "title": "Батон молочный",
+    "category": "Хлеб и выпечка",
+    "filename": "/products/baton.webp",
+    "prompt": "Батон молочный, fresh baked goods on wooden board, warm lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "lavash",
+    "title": "Лаваш армянский",
+    "category": "Хлеб и выпечка",
+    "filename": "/products/lavash.webp",
+    "prompt": "Лаваш армянский, fresh baked goods on wooden board, warm lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "samsa-meat",
+    "title": "Самса с мясом",
+    "category": "Хлеб и выпечка",
+    "filename": "/products/samsa-meat.webp",
+    "prompt": "Самса с мясом, fresh baked goods on wooden board, warm lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "samsa-potato",
+    "title": "Самса с картофелем",
+    "category": "Хлеб и выпечка",
+    "filename": "/products/samsa-potato.webp",
+    "prompt": "Самса с картофелем, fresh baked goods on wooden board, warm lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "donut",
+    "title": "Пончик глазированный",
+    "category": "Хлеб и выпечка",
+    "filename": "/products/donut.webp",
+    "prompt": "Пончик глазированный, fresh baked goods on wooden board, warm lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "muffin",
+    "title": "Маффин черничный",
+    "category": "Хлеб и выпечка",
+    "filename": "/products/muffin.webp",
+    "prompt": "Маффин черничный, fresh baked goods on wooden board, warm lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "napoleon-cake",
+    "title": "Торт Наполеон",
+    "category": "Хлеб и выпечка",
+    "filename": "/products/napoleon-cake.webp",
+    "prompt": "Торт Наполеон, fresh baked goods on wooden board, warm lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "medovik",
+    "title": "Торт Медовик",
+    "category": "Хлеб и выпечка",
+    "filename": "/products/medovik.webp",
+    "prompt": "Торт Медовик, fresh baked goods on wooden board, warm lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "eclair",
+    "title": "Эклер шоколадный",
+    "category": "Хлеб и выпечка",
+    "filename": "/products/eclair.webp",
+    "prompt": "Эклер шоколадный, fresh baked goods on wooden board, warm lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "tandyr-bread",
+    "title": "Лепёшка тандырная",
+    "category": "Хлеб и выпечка",
+    "filename": "/products/tandyr-bread.webp",
+    "prompt": "Лепёшка тандырная, fresh baked goods on wooden board, warm lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pita",
+    "title": "Пита хлеб",
+    "category": "Хлеб и выпечка",
+    "filename": "/products/pita.webp",
+    "prompt": "Пита хлеб, fresh baked goods on wooden board, warm lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baguette",
+    "title": "Багет французский",
+    "category": "Хлеб и выпечка",
+    "filename": "/products/baguette.webp",
+    "prompt": "Багет французский, fresh baked goods on wooden board, warm lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cinnamon-roll",
+    "title": "Булочка с корицей",
+    "category": "Хлеб и выпечка",
+    "filename": "/products/cinnamon-roll.webp",
+    "prompt": "Булочка с корицей, fresh baked goods on wooden board, warm lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pirozhok",
+    "title": "Пирожок с капустой",
+    "category": "Хлеб и выпечка",
+    "filename": "/products/pirozhok.webp",
+    "prompt": "Пирожок с капустой, fresh baked goods on wooden board, warm lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "bagel",
+    "title": "Бублик с маком",
+    "category": "Хлеб и выпечка",
+    "filename": "/products/bagel.webp",
+    "prompt": "Бублик с маком, fresh baked goods on wooden board, warm lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "water-still",
+    "title": "Вода питьевая негазированная",
+    "category": "Напитки",
+    "filename": "/products/water-still.webp",
+    "prompt": "Вода питьевая негазированная, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "water-sparkling",
+    "title": "Вода газированная минеральная",
+    "category": "Напитки",
+    "filename": "/products/water-sparkling.webp",
+    "prompt": "Вода газированная минеральная, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "apple-juice",
+    "title": "Сок яблочный Rich",
+    "category": "Напитки",
+    "filename": "/products/apple-juice.webp",
+    "prompt": "Сок яблочный Rich, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "orange-juice",
+    "title": "Сок апельсиновый J7",
+    "category": "Напитки",
+    "filename": "/products/orange-juice.webp",
+    "prompt": "Сок апельсиновый J7, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "tomato-juice",
+    "title": "Сок томатный",
+    "category": "Напитки",
+    "filename": "/products/tomato-juice.webp",
+    "prompt": "Сок томатный, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "multifruit-juice",
+    "title": "Сок мультифрукт",
+    "category": "Напитки",
+    "filename": "/products/multifruit-juice.webp",
+    "prompt": "Сок мультифрукт, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cola",
+    "title": "Кока-Кола",
+    "category": "Напитки",
+    "filename": "/products/cola.webp",
+    "prompt": "Кока-Кола, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "sprite",
+    "title": "Спрайт",
+    "category": "Напитки",
+    "filename": "/products/sprite.webp",
+    "prompt": "Спрайт, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "fanta",
+    "title": "Фанта Апельсин",
+    "category": "Напитки",
+    "filename": "/products/fanta.webp",
+    "prompt": "Фанта Апельсин, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "energy-redbull",
+    "title": "Red Bull энергетик",
+    "category": "Напитки",
+    "filename": "/products/energy-redbull.webp",
+    "prompt": "Red Bull энергетик, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "energy-monster",
+    "title": "Monster Energy",
+    "category": "Напитки",
+    "filename": "/products/energy-monster.webp",
+    "prompt": "Monster Energy, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "compote-cherry",
+    "title": "Компот вишнёвый",
+    "category": "Напитки",
+    "filename": "/products/compote-cherry.webp",
+    "prompt": "Компот вишнёвый, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "kvass",
+    "title": "Квас хлебный",
+    "category": "Напитки",
+    "filename": "/products/kvass.webp",
+    "prompt": "Квас хлебный, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "iced-tea",
+    "title": "Холодный чай Lipton",
+    "category": "Напитки",
+    "filename": "/products/iced-tea.webp",
+    "prompt": "Холодный чай Lipton, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "ayran",
+    "title": "Айран освежающий",
+    "category": "Напитки",
+    "filename": "/products/ayran.webp",
+    "prompt": "Айран освежающий, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "tan",
+    "title": "Тан газированный",
+    "category": "Напитки",
+    "filename": "/products/tan.webp",
+    "prompt": "Тан газированный, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pomegranate-juice",
+    "title": "Сок гранатовый",
+    "category": "Напитки",
+    "filename": "/products/pomegranate-juice.webp",
+    "prompt": "Сок гранатовый, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "chocolate-milk-drink",
+    "title": "Шоколадное молоко",
+    "category": "Напитки",
+    "filename": "/products/chocolate-milk-drink.webp",
+    "prompt": "Шоколадное молоко, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "water-premium",
+    "title": "Вода Evian Premium",
+    "category": "Напитки",
+    "filename": "/products/water-premium.webp",
+    "prompt": "Вода Evian Premium, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "kombucha",
+    "title": "Комбуча имбирь-лимон",
+    "category": "Напитки",
+    "filename": "/products/kombucha.webp",
+    "prompt": "Комбуча имбирь-лимон, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "aloe-drink",
+    "title": "Напиток с алоэ вера",
+    "category": "Напитки",
+    "filename": "/products/aloe-drink.webp",
+    "prompt": "Напиток с алоэ вера, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "peach-nectar",
+    "title": "Нектар персиковый",
+    "category": "Напитки",
+    "filename": "/products/peach-nectar.webp",
+    "prompt": "Нектар персиковый, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "raspberry-morse",
+    "title": "Морс клюквенный",
+    "category": "Напитки",
+    "filename": "/products/raspberry-morse.webp",
+    "prompt": "Морс клюквенный, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "oat-drink",
+    "title": "Напиток овсяный Oatly",
+    "category": "Напитки",
+    "filename": "/products/oat-drink.webp",
+    "prompt": "Напиток овсяный Oatly, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cola-zero",
+    "title": "Кола Zero без сахара",
+    "category": "Напитки",
+    "filename": "/products/cola-zero.webp",
+    "prompt": "Кола Zero без сахара, beverage in glass or bottle, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "coffee-ground-jacobs",
+    "title": "Кофе молотый Jacobs Monarch",
+    "category": "Кофе, чай и какао",
+    "filename": "/products/coffee-ground-jacobs.webp",
+    "prompt": "Кофе молотый Jacobs Monarch, coffee or tea product on minimal background, cozy lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "coffee-instant-nescafe",
+    "title": "Кофе растворимый Nescafé Gold",
+    "category": "Кофе, чай и какао",
+    "filename": "/products/coffee-instant-nescafe.webp",
+    "prompt": "Кофе растворимый Nescafé Gold, coffee or tea product on minimal background, cozy lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "coffee-capsules",
+    "title": "Кофе капсулы Nespresso",
+    "category": "Кофе, чай и какао",
+    "filename": "/products/coffee-capsules.webp",
+    "prompt": "Кофе капсулы Nespresso, coffee or tea product on minimal background, cozy lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "coffee-3in1",
+    "title": "Кофе 3-в-1 MacCoffee",
+    "category": "Кофе, чай и какао",
+    "filename": "/products/coffee-3in1.webp",
+    "prompt": "Кофе 3-в-1 MacCoffee, coffee or tea product on minimal background, cozy lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "black-tea-akbar",
+    "title": "Чай чёрный Akbar Ceylon",
+    "category": "Кофе, чай и какао",
+    "filename": "/products/black-tea-akbar.webp",
+    "prompt": "Чай чёрный Akbar Ceylon, coffee or tea product on minimal background, cozy lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "green-tea-greenfield",
+    "title": "Чай зелёный Greenfield",
+    "category": "Кофе, чай и какао",
+    "filename": "/products/green-tea-greenfield.webp",
+    "prompt": "Чай зелёный Greenfield, coffee or tea product on minimal background, cozy lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "herbal-tea",
+    "title": "Чай травяной Ромашка",
+    "category": "Кофе, чай и какао",
+    "filename": "/products/herbal-tea.webp",
+    "prompt": "Чай травяной Ромашка, coffee or tea product on minimal background, cozy lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "fruit-tea-hibiscus",
+    "title": "Каркаде (гибискус)",
+    "category": "Кофе, чай и какао",
+    "filename": "/products/fruit-tea-hibiscus.webp",
+    "prompt": "Каркаде (гибискус), coffee or tea product on minimal background, cozy lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cacao-nesquik",
+    "title": "Какао Nesquik",
+    "category": "Кофе, чай и какао",
+    "filename": "/products/cacao-nesquik.webp",
+    "prompt": "Какао Nesquik, coffee or tea product on minimal background, cozy lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "hot-chocolate",
+    "title": "Горячий шоколад Van Houten",
+    "category": "Кофе, чай и какао",
+    "filename": "/products/hot-chocolate.webp",
+    "prompt": "Горячий шоколад Van Houten, coffee or tea product on minimal background, cozy lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "earl-grey",
+    "title": "Чай Эрл Грей",
+    "category": "Кофе, чай и какао",
+    "filename": "/products/earl-grey.webp",
+    "prompt": "Чай Эрл Грей, coffee or tea product on minimal background, cozy lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "ginger-tea",
+    "title": "Чай имбирный с лимоном",
+    "category": "Кофе, чай и какао",
+    "filename": "/products/ginger-tea.webp",
+    "prompt": "Чай имбирный с лимоном, coffee or tea product on minimal background, cozy lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "chocolate-milka",
+    "title": "Шоколад Milka молочный",
+    "category": "Кондитерские изделия",
+    "filename": "/products/chocolate-milka.webp",
+    "prompt": "Шоколад Milka молочный, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "raffaello",
+    "title": "Raffaello конфеты",
+    "category": "Кондитерские изделия",
+    "filename": "/products/raffaello.webp",
+    "prompt": "Raffaello конфеты, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "ferrero-rocher",
+    "title": "Ferrero Rocher",
+    "category": "Кондитерские изделия",
+    "filename": "/products/ferrero-rocher.webp",
+    "prompt": "Ferrero Rocher, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "candy-korovka",
+    "title": "Конфеты Коровка ассорти",
+    "category": "Кондитерские изделия",
+    "filename": "/products/candy-korovka.webp",
+    "prompt": "Конфеты Коровка ассорти, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "jubilee-cookies",
+    "title": "Печенье Юбилейное",
+    "category": "Кондитерские изделия",
+    "filename": "/products/jubilee-cookies.webp",
+    "prompt": "Печенье Юбилейное, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "tuc-crackers",
+    "title": "Крекер TUC солёный",
+    "category": "Кондитерские изделия",
+    "filename": "/products/tuc-crackers.webp",
+    "prompt": "Крекер TUC солёный, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "waffles-choco",
+    "title": "Вафли шоколадные",
+    "category": "Кондитерские изделия",
+    "filename": "/products/waffles-choco.webp",
+    "prompt": "Вафли шоколадные, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "zephyr-vanilla",
+    "title": "Зефир ванильный",
+    "category": "Кондитерские изделия",
+    "filename": "/products/zephyr-vanilla.webp",
+    "prompt": "Зефир ванильный, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "marmalade-fruit",
+    "title": "Мармелад фруктовый",
+    "category": "Кондитерские изделия",
+    "filename": "/products/marmalade-fruit.webp",
+    "prompt": "Мармелад фруктовый, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "halva-sunflower",
+    "title": "Халва подсолнечная",
+    "category": "Кондитерские изделия",
+    "filename": "/products/halva-sunflower.webp",
+    "prompt": "Халва подсолнечная, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baklava",
+    "title": "Пахлава медовая",
+    "category": "Кондитерские изделия",
+    "filename": "/products/baklava.webp",
+    "prompt": "Пахлава медовая, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "honey-gingerbread",
+    "title": "Пряники медовые",
+    "category": "Кондитерские изделия",
+    "filename": "/products/honey-gingerbread.webp",
+    "prompt": "Пряники медовые, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "snickers",
+    "title": "Snickers шоколадный батончик",
+    "category": "Кондитерские изделия",
+    "filename": "/products/snickers.webp",
+    "prompt": "Snickers шоколадный батончик, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "kitkat",
+    "title": "KitKat Chunky",
+    "category": "Кондитерские изделия",
+    "filename": "/products/kitkat.webp",
+    "prompt": "KitKat Chunky, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "oreo",
+    "title": "Oreo двойной шоколад",
+    "category": "Кондитерские изделия",
+    "filename": "/products/oreo.webp",
+    "prompt": "Oreo двойной шоколад, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "nutella",
+    "title": "Нутелла шоколадная паста",
+    "category": "Кондитерские изделия",
+    "filename": "/products/nutella.webp",
+    "prompt": "Нутелла шоколадная паста, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "bounty",
+    "title": "Bounty кокосовый батончик",
+    "category": "Кондитерские изделия",
+    "filename": "/products/bounty.webp",
+    "prompt": "Bounty кокосовый батончик, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "macaron",
+    "title": "Макаруны ассорти",
+    "category": "Кондитерские изделия",
+    "filename": "/products/macaron.webp",
+    "prompt": "Макаруны ассорти, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "creme-brulee-dessert",
+    "title": "Крем-брюле",
+    "category": "Кондитерские изделия",
+    "filename": "/products/creme-brulee-dessert.webp",
+    "prompt": "Крем-брюле, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "tiramisu",
+    "title": "Тирамису порционное",
+    "category": "Кондитерские изделия",
+    "filename": "/products/tiramisu.webp",
+    "prompt": "Тирамису порционное, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "lollipop-chupa",
+    "title": "Chupa Chups карамель",
+    "category": "Кондитерские изделия",
+    "filename": "/products/lollipop-chupa.webp",
+    "prompt": "Chupa Chups карамель, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "marshmallow",
+    "title": "Маршмеллоу ваниль",
+    "category": "Кондитерские изделия",
+    "filename": "/products/marshmallow.webp",
+    "prompt": "Маршмеллоу ваниль, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "caramel-candy",
+    "title": "Карамельки Взлётные",
+    "category": "Кондитерские изделия",
+    "filename": "/products/caramel-candy.webp",
+    "prompt": "Карамельки Взлётные, confectionery product on white background, food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "lays-paprika",
+    "title": "Чипсы Lay's паприка",
+    "category": "Снеки",
+    "filename": "/products/lays-paprika.webp",
+    "prompt": "Чипсы Lay's паприка, snack product in packaging on white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pringles-original",
+    "title": "Pringles оригинальные",
+    "category": "Снеки",
+    "filename": "/products/pringles-original.webp",
+    "prompt": "Pringles оригинальные, snack product in packaging on white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "crackers-rye",
+    "title": "Сухарики ржаные с чесноком",
+    "category": "Снеки",
+    "filename": "/products/crackers-rye.webp",
+    "prompt": "Сухарики ржаные с чесноком, snack product in packaging on white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "almonds-roasted",
+    "title": "Миндаль жареный солёный",
+    "category": "Снеки",
+    "filename": "/products/almonds-roasted.webp",
+    "prompt": "Миндаль жареный солёный, snack product in packaging on white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cashews-roasted",
+    "title": "Кешью жареный",
+    "category": "Снеки",
+    "filename": "/products/cashews-roasted.webp",
+    "prompt": "Кешью жареный, snack product in packaging on white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "peanuts-salted",
+    "title": "Арахис жареный солёный",
+    "category": "Снеки",
+    "filename": "/products/peanuts-salted.webp",
+    "prompt": "Арахис жареный солёный, snack product in packaging on white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "popcorn-salted",
+    "title": "Попкорн солёный кино",
+    "category": "Снеки",
+    "filename": "/products/popcorn-salted.webp",
+    "prompt": "Попкорн солёный кино, snack product in packaging on white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "popcorn-caramel",
+    "title": "Попкорн карамельный",
+    "category": "Снеки",
+    "filename": "/products/popcorn-caramel.webp",
+    "prompt": "Попкорн карамельный, snack product in packaging on white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "granola-bar",
+    "title": "Батончик злаковый Muesli",
+    "category": "Снеки",
+    "filename": "/products/granola-bar.webp",
+    "prompt": "Батончик злаковый Muesli, snack product in packaging on white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "dried-apricots",
+    "title": "Курага",
+    "category": "Снеки",
+    "filename": "/products/dried-apricots.webp",
+    "prompt": "Курага, snack product in packaging on white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "raisins",
+    "title": "Изюм коричневый",
+    "category": "Снеки",
+    "filename": "/products/raisins.webp",
+    "prompt": "Изюм коричневый, snack product in packaging on white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "prunes-snack",
+    "title": "Чернослив",
+    "category": "Снеки",
+    "filename": "/products/prunes-snack.webp",
+    "prompt": "Чернослив, snack product in packaging on white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pistachios-salted",
+    "title": "Фисташки солёные",
+    "category": "Снеки",
+    "filename": "/products/pistachios-salted.webp",
+    "prompt": "Фисташки солёные, snack product in packaging on white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "walnuts-shelled",
+    "title": "Грецкие орехи очищенные",
+    "category": "Снеки",
+    "filename": "/products/walnuts-shelled.webp",
+    "prompt": "Грецкие орехи очищенные, snack product in packaging on white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "sunflower-seeds",
+    "title": "Семечки подсолнуха жареные",
+    "category": "Снеки",
+    "filename": "/products/sunflower-seeds.webp",
+    "prompt": "Семечки подсолнуха жареные, snack product in packaging on white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pumpkin-seeds",
+    "title": "Тыквенные семечки",
+    "category": "Снеки",
+    "filename": "/products/pumpkin-seeds.webp",
+    "prompt": "Тыквенные семечки, snack product in packaging on white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "roasted-chickpea",
+    "title": "Нут жареный пряный",
+    "category": "Снеки",
+    "filename": "/products/roasted-chickpea.webp",
+    "prompt": "Нут жареный пряный, snack product in packaging on white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "dates",
+    "title": "Финики Medjool",
+    "category": "Снеки",
+    "filename": "/products/dates.webp",
+    "prompt": "Финики Medjool, snack product in packaging on white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "hazelnut-roasted",
+    "title": "Фундук жареный",
+    "category": "Снеки",
+    "filename": "/products/hazelnut-roasted.webp",
+    "prompt": "Фундук жареный, snack product in packaging on white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "rice-long",
+    "title": "Рис длиннозёрный пропаренный",
+    "category": "Бакалея",
+    "filename": "/products/rice-long.webp",
+    "prompt": "Рис длиннозёрный пропаренный, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "rice-basmati",
+    "title": "Рис Басмати Premium",
+    "category": "Бакалея",
+    "filename": "/products/rice-basmati.webp",
+    "prompt": "Рис Басмати Premium, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "rice-round",
+    "title": "Рис круглый для плова",
+    "category": "Бакалея",
+    "filename": "/products/rice-round.webp",
+    "prompt": "Рис круглый для плова, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "penne-barilla",
+    "title": "Пенне Barilla Rigate",
+    "category": "Бакалея",
+    "filename": "/products/penne-barilla.webp",
+    "prompt": "Пенне Barilla Rigate, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "farfalle",
+    "title": "Фарфалле (бантики)",
+    "category": "Бакалея",
+    "filename": "/products/farfalle.webp",
+    "prompt": "Фарфалле (бантики), grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "buckwheat-uvelka",
+    "title": "Гречка ядрица Увелка",
+    "category": "Бакалея",
+    "filename": "/products/buckwheat-uvelka.webp",
+    "prompt": "Гречка ядрица Увелка, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "oatmeal-hercules",
+    "title": "Овсяные хлопья Геркулес",
+    "category": "Бакалея",
+    "filename": "/products/oatmeal-hercules.webp",
+    "prompt": "Овсяные хлопья Геркулес, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "salt-marine",
+    "title": "Соль морская йодированная",
+    "category": "Бакалея",
+    "filename": "/products/salt-marine.webp",
+    "prompt": "Соль морская йодированная, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "sunflower-oil-refined",
+    "title": "Масло подсолнечное рафинированное",
+    "category": "Бакалея",
+    "filename": "/products/sunflower-oil-refined.webp",
+    "prompt": "Масло подсолнечное рафинированное, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "olive-oil-ev",
+    "title": "Масло оливковое Extra Virgin",
+    "category": "Бакалея",
+    "filename": "/products/olive-oil-ev.webp",
+    "prompt": "Масло оливковое Extra Virgin, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "tomato-paste-pomidorka",
+    "title": "Паста томатная Помидорка",
+    "category": "Бакалея",
+    "filename": "/products/tomato-paste-pomidorka.webp",
+    "prompt": "Паста томатная Помидорка, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "canned-peas-bonduelle",
+    "title": "Горошек Bonduelle",
+    "category": "Бакалея",
+    "filename": "/products/canned-peas-bonduelle.webp",
+    "prompt": "Горошек Bonduelle, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "canned-corn-bonduelle",
+    "title": "Кукуруза Bonduelle",
+    "category": "Бакалея",
+    "filename": "/products/canned-corn-bonduelle.webp",
+    "prompt": "Кукуруза Bonduelle, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "canned-beans",
+    "title": "Фасоль красная консервированная",
+    "category": "Бакалея",
+    "filename": "/products/canned-beans.webp",
+    "prompt": "Фасоль красная консервированная, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "canned-tuna-oil",
+    "title": "Тунец в масле консервированный",
+    "category": "Бакалея",
+    "filename": "/products/canned-tuna-oil.webp",
+    "prompt": "Тунец в масле консервированный, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "canned-sardine",
+    "title": "Сардины в масле",
+    "category": "Бакалея",
+    "filename": "/products/canned-sardine.webp",
+    "prompt": "Сардины в масле, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "strawberry-jam",
+    "title": "Варенье клубничное",
+    "category": "Бакалея",
+    "filename": "/products/strawberry-jam.webp",
+    "prompt": "Варенье клубничное, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "natural-honey",
+    "title": "Мёд цветочный натуральный",
+    "category": "Бакалея",
+    "filename": "/products/natural-honey.webp",
+    "prompt": "Мёд цветочный натуральный, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "condensed-milk",
+    "title": "Сгущённое молоко",
+    "category": "Бакалея",
+    "filename": "/products/condensed-milk.webp",
+    "prompt": "Сгущённое молоко, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "buckwheat-flakes",
+    "title": "Хлопья гречневые быстрые",
+    "category": "Бакалея",
+    "filename": "/products/buckwheat-flakes.webp",
+    "prompt": "Хлопья гречневые быстрые, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "millet",
+    "title": "Пшено",
+    "category": "Бакалея",
+    "filename": "/products/millet.webp",
+    "prompt": "Пшено, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "lentils-green",
+    "title": "Чечевица зелёная",
+    "category": "Бакалея",
+    "filename": "/products/lentils-green.webp",
+    "prompt": "Чечевица зелёная, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "chickpeas-dry",
+    "title": "Нут сухой",
+    "category": "Бакалея",
+    "filename": "/products/chickpeas-dry.webp",
+    "prompt": "Нут сухой, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "apple-vinegar",
+    "title": "Уксус яблочный 6%",
+    "category": "Бакалея",
+    "filename": "/products/apple-vinegar.webp",
+    "prompt": "Уксус яблочный 6%, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baking-soda",
+    "title": "Сода пищевая",
+    "category": "Бакалея",
+    "filename": "/products/baking-soda.webp",
+    "prompt": "Сода пищевая, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pearl-barley",
+    "title": "Перловка",
+    "category": "Бакалея",
+    "filename": "/products/pearl-barley.webp",
+    "prompt": "Перловка, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "sunflower-seeds-oil",
+    "title": "Масло подсолнечное нерафинированное",
+    "category": "Бакалея",
+    "filename": "/products/sunflower-seeds-oil.webp",
+    "prompt": "Масло подсолнечное нерафинированное, grocery product in branded packaging, clean studio shot, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pelmeni-beef",
+    "title": "Пельмени Сибирские говяжьи",
+    "category": "Заморозка",
+    "filename": "/products/pelmeni-beef.webp",
+    "prompt": "Пельмени Сибирские говяжьи, frozen food package on white background, studio lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pelmeni-pork",
+    "title": "Пельмени Домашние свиные",
+    "category": "Заморозка",
+    "filename": "/products/pelmeni-pork.webp",
+    "prompt": "Пельмени Домашние свиные, frozen food package on white background, studio lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "varenyky-potato",
+    "title": "Вареники с картошкой",
+    "category": "Заморозка",
+    "filename": "/products/varenyky-potato.webp",
+    "prompt": "Вареники с картошкой, frozen food package on white background, studio lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "varenyky-cherry",
+    "title": "Вареники с вишней",
+    "category": "Заморозка",
+    "filename": "/products/varenyky-cherry.webp",
+    "prompt": "Вареники с вишней, frozen food package on white background, studio lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "manti-frozen",
+    "title": "Манты с мясом",
+    "category": "Заморозка",
+    "filename": "/products/manti-frozen.webp",
+    "prompt": "Манты с мясом, frozen food package on white background, studio lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "blini-cottage",
+    "title": "Блины с творогом",
+    "category": "Заморозка",
+    "filename": "/products/blini-cottage.webp",
+    "prompt": "Блины с творогом, frozen food package on white background, studio lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "frozen-strawberry",
+    "title": "Клубника замороженная",
+    "category": "Заморозка",
+    "filename": "/products/frozen-strawberry.webp",
+    "prompt": "Клубника замороженная, frozen food package on white background, studio lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "frozen-raspberries",
+    "title": "Малина замороженная",
+    "category": "Заморозка",
+    "filename": "/products/frozen-raspberries.webp",
+    "prompt": "Малина замороженная, frozen food package on white background, studio lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "frozen-broccoli",
+    "title": "Брокколи замороженная",
+    "category": "Заморозка",
+    "filename": "/products/frozen-broccoli.webp",
+    "prompt": "Брокколи замороженная, frozen food package on white background, studio lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "fish-cakes-frozen",
+    "title": "Рыбные котлеты",
+    "category": "Заморозка",
+    "filename": "/products/fish-cakes-frozen.webp",
+    "prompt": "Рыбные котлеты, frozen food package on white background, studio lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "ice-cream-vanilla",
+    "title": "Мороженое Пломбир",
+    "category": "Заморозка",
+    "filename": "/products/ice-cream-vanilla.webp",
+    "prompt": "Мороженое Пломбир, frozen food package on white background, studio lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "ice-cream-chocolate",
+    "title": "Мороженое Шоколадное",
+    "category": "Заморозка",
+    "filename": "/products/ice-cream-chocolate.webp",
+    "prompt": "Мороженое Шоколадное, frozen food package on white background, studio lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "spring-rolls-frozen",
+    "title": "Спринг-роллы с курицей",
+    "category": "Заморозка",
+    "filename": "/products/spring-rolls-frozen.webp",
+    "prompt": "Спринг-роллы с курицей, frozen food package on white background, studio lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "khinkali-frozen",
+    "title": "Хинкали с мясом",
+    "category": "Заморозка",
+    "filename": "/products/khinkali-frozen.webp",
+    "prompt": "Хинкали с мясом, frozen food package on white background, studio lighting, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "ketchup-heinz",
+    "title": "Кетчуп Heinz томатный",
+    "category": "Соусы и специи",
+    "filename": "/products/ketchup-heinz.webp",
+    "prompt": "Кетчуп Heinz томатный, sauce or spice bottle/jar on white background, product photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "mayo-light",
+    "title": "Майонез лёгкий 25%",
+    "category": "Соусы и специи",
+    "filename": "/products/mayo-light.webp",
+    "prompt": "Майонез лёгкий 25%, sauce or spice bottle/jar on white background, product photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "oyster-sauce",
+    "title": "Устричный соус Lee Kum Kee",
+    "category": "Соусы и специи",
+    "filename": "/products/oyster-sauce.webp",
+    "prompt": "Устричный соус Lee Kum Kee, sauce or spice bottle/jar on white background, product photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "mustard-dijon",
+    "title": "Горчица Дижонская Maille",
+    "category": "Соусы и специи",
+    "filename": "/products/mustard-dijon.webp",
+    "prompt": "Горчица Дижонская Maille, sauce or spice bottle/jar on white background, product photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "mustard-russian",
+    "title": "Горчица русская острая",
+    "category": "Соусы и специи",
+    "filename": "/products/mustard-russian.webp",
+    "prompt": "Горчица русская острая, sauce or spice bottle/jar on white background, product photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "black-pepper-ground",
+    "title": "Перец чёрный молотый",
+    "category": "Соусы и специи",
+    "filename": "/products/black-pepper-ground.webp",
+    "prompt": "Перец чёрный молотый, sauce or spice bottle/jar on white background, product photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "paprika-smoked",
+    "title": "Паприка копчёная",
+    "category": "Соусы и специи",
+    "filename": "/products/paprika-smoked.webp",
+    "prompt": "Паприка копчёная, sauce or spice bottle/jar on white background, product photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "turmeric",
+    "title": "Куркума молотая",
+    "category": "Соусы и специи",
+    "filename": "/products/turmeric.webp",
+    "prompt": "Куркума молотая, sauce or spice bottle/jar on white background, product photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "curry-mix",
+    "title": "Карри смесь",
+    "category": "Соусы и специи",
+    "filename": "/products/curry-mix.webp",
+    "prompt": "Карри смесь, sauce or spice bottle/jar on white background, product photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "zira-cumin",
+    "title": "Зира (кумин) цельная",
+    "category": "Соусы и специи",
+    "filename": "/products/zira-cumin.webp",
+    "prompt": "Зира (кумин) цельная, sauce or spice bottle/jar on white background, product photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "bay-leaf",
+    "title": "Лавровый лист",
+    "category": "Соусы и специи",
+    "filename": "/products/bay-leaf.webp",
+    "prompt": "Лавровый лист, sauce or spice bottle/jar on white background, product photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "worcestershire-sauce",
+    "title": "Вустерский соус Lea & Perrins",
+    "category": "Соусы и специи",
+    "filename": "/products/worcestershire-sauce.webp",
+    "prompt": "Вустерский соус Lea & Perrins, sauce or spice bottle/jar on white background, product photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "balsamic-vinegar",
+    "title": "Уксус бальзамический",
+    "category": "Соусы и специи",
+    "filename": "/products/balsamic-vinegar.webp",
+    "prompt": "Уксус бальзамический, sauce or spice bottle/jar on white background, product photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "hummus-classic",
+    "title": "Хумус классический",
+    "category": "Соусы и специи",
+    "filename": "/products/hummus-classic.webp",
+    "prompt": "Хумус классический, sauce or spice bottle/jar on white background, product photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "olive-oil-monini",
+    "title": "Масло оливковое Monini E.V.",
+    "category": "Масло и жиры",
+    "filename": "/products/olive-oil-monini.webp",
+    "prompt": "Масло оливковое Monini E.V., grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "corn-oil",
+    "title": "Масло кукурузное рафинированное",
+    "category": "Масло и жиры",
+    "filename": "/products/corn-oil.webp",
+    "prompt": "Масло кукурузное рафинированное, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "coconut-oil",
+    "title": "Масло кокосовое нерафинированное",
+    "category": "Масло и жиры",
+    "filename": "/products/coconut-oil.webp",
+    "prompt": "Масло кокосовое нерафинированное, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "ghee-butter",
+    "title": "Масло топлёное ГХИ",
+    "category": "Масло и жиры",
+    "filename": "/products/ghee-butter.webp",
+    "prompt": "Масло топлёное ГХИ, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "flaxseed-oil",
+    "title": "Масло льняное",
+    "category": "Масло и жиры",
+    "filename": "/products/flaxseed-oil.webp",
+    "prompt": "Масло льняное, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "lard-smoked",
+    "title": "Сало копчёное",
+    "category": "Масло и жиры",
+    "filename": "/products/lard-smoked.webp",
+    "prompt": "Сало копчёное, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "avocado-oil",
+    "title": "Масло авокадо",
+    "category": "Масло и жиры",
+    "filename": "/products/avocado-oil.webp",
+    "prompt": "Масло авокадо, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "walnut-oil",
+    "title": "Масло грецкого ореха",
+    "category": "Масло и жиры",
+    "filename": "/products/walnut-oil.webp",
+    "prompt": "Масло грецкого ореха, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pizza-pepperoni-fresh",
+    "title": "Пицца Пепперони",
+    "category": "Готовая еда",
+    "filename": "/products/pizza-pepperoni-fresh.webp",
+    "prompt": "Пицца Пепперони, prepared food dish on plate, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pizza-margarita-fresh",
+    "title": "Пицца Маргарита",
+    "category": "Готовая еда",
+    "filename": "/products/pizza-margarita-fresh.webp",
+    "prompt": "Пицца Маргарита, prepared food dish on plate, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "shawarma-chicken",
+    "title": "Шаурма с курицей",
+    "category": "Готовая еда",
+    "filename": "/products/shawarma-chicken.webp",
+    "prompt": "Шаурма с курицей, prepared food dish on plate, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "plov-ready",
+    "title": "Плов узбекский",
+    "category": "Готовая еда",
+    "filename": "/products/plov-ready.webp",
+    "prompt": "Плов узбекский, prepared food dish on plate, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "borsch-ready",
+    "title": "Борщ домашний",
+    "category": "Готовая еда",
+    "filename": "/products/borsch-ready.webp",
+    "prompt": "Борщ домашний, prepared food dish on plate, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "salad-olivie",
+    "title": "Салат Оливье",
+    "category": "Готовая еда",
+    "filename": "/products/salad-olivie.webp",
+    "prompt": "Салат Оливье, prepared food dish on plate, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "salad-caesar-chicken",
+    "title": "Салат Цезарь с курицей",
+    "category": "Готовая еда",
+    "filename": "/products/salad-caesar-chicken.webp",
+    "prompt": "Салат Цезарь с курицей, prepared food dish on plate, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "lagman-ready",
+    "title": "Лагман домашний",
+    "category": "Готовая еда",
+    "filename": "/products/lagman-ready.webp",
+    "prompt": "Лагман домашний, prepared food dish on plate, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "manti-ready",
+    "title": "Манты готовые",
+    "category": "Готовая еда",
+    "filename": "/products/manti-ready.webp",
+    "prompt": "Манты готовые, prepared food dish on plate, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cheburek-meat",
+    "title": "Чебурек с мясом",
+    "category": "Готовая еда",
+    "filename": "/products/cheburek-meat.webp",
+    "prompt": "Чебурек с мясом, prepared food dish on plate, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "hotdog-ready",
+    "title": "Хот-дог",
+    "category": "Готовая еда",
+    "filename": "/products/hotdog-ready.webp",
+    "prompt": "Хот-дог, prepared food dish on plate, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "dolma-ready",
+    "title": "Долма в виноградных листьях",
+    "category": "Готовая еда",
+    "filename": "/products/dolma-ready.webp",
+    "prompt": "Долма в виноградных листьях, prepared food dish on plate, professional food photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baby-puree-apple-gerber",
+    "title": "Пюре яблочное Gerber",
+    "category": "Детское питание",
+    "filename": "/products/baby-puree-apple-gerber.webp",
+    "prompt": "Пюре яблочное Gerber, children's food product in colorful packaging, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baby-puree-pear",
+    "title": "Пюре грушевое Frutonyanya",
+    "category": "Детское питание",
+    "filename": "/products/baby-puree-pear.webp",
+    "prompt": "Пюре грушевое Frutonyanya, children's food product in colorful packaging, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baby-puree-carrot",
+    "title": "Пюре морковное Semper",
+    "category": "Детское питание",
+    "filename": "/products/baby-puree-carrot.webp",
+    "prompt": "Пюре морковное Semper, children's food product in colorful packaging, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baby-porridge-buckwheat",
+    "title": "Каша гречневая Heinz",
+    "category": "Детское питание",
+    "filename": "/products/baby-porridge-buckwheat.webp",
+    "prompt": "Каша гречневая Heinz, children's food product in colorful packaging, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baby-porridge-rice-nestle",
+    "title": "Каша рисовая Nestle",
+    "category": "Детское питание",
+    "filename": "/products/baby-porridge-rice-nestle.webp",
+    "prompt": "Каша рисовая Nestle, children's food product in colorful packaging, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baby-porridge-oat",
+    "title": "Каша овсяная Gerber",
+    "category": "Детское питание",
+    "filename": "/products/baby-porridge-oat.webp",
+    "prompt": "Каша овсяная Gerber, children's food product in colorful packaging, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baby-formula-nan1",
+    "title": "Смесь Nan 1 Premium",
+    "category": "Детское питание",
+    "filename": "/products/baby-formula-nan1.webp",
+    "prompt": "Смесь Nan 1 Premium, children's food product in colorful packaging, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baby-formula-nutrilon2",
+    "title": "Смесь Nutrilon 2",
+    "category": "Детское питание",
+    "filename": "/products/baby-formula-nutrilon2.webp",
+    "prompt": "Смесь Nutrilon 2, children's food product in colorful packaging, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baby-yogurt-agusha",
+    "title": "Йогурт детский Агуша",
+    "category": "Детское питание",
+    "filename": "/products/baby-yogurt-agusha.webp",
+    "prompt": "Йогурт детский Агуша, children's food product in colorful packaging, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baby-juice-agusha",
+    "title": "Сок яблочный Агуша",
+    "category": "Детское питание",
+    "filename": "/products/baby-juice-agusha.webp",
+    "prompt": "Сок яблочный Агуша, children's food product in colorful packaging, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baby-cookies-gerber",
+    "title": "Печенье Gerber детское",
+    "category": "Детское питание",
+    "filename": "/products/baby-cookies-gerber.webp",
+    "prompt": "Печенье Gerber детское, children's food product in colorful packaging, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baby-water",
+    "title": "Вода детская Агуша",
+    "category": "Детское питание",
+    "filename": "/products/baby-water.webp",
+    "prompt": "Вода детская Агуша, children's food product in colorful packaging, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baby-kefir-tema",
+    "title": "Кефир детский Тёма",
+    "category": "Детское питание",
+    "filename": "/products/baby-kefir-tema.webp",
+    "prompt": "Кефир детский Тёма, children's food product in colorful packaging, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baby-puree-tube",
+    "title": "Пюре фруктовое в трубочке",
+    "category": "Детское питание",
+    "filename": "/products/baby-puree-tube.webp",
+    "prompt": "Пюре фруктовое в трубочке, children's food product in colorful packaging, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baby-cereal-corn",
+    "title": "Хлопья кукурузные детские",
+    "category": "Детское питание",
+    "filename": "/products/baby-cereal-corn.webp",
+    "prompt": "Хлопья кукурузные детские, children's food product in colorful packaging, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "protein-bar-rex",
+    "title": "Протеиновый батончик Protein Rex",
+    "category": "Здоровое питание",
+    "filename": "/products/protein-bar-rex.webp",
+    "prompt": "Протеиновый батончик Protein Rex, healthy food product on clean white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "granola-honey",
+    "title": "Гранола с мёдом и орехами",
+    "category": "Здоровое питание",
+    "filename": "/products/granola-honey.webp",
+    "prompt": "Гранола с мёдом и орехами, healthy food product on clean white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "tofu-natural",
+    "title": "Тофу натуральный",
+    "category": "Здоровое питание",
+    "filename": "/products/tofu-natural.webp",
+    "prompt": "Тофу натуральный, healthy food product on clean white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "chia-seeds",
+    "title": "Семена чиа",
+    "category": "Здоровое питание",
+    "filename": "/products/chia-seeds.webp",
+    "prompt": "Семена чиа, healthy food product on clean white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "flax-seeds",
+    "title": "Семена льна",
+    "category": "Здоровое питание",
+    "filename": "/products/flax-seeds.webp",
+    "prompt": "Семена льна, healthy food product on clean white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "coconut-milk-tin",
+    "title": "Кокосовое молоко",
+    "category": "Здоровое питание",
+    "filename": "/products/coconut-milk-tin.webp",
+    "prompt": "Кокосовое молоко, healthy food product on clean white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "rice-cakes",
+    "title": "Хлебцы рисовые",
+    "category": "Здоровое питание",
+    "filename": "/products/rice-cakes.webp",
+    "prompt": "Хлебцы рисовые, healthy food product on clean white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "rye-cakes-finn-crisp",
+    "title": "Хлебцы ржаные Finn Crisp",
+    "category": "Здоровое питание",
+    "filename": "/products/rye-cakes-finn-crisp.webp",
+    "prompt": "Хлебцы ржаные Finn Crisp, healthy food product on clean white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "almond-milk-tetrapak",
+    "title": "Молоко миндальное",
+    "category": "Здоровое питание",
+    "filename": "/products/almond-milk-tetrapak.webp",
+    "prompt": "Молоко миндальное, healthy food product on clean white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "goji-berries",
+    "title": "Ягоды годжи",
+    "category": "Здоровое питание",
+    "filename": "/products/goji-berries.webp",
+    "prompt": "Ягоды годжи, healthy food product on clean white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "spirulina-powder",
+    "title": "Спирулина порошок",
+    "category": "Здоровое питание",
+    "filename": "/products/spirulina-powder.webp",
+    "prompt": "Спирулина порошок, healthy food product on clean white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "psyllium-husk",
+    "title": "Псиллиум (шелуха подорожника)",
+    "category": "Здоровое питание",
+    "filename": "/products/psyllium-husk.webp",
+    "prompt": "Псиллиум (шелуха подорожника), healthy food product on clean white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "protein-powder-vanilla",
+    "title": "Протеин Optimum Vanilla",
+    "category": "Здоровое питание",
+    "filename": "/products/protein-powder-vanilla.webp",
+    "prompt": "Протеин Optimum Vanilla, healthy food product on clean white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "collagen-marine",
+    "title": "Коллаген морской",
+    "category": "Здоровое питание",
+    "filename": "/products/collagen-marine.webp",
+    "prompt": "Коллаген морской, healthy food product on clean white background, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "containers-500ml",
+    "title": "Контейнеры 500мл",
+    "category": "Упаковка HoReCa",
+    "filename": "/products/containers-500ml.webp",
+    "prompt": "Контейнеры 500мл, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "containers-1000ml",
+    "title": "Контейнеры 1000мл",
+    "category": "Упаковка HoReCa",
+    "filename": "/products/containers-1000ml.webp",
+    "prompt": "Контейнеры 1000мл, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "pizza-boxes-30cm",
+    "title": "Коробки для пиццы 30см",
+    "category": "Упаковка HoReCa",
+    "filename": "/products/pizza-boxes-30cm.webp",
+    "prompt": "Коробки для пиццы 30см, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cups-paper-400ml",
+    "title": "Стаканы бумажные 400мл",
+    "category": "Упаковка HoReCa",
+    "filename": "/products/cups-paper-400ml.webp",
+    "prompt": "Стаканы бумажные 400мл, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "lids-for-cups",
+    "title": "Крышки к стаканам",
+    "category": "Упаковка HoReCa",
+    "filename": "/products/lids-for-cups.webp",
+    "prompt": "Крышки к стаканам, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cutlery-set-pack",
+    "title": "Набор приборов одноразовых",
+    "category": "Упаковка HoReCa",
+    "filename": "/products/cutlery-set-pack.webp",
+    "prompt": "Набор приборов одноразовых, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "napkins-paper",
+    "title": "Салфетки бумажные",
+    "category": "Упаковка HoReCa",
+    "filename": "/products/napkins-paper.webp",
+    "prompt": "Салфетки бумажные, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "foil-food",
+    "title": "Фольга пищевая 100м",
+    "category": "Упаковка HoReCa",
+    "filename": "/products/foil-food.webp",
+    "prompt": "Фольга пищевая 100м, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cling-film",
+    "title": "Плёнка пищевая",
+    "category": "Упаковка HoReCa",
+    "filename": "/products/cling-film.webp",
+    "prompt": "Плёнка пищевая, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "parchment-paper",
+    "title": "Бумага для выпечки",
+    "category": "Упаковка HoReCa",
+    "filename": "/products/parchment-paper.webp",
+    "prompt": "Бумага для выпечки, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "trash-bags-20l",
+    "title": "Пакеты мусорные 20л",
+    "category": "Упаковка HoReCa",
+    "filename": "/products/trash-bags-20l.webp",
+    "prompt": "Пакеты мусорные 20л, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "family-basket",
+    "title": "Семейная корзина",
+    "category": "Наборы",
+    "filename": "/products/family-basket.webp",
+    "prompt": "Семейная корзина, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "breakfast-set",
+    "title": "Набор для завтрака",
+    "category": "Наборы",
+    "filename": "/products/breakfast-set.webp",
+    "prompt": "Набор для завтрака, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "bbq-set",
+    "title": "Набор для барбекю",
+    "category": "Наборы",
+    "filename": "/products/bbq-set.webp",
+    "prompt": "Набор для барбекю, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "sushi-kit",
+    "title": "Набор для суши",
+    "category": "Наборы",
+    "filename": "/products/sushi-kit.webp",
+    "prompt": "Набор для суши, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "coffee-set",
+    "title": "Кофейный набор",
+    "category": "Наборы",
+    "filename": "/products/coffee-set.webp",
+    "prompt": "Кофейный набор, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "healthy-set",
+    "title": "Набор здорового питания",
+    "category": "Наборы",
+    "filename": "/products/healthy-set.webp",
+    "prompt": "Набор здорового питания, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baby-set",
+    "title": "Детский набор",
+    "category": "Наборы",
+    "filename": "/products/baby-set.webp",
+    "prompt": "Детский набор, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "cheese-wine-set",
+    "title": "Сырная тарелка",
+    "category": "Наборы",
+    "filename": "/products/cheese-wine-set.webp",
+    "prompt": "Сырная тарелка, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "baking-set",
+    "title": "Набор для выпечки",
+    "category": "Наборы",
+    "filename": "/products/baking-set.webp",
+    "prompt": "Набор для выпечки, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  },
+  {
+    "id": "plov-set",
+    "title": "Набор для плова",
+    "category": "Наборы",
+    "filename": "/products/plov-set.webp",
+    "prompt": "Набор для плова, grocery product, studio photography, high quality, sharp, realistic",
+    "negPrompt": "text, watermark, logo, cartoon, illustration, painting, drawing, unrealistic"
+  }
+]

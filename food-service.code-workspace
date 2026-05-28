@@ -1,0 +1,88 @@
+{
+  "folders": [
+    {
+      "name": "Food Service",
+      "path": "."
+    }
+  ],
+  "settings": {
+    // File watcher exclusions — reduces CPU/RAM overhead on 8GB machine
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/**": true,
+      "**/.next/**": true,
+      "**/dist/**": true,
+      "**/build/**": true,
+      "**/.vercel/**": true,
+      "**/dogfood-output/**": true,
+      "**/screenshots/**": true
+    },
+    "files.exclude": {
+      "**/.git": true,
+      "**/node_modules": true,
+      "**/.next": true,
+      "**/tsconfig.tsbuildinfo": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/.next": true,
+      "**/dist": true,
+      "**/build": true,
+      "**/.vercel": true,
+      "**/dogfood-output": true,
+      "**/screenshots": true,
+      "**/*.png": true,
+      "**/*.webp": true,
+      "**/package-lock.json": true
+    },
+
+    // TypeScript — reduce memory footprint
+    "typescript.tsserver.maxTsServerMemory": 2048,
+    "typescript.tsserver.watchOptions": {
+      "watchFile": "useFsEvents",
+      "watchDirectory": "useFsEvents",
+      "fallbackPolling": "dynamicPriority"
+    },
+    "typescript.preferences.includePackageJsonAutoImports": "off",
+    "typescript.suggest.autoImports": true,
+
+    // Git — reduce background scanning
+    "git.autorefresh": false,
+    "git.autofetch": false,
+    "git.decorations.enabled": true,
+    "git.scanRepositories": [],
+
+    // Editor — performance settings
+    "editor.formatOnSave": true,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "none",
+    "editor.linkedEditing": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.suggest.preview": false,
+    "editor.inlineSuggest.enabled": true,
+    "editor.semanticHighlighting.enabled": false,
+
+    // Tailwind
+    "tailwindCSS.experimental.classRegex": [
+      ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+      ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+    ],
+
+    // Telemetry off
+    "telemetry.telemetryLevel": "off",
+
+    // Extensions
+    "extensions.ignoreRecommendations": true,
+
+    // Terminal
+    "terminal.integrated.persistentSessionReviveProcess": "never",
+    "terminal.integrated.enablePersistentSessions": false
+  },
+  "extensions": {
+    "recommendations": [
+      "anthropic.claude-code",
+      "bradlc.vscode-tailwindcss"
+    ]
+  }
+}
