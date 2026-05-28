@@ -1,45 +1,28 @@
 /**
  * B2C Product Image Generator — Food Service Kazakhstan
  *
- * Generates product images via DALL-E 3, converts to WebP via sharp,
- * saves to public/products/.
+ * Uses Pollinations AI (https://pollinations.ai) — completely FREE, no API key needed.
+ * Model: Flux (state-of-the-art open image model)
+ * Converts output to WebP 600×800 via sharp.
  *
  * Usage:
  *   npx tsx scripts/generate-product-images.ts            # test batch (10)
- *   npx tsx scripts/generate-product-images.ts --all      # full P1 (~190 products)
+ *   npx tsx scripts/generate-product-images.ts --all      # full P1 (181 products)
  *   npx tsx scripts/generate-product-images.ts --id eggs-c1,tomatoes
  *   npx tsx scripts/generate-product-images.ts --force    # re-generate existing files
  *
- * Required: OPENAI_API_KEY in .env.local
+ * No API key required. Rate limit: ~1 req/3s recommended.
  *
  * Visual standard (07_image_strategy.md):
  *   Dark #0A0A0A background · consumer retail packaging · no FS branding
- *   Portrait 1024×1792 → resized to 600×800 WebP (quality 88)
+ *   Output: WebP 600×800 (quality 88)
  */
 
-import OpenAI from "openai"
-import * as fs   from "fs"
-import * as path from "path"
+import * as fs    from "fs"
+import * as path  from "path"
 import * as https from "https"
 import * as http  from "http"
 import sharp from "sharp"
-
-// ─── ENV ──────────────────────────────────────────────────────────────────────
-
-function loadEnv() {
-  const p = path.join(process.cwd(), ".env.local")
-  if (!fs.existsSync(p)) return
-  for (const line of fs.readFileSync(p, "utf-8").split("\n")) {
-    const t = line.trim()
-    if (!t || t.startsWith("#")) continue
-    const eq = t.indexOf("=")
-    if (eq === -1) continue
-    const k = t.slice(0, eq).trim()
-    const v = t.slice(eq + 1).trim().replace(/^["']|["']$/g, "")
-    if (!process.env[k]) process.env[k] = v
-  }
-}
-loadEnv()
 
 // ─── TYPES ────────────────────────────────────────────────────────────────────
 
@@ -878,14 +861,33 @@ const TEST_BATCH = new Set([
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
 
-function download(url: string, dest: string): Promise<void> {
+const POLLINATIONS_BASE = "https://image.pollinations.ai/prompt"
+
+function pollinationsUrl(prompt: string, seed: number): string {
+  const encoded = encodeURIComponent(prompt)
+  return `${POLLINATIONS_BASE}/${encoded}?width=600&height=800&model=flux&nologo=true&enhance=true&seed=${seed}`
+}
+
+function fetchToFile(url: string, dest: string): Promise<void> {
   return new Promise((resolve, reject) => {
     const file = fs.createWriteStream(dest)
     const mod  = url.startsWith("https") ? https : http
-    mod.get(url, (res) => {
-      res.pipe(file)
-      file.on("finish", () => file.close(() => resolve()))
-    }).on("error", (err) => { fs.unlink(dest, () => {}); reject(err) })
+
+    function get(u: string, redirects = 5): void {
+      mod.get(u, (res) => {
+        if ((res.statusCode === 301 || res.statusCode === 302) && res.headers.location && redirects > 0) {
+          file.close()
+          return get(res.headers.location, redirects - 1)
+        }
+        if (res.statusCode !== 200) {
+          reject(new Error(`HTTP ${res.statusCode}`))
+          return
+        }
+        res.pipe(file)
+        file.on("finish", () => file.close(() => resolve()))
+      }).on("error", (err) => { fs.unlink(dest, () => {}); reject(err) })
+    }
+    get(url)
   })
 }
 
@@ -901,24 +903,17 @@ const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms))
 // ─── MAIN ─────────────────────────────────────────────────────────────────────
 
 async function main() {
-  const apiKey = process.env.OPENAI_API_KEY
-  if (!apiKey) {
-    console.error("❌  OPENAI_API_KEY not found in .env.local")
-    process.exit(1)
-  }
-
-  const client = new OpenAI({ apiKey })
-  const outDir  = path.join(process.cwd(), "public", "products")
-  const tmpDir  = path.join(process.cwd(), ".next", "tmp-img-gen")
+  const outDir = path.join(process.cwd(), "public", "products")
+  const tmpDir = path.join(process.cwd(), ".next", "tmp-img-gen")
   fs.mkdirSync(tmpDir, { recursive: true })
 
   // arg parsing
-  const args      = process.argv.slice(2)
-  const runAll    = args.includes("--all")
-  const force     = args.includes("--force")
-  const idFlag    = args.find(a => a.startsWith("--id="))?.slice(5)
-                 ?? args.find(a => !a.startsWith("--")) ?? ""
-  const idFilter  = idFlag ? idFlag.split(",").map(s => s.trim()).filter(Boolean) : []
+  const args     = process.argv.slice(2)
+  const runAll   = args.includes("--all")
+  const force    = args.includes("--force")
+  const idFlag   = args.find(a => a.startsWith("--id="))?.slice(5)
+                ?? args.find(a => !a.startsWith("--")) ?? ""
+  const idFilter = idFlag ? idFlag.split(",").map(s => s.trim()).filter(Boolean) : []
 
   let queue: Entry[]
   if (idFilter.length > 0) {
@@ -930,39 +925,44 @@ async function main() {
     queue = PRODUCTS.filter(p => TEST_BATCH.has(p.id))
   }
 
-  const toGen    = force ? queue : queue.filter(p => !fs.existsSync(path.join(outDir, p.filename)))
-  const skipped  = queue.length - toGen.length
+  const toGen   = force ? queue : queue.filter(p => !fs.existsSync(path.join(outDir, p.filename)))
+  const skipped = queue.length - toGen.length
 
-  console.log(`\n🍅  Food Service — B2C Image Generator`)
-  console.log(`   dall-e-3  ·  1024×1792  ·  quality:standard  ·  → WebP 600×800`)
-  console.log(`   Mode: ${runAll ? "full P1" : idFilter.length ? `--id filter` : "test batch (10)"}  ·  Queue: ${toGen.length} to generate${skipped ? `, ${skipped} skipped (exist)` : ""}`)
+  console.log(`\n🍅  Food Service — B2C Image Generator (Pollinations AI · Flux · FREE)`)
+  console.log(`   600×800 WebP  ·  no API key needed  ·  ~3s between requests`)
+  console.log(`   Mode: ${runAll ? "full P1" : idFilter.length ? "--id filter" : "test batch (10)"}  ·  Queue: ${toGen.length}${skipped ? `, ${skipped} skipped` : ""}`)
   console.log(`   Output: public/products/\n`)
 
-  if (!toGen.length) { console.log("✅  All images already exist. Use --force to regenerate."); return }
+  if (!toGen.length) { console.log("✅  All images exist. Use --force to regenerate."); return }
 
   let ok = 0, fail = 0
+  const seed = Math.floor(Math.random() * 999999)
 
   for (let i = 0; i < toGen.length; i++) {
-    const p       = toGen[i]
-    const pad     = `[${String(i + 1).padStart(3)}/${toGen.length}]`
-    const webp    = path.join(outDir, p.filename)
-    const tmpPng  = path.join(tmpDir, `${p.id}.png`)
+    const p      = toGen[i]
+    const pad    = `[${String(i + 1).padStart(3)}/${toGen.length}]`
+    const webp   = path.join(outDir, p.filename)
+    const tmpJpg = path.join(tmpDir, `${p.id}.jpg`)
 
     process.stdout.write(`${pad} ${p.id} (${p.tier})  …  `)
     try {
-      const res = await client.images.generate({ model: "dall-e-3", prompt: p.prompt, size: "1024x1792", quality: "standard", n: 1 })
-      const url = res.data[0]?.url
-      if (!url) throw new Error("No URL returned")
-      await download(url, tmpPng)
-      await toWebp(tmpPng, webp)
-      fs.unlinkSync(tmpPng)
+      const url = pollinationsUrl(p.prompt, seed + i)
+      await fetchToFile(url, tmpJpg)
+
+      // verify the file is a valid image (not an error page)
+      const meta = await sharp(tmpJpg).metadata()
+      if (!meta.width || meta.width < 100) throw new Error("Invalid image received")
+
+      await toWebp(tmpJpg, webp)
+      fs.unlinkSync(tmpJpg)
       console.log(`✓  ${p.filename}`)
       ok++
     } catch (err: unknown) {
+      try { fs.unlinkSync(tmpJpg) } catch {}
       console.log(`✗  ${err instanceof Error ? err.message : err}`)
       fail++
     }
-    if (i < toGen.length - 1) await sleep(13_000) // DALL-E 3 rate limit
+    if (i < toGen.length - 1) await sleep(3_500) // polite rate limit
   }
 
   try { fs.rmdirSync(tmpDir) } catch {}
