@@ -21,10 +21,18 @@ export type ProductCategory =
   | "Упаковка HoReCa"
   | "Наборы"
 
+/** Verification state for product images */
+export type ImageStatus =
+  | "real_verified"      // manually confirmed supermarket photo, correct product
+  | "matched_unverified" // auto-matched by name/brand, needs human review
+  | "placeholder"        // neutral grey shown, real image not yet found
+  | "missing"            // searched all sources, no usable image found
+
 export type Product = {
   id:               string
   emoji:            string
   image?:           string
+  imageStatus?:     ImageStatus
   category:         ProductCategory
   title:            string
   description:      string

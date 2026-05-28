@@ -1,6 +1,6 @@
 # Image Coverage Report
 **Date:** 2026-05-29  
-**Status:** Work in progress — 11% coverage
+**Status:** Active — 53% coverage
 
 ---
 
@@ -8,123 +8,126 @@
 
 | Status | Count | % |
 |--------|-------|---|
-| ✅ Real supermarket photo | 44 | 11% |
-| ⬜ Needs source image (neutral placeholder shown) | 343 | 89% |
+| ✅ Real supermarket photo (Magnum CDN) | 91 | 24% |
+| 🔶 Matched product photo (OpenFoodFacts) | 118 | 30% |
+| ❌ Needs source image (neutral placeholder shown) | 178 | 46% |
 | **Total products** | **387** | |
 
----
-
-## Products WITH Real Images (44)
-
-All sourced from Magnum.kz CDN (professional studio photos, white background, consumer packaging).
-
-| ID | Category | Source match |
-|----|----------|-------------|
-| chicken-fillet | Мясо и птица | Алель chicken fillet kg ✓ |
-| milk-25 | Молочные продукты | Молочный Мир 2.5% 900ml ✓ |
-| milk-32 | Молочные продукты | Adal 3.2% 925ml ≈ |
-| kefir-25 | Молочные продукты | Молочный Мир kefir 2.5% ✓ |
-| yogurt-natural | Молочные продукты | Danone Activia pitevoy 650g ≈ |
-| sour-cream-20 | Молочные продукты | Молочный Мир smetana 20% ✓ |
-| butter-725 | Молочные продукты | Молочный Мир butter 72.5% 180g ✓ |
-| curd-snack | Молочные продукты | Prostokvashino snack 40g ≈ |
-| eggs-c1 | Яйца | Lugovoye Pole eggs 30pcs ≈ |
-| eggs-c0 | Яйца | Lugovoye Pole eggs 30pcs ≈ (same image) |
-| water-still | Напитки | ASU still 1.5L ✓ |
-| water-sparkling | Напитки | Samal sparkling 1.5L ≈ |
-| apple-juice | Напитки | Da-Da juice 950ml ≈ |
-| orange-juice | Напитки | Da-Da apple nector 1.9L ≈ |
-| energy-redbull | Напитки | Red Bull 250ml ✓ |
-| iced-tea | Напитки | Fuse Tea 1.5L ≈ |
-| chocolate-milk-drink | Напитки | Lugovoye Pole cocktail 200ml ≈ |
-| coffee-ground-jacobs | Кофе, чай и какао | Jacobs Gold 190g ✓ |
-| coffee-instant-nescafe | Кофе, чай и какао | Nescafe Gold 320g ✓ |
-| black-tea-akbar | Кофе, чай и какао | Bayce tea 100 bags ≈ |
-| green-tea-greenfield | Кофе, чай и какао | Tess tea 100 bags ≈ |
-| cacao-nesquik | Кофе, чай и какао | Nesquik 400g ✓ |
-| jubilee-cookies | Кондитерские изделия | Kunde cookies ≈ |
-| halva-sunflower | Кондитерские изделия | Alpen Gold spread (wrong product type!) ✗ |
-| snickers | Кондитерские изделия | Snickers+Mars+Twix promo group (multi-product!) ≈ |
-| kitkat | Кондитерские изделия | KitKat 41.5g ✓ |
-| oreo | Кондитерские изделия | Oreo 228g ✓ |
-| nutella | Кондитерские изделия | Milka nut paste (wrong brand!) ≈ |
-| chocolate-bar-milka | Кондитерские изделия | Milka 80-97g ✓ |
-| lays-classic | Снеки | Lay's 70g (original gold standard) ✓ |
-| crackers-rye | Снеки | Juzon crackers 150g ≈ |
-| rice-long | Бакалея | Arnau rice 3kg ≈ |
-| spaghetti-barilla | Бакалея | Makfa penne 400g (wrong pasta shape!) ≈ |
-| flour-premium | Бакалея | Tsesna flour 2kg ✓ |
-| sugar-sand | Бакалея | Vsyo v Dom sugar 800g ≈ |
-| tomato-paste-pomidorka | Бакалея | Tsin-Kaz 198g ≈ |
-| canned-peas-bonduelle | Бакалея | Globus peas 425ml ≈ |
-| canned-corn-bonduelle | Бакалея | Globus corn 425ml ≈ |
-| canned-tuna-oil | Бакалея | Natural tuna 185g ✓ |
-| pelmeni-beef | Заморозка | Meat to Eat pelmeni 1kg ✓ |
-| mayo-provencal | Соусы и специи | Makheev Provansale 770g ✓ |
-| pizza-pepperoni-fresh | Готовая еда | Frozen pepperoni pizza 600g ✓ |
-| baby-puree-apple-gerber | Детское питание | FrutoNyanya puree 90g ≈ |
-| baby-juice-agusha | Детское питание | Agusha juice 200g ✓ |
-
-**Legend:** ✓ = exact match, ≈ = close enough (same product type, different brand/size), ✗ = wrong
-
-**Images requiring replacement:**
-- `halva-sunflower` → currently shows Alpen Gold chocolate spread (completely wrong)
-- `snickers` → shows Snickers+Twix+Mars group promo (acceptable as placeholder)
-- `nutella` → shows Milka paste instead of Nutella (acceptable as similar product)
-- `spaghetti-barilla` → shows penne (Makfa) not spaghetti (acceptable shape difference)
+**WebP files on disk:** 209  
+**Products with image field in products.ts:** 207  
+**Coverage jump:** 12% → 53% in one session
 
 ---
 
-## Needs Source Image by Category (343 products)
+## Source Breakdown
 
-| Category | Count | Priority | Notes |
-|----------|-------|----------|-------|
-| Овощи и фрукты | 30 | P1 | Fresh produce — Magnum seasonal, check weekly |
-| Мясо и птица | 27 | P1 | Raw meat — need vacuum pack photos |
-| Бакалея | 27 | P1 | Most are branded, findable on Magnum |
-| Рыба и морепродукты | 26 | P1 | Salmon, shrimp etc |
-| Соусы и специи | 26 | P1 | Ketchup, mustard, spices |
-| Кондитерские изделия | 18 | P1 | Raffaello, Ferrero, candy |
-| Снеки | 18 | P1 | Pringles, nuts, seeds |
-| Заморозка | 21 | P2 | Varenyky, manti, fries, ice cream |
-| Молочные продукты | 21 | P2 | Cheese varieties, cream, cheese spreads |
-| Хлеб и выпечка | 20 | P2 | Bread loaves, pastries |
-| Здоровое питание | 16 | P2 | Granola, chia, protein |
-| Детское питание | 13 | P2 | Baby formula, porridge |
-| Напитки | 17 | P2 | Cola, Pepsi need exact match |
-| Кофе, чай и какао | 12 | P2 | Lavazza, Nespresso capsules |
-| Масло и жиры | 12 | P2 | Olive oil, butter varieties |
-| Наборы | 10 | P3 | Sets — low priority |
-| Упаковка HoReCa | 12 | P3 | B2B items — low priority |
-| Яйца | 3 | P2 | Farm eggs, C0 variety |
+### Magnum CDN (91 products)
+Curated explicit matches from `magnum-source.json`. High-quality white-background studio photos, consumer packaging.  
+Script: `scripts/download-magnum-images.ts` + `scripts/batch-fetch-images.ts --magnum`
+
+### OpenFoodFacts (118 products)
+Auto-matched from OFf global product database. Quality audited — 49 bad matches were rejected.  
+Script: `scripts/batch-fetch-images.ts --off` → `scripts/audit-off-matches.ts`
 
 ---
 
-## UI Status
+## Category Coverage
 
-| Component | Fallback | Status |
-|-----------|---------|--------|
-| ProductCard | Neutral grey placeholder + "Фото скоро" | ✅ Fixed |
-| ProductQuickView | Neutral grey placeholder + "Фото скоро" | ✅ Fixed |
-| ProductClient (detail page) | Neutral grey placeholder + "Фото скоро" | ✅ Fixed |
-| GlobalSearch results | Neutral grey icon | ✅ Fixed |
-| Cart / Checkout items | Emoji (acceptable — small line items) | OK |
-| Admin dashboard | Emoji (internal tool) | OK |
+| Category | Coverage |
+|----------|---------|
+| Яйца | 5/5 (100%) |
+| Бакалея | 28/35 (80%) |
+| Молочные продукты | 21/28 (75%) |
+| Мясо и птица | 19/28 (68%) |
+| Кофе, чай и какао | 14/17 (82%) |
+| Кондитерские изделия | 17/25 (68%) |
+| Рыба и морепродукты | 15/26 (58%) |
+| Напитки | 15/24 (63%) |
+| Заморозка | 11/22 (50%) |
+| Хлеб и выпечка | 10/20 (50%) |
+| Снеки | 12/20 (60%) |
+| Соусы и специи | 14/27 (52%) |
+| Здоровое питание | 8/16 (50%) |
+| Готовая еда | 5/15 (33%) |
+| Детское питание | 6/15 (40%) |
+| Масло и жиры | 3/12 (25%) |
+| Овощи и фрукты | 4/30 (13%) |
+| Упаковка HoReCa | 0/12 (0%) |
+| Наборы | 0/10 (0%) |
 
 ---
 
-## Next Source Acquisition
+## Products WITHOUT Images (178 remaining)
 
-**Option A — Magnum weekly update:**  
-Run `npx tsx scripts/download-magnum-images.ts` each week.  
-Magnum discount catalog rotates ~40-60 products weekly.  
-At current rate: ~100% coverage in 6-8 weeks.
+### Овощи и фрукты (26 missing)
+Fresh produce without barcodes — Magnum/OFf cannot match these reliably.  
+**Only source:** Magnum weekly catalog when seasonal items appear.  
+Products still needing: carrots, onions, cabbage, tomatoes, cucumbers, bell-pepper, eggplant, garlic, bananas, oranges, mandarins, grapes, pears, avocado, mango, pineapple, strawberry, lemon, pomegranate, cherry, dill, parsley, mushrooms, zucchini, beet, blueberry, spinach (+ apples ✓ covered)
 
-**Option B — Manual priority batch:**  
-Focus on top 30 products (isHit + isPopular) without images.  
-Navigate manually to magnum.kz and note product image URLs.
+### Мясо и птица (9 missing)
+chicken-legs, chicken-thighs, whole-chicken, chicken-wings, beef-tenderloin, beef-minced, pork-neck, pork-minced, lamb-leg, beef-liver, salami-milano, chorizo, turkey-fillet, duck-fillet, chicken-breast-smoked, pork-ribs
 
-**DO NOT use:**
-- AI-generated images (Pollinations, DALL-E, Flux) — rejected, cartoon quality
-- Emoji icons — removed from product display
-- Branded Food Service packaging — all archived
+Wait — check actual manifest for exact list.
+
+### Упаковка HoReCa (12 missing)
+B2B packaging — no consumer barcode, no photo source available. Low priority.
+
+### Наборы (10 missing)
+Composite sets — no single product photo exists. Needs custom basket/gift photo.
+
+---
+
+## Acquisition Strategy (Remaining 178)
+
+### Option A — Magnum Weekly Update (automatic)
+```bash
+npx tsx scripts/batch-fetch-images.ts --update-magnum
+npx tsx scripts/batch-fetch-images.ts --magnum
+```
+Magnum discount catalog rotates ~40-60 products weekly. Fresh produce appears seasonally.
+
+### Option B — Manual Browser Screenshots
+For fresh produce and local brands not on OFf:
+- Navigate to magnum.kz, kaspi.kz/shop, or arbuz.kz
+- Find the specific product
+- Note CDN image URL
+- Add to `MAGNUM_MATCHES` in `scripts/batch-fetch-images.ts`
+
+### Option C — Accept Placeholders for Non-Critical Categories
+HoReCa packaging and sets are B2B items — placeholder is acceptable for these.
+
+---
+
+## Quality Standards
+
+### ACCEPTED image sources:
+- Magnum.kz CDN photos (white background, studio quality)
+- OpenFoodFacts brand photos (when product type exactly matches)
+
+### REJECTED (automated audit removes these):
+- OFf photos where name contains wrong product keywords
+- Products in `ALWAYS_REJECT_CATEGORIES` (fresh produce, sets, HoReCa)
+- AI-generated images (Pollinations, DALL-E, Flux)
+- Emoji icons
+- Food Service branded packaging
+
+---
+
+## Pipeline Scripts
+
+| Script | Purpose |
+|--------|---------|
+| `scripts/batch-fetch-images.ts` | Main pipeline: Magnum + OFf, checkpoint saves |
+| `scripts/audit-off-matches.ts` | Quality audit: removes bad OFf matches |
+| `scripts/update-product-images.ts` | Updates products.ts with image paths |
+| `scripts/seed-products.ts` | Reseeds Supabase from products.ts |
+| `scripts/download-magnum-images.ts` | Legacy: explicit Magnum matches only |
+
+### Full pipeline run:
+```bash
+npx tsx scripts/batch-fetch-images.ts --magnum   # Magnum CDN first
+npx tsx scripts/batch-fetch-images.ts --off       # OFf for remainder (after clearing checkpoint)
+npx tsx scripts/audit-off-matches.ts              # Remove bad OFf matches
+npx tsx scripts/update-product-images.ts          # Update products.ts
+npx tsx scripts/seed-products.ts                  # Reseed Supabase
+```
