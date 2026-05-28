@@ -31,9 +31,9 @@ function YMPageTracker() {
 export default function YandexMetrica() {
   if (!YM_ID) return null
 
-  // Patch window.ja to a no-op before loading YM script — tag.js sets this.ja=[]
-  // (array) but may call it as a function in certain browser environments.
-  const initScript = `if(typeof window.ja!=='function'){window.ja=function(){};}(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(${YM_ID},"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});`
+  // Re-apply Object.defineProperty guard before loading tag.js (belt-and-suspenders:
+  // layout themeInitScript already sets this, but the Script may run in a fresh context).
+  const initScript = `try{var _jaFn=typeof window.ja==='function'?window.ja:function(){};Object.defineProperty(window,'ja',{configurable:true,enumerable:true,get:function(){return _jaFn;},set:function(v){if(typeof v==='function')_jaFn=v;}});}catch(e){if(typeof window.ja!=='function')window.ja=function(){};}(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(${YM_ID},"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});`
 
   return (
     <>

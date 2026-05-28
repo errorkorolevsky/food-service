@@ -12,6 +12,7 @@ import LangHtmlSync from "@/components/ui/LangHtmlSync"
 import FavoritesSync from "@/components/ui/FavoritesSync"
 import ProductQuickView from "@/components/ui/ProductQuickView"
 import { ThemeProvider } from "@/components/ui/ThemeProvider"
+import YandexMetrica from "@/components/ui/YandexMetrica"
 import { BASE_URL, META_RU, LANG_ALTERNATES } from "@/lib/seo"
 
 import "./globals.css"
@@ -51,9 +52,11 @@ export const metadata: Metadata = {
   },
 }
 
-/* Inline script: prevents flash-of-wrong-theme + patches any external-script
-   globals (like window.ja) to safe no-ops before third-party code can fail. */
-const themeInitScript = `(function(){try{var t=localStorage.getItem('fs-theme');var d=t==='dark'||((!t||t==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d)document.documentElement.classList.add('dark');}catch(e){}})();if(typeof window!=='undefined'&&typeof window.ja!=='function'){window.ja=function(){};}`
+/* Inline script: prevents flash-of-wrong-theme + protects window.ja via
+   Object.defineProperty so tag.js (YM) cannot overwrite it with an array.
+   The setter silently ignores non-function assignments, preventing the
+   "window.ja is not a function" crash even after tag.js runs its IIFE. */
+const themeInitScript = `(function(){try{var t=localStorage.getItem('fs-theme');var d=t==='dark'||((!t||t==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d)document.documentElement.classList.add('dark');}catch(e){}})();try{var _jaFn=typeof window.ja==='function'?window.ja:function(){};Object.defineProperty(window,'ja',{configurable:true,enumerable:true,get:function(){return _jaFn;},set:function(v){if(typeof v==='function')_jaFn=v;}});}catch(e){if(typeof window.ja!=='function')window.ja=function(){};}`
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -77,9 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <CursorAura />
           <ServiceWorkerRegister />
           <LangHtmlSync />
-          {/* YandexMetrica disabled — external script (mc.yandex.ru/metrika/tag.js)
-              creates window.ja as array then calls it as function → TypeError.
-              Re-enable after verifying production stability. */}
+          <YandexMetrica />
         </ThemeProvider>
       </body>
     </html>
