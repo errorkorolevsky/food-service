@@ -13,7 +13,7 @@ declare global {
 }
 
 export function ymGoal(target: string, params?: Record<string, unknown>) {
-  if (typeof window !== "undefined" && window.ym && YM_ID) {
+  if (typeof window !== "undefined" && typeof window.ym === "function" && YM_ID) {
     window.ym(Number(YM_ID), "reachGoal", target, params)
   }
 }
@@ -21,7 +21,7 @@ export function ymGoal(target: string, params?: Record<string, unknown>) {
 function YMPageTracker() {
   const pathname = usePathname()
   useEffect(() => {
-    if (typeof window !== "undefined" && window.ym && YM_ID) {
+    if (typeof window !== "undefined" && typeof window.ym === "function" && YM_ID) {
       window.ym(Number(YM_ID), "hit", pathname)
     }
   }, [pathname])
@@ -37,7 +37,7 @@ export default function YandexMetrica() {
 
   return (
     <>
-      <Script id="ym" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: initScript }} />
+      <Script id="yandex-metrica" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: initScript }} />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <noscript><img src={`https://mc.yandex.ru/watch/${YM_ID}`} style={{ position: "absolute", left: -9999 }} alt="" /></noscript>
       <YMPageTracker />
