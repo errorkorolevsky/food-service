@@ -13,6 +13,7 @@ import FavoritesSync from "@/components/ui/FavoritesSync"
 import ProductQuickView from "@/components/ui/ProductQuickView"
 import { ThemeProvider } from "@/components/ui/ThemeProvider"
 import YandexMetrica from "@/components/ui/YandexMetrica"
+import PWAInstallPrompt from "@/components/ui/PWAInstallPrompt"
 import { BASE_URL, META_RU, LANG_ALTERNATES } from "@/lib/seo"
 
 import "./globals.css"
@@ -81,6 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ServiceWorkerRegister />
           <LangHtmlSync />
           <YandexMetrica />
+          <PWAInstallPrompt />
         </ThemeProvider>
       </body>
     </html>
