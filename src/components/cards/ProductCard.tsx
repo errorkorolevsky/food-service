@@ -208,9 +208,9 @@ export default function ProductCard({
             className="
               absolute top-3 right-3 z-20
               w-8 h-8 rounded-lg
-              bg-white/90 backdrop-blur-sm border border-fs-border shadow-sm
+              bg-white/90 dark:bg-[#1C2128]/90 backdrop-blur-sm border border-fs-border shadow-sm
               flex items-center justify-center
-              hover:border-red-200 hover:bg-red-50
+              hover:border-red-200 hover:bg-red-50 dark:hover:bg-red-900/20
               transition-all duration-200
             "
           >
@@ -233,7 +233,7 @@ export default function ProductCard({
               className="
                 absolute bottom-3 left-1/2 -translate-x-1/2 z-20
                 px-3.5 py-1.5 rounded-full
-                bg-white/90 backdrop-blur-sm border border-fs-border shadow-sm
+                bg-white/90 dark:bg-[#1C2128]/90 backdrop-blur-sm border border-fs-border shadow-sm
                 text-[11px] font-semibold text-fs-graphite
                 opacity-0 group-hover:opacity-100
                 translate-y-2 group-hover:translate-y-0
