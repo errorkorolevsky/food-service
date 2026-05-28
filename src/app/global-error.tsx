@@ -24,6 +24,11 @@ export default function GlobalError({
           <p style={{ fontSize: 14, color: "rgba(255,255,255,0.45)", marginTop: 8, lineHeight: 1.5 }}>
             Критическая ошибка приложения. Попробуйте обновить страницу.
           </p>
+          {process.env.NODE_ENV !== "production" || error.message ? (
+            <p style={{ fontSize: 11, color: "rgba(255,255,255,0.25)", marginTop: 8, fontFamily: "monospace", wordBreak: "break-all" }}>
+              {error.message}{error.digest ? ` [${error.digest}]` : ""}
+            </p>
+          ) : null}
           <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 32 }}>
             <button
               onClick={reset}

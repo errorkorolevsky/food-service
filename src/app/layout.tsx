@@ -70,13 +70,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </AnimatedLayout>
             <FavoritesSync />
             <ProductQuickView />
+            <MobileNav />
+            <PWAInstallPrompt />
           </SessionProviderWrapper>
           <NavigationProgress />
           <ScrollToTop />
           <SmoothScroll />
           <CursorAura />
-          <MobileNav />
-          <PWAInstallPrompt />
           <ServiceWorkerRegister />
           <LangHtmlSync />
           <YandexMetrica />
