@@ -528,10 +528,11 @@ function CatalogInner({ products }: { products: Product[] }) {
   const [priceMax,     setPriceMax]     = useState(() => { const v = parseInt(searchParams.get("pmax") ?? ""); return isNaN(v) ? PRICE_MAX : v })
   const [priceOpen,    setPriceOpen]    = useState(false)
   const [page,         setPage]         = useState(1)
-  const [searchHistory, setSearchHistory] = useState<string[]>(() => {
-    if (typeof window === "undefined") return []
-    try { return JSON.parse(localStorage.getItem(HISTORY_KEY) ?? "[]") } catch { return [] }
-  })
+  const [searchHistory, setSearchHistory] = useState<string[]>([])
+
+  useEffect(() => {
+    try { setSearchHistory(JSON.parse(localStorage.getItem(HISTORY_KEY) ?? "[]")) } catch {}
+  }, [])
 
   const setParam = (key: string, value: string | null) => {
     const params = new URLSearchParams(searchParams.toString())

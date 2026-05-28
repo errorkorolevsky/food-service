@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { CreditCard, Smartphone, Truck, CheckCircle2, ShoppingBag, ArrowRight, Tag, X, MapPin } from "lucide-react"
@@ -76,9 +76,9 @@ export default function CheckoutPage() {
   const [error,      setError]      = useState<string | null>(null)
 
   // ─── FORM STATE ──────────────────────────────────────────────────────────────
-  const [company,      setCompany]      = useState(() => typeof window !== "undefined" ? localStorage.getItem("fs_company") ?? "" : "")
-  const [phone,        setPhone]        = useState(() => typeof window !== "undefined" ? localStorage.getItem("fs_phone")   ?? "" : "")
-  const [address,      setAddress]      = useState(() => typeof window !== "undefined" ? localStorage.getItem("fs_address") ?? "" : "")
+  const [company,      setCompany]      = useState("")
+  const [phone,        setPhone]        = useState("")
+  const [address,      setAddress]      = useState("")
   const [comment,      setComment]      = useState("")
   const [phoneTouched, setPhoneTouched] = useState(false)
   const [addrTouched,  setAddrTouched]  = useState(false)
@@ -89,19 +89,23 @@ export default function CheckoutPage() {
 
   const [addrSuggestOpen, setAddrSuggestOpen] = useState(false)
   const addrBlurTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const addrHistory: string[] = (() => {
-    if (typeof window === "undefined") return []
-    try { return JSON.parse(localStorage.getItem("fs_address_history") ?? "[]") } catch { return [] }
-  })()
+  const [addrHistory, setAddrHistory] = useState<string[]>([])
+
+  useEffect(() => {
+    setCompany(localStorage.getItem("fs_company") ?? "")
+    setPhone(localStorage.getItem("fs_phone") ?? "")
+    setAddress(localStorage.getItem("fs_address") ?? "")
+    try { setAddrHistory(JSON.parse(localStorage.getItem("fs_address_history") ?? "[]")) } catch {}
+  }, [])
   const addrSuggestions = addrHistory.filter((a) => a !== address && a.toLowerCase().includes(address.toLowerCase().trim())).slice(0, 5)
 
   const saveAddressToHistory = (addr: string) => {
     if (!addr.trim()) return
-    const prev: string[] = (() => {
-      try { return JSON.parse(localStorage.getItem("fs_address_history") ?? "[]") } catch { return [] }
-    })()
-    const next = [addr, ...prev.filter((a) => a !== addr)].slice(0, 5)
-    localStorage.setItem("fs_address_history", JSON.stringify(next))
+    setAddrHistory((prev) => {
+      const next = [addr, ...prev.filter((a) => a !== addr)].slice(0, 5)
+      localStorage.setItem("fs_address_history", JSON.stringify(next))
+      return next
+    })
   }
 
   const [promoInput,   setPromoInput]   = useState("")

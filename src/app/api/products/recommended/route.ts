@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 import { createClient } from "@supabase/supabase-js"
 import { products as localProducts } from "@/data/products"
+import { VALID_PRODUCT_IMAGES } from "@/lib/db/products"
 
 export const dynamic = "force-dynamic"
 
@@ -32,7 +33,12 @@ export async function GET(req: NextRequest) {
 
     const { data } = await query
     if (data) {
-      const shuffled = data.sort(() => Math.random() - 0.5).slice(0, 6)
+      const shuffled = data.sort(() => Math.random() - 0.5).slice(0, 6).map(
+        (p: { image?: string | null; [key: string]: unknown }) => ({
+          ...p,
+          image: p.image && VALID_PRODUCT_IMAGES.has(p.image) ? p.image : null,
+        })
+      )
       return NextResponse.json({ products: shuffled })
     }
   }

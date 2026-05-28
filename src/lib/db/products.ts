@@ -33,13 +33,21 @@ type ProductRow = {
   tags:             string[]
 }
 
+// ─── VALID PRODUCT IMAGES ────────────────────────────────────────────────────
+// Update this set whenever new product images are added to public/products/
+
+export const VALID_PRODUCT_IMAGES = new Set([
+  "/products/lays-chips.webp",
+  "/products/lays-chips.png",
+])
+
 // ─── ROW → PRODUCT ────────────────────────────────────────────────────────────
 
 function rowToProduct(row: ProductRow): Product {
   return {
     id:               row.id,
     emoji:            row.emoji,
-    image:            row.image            ?? undefined,
+    image:            row.image && VALID_PRODUCT_IMAGES.has(row.image) ? row.image : undefined,
     category:         row.category         as Product["category"],
     title:            row.title,
     description:      row.description,

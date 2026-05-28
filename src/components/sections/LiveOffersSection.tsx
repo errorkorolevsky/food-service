@@ -25,9 +25,10 @@ function getMsUntilMidnightAlmaty(): number {
 }
 
 function DealsCountdown({ label }: { label: string }) {
-  const [remaining, setRemaining] = useState(getMsUntilMidnightAlmaty)
+  const [remaining, setRemaining] = useState(0)
 
   useEffect(() => {
+    setRemaining(getMsUntilMidnightAlmaty())
     const id = setInterval(() => setRemaining(getMsUntilMidnightAlmaty()), 1000)
     return () => clearInterval(id)
   }, [])
