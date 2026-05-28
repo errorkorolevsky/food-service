@@ -227,14 +227,14 @@ export default function ProductClient({
                   />
                 </motion.div>
               ) : (
-                <motion.span
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="text-[100px] sm:text-[140px] lg:text-[160px] leading-none select-none relative z-10"
-                >
-                  {product.emoji}
-                </motion.span>
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 opacity-25">
+                  <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-fs-gray">
+                    <rect x="3" y="3" width="18" height="18" rx="3"/>
+                    <circle cx="12" cy="11" r="3.5"/>
+                    <path d="M3 17l4-4 3 3 4-5 4 6"/>
+                  </svg>
+                  <span className="text-xs font-medium text-fs-gray tracking-widest uppercase">Фото скоро</span>
+                </div>
               )}
             </motion.div>
           </FadeIn>

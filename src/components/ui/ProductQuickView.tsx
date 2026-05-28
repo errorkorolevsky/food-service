@@ -116,11 +116,18 @@ export default function ProductQuickView() {
                     src={product.image}
                     alt={product.title}
                     fill
-                    className="object-cover"
+                    className="object-contain p-4"
                     sizes="240px"
                   />
                 ) : (
-                  <span className="text-7xl select-none">{product.emoji}</span>
+                  <div className="flex flex-col items-center justify-center gap-2 opacity-25">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-fs-gray">
+                      <rect x="3" y="3" width="18" height="18" rx="3"/>
+                      <circle cx="12" cy="11" r="3.5"/>
+                      <path d="M3 17l4-4 3 3 4-5 4 6"/>
+                    </svg>
+                    <span className="text-[10px] font-medium text-fs-gray tracking-widest uppercase">Фото скоро</span>
+                  </div>
                 )}
 
                 {/* DISCOUNT BADGE */}

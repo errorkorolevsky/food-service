@@ -147,7 +147,9 @@ export default function ProductCard({
           h-40 sm:h-48 md:h-56 flex items-center justify-center relative
           cursor-pointer overflow-hidden
         " style={{
-          background: `radial-gradient(ellipse 80% 70% at 50% 60%, ${CATEGORY_COLORS_BY_NAME[category] ?? "#005B46"}18 0%, rgb(var(--fs-light)) 100%)`,
+          background: showImage
+            ? `radial-gradient(ellipse 80% 70% at 50% 60%, ${CATEGORY_COLORS_BY_NAME[category] ?? "#005B46"}18 0%, rgb(var(--fs-light)) 100%)`
+            : `rgb(var(--fs-offwhite))`,
         }}>
           {/* ambient inner glow */}
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{
@@ -159,18 +161,19 @@ export default function ProductCard({
               src={image!}
               alt={title}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               onError={() => setImgError(true)}
             />
           ) : (
-            <motion.span
-              className="text-5xl sm:text-6xl md:text-7xl select-none inline-block relative z-10"
-              whileHover={{ scale: 1.28, y: -6, filter: "drop-shadow(0 12px 20px rgba(0,0,0,0.22))" }}
-              transition={{ type: "spring", stiffness: 350, damping: 18 }}
-            >
-              {emoji}
-            </motion.span>
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 opacity-30">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="text-fs-gray">
+                <rect x="3" y="3" width="18" height="18" rx="3"/>
+                <circle cx="12" cy="11" r="3.5"/>
+                <path d="M3 17l4-4 3 3 4-5 4 6"/>
+              </svg>
+              <span className="text-[10px] font-medium text-fs-gray tracking-wide uppercase">Фото скоро</span>
+            </div>
           )}
 
           {/* BADGES */}

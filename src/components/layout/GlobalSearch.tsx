@@ -222,12 +222,16 @@ export default function GlobalSearch() {
                               alt={p.title}
                               width={40}
                               height={40}
-                              className="w-10 h-10 rounded-xl object-cover flex-shrink-0 bg-fs-offwhite"
+                              className="w-10 h-10 rounded-xl object-contain flex-shrink-0 bg-fs-offwhite p-1"
                             />
                           ) : (
-                            <span className="w-10 h-10 flex items-center justify-center text-2xl flex-shrink-0 bg-fs-offwhite rounded-xl">
-                              {p.emoji}
-                            </span>
+                            <div className="w-10 h-10 flex items-center justify-center flex-shrink-0 bg-fs-offwhite rounded-xl">
+                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-fs-gray opacity-40">
+                                <rect x="3" y="3" width="18" height="18" rx="3"/>
+                                <circle cx="12" cy="11" r="3.5"/>
+                                <path d="M3 17l4-4 3 3 4-5 4 6"/>
+                              </svg>
+                            </div>
                           )}
                           <div className="flex-1 min-w-0">
                             <p className="text-[14px] font-semibold text-fs-graphite truncate">{p.title}</p>
