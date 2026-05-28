@@ -11,8 +11,6 @@ import ScrollToTop from "@/components/ui/ScrollToTop"
 import LangHtmlSync from "@/components/ui/LangHtmlSync"
 import FavoritesSync from "@/components/ui/FavoritesSync"
 import ProductQuickView from "@/components/ui/ProductQuickView"
-import PWAInstallPrompt from "@/components/ui/PWAInstallPrompt"
-import YandexMetrica    from "@/components/ui/YandexMetrica"
 import { ThemeProvider } from "@/components/ui/ThemeProvider"
 import { BASE_URL, META_RU, LANG_ALTERNATES } from "@/lib/seo"
 
@@ -53,8 +51,9 @@ export const metadata: Metadata = {
   },
 }
 
-/* Inline script prevents flash-of-wrong-theme before React hydrates */
-const themeInitScript = `(function(){try{var t=localStorage.getItem('fs-theme');var d=t==='dark'||((!t||t==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d)document.documentElement.classList.add('dark');}catch(e){}})();`
+/* Inline script: prevents flash-of-wrong-theme + patches any external-script
+   globals (like window.ja) to safe no-ops before third-party code can fail. */
+const themeInitScript = `(function(){try{var t=localStorage.getItem('fs-theme');var d=t==='dark'||((!t||t==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d)document.documentElement.classList.add('dark');}catch(e){}})();if(typeof window!=='undefined'&&typeof window.ja!=='function'){window.ja=function(){};}`
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -71,7 +70,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <FavoritesSync />
             <ProductQuickView />
             <MobileNav />
-            <PWAInstallPrompt />
           </SessionProviderWrapper>
           <NavigationProgress />
           <ScrollToTop />
@@ -79,7 +77,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <CursorAura />
           <ServiceWorkerRegister />
           <LangHtmlSync />
-          <YandexMetrica />
+          {/* YandexMetrica disabled — external script (mc.yandex.ru/metrika/tag.js)
+              creates window.ja as array then calls it as function → TypeError.
+              Re-enable after verifying production stability. */}
         </ThemeProvider>
       </body>
     </html>
