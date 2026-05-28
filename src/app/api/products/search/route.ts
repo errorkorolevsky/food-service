@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { createClient } from "@supabase/supabase-js"
+import { products as localProducts } from "@/data/products"
 
 export const dynamic = "force-dynamic"
 
@@ -15,14 +16,38 @@ export async function GET(req: NextRequest) {
   if (q.length < 2) return NextResponse.json([])
 
   const client = getClient()
-  if (!client) return NextResponse.json([])
 
-  const { data } = await client
-    .from("products")
-    .select("id, emoji, image, title, price, price_num, category")
-    .or(`title.ilike.%${q}%,category.ilike.%${q}%`)
-    .eq("in_stock", true)
-    .limit(7)
+  if (client) {
+    const { data } = await client
+      .from("products")
+      .select("id, emoji, image, title, price, price_num, category")
+      .or(`title.ilike.%${q}%,category.ilike.%${q}%`)
+      .eq("in_stock", true)
+      .limit(7)
 
-  return NextResponse.json(data ?? [])
+    if (data) return NextResponse.json(data)
+  }
+
+  // Fallback: search local products data
+  const lower = q.toLowerCase()
+  const results = localProducts
+    .filter(
+      (p) =>
+        p.inStock &&
+        (p.title.toLowerCase().includes(lower) ||
+          p.category.toLowerCase().includes(lower) ||
+          p.tags?.some((tag) => tag.toLowerCase().includes(lower)))
+    )
+    .slice(0, 7)
+    .map((p) => ({
+      id:        p.id,
+      emoji:     p.emoji,
+      image:     p.image,
+      title:     p.title,
+      price:     p.price,
+      price_num: p.priceNum,
+      category:  p.category,
+    }))
+
+  return NextResponse.json(results)
 }
