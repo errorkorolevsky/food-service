@@ -14,7 +14,7 @@ export const products: Product[] = [
     tags: ["курица", "филе", "грудка", "мясо", "диетическое"],
   },
   {
-    id: "chicken-legs", emoji: "🍗",
+    id: "chicken-legs", image: "/products/chicken-legs.webp", emoji: "🍗",
     category: "Мясо и птица",
     title: "Куриные ножки",
     description: "Куриные голени охлаждённые. Упаковка 1кг.",
@@ -169,7 +169,7 @@ export const products: Product[] = [
     tags: ["печень", "куриная", "субпродукты", "мясо"],
   },
   {
-    id: "beef-liver", emoji: "🫀",
+    id: "beef-liver", image: "/products/beef-liver.webp", emoji: "🫀",
     category: "Мясо и птица",
     title: "Печень говяжья",
     description: "Печень говяжья охлаждённая. Богата железом. Упаковка 500г.",
@@ -187,7 +187,7 @@ export const products: Product[] = [
     tags: ["салями", "Milano", "гастрономия", "нарезка"],
   },
   {
-    id: "chorizo", emoji: "🌭",
+    id: "chorizo", image: "/products/chorizo.webp", emoji: "🌭",
     category: "Мясо и птица",
     title: "Чоризо испанское",
     description: "Чоризо пикантное с паприкой. Нарезка 200г.",
@@ -253,7 +253,7 @@ export const products: Product[] = [
     tags: ["лосось", "стейк", "рыба", "морепродукты"],
   },
   {
-    id: "salmon-lightly-salted", emoji: "🐟",
+    id: "salmon-lightly-salted", image: "/products/salmon-lightly-salted.webp", emoji: "🐟",
     category: "Рыба и морепродукты",
     title: "Лосось слабосолёный",
     description: "Лосось слабосолёный Premium. Идеально для суши и бутербродов. 500г.",
@@ -335,7 +335,7 @@ export const products: Product[] = [
     tags: ["кальмар", "кольца", "морепродукты"],
   },
   {
-    id: "mussels", emoji: "🦪",
+    id: "mussels", image: "/products/mussels.webp", emoji: "🦪",
     category: "Рыба и морепродукты",
     title: "Мидии в ракушках",
     description: "Мидии чилийские замороженные в ракушках. Упаковка 1кг.",
@@ -344,7 +344,7 @@ export const products: Product[] = [
     tags: ["мидии", "ракушки", "морепродукты"],
   },
   {
-    id: "red-caviar", emoji: "🟠",
+    id: "red-caviar", image: "/products/red-caviar.webp", emoji: "🟠",
     category: "Рыба и морепродукты",
     title: "Икра красная лосося",
     description: "Икра красная лосося, зернистая. Деликатес. Стеклянная банка 140г.",
@@ -362,7 +362,7 @@ export const products: Product[] = [
     tags: ["крабовые палочки", "морепродукты"],
   },
   {
-    id: "cod-fillet", emoji: "🐟",
+    id: "cod-fillet", image: "/products/cod-fillet.webp", emoji: "🐟",
     category: "Рыба и морепродукты",
     title: "Треска филе",
     description: "Треска атлантическая охлаждённая, филе без костей. Упаковка 500г.",
@@ -509,7 +509,7 @@ export const products: Product[] = [
     tags: ["творог", "зернистый", "молочное"],
   },
   {
-    id: "cottage-cheese-soft", emoji: "🥛",
+    id: "cottage-cheese-soft", image: "/products/cottage-cheese-soft.webp", emoji: "🥛",
     category: "Молочные продукты",
     title: "Творог мягкий President",
     description: "Творог мягкий нежный President. Пачка 170г.",
@@ -573,7 +573,7 @@ export const products: Product[] = [
     tags: ["пармезан", "сыр", "итальянский", "молочное"],
   },
   {
-    id: "cheese-adygei", emoji: "🧀",
+    id: "cheese-adygei", image: "/products/cheese-adygei.webp", emoji: "🧀",
     category: "Молочные продукты",
     title: "Сыр Адыгейский",
     description: "Сыр Адыгейский мягкий, рассольный. Упаковка 400г.",
@@ -600,7 +600,7 @@ export const products: Product[] = [
     tags: ["philadelphia", "творожный", "сыр", "молочное"],
   },
   {
-    id: "cream-10", emoji: "🥛",
+    id: "cream-10", image: "/products/cream-10.webp", emoji: "🥛",
     category: "Молочные продукты",
     title: "Сливки 10% питьевые",
     description: "Сливки питьевые 10% жирности. Тетрапак 500мл.",
@@ -609,7 +609,7 @@ export const products: Product[] = [
     tags: ["сливки", "питьевые", "молочное"],
   },
   {
-    id: "cream-33", emoji: "🥛",
+    id: "cream-33", image: "/products/cream-33.webp", emoji: "🥛",
     category: "Молочные продукты",
     title: "Сливки 33% взбивные",
     description: "Сливки взбивные 33% жирности. Для десертов. Тетрапак 500мл.",
@@ -618,7 +618,7 @@ export const products: Product[] = [
     tags: ["сливки", "взбивные", "десерт", "молочное"],
   },
   {
-    id: "ryazhenka", emoji: "🥛",
+    id: "ryazhenka", image: "/products/ryazhenka.webp", emoji: "🥛",
     category: "Молочные продукты",
     title: "Ряженка 4% топлёная",
     description: "Ряженка классическая 4% жирности. Бутылка 500мл.",
@@ -696,7 +696,7 @@ export const products: Product[] = [
   // ─── ОВОЩИ И ФРУКТЫ ─────────────────────────────────────────────────────────
 
   {
-    id: "potatoes", emoji: "🥔",
+    id: "potatoes", image: "/products/potatoes.webp", emoji: "🥔",
     category: "Овощи и фрукты",
     title: "Картофель",
     description: "Картофель свежий, мытый. Отличен для жарки, варки, пюре. Сетка 2кг.",
@@ -714,7 +714,7 @@ export const products: Product[] = [
     tags: ["морковь", "овощи"],
   },
   {
-    id: "onions", emoji: "🧅",
+    id: "onions", image: "/products/onions.webp", emoji: "🧅",
     category: "Овощи и фрукты",
     title: "Лук репчатый",
     description: "Лук репчатый свежий. Упаковка 1кг.",
@@ -741,7 +741,7 @@ export const products: Product[] = [
     tags: ["помидоры", "томаты", "овощи"],
   },
   {
-    id: "cucumbers", emoji: "🥒",
+    id: "cucumbers", image: "/products/cucumbers.webp", emoji: "🥒",
     category: "Овощи и фрукты",
     title: "Огурцы",
     description: "Огурцы свежие хрустящие. Упаковка 1кг.",
@@ -750,7 +750,7 @@ export const products: Product[] = [
     tags: ["огурцы", "овощи"],
   },
   {
-    id: "bell-pepper", emoji: "🫑",
+    id: "bell-pepper", image: "/products/bell-pepper.webp", emoji: "🫑",
     category: "Овощи и фрукты",
     title: "Перец болгарский",
     description: "Перец болгарский сладкий, ассорти цветов. Упаковка 500г.",
@@ -759,7 +759,7 @@ export const products: Product[] = [
     tags: ["перец", "болгарский", "сладкий", "овощи"],
   },
   {
-    id: "eggplant", emoji: "🍆",
+    id: "eggplant", image: "/products/eggplant.webp", emoji: "🍆",
     category: "Овощи и фрукты",
     title: "Баклажаны",
     description: "Баклажаны свежие. Упаковка 1кг.",
@@ -777,7 +777,7 @@ export const products: Product[] = [
     tags: ["чеснок", "овощи"],
   },
   {
-    id: "bananas", emoji: "🍌",
+    id: "bananas", image: "/products/bananas.webp", emoji: "🍌",
     category: "Овощи и фрукты",
     title: "Бананы",
     description: "Бананы спелые сладкие. Упаковка 1кг.",
@@ -795,7 +795,7 @@ export const products: Product[] = [
     tags: ["яблоки", "голден", "фрукты"],
   },
   {
-    id: "oranges", emoji: "🍊",
+    id: "oranges", image: "/products/oranges.webp", emoji: "🍊",
     category: "Овощи и фрукты",
     title: "Апельсины",
     description: "Апельсины сочные. Упаковка 1кг.",
@@ -831,7 +831,7 @@ export const products: Product[] = [
     tags: ["груши", "фрукты"],
   },
   {
-    id: "avocado", emoji: "🥑",
+    id: "avocado", image: "/products/avocado.webp", emoji: "🥑",
     category: "Овощи и фрукты",
     title: "Авокадо",
     description: "Авокадо спелое, готово к употреблению. 1 штука.",
@@ -877,7 +877,7 @@ export const products: Product[] = [
     tags: ["клубника", "ягоды", "фрукты"],
   },
   {
-    id: "lemon", emoji: "🍋",
+    id: "lemon", image: "/products/lemon.webp", emoji: "🍋",
     category: "Овощи и фрукты",
     title: "Лимоны",
     description: "Лимоны свежие. Упаковка 500г (4–5 штук).",
@@ -895,7 +895,7 @@ export const products: Product[] = [
     tags: ["гранат", "фрукты"],
   },
   {
-    id: "cherry", emoji: "🍒",
+    id: "cherry", image: "/products/cherry.webp", emoji: "🍒",
     category: "Овощи и фрукты",
     title: "Черешня",
     description: "Черешня красная сладкая. Упаковка 500г.",
@@ -922,7 +922,7 @@ export const products: Product[] = [
     tags: ["петрушка", "зелень", "овощи"],
   },
   {
-    id: "mushrooms", emoji: "🍄",
+    id: "mushrooms", image: "/products/mushrooms.webp", emoji: "🍄",
     category: "Овощи и фрукты",
     title: "Шампиньоны",
     description: "Шампиньоны белые свежие. Упаковка 500г.",

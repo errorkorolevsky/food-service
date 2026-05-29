@@ -778,10 +778,12 @@
     "fetched": "2026-05-28"
   },
   "chicken-legs": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Голень куриная Arbuz Select 900 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/298335-golen_kurinaya_arbuz_select_0_9_kg.png",
+    "local_path": "/products/chicken-legs.webp",
+    "note": "Голень куриная Arbuz Select 900 г — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "chicken-wings": {
@@ -840,10 +842,12 @@
     "fetched": "2026-05-28"
   },
   "beef-liver": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Говяжья печень Arbuz Select фермерская — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/7334a451-c3e0-4915-8f73-263e789b81e9-778_2_kopiya_18_png.png",
+    "local_path": "/products/beef-liver.webp",
+    "note": "Говяжья печень Arbuz Select фермерская — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "salami-milano": {
@@ -855,10 +859,12 @@
     "fetched": "2026-05-28"
   },
   "chorizo": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Колбаса Чоризо сырокопченая 200 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/254226-kolbasa_pervomaiskie_delikatesy_chorizo_syrokopchenaya_narezka_200_g.png",
+    "local_path": "/products/chorizo.webp",
+    "note": "Колбаса Чоризо сырокопченая 200 г — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "duck-fillet": {
@@ -902,10 +908,12 @@
     "fetched": "2026-05-28"
   },
   "salmon-lightly-salted": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Семга Jaqsi Fish слабосолёная, 100 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__c949bc0e-452d-435b-ad4a-b7640a28171d-2570846_jpg.jpg",
+    "local_path": "/products/salmon-lightly-salted.webp",
+    "note": "Семга Jaqsi Fish слабосолёная, 100 г — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "trout-fillet": {
@@ -957,24 +965,30 @@
     "fetched": "2026-05-28"
   },
   "mussels": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Мидии двустворчатые замороженные — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/234231-midii_ria_austral_dvustvorchatye_40_60_kg.jpg",
+    "local_path": "/products/mussels.webp",
+    "note": "Мидии двустворчатые замороженные — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "red-caviar": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Икра красная лососевая 95 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__e9184c1c-9d61-4276-87d3-7f7137dc56e7-shablon_jpg.jpg",
+    "local_path": "/products/red-caviar.webp",
+    "note": "Икра красная лососевая 95 г — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "cod-fillet": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Филе трески Kingfisher замороженное — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/233100-file_treski_kingfisher_n_sh_kg.png",
+    "local_path": "/products/cod-fillet.webp",
+    "note": "Филе трески Kingfisher замороженное — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "pike-perch": {
@@ -1023,10 +1037,12 @@
     "fetched": "2026-05-28"
   },
   "cottage-cheese-soft": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Творог Простоквашино мягкий 5%, 170 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__288379-tvorog_prostokvashino_myagkii_5_170_g.jpg",
+    "local_path": "/products/cottage-cheese-soft.webp",
+    "note": "Творог Простоквашино мягкий 5%, 170 г — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "cheese-mozzarella": {
@@ -1046,24 +1062,30 @@
     "fetched": "2026-05-28"
   },
   "cheese-adygei": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Сыр Ляззат адыгейский рассольный 45%, кг — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__be460043-88b2-4958-ad86-07619811d784-vybor-turlova_png.png",
+    "local_path": "/products/cheese-adygei.webp",
+    "note": "Сыр Ляззат адыгейский рассольный 45%, кг — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "cream-33": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Сливки Эконива Professional Line 33% — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__245f45db-54e8-40f6-84bd-46c4d8edc299-4660141573489_fresh_i_prochee_1_jpg.jpg",
+    "local_path": "/products/cream-33.webp",
+    "note": "Сливки Эконива Professional Line 33% — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "ryazhenka": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Ряженка Dep 2.5%, 500 мл — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__239840-ryazhenka_dep_depovskaya_2_5_500_ml.jpg",
+    "local_path": "/products/ryazhenka.webp",
+    "note": "Ряженка Dep 2.5%, 500 мл — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "eggs-quail": {
@@ -1083,10 +1105,12 @@
     "fetched": "2026-05-28"
   },
   "potatoes": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Картофель кг — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__fc40a303-938c-4f80-8cd5-ebf4beb5c7bd-2000001_1_jpg.jpg",
+    "local_path": "/products/potatoes.webp",
+    "note": "Картофель кг — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "carrots": {
@@ -1106,24 +1130,30 @@
     "fetched": "2026-05-29"
   },
   "cucumbers": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Огурцы Green Land Миринда, кг — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__4d35edfa-fe25-419f-95e9-4a8743d01c33-2066849_jpg.jpg",
+    "local_path": "/products/cucumbers.webp",
+    "note": "Огурцы Green Land Миринда, кг — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "eggplant": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Баклажаны, кг — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__6bc8dba7-4d2f-4aae-a637-0f839accc8b9-2011028_5_jpg.jpg",
+    "local_path": "/products/eggplant.webp",
+    "note": "Баклажаны, кг — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "bananas": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Бананы, кг — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__b488f887-debc-495e-8698-9ddf01381fa6-2001001_jpg.jpg",
+    "local_path": "/products/bananas.webp",
+    "note": "Бананы, кг — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "mandarins": {
@@ -2649,10 +2679,12 @@
     "fetched": "2026-05-29"
   },
   "lemon": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Лимон Узбекистан, кг — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__86ad4144-866c-44c4-a359-7b56e9eb9df5-img_7742_jpg.jpg",
+    "local_path": "/products/lemon.webp",
+    "note": "Лимон Узбекистан, кг — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "pomegranate": {
@@ -2669,6 +2701,69 @@
     "source_name": "Courgettes",
     "source_url": "https://images.openfoodfacts.org/images/products/000/000/108/5808/front_en.23.400.jpg",
     "local_path": "/products/zucchini.webp",
+    "fetched": "2026-05-29"
+  },
+  "cream-10": {
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Сливки Adal 10% 0.95 л — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__5242f132-6c7c-469c-91e0-2ba911af78db-172382-001_jpg.jpg",
+    "local_path": "/products/cream-10.webp",
+    "note": "Сливки Adal 10% 0.95 л — arbuz.kz",
+    "fetched": "2026-05-29"
+  },
+  "onions": {
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Лук репчатый молодой сетка, кг — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__53c49baa-0aff-4ed1-b97c-832844f4bb61-2066893_4_jpg.jpg",
+    "local_path": "/products/onions.webp",
+    "note": "Лук репчатый молодой сетка, кг — arbuz.kz",
+    "fetched": "2026-05-29"
+  },
+  "avocado": {
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Авокадо Хасс, 2 шт — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__949a2dbf-32ee-4265-8558-8c7dc4e13a17-234428_3_jpg.jpg",
+    "local_path": "/products/avocado.webp",
+    "note": "Авокадо Хасс, 2 шт — arbuz.kz",
+    "fetched": "2026-05-29"
+  },
+  "cherry": {
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Черешня Суммит Arbuz Select кг — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__fcb177be-7454-429f-af25-d63ae641b851-269450_001_jpg.jpg",
+    "local_path": "/products/cherry.webp",
+    "note": "Черешня Суммит Arbuz Select кг — arbuz.kz",
+    "fetched": "2026-05-29"
+  },
+  "bell-pepper": {
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Микс перец Болгарский So Fresh, кг — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__89f32aae-182f-4240-b914-52d20cf795e7-2079329_2_jpg.jpg",
+    "local_path": "/products/bell-pepper.webp",
+    "note": "Микс перец Болгарский So Fresh, кг — arbuz.kz",
+    "fetched": "2026-05-29"
+  },
+  "oranges": {
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Апельсин Египет, кг — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__4f7068e4-7f1f-4f9f-adfa-7e9399b2c68a-2066854_jpg.jpg",
+    "local_path": "/products/oranges.webp",
+    "note": "Апельсин Египет, кг — arbuz.kz",
+    "fetched": "2026-05-29"
+  },
+  "mushrooms": {
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Грибы шампиньоны кг — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__98dae6db-29a5-4476-9182-3ee939907ce0-img_7685_jpg.jpg",
+    "local_path": "/products/mushrooms.webp",
+    "note": "Грибы шампиньоны кг — arbuz.kz",
     "fetched": "2026-05-29"
   }
 }

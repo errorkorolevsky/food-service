@@ -184,6 +184,31 @@ const MAGNUM_MATCHES: Record<string, { file: string; note?: string }> = {
   "baby-puree-pear":         { file: "/uploads/4600338006574_96d645830c.jpg", note: "FrutoNyanya — pear stand-in" }, // [~]
   "baby-puree-carrot":       { file: "/uploads/4600338008592_3276d4f20f.jpg", note: "FrutoNyanya fruit pieces 15g" }, // [~]
 
+  // ─── ARBUZ.KZ — fresh produce, dairy, fish, meat ─────────────────────────
+  // Full CDN URLs (arbuz.kz/image/s3/arbuz-kz-products/...)
+  "potatoes":     { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__fc40a303-938c-4f80-8cd5-ebf4beb5c7bd-2000001_1_jpg.jpg",             note: "Картофель кг — arbuz.kz" },
+  "bananas":      { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__b488f887-debc-495e-8698-9ddf01381fa6-2001001_jpg.jpg",               note: "Бананы, кг — arbuz.kz" },
+  "cucumbers":    { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__4d35edfa-fe25-419f-95e9-4a8743d01c33-2066849_jpg.jpg",               note: "Огурцы Green Land Миринда, кг — arbuz.kz" },
+  "oranges":      { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__4f7068e4-7f1f-4f9f-adfa-7e9399b2c68a-2066854_jpg.jpg",               note: "Апельсин Египет, кг — arbuz.kz" },
+  "eggplant":     { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__6bc8dba7-4d2f-4aae-a637-0f839accc8b9-2011028_5_jpg.jpg",              note: "Баклажаны, кг — arbuz.kz" },
+  "lemon":        { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__86ad4144-866c-44c4-a359-7b56e9eb9df5-img_7742_jpg.jpg",              note: "Лимон Узбекистан, кг — arbuz.kz" },
+  "cherry":       { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__fcb177be-7454-429f-af25-d63ae641b851-269450_001_jpg.jpg",             note: "Черешня Суммит Arbuz Select кг — arbuz.kz" },
+  "onions":       { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__53c49baa-0aff-4ed1-b97c-832844f4bb61-2066893_4_jpg.jpg",             note: "Лук репчатый молодой сетка, кг — arbuz.kz" },
+  "bell-pepper":  { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__89f32aae-182f-4240-b914-52d20cf795e7-2079329_2_jpg.jpg",             note: "Микс перец Болгарский So Fresh, кг — arbuz.kz" },
+  "avocado":      { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__949a2dbf-32ee-4265-8558-8c7dc4e13a17-234428_3_jpg.jpg",              note: "Авокадо Хасс, 2 шт — arbuz.kz" },
+  "mushrooms":    { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__98dae6db-29a5-4476-9182-3ee939907ce0-img_7685_jpg.jpg",              note: "Грибы шампиньоны кг — arbuz.kz" },
+  "mussels":      { file: "https://arbuz.kz/image/s3/arbuz-kz-products/234231-midii_ria_austral_dvustvorchatye_40_60_kg.jpg",                          note: "Мидии двустворчатые замороженные — arbuz.kz" },
+  "red-caviar":   { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__e9184c1c-9d61-4276-87d3-7f7137dc56e7-shablon_jpg.jpg",               note: "Икра красная лососевая 95 г — arbuz.kz" },
+  "salmon-lightly-salted": { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__c949bc0e-452d-435b-ad4a-b7640a28171d-2570846_jpg.jpg",      note: "Семга Jaqsi Fish слабосолёная, 100 г — arbuz.kz" },
+  "cod-fillet":   { file: "https://arbuz.kz/image/s3/arbuz-kz-products/233100-file_treski_kingfisher_n_sh_kg.png",                                     note: "Филе трески Kingfisher замороженное — arbuz.kz" },
+  "ryazhenka":    { file: "https://arbuz.kz/image/s3/arbuz-kz-products/image__239840-ryazhenka_dep_depovskaya_2_5_500_ml.jpg",                         note: "Ряженка Dep 2.5%, 500 мл — arbuz.kz" },
+  "cheese-adygei":{ file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__be460043-88b2-4958-ad86-07619811d784-vybor-turlova_png.png",         note: "Сыр Ляззат адыгейский рассольный 45%, кг — arbuz.kz" },
+  "beef-liver":   { file: "https://arbuz.kz/image/s3/arbuz-kz-products/7334a451-c3e0-4915-8f73-263e789b81e9-778_2_kopiya_18_png.png",                  note: "Говяжья печень Arbuz Select фермерская — arbuz.kz" },
+  "chorizo":      { file: "https://arbuz.kz/image/s3/arbuz-kz-products/254226-kolbasa_pervomaiskie_delikatesy_chorizo_syrokopchenaya_narezka_200_g.png",note: "Колбаса Чоризо сырокопченая 200 г — arbuz.kz" },
+  "cream-10":     { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__5242f132-6c7c-469c-91e0-2ba911af78db-172382-001_jpg.jpg",            note: "Сливки Adal 10% 0.95 л — arbuz.kz" },
+  "cream-33":     { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__245f45db-54e8-40f6-84bd-46c4d8edc299-4660141573489_fresh_i_prochee_1_jpg.jpg", note: "Сливки Эконива Professional Line 33% — arbuz.kz" },
+  "cottage-cheese-soft": { file: "https://arbuz.kz/image/s3/arbuz-kz-products/image__288379-tvorog_prostokvashino_myagkii_5_170_g.jpg",               note: "Творог Простоквашино мягкий 5%, 170 г — arbuz.kz" },
+  "chicken-legs": { file: "https://arbuz.kz/image/s3/arbuz-kz-products/298335-golen_kurinaya_arbuz_select_0_9_kg.png",                                 note: "Голень куриная Arbuz Select 900 г — arbuz.kz" },
 }
 
 const MAGNUM_CDN = "https://magnum.kz:1337"
@@ -600,11 +625,12 @@ async function processOne(
   const tmpFile = path.join(TMP_DIR, `${p.id}-src`)
   const outPath = path.join(PRODUCTS_DIR, `${p.id}.webp`)
 
-  // ── SOURCE 1: Magnum explicit match ─────────────────────────────────────────
+  // ── SOURCE 1: Magnum/Arbuz explicit match ───────────────────────────────────
   if (!modeOff) {
     const match = MAGNUM_MATCHES[p.id]
     if (match) {
-      const srcUrl = MAGNUM_CDN + match.file
+      // Support full URLs (arbuz.kz) and Magnum CDN path suffixes
+      const srcUrl = match.file.startsWith("http") ? match.file : MAGNUM_CDN + match.file
       try {
         await downloadWithRetry(srcUrl, tmpFile, 3)
         const ok = await toWebp(tmpFile, outPath)
