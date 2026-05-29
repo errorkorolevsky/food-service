@@ -23,10 +23,15 @@ export type ProductCategory =
 
 /** Verification state for product images */
 export type ImageStatus =
-  | "real_verified"      // manually confirmed supermarket photo, correct product
-  | "matched_unverified" // auto-matched by name/brand, needs human review
-  | "placeholder"        // neutral grey shown, real image not yet found
-  | "missing"            // searched all sources, no usable image found
+  | "verified_exact"     // exact brand+product match — safe for production
+  | "verified_generic"   // correct generic product, no brand conflict — safe for production
+  | "needs_review"       // possible match, uncertain — show placeholder
+  | "rejected"           // confirmed mismatch removed — show placeholder
+  | "missing"            // no usable image found — show placeholder
+  // legacy values kept for Supabase rows written before this audit
+  | "real_verified"
+  | "matched_unverified"
+  | "placeholder"
 
 export type Product = {
   id:               string

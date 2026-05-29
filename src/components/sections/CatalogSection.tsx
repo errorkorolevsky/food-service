@@ -881,6 +881,7 @@ function CatalogInner({ products }: { products: Product[] }) {
                       rating={product.rating}
                       emoji={product.emoji}
                       image={product.image}
+                      imageStatus={product.imageStatus}
                       isNew={product.isNew}
                       isHit={product.isHit}
                       inStock={product.inStock}
@@ -973,6 +974,7 @@ function CatalogInner({ products }: { products: Product[] }) {
                             rating={p.rating}
                             emoji={p.emoji}
                             image={p.image}
+                            imageStatus={p.imageStatus}
                             isNew={p.isNew}
                             isHit={p.isHit}
                             inStock={p.inStock}

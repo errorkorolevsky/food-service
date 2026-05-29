@@ -5,7 +5,7 @@ export const products: Product[] = [
   // ─── МЯСО И ПТИЦА ───────────────────────────────────────────────────────────
 
   {
-    id: "chicken-fillet", image: "/products/chicken-fillet.webp", emoji: "🍗",
+    id: "chicken-fillet", imageStatus: "verified_generic", image: "/products/chicken-fillet.webp", emoji: "🍗",
     category: "Мясо и птица",
     title: "Куриное филе охлаждённое",
     description: "Филе куриной грудки охлаждённое, без кожи. Вакуумная упаковка 1кг.",
@@ -14,7 +14,7 @@ export const products: Product[] = [
     tags: ["курица", "филе", "грудка", "мясо", "диетическое"],
   },
   {
-    id: "chicken-legs", image: "/products/chicken-legs.webp", emoji: "🍗",
+    id: "chicken-legs", imageStatus: "verified_generic", image: "/products/chicken-legs.webp", emoji: "🍗",
     category: "Мясо и птица",
     title: "Куриные ножки",
     description: "Куриные голени охлаждённые. Упаковка 1кг.",
@@ -41,7 +41,7 @@ export const products: Product[] = [
     tags: ["курица", "целая", "бройлер", "мясо"],
   },
   {
-    id: "chicken-wings", image: "/products/chicken-wings.webp", emoji: "🍗",
+    id: "chicken-wings", imageStatus: "verified_generic", image: "/products/chicken-wings.webp", emoji: "🍗",
     category: "Мясо и птица",
     title: "Куриные крылья",
     description: "Крылья куриные охлаждённые. Идеально для барбекю. Упаковка 1кг.",
@@ -50,7 +50,7 @@ export const products: Product[] = [
     tags: ["курица", "крылья", "барбекю", "мясо"],
   },
   {
-    id: "beef-tenderloin", image: "/products/beef-tenderloin.webp", emoji: "🥩",
+    id: "beef-tenderloin", imageStatus: "verified_generic", image: "/products/beef-tenderloin.webp", emoji: "🥩",
     category: "Мясо и птица",
     title: "Говядина вырезка",
     description: "Говяжья вырезка охлаждённая. Нежнейший отруб. Упаковка ≈500г.",
@@ -59,7 +59,7 @@ export const products: Product[] = [
     tags: ["говядина", "вырезка", "стейк", "мясо"],
   },
   {
-    id: "beef-minced", image: "/products/beef-minced.webp", emoji: "🥩",
+    id: "beef-minced", imageStatus: "verified_generic", image: "/products/beef-minced.webp", emoji: "🥩",
     category: "Мясо и птица",
     title: "Фарш говяжий",
     description: "Фарш из говядины охлаждённый. Жирность 15–20%. Упаковка 500г.",
@@ -69,7 +69,7 @@ export const products: Product[] = [
     tags: ["говядина", "фарш", "котлеты", "мясо"],
   },
   {
-    id: "beef-ribs", image: "/products/beef-ribs.webp", emoji: "🥩",
+    id: "beef-ribs", imageStatus: "verified_generic", image: "/products/beef-ribs.webp", emoji: "🥩",
     category: "Мясо и птица",
     title: "Говяжьи рёбра",
     description: "Рёбра говяжьи охлаждённые для супа или тушения. Упаковка ≈500г.",
@@ -78,7 +78,7 @@ export const products: Product[] = [
     tags: ["говядина", "рёбра", "суп", "бульон"],
   },
   {
-    id: "pork-neck", image: "/products/pork-neck.webp", emoji: "🥩",
+    id: "pork-neck", imageStatus: "verified_generic", image: "/products/pork-neck.webp", emoji: "🥩",
     category: "Мясо и птица",
     title: "Свинина шея",
     description: "Шея свиная охлаждённая — лучший выбор для шашлыка. Упаковка ≈500г.",
@@ -87,7 +87,7 @@ export const products: Product[] = [
     tags: ["свинина", "шея", "шашлык", "барбекю", "мясо"],
   },
   {
-    id: "pork-minced", image: "/products/pork-minced.webp", emoji: "🥩",
+    id: "pork-minced", imageStatus: "verified_generic", image: "/products/pork-minced.webp", emoji: "🥩",
     category: "Мясо и птица",
     title: "Фарш свино-говяжий",
     description: "Домашний фарш свино-говяжий 50/50. Упаковка 500г.",
@@ -96,7 +96,7 @@ export const products: Product[] = [
     tags: ["свинина", "говядина", "фарш", "домашний", "мясо"],
   },
   {
-    id: "lamb-leg", image: "/products/lamb-leg.webp", emoji: "🍖",
+    id: "lamb-leg", imageStatus: "verified_generic", image: "/products/lamb-leg.webp", emoji: "🍖",
     category: "Мясо и птица",
     title: "Баранина мякоть",
     description: "Мякоть баранины охлаждённая. Для плова, шурпы и жаркого. 500г.",
@@ -105,7 +105,7 @@ export const products: Product[] = [
     tags: ["баранина", "плов", "шурпа", "мясо"],
   },
   {
-    id: "sausage-doctor", image: "/products/sausage-doctor.webp", emoji: "🌭",
+    id: "sausage-doctor", imageStatus: "verified_generic", image: "/products/sausage-doctor.webp", emoji: "🌭",
     category: "Мясо и птица",
     title: "Колбаса Докторская",
     description: "Колбаса варёная Докторская ГОСТ. Упаковка 400г.",
@@ -114,7 +114,7 @@ export const products: Product[] = [
     tags: ["колбаса", "докторская", "варёная", "мясо", "гастрономия"],
   },
   {
-    id: "sausage-smoked", image: "/products/sausage-smoked.webp", emoji: "🌭",
+    id: "sausage-smoked", imageStatus: "verified_generic", image: "/products/sausage-smoked.webp", emoji: "🌭",
     category: "Мясо и птица",
     title: "Колбаса Краковская",
     description: "Колбаса Краковская полукопчёная. Упаковка 300г.",
@@ -123,7 +123,7 @@ export const products: Product[] = [
     tags: ["колбаса", "краковская", "копчёная", "гастрономия"],
   },
   {
-    id: "frankfurters", image: "/products/frankfurters.webp", emoji: "🌭",
+    id: "frankfurters", imageStatus: "verified_generic", image: "/products/frankfurters.webp", emoji: "🌭",
     category: "Мясо и птица",
     title: "Сосиски молочные",
     description: "Сосиски молочные классические. Упаковка 450г, 8–10 штук.",
@@ -133,7 +133,7 @@ export const products: Product[] = [
     tags: ["сосиски", "молочные", "гастрономия"],
   },
   {
-    id: "ham-boiled", image: "/products/ham-boiled.webp", emoji: "🥩",
+    id: "ham-boiled", imageStatus: "rejected", emoji: "🥩",
     category: "Мясо и птица",
     title: "Ветчина варёная",
     description: "Ветчина варёная из свиного окорока. Нарезка 300г.",
@@ -142,7 +142,7 @@ export const products: Product[] = [
     tags: ["ветчина", "гастрономия", "нарезка"],
   },
   {
-    id: "bacon-smoked", image: "/products/bacon-smoked.webp", emoji: "🥓",
+    id: "bacon-smoked", imageStatus: "verified_generic", image: "/products/bacon-smoked.webp", emoji: "🥓",
     category: "Мясо и птица",
     title: "Бекон копчёный",
     description: "Бекон свиной копчёный, тонкая нарезка. Упаковка 200г.",
@@ -151,7 +151,7 @@ export const products: Product[] = [
     tags: ["бекон", "копчёный", "гастрономия", "завтрак"],
   },
   {
-    id: "turkey-fillet", image: "/products/turkey-fillet.webp", emoji: "🍗",
+    id: "turkey-fillet", imageStatus: "verified_generic", image: "/products/turkey-fillet.webp", emoji: "🍗",
     category: "Мясо и птица",
     title: "Индейка филе",
     description: "Филе индейки охлаждённое. Диетическое мясо. Упаковка 500г.",
@@ -160,7 +160,7 @@ export const products: Product[] = [
     tags: ["индейка", "филе", "диетическое", "мясо"],
   },
   {
-    id: "chicken-liver", image: "/products/chicken-liver.webp", emoji: "🫀",
+    id: "chicken-liver", imageStatus: "verified_generic", image: "/products/chicken-liver.webp", emoji: "🫀",
     category: "Мясо и птица",
     title: "Печень куриная",
     description: "Печень куриная охлаждённая. Упаковка 500г.",
@@ -169,7 +169,7 @@ export const products: Product[] = [
     tags: ["печень", "куриная", "субпродукты", "мясо"],
   },
   {
-    id: "beef-liver", image: "/products/beef-liver.webp", emoji: "🫀",
+    id: "beef-liver", imageStatus: "verified_generic", image: "/products/beef-liver.webp", emoji: "🫀",
     category: "Мясо и птица",
     title: "Печень говяжья",
     description: "Печень говяжья охлаждённая. Богата железом. Упаковка 500г.",
@@ -178,7 +178,7 @@ export const products: Product[] = [
     tags: ["печень", "говяжья", "субпродукты", "мясо"],
   },
   {
-    id: "salami-milano", image: "/products/salami-milano.webp", emoji: "🌭",
+    id: "salami-milano", imageStatus: "verified_generic", image: "/products/salami-milano.webp", emoji: "🌭",
     category: "Мясо и птица",
     title: "Салями Milano",
     description: "Салями итальянская Milano. Нарезка 150г.",
@@ -187,7 +187,7 @@ export const products: Product[] = [
     tags: ["салями", "Milano", "гастрономия", "нарезка"],
   },
   {
-    id: "chorizo", image: "/products/chorizo.webp", emoji: "🌭",
+    id: "chorizo", imageStatus: "verified_generic", image: "/products/chorizo.webp", emoji: "🌭",
     category: "Мясо и птица",
     title: "Чоризо испанское",
     description: "Чоризо пикантное с паприкой. Нарезка 200г.",
@@ -205,7 +205,7 @@ export const products: Product[] = [
     tags: ["карбонат", "свинина", "гастрономия", "нарезка"],
   },
   {
-    id: "duck-fillet", image: "/products/duck-fillet.webp", emoji: "🍗",
+    id: "duck-fillet", imageStatus: "verified_generic", image: "/products/duck-fillet.webp", emoji: "🍗",
     category: "Мясо и птица",
     title: "Утиное филе",
     description: "Филе утки охлаждённое. Деликатесное мясо. Упаковка 300г.",
@@ -214,7 +214,7 @@ export const products: Product[] = [
     tags: ["утка", "филе", "деликатес", "мясо"],
   },
   {
-    id: "chicken-breast-smoked", image: "/products/chicken-breast-smoked.webp", emoji: "🍗",
+    id: "chicken-breast-smoked", imageStatus: "verified_generic", image: "/products/chicken-breast-smoked.webp", emoji: "🍗",
     category: "Мясо и птица",
     title: "Грудка куриная копчёная",
     description: "Грудка куриная горячего копчения. Нарезка 300г.",
@@ -223,7 +223,7 @@ export const products: Product[] = [
     tags: ["курица", "грудка", "копчёная", "гастрономия"],
   },
   {
-    id: "pork-ribs", image: "/products/pork-ribs.webp", emoji: "🍖",
+    id: "pork-ribs", imageStatus: "verified_generic", image: "/products/pork-ribs.webp", emoji: "🍖",
     category: "Мясо и птица",
     title: "Свиные рёбра",
     description: "Рёбра свиные охлаждённые. Идеально для гриля. Упаковка ≈500г.",
@@ -235,7 +235,7 @@ export const products: Product[] = [
   // ─── РЫБА И МОРЕПРОДУКТЫ ────────────────────────────────────────────────────
 
   {
-    id: "salmon-fillet", image: "/products/salmon-fillet.webp", emoji: "🐟",
+    id: "salmon-fillet", imageStatus: "verified_generic", image: "/products/salmon-fillet.webp", emoji: "🐟",
     category: "Рыба и морепродукты",
     title: "Лосось филе охлаждённый",
     description: "Норвежский лосось охлаждённый, без кожи и костей. Вакуумная упаковка 1кг.",
@@ -244,7 +244,7 @@ export const products: Product[] = [
     tags: ["лосось", "рыба", "сёмга", "сашими", "суши", "морепродукты"],
   },
   {
-    id: "salmon-steak", image: "/products/salmon-steak.webp", emoji: "🐟",
+    id: "salmon-steak", imageStatus: "verified_generic", image: "/products/salmon-steak.webp", emoji: "🐟",
     category: "Рыба и морепродукты",
     title: "Лосось стейк",
     description: "Лосось норвежский стейк охлаждённый. Порция 200–250г. Упаковка 1кг.",
@@ -253,7 +253,7 @@ export const products: Product[] = [
     tags: ["лосось", "стейк", "рыба", "морепродукты"],
   },
   {
-    id: "salmon-lightly-salted", image: "/products/salmon-lightly-salted.webp", emoji: "🐟",
+    id: "salmon-lightly-salted", imageStatus: "verified_generic", image: "/products/salmon-lightly-salted.webp", emoji: "🐟",
     category: "Рыба и морепродукты",
     title: "Лосось слабосолёный",
     description: "Лосось слабосолёный Premium. Идеально для суши и бутербродов. 500г.",
@@ -262,7 +262,7 @@ export const products: Product[] = [
     tags: ["лосось", "слабосолёный", "суши", "нарезка"],
   },
   {
-    id: "trout-fillet", image: "/products/trout-fillet.webp", emoji: "🐟",
+    id: "trout-fillet", imageStatus: "verified_generic", image: "/products/trout-fillet.webp", emoji: "🐟",
     category: "Рыба и морепродукты",
     title: "Форель радужная филе",
     description: "Форель радужная охлаждённая, филе без костей. Упаковка 500г.",
@@ -271,7 +271,7 @@ export const products: Product[] = [
     tags: ["форель", "рыба", "филе", "морепродукты"],
   },
   {
-    id: "tuna-steak", image: "/products/tuna-steak.webp", emoji: "🐡",
+    id: "tuna-steak", imageStatus: "rejected", emoji: "🐡",
     category: "Рыба и морепродукты",
     title: "Тунец стейк",
     description: "Стейк тунца охлаждённый. Богат белком. Порция 200г.",
@@ -280,7 +280,7 @@ export const products: Product[] = [
     tags: ["тунец", "стейк", "рыба", "белок"],
   },
   {
-    id: "mackerel-smoked", image: "/products/mackerel-smoked.webp", emoji: "🐟",
+    id: "mackerel-smoked", imageStatus: "verified_generic", image: "/products/mackerel-smoked.webp", emoji: "🐟",
     category: "Рыба и морепродукты",
     title: "Скумбрия горячего копчения",
     description: "Скумбрия копчёная горячего копчения. Целая рыба. Упаковка 400г.",
@@ -290,7 +290,7 @@ export const products: Product[] = [
     tags: ["скумбрия", "копчёная", "рыба"],
   },
   {
-    id: "pollock-fillet", image: "/products/pollock-fillet.webp", emoji: "🐟",
+    id: "pollock-fillet", imageStatus: "rejected", emoji: "🐟",
     category: "Рыба и морепродукты",
     title: "Минтай филе",
     description: "Минтай филе без костей. Диетическая белая рыба. Упаковка 800г.",
@@ -299,7 +299,7 @@ export const products: Product[] = [
     tags: ["минтай", "рыба", "диетическое", "белая рыба"],
   },
   {
-    id: "herring-salted", image: "/products/herring-salted.webp", emoji: "🐟",
+    id: "herring-salted", imageStatus: "verified_generic", image: "/products/herring-salted.webp", emoji: "🐟",
     category: "Рыба и морепродукты",
     title: "Сельдь атлантическая",
     description: "Сельдь солёная атлантическая, разделанная. Вакуумная упаковка 500г.",
@@ -308,7 +308,7 @@ export const products: Product[] = [
     tags: ["сельдь", "селёдка", "солёная", "рыба"],
   },
   {
-    id: "tiger-shrimp", image: "/products/tiger-shrimp.webp", emoji: "🦐",
+    id: "tiger-shrimp", imageStatus: "verified_generic", image: "/products/tiger-shrimp.webp", emoji: "🦐",
     category: "Рыба и морепродукты",
     title: "Креветки тигровые",
     description: "Креветки тигровые сырые неочищенные. Размер 16/20. Упаковка 500г.",
@@ -317,7 +317,7 @@ export const products: Product[] = [
     tags: ["креветки", "тигровые", "морепродукты"],
   },
   {
-    id: "cooked-shrimp", image: "/products/cooked-shrimp.webp", emoji: "🦐",
+    id: "cooked-shrimp", imageStatus: "verified_generic", image: "/products/cooked-shrimp.webp", emoji: "🦐",
     category: "Рыба и морепродукты",
     title: "Креветки варёно-мороженые",
     description: "Креветки варёно-мороженые очищенные. Размер 51/70. Упаковка 500г.",
@@ -326,7 +326,7 @@ export const products: Product[] = [
     tags: ["креветки", "варёные", "морепродукты"],
   },
   {
-    id: "squid-rings", image: "/products/squid-rings.webp", emoji: "🦑",
+    id: "squid-rings", imageStatus: "verified_generic", image: "/products/squid-rings.webp", emoji: "🦑",
     category: "Рыба и морепродукты",
     title: "Кольца кальмара",
     description: "Кольца кальмара замороженные. Идеально во фритюре. Упаковка 500г.",
@@ -335,7 +335,7 @@ export const products: Product[] = [
     tags: ["кальмар", "кольца", "морепродукты"],
   },
   {
-    id: "mussels", image: "/products/mussels.webp", emoji: "🦪",
+    id: "mussels", imageStatus: "verified_generic", image: "/products/mussels.webp", emoji: "🦪",
     category: "Рыба и морепродукты",
     title: "Мидии в ракушках",
     description: "Мидии чилийские замороженные в ракушках. Упаковка 1кг.",
@@ -344,7 +344,7 @@ export const products: Product[] = [
     tags: ["мидии", "ракушки", "морепродукты"],
   },
   {
-    id: "red-caviar", image: "/products/red-caviar.webp", emoji: "🟠",
+    id: "red-caviar", imageStatus: "verified_generic", image: "/products/red-caviar.webp", emoji: "🟠",
     category: "Рыба и морепродукты",
     title: "Икра красная лосося",
     description: "Икра красная лосося, зернистая. Деликатес. Стеклянная банка 140г.",
@@ -353,7 +353,7 @@ export const products: Product[] = [
     tags: ["икра", "красная", "лосось", "деликатес"],
   },
   {
-    id: "crab-sticks", image: "/products/crab-sticks.webp", emoji: "🦀",
+    id: "crab-sticks", imageStatus: "rejected", emoji: "🦀",
     category: "Рыба и морепродукты",
     title: "Крабовые палочки Vici",
     description: "Крабовые палочки Vici охлаждённые. Упаковка 240г.",
@@ -362,7 +362,7 @@ export const products: Product[] = [
     tags: ["крабовые палочки", "морепродукты"],
   },
   {
-    id: "cod-fillet", image: "/products/cod-fillet.webp", emoji: "🐟",
+    id: "cod-fillet", imageStatus: "verified_generic", image: "/products/cod-fillet.webp", emoji: "🐟",
     category: "Рыба и морепродукты",
     title: "Треска филе",
     description: "Треска атлантическая охлаждённая, филе без костей. Упаковка 500г.",
@@ -389,7 +389,7 @@ export const products: Product[] = [
     tags: ["мойва", "копчёная", "рыба"],
   },
   {
-    id: "octopus-mini", image: "/products/octopus-mini.webp", emoji: "🐙",
+    id: "octopus-mini", imageStatus: "verified_generic", image: "/products/octopus-mini.webp", emoji: "🐙",
     category: "Рыба и морепродукты",
     title: "Осьминог мини",
     description: "Осьминоги мини замороженные. Упаковка 500г.",
@@ -398,7 +398,7 @@ export const products: Product[] = [
     tags: ["осьминог", "морепродукты", "деликатес"],
   },
   {
-    id: "anchovy", image: "/products/anchovy.webp", emoji: "🐟",
+    id: "anchovy", imageStatus: "verified_generic", image: "/products/anchovy.webp", emoji: "🐟",
     category: "Рыба и морепродукты",
     title: "Анчоусы в масле",
     description: "Анчоусы консервированные в оливковом масле. Банка 100г.",
@@ -407,7 +407,7 @@ export const products: Product[] = [
     tags: ["анчоусы", "консервы", "рыба"],
   },
   {
-    id: "catfish-fillet", image: "/products/catfish-fillet.webp", emoji: "🐟",
+    id: "catfish-fillet", imageStatus: "verified_generic", image: "/products/catfish-fillet.webp", emoji: "🐟",
     category: "Рыба и морепродукты",
     title: "Сом филе",
     description: "Сом речной охлаждённый, филе без костей. Упаковка 500г.",
@@ -419,7 +419,7 @@ export const products: Product[] = [
   // ─── МОЛОЧНЫЕ ПРОДУКТЫ ──────────────────────────────────────────────────────
 
   {
-    id: "milk-25", image: "/products/milk-25.webp", emoji: "🥛",
+    id: "milk-25", imageStatus: "verified_generic", image: "/products/milk-25.webp", emoji: "🥛",
     category: "Молочные продукты",
     title: "Молоко 2.5% пастеризованное",
     description: "Молоко пастеризованное 2.5% жирности. Тетрапак 1л.",
@@ -428,7 +428,7 @@ export const products: Product[] = [
     tags: ["молоко", "пастеризованное", "молочное"],
   },
   {
-    id: "milk-32", image: "/products/milk-32.webp", emoji: "🥛",
+    id: "milk-32", imageStatus: "verified_generic", image: "/products/milk-32.webp", emoji: "🥛",
     category: "Молочные продукты",
     title: "Молоко 3.2% отборное",
     description: "Молоко отборное 3.2% жирности, пастеризованное. Тетрапак 1л.",
@@ -437,7 +437,7 @@ export const products: Product[] = [
     tags: ["молоко", "отборное", "молочное"],
   },
   {
-    id: "milk-ultra", image: "/products/milk-ultra.webp", emoji: "🥛",
+    id: "milk-ultra", imageStatus: "verified_generic", image: "/products/milk-ultra.webp", emoji: "🥛",
     category: "Молочные продукты",
     title: "Молоко ультрапастеризованное 3.5%",
     description: "Молоко ультрапастеризованное 3.5%. Длительное хранение. Тетрапак 1л.",
@@ -446,7 +446,7 @@ export const products: Product[] = [
     tags: ["молоко", "ультрапастеризованное", "молочное"],
   },
   {
-    id: "kefir-1", image: "/products/kefir-1.webp", emoji: "🥛",
+    id: "kefir-1", imageStatus: "rejected", emoji: "🥛",
     category: "Молочные продукты",
     title: "Кефир 1% нежирный",
     description: "Кефир нежирный 1% жирности. Бутылка 900мл.",
@@ -455,7 +455,7 @@ export const products: Product[] = [
     tags: ["кефир", "нежирный", "молочное"],
   },
   {
-    id: "kefir-25", image: "/products/kefir-25.webp", emoji: "🥛",
+    id: "kefir-25", imageStatus: "verified_generic", image: "/products/kefir-25.webp", emoji: "🥛",
     category: "Молочные продукты",
     title: "Кефир 2.5% классический",
     description: "Кефир классический 2.5% жирности. Бутылка 900мл.",
@@ -464,7 +464,7 @@ export const products: Product[] = [
     tags: ["кефир", "классический", "молочное"],
   },
   {
-    id: "yogurt-natural", image: "/products/yogurt-natural.webp", emoji: "🥛",
+    id: "yogurt-natural", imageStatus: "needs_review", image: "/products/yogurt-natural.webp", emoji: "🥛",
     category: "Молочные продукты",
     title: "Йогурт натуральный Активиа",
     description: "Йогурт натуральный без добавок Активиа. Стакан 260г.",
@@ -473,7 +473,7 @@ export const products: Product[] = [
     tags: ["йогурт", "натуральный", "активиа", "молочное"],
   },
   {
-    id: "yogurt-berry", image: "/products/yogurt-berry.webp", emoji: "🍓",
+    id: "yogurt-berry", imageStatus: "verified_generic", image: "/products/yogurt-berry.webp", emoji: "🍓",
     category: "Молочные продукты",
     title: "Йогурт клубничный",
     description: "Йогурт с клубникой 2.5% жирности. Стакан 290г.",
@@ -482,7 +482,7 @@ export const products: Product[] = [
     tags: ["йогурт", "клубника", "фруктовый", "молочное"],
   },
   {
-    id: "sour-cream-15", image: "/products/sour-cream-15.webp", emoji: "🥛",
+    id: "sour-cream-15", imageStatus: "rejected", emoji: "🥛",
     category: "Молочные продукты",
     title: "Сметана 15% нежирная",
     description: "Сметана 15% жирности. Стакан 400г.",
@@ -491,7 +491,7 @@ export const products: Product[] = [
     tags: ["сметана", "нежирная", "молочное"],
   },
   {
-    id: "sour-cream-20", image: "/products/sour-cream-20.webp", emoji: "🥛",
+    id: "sour-cream-20", imageStatus: "verified_generic", image: "/products/sour-cream-20.webp", emoji: "🥛",
     category: "Молочные продукты",
     title: "Сметана 20% классическая",
     description: "Сметана классическая 20% жирности. Стакан 400г.",
@@ -500,7 +500,7 @@ export const products: Product[] = [
     tags: ["сметана", "классическая", "молочное"],
   },
   {
-    id: "cottage-cheese", image: "/products/cottage-cheese.webp", emoji: "🥛",
+    id: "cottage-cheese", imageStatus: "verified_generic", image: "/products/cottage-cheese.webp", emoji: "🥛",
     category: "Молочные продукты",
     title: "Творог зернистый 5%",
     description: "Творог зернистый мягкий 5% жирности. Упаковка 400г.",
@@ -509,7 +509,7 @@ export const products: Product[] = [
     tags: ["творог", "зернистый", "молочное"],
   },
   {
-    id: "cottage-cheese-soft", image: "/products/cottage-cheese-soft.webp", emoji: "🥛",
+    id: "cottage-cheese-soft", imageStatus: "rejected", emoji: "🥛",
     category: "Молочные продукты",
     title: "Творог мягкий President",
     description: "Творог мягкий нежный President. Пачка 170г.",
@@ -518,7 +518,7 @@ export const products: Product[] = [
     tags: ["творог", "мягкий", "president", "молочное"],
   },
   {
-    id: "butter-725", image: "/products/butter-725.webp", emoji: "🧈",
+    id: "butter-725", imageStatus: "verified_generic", image: "/products/butter-725.webp", emoji: "🧈",
     category: "Молочные продукты",
     title: "Масло сливочное 72.5%",
     description: "Масло сливочное крестьянское 72.5% жирности. Пачка 200г.",
@@ -527,7 +527,7 @@ export const products: Product[] = [
     tags: ["масло", "сливочное", "молочное"],
   },
   {
-    id: "butter-825", image: "/products/butter-825.webp", emoji: "🧈",
+    id: "butter-825", imageStatus: "rejected", emoji: "🧈",
     category: "Молочные продукты",
     title: "Масло сливочное 82.5% Экстра",
     description: "Масло сливочное Экстра 82.5% жирности ГОСТ. Пачка 200г.",
@@ -537,7 +537,7 @@ export const products: Product[] = [
     tags: ["масло", "сливочное", "экстра", "молочное"],
   },
   {
-    id: "cheese-russian", image: "/products/cheese-russian.webp", emoji: "🧀",
+    id: "cheese-russian", imageStatus: "rejected", emoji: "🧀",
     category: "Молочные продукты",
     title: "Сыр Российский",
     description: "Сыр Российский полутвёрдый 50% жирности. Нарезка 300г.",
@@ -546,7 +546,7 @@ export const products: Product[] = [
     tags: ["сыр", "российский", "молочное"],
   },
   {
-    id: "cheese-gouda", image: "/products/cheese-gouda.webp", emoji: "🧀",
+    id: "cheese-gouda", imageStatus: "verified_generic", image: "/products/cheese-gouda.webp", emoji: "🧀",
     category: "Молочные продукты",
     title: "Сыр Гауда",
     description: "Сыр Гауда нидерландский. Нежный сливочный вкус. Нарезка 200г.",
@@ -555,7 +555,7 @@ export const products: Product[] = [
     tags: ["сыр", "гауда", "молочное"],
   },
   {
-    id: "cheese-mozzarella", image: "/products/cheese-mozzarella.webp", emoji: "🧀",
+    id: "cheese-mozzarella", imageStatus: "verified_generic", image: "/products/cheese-mozzarella.webp", emoji: "🧀",
     category: "Молочные продукты",
     title: "Моцарелла шарики",
     description: "Сыр Моцарелла мини-шарики в рассоле. Стакан 125г.",
@@ -564,7 +564,7 @@ export const products: Product[] = [
     tags: ["моцарелла", "сыр", "итальянский", "молочное"],
   },
   {
-    id: "cheese-parmesan", image: "/products/cheese-parmesan.webp", emoji: "🧀",
+    id: "cheese-parmesan", imageStatus: "verified_generic", image: "/products/cheese-parmesan.webp", emoji: "🧀",
     category: "Молочные продукты",
     title: "Пармезан тёртый",
     description: "Сыр Пармезан тёртый, выдержка 12 месяцев. Пакет 100г.",
@@ -573,7 +573,7 @@ export const products: Product[] = [
     tags: ["пармезан", "сыр", "итальянский", "молочное"],
   },
   {
-    id: "cheese-adygei", image: "/products/cheese-adygei.webp", emoji: "🧀",
+    id: "cheese-adygei", imageStatus: "verified_generic", image: "/products/cheese-adygei.webp", emoji: "🧀",
     category: "Молочные продукты",
     title: "Сыр Адыгейский",
     description: "Сыр Адыгейский мягкий, рассольный. Упаковка 400г.",
@@ -582,7 +582,7 @@ export const products: Product[] = [
     tags: ["адыгейский", "сыр", "мягкий", "молочное"],
   },
   {
-    id: "cheese-suluguni", image: "/products/cheese-suluguni.webp", emoji: "🧀",
+    id: "cheese-suluguni", imageStatus: "verified_generic", image: "/products/cheese-suluguni.webp", emoji: "🧀",
     category: "Молочные продукты",
     title: "Сулугуни косичка",
     description: "Сыр Сулугуни копчёный, плетёная косичка. Упаковка 200г.",
@@ -591,7 +591,7 @@ export const products: Product[] = [
     tags: ["сулугуни", "сыр", "копчёный", "молочное"],
   },
   {
-    id: "cheese-cream", image: "/products/cheese-cream.webp", emoji: "🧀",
+    id: "cheese-cream", imageStatus: "rejected", emoji: "🧀",
     category: "Молочные продукты",
     title: "Сыр творожный Philadelphia",
     description: "Сыр творожный Philadelphia Original для намазывания. Пачка 175г.",
@@ -600,7 +600,7 @@ export const products: Product[] = [
     tags: ["philadelphia", "творожный", "сыр", "молочное"],
   },
   {
-    id: "cream-10", image: "/products/cream-10.webp", emoji: "🥛",
+    id: "cream-10", imageStatus: "verified_generic", image: "/products/cream-10.webp", emoji: "🥛",
     category: "Молочные продукты",
     title: "Сливки 10% питьевые",
     description: "Сливки питьевые 10% жирности. Тетрапак 500мл.",
@@ -609,7 +609,7 @@ export const products: Product[] = [
     tags: ["сливки", "питьевые", "молочное"],
   },
   {
-    id: "cream-33", image: "/products/cream-33.webp", emoji: "🥛",
+    id: "cream-33", imageStatus: "verified_generic", image: "/products/cream-33.webp", emoji: "🥛",
     category: "Молочные продукты",
     title: "Сливки 33% взбивные",
     description: "Сливки взбивные 33% жирности. Для десертов. Тетрапак 500мл.",
@@ -618,7 +618,7 @@ export const products: Product[] = [
     tags: ["сливки", "взбивные", "десерт", "молочное"],
   },
   {
-    id: "ryazhenka", image: "/products/ryazhenka.webp", emoji: "🥛",
+    id: "ryazhenka", imageStatus: "verified_generic", image: "/products/ryazhenka.webp", emoji: "🥛",
     category: "Молочные продукты",
     title: "Ряженка 4% топлёная",
     description: "Ряженка классическая 4% жирности. Бутылка 500мл.",
@@ -627,7 +627,7 @@ export const products: Product[] = [
     tags: ["ряженка", "топлёная", "молочное"],
   },
   {
-    id: "processed-cheese", image: "/products/processed-cheese.webp", emoji: "🧀",
+    id: "processed-cheese", imageStatus: "rejected", emoji: "🧀",
     category: "Молочные продукты",
     title: "Плавленый сыр Президент",
     description: "Сыр плавленый порционный Президент. Упаковка 140г.",
@@ -636,7 +636,7 @@ export const products: Product[] = [
     tags: ["плавленый сыр", "president", "молочное"],
   },
   {
-    id: "curd-snack", image: "/products/curd-snack.webp", emoji: "🥛",
+    id: "curd-snack", imageStatus: "verified_generic", image: "/products/curd-snack.webp", emoji: "🥛",
     category: "Молочные продукты",
     title: "Творожный сырок шоколадный",
     description: "Сырок творожный в шоколадной глазури, ванильный. 6 шт × 40г.",
@@ -648,7 +648,7 @@ export const products: Product[] = [
   // ─── ЯЙЦА ───────────────────────────────────────────────────────────────────
 
   {
-    id: "eggs-c1", image: "/products/eggs-c1.webp", emoji: "🥚",
+    id: "eggs-c1", imageStatus: "verified_generic", image: "/products/eggs-c1.webp", emoji: "🥚",
     category: "Яйца",
     title: "Яйца куриные столовые С1",
     description: "Яйца куриные столовые, категория С1. Упаковка 10 штук.",
@@ -657,7 +657,7 @@ export const products: Product[] = [
     tags: ["яйца", "куриные", "C1"],
   },
   {
-    id: "eggs-c0", image: "/products/eggs-c0.webp", emoji: "🥚",
+    id: "eggs-c0", imageStatus: "rejected", emoji: "🥚",
     category: "Яйца",
     title: "Яйца куриные отборные С0",
     description: "Яйца куриные отборные, категория С0, крупные. Упаковка 10 штук.",
@@ -666,7 +666,7 @@ export const products: Product[] = [
     tags: ["яйца", "куриные", "отборные", "C0"],
   },
   {
-    id: "eggs-sv", image: "/products/eggs-sv.webp", emoji: "🥚",
+    id: "eggs-sv", imageStatus: "rejected", emoji: "🥚",
     category: "Яйца",
     title: "Яйца высшей категории СВ",
     description: "Яйца куриные высшей категории СВ, очень крупные. Упаковка 10 штук.",
@@ -675,7 +675,7 @@ export const products: Product[] = [
     tags: ["яйца", "куриные", "CB", "отборные"],
   },
   {
-    id: "eggs-quail", image: "/products/eggs-quail.webp", emoji: "🥚",
+    id: "eggs-quail", imageStatus: "verified_generic", image: "/products/eggs-quail.webp", emoji: "🥚",
     category: "Яйца",
     title: "Яйца перепелиные",
     description: "Яйца перепелиные свежие. Диетический продукт. Упаковка 20 штук.",
@@ -684,7 +684,7 @@ export const products: Product[] = [
     tags: ["яйца", "перепелиные", "диетические"],
   },
   {
-    id: "eggs-farm", image: "/products/eggs-farm.webp", emoji: "🥚",
+    id: "eggs-farm", imageStatus: "verified_generic", image: "/products/eggs-farm.webp", emoji: "🥚",
     category: "Яйца",
     title: "Яйца фермерские",
     description: "Яйца куриные фермерские, домашние несушки. Упаковка 10 штук.",
@@ -696,7 +696,7 @@ export const products: Product[] = [
   // ─── ОВОЩИ И ФРУКТЫ ─────────────────────────────────────────────────────────
 
   {
-    id: "potatoes", image: "/products/potatoes.webp", emoji: "🥔",
+    id: "potatoes", imageStatus: "verified_generic", image: "/products/potatoes.webp", emoji: "🥔",
     category: "Овощи и фрукты",
     title: "Картофель",
     description: "Картофель свежий, мытый. Отличен для жарки, варки, пюре. Сетка 2кг.",
@@ -705,7 +705,7 @@ export const products: Product[] = [
     tags: ["картофель", "овощи"],
   },
   {
-    id: "carrots", image: "/products/carrots.webp", emoji: "🥕",
+    id: "carrots", imageStatus: "rejected", emoji: "🥕",
     category: "Овощи и фрукты",
     title: "Морковь",
     description: "Морковь свежая мытая. Богата витамином А. Упаковка 1кг.",
@@ -732,7 +732,7 @@ export const products: Product[] = [
     tags: ["капуста", "белокочанная", "овощи"],
   },
   {
-    id: "tomatoes", image: "/products/tomatoes.webp", emoji: "🍅",
+    id: "tomatoes", imageStatus: "verified_generic", image: "/products/tomatoes.webp", emoji: "🍅",
     category: "Овощи и фрукты",
     title: "Помидоры",
     description: "Помидоры свежие спелые. Упаковка 1кг.",
@@ -741,7 +741,7 @@ export const products: Product[] = [
     tags: ["помидоры", "томаты", "овощи"],
   },
   {
-    id: "cucumbers", image: "/products/cucumbers.webp", emoji: "🥒",
+    id: "cucumbers", imageStatus: "verified_generic", image: "/products/cucumbers.webp", emoji: "🥒",
     category: "Овощи и фрукты",
     title: "Огурцы",
     description: "Огурцы свежие хрустящие. Упаковка 1кг.",
@@ -750,7 +750,7 @@ export const products: Product[] = [
     tags: ["огурцы", "овощи"],
   },
   {
-    id: "bell-pepper", image: "/products/bell-pepper.webp", emoji: "🫑",
+    id: "bell-pepper", imageStatus: "verified_generic", image: "/products/bell-pepper.webp", emoji: "🫑",
     category: "Овощи и фрукты",
     title: "Перец болгарский",
     description: "Перец болгарский сладкий, ассорти цветов. Упаковка 500г.",
@@ -759,7 +759,7 @@ export const products: Product[] = [
     tags: ["перец", "болгарский", "сладкий", "овощи"],
   },
   {
-    id: "eggplant", image: "/products/eggplant.webp", emoji: "🍆",
+    id: "eggplant", imageStatus: "verified_generic", image: "/products/eggplant.webp", emoji: "🍆",
     category: "Овощи и фрукты",
     title: "Баклажаны",
     description: "Баклажаны свежие. Упаковка 1кг.",
@@ -777,7 +777,7 @@ export const products: Product[] = [
     tags: ["чеснок", "овощи"],
   },
   {
-    id: "bananas", image: "/products/bananas.webp", emoji: "🍌",
+    id: "bananas", imageStatus: "verified_generic", image: "/products/bananas.webp", emoji: "🍌",
     category: "Овощи и фрукты",
     title: "Бананы",
     description: "Бананы спелые сладкие. Упаковка 1кг.",
@@ -786,7 +786,7 @@ export const products: Product[] = [
     tags: ["бананы", "фрукты"],
   },
   {
-    id: "apples", image: "/products/apples.webp", emoji: "🍎",
+    id: "apples", imageStatus: "verified_generic", image: "/products/apples.webp", emoji: "🍎",
     category: "Овощи и фрукты",
     title: "Яблоки Голден",
     description: "Яблоки Голден сочные сладкие. Упаковка 1кг.",
@@ -795,7 +795,7 @@ export const products: Product[] = [
     tags: ["яблоки", "голден", "фрукты"],
   },
   {
-    id: "oranges", image: "/products/oranges.webp", emoji: "🍊",
+    id: "oranges", imageStatus: "verified_generic", image: "/products/oranges.webp", emoji: "🍊",
     category: "Овощи и фрукты",
     title: "Апельсины",
     description: "Апельсины сочные. Упаковка 1кг.",
@@ -804,7 +804,7 @@ export const products: Product[] = [
     tags: ["апельсины", "фрукты", "цитрусовые"],
   },
   {
-    id: "mandarins", image: "/products/mandarins.webp", emoji: "🍊",
+    id: "mandarins", imageStatus: "verified_generic", image: "/products/mandarins.webp", emoji: "🍊",
     category: "Овощи и фрукты",
     title: "Мандарины",
     description: "Мандарины сладкие без косточек. Упаковка 1кг.",
@@ -822,7 +822,7 @@ export const products: Product[] = [
     tags: ["виноград", "кишмиш", "фрукты"],
   },
   {
-    id: "pears", image: "/products/pears.webp", emoji: "🍐",
+    id: "pears", imageStatus: "verified_generic", image: "/products/pears.webp", emoji: "🍐",
     category: "Овощи и фрукты",
     title: "Груши",
     description: "Груши сочные Conference. Упаковка 1кг.",
@@ -831,7 +831,7 @@ export const products: Product[] = [
     tags: ["груши", "фрукты"],
   },
   {
-    id: "avocado", image: "/products/avocado.webp", emoji: "🥑",
+    id: "avocado", imageStatus: "verified_generic", image: "/products/avocado.webp", emoji: "🥑",
     category: "Овощи и фрукты",
     title: "Авокадо",
     description: "Авокадо спелое, готово к употреблению. 1 штука.",
@@ -841,7 +841,7 @@ export const products: Product[] = [
   },
 
   {
-    id: "mango", image: "/products/mango.webp", emoji: "🥭",
+    id: "mango", imageStatus: "verified_generic", image: "/products/mango.webp", emoji: "🥭",
     category: "Овощи и фрукты",
     title: "Манго",
     description: "Манго спелое сочное. Тропический вкус. 1 штука.",
@@ -850,7 +850,7 @@ export const products: Product[] = [
     tags: ["манго", "тропические", "фрукты"],
   },
   {
-    id: "pineapple", image: "/products/pineapple.webp", emoji: "🍍",
+    id: "pineapple", imageStatus: "verified_generic", image: "/products/pineapple.webp", emoji: "🍍",
     category: "Овощи и фрукты",
     title: "Ананас",
     description: "Ананас свежий спелый. 1 штука ≈1.2кг.",
@@ -859,7 +859,7 @@ export const products: Product[] = [
     tags: ["ананас", "тропические", "фрукты"],
   },
   {
-    id: "kiwi", image: "/products/kiwi.webp", emoji: "🥝",
+    id: "kiwi", imageStatus: "verified_generic", image: "/products/kiwi.webp", emoji: "🥝",
     category: "Овощи и фрукты",
     title: "Киви",
     description: "Киви зелёные сочные. Упаковка 500г (4–5 штук).",
@@ -868,7 +868,7 @@ export const products: Product[] = [
     tags: ["киви", "фрукты"],
   },
   {
-    id: "strawberry", image: "/products/strawberry.webp", emoji: "🍓",
+    id: "strawberry", imageStatus: "verified_generic", image: "/products/strawberry.webp", emoji: "🍓",
     category: "Овощи и фрукты",
     title: "Клубника",
     description: "Клубника свежая садовая. Упаковка 500г.",
@@ -877,7 +877,7 @@ export const products: Product[] = [
     tags: ["клубника", "ягоды", "фрукты"],
   },
   {
-    id: "lemon", image: "/products/lemon.webp", emoji: "🍋",
+    id: "lemon", imageStatus: "verified_generic", image: "/products/lemon.webp", emoji: "🍋",
     category: "Овощи и фрукты",
     title: "Лимоны",
     description: "Лимоны свежие. Упаковка 500г (4–5 штук).",
@@ -886,7 +886,7 @@ export const products: Product[] = [
     tags: ["лимон", "цитрусовые", "фрукты"],
   },
   {
-    id: "pomegranate", image: "/products/pomegranate.webp", emoji: "❤️",
+    id: "pomegranate", imageStatus: "verified_generic", image: "/products/pomegranate.webp", emoji: "❤️",
     category: "Овощи и фрукты",
     title: "Гранат",
     description: "Гранат спелый сочный. 1 штука.",
@@ -895,7 +895,7 @@ export const products: Product[] = [
     tags: ["гранат", "фрукты"],
   },
   {
-    id: "cherry", image: "/products/cherry.webp", emoji: "🍒",
+    id: "cherry", imageStatus: "verified_generic", image: "/products/cherry.webp", emoji: "🍒",
     category: "Овощи и фрукты",
     title: "Черешня",
     description: "Черешня красная сладкая. Упаковка 500г.",
@@ -940,7 +940,7 @@ export const products: Product[] = [
     tags: ["кабачки", "овощи"],
   },
   {
-    id: "beet", image: "/products/beet.webp", emoji: "🟣",
+    id: "beet", imageStatus: "verified_generic", image: "/products/beet.webp", emoji: "🟣",
     category: "Овощи и фрукты",
     title: "Свёкла",
     description: "Свёкла столовая свежая мытая. Упаковка 1кг.",
@@ -958,7 +958,7 @@ export const products: Product[] = [
     tags: ["черника", "ягоды", "антиоксиданты", "фрукты"],
   },
   {
-    id: "spinach", image: "/products/spinach.webp", emoji: "🌿",
+    id: "spinach", imageStatus: "verified_generic", image: "/products/spinach.webp", emoji: "🌿",
     category: "Овощи и фрукты",
     title: "Шпинат",
     description: "Шпинат молодой свежий. Упаковка 150г.",
@@ -970,7 +970,7 @@ export const products: Product[] = [
   // ─── ХЛЕБ И ВЫПЕЧКА ─────────────────────────────────────────────────────────
 
   {
-    id: "white-bread", image: "/products/white-bread.webp", emoji: "🍞",
+    id: "white-bread", imageStatus: "verified_generic", image: "/products/white-bread.webp", emoji: "🍞",
     category: "Хлеб и выпечка",
     title: "Хлеб белый нарезной",
     description: "Хлеб пшеничный белый нарезной. Упаковка 500г.",
@@ -979,7 +979,7 @@ export const products: Product[] = [
     tags: ["хлеб", "белый", "нарезной", "выпечка"],
   },
   {
-    id: "dark-bread", image: "/products/dark-bread.webp", emoji: "🍞",
+    id: "dark-bread", imageStatus: "verified_generic", image: "/products/dark-bread.webp", emoji: "🍞",
     category: "Хлеб и выпечка",
     title: "Хлеб Бородинский",
     description: "Хлеб ржаной Бородинский с кориандром. Нарезной. Упаковка 350г.",
@@ -988,7 +988,7 @@ export const products: Product[] = [
     tags: ["хлеб", "бородинский", "ржаной", "выпечка"],
   },
   {
-    id: "whole-wheat-bread", image: "/products/whole-wheat-bread.webp", emoji: "🍞",
+    id: "whole-wheat-bread", imageStatus: "verified_generic", image: "/products/whole-wheat-bread.webp", emoji: "🍞",
     category: "Хлеб и выпечка",
     title: "Хлеб цельнозерновой",
     description: "Хлеб цельнозерновой с семенами льна. Упаковка 400г.",
@@ -1006,7 +1006,7 @@ export const products: Product[] = [
     tags: ["батон", "молочный", "хлеб", "выпечка"],
   },
   {
-    id: "lavash", image: "/products/lavash.webp", emoji: "🫓",
+    id: "lavash", imageStatus: "verified_generic", image: "/products/lavash.webp", emoji: "🫓",
     category: "Хлеб и выпечка",
     title: "Лаваш армянский",
     description: "Лаваш тонкий армянский. Упаковка 250г (1 лист).",
@@ -1015,7 +1015,7 @@ export const products: Product[] = [
     tags: ["лаваш", "армянский", "хлеб"],
   },
   {
-    id: "croissant", image: "/products/croissant.webp", emoji: "🥐",
+    id: "croissant", imageStatus: "verified_generic", image: "/products/croissant.webp", emoji: "🥐",
     category: "Хлеб и выпечка",
     title: "Круассан масляный",
     description: "Круассан масляный классический. Мягкий и слоёный. 1 штука.",
@@ -1024,7 +1024,7 @@ export const products: Product[] = [
     tags: ["круассан", "выпечка", "завтрак"],
   },
   {
-    id: "samsa-meat", image: "/products/samsa-meat.webp", emoji: "🥟",
+    id: "samsa-meat", imageStatus: "verified_generic", image: "/products/samsa-meat.webp", emoji: "🥟",
     category: "Хлеб и выпечка",
     title: "Самса с мясом",
     description: "Самса слоёная с говядиной и луком. Упаковка 2 штуки.",
@@ -1042,7 +1042,7 @@ export const products: Product[] = [
     tags: ["самса", "картофель", "выпечка"],
   },
   {
-    id: "donut", image: "/products/donut.webp", emoji: "🍩",
+    id: "donut", imageStatus: "verified_generic", image: "/products/donut.webp", emoji: "🍩",
     category: "Хлеб и выпечка",
     title: "Пончик глазированный",
     description: "Пончик в шоколадной глазури. 1 штука.",
@@ -1051,7 +1051,7 @@ export const products: Product[] = [
     tags: ["пончик", "глазированный", "выпечка"],
   },
   {
-    id: "muffin", image: "/products/muffin.webp", emoji: "🧁",
+    id: "muffin", imageStatus: "verified_generic", image: "/products/muffin.webp", emoji: "🧁",
     category: "Хлеб и выпечка",
     title: "Маффин черничный",
     description: "Маффин с черникой. Мягкий и ароматный. 1 штука.",
@@ -1060,7 +1060,7 @@ export const products: Product[] = [
     tags: ["маффин", "черника", "выпечка"],
   },
   {
-    id: "napoleon-cake", image: "/products/napoleon-cake.webp", emoji: "🎂",
+    id: "napoleon-cake", imageStatus: "verified_generic", image: "/products/napoleon-cake.webp", emoji: "🎂",
     category: "Хлеб и выпечка",
     title: "Торт Наполеон",
     description: "Торт Наполеон со сливочным кремом, слоёный. Упаковка 500г.",
@@ -1069,7 +1069,7 @@ export const products: Product[] = [
     tags: ["торт", "наполеон", "выпечка", "десерт"],
   },
   {
-    id: "medovik", image: "/products/medovik.webp", emoji: "🎂",
+    id: "medovik", imageStatus: "verified_generic", image: "/products/medovik.webp", emoji: "🎂",
     category: "Хлеб и выпечка",
     title: "Торт Медовик",
     description: "Торт Медовик со сметанным кремом. Упаковка 500г.",
@@ -1078,7 +1078,7 @@ export const products: Product[] = [
     tags: ["торт", "медовик", "выпечка", "десерт"],
   },
   {
-    id: "eclair", image: "/products/eclair.webp", emoji: "🍮",
+    id: "eclair", imageStatus: "verified_generic", image: "/products/eclair.webp", emoji: "🍮",
     category: "Хлеб и выпечка",
     title: "Эклер шоколадный",
     description: "Эклер заварной с шоколадным кремом и глазурью. 1 штука.",
@@ -1096,7 +1096,7 @@ export const products: Product[] = [
     tags: ["чизкейк", "выпечка", "десерт"],
   },
   {
-    id: "tandyr-bread", image: "/products/tandyr-bread.webp", emoji: "🫓",
+    id: "tandyr-bread", imageStatus: "verified_generic", image: "/products/tandyr-bread.webp", emoji: "🫓",
     category: "Хлеб и выпечка",
     title: "Лепёшка тандырная",
     description: "Лепёшка тандырная свежеиспечённая. 1 штука.",
@@ -1105,7 +1105,7 @@ export const products: Product[] = [
     tags: ["лепёшка", "тандырная", "выпечка"],
   },
   {
-    id: "pita", image: "/products/pita.webp", emoji: "🫓",
+    id: "pita", imageStatus: "verified_generic", image: "/products/pita.webp", emoji: "🫓",
     category: "Хлеб и выпечка",
     title: "Пита хлеб",
     description: "Пита арабская тонкая. Упаковка 3 штуки.",
@@ -1114,7 +1114,7 @@ export const products: Product[] = [
     tags: ["пита", "арабская", "хлеб"],
   },
   {
-    id: "baguette", image: "/products/baguette.webp", emoji: "🥖",
+    id: "baguette", imageStatus: "verified_generic", image: "/products/baguette.webp", emoji: "🥖",
     category: "Хлеб и выпечка",
     title: "Багет французский",
     description: "Багет французский с хрустящей корочкой. Длина 50см. 250г.",
@@ -1123,7 +1123,7 @@ export const products: Product[] = [
     tags: ["багет", "французский", "хлеб"],
   },
   {
-    id: "cinnamon-roll", image: "/products/cinnamon-roll.webp", emoji: "🧁",
+    id: "cinnamon-roll", imageStatus: "verified_generic", image: "/products/cinnamon-roll.webp", emoji: "🧁",
     category: "Хлеб и выпечка",
     title: "Булочка с корицей",
     description: "Булочка сдобная с корицей и сахарной глазурью. 1 штука.",
@@ -1141,7 +1141,7 @@ export const products: Product[] = [
     tags: ["пирожок", "капуста", "выпечка"],
   },
   {
-    id: "bagel", image: "/products/bagel.webp", emoji: "🥯",
+    id: "bagel", imageStatus: "verified_generic", image: "/products/bagel.webp", emoji: "🥯",
     category: "Хлеб и выпечка",
     title: "Бублик с маком",
     description: "Бублик классический с маком. 1 штука.",
@@ -1153,7 +1153,7 @@ export const products: Product[] = [
   // ─── НАПИТКИ ────────────────────────────────────────────────────────────────
 
   {
-    id: "water-still", image: "/products/water-still.webp", emoji: "💧",
+    id: "water-still", imageStatus: "verified_generic", image: "/products/water-still.webp", emoji: "💧",
     category: "Напитки",
     title: "Вода питьевая негазированная",
     description: "Вода питьевая очищенная без газа. Бутылка 1.5л.",
@@ -1162,7 +1162,7 @@ export const products: Product[] = [
     tags: ["вода", "негазированная", "питьевая"],
   },
   {
-    id: "water-sparkling", image: "/products/water-sparkling.webp", emoji: "💧",
+    id: "water-sparkling", imageStatus: "verified_generic", image: "/products/water-sparkling.webp", emoji: "💧",
     category: "Напитки",
     title: "Вода газированная минеральная",
     description: "Вода минеральная газированная природная. Бутылка 500мл.",
@@ -1171,7 +1171,7 @@ export const products: Product[] = [
     tags: ["вода", "газированная", "минеральная"],
   },
   {
-    id: "apple-juice", image: "/products/apple-juice.webp", emoji: "🍎",
+    id: "apple-juice", imageStatus: "verified_generic", image: "/products/apple-juice.webp", emoji: "🍎",
     category: "Напитки",
     title: "Сок яблочный Rich",
     description: "Сок яблочный осветлённый Rich 100%. Тетрапак 1л.",
@@ -1180,7 +1180,7 @@ export const products: Product[] = [
     tags: ["сок", "яблочный", "Rich", "напитки"],
   },
   {
-    id: "orange-juice", image: "/products/orange-juice.webp", emoji: "🍊",
+    id: "orange-juice", imageStatus: "verified_generic", image: "/products/orange-juice.webp", emoji: "🍊",
     category: "Напитки",
     title: "Сок апельсиновый J7",
     description: "Сок апельсиновый J7 восстановленный. Тетрапак 1л.",
@@ -1189,7 +1189,7 @@ export const products: Product[] = [
     tags: ["сок", "апельсиновый", "J7", "напитки"],
   },
   {
-    id: "tomato-juice", image: "/products/tomato-juice.webp", emoji: "🍅",
+    id: "tomato-juice", imageStatus: "rejected", emoji: "🍅",
     category: "Напитки",
     title: "Сок томатный",
     description: "Сок томатный с солью. Тетрапак 1л.",
@@ -1198,7 +1198,7 @@ export const products: Product[] = [
     tags: ["сок", "томатный", "напитки"],
   },
   {
-    id: "multifruit-juice", image: "/products/multifruit-juice.webp", emoji: "🍹",
+    id: "multifruit-juice", imageStatus: "rejected", emoji: "🍹",
     category: "Напитки",
     title: "Сок мультифрукт",
     description: "Сок мультифруктовый из 7 фруктов. Тетрапак 1л.",
@@ -1207,7 +1207,7 @@ export const products: Product[] = [
     tags: ["сок", "мультифрукт", "напитки"],
   },
   {
-    id: "cola", image: "/products/cola.webp", emoji: "🥤",
+    id: "cola", imageStatus: "rejected", emoji: "🥤",
     category: "Напитки",
     title: "Кока-Кола",
     description: "Кока-Кола газированный напиток. Бутылка 1.5л.",
@@ -1216,7 +1216,7 @@ export const products: Product[] = [
     tags: ["кола", "кока-кола", "газировка", "напитки"],
   },
   {
-    id: "sprite", image: "/products/sprite.webp", emoji: "🥤",
+    id: "sprite", imageStatus: "verified_exact", image: "/products/sprite.webp", emoji: "🥤",
     category: "Напитки",
     title: "Спрайт",
     description: "Спрайт лимон-лайм газированный. Бутылка 1.5л.",
@@ -1234,7 +1234,7 @@ export const products: Product[] = [
     tags: ["фанта", "апельсин", "газировка", "напитки"],
   },
   {
-    id: "energy-redbull", image: "/products/energy-redbull.webp", emoji: "⚡",
+    id: "energy-redbull", imageStatus: "verified_exact", image: "/products/energy-redbull.webp", emoji: "⚡",
     category: "Напитки",
     title: "Red Bull энергетик",
     description: "Red Bull энергетический напиток классический. Банка 250мл.",
@@ -1252,7 +1252,7 @@ export const products: Product[] = [
     tags: ["Monster", "энергетик", "напитки"],
   },
   {
-    id: "compote-cherry", image: "/products/compote-cherry.webp", emoji: "🍒",
+    id: "compote-cherry", imageStatus: "verified_generic", image: "/products/compote-cherry.webp", emoji: "🍒",
     category: "Напитки",
     title: "Компот вишнёвый",
     description: "Компот вишнёвый домашний. Стеклянная банка 1л.",
@@ -1270,7 +1270,7 @@ export const products: Product[] = [
     tags: ["квас", "хлебный", "напитки"],
   },
   {
-    id: "iced-tea", image: "/products/iced-tea.webp", emoji: "🍵",
+    id: "iced-tea", imageStatus: "verified_generic", image: "/products/iced-tea.webp", emoji: "🍵",
     category: "Напитки",
     title: "Холодный чай Lipton",
     description: "Холодный чай Lipton лимон. Бутылка 1.5л.",
@@ -1279,7 +1279,7 @@ export const products: Product[] = [
     tags: ["холодный чай", "lipton", "напитки"],
   },
   {
-    id: "ayran", image: "/products/ayran.webp", emoji: "🥛",
+    id: "ayran", imageStatus: "verified_generic", image: "/products/ayran.webp", emoji: "🥛",
     category: "Напитки",
     title: "Айран освежающий",
     description: "Айран кисломолочный освежающий, солёный. Бутылка 500мл.",
@@ -1306,7 +1306,7 @@ export const products: Product[] = [
     tags: ["сок", "гранатовый", "напитки"],
   },
   {
-    id: "chocolate-milk-drink", image: "/products/chocolate-milk-drink.webp", emoji: "🍫",
+    id: "chocolate-milk-drink", imageStatus: "verified_generic", image: "/products/chocolate-milk-drink.webp", emoji: "🍫",
     category: "Напитки",
     title: "Шоколадное молоко",
     description: "Шоколадный молочный напиток. Коробка 200мл.",
@@ -1333,7 +1333,7 @@ export const products: Product[] = [
     tags: ["комбуча", "ферментированный", "здоровье", "напитки"],
   },
   {
-    id: "aloe-drink", image: "/products/aloe-drink.webp", emoji: "🌿",
+    id: "aloe-drink", imageStatus: "verified_generic", image: "/products/aloe-drink.webp", emoji: "🌿",
     category: "Напитки",
     title: "Напиток с алоэ вера",
     description: "Напиток алоэ вера с мёдом. Бутылка 500мл.",
@@ -1342,7 +1342,7 @@ export const products: Product[] = [
     tags: ["алоэ", "напиток", "напитки"],
   },
   {
-    id: "peach-nectar", image: "/products/peach-nectar.webp", emoji: "🍑",
+    id: "peach-nectar", imageStatus: "verified_generic", image: "/products/peach-nectar.webp", emoji: "🍑",
     category: "Напитки",
     title: "Нектар персиковый",
     description: "Нектар персиковый 50% сока. Тетрапак 1л.",
@@ -1361,7 +1361,7 @@ export const products: Product[] = [
     tags: ["морс", "клюква", "напитки"],
   },
   {
-    id: "oat-drink", image: "/products/oat-drink.webp", emoji: "🌾",
+    id: "oat-drink", imageStatus: "verified_generic", image: "/products/oat-drink.webp", emoji: "🌾",
     category: "Здоровое питание",
     title: "Напиток овсяный Oatly",
     description: "Напиток растительный овсяный Oatly Barista. 1л.",
@@ -1370,7 +1370,7 @@ export const products: Product[] = [
     tags: ["овсяный напиток", "oatly", "растительный", "напитки"],
   },
   {
-    id: "cola-zero", image: "/products/cola-zero.webp", emoji: "🥤",
+    id: "cola-zero", imageStatus: "verified_exact", image: "/products/cola-zero.webp", emoji: "🥤",
     category: "Напитки",
     title: "Кола Zero без сахара",
     description: "Кола без сахара и калорий. Бутылка 1.5л.",
@@ -1382,7 +1382,7 @@ export const products: Product[] = [
   // ─── КОФЕ, ЧАЙ И КАКАО ──────────────────────────────────────────────────────
 
   {
-    id: "coffee-beans-lavazza", image: "/products/coffee-beans-lavazza.webp", emoji: "☕",
+    id: "coffee-beans-lavazza", imageStatus: "rejected", emoji: "☕",
     category: "Кофе, чай и какао",
     title: "Кофе в зёрнах Lavazza Crema",
     description: "Кофе в зёрнах Lavazza Crema e Gusto, смесь Арабика/Робуста. 1кг.",
@@ -1391,7 +1391,7 @@ export const products: Product[] = [
     tags: ["кофе", "зерновой", "lavazza", "арабика"],
   },
   {
-    id: "coffee-ground-jacobs", image: "/products/coffee-ground-jacobs.webp", emoji: "☕",
+    id: "coffee-ground-jacobs", imageStatus: "verified_exact", image: "/products/coffee-ground-jacobs.webp", emoji: "☕",
     category: "Кофе, чай и какао",
     title: "Кофе молотый Jacobs Monarch",
     description: "Кофе молотый Jacobs Monarch для заваривания. Вакуумный пакет 250г.",
@@ -1400,7 +1400,7 @@ export const products: Product[] = [
     tags: ["кофе", "молотый", "jacobs", "monarch"],
   },
   {
-    id: "coffee-instant-nescafe", image: "/products/coffee-instant-nescafe.webp", emoji: "☕",
+    id: "coffee-instant-nescafe", imageStatus: "verified_exact", image: "/products/coffee-instant-nescafe.webp", emoji: "☕",
     category: "Кофе, чай и какао",
     title: "Кофе растворимый Nescafé Gold",
     description: "Кофе растворимый Nescafé Gold сублимированный. Стеклянная банка 190г.",
@@ -1409,7 +1409,7 @@ export const products: Product[] = [
     tags: ["кофе", "растворимый", "nescafe", "gold"],
   },
   {
-    id: "coffee-capsules", image: "/products/coffee-capsules.webp", emoji: "☕",
+    id: "coffee-capsules", imageStatus: "verified_generic", image: "/products/coffee-capsules.webp", emoji: "☕",
     category: "Кофе, чай и какао",
     title: "Кофе капсулы Nespresso",
     description: "Кофе капсулы Nespresso Original Ristretto. Упаковка 10 капсул.",
@@ -1418,7 +1418,7 @@ export const products: Product[] = [
     tags: ["кофе", "капсулы", "nespresso", "ristretto"],
   },
   {
-    id: "coffee-3in1", image: "/products/coffee-3in1.webp", emoji: "☕",
+    id: "coffee-3in1", imageStatus: "rejected", emoji: "☕",
     category: "Кофе, чай и какао",
     title: "Кофе 3-в-1 MacCoffee",
     description: "Кофе растворимый 3-в-1 MacCoffee Original. Упаковка 20 пакетов.",
@@ -1427,7 +1427,7 @@ export const products: Product[] = [
     tags: ["кофе", "3в1", "maccoffee", "растворимый"],
   },
   {
-    id: "black-tea-akbar", image: "/products/black-tea-akbar.webp", emoji: "🍵",
+    id: "black-tea-akbar", imageStatus: "rejected", emoji: "🍵",
     category: "Кофе, чай и какао",
     title: "Чай чёрный Akbar Ceylon",
     description: "Чай чёрный байховый цейлонский Akbar Gold. Жестяная банка 100г.",
@@ -1436,7 +1436,7 @@ export const products: Product[] = [
     tags: ["чай", "чёрный", "akbar", "цейлонский"],
   },
   {
-    id: "green-tea-greenfield", image: "/products/green-tea-greenfield.webp", emoji: "🍵",
+    id: "green-tea-greenfield", imageStatus: "rejected", emoji: "🍵",
     category: "Кофе, чай и какао",
     title: "Чай зелёный Greenfield",
     description: "Чай зелёный Flying Dragon Greenfield в пакетиках. 25 пакетиков.",
@@ -1445,7 +1445,7 @@ export const products: Product[] = [
     tags: ["чай", "зелёный", "greenfield", "китайский"],
   },
   {
-    id: "herbal-tea", image: "/products/herbal-tea.webp", emoji: "🌿",
+    id: "herbal-tea", imageStatus: "rejected", emoji: "🌿",
     category: "Кофе, чай и какао",
     title: "Чай травяной Ромашка",
     description: "Чай травяной с ромашкой и мятой. Успокаивающий. 20 пакетиков.",
@@ -1454,7 +1454,7 @@ export const products: Product[] = [
     tags: ["чай", "травяной", "ромашка", "мята"],
   },
   {
-    id: "fruit-tea-hibiscus", image: "/products/fruit-tea-hibiscus.webp", emoji: "🌺",
+    id: "fruit-tea-hibiscus", imageStatus: "verified_generic", image: "/products/fruit-tea-hibiscus.webp", emoji: "🌺",
     category: "Кофе, чай и какао",
     title: "Каркаде (гибискус)",
     description: "Чай Каркаде из лепестков гибискуса. Рубиновый цвет. 20 пакетиков.",
@@ -1463,7 +1463,7 @@ export const products: Product[] = [
     tags: ["каркаде", "гибискус", "чай", "фруктовый"],
   },
   {
-    id: "matcha", image: "/products/matcha.webp", emoji: "🍵",
+    id: "matcha", imageStatus: "verified_generic", image: "/products/matcha.webp", emoji: "🍵",
     category: "Кофе, чай и какао",
     title: "Матча порошок Ceremonial",
     description: "Матча японская порошок церемониального сорта. Банка 100г.",
@@ -1472,7 +1472,7 @@ export const products: Product[] = [
     tags: ["матча", "зелёный чай", "японский", "здоровье"],
   },
   {
-    id: "cacao-nesquik", image: "/products/cacao-nesquik.webp", emoji: "🍫",
+    id: "cacao-nesquik", imageStatus: "verified_exact", image: "/products/cacao-nesquik.webp", emoji: "🍫",
     category: "Кофе, чай и какао",
     title: "Какао Nesquik",
     description: "Какао-порошок Nesquik растворимый. Жестяная банка 500г.",
@@ -1481,7 +1481,7 @@ export const products: Product[] = [
     tags: ["какао", "nesquik", "шоколадный", "напиток"],
   },
   {
-    id: "hot-chocolate", image: "/products/hot-chocolate.webp", emoji: "🍫",
+    id: "hot-chocolate", imageStatus: "needs_review", image: "/products/hot-chocolate.webp", emoji: "🍫",
     category: "Кофе, чай и какао",
     title: "Горячий шоколад Van Houten",
     description: "Горячий шоколад Premium Van Houten. Пакет 400г.",
@@ -1490,7 +1490,7 @@ export const products: Product[] = [
     tags: ["горячий шоколад", "van houten", "какао"],
   },
   {
-    id: "coffee-arabica-ground", image: "/products/coffee-arabica-ground.webp", emoji: "☕",
+    id: "coffee-arabica-ground", imageStatus: "verified_generic", image: "/products/coffee-arabica-ground.webp", emoji: "☕",
     category: "Кофе, чай и какао",
     title: "Кофе Арабика 100% молотый",
     description: "Кофе молотый 100% Арабика средней обжарки. Пакет 250г.",
@@ -1499,7 +1499,7 @@ export const products: Product[] = [
     tags: ["кофе", "арабика", "молотый", "100%"],
   },
   {
-    id: "earl-grey", image: "/products/earl-grey.webp", emoji: "🍵",
+    id: "earl-grey", imageStatus: "needs_review", image: "/products/earl-grey.webp", emoji: "🍵",
     category: "Кофе, чай и какао",
     title: "Чай Эрл Грей",
     description: "Чай чёрный Эрл Грей с бергамотом Ahmad Tea. 40 пакетиков.",
@@ -1508,7 +1508,7 @@ export const products: Product[] = [
     tags: ["чай", "эрл грей", "бергамот", "ahmad"],
   },
   {
-    id: "ginger-tea", image: "/products/ginger-tea.webp", emoji: "🌶️",
+    id: "ginger-tea", imageStatus: "rejected", emoji: "🌶️",
     category: "Кофе, чай и какао",
     title: "Чай имбирный с лимоном",
     description: "Чай имбирный с лимоном и мёдом. Тонизирующий. 20 пакетиков.",
@@ -1520,7 +1520,7 @@ export const products: Product[] = [
   // ─── КОНДИТЕРСКИЕ ИЗДЕЛИЯ ───────────────────────────────────────────────────
 
   {
-    id: "chocolate-dark-70", image: "/products/chocolate-dark-70.webp", emoji: "🍫",
+    id: "chocolate-dark-70", imageStatus: "verified_generic", image: "/products/chocolate-dark-70.webp", emoji: "🍫",
     category: "Кондитерские изделия",
     title: "Шоколад тёмный 70%",
     description: "Шоколад тёмный горький 70% какао. Плитка 100г.",
@@ -1529,7 +1529,7 @@ export const products: Product[] = [
     tags: ["шоколад", "тёмный", "горький", "70%"],
   },
   {
-    id: "chocolate-white", image: "/products/chocolate-white.webp", emoji: "🍫",
+    id: "chocolate-white", imageStatus: "verified_generic", image: "/products/chocolate-white.webp", emoji: "🍫",
     category: "Кондитерские изделия",
     title: "Шоколад Dove белый",
     description: "Шоколад белый кремовый Dove. Плитка 90г.",
@@ -1538,7 +1538,7 @@ export const products: Product[] = [
     tags: ["шоколад", "белый", "dove"],
   },
   {
-    id: "raffaello", image: "/products/raffaello.webp", emoji: "🍬",
+    id: "raffaello", imageStatus: "verified_exact", image: "/products/raffaello.webp", emoji: "🍬",
     category: "Кондитерские изделия",
     title: "Raffaello конфеты",
     description: "Raffaello кокосовые конфеты с миндалём. Коробка 150г.",
@@ -1547,7 +1547,7 @@ export const products: Product[] = [
     tags: ["raffaello", "конфеты", "кокос", "миндаль"],
   },
   {
-    id: "ferrero-rocher", image: "/products/ferrero-rocher.webp", emoji: "🍬",
+    id: "ferrero-rocher", imageStatus: "verified_exact", image: "/products/ferrero-rocher.webp", emoji: "🍬",
     category: "Кондитерские изделия",
     title: "Ferrero Rocher",
     description: "Ferrero Rocher конфеты шоколадные с фундуком. Коробка 200г.",
@@ -1565,7 +1565,7 @@ export const products: Product[] = [
     tags: ["конфеты", "коровка", "молочные"],
   },
   {
-    id: "jubilee-cookies", image: "/products/jubilee-cookies.webp", emoji: "🍪",
+    id: "jubilee-cookies", imageStatus: "verified_generic", image: "/products/jubilee-cookies.webp", emoji: "🍪",
     category: "Кондитерские изделия",
     title: "Печенье Юбилейное",
     description: "Печенье Юбилейное классическое. Упаковка 400г.",
@@ -1583,7 +1583,7 @@ export const products: Product[] = [
     tags: ["крекер", "tuc", "солёный", "печенье"],
   },
   {
-    id: "waffles-choco", image: "/products/waffles-choco.webp", emoji: "🍩",
+    id: "waffles-choco", imageStatus: "verified_generic", image: "/products/waffles-choco.webp", emoji: "🍩",
     category: "Кондитерские изделия",
     title: "Вафли шоколадные",
     description: "Вафли хрустящие с шоколадной начинкой. Упаковка 300г.",
@@ -1610,7 +1610,7 @@ export const products: Product[] = [
     tags: ["мармелад", "фруктовый", "жевательный"],
   },
   {
-    id: "halva-sunflower", image: "/products/halva-sunflower.webp", emoji: "🟫",
+    id: "halva-sunflower", imageStatus: "rejected", emoji: "🟫",
     category: "Кондитерские изделия",
     title: "Халва подсолнечная",
     description: "Халва подсолнечная классическая натуральная. Упаковка 300г.",
@@ -1637,7 +1637,7 @@ export const products: Product[] = [
     tags: ["пряники", "медовые", "глазурь"],
   },
   {
-    id: "snickers", image: "/products/snickers.webp", emoji: "🍫",
+    id: "snickers", imageStatus: "rejected", emoji: "🍫",
     category: "Кондитерские изделия",
     title: "Snickers шоколадный батончик",
     description: "Snickers с карамелью, арахисом и нугой. 95г.",
@@ -1646,7 +1646,7 @@ export const products: Product[] = [
     tags: ["snickers", "батончик", "карамель", "арахис"],
   },
   {
-    id: "kitkat", image: "/products/kitkat.webp", emoji: "🍫",
+    id: "kitkat", imageStatus: "verified_exact", image: "/products/kitkat.webp", emoji: "🍫",
     category: "Кондитерские изделия",
     title: "KitKat Chunky",
     description: "KitKat Chunky молочный шоколад с вафлей. 43г.",
@@ -1655,7 +1655,7 @@ export const products: Product[] = [
     tags: ["kitkat", "батончик", "шоколад", "вафля"],
   },
   {
-    id: "oreo", image: "/products/oreo.webp", emoji: "🍪",
+    id: "oreo", imageStatus: "verified_exact", image: "/products/oreo.webp", emoji: "🍪",
     category: "Кондитерские изделия",
     title: "Oreo двойной шоколад",
     description: "Печенье Oreo с двойной шоколадной начинкой. Упаковка 432г.",
@@ -1664,7 +1664,7 @@ export const products: Product[] = [
     tags: ["oreo", "печенье", "шоколад", "начинка"],
   },
   {
-    id: "nutella", image: "/products/nutella.webp", emoji: "🍫",
+    id: "nutella", imageStatus: "rejected", emoji: "🍫",
     category: "Кондитерские изделия",
     title: "Нутелла шоколадная паста",
     description: "Nutella шоколадно-фундуковая паста. Стеклянная банка 400г.",
@@ -1673,7 +1673,7 @@ export const products: Product[] = [
     tags: ["нутелла", "nutella", "паста", "фундук"],
   },
   {
-    id: "bounty", image: "/products/bounty.webp", emoji: "🍫",
+    id: "bounty", imageStatus: "rejected", emoji: "🍫",
     category: "Кондитерские изделия",
     title: "Bounty кокосовый батончик",
     description: "Bounty с кокосовой начинкой в молочном шоколаде. 2×28.5г.",
@@ -1682,7 +1682,7 @@ export const products: Product[] = [
     tags: ["bounty", "батончик", "кокос", "шоколад"],
   },
   {
-    id: "macaron", image: "/products/macaron.webp", emoji: "🍬",
+    id: "macaron", imageStatus: "verified_generic", image: "/products/macaron.webp", emoji: "🍬",
     category: "Кондитерские изделия",
     title: "Макаруны ассорти",
     description: "Макаруны французские ассорти 6 вкусов. Коробка 6 штук.",
@@ -1700,7 +1700,7 @@ export const products: Product[] = [
     tags: ["крем-брюле", "десерт", "карамель"],
   },
   {
-    id: "tiramisu", image: "/products/tiramisu.webp", emoji: "🍰",
+    id: "tiramisu", imageStatus: "verified_generic", image: "/products/tiramisu.webp", emoji: "🍰",
     category: "Кондитерские изделия",
     title: "Тирамису порционное",
     description: "Тирамису итальянское с маскарпоне и кофе. Порция 90г.",
@@ -1709,7 +1709,7 @@ export const products: Product[] = [
     tags: ["тирамису", "десерт", "маскарпоне", "кофе"],
   },
   {
-    id: "lollipop-chupa", image: "/products/lollipop-chupa.webp", emoji: "🍭",
+    id: "lollipop-chupa", imageStatus: "verified_exact", image: "/products/lollipop-chupa.webp", emoji: "🍭",
     category: "Кондитерские изделия",
     title: "Chupa Chups карамель",
     description: "Chupa Chups карамель на палочке, ассорти вкусов. 12г.",
@@ -1718,7 +1718,7 @@ export const products: Product[] = [
     tags: ["chupa chups", "карамель", "конфеты"],
   },
   {
-    id: "marshmallow", image: "/products/marshmallow.webp", emoji: "☁️",
+    id: "marshmallow", imageStatus: "verified_generic", image: "/products/marshmallow.webp", emoji: "☁️",
     category: "Кондитерские изделия",
     title: "Маршмеллоу ваниль",
     description: "Маршмеллоу ванильные мягкие. Упаковка 200г.",
@@ -1739,7 +1739,7 @@ export const products: Product[] = [
   // ─── СНЕКИ ──────────────────────────────────────────────────────────────────
 
   {
-    id: "lays-classic", image: "/products/lays-chips.webp", emoji: "🥔",
+    id: "lays-classic", imageStatus: "verified_exact", image: "/products/lays-chips.webp", emoji: "🥔",
     category: "Снеки",
     title: "Чипсы Lay's классические",
     description: "Чипсы картофельные Lay's Classic солёные. Упаковка 150г.",
@@ -1748,7 +1748,7 @@ export const products: Product[] = [
     tags: ["чипсы", "lays", "классические", "картофель"],
   },
   {
-    id: "lays-paprika", image: "/products/lays-paprika.webp", emoji: "🥔",
+    id: "lays-paprika", imageStatus: "verified_exact", image: "/products/lays-paprika.webp", emoji: "🥔",
     category: "Снеки",
     title: "Чипсы Lay's паприка",
     description: "Чипсы картофельные Lay's со вкусом паприки. Упаковка 150г.",
@@ -1757,7 +1757,7 @@ export const products: Product[] = [
     tags: ["чипсы", "lays", "паприка"],
   },
   {
-    id: "pringles-original", image: "/products/pringles-original.webp", emoji: "🥔",
+    id: "pringles-original", imageStatus: "verified_exact", image: "/products/pringles-original.webp", emoji: "🥔",
     category: "Снеки",
     title: "Pringles оригинальные",
     description: "Чипсы Pringles Original. Тубус 165г.",
@@ -1767,7 +1767,7 @@ export const products: Product[] = [
     tags: ["pringles", "чипсы", "оригинальные"],
   },
   {
-    id: "crackers-rye", image: "/products/crackers-rye.webp", emoji: "🍞",
+    id: "crackers-rye", imageStatus: "verified_generic", image: "/products/crackers-rye.webp", emoji: "🍞",
     category: "Снеки",
     title: "Сухарики ржаные с чесноком",
     description: "Сухарики ржаные с чесноком и зеленью. Упаковка 100г.",
@@ -1776,7 +1776,7 @@ export const products: Product[] = [
     tags: ["сухарики", "ржаные", "чеснок"],
   },
   {
-    id: "almonds-roasted", image: "/products/almonds-roasted.webp", emoji: "🌰",
+    id: "almonds-roasted", imageStatus: "verified_generic", image: "/products/almonds-roasted.webp", emoji: "🌰",
     category: "Снеки",
     title: "Миндаль жареный солёный",
     description: "Миндаль жареный солёный Premium. Упаковка 200г.",
@@ -1785,7 +1785,7 @@ export const products: Product[] = [
     tags: ["миндаль", "жареный", "орехи"],
   },
   {
-    id: "cashews-roasted", image: "/products/cashews-roasted.webp", emoji: "🌰",
+    id: "cashews-roasted", imageStatus: "verified_generic", image: "/products/cashews-roasted.webp", emoji: "🌰",
     category: "Снеки",
     title: "Кешью жареный",
     description: "Кешью жареный натуральный без соли. Упаковка 200г.",
@@ -1794,7 +1794,7 @@ export const products: Product[] = [
     tags: ["кешью", "жареный", "орехи"],
   },
   {
-    id: "peanuts-salted", image: "/products/peanuts-salted.webp", emoji: "🥜",
+    id: "peanuts-salted", imageStatus: "verified_generic", image: "/products/peanuts-salted.webp", emoji: "🥜",
     category: "Снеки",
     title: "Арахис жареный солёный",
     description: "Арахис жареный солёный в скорлупе. Упаковка 200г.",
@@ -1803,7 +1803,7 @@ export const products: Product[] = [
     tags: ["арахис", "жареный", "солёный", "орехи"],
   },
   {
-    id: "popcorn-salted", image: "/products/popcorn-salted.webp", emoji: "🍿",
+    id: "popcorn-salted", imageStatus: "verified_generic", image: "/products/popcorn-salted.webp", emoji: "🍿",
     category: "Снеки",
     title: "Попкорн солёный кино",
     description: "Попкорн воздушный солёный. Упаковка 100г.",
@@ -1812,7 +1812,7 @@ export const products: Product[] = [
     tags: ["попкорн", "солёный", "кино"],
   },
   {
-    id: "popcorn-caramel", image: "/products/popcorn-caramel.webp", emoji: "🍿",
+    id: "popcorn-caramel", imageStatus: "verified_generic", image: "/products/popcorn-caramel.webp", emoji: "🍿",
     category: "Снеки",
     title: "Попкорн карамельный",
     description: "Попкорн воздушный карамельный сладкий. Упаковка 100г.",
@@ -1821,7 +1821,7 @@ export const products: Product[] = [
     tags: ["попкорн", "карамельный", "сладкий"],
   },
   {
-    id: "granola-bar", image: "/products/granola-bar.webp", emoji: "🌾",
+    id: "granola-bar", imageStatus: "verified_generic", image: "/products/granola-bar.webp", emoji: "🌾",
     category: "Снеки",
     title: "Батончик злаковый Muesli",
     description: "Батончик злаковый с мёдом и орехами. 40г.",
@@ -1830,7 +1830,7 @@ export const products: Product[] = [
     tags: ["батончик", "злаковый", "мюсли", "орехи"],
   },
   {
-    id: "dried-apricots", image: "/products/dried-apricots.webp", emoji: "🍑",
+    id: "dried-apricots", imageStatus: "verified_generic", image: "/products/dried-apricots.webp", emoji: "🍑",
     category: "Снеки",
     title: "Курага",
     description: "Курага абрикосовая сухофрукт натуральная. Упаковка 200г.",
@@ -1839,7 +1839,7 @@ export const products: Product[] = [
     tags: ["курага", "сухофрукты"],
   },
   {
-    id: "raisins", image: "/products/raisins.webp", emoji: "🍇",
+    id: "raisins", imageStatus: "verified_generic", image: "/products/raisins.webp", emoji: "🍇",
     category: "Снеки",
     title: "Изюм коричневый",
     description: "Изюм виноградный тёмный без косточек. Упаковка 200г.",
@@ -1848,7 +1848,7 @@ export const products: Product[] = [
     tags: ["изюм", "сухофрукты"],
   },
   {
-    id: "prunes-snack", image: "/products/prunes-snack.webp", emoji: "🍒",
+    id: "prunes-snack", imageStatus: "verified_generic", image: "/products/prunes-snack.webp", emoji: "🍒",
     category: "Снеки",
     title: "Чернослив",
     description: "Чернослив сушёный с косточкой. Упаковка 200г.",
@@ -1857,7 +1857,7 @@ export const products: Product[] = [
     tags: ["чернослив", "сухофрукты"],
   },
   {
-    id: "pistachios-salted", image: "/products/pistachios-salted.webp", emoji: "🌰",
+    id: "pistachios-salted", imageStatus: "verified_generic", image: "/products/pistachios-salted.webp", emoji: "🌰",
     category: "Снеки",
     title: "Фисташки солёные",
     description: "Фисташки жареные солёные в скорлупе. Упаковка 150г.",
@@ -1866,7 +1866,7 @@ export const products: Product[] = [
     tags: ["фисташки", "солёные", "орехи"],
   },
   {
-    id: "walnuts-shelled", image: "/products/walnuts-shelled.webp", emoji: "🌰",
+    id: "walnuts-shelled", imageStatus: "verified_generic", image: "/products/walnuts-shelled.webp", emoji: "🌰",
     category: "Снеки",
     title: "Грецкие орехи очищенные",
     description: "Грецкие орехи очищенные Premium. Упаковка 200г.",
@@ -1875,7 +1875,7 @@ export const products: Product[] = [
     tags: ["грецкие орехи", "очищенные", "орехи"],
   },
   {
-    id: "sunflower-seeds", image: "/products/sunflower-seeds.webp", emoji: "🌻",
+    id: "sunflower-seeds", imageStatus: "verified_generic", image: "/products/sunflower-seeds.webp", emoji: "🌻",
     category: "Снеки",
     title: "Семечки подсолнуха жареные",
     description: "Семечки подсолнуха жареные солёные. Упаковка 200г.",
@@ -1884,7 +1884,7 @@ export const products: Product[] = [
     tags: ["семечки", "подсолнух", "жареные"],
   },
   {
-    id: "pumpkin-seeds", image: "/products/pumpkin-seeds.webp", emoji: "🌻",
+    id: "pumpkin-seeds", imageStatus: "verified_generic", image: "/products/pumpkin-seeds.webp", emoji: "🌻",
     category: "Снеки",
     title: "Тыквенные семечки",
     description: "Тыквенные семечки очищенные жареные. Упаковка 200г.",
@@ -1893,7 +1893,7 @@ export const products: Product[] = [
     tags: ["тыква", "семечки", "орехи"],
   },
   {
-    id: "roasted-chickpea", image: "/products/roasted-chickpea.webp", emoji: "🫘",
+    id: "roasted-chickpea", imageStatus: "verified_generic", image: "/products/roasted-chickpea.webp", emoji: "🫘",
     category: "Снеки",
     title: "Нут жареный пряный",
     description: "Нут жареный с паприкой и специями. Упаковка 100г.",
@@ -1902,7 +1902,7 @@ export const products: Product[] = [
     tags: ["нут", "жареный", "пряный", "снек"],
   },
   {
-    id: "dates", image: "/products/dates.webp", emoji: "🟫",
+    id: "dates", imageStatus: "verified_generic", image: "/products/dates.webp", emoji: "🟫",
     category: "Снеки",
     title: "Финики Medjool",
     description: "Финики Medjool сушёные натуральные с косточкой. Упаковка 200г.",
@@ -1911,7 +1911,7 @@ export const products: Product[] = [
     tags: ["финики", "medjool", "сухофрукты"],
   },
   {
-    id: "hazelnut-roasted", image: "/products/hazelnut-roasted.webp", emoji: "🌰",
+    id: "hazelnut-roasted", imageStatus: "verified_generic", image: "/products/hazelnut-roasted.webp", emoji: "🌰",
     category: "Снеки",
     title: "Фундук жареный",
     description: "Фундук жареный очищенный без соли. Упаковка 200г.",
@@ -1923,7 +1923,7 @@ export const products: Product[] = [
   // ─── БАКАЛЕЯ ────────────────────────────────────────────────────────────────
 
   {
-    id: "rice-long", image: "/products/rice-long.webp", emoji: "🌾",
+    id: "rice-long", imageStatus: "verified_generic", image: "/products/rice-long.webp", emoji: "🌾",
     category: "Бакалея",
     title: "Рис длиннозёрный пропаренный",
     description: "Рис длиннозёрный пропаренный Увелка. Упаковка 1кг.",
@@ -1932,7 +1932,7 @@ export const products: Product[] = [
     tags: ["рис", "длиннозёрный", "пропаренный", "крупы"],
   },
   {
-    id: "rice-basmati", image: "/products/rice-basmati.webp", emoji: "🌾",
+    id: "rice-basmati", imageStatus: "rejected", emoji: "🌾",
     category: "Бакалея",
     title: "Рис Басмати Premium",
     description: "Рис Басмати Premium индийский длиннозёрный ароматный. 1кг.",
@@ -1941,7 +1941,7 @@ export const products: Product[] = [
     tags: ["рис", "басмати", "ароматный", "крупы"],
   },
   {
-    id: "rice-round", image: "/products/rice-round.webp", emoji: "🌾",
+    id: "rice-round", imageStatus: "rejected", emoji: "🌾",
     category: "Бакалея",
     title: "Рис круглый для плова",
     description: "Рис круглозёрный для каши и плова. Упаковка 1кг.",
@@ -1950,7 +1950,7 @@ export const products: Product[] = [
     tags: ["рис", "круглый", "плов", "крупы"],
   },
   {
-    id: "spaghetti-barilla", image: "/products/spaghetti-barilla.webp", emoji: "🍝",
+    id: "spaghetti-barilla", imageStatus: "rejected", emoji: "🍝",
     category: "Бакалея",
     title: "Спагетти Barilla №5",
     description: "Спагетти Barilla из твёрдых сортов пшеницы. Упаковка 500г.",
@@ -1959,7 +1959,7 @@ export const products: Product[] = [
     tags: ["спагетти", "barilla", "макароны", "паста"],
   },
   {
-    id: "penne-barilla", image: "/products/penne-barilla.webp", emoji: "🍝",
+    id: "penne-barilla", imageStatus: "rejected", emoji: "🍝",
     category: "Бакалея",
     title: "Пенне Barilla Rigate",
     description: "Пенне Barilla Rigate рифлёные. Упаковка 500г.",
@@ -1977,7 +1977,7 @@ export const products: Product[] = [
     tags: ["фарфалле", "бантики", "макароны", "паста"],
   },
   {
-    id: "buckwheat-uvelka", image: "/products/buckwheat-uvelka.webp", emoji: "🌾",
+    id: "buckwheat-uvelka", imageStatus: "verified_generic", image: "/products/buckwheat-uvelka.webp", emoji: "🌾",
     category: "Бакалея",
     title: "Гречка ядрица Увелка",
     description: "Гречневая крупа ядрица Увелка. Упаковка 1кг.",
@@ -1986,7 +1986,7 @@ export const products: Product[] = [
     tags: ["гречка", "ядрица", "увелка", "крупы"],
   },
   {
-    id: "oatmeal-hercules", image: "/products/oatmeal-hercules.webp", emoji: "🌾",
+    id: "oatmeal-hercules", imageStatus: "verified_generic", image: "/products/oatmeal-hercules.webp", emoji: "🌾",
     category: "Бакалея",
     title: "Овсяные хлопья Геркулес",
     description: "Овсяные хлопья Геркулес крупные, варить 10 минут. Упаковка 500г.",
@@ -1995,7 +1995,7 @@ export const products: Product[] = [
     tags: ["овсянка", "геркулес", "хлопья", "крупы"],
   },
   {
-    id: "flour-premium", image: "/products/flour-premium.webp", emoji: "🌾",
+    id: "flour-premium", imageStatus: "verified_generic", image: "/products/flour-premium.webp", emoji: "🌾",
     category: "Бакалея",
     title: "Мука пшеничная в/с",
     description: "Мука пшеничная хлебопекарная высшего сорта. Упаковка 2кг.",
@@ -2004,7 +2004,7 @@ export const products: Product[] = [
     tags: ["мука", "пшеничная", "высший сорт"],
   },
   {
-    id: "sugar-sand", image: "/products/sugar-sand.webp", emoji: "🍬",
+    id: "sugar-sand", imageStatus: "verified_generic", image: "/products/sugar-sand.webp", emoji: "🍬",
     category: "Бакалея",
     title: "Сахар-песок белый",
     description: "Сахар-песок белый кристаллический. Упаковка 1кг.",
@@ -2013,7 +2013,7 @@ export const products: Product[] = [
     tags: ["сахар", "песок", "белый"],
   },
   {
-    id: "salt-marine", image: "/products/salt-marine.webp", emoji: "🧂",
+    id: "salt-marine", imageStatus: "verified_generic", image: "/products/salt-marine.webp", emoji: "🧂",
     category: "Бакалея",
     title: "Соль морская йодированная",
     description: "Соль морская мелкая йодированная. Упаковка 1кг.",
@@ -2022,7 +2022,7 @@ export const products: Product[] = [
     tags: ["соль", "морская", "йодированная"],
   },
   {
-    id: "sunflower-oil-refined", image: "/products/sunflower-oil-refined.webp", emoji: "🫙",
+    id: "sunflower-oil-refined", imageStatus: "verified_generic", image: "/products/sunflower-oil-refined.webp", emoji: "🫙",
     category: "Масло и жиры",
     title: "Масло подсолнечное рафинированное",
     description: "Масло подсолнечное рафинированное дезодорированное. Бутылка 1л.",
@@ -2040,7 +2040,7 @@ export const products: Product[] = [
     tags: ["масло", "оливковое", "extra virgin"],
   },
   {
-    id: "tomato-paste-pomidorka", image: "/products/tomato-paste-pomidorka.webp", emoji: "🍅",
+    id: "tomato-paste-pomidorka", imageStatus: "verified_generic", image: "/products/tomato-paste-pomidorka.webp", emoji: "🍅",
     category: "Бакалея",
     title: "Паста томатная Помидорка",
     description: "Томатная паста Помидорка 25%. Жестяная банка 380г.",
@@ -2049,7 +2049,7 @@ export const products: Product[] = [
     tags: ["томатная паста", "помидорка", "консервы"],
   },
   {
-    id: "canned-peas-bonduelle", image: "/products/canned-peas-bonduelle.webp", emoji: "🫘",
+    id: "canned-peas-bonduelle", imageStatus: "rejected", emoji: "🫘",
     category: "Бакалея",
     title: "Горошек Bonduelle",
     description: "Горошек зелёный консервированный Bonduelle. Жестяная банка 400г.",
@@ -2059,7 +2059,7 @@ export const products: Product[] = [
   },
 
   {
-    id: "canned-corn-bonduelle", image: "/products/canned-corn-bonduelle.webp", emoji: "🌽",
+    id: "canned-corn-bonduelle", imageStatus: "rejected", emoji: "🌽",
     category: "Бакалея",
     title: "Кукуруза Bonduelle",
     description: "Кукуруза сладкая консервированная Bonduelle. Жестяная банка 400г.",
@@ -2068,7 +2068,7 @@ export const products: Product[] = [
     tags: ["кукуруза", "bonduelle", "консервы"],
   },
   {
-    id: "canned-beans", image: "/products/canned-beans.webp", emoji: "🫘",
+    id: "canned-beans", imageStatus: "verified_generic", image: "/products/canned-beans.webp", emoji: "🫘",
     category: "Бакалея",
     title: "Фасоль красная консервированная",
     description: "Фасоль красная консервированная в соусе. Банка 400г.",
@@ -2077,7 +2077,7 @@ export const products: Product[] = [
     tags: ["фасоль", "красная", "консервы"],
   },
   {
-    id: "canned-tuna-oil", image: "/products/canned-tuna-oil.webp", emoji: "🐟",
+    id: "canned-tuna-oil", imageStatus: "verified_generic", image: "/products/canned-tuna-oil.webp", emoji: "🐟",
     category: "Бакалея",
     title: "Тунец в масле консервированный",
     description: "Тунец в подсолнечном масле. Жестяная банка 185г.",
@@ -2086,7 +2086,7 @@ export const products: Product[] = [
     tags: ["тунец", "консервы", "рыба"],
   },
   {
-    id: "canned-sardine", image: "/products/canned-sardine.webp", emoji: "🐟",
+    id: "canned-sardine", imageStatus: "verified_generic", image: "/products/canned-sardine.webp", emoji: "🐟",
     category: "Бакалея",
     title: "Сардины в масле",
     description: "Сардины атлантические в масле. Жестяная банка 185г.",
@@ -2095,7 +2095,7 @@ export const products: Product[] = [
     tags: ["сардины", "консервы", "рыба"],
   },
   {
-    id: "strawberry-jam", image: "/products/strawberry-jam.webp", emoji: "🍓",
+    id: "strawberry-jam", imageStatus: "verified_generic", image: "/products/strawberry-jam.webp", emoji: "🍓",
     category: "Бакалея",
     title: "Варенье клубничное",
     description: "Варенье клубничное домашнее. Стеклянная банка 360г.",
@@ -2104,7 +2104,7 @@ export const products: Product[] = [
     tags: ["варенье", "клубника", "джем"],
   },
   {
-    id: "natural-honey", image: "/products/natural-honey.webp", emoji: "🍯",
+    id: "natural-honey", imageStatus: "verified_generic", image: "/products/natural-honey.webp", emoji: "🍯",
     category: "Бакалея",
     title: "Мёд цветочный натуральный",
     description: "Мёд натуральный цветочный нефильтрованный. Банка 500г.",
@@ -2113,7 +2113,7 @@ export const products: Product[] = [
     tags: ["мёд", "цветочный", "натуральный"],
   },
   {
-    id: "condensed-milk", image: "/products/condensed-milk.webp", emoji: "🥛",
+    id: "condensed-milk", imageStatus: "verified_generic", image: "/products/condensed-milk.webp", emoji: "🥛",
     category: "Бакалея",
     title: "Сгущённое молоко",
     description: "Сгущённое молоко цельное ГОСТ. Жестяная банка 380г.",
@@ -2122,7 +2122,7 @@ export const products: Product[] = [
     tags: ["сгущённое молоко", "сгущёнка", "консервы"],
   },
   {
-    id: "buckwheat-flakes", image: "/products/buckwheat-flakes.webp", emoji: "🌾",
+    id: "buckwheat-flakes", imageStatus: "verified_generic", image: "/products/buckwheat-flakes.webp", emoji: "🌾",
     category: "Бакалея",
     title: "Хлопья гречневые быстрые",
     description: "Гречневые хлопья быстрого приготовления. Упаковка 400г.",
@@ -2131,7 +2131,7 @@ export const products: Product[] = [
     tags: ["гречка", "хлопья", "быстрые", "крупы"],
   },
   {
-    id: "millet", image: "/products/millet.webp", emoji: "🌾",
+    id: "millet", imageStatus: "rejected", emoji: "🌾",
     category: "Бакалея",
     title: "Пшено",
     description: "Пшено шлифованное для каши и плова. Упаковка 1кг.",
@@ -2140,7 +2140,7 @@ export const products: Product[] = [
     tags: ["пшено", "крупы"],
   },
   {
-    id: "lentils-green", image: "/products/lentils-green.webp", emoji: "🫘",
+    id: "lentils-green", imageStatus: "verified_generic", image: "/products/lentils-green.webp", emoji: "🫘",
     category: "Бакалея",
     title: "Чечевица зелёная",
     description: "Чечевица зелёная для супов и гарниров. Упаковка 500г.",
@@ -2158,7 +2158,7 @@ export const products: Product[] = [
     tags: ["нут", "бобовые", "хумус", "крупы"],
   },
   {
-    id: "apple-vinegar", image: "/products/apple-vinegar.webp", emoji: "🫙",
+    id: "apple-vinegar", imageStatus: "verified_generic", image: "/products/apple-vinegar.webp", emoji: "🫙",
     category: "Бакалея",
     title: "Уксус яблочный 6%",
     description: "Уксус яблочный натуральный 6%. Бутылка 500мл.",
@@ -2167,7 +2167,7 @@ export const products: Product[] = [
     tags: ["уксус", "яблочный", "6%"],
   },
   {
-    id: "baking-soda", image: "/products/baking-soda.webp", emoji: "🫙",
+    id: "baking-soda", imageStatus: "verified_generic", image: "/products/baking-soda.webp", emoji: "🫙",
     category: "Бакалея",
     title: "Сода пищевая",
     description: "Сода пищевая питьевая для выпечки. Пачка 400г.",
@@ -2176,7 +2176,7 @@ export const products: Product[] = [
     tags: ["сода", "пищевая", "выпечка"],
   },
   {
-    id: "pearl-barley", image: "/products/pearl-barley.webp", emoji: "🌾",
+    id: "pearl-barley", imageStatus: "verified_generic", image: "/products/pearl-barley.webp", emoji: "🌾",
     category: "Бакалея",
     title: "Перловка",
     description: "Перловая крупа для супа и каши. Упаковка 1кг.",
@@ -2197,7 +2197,7 @@ export const products: Product[] = [
   // ─── ЗАМОРОЗКА ──────────────────────────────────────────────────────────────
 
   {
-    id: "pelmeni-beef", image: "/products/pelmeni-beef.webp", emoji: "🥟",
+    id: "pelmeni-beef", imageStatus: "verified_generic", image: "/products/pelmeni-beef.webp", emoji: "🥟",
     category: "Заморозка",
     title: "Пельмени Сибирские говяжьи",
     description: "Пельмени с говяжьим фаршем Сибирские. Упаковка 900г.",
@@ -2206,7 +2206,7 @@ export const products: Product[] = [
     tags: ["пельмени", "говяжьи", "сибирские", "заморозка"],
   },
   {
-    id: "pelmeni-pork", image: "/products/pelmeni-pork.webp", emoji: "🥟",
+    id: "pelmeni-pork", imageStatus: "verified_generic", image: "/products/pelmeni-pork.webp", emoji: "🥟",
     category: "Заморозка",
     title: "Пельмени Домашние свиные",
     description: "Пельмени домашние со свиным фаршем. Упаковка 900г.",
@@ -2215,7 +2215,7 @@ export const products: Product[] = [
     tags: ["пельмени", "домашние", "свинина", "заморозка"],
   },
   {
-    id: "varenyky-potato", image: "/products/varenyky-potato.webp", emoji: "🥟",
+    id: "varenyky-potato", imageStatus: "verified_generic", image: "/products/varenyky-potato.webp", emoji: "🥟",
     category: "Заморозка",
     title: "Вареники с картошкой",
     description: "Вареники с картофелем и луком домашние. Упаковка 800г.",
@@ -2224,7 +2224,7 @@ export const products: Product[] = [
     tags: ["вареники", "картошка", "домашние", "заморозка"],
   },
   {
-    id: "varenyky-cherry", image: "/products/varenyky-cherry.webp", emoji: "🍒",
+    id: "varenyky-cherry", imageStatus: "verified_generic", image: "/products/varenyky-cherry.webp", emoji: "🍒",
     category: "Заморозка",
     title: "Вареники с вишней",
     description: "Вареники с вишней сладкие. Упаковка 800г.",
@@ -2233,7 +2233,7 @@ export const products: Product[] = [
     tags: ["вареники", "вишня", "сладкие", "заморозка"],
   },
   {
-    id: "manti-frozen", image: "/products/manti-frozen.webp", emoji: "🥟",
+    id: "manti-frozen", imageStatus: "verified_generic", image: "/products/manti-frozen.webp", emoji: "🥟",
     category: "Заморозка",
     title: "Манты с мясом",
     description: "Манты домашние с говядиной и луком. Упаковка 800г.",
@@ -2251,7 +2251,7 @@ export const products: Product[] = [
     tags: ["блины", "мясо", "говядина", "заморозка"],
   },
   {
-    id: "blini-cottage", image: "/products/blini-cottage.webp", emoji: "🫔",
+    id: "blini-cottage", imageStatus: "verified_generic", image: "/products/blini-cottage.webp", emoji: "🫔",
     category: "Заморозка",
     title: "Блины с творогом",
     description: "Блины с творогом и изюмом сладкие. Упаковка 500г.",
@@ -2269,7 +2269,7 @@ export const products: Product[] = [
     tags: ["картофель фри", "мccain", "заморозка"],
   },
   {
-    id: "frozen-strawberry", image: "/products/frozen-strawberry.webp", emoji: "🍓",
+    id: "frozen-strawberry", imageStatus: "verified_generic", image: "/products/frozen-strawberry.webp", emoji: "🍓",
     category: "Заморозка",
     title: "Клубника замороженная",
     description: "Клубника садовая замороженная IQF. Упаковка 500г.",
@@ -2287,7 +2287,7 @@ export const products: Product[] = [
     tags: ["черника", "замороженная", "ягоды"],
   },
   {
-    id: "frozen-raspberries", image: "/products/frozen-raspberries.webp", emoji: "🍓",
+    id: "frozen-raspberries", imageStatus: "rejected", emoji: "🍓",
     category: "Заморозка",
     title: "Малина замороженная",
     description: "Малина замороженная IQF. Упаковка 500г.",
@@ -2305,7 +2305,7 @@ export const products: Product[] = [
     tags: ["брокколи", "замороженная", "овощи"],
   },
   {
-    id: "frozen-vegmix", image: "/products/frozen-vegmix.webp", emoji: "🥕",
+    id: "frozen-vegmix", imageStatus: "verified_generic", image: "/products/frozen-vegmix.webp", emoji: "🥕",
     category: "Заморозка",
     title: "Овощная смесь мексиканская",
     description: "Смесь кукурузы, гороха, перца, фасоли. Упаковка 1кг.",
@@ -2314,7 +2314,7 @@ export const products: Product[] = [
     tags: ["овощная смесь", "мексиканская", "заморозка"],
   },
   {
-    id: "fish-cakes-frozen", image: "/products/fish-cakes-frozen.webp", emoji: "🐟",
+    id: "fish-cakes-frozen", imageStatus: "verified_generic", image: "/products/fish-cakes-frozen.webp", emoji: "🐟",
     category: "Заморозка",
     title: "Рыбные котлеты",
     description: "Котлеты из минтая замороженные. Упаковка 500г (8 штук).",
@@ -2323,7 +2323,7 @@ export const products: Product[] = [
     tags: ["рыбные котлеты", "минтай", "заморозка"],
   },
   {
-    id: "ice-cream-vanilla", image: "/products/ice-cream-vanilla.webp", emoji: "🍦",
+    id: "ice-cream-vanilla", imageStatus: "verified_generic", image: "/products/ice-cream-vanilla.webp", emoji: "🍦",
     category: "Заморозка",
     title: "Мороженое Пломбир",
     description: "Мороженое пломбир классический ванильный. Ведёрко 500г.",
@@ -2332,7 +2332,7 @@ export const products: Product[] = [
     tags: ["мороженое", "пломбир", "ванильный"],
   },
   {
-    id: "ice-cream-chocolate", image: "/products/ice-cream-chocolate.webp", emoji: "🍫",
+    id: "ice-cream-chocolate", imageStatus: "verified_generic", image: "/products/ice-cream-chocolate.webp", emoji: "🍫",
     category: "Заморозка",
     title: "Мороженое Шоколадное",
     description: "Мороженое шоколадное с какао Premium. Ведёрко 500г.",
@@ -2341,7 +2341,7 @@ export const products: Product[] = [
     tags: ["мороженое", "шоколадное", "заморозка"],
   },
   {
-    id: "samsa-frozen", image: "/products/samsa-frozen.webp", emoji: "🥟",
+    id: "samsa-frozen", imageStatus: "verified_generic", image: "/products/samsa-frozen.webp", emoji: "🥟",
     category: "Заморозка",
     title: "Самса слоёная замороженная",
     description: "Самса с мясом слоёная замороженная. Упаковка 6 штук.",
@@ -2350,7 +2350,7 @@ export const products: Product[] = [
     tags: ["самса", "замороженная", "заморозка"],
   },
   {
-    id: "pizza-frozen-margarita", image: "/products/pizza-frozen-margarita.webp", emoji: "🍕",
+    id: "pizza-frozen-margarita", imageStatus: "verified_generic", image: "/products/pizza-frozen-margarita.webp", emoji: "🍕",
     category: "Заморозка",
     title: "Пицца Маргарита замороженная",
     description: "Пицца Маргарита замороженная с моцареллой. 400г.",
@@ -2359,7 +2359,7 @@ export const products: Product[] = [
     tags: ["пицца", "маргарита", "замороженная"],
   },
   {
-    id: "spring-rolls-frozen", image: "/products/spring-rolls-frozen.webp", emoji: "🍱",
+    id: "spring-rolls-frozen", imageStatus: "verified_generic", image: "/products/spring-rolls-frozen.webp", emoji: "🍱",
     category: "Заморозка",
     title: "Спринг-роллы с курицей",
     description: "Спринг-роллы замороженные с курицей и овощами. Упаковка 300г.",
@@ -2368,7 +2368,7 @@ export const products: Product[] = [
     tags: ["спринг-роллы", "курица", "азиатские", "заморозка"],
   },
   {
-    id: "khinkali-frozen", image: "/products/khinkali-frozen.webp", emoji: "🥟",
+    id: "khinkali-frozen", imageStatus: "verified_generic", image: "/products/khinkali-frozen.webp", emoji: "🥟",
     category: "Заморозка",
     title: "Хинкали с мясом",
     description: "Хинкали грузинские с говяжьим фаршем. Упаковка 500г.",
@@ -2380,7 +2380,7 @@ export const products: Product[] = [
   // ─── СОУСЫ И СПЕЦИИ ─────────────────────────────────────────────────────────
 
   {
-    id: "ketchup-heinz", image: "/products/ketchup-heinz.webp", emoji: "🍅",
+    id: "ketchup-heinz", imageStatus: "verified_generic", image: "/products/ketchup-heinz.webp", emoji: "🍅",
     category: "Соусы и специи",
     title: "Кетчуп Heinz томатный",
     description: "Кетчуп Heinz томатный классический. Пластиковая бутылка 570г.",
@@ -2389,7 +2389,7 @@ export const products: Product[] = [
     tags: ["кетчуп", "heinz", "томатный", "соус"],
   },
   {
-    id: "ketchup-hot", image: "/products/ketchup-hot.webp", emoji: "🌶️",
+    id: "ketchup-hot", imageStatus: "verified_generic", image: "/products/ketchup-hot.webp", emoji: "🌶️",
     category: "Соусы и специи",
     title: "Кетчуп Чили острый",
     description: "Кетчуп острый Чили. Бутылка 350г.",
@@ -2398,7 +2398,7 @@ export const products: Product[] = [
     tags: ["кетчуп", "острый", "чили", "соус"],
   },
   {
-    id: "mayo-provencal", image: "/products/mayo-provencal.webp", emoji: "🥣",
+    id: "mayo-provencal", imageStatus: "verified_generic", image: "/products/mayo-provencal.webp", emoji: "🥣",
     category: "Соусы и специи",
     title: "Майонез Провансаль",
     description: "Майонез Провансаль классический 67%. Ведро 400г.",
@@ -2407,7 +2407,7 @@ export const products: Product[] = [
     tags: ["майонез", "провансаль", "классический"],
   },
   {
-    id: "mayo-light", image: "/products/mayo-light.webp", emoji: "🥣",
+    id: "mayo-light", imageStatus: "verified_generic", image: "/products/mayo-light.webp", emoji: "🥣",
     category: "Соусы и специи",
     title: "Майонез лёгкий 25%",
     description: "Майонез облегчённый 25% жирности. Упаковка 400г.",
@@ -2416,7 +2416,7 @@ export const products: Product[] = [
     tags: ["майонез", "лёгкий", "25%"],
   },
   {
-    id: "soy-sauce-kikkoman", image: "/products/soy-sauce-kikkoman.webp", emoji: "🫙",
+    id: "soy-sauce-kikkoman", imageStatus: "verified_generic", image: "/products/soy-sauce-kikkoman.webp", emoji: "🫙",
     category: "Соусы и специи",
     title: "Соевый соус Kikkoman",
     description: "Соевый соус Kikkoman натурального брожения. Бутылка 150мл.",
@@ -2425,7 +2425,7 @@ export const products: Product[] = [
     tags: ["соевый соус", "kikkoman", "японский"],
   },
   {
-    id: "oyster-sauce", image: "/products/oyster-sauce.webp", emoji: "🫙",
+    id: "oyster-sauce", imageStatus: "verified_generic", image: "/products/oyster-sauce.webp", emoji: "🫙",
     category: "Соусы и специи",
     title: "Устричный соус Lee Kum Kee",
     description: "Устричный соус Lee Kum Kee классический. Бутылка 230мл.",
@@ -2434,7 +2434,7 @@ export const products: Product[] = [
     tags: ["устричный соус", "lee kum kee", "азиатский"],
   },
   {
-    id: "mustard-dijon", image: "/products/mustard-dijon.webp", emoji: "🥣",
+    id: "mustard-dijon", imageStatus: "verified_generic", image: "/products/mustard-dijon.webp", emoji: "🥣",
     category: "Соусы и специи",
     title: "Горчица Дижонская Maille",
     description: "Горчица Дижонская Maille с зёрнами. Стеклянная банка 200г.",
@@ -2443,7 +2443,7 @@ export const products: Product[] = [
     tags: ["горчица", "дижонская", "maille"],
   },
   {
-    id: "mustard-russian", image: "/products/mustard-russian.webp", emoji: "🥣",
+    id: "mustard-russian", imageStatus: "verified_generic", image: "/products/mustard-russian.webp", emoji: "🥣",
     category: "Соусы и специи",
     title: "Горчица русская острая",
     description: "Горчица столовая русская острая. Стеклянная банка 200г.",
@@ -2488,7 +2488,7 @@ export const products: Product[] = [
     tags: ["карри", "индийское", "специи"],
   },
   {
-    id: "zira-cumin", image: "/products/zira-cumin.webp", emoji: "🫙",
+    id: "zira-cumin", imageStatus: "verified_generic", image: "/products/zira-cumin.webp", emoji: "🫙",
     category: "Соусы и специи",
     title: "Зира (кумин) цельная",
     description: "Зира семена цельные для плова и мяса. Пакет 30г.",
@@ -2506,7 +2506,7 @@ export const products: Product[] = [
     tags: ["лавровый лист", "специи"],
   },
   {
-    id: "vanilla-extract", image: "/products/vanilla-extract.webp", emoji: "🫙",
+    id: "vanilla-extract", imageStatus: "verified_generic", image: "/products/vanilla-extract.webp", emoji: "🫙",
     category: "Соусы и специи",
     title: "Ванилин для выпечки",
     description: "Ванилин пищевой для выпечки. Пакет 10г.",
@@ -2515,7 +2515,7 @@ export const products: Product[] = [
     tags: ["ванилин", "ваниль", "специи", "выпечка"],
   },
   {
-    id: "tabasco", image: "/products/tabasco.webp", emoji: "🌶️",
+    id: "tabasco", imageStatus: "verified_generic", image: "/products/tabasco.webp", emoji: "🌶️",
     category: "Соусы и специи",
     title: "Tabasco острый соус",
     description: "Tabasco Original Red Pepper Sauce. Стеклянный флакон 60мл.",
@@ -2524,7 +2524,7 @@ export const products: Product[] = [
     tags: ["tabasco", "острый", "перец", "соус"],
   },
   {
-    id: "worcestershire-sauce", image: "/products/worcestershire-sauce.webp", emoji: "🫙",
+    id: "worcestershire-sauce", imageStatus: "verified_generic", image: "/products/worcestershire-sauce.webp", emoji: "🫙",
     category: "Соусы и специи",
     title: "Вустерский соус Lea & Perrins",
     description: "Вустерский соус оригинальный Lea & Perrins. Бутылка 150мл.",
@@ -2533,7 +2533,7 @@ export const products: Product[] = [
     tags: ["вустерский соус", "lea perrins", "соус"],
   },
   {
-    id: "balsamic-vinegar", image: "/products/balsamic-vinegar.webp", emoji: "🫙",
+    id: "balsamic-vinegar", imageStatus: "verified_generic", image: "/products/balsamic-vinegar.webp", emoji: "🫙",
     category: "Соусы и специи",
     title: "Уксус бальзамический",
     description: "Уксус бальзамический из Модены. Стеклянная бутылка 250мл.",
@@ -2551,7 +2551,7 @@ export const products: Product[] = [
     tags: ["терияки", "японский", "соус"],
   },
   {
-    id: "hummus-classic", image: "/products/hummus-classic.webp", emoji: "🫘",
+    id: "hummus-classic", imageStatus: "verified_generic", image: "/products/hummus-classic.webp", emoji: "🫘",
     category: "Соусы и специи",
     title: "Хумус классический",
     description: "Хумус из нута классический с тахини. Контейнер 200г.",
@@ -2563,7 +2563,7 @@ export const products: Product[] = [
   // ─── МАСЛО И ЖИРЫ ───────────────────────────────────────────────────────────
 
   {
-    id: "olive-oil-monini", image: "/products/olive-oil-monini.webp", emoji: "🫒",
+    id: "olive-oil-monini", imageStatus: "verified_generic", image: "/products/olive-oil-monini.webp", emoji: "🫒",
     category: "Масло и жиры",
     title: "Масло оливковое Monini E.V.",
     description: "Масло оливковое Extra Virgin Monini холодного отжима. Стеклянная бутылка 1л.",
@@ -2581,7 +2581,7 @@ export const products: Product[] = [
     tags: ["масло", "кукурузное", "рафинированное"],
   },
   {
-    id: "sesame-oil", image: "/products/sesame-oil.webp", emoji: "🫙",
+    id: "sesame-oil", imageStatus: "verified_generic", image: "/products/sesame-oil.webp", emoji: "🫙",
     category: "Масло и жиры",
     title: "Масло кунжутное",
     description: "Масло кунжутное тёмное жареное для азиатских блюд. Бутылка 250мл.",
@@ -2590,7 +2590,7 @@ export const products: Product[] = [
     tags: ["масло", "кунжутное", "азиатское"],
   },
   {
-    id: "coconut-oil", image: "/products/coconut-oil.webp", emoji: "🥥",
+    id: "coconut-oil", imageStatus: "verified_generic", image: "/products/coconut-oil.webp", emoji: "🥥",
     category: "Масло и жиры",
     title: "Масло кокосовое нерафинированное",
     description: "Масло кокосовое нерафинированное холодного отжима. Банка 500мл.",
@@ -2599,7 +2599,7 @@ export const products: Product[] = [
     tags: ["масло", "кокосовое", "нерафинированное"],
   },
   {
-    id: "ghee-butter", image: "/products/ghee-butter.webp", emoji: "🧈",
+    id: "ghee-butter", imageStatus: "verified_generic", image: "/products/ghee-butter.webp", emoji: "🧈",
     category: "Масло и жиры",
     title: "Масло топлёное ГХИ",
     description: "Масло топлёное ГХИ (Ghee) Premium. Банка 400г.",
@@ -2617,7 +2617,7 @@ export const products: Product[] = [
     tags: ["маргарин", "выпечка"],
   },
   {
-    id: "flaxseed-oil", image: "/products/flaxseed-oil.webp", emoji: "🫙",
+    id: "flaxseed-oil", imageStatus: "verified_generic", image: "/products/flaxseed-oil.webp", emoji: "🫙",
     category: "Масло и жиры",
     title: "Масло льняное",
     description: "Масло льняное нерафинированное холодного отжима. Бутылка 250мл.",
@@ -2635,7 +2635,7 @@ export const products: Product[] = [
     tags: ["сало", "копчёное", "свиное"],
   },
   {
-    id: "avocado-oil", image: "/products/avocado-oil.webp", emoji: "🥑",
+    id: "avocado-oil", imageStatus: "verified_generic", image: "/products/avocado-oil.webp", emoji: "🥑",
     category: "Масло и жиры",
     title: "Масло авокадо",
     description: "Масло авокадо холодного отжима. Для салатов и смузи. Бутылка 250мл.",
@@ -2644,7 +2644,7 @@ export const products: Product[] = [
     tags: ["масло", "авокадо", "здоровье"],
   },
   {
-    id: "walnut-oil", image: "/products/walnut-oil.webp", emoji: "🌰",
+    id: "walnut-oil", imageStatus: "verified_generic", image: "/products/walnut-oil.webp", emoji: "🌰",
     category: "Масло и жиры",
     title: "Масло грецкого ореха",
     description: "Масло грецкого ореха нерафинированное. Бутылка 250мл.",
@@ -2665,7 +2665,7 @@ export const products: Product[] = [
     tags: ["суши", "сет", "японское", "лосось"],
   },
   {
-    id: "rolls-california", image: "/products/rolls-california.webp", emoji: "🍱",
+    id: "rolls-california", imageStatus: "verified_generic", image: "/products/rolls-california.webp", emoji: "🍱",
     category: "Готовая еда",
     title: "Роллы Калифорния",
     description: "Роллы Калифорния с крабом и авокадо. 8 штук.",
@@ -2674,7 +2674,7 @@ export const products: Product[] = [
     tags: ["роллы", "калифорния", "краб", "авокадо"],
   },
   {
-    id: "pizza-pepperoni-fresh", image: "/products/pizza-pepperoni-fresh.webp", emoji: "🍕",
+    id: "pizza-pepperoni-fresh", imageStatus: "verified_generic", image: "/products/pizza-pepperoni-fresh.webp", emoji: "🍕",
     category: "Готовая еда",
     title: "Пицца Пепперони",
     description: "Пицца Пепперони свежеприготовленная, диаметр 30см.",
@@ -2692,7 +2692,7 @@ export const products: Product[] = [
     tags: ["пицца", "маргарита", "моцарелла"],
   },
   {
-    id: "burger-beef-fresh", image: "/products/burger-beef-fresh.webp", emoji: "🍔",
+    id: "burger-beef-fresh", imageStatus: "verified_generic", image: "/products/burger-beef-fresh.webp", emoji: "🍔",
     category: "Готовая еда",
     title: "Бургер говяжий",
     description: "Бургер с говяжьей котлетой, сыром и овощами. 1 штука.",
@@ -2701,7 +2701,7 @@ export const products: Product[] = [
     tags: ["бургер", "говяжий", "котлета"],
   },
   {
-    id: "shawarma-chicken", image: "/products/shawarma-chicken.webp", emoji: "🌯",
+    id: "shawarma-chicken", imageStatus: "verified_generic", image: "/products/shawarma-chicken.webp", emoji: "🌯",
     category: "Готовая еда",
     title: "Шаурма с курицей",
     description: "Шаурма с куриным мясом, овощами и соусом. 1 штука.",
@@ -2710,7 +2710,7 @@ export const products: Product[] = [
     tags: ["шаурма", "курица", "готовая еда"],
   },
   {
-    id: "plov-ready", image: "/products/plov-ready.webp", emoji: "🍚",
+    id: "plov-ready", imageStatus: "verified_generic", image: "/products/plov-ready.webp", emoji: "🍚",
     category: "Готовая еда",
     title: "Плов узбекский",
     description: "Плов узбекский с говядиной, морковью и специями. Контейнер 500г.",
@@ -2719,7 +2719,7 @@ export const products: Product[] = [
     tags: ["плов", "узбекский", "говядина"],
   },
   {
-    id: "borsch-ready", image: "/products/borsch-ready.webp", emoji: "🍲",
+    id: "borsch-ready", imageStatus: "verified_generic", image: "/products/borsch-ready.webp", emoji: "🍲",
     category: "Готовая еда",
     title: "Борщ домашний",
     description: "Борщ украинский домашний со сметаной. Контейнер 500мл.",
@@ -2737,7 +2737,7 @@ export const products: Product[] = [
     tags: ["салат", "оливье", "готовая еда"],
   },
   {
-    id: "salad-caesar-chicken", image: "/products/salad-caesar-chicken.webp", emoji: "🥗",
+    id: "salad-caesar-chicken", imageStatus: "verified_generic", image: "/products/salad-caesar-chicken.webp", emoji: "🥗",
     category: "Готовая еда",
     title: "Салат Цезарь с курицей",
     description: "Салат Цезарь с куриным филе, сухариками и соусом. Контейнер 250г.",
@@ -2755,7 +2755,7 @@ export const products: Product[] = [
     tags: ["лагман", "уйгурский", "говядина"],
   },
   {
-    id: "manti-ready", image: "/products/manti-ready.webp", emoji: "🥟",
+    id: "manti-ready", imageStatus: "verified_generic", image: "/products/manti-ready.webp", emoji: "🥟",
     category: "Готовая еда",
     title: "Манты готовые",
     description: "Манты с мясом приготовленные, подаются горячими. 5 штук.",
@@ -2764,7 +2764,7 @@ export const products: Product[] = [
     tags: ["манты", "мясо", "готовая еда"],
   },
   {
-    id: "cheburek-meat", image: "/products/cheburek-meat.webp", emoji: "🥙",
+    id: "cheburek-meat", imageStatus: "verified_generic", image: "/products/cheburek-meat.webp", emoji: "🥙",
     category: "Готовая еда",
     title: "Чебурек с мясом",
     description: "Чебурек слоёный с говяжьим фаршем жареный. 1 штука.",
@@ -2773,7 +2773,7 @@ export const products: Product[] = [
     tags: ["чебурек", "мясо", "жареный"],
   },
   {
-    id: "hotdog-ready", image: "/products/hotdog-ready.webp", emoji: "🌭",
+    id: "hotdog-ready", imageStatus: "verified_generic", image: "/products/hotdog-ready.webp", emoji: "🌭",
     category: "Готовая еда",
     title: "Хот-дог",
     description: "Хот-дог с сосиской в тесте и горчицей. 1 штука.",
@@ -2782,7 +2782,7 @@ export const products: Product[] = [
     tags: ["хот-дог", "сосиска", "быстрая еда"],
   },
   {
-    id: "dolma-ready", image: "/products/dolma-ready.webp", emoji: "🍃",
+    id: "dolma-ready", imageStatus: "verified_generic", image: "/products/dolma-ready.webp", emoji: "🍃",
     category: "Готовая еда",
     title: "Долма в виноградных листьях",
     description: "Долма с рисом и мясом в виноградных листьях. Контейнер 300г.",
@@ -2794,7 +2794,7 @@ export const products: Product[] = [
   // ─── ДЕТСКОЕ ПИТАНИЕ ────────────────────────────────────────────────────────
 
   {
-    id: "baby-puree-apple-gerber", image: "/products/baby-puree-apple-gerber.webp", emoji: "🍎",
+    id: "baby-puree-apple-gerber", imageStatus: "rejected", emoji: "🍎",
     category: "Детское питание",
     title: "Пюре яблочное Gerber",
     description: "Пюре яблочное Gerber без сахара и добавок. Баночка 130г. Для детей с 4 мес.",
@@ -2803,7 +2803,7 @@ export const products: Product[] = [
     tags: ["пюре", "яблоко", "gerber", "детское питание"],
   },
   {
-    id: "baby-puree-pear", image: "/products/baby-puree-pear.webp", emoji: "🍐",
+    id: "baby-puree-pear", imageStatus: "rejected", emoji: "🍐",
     category: "Детское питание",
     title: "Пюре грушевое Frutonyanya",
     description: "Пюре грушевое Фруто Няня без сахара. Баночка 130г. С 4 мес.",
@@ -2812,7 +2812,7 @@ export const products: Product[] = [
     tags: ["пюре", "груша", "фрутоняня", "детское питание"],
   },
   {
-    id: "baby-puree-carrot", image: "/products/baby-puree-carrot.webp", emoji: "🥕",
+    id: "baby-puree-carrot", imageStatus: "rejected", emoji: "🥕",
     category: "Детское питание",
     title: "Пюре морковное Semper",
     description: "Пюре морковное Semper органическое. Баночка 125г. С 4 мес.",
@@ -2848,7 +2848,7 @@ export const products: Product[] = [
     tags: ["каша", "овсяная", "gerber", "банан", "детское питание"],
   },
   {
-    id: "baby-formula-nan1", image: "/products/baby-formula-nan1.webp", emoji: "🍼",
+    id: "baby-formula-nan1", imageStatus: "needs_review", image: "/products/baby-formula-nan1.webp", emoji: "🍼",
     category: "Детское питание",
     title: "Смесь Nan 1 Premium",
     description: "Смесь молочная Nan 1 Premium для новорождённых с 0 мес. Банка 400г.",
@@ -2857,7 +2857,7 @@ export const products: Product[] = [
     tags: ["смесь", "nan", "молочная", "детское питание"],
   },
   {
-    id: "baby-formula-nutrilon2", image: "/products/baby-formula-nutrilon2.webp", emoji: "🍼",
+    id: "baby-formula-nutrilon2", imageStatus: "verified_exact", image: "/products/baby-formula-nutrilon2.webp", emoji: "🍼",
     category: "Детское питание",
     title: "Смесь Nutrilon 2",
     description: "Смесь молочная Nutrilon 2 с 6 до 12 месяцев. Банка 400г.",
@@ -2875,7 +2875,7 @@ export const products: Product[] = [
     tags: ["йогурт", "агуша", "детский", "клубника"],
   },
   {
-    id: "baby-juice-agusha", image: "/products/baby-juice-agusha.webp", emoji: "🍎",
+    id: "baby-juice-agusha", imageStatus: "verified_exact", image: "/products/baby-juice-agusha.webp", emoji: "🍎",
     category: "Детское питание",
     title: "Сок яблочный Агуша",
     description: "Сок яблочный осветлённый Агуша для детей с 4 мес. Коробка 200мл.",
@@ -2884,7 +2884,7 @@ export const products: Product[] = [
     tags: ["сок", "яблочный", "агуша", "детское"],
   },
   {
-    id: "baby-cookies-gerber", image: "/products/baby-cookies-gerber.webp", emoji: "🍪",
+    id: "baby-cookies-gerber", imageStatus: "verified_exact", image: "/products/baby-cookies-gerber.webp", emoji: "🍪",
     category: "Детское питание",
     title: "Печенье Gerber детское",
     description: "Печенье растворимое Gerber для первого прикорма. 150г. С 6 мес.",
@@ -2920,7 +2920,7 @@ export const products: Product[] = [
     tags: ["пюре", "трубочка", "яблоко", "груша", "детское"],
   },
   {
-    id: "baby-cereal-corn", image: "/products/baby-cereal-corn.webp", emoji: "🌽",
+    id: "baby-cereal-corn", imageStatus: "verified_generic", image: "/products/baby-cereal-corn.webp", emoji: "🌽",
     category: "Детское питание",
     title: "Хлопья кукурузные детские",
     description: "Хлопья кукурузные безглютеновые для детей от 8 мес. Упаковка 200г.",
@@ -2941,7 +2941,7 @@ export const products: Product[] = [
     tags: ["протеин", "батончик", "белок", "здоровое"],
   },
   {
-    id: "granola-honey", image: "/products/granola-honey.webp", emoji: "🌾",
+    id: "granola-honey", imageStatus: "rejected", emoji: "🌾",
     category: "Здоровое питание",
     title: "Гранола с мёдом и орехами",
     description: "Гранола хрустящая с мёдом, овсом, грецким орехом и изюмом. 300г.",
@@ -2950,7 +2950,7 @@ export const products: Product[] = [
     tags: ["гранола", "мёд", "орехи", "здоровое"],
   },
   {
-    id: "tofu-natural", image: "/products/tofu-natural.webp", emoji: "🫘",
+    id: "tofu-natural", imageStatus: "verified_generic", image: "/products/tofu-natural.webp", emoji: "🫘",
     category: "Здоровое питание",
     title: "Тофу натуральный",
     description: "Тофу соевый твёрдый натуральный. Упаковка 300г.",
@@ -2959,7 +2959,7 @@ export const products: Product[] = [
     tags: ["тофу", "соевый", "веган", "белок"],
   },
   {
-    id: "chia-seeds", image: "/products/chia-seeds.webp", emoji: "🌿",
+    id: "chia-seeds", imageStatus: "verified_generic", image: "/products/chia-seeds.webp", emoji: "🌿",
     category: "Здоровое питание",
     title: "Семена чиа",
     description: "Семена чиа мексиканские. Богаты омега-3 и клетчаткой. Упаковка 200г.",
@@ -2986,7 +2986,7 @@ export const products: Product[] = [
     tags: ["кокосовое молоко", "веган", "готовка"],
   },
   {
-    id: "rice-cakes", image: "/products/rice-cakes.webp", emoji: "🍘",
+    id: "rice-cakes", imageStatus: "verified_generic", image: "/products/rice-cakes.webp", emoji: "🍘",
     category: "Здоровое питание",
     title: "Хлебцы рисовые",
     description: "Хлебцы рисовые лёгкие без соли. Упаковка 100г.",
@@ -2995,7 +2995,7 @@ export const products: Product[] = [
     tags: ["хлебцы", "рисовые", "диета", "безглютен"],
   },
   {
-    id: "rye-cakes-finn-crisp", image: "/products/rye-cakes-finn-crisp.webp", emoji: "🍞",
+    id: "rye-cakes-finn-crisp", imageStatus: "verified_exact", image: "/products/rye-cakes-finn-crisp.webp", emoji: "🍞",
     category: "Здоровое питание",
     title: "Хлебцы ржаные Finn Crisp",
     description: "Хлебцы ржаные хрустящие Finn Crisp Original. Упаковка 200г.",
@@ -3004,7 +3004,7 @@ export const products: Product[] = [
     tags: ["хлебцы", "ржаные", "finn crisp", "хрустящие"],
   },
   {
-    id: "almond-milk-tetrapak", image: "/products/almond-milk-tetrapak.webp", emoji: "🌰",
+    id: "almond-milk-tetrapak", imageStatus: "verified_exact", image: "/products/almond-milk-tetrapak.webp", emoji: "🌰",
     category: "Здоровое питание",
     title: "Молоко миндальное",
     description: "Напиток миндальный несладкий для кофе и каш. Тетрапак 1л.",
@@ -3013,7 +3013,7 @@ export const products: Product[] = [
     tags: ["миндальное молоко", "растительное", "веган"],
   },
   {
-    id: "oat-milk-oatly", image: "/products/oat-milk-oatly.webp", emoji: "🌾",
+    id: "oat-milk-oatly", imageStatus: "verified_exact", image: "/products/oat-milk-oatly.webp", emoji: "🌾",
     category: "Здоровое питание",
     title: "Молоко овсяное Oatly Barista",
     description: "Напиток овсяный Oatly Barista для кофе. Тетрапак 1л.",
@@ -3031,7 +3031,7 @@ export const products: Product[] = [
     tags: ["годжи", "суперфуд", "антиоксиданты"],
   },
   {
-    id: "spirulina-powder", image: "/products/spirulina-powder.webp", emoji: "🌿",
+    id: "spirulina-powder", imageStatus: "verified_generic", image: "/products/spirulina-powder.webp", emoji: "🌿",
     category: "Здоровое питание",
     title: "Спирулина порошок",
     description: "Спирулина органическая порошок. Богата белком. Упаковка 100г.",
@@ -3040,7 +3040,7 @@ export const products: Product[] = [
     tags: ["спирулина", "суперфуд", "белок", "водоросли"],
   },
   {
-    id: "psyllium-husk", image: "/products/psyllium-husk.webp", emoji: "🌿",
+    id: "psyllium-husk", imageStatus: "verified_generic", image: "/products/psyllium-husk.webp", emoji: "🌿",
     category: "Здоровое питание",
     title: "Псиллиум (шелуха подорожника)",
     description: "Псиллиум — натуральная клетчатка из шелухи подорожника. 150г.",
@@ -3049,7 +3049,7 @@ export const products: Product[] = [
     tags: ["псиллиум", "клетчатка", "подорожник", "пребиотик"],
   },
   {
-    id: "protein-powder-vanilla", image: "/products/protein-powder-vanilla.webp", emoji: "💪",
+    id: "protein-powder-vanilla", imageStatus: "verified_generic", image: "/products/protein-powder-vanilla.webp", emoji: "💪",
     category: "Здоровое питание",
     title: "Протеин Optimum Vanilla",
     description: "Протеиновый порошок Optimum Nutrition Gold Standard Vanilla. 450г.",
@@ -3058,7 +3058,7 @@ export const products: Product[] = [
     tags: ["протеин", "optimum", "ваниль", "спортивное"],
   },
   {
-    id: "collagen-marine", image: "/products/collagen-marine.webp", emoji: "💊",
+    id: "collagen-marine", imageStatus: "verified_generic", image: "/products/collagen-marine.webp", emoji: "💊",
     category: "Здоровое питание",
     title: "Коллаген морской",
     description: "Коллаген морской гидролизованный Premium. Порошок 100г.",
@@ -3278,7 +3278,7 @@ export const products: Product[] = [
 
   // ─── Рыба и морепродукты — дополнение ─────────────────────────────────────
   {
-    id: "crab-meat", image: "/products/crab-meat.webp", emoji: "🦀",
+    id: "crab-meat", imageStatus: "verified_generic", image: "/products/crab-meat.webp", emoji: "🦀",
     category: "Рыба и морепродукты",
     title: "Мясо краба натуральное",
     description: "Мясо камчатского краба, консервированное. Без добавок. Банка 200г.",
@@ -3287,7 +3287,7 @@ export const products: Product[] = [
     tags: ["краб", "крабовое мясо", "морепродукты", "деликатес"],
   },
   {
-    id: "sea-cocktail", image: "/products/sea-cocktail.webp", emoji: "🌊",
+    id: "sea-cocktail", imageStatus: "verified_generic", image: "/products/sea-cocktail.webp", emoji: "🌊",
     category: "Рыба и морепродукты",
     title: "Морской коктейль замороженный",
     description: "Ассорти из морепродуктов: кальмар, мидии, осьминог, креветки. 400г.",
@@ -3296,7 +3296,7 @@ export const products: Product[] = [
     tags: ["морской коктейль", "морепродукты", "кальмар", "мидии", "заморозка"],
   },
   {
-    id: "masago", image: "/products/masago.webp", emoji: "🟠",
+    id: "masago", imageStatus: "verified_generic", image: "/products/masago.webp", emoji: "🟠",
     category: "Рыба и морепродукты",
     title: "Икра масаго",
     description: "Икра мойвы масаго, чёрная. Для суши и роллов. Банка 100г.",
@@ -3305,7 +3305,7 @@ export const products: Product[] = [
     tags: ["масаго", "икра", "суши", "роллы"],
   },
   {
-    id: "tobiko-orange", image: "/products/tobiko-orange.webp", emoji: "🟡",
+    id: "tobiko-orange", imageStatus: "verified_generic", image: "/products/tobiko-orange.webp", emoji: "🟡",
     category: "Рыба и морепродукты",
     title: "Икра тобико оранжевая",
     description: "Икра летучей рыбы тобико оранжевая. Для суши и роллов. 100г.",
@@ -3323,7 +3323,7 @@ export const products: Product[] = [
     tags: ["угорь", "унаги", "суши", "роллы", "копчёный"],
   },
   {
-    id: "tuna-sashimi", image: "/products/tuna-sashimi.webp", emoji: "🐟",
+    id: "tuna-sashimi", imageStatus: "verified_generic", image: "/products/tuna-sashimi.webp", emoji: "🐟",
     category: "Рыба и морепродукты",
     title: "Тунец для сашими",
     description: "Тунец желтопёрый, порционный, шоковой заморозки. Сашими-качество. 200г.",
@@ -3334,7 +3334,7 @@ export const products: Product[] = [
 
   // ─── Молочные продукты — дополнение ──────────────────────────────────────
   {
-    id: "barista-milk", image: "/products/barista-milk.webp", emoji: "🥛",
+    id: "barista-milk", imageStatus: "verified_generic", image: "/products/barista-milk.webp", emoji: "🥛",
     category: "Молочные продукты",
     title: "Молоко Barista 3.5%",
     description: "Молоко специальное для кофе. Идеально вспенивается. Тетрапак 1л.",
@@ -3343,7 +3343,7 @@ export const products: Product[] = [
     tags: ["молоко", "барриста", "кофе", "капучино", "молочные"],
   },
   {
-    id: "cheese-cheddar", image: "/products/cheese-cheddar.webp", emoji: "🧀",
+    id: "cheese-cheddar", imageStatus: "verified_generic", image: "/products/cheese-cheddar.webp", emoji: "🧀",
     category: "Молочные продукты",
     title: "Сыр Чеддер выдержанный",
     description: "Сыр Чеддер 50% жирности, натуральный выдержанный. Нарезка 200г.",
@@ -3363,7 +3363,7 @@ export const products: Product[] = [
 
   // ─── Мясо и птица — дополнение ───────────────────────────────────────────
   {
-    id: "chicken-breast-fresh", image: "/products/chicken-breast-fresh.webp", emoji: "🍗",
+    id: "chicken-breast-fresh", imageStatus: "verified_generic", image: "/products/chicken-breast-fresh.webp", emoji: "🍗",
     category: "Мясо и птица",
     title: "Грудка куриная охлаждённая",
     description: "Грудка куриная охлаждённая, без костей и кожи. Упаковка ≈1кг.",
@@ -3372,7 +3372,7 @@ export const products: Product[] = [
     tags: ["куриная грудка", "птица", "мясо", "охлаждённое"],
   },
   {
-    id: "nuggets-chicken", image: "/products/nuggets-chicken.webp", emoji: "🍗",
+    id: "nuggets-chicken", imageStatus: "verified_generic", image: "/products/nuggets-chicken.webp", emoji: "🍗",
     category: "Мясо и птица",
     title: "Наггетсы куриные",
     description: "Наггетсы из куриного филе в хрустящей панировке. Замороженные. 500г.",
@@ -3381,7 +3381,7 @@ export const products: Product[] = [
     tags: ["наггетсы", "куриные", "заморозка", "птица"],
   },
   {
-    id: "pepperoni-slice", image: "/products/pepperoni-slice.webp", emoji: "🍕",
+    id: "pepperoni-slice", imageStatus: "verified_generic", image: "/products/pepperoni-slice.webp", emoji: "🍕",
     category: "Мясо и птица",
     title: "Пепперони нарезка",
     description: "Пепперони острый, тонкая нарезка. Для пиццы и бутербродов. 100г.",
@@ -3392,7 +3392,7 @@ export const products: Product[] = [
 
   // ─── Соусы и специи — дополнение ─────────────────────────────────────────
   {
-    id: "garlic-sauce", image: "/products/garlic-sauce.webp", emoji: "🧄",
+    id: "garlic-sauce", imageStatus: "verified_generic", image: "/products/garlic-sauce.webp", emoji: "🧄",
     category: "Соусы и специи",
     title: "Соус чесночный",
     description: "Соус чесночный сливочный. Идеально к шаурме и мясным блюдам. 300г.",
@@ -3401,7 +3401,7 @@ export const products: Product[] = [
     tags: ["соус", "чесночный", "чеснок", "сливочный"],
   },
   {
-    id: "pesto-sauce", image: "/products/pesto-sauce.webp", emoji: "🌿",
+    id: "pesto-sauce", imageStatus: "verified_generic", image: "/products/pesto-sauce.webp", emoji: "🌿",
     category: "Соусы и специи",
     title: "Соус Песто зелёный",
     description: "Итальянский соус Песто с базиликом и пармезаном. Банка 180г.",
@@ -3419,7 +3419,7 @@ export const products: Product[] = [
     tags: ["унаги", "соус", "суши", "роллы", "японский"],
   },
   {
-    id: "pizza-tomato-sauce", image: "/products/pizza-tomato-sauce.webp", emoji: "🍅",
+    id: "pizza-tomato-sauce", imageStatus: "verified_generic", image: "/products/pizza-tomato-sauce.webp", emoji: "🍅",
     category: "Соусы и специи",
     title: "Соус томатный для пиццы",
     description: "Готовый соус для пиццы на основе томатов с итальянскими травами. 350г.",
@@ -3437,7 +3437,7 @@ export const products: Product[] = [
     tags: ["орегано", "приправа", "специи", "итальянская кухня"],
   },
   {
-    id: "wasabi-paste", image: "/products/wasabi-paste.webp", emoji: "🟢",
+    id: "wasabi-paste", imageStatus: "verified_generic", image: "/products/wasabi-paste.webp", emoji: "🟢",
     category: "Соусы и специи",
     title: "Васаби паста",
     description: "Паста васаби японская острая. Для суши и сашими. Туба 43г.",
@@ -3466,7 +3466,7 @@ export const products: Product[] = [
     tags: ["рис", "суши", "японский", "круглозернистый"],
   },
   {
-    id: "nori-gold", image: "/products/nori-gold.webp", emoji: "🌿",
+    id: "nori-gold", imageStatus: "verified_generic", image: "/products/nori-gold.webp", emoji: "🌿",
     category: "Бакалея",
     title: "Нори Gold 10 листов",
     description: "Листы нори премиум класса Gold для суши и роллов. Упаковка 10 листов.",
@@ -3475,7 +3475,7 @@ export const products: Product[] = [
     tags: ["нори", "суши", "роллы", "японский", "Gold"],
   },
   {
-    id: "nori-silver", image: "/products/nori-silver.webp", emoji: "🌿",
+    id: "nori-silver", imageStatus: "verified_generic", image: "/products/nori-silver.webp", emoji: "🌿",
     category: "Бакалея",
     title: "Нори Silver 10 листов",
     description: "Листы нори Silver для суши и роллов. Упаковка 10 листов.",
@@ -3484,7 +3484,7 @@ export const products: Product[] = [
     tags: ["нори", "суши", "роллы", "японский", "Silver"],
   },
   {
-    id: "panko-breadcrumbs", image: "/products/panko-breadcrumbs.webp", emoji: "🍞",
+    id: "panko-breadcrumbs", imageStatus: "verified_generic", image: "/products/panko-breadcrumbs.webp", emoji: "🍞",
     category: "Бакалея",
     title: "Панировочные сухари панко",
     description: "Японские панировочные сухари панко. Хрустящая корочка. 200г.",
@@ -3493,7 +3493,7 @@ export const products: Product[] = [
     tags: ["панко", "панировка", "сухари", "японский"],
   },
   {
-    id: "panko-coarse", image: "/products/panko-coarse.webp", emoji: "🍞",
+    id: "panko-coarse", imageStatus: "verified_generic", image: "/products/panko-coarse.webp", emoji: "🍞",
     category: "Бакалея",
     title: "Сухари панко крупные",
     description: "Японские панировочные сухари крупного помола. Хрустящие. 200г.",
@@ -3502,7 +3502,7 @@ export const products: Product[] = [
     tags: ["панко", "панировка", "сухари", "крупный помол"],
   },
   {
-    id: "tempura-mix", image: "/products/tempura-mix.webp", emoji: "🍤",
+    id: "tempura-mix", imageStatus: "verified_generic", image: "/products/tempura-mix.webp", emoji: "🍤",
     category: "Бакалея",
     title: "Смесь для темпуры",
     description: "Готовая смесь для приготовления темпуры. Воздушное хрустящее тесто. 300г.",
@@ -3511,7 +3511,7 @@ export const products: Product[] = [
     tags: ["темпура", "японский", "смесь", "тесто"],
   },
   {
-    id: "pasta-tiger", image: "/products/pasta-tiger.webp", emoji: "🍝",
+    id: "pasta-tiger", imageStatus: "verified_generic", image: "/products/pasta-tiger.webp", emoji: "🍝",
     category: "Бакалея",
     title: "Паста тигровая Barilla",
     description: "Паста Barilla тигровые ракушки (Conchiglie). Твёрдые сорта пшеницы. 500г.",
@@ -3522,7 +3522,7 @@ export const products: Product[] = [
 
   // ─── Заморозка — тесто ───────────────────────────────────────────────────
   {
-    id: "frozen-dough-puff", image: "/products/frozen-dough-puff.webp", emoji: "🥐",
+    id: "frozen-dough-puff", imageStatus: "verified_generic", image: "/products/frozen-dough-puff.webp", emoji: "🥐",
     category: "Заморозка",
     title: "Тесто слоёное замороженное",
     description: "Слоёное тесто дрожжевое замороженное. Для круассанов, самсы, слоёных пирогов. 500г.",
@@ -3531,7 +3531,7 @@ export const products: Product[] = [
     tags: ["тесто", "слоёное", "заморозка", "выпечка"],
   },
   {
-    id: "pizza-dough-frozen", image: "/products/pizza-dough-frozen.webp", emoji: "🍕",
+    id: "pizza-dough-frozen", imageStatus: "verified_generic", image: "/products/pizza-dough-frozen.webp", emoji: "🍕",
     category: "Заморозка",
     title: "Тесто для пиццы дрожжевое",
     description: "Готовое дрожжевое тесто для пиццы. Раскатать и выпекать. 500г.",
@@ -3542,7 +3542,7 @@ export const products: Product[] = [
 
   // ─── Кофе, чай и какао — дополнение ──────────────────────────────────────
   {
-    id: "cocoa-jb", image: "/products/cocoa-jb.webp", emoji: "☕",
+    id: "cocoa-jb", imageStatus: "verified_generic", image: "/products/cocoa-jb.webp", emoji: "☕",
     category: "Кофе, чай и какао",
     title: "Какао JB Classic",
     description: "Какао-порошок JB Classic натуральный. Для горячего шоколада и выпечки. 250г.",
@@ -3562,7 +3562,7 @@ export const products: Product[] = [
 
   // ─── Кондитерские изделия — дополнение ───────────────────────────────────
   {
-    id: "chocolate-bar-milka", image: "/products/chocolate-bar-milka.webp", emoji: "🍫",
+    id: "chocolate-bar-milka", imageStatus: "verified_exact", image: "/products/chocolate-bar-milka.webp", emoji: "🍫",
     category: "Кондитерские изделия",
     title: "Шоколад Milka молочный",
     description: "Молочный шоколад Milka с нежной альпийской молочной начинкой. 90г.",

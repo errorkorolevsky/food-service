@@ -18,7 +18,7 @@ import type { Product } from "@/types"
 
 type ProductCardProps = Pick<Product,
   "id" | "category" | "title" | "description" | "price" | "priceNum" |
-  "rating" | "emoji" | "image" | "isNew" | "isHit" | "inStock" | "oldPriceNum" | "discountPercent" | "unit"
+  "rating" | "emoji" | "image" | "imageStatus" | "isNew" | "isHit" | "inStock" | "oldPriceNum" | "discountPercent" | "unit"
 >
 
 export default function ProductCard({
@@ -34,6 +34,7 @@ export default function ProductCard({
   rating,
   emoji,
   image,
+  imageStatus,
   isNew,
   isHit,
   inStock,
@@ -69,7 +70,12 @@ export default function ProductCard({
   const [shining,    setShining]    = useState(false)
   const [burst,      setBurst]      = useState(false)
   const [imgError,   setImgError]   = useState(false)
-  const showImage = !!image && !imgError
+
+  // Only render real images when status is confirmed safe.
+  // rejected / needs_review / missing → placeholder (never show mismatched photos).
+  const SAFE = new Set(["verified_exact", "verified_generic", "real_verified"])
+  const statusSafe = !imageStatus || SAFE.has(imageStatus)
+  const showImage = !!image && !imgError && statusSafe
 
   const handleMouseLeave = () => {
     mouseX.set(0)

@@ -8,8 +8,10 @@
 
 import { unstable_cache } from "next/cache"
 import { createClient }   from "@supabase/supabase-js"
+import * as fs   from "fs"
+import * as path from "path"
 import { products as localProducts } from "@/data/products"
-import type { Product } from "@/types"
+import type { Product, ImageStatus } from "@/types"
 
 // ─── SUPABASE ROW TYPE ────────────────────────────────────────────────────────
 
@@ -17,6 +19,7 @@ type ProductRow = {
   id:               string
   emoji:            string
   image:            string | null
+  image_status:     string | null
   category:         string
   title:            string
   description:      string
@@ -34,14 +37,24 @@ type ProductRow = {
 }
 
 // ─── VALID PRODUCT IMAGES ────────────────────────────────────────────────────
-// Accepts any path matching /products/<id>.webp or /products/<id>.png.
-// This pattern-based check replaces the old hardcoded set so it stays in sync
-// automatically as new images are added to public/products/.
+// Reads the actual filesystem to build a set of files that exist on disk.
+// This ensures Supabase rows with stale/invalid image paths never reach the UI.
+
+function buildValidImageSet(): Set<string> {
+  try {
+    const dir = path.join(process.cwd(), "public", "products")
+    return new Set(fs.readdirSync(dir).map((f) => `/products/${f}`))
+  } catch {
+    return new Set()
+  }
+}
+
+const _validImageSet = buildValidImageSet()
 
 export const VALID_PRODUCT_IMAGES = {
-  has(path: string | null | undefined): boolean {
-    if (!path) return false
-    return /^\/products\/[a-z0-9_-]+\.(webp|png|jpg|jpeg)$/.test(path)
+  has(p: string | null | undefined): boolean {
+    if (!p) return false
+    return _validImageSet.has(p)
   },
 }
 
@@ -52,6 +65,7 @@ function rowToProduct(row: ProductRow): Product {
     id:               row.id,
     emoji:            row.emoji,
     image:            row.image && VALID_PRODUCT_IMAGES.has(row.image) ? row.image : undefined,
+    imageStatus:      (row.image_status as ImageStatus) ?? undefined,
     category:         row.category         as Product["category"],
     title:            row.title,
     description:      row.description,

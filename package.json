@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "gen:images": "tsx scripts/generate-product-images.ts",
-    "gen:images:all": "tsx scripts/generate-product-images.ts --all"
+    "gen:images:all": "tsx scripts/generate-product-images.ts --all",
+    "validate:images": "tsx scripts/validate-product-images.ts",
+    "validate:images:strict": "tsx scripts/validate-product-images.ts --fail"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.97.1",
