@@ -1207,7 +1207,7 @@ export const products: Product[] = [
     tags: ["сок", "мультифрукт", "напитки"],
   },
   {
-    id: "cola", imageStatus: "verified_exact", image: "/products/cola.webp", emoji: "🥤",
+    id: "cola", imageStatus: "rejected", emoji: "🥤",
     category: "Напитки",
     title: "Кока-Кола",
     description: "Кока-Кола газированный напиток. Бутылка 1.5л.",
@@ -1637,7 +1637,7 @@ export const products: Product[] = [
     tags: ["пряники", "медовые", "глазурь"],
   },
   {
-    id: "snickers", imageStatus: "verified_exact", image: "/products/snickers.webp", emoji: "🍫",
+    id: "snickers", imageStatus: "rejected", emoji: "🍫",
     category: "Кондитерские изделия",
     title: "Snickers шоколадный батончик",
     description: "Snickers с карамелью, арахисом и нугой. 95г.",
@@ -1664,7 +1664,7 @@ export const products: Product[] = [
     tags: ["oreo", "печенье", "шоколад", "начинка"],
   },
   {
-    id: "nutella", imageStatus: "verified_exact", image: "/products/nutella.webp", emoji: "🍫",
+    id: "nutella", imageStatus: "rejected", emoji: "🍫",
     category: "Кондитерские изделия",
     title: "Нутелла шоколадная паста",
     description: "Nutella шоколадно-фундуковая паста. Стеклянная банка 400г.",
@@ -1673,7 +1673,7 @@ export const products: Product[] = [
     tags: ["нутелла", "nutella", "паста", "фундук"],
   },
   {
-    id: "bounty", imageStatus: "verified_exact", image: "/products/bounty.webp", emoji: "🍫",
+    id: "bounty", imageStatus: "rejected", emoji: "🍫",
     category: "Кондитерские изделия",
     title: "Bounty кокосовый батончик",
     description: "Bounty с кокосовой начинкой в молочном шоколаде. 2×28.5г.",
@@ -1959,7 +1959,7 @@ export const products: Product[] = [
     tags: ["спагетти", "barilla", "макароны", "паста"],
   },
   {
-    id: "penne-barilla", imageStatus: "verified_exact", image: "/products/penne-barilla.webp", emoji: "🍝",
+    id: "penne-barilla", imageStatus: "rejected", emoji: "🍝",
     category: "Бакалея",
     title: "Пенне Barilla Rigate",
     description: "Пенне Barilla Rigate рифлёные. Упаковка 500г.",
@@ -2794,7 +2794,7 @@ export const products: Product[] = [
   // ─── ДЕТСКОЕ ПИТАНИЕ ────────────────────────────────────────────────────────
 
   {
-    id: "baby-puree-apple-gerber", imageStatus: "needs_review", image: "/products/baby-puree-apple-gerber.webp", emoji: "🍎",
+    id: "baby-puree-apple-gerber", imageStatus: "verified_generic", image: "/products/baby-puree-apple-gerber.webp", emoji: "🍎",
     category: "Детское питание",
     title: "Пюре яблочное Gerber",
     description: "Пюре яблочное Gerber без сахара и добавок. Баночка 130г. Для детей с 4 мес.",

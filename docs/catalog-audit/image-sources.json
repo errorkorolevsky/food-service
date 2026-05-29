@@ -193,13 +193,12 @@
     "fetched": "2026-05-29"
   },
   "snickers": {
-    "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Snickers+Mars+Twix promo group",
-    "barcode": "4607065001445",
-    "note": "Group promo image. Acceptable as placeholder.",
-    "local_path": "/products/snickers.webp",
-    "fetched": "2026-05-29"
+    "status": "rejected",
+    "source_type": null,
+    "source_name": "Rejected — only competitor stand-in or amateur photo available; shows emoji placeholder",
+    "local_path": null,
+    "note": "No correct-brand studio image sourced yet",
+    "fetched": "2026-05-30"
   },
   "kitkat": {
     "status": "real_verified",
@@ -218,13 +217,12 @@
     "fetched": "2026-05-29"
   },
   "nutella": {
-    "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Milka hazelnut paste (not Nutella)",
-    "barcode": "7622201459826",
-    "note": "Wrong brand, same product type",
-    "local_path": "/products/nutella.webp",
-    "fetched": "2026-05-29"
+    "status": "rejected",
+    "source_type": null,
+    "source_name": "Rejected — only competitor stand-in or amateur photo available; shows emoji placeholder",
+    "local_path": null,
+    "note": "No correct-brand studio image sourced yet",
+    "fetched": "2026-05-30"
   },
   "chocolate-bar-milka": {
     "status": "real_verified",
@@ -341,11 +339,12 @@
   },
   "baby-puree-apple-gerber": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "FrutoNyanya puree 90g",
-    "barcode": "4600338006574",
+    "source_type": "openfoodfacts",
+    "source_name": "Gerber Apple Strawberry Banana 2nd Foods (correct brand, multi-fruit variant)",
+    "source_url": "https://images.openfoodfacts.org/images/products/001/500/007/6092/front_en.7.400.jpg",
     "local_path": "/products/baby-puree-apple-gerber.webp",
-    "fetched": "2026-05-29"
+    "note": "Correct Gerber brand; flavor differs from pure apple",
+    "fetched": "2026-05-30"
   },
   "baby-juice-agusha": {
     "status": "matched_unverified",
@@ -364,13 +363,12 @@
     "fetched": "2026-05-29"
   },
   "cola": {
-    "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Напиток PEPSI COLA газ 1L",
-    "barcode": "4870145005545",
-    "local_path": "/products/cola.webp",
-    "note": "Pepsi Cola 1L image — Cola stand-in",
-    "fetched": "2026-05-28"
+    "status": "rejected",
+    "source_type": null,
+    "source_name": "Rejected — only competitor stand-in or amateur photo available; shows emoji placeholder",
+    "local_path": null,
+    "note": "No correct-brand studio image sourced yet",
+    "fetched": "2026-05-30"
   },
   "lays-chips": {
     "status": "real_verified",
@@ -639,13 +637,12 @@
     "fetched": "2026-05-28"
   },
   "bounty": {
-    "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Snickers/Mars/Twix — Bounty stand-in (Mars family)",
-    "source_url": "https://magnum.kz:1337/uploads/4607065001445_1ea9f69896.jpg",
-    "local_path": "/products/bounty.webp",
-    "note": "Snickers/Mars/Twix — Bounty stand-in (Mars family)",
-    "fetched": "2026-05-28"
+    "status": "rejected",
+    "source_type": null,
+    "source_name": "Rejected — only competitor stand-in or amateur photo available; shows emoji placeholder",
+    "local_path": null,
+    "note": "No correct-brand studio image sourced yet",
+    "fetched": "2026-05-30"
   },
   "lays-paprika": {
     "status": "matched_unverified",
@@ -675,13 +672,12 @@
     "fetched": "2026-05-28"
   },
   "penne-barilla": {
-    "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Makfa pasta 400g — penne stand-in",
-    "source_url": "https://magnum.kz:1337/uploads/4601780009885_f392b85107.jpg",
-    "local_path": "/products/penne-barilla.webp",
-    "note": "Makfa pasta 400g — penne stand-in",
-    "fetched": "2026-05-28"
+    "status": "rejected",
+    "source_type": null,
+    "source_name": "Rejected — only competitor stand-in or amateur photo available; shows emoji placeholder",
+    "local_path": null,
+    "note": "No correct-brand studio image sourced yet",
+    "fetched": "2026-05-30"
   },
   "farfalle": {
     "status": "matched_unverified",

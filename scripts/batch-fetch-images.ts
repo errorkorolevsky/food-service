@@ -579,6 +579,14 @@ const OFf_QUERY_OVERRIDES: Record<string, string> = {
   "baby-porridge-rice-nestle": "Nestlé baby rice cereal porridge",
   "caramel-syrup":        "caramel syrup coffee Monin bottle",
 
+  // ─── BRANDED FLAGSHIPS (must show correct brand — no competitor stand-ins) ───
+  "cola":                   "Coca-Cola classic original",
+  "snickers":               "Snickers chocolate bar",
+  "nutella":                "Nutella hazelnut spread Ferrero",
+  "bounty":                 "Bounty coconut chocolate bar",
+  "penne-barilla":          "Barilla penne rigate pasta",
+  "baby-puree-apple-gerber":"Gerber apple puree baby food",
+
   // ─── HORECA PACKAGING (low priority — but OFf might have them) ───────────────
   "foil-food":              "aluminum foil kitchen roll",
   "cling-film":             "cling film food wrap",
