@@ -188,13 +188,10 @@ export default function ProductClient({
               ref={imgRef}
               whileHover={{ scale: 1.01 }}
               transition={{ duration: 0.3 }}
-              className="
-                relative bg-fs-white border border-fs-border rounded-2xl
-                flex items-center justify-center
-                min-h-[280px] sm:min-h-[380px] lg:min-h-[560px]
-                overflow-hidden
-              "
+              className="relative border border-fs-border rounded-2xl overflow-hidden w-full"
               style={{
+                aspectRatio: "1 / 1",
+                background: "radial-gradient(ellipse 85% 70% at 50% 70%, rgba(0,91,70,0.08) 0%, rgb(var(--fs-light)) 100%)",
                 boxShadow: cursor.active
                   ? `0 0 0 1px rgba(0,91,70,${0.08 + (1 - cursor.dist) * 0.18}), 0 8px 40px rgba(0,91,70,${0.04 + (1 - cursor.dist) * 0.10})`
                   : undefined,
@@ -202,7 +199,7 @@ export default function ProductClient({
             >
               {/* CURSOR-AWARE LIGHT */}
               <div
-                className="absolute inset-0 pointer-events-none transition-all duration-200"
+                className="absolute inset-0 pointer-events-none transition-all duration-200 z-10"
                 style={{
                   background: cursor.active
                     ? `radial-gradient(ellipse 70% 60% at ${cursor.x * 100}% ${cursor.y * 100}%, rgba(0,91,70,0.06) 0%, transparent 70%)`
@@ -211,27 +208,27 @@ export default function ProductClient({
               />
               {product.image && !imgError ? (
                 <motion.div
-                  initial={{ scale: 0.95, opacity: 0 }}
+                  initial={{ scale: 0.96, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="absolute inset-0 rounded-2xl overflow-hidden"
+                  className="absolute inset-0"
                 >
                   <Image
                     src={product.image}
                     alt={product.title}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     priority
                     onError={() => setImgError(true)}
                   />
                 </motion.div>
               ) : (
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 opacity-25">
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 opacity-25">
                   <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-fs-gray">
                     <rect x="3" y="3" width="18" height="18" rx="3"/>
-                    <circle cx="12" cy="11" r="3.5"/>
-                    <path d="M3 17l4-4 3 3 4-5 4 6"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <path d="M21 15l-5-5L5 21"/>
                   </svg>
                   <span className="text-xs font-medium text-fs-gray tracking-widest uppercase">Фото скоро</span>
                 </div>

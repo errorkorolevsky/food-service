@@ -106,27 +106,39 @@ export default function ProductQuickView() {
 
             <div className="flex flex-col sm:flex-row">
 
-              {/* IMAGE */}
+              {/* IMAGE — fixed 1:1 ratio, matches ProductCard frame system */}
               <div
-                className="sm:w-[240px] flex-shrink-0 h-52 sm:h-auto flex items-center justify-center relative overflow-hidden"
-                style={{ background: `radial-gradient(ellipse 80% 70% at 50% 55%, ${categoryColor}18 0%, var(--page-bg) 100%)` }}
+                className="sm:w-[240px] flex-shrink-0 relative overflow-hidden"
+                style={{
+                  aspectRatio: "1 / 1",
+                  background: `radial-gradient(ellipse 85% 65% at 50% 70%, ${categoryColor}14 0%, var(--page-bg) 100%)`,
+                }}
               >
                 {product.image ? (
                   <Image
                     src={product.image}
                     alt={product.title}
                     fill
-                    className="object-contain p-4"
+                    className="object-contain"
                     sizes="240px"
                   />
                 ) : (
-                  <div className="flex flex-col items-center justify-center gap-2 opacity-25">
-                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-fs-gray">
-                      <rect x="3" y="3" width="18" height="18" rx="3"/>
-                      <circle cx="12" cy="11" r="3.5"/>
-                      <path d="M3 17l4-4 3 3 4-5 4 6"/>
-                    </svg>
-                    <span className="text-[10px] font-medium text-fs-gray tracking-widest uppercase">Фото скоро</span>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2.5">
+                    <div
+                      className="w-16 h-16 rounded-xl flex items-center justify-center"
+                      style={{ background: `${categoryColor}12` }}
+                    >
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3"
+                        style={{ color: categoryColor, opacity: 0.45 }}>
+                        <rect x="3" y="3" width="18" height="18" rx="3"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <path d="M21 15l-5-5L5 21"/>
+                      </svg>
+                    </div>
+                    <span className="text-[9px] font-semibold tracking-[0.12em] uppercase"
+                      style={{ color: categoryColor, opacity: 0.35 }}>
+                      Фото скоро
+                    </span>
                   </div>
                 )}
 

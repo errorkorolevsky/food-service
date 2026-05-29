@@ -325,14 +325,47 @@ function downloadOnce(url: string, dest: string, timeoutMs = 25000): Promise<voi
   })
 }
 
+// Normalize constants — keep in sync with scripts/normalize-images.ts
+const NORM_FINAL    = 600
+const NORM_PADDING  = 60                           // 10% each side
+const NORM_PRODUCT  = NORM_FINAL - NORM_PADDING * 2 // 480px
+const NORM_WHITE    = { r: 255, g: 255, b: 255, alpha: 1 as const }
+
 async function toWebp(src: string, dest: string): Promise<boolean> {
   try {
     const meta = await sharp(src).metadata()
     if ((meta.width ?? 0) < 150 || (meta.height ?? 0) < 150) return false
-    await sharp(src)
-      .resize(600, 800, { fit: "contain", background: { r: 255, g: 255, b: 255 } })
+
+    const raw = fs.readFileSync(src)
+
+    // 1. Trim near-white borders so product fills the frame
+    let trimmed: Buffer
+    try {
+      trimmed = await sharp(raw)
+        .flatten({ background: NORM_WHITE })
+        .trim({ background: NORM_WHITE, threshold: 25 })
+        .toBuffer()
+      const tm = await sharp(trimmed).metadata()
+      if ((tm.width ?? 0) < 60 || (tm.height ?? 0) < 60) trimmed = raw
+    } catch {
+      trimmed = raw
+    }
+
+    // 2. Fit product into 480px square, then extend to 600×600 with 10% padding
+    await sharp(trimmed)
+      .resize(NORM_PRODUCT, NORM_PRODUCT, {
+        fit: "contain",
+        background: NORM_WHITE,
+        withoutEnlargement: false,
+      })
+      .extend({
+        top: NORM_PADDING, bottom: NORM_PADDING,
+        left: NORM_PADDING, right: NORM_PADDING,
+        background: NORM_WHITE,
+      })
       .webp({ quality: 90 })
       .toFile(dest)
+
     return true
   } catch {
     return false

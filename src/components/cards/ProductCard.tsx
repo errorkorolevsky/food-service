@@ -141,38 +141,54 @@ export default function ProductCard({
         />
       )}
 
-      {/* IMAGE — bigger, with ambient gradient */}
+      {/* IMAGE FRAME — fixed 1:1 ratio, consistent across all breakpoints */}
       <Link href={`/product/${id}`}>
-        <div className="
-          h-40 sm:h-48 md:h-56 flex items-center justify-center relative
-          cursor-pointer overflow-hidden
-        " style={{
-          background: showImage
-            ? `radial-gradient(ellipse 80% 70% at 50% 60%, ${CATEGORY_COLORS_BY_NAME[category] ?? "#005B46"}18 0%, rgb(var(--fs-light)) 100%)`
-            : `rgb(var(--fs-offwhite))`,
-        }}>
-          {/* ambient inner glow */}
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{
-            background: `radial-gradient(ellipse 60% 55% at 50% 55%, ${CATEGORY_COLORS_BY_NAME[category] ?? "#005B46"}22 0%, transparent 70%)`,
-          }} />
+        <div
+          className="relative w-full overflow-hidden cursor-pointer"
+          style={{
+            aspectRatio: "1 / 1",
+            // Always-on radial glow anchored at bottom of image — same for all cards
+            background: `radial-gradient(ellipse 85% 65% at 50% 70%, ${CATEGORY_COLORS_BY_NAME[category] ?? "#005B46"}14 0%, rgb(var(--fs-light)) 100%)`,
+          }}
+        >
+          {/* hover glow — intensifies the ambient on interaction */}
+          <div
+            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+            style={{
+              background: `radial-gradient(ellipse 65% 55% at 50% 65%, ${CATEGORY_COLORS_BY_NAME[category] ?? "#005B46"}20 0%, transparent 75%)`,
+            }}
+          />
 
           {showImage ? (
             <Image
               src={image!}
               alt={title}
               fill
-              className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+              className="object-contain transition-transform duration-500 group-hover:scale-[1.04]"
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               onError={() => setImgError(true)}
+              priority={false}
             />
           ) : (
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 opacity-30">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="text-fs-gray">
-                <rect x="3" y="3" width="18" height="18" rx="3"/>
-                <circle cx="12" cy="11" r="3.5"/>
-                <path d="M3 17l4-4 3 3 4-5 4 6"/>
-              </svg>
-              <span className="text-[10px] font-medium text-fs-gray tracking-wide uppercase">Фото скоро</span>
+            // Placeholder — same background as image cards, subtle centred icon
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-2.5 select-none">
+              <div
+                className="w-14 h-14 rounded-xl flex items-center justify-center"
+                style={{ background: `${CATEGORY_COLORS_BY_NAME[category] ?? "#005B46"}12` }}
+              >
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3"
+                  style={{ color: CATEGORY_COLORS_BY_NAME[category] ?? "#005B46", opacity: 0.45 }}>
+                  <rect x="3" y="3" width="18" height="18" rx="3"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="M21 15l-5-5L5 21"/>
+                </svg>
+              </div>
+              <span
+                className="text-[9px] font-semibold tracking-[0.12em] uppercase"
+                style={{ color: CATEGORY_COLORS_BY_NAME[category] ?? "#005B46", opacity: 0.35 }}
+              >
+                Фото скоро
+              </span>
             </div>
           )}
 
