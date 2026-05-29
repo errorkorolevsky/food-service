@@ -1207,7 +1207,7 @@ export const products: Product[] = [
     tags: ["сок", "мультифрукт", "напитки"],
   },
   {
-    id: "cola", imageStatus: "rejected", emoji: "🥤",
+    id: "cola", imageStatus: "verified_exact", image: "/products/cola.webp", emoji: "🥤",
     category: "Напитки",
     title: "Кока-Кола",
     description: "Кока-Кола газированный напиток. Бутылка 1.5л.",
@@ -1637,7 +1637,7 @@ export const products: Product[] = [
     tags: ["пряники", "медовые", "глазурь"],
   },
   {
-    id: "snickers", imageStatus: "rejected", emoji: "🍫",
+    id: "snickers", imageStatus: "verified_exact", image: "/products/snickers.webp", emoji: "🍫",
     category: "Кондитерские изделия",
     title: "Snickers шоколадный батончик",
     description: "Snickers с карамелью, арахисом и нугой. 95г.",
@@ -1664,7 +1664,7 @@ export const products: Product[] = [
     tags: ["oreo", "печенье", "шоколад", "начинка"],
   },
   {
-    id: "nutella", imageStatus: "rejected", emoji: "🍫",
+    id: "nutella", imageStatus: "verified_exact", image: "/products/nutella.webp", emoji: "🍫",
     category: "Кондитерские изделия",
     title: "Нутелла шоколадная паста",
     description: "Nutella шоколадно-фундуковая паста. Стеклянная банка 400г.",
@@ -1673,7 +1673,7 @@ export const products: Product[] = [
     tags: ["нутелла", "nutella", "паста", "фундук"],
   },
   {
-    id: "bounty", imageStatus: "rejected", emoji: "🍫",
+    id: "bounty", imageStatus: "verified_exact", image: "/products/bounty.webp", emoji: "🍫",
     category: "Кондитерские изделия",
     title: "Bounty кокосовый батончик",
     description: "Bounty с кокосовой начинкой в молочном шоколаде. 2×28.5г.",
@@ -1959,7 +1959,7 @@ export const products: Product[] = [
     tags: ["спагетти", "barilla", "макароны", "паста"],
   },
   {
-    id: "penne-barilla", imageStatus: "rejected", emoji: "🍝",
+    id: "penne-barilla", imageStatus: "verified_exact", image: "/products/penne-barilla.webp", emoji: "🍝",
     category: "Бакалея",
     title: "Пенне Barilla Rigate",
     description: "Пенне Barilla Rigate рифлёные. Упаковка 500г.",

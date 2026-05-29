@@ -72,7 +72,7 @@ const MAGNUM_MATCHES: Record<string, { file: string; note?: string }> = {
 
   // ─── BEVERAGES ───────────────────────────────────────────────────────────────
   "pepsi":                 { file: "/uploads/4870145005569_c02e4d911b.jpg" },                    // Pepsi 2L ✓
-  "cola":                  { file: "/uploads/4870145005545_dbd455c439.jpg", note: "Pepsi Cola 1L stand-in" }, // [~]
+  "cola":                  { file: "https://arbuz.kz/image/s3/arbuz-kz-products/image__228325-napitok_coca-cola_gazirovannyi_1_5_l.jpg", note: "Coca-Cola 1.5L ✓ — arbuz.kz" }, // ✓
   "energy-redbull":        { file: "/uploads/9002490100070_fe7d4de32b.jpg" },                    // Red Bull 250ml ✓
   "water-still":           { file: "/uploads/4870001157906_9d685cf10a.jpg" },                    // ASU still 1.5L ✓
   "water-sparkling":       { file: "/uploads/4870207510246_4a3fe2bc6c.jpg", note: "Samal sparkling 1.5L" }, // [~]
@@ -99,16 +99,16 @@ const MAGNUM_MATCHES: Record<string, { file: string; note?: string }> = {
   // ─── SNACKS ──────────────────────────────────────────────────────────────────
   "lays-classic":           { file: "/uploads/4690388119096_e14da1b6c2.jpg" },                  // Lay's 70g ✓
   "lays-paprika":           { file: "/uploads/4690388119096_e14da1b6c2.jpg", note: "Lays — paprika variant" }, // [~]
-  "snickers":               { file: "/uploads/4607065001445_1ea9f69896.jpg", note: "Snickers/Mars/Twix group" }, // [~]
+  "snickers":               { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__34d58555-b285-4e23-bc14-fb433c9bbf2d-4607065001445_jpg.jpg", note: "Snickers bar 50.5g ✓ — arbuz.kz" }, // ✓
   "kitkat":                 { file: "/uploads/40052403_87226de0e0.jpg" },                        // KitKat 41.5g ✓
   "chocolate-bar-milka":    { file: "/uploads/7622202395956_103442928e.jpg" },                  // Milka 80-97g ✓
   "oreo":                   { file: "/uploads/7622210375742_20e2a61cc0.jpg" },                  // Oreo 228g ✓
-  "nutella":                { file: "/uploads/7622201459826_6b61a6cfde.jpg", note: "Milka paste — Nutella stand-in" }, // [~]
+  "nutella":                { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__c648eb6e-cc9c-4fd2-9250-737e8e168abc-20477-001_isp_jpg.jpg", note: "Nutella 350g ✓ — arbuz.kz" }, // ✓
   "crackers-rye":           { file: "/uploads/4870247058081_d678aa37fe.jpg", note: "Juzon crackers 150g" }, // [~]
   "jubilee-cookies":        { file: "/uploads/4780111072078_78e855beb6.jpg", note: "Kunde cookies 260g" }, // [~]
   "halva-sunflower":        { file: "/uploads/7622201695989_3c76c47a61.jpg", note: "WRONG TYPE: Alpen Gold spread — replace ASAP" }, // ✗
   "marmalade-fruit":        { file: "/uploads/8691216090439_19f9d693ab.jpg", note: "Haribo gummy bears 80g" }, // [~]
-  "bounty":                 { file: "/uploads/4607065001445_1ea9f69896.jpg", note: "Snickers/Mars/Twix — Bounty stand-in (Mars family)" }, // [~]
+  "bounty":                 { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__6906099f-ba16-41dc-a3a5-bfc73ee5b704-4011100977624_jpg.jpg", note: "Bounty bar 55g ✓ — arbuz.kz" }, // ✓
   "tuc-crackers":           { file: "/uploads/4870247058081_d678aa37fe.jpg", note: "Juzon crackers — TUC stand-in" }, // [~]
 
   // ─── DAIRY ───────────────────────────────────────────────────────────────────
@@ -153,7 +153,7 @@ const MAGNUM_MATCHES: Record<string, { file: string; note?: string }> = {
 
   // ─── PANTRY ──────────────────────────────────────────────────────────────────
   "spaghetti-barilla":    { file: "/uploads/4601780009885_f392b85107.jpg", note: "Makfa pasta 400g — spaghetti stand-in" }, // [~]
-  "penne-barilla":        { file: "/uploads/4601780009885_f392b85107.jpg", note: "Makfa pasta 400g — penne stand-in" }, // [~]
+  "penne-barilla":        { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__f03217cd-00f1-40c1-8b0c-19494eeb5cdc-8076809576079_1_jpg.jpg", note: "Barilla Penne Rigate №73 450g ✓ — arbuz.kz" }, // ✓
   "farfalle":             { file: "/uploads/4870091000700_004b301ff1.jpg", note: "Sultan pasta 400g — farfalle stand-in" }, // [~]
   "rice-long":            { file: "/uploads/4870201180452_453ba0a77c.jpg", note: "Arnau rice 3kg" }, // [~]
   "rice-basmati":         { file: "/uploads/4870201180452_453ba0a77c.jpg", note: "Arnau rice — basmati stand-in" }, // [~]
@@ -579,12 +579,8 @@ const OFf_QUERY_OVERRIDES: Record<string, string> = {
   "baby-porridge-rice-nestle": "Nestlé baby rice cereal porridge",
   "caramel-syrup":        "caramel syrup coffee Monin bottle",
 
-  // ─── BRANDED FLAGSHIPS (must show correct brand — no competitor stand-ins) ───
-  "cola":                   "Coca-Cola classic original",
-  "snickers":               "Snickers chocolate bar",
-  "nutella":                "Nutella hazelnut spread Ferrero",
-  "bounty":                 "Bounty coconut chocolate bar",
-  "penne-barilla":          "Barilla penne rigate pasta",
+  // ─── BRANDED FLAGSHIPS — primary source is arbuz.kz (see MAGNUM_MATCHES). ────
+  // OFf left only as a last-resort fallback for items arbuz can't supply.
   "baby-puree-apple-gerber":"Gerber apple puree baby food",
 
   // ─── HORECA PACKAGING (low priority — but OFf might have them) ───────────────

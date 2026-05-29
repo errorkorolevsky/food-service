@@ -193,12 +193,13 @@
     "fetched": "2026-05-29"
   },
   "snickers": {
-    "status": "rejected",
-    "source_type": null,
-    "source_name": "Rejected — only competitor stand-in or amateur photo available; shows emoji placeholder",
-    "local_path": null,
-    "note": "No correct-brand studio image sourced yet",
-    "fetched": "2026-05-30"
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Snickers bar 50.5g ✓ — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__34d58555-b285-4e23-bc14-fb433c9bbf2d-4607065001445_jpg.jpg",
+    "local_path": "/products/snickers.webp",
+    "note": "Snickers bar 50.5g ✓ — arbuz.kz",
+    "fetched": "2026-05-29"
   },
   "kitkat": {
     "status": "real_verified",
@@ -217,12 +218,13 @@
     "fetched": "2026-05-29"
   },
   "nutella": {
-    "status": "rejected",
-    "source_type": null,
-    "source_name": "Rejected — only competitor stand-in or amateur photo available; shows emoji placeholder",
-    "local_path": null,
-    "note": "No correct-brand studio image sourced yet",
-    "fetched": "2026-05-30"
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Nutella 350g ✓ — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__c648eb6e-cc9c-4fd2-9250-737e8e168abc-20477-001_isp_jpg.jpg",
+    "local_path": "/products/nutella.webp",
+    "note": "Nutella 350g ✓ — arbuz.kz",
+    "fetched": "2026-05-29"
   },
   "chocolate-bar-milka": {
     "status": "real_verified",
@@ -363,12 +365,13 @@
     "fetched": "2026-05-29"
   },
   "cola": {
-    "status": "rejected",
-    "source_type": null,
-    "source_name": "Rejected — only competitor stand-in or amateur photo available; shows emoji placeholder",
-    "local_path": null,
-    "note": "No correct-brand studio image sourced yet",
-    "fetched": "2026-05-30"
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Coca-Cola 1.5L ✓ — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__228325-napitok_coca-cola_gazirovannyi_1_5_l.jpg",
+    "local_path": "/products/cola.webp",
+    "note": "Coca-Cola 1.5L ✓ — arbuz.kz",
+    "fetched": "2026-05-29"
   },
   "lays-chips": {
     "status": "real_verified",
@@ -637,12 +640,13 @@
     "fetched": "2026-05-28"
   },
   "bounty": {
-    "status": "rejected",
-    "source_type": null,
-    "source_name": "Rejected — only competitor stand-in or amateur photo available; shows emoji placeholder",
-    "local_path": null,
-    "note": "No correct-brand studio image sourced yet",
-    "fetched": "2026-05-30"
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Bounty bar 55g ✓ — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__6906099f-ba16-41dc-a3a5-bfc73ee5b704-4011100977624_jpg.jpg",
+    "local_path": "/products/bounty.webp",
+    "note": "Bounty bar 55g ✓ — arbuz.kz",
+    "fetched": "2026-05-29"
   },
   "lays-paprika": {
     "status": "matched_unverified",
@@ -672,12 +676,13 @@
     "fetched": "2026-05-28"
   },
   "penne-barilla": {
-    "status": "rejected",
-    "source_type": null,
-    "source_name": "Rejected — only competitor stand-in or amateur photo available; shows emoji placeholder",
-    "local_path": null,
-    "note": "No correct-brand studio image sourced yet",
-    "fetched": "2026-05-30"
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Barilla Penne Rigate №73 450g ✓ — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__f03217cd-00f1-40c1-8b0c-19494eeb5cdc-8076809576079_1_jpg.jpg",
+    "local_path": "/products/penne-barilla.webp",
+    "note": "Barilla Penne Rigate №73 450g ✓ — arbuz.kz",
+    "fetched": "2026-05-29"
   },
   "farfalle": {
     "status": "matched_unverified",
