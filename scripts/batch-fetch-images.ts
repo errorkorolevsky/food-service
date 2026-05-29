@@ -201,6 +201,25 @@ const MAGNUM_MATCHES: Record<string, { file: string; note?: string }> = {
   "samsa-meat":       { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__93a5576e-25bd-44af-97fa-7972dc447f5d-341502_1_png.png",              note: "Самса Arbuz Select x JamBull с мясом, 400 г — arbuz.kz" },
   "fanta":            { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__27e2305d-e060-4be9-be0f-9b281222a1a5-90495793_jpg.jpg",              note: "Напиток Fanta Orange газированный, 0.25 л — arbuz.kz" },
 
+  // ─── ARBUZ.KZ BATCH 3 — oils, spices, frozen, ready food, baby, pantry ──────
+  "varenyky-cherry":  { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__edabff77-0701-4649-95c4-b27055c07dd3-326816_2_png.png",              note: "Вареники Arbuz Select с вишней, замороженные 500 г — arbuz.kz" },
+  "blini-cottage":    { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__26238345-e6b2-4bf4-ae32-695c8fdf54ed-314394_2f_png.png",             note: "Блины с творогом Arbuz Select 500 г — arbuz.kz" },
+  "frozen-broccoli":  { file: "https://arbuz.kz/image/s3/arbuz-kz-products/b453025d-3386-404c-a988-5dacf534930a-5199_png.png",                             note: "Брокколи Arbuz Select замороженная, 300 г — arbuz.kz" },
+  "sea-cocktail":     { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__88fbf21b-be64-41da-b327-76f4a5608f7f-313752_1_png.png",              note: "Морской коктейль Arbuz Select замороженный 500 г — arbuz.kz" },
+  "borsch-ready":     { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__47de9f63-e26f-4013-9bd9-cc80c49b7273-320933_1_png.png",              note: "Борщ Arbuz Select x Damdala с мясом говядины 350 мл — arbuz.kz" },
+  "olive-oil-monini": { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__c61fedae-1814-440b-86fa-fe34dcda022d-80053866_maslo_olivkovoe_nerafinirovannoe_vysshego_kachestva_pervogo_otzhima_dlya_zharki_anfora_500m.jpg", note: "Monini Anfora оливковое нерафинированное для жарки 500 мл — arbuz.kz" },
+  "olive-oil-ev":     { file: "https://arbuz.kz/image/s3/arbuz-kz-products/image__331069-maslo_bioitalia_olivkovoe_extra_virgin_500_ml.jpg",               note: "Масло Bioitalia оливковое Extra Virgin 500 мл — arbuz.kz" },
+  "avocado-oil":      { file: "https://arbuz.kz/image/s3/arbuz-kz-products/image__310847-maslo_oliomania_avokado_rafinirovannoe_100_250_ml.jpg",            note: "Масло Oliomania авокадо рафинированное 100% 250 мл — arbuz.kz" },
+  "flaxseed-oil":     { file: "https://arbuz.kz/image/s3/arbuz-kz-products/229942-maslo_imperial_oil_lnyanoe_extra_virgin_250_ml.jpg",                     note: "Масло Imperial Oil Льняное extra virgin 250 мл — arbuz.kz" },
+  "curry-mix":        { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__297707e2-4b8f-4f4b-9e14-352c1014dcdf-318395-001_jpg.jpg",            note: "Карри G&G 45 г — arbuz.kz" },
+  "cocoa-jb":         { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__0916b75f-a9d5-4c36-bd7e-19a547780a83-337903_jpg.jpg",                note: "Какао-порошок Morinaga Pure Cocoa натуральный 110 г — arbuz.kz" },
+  "coffee-arabica-ground": { file: "https://arbuz.kz/image/s3/arbuz-kz-products/207211-39-kofe_molotyi_zhokei__ru.jpg",                                   note: "Кофе Жокей Классический Арабика молотый, 250 г — arbuz.kz" },
+  "caramel-syrup":    { file: "https://arbuz.kz/image/s3/arbuz-kz-products/image__295859-sirop_eskobar_karamel_1_l.jpg",                                   note: "Сироп Eskobar карамель, 1 л — arbuz.kz" },
+  "oatmeal-hercules": { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__8aaafdb2-c1bc-496a-8d00-6f2c0e58e05a-32_png.png",                    note: "Овсяные хлопья Arbuz Select геркулес 400 г — arbuz.kz" },
+  "baby-formula-nutrilon2": { file: "https://arbuz.kz/image/s3/arbuz-kz-products/252371-smes_nutrilon_premium_2_molochnaya_6_mes_1_2_kg.jpg",              note: "Смесь Nutrilon Premium №2 молочная 6+ мес 1.2 кг — arbuz.kz" },
+  "almond-milk-tetrapak": { file: "https://arbuz.kz/image/s3/arbuz-kz-products/image__259288-napitok_alpro_mindalnyi_bez_sahara_1_l.jpg",                  note: "Напиток Alpro миндальный без сахара, 1 л — arbuz.kz" },
+  "chia-seeds":       { file: "https://arbuz.kz/image/s3/arbuz-kz-products/279213-semena_toplife_chia_chernye_premium_200_g.jpg",                          note: "Семена TopLife Чиа черные премиум 200 г — arbuz.kz" },
+
   // ─── ARBUZ.KZ — fresh produce, dairy, fish, meat ─────────────────────────
   // Full CDN URLs (arbuz.kz/image/s3/arbuz-kz-products/...)
   "potatoes":     { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__fc40a303-938c-4f80-8cd5-ebf4beb5c7bd-2000001_1_jpg.jpg",             note: "Картофель кг — arbuz.kz" },

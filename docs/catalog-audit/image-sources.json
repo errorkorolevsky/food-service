@@ -1471,10 +1471,12 @@
     "fetched": "2026-05-28"
   },
   "coffee-arabica-ground": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Кофе Жокей Классический Арабика молотый, 250 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/207211-39-kofe_molotyi_zhokei__ru.jpg",
+    "local_path": "/products/coffee-arabica-ground.webp",
+    "note": "Кофе Жокей Классический Арабика молотый, 250 г — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "chocolate-dark-70": {
@@ -1721,10 +1723,12 @@
     "fetched": "2026-05-28"
   },
   "oatmeal-hercules": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Овсяные хлопья Arbuz Select геркулес 400 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__8aaafdb2-c1bc-496a-8d00-6f2c0e58e05a-32_png.png",
+    "local_path": "/products/oatmeal-hercules.webp",
+    "note": "Овсяные хлопья Arbuz Select геркулес 400 г — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "salt-marine": {
@@ -1825,10 +1829,12 @@
     "fetched": "2026-05-29"
   },
   "varenyky-cherry": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Вареники Arbuz Select с вишней, замороженные 500 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__edabff77-0701-4649-95c4-b27055c07dd3-326816_2_png.png",
+    "local_path": "/products/varenyky-cherry.webp",
+    "note": "Вареники Arbuz Select с вишней, замороженные 500 г — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "manti-frozen": {
@@ -1840,10 +1846,12 @@
     "fetched": "2026-05-28"
   },
   "blini-cottage": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Блины с творогом Arbuz Select 500 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__26238345-e6b2-4bf4-ae32-695c8fdf54ed-314394_2f_png.png",
+    "local_path": "/products/blini-cottage.webp",
+    "note": "Блины с творогом Arbuz Select 500 г — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "frozen-strawberry": {
@@ -2023,10 +2031,12 @@
     "fetched": "2026-05-28"
   },
   "olive-oil-monini": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Monini Anfora оливковое нерафинированное для жарки 500 мл — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__c61fedae-1814-440b-86fa-fe34dcda022d-80053866_maslo_olivkovoe_nerafinirovannoe_vysshego_kachestva_pervogo_otzhima_dlya_zharki_anfora_500m.jpg",
+    "local_path": "/products/olive-oil-monini.webp",
+    "note": "Monini Anfora оливковое нерафинированное для жарки 500 мл — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "sesame-oil": {
@@ -2061,17 +2071,21 @@
     "fetched": "2026-05-29"
   },
   "flaxseed-oil": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Масло Imperial Oil Льняное extra virgin 250 мл — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/229942-maslo_imperial_oil_lnyanoe_extra_virgin_250_ml.jpg",
+    "local_path": "/products/flaxseed-oil.webp",
+    "note": "Масло Imperial Oil Льняное extra virgin 250 мл — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "avocado-oil": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Масло Oliomania авокадо рафинированное 100% 250 мл — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__310847-maslo_oliomania_avokado_rafinirovannoe_100_250_ml.jpg",
+    "local_path": "/products/avocado-oil.webp",
+    "note": "Масло Oliomania авокадо рафинированное 100% 250 мл — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "walnut-oil": {
@@ -2123,10 +2137,12 @@
     "fetched": "2026-05-29"
   },
   "borsch-ready": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Борщ Arbuz Select x Damdala с мясом говядины 350 мл — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__47de9f63-e26f-4013-9bd9-cc80c49b7273-320933_1_png.png",
+    "local_path": "/products/borsch-ready.webp",
+    "note": "Борщ Arbuz Select x Damdala с мясом говядины 350 мл — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "salad-olivie": {
@@ -2199,10 +2215,12 @@
     "fetched": "2026-05-29"
   },
   "baby-formula-nutrilon2": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Смесь Nutrilon Premium №2 молочная 6+ мес 1.2 кг — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/252371-smes_nutrilon_premium_2_molochnaya_6_mes_1_2_kg.jpg",
+    "local_path": "/products/baby-formula-nutrilon2.webp",
+    "note": "Смесь Nutrilon Premium №2 молочная 6+ мес 1.2 кг — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "baby-yogurt-agusha": {
@@ -2289,10 +2307,12 @@
     "fetched": "2026-05-28"
   },
   "almond-milk-tetrapak": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Напиток Alpro миндальный без сахара, 1 л — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__259288-napitok_alpro_mindalnyi_bez_sahara_1_l.jpg",
+    "local_path": "/products/almond-milk-tetrapak.webp",
+    "note": "Напиток Alpro миндальный без сахара, 1 л — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "oat-milk-oatly": {
@@ -2463,10 +2483,12 @@
     "fetched": "2026-05-28"
   },
   "sea-cocktail": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Морской коктейль Arbuz Select замороженный 500 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__88fbf21b-be64-41da-b327-76f4a5608f7f-313752_1_png.png",
+    "local_path": "/products/sea-cocktail.webp",
+    "note": "Морской коктейль Arbuz Select замороженный 500 г — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "masago": {
@@ -2658,10 +2680,12 @@
     "fetched": "2026-05-29"
   },
   "cocoa-jb": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Какао-порошок Morinaga Pure Cocoa натуральный 110 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__0916b75f-a9d5-4c36-bd7e-19a547780a83-337903_jpg.jpg",
+    "local_path": "/products/cocoa-jb.webp",
+    "note": "Какао-порошок Morinaga Pure Cocoa натуральный 110 г — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "chicken-thighs": {
@@ -2928,10 +2952,12 @@
     "fetched": "2026-05-29"
   },
   "frozen-broccoli": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Брокколи Arbuz Select замороженная, 300 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/b453025d-3386-404c-a988-5dacf534930a-5199_png.png",
+    "local_path": "/products/frozen-broccoli.webp",
+    "note": "Брокколи Arbuz Select замороженная, 300 г — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "black-pepper-ground": {
@@ -2962,10 +2988,12 @@
     "fetched": "2026-05-29"
   },
   "curry-mix": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Карри G&G 45 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__297707e2-4b8f-4f4b-9e14-352c1014dcdf-318395-001_jpg.jpg",
+    "local_path": "/products/curry-mix.webp",
+    "note": "Карри G&G 45 г — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "bay-leaf": {
@@ -3043,10 +3071,30 @@
     "fetched": "2026-05-29"
   },
   "caramel-syrup": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Сироп Eskobar карамель, 1 л — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__295859-sirop_eskobar_karamel_1_l.jpg",
+    "local_path": "/products/caramel-syrup.webp",
+    "note": "Сироп Eskobar карамель, 1 л — arbuz.kz",
+    "fetched": "2026-05-29"
+  },
+  "olive-oil-ev": {
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Масло Bioitalia оливковое Extra Virgin 500 мл — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__331069-maslo_bioitalia_olivkovoe_extra_virgin_500_ml.jpg",
+    "local_path": "/products/olive-oil-ev.webp",
+    "note": "Масло Bioitalia оливковое Extra Virgin 500 мл — arbuz.kz",
+    "fetched": "2026-05-29"
+  },
+  "chia-seeds": {
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Семена TopLife Чиа черные премиум 200 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/279213-semena_toplife_chia_chernye_premium_200_g.jpg",
+    "local_path": "/products/chia-seeds.webp",
+    "note": "Семена TopLife Чиа черные премиум 200 г — arbuz.kz",
     "fetched": "2026-05-29"
   }
 }

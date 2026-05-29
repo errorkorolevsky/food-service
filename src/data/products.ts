@@ -1490,7 +1490,7 @@ export const products: Product[] = [
     tags: ["горячий шоколад", "van houten", "какао"],
   },
   {
-    id: "coffee-arabica-ground", emoji: "☕",
+    id: "coffee-arabica-ground", image: "/products/coffee-arabica-ground.webp", emoji: "☕",
     category: "Кофе, чай и какао",
     title: "Кофе Арабика 100% молотый",
     description: "Кофе молотый 100% Арабика средней обжарки. Пакет 250г.",
@@ -1986,7 +1986,7 @@ export const products: Product[] = [
     tags: ["гречка", "ядрица", "увелка", "крупы"],
   },
   {
-    id: "oatmeal-hercules", emoji: "🌾",
+    id: "oatmeal-hercules", image: "/products/oatmeal-hercules.webp", emoji: "🌾",
     category: "Бакалея",
     title: "Овсяные хлопья Геркулес",
     description: "Овсяные хлопья Геркулес крупные, варить 10 минут. Упаковка 500г.",
@@ -2031,7 +2031,7 @@ export const products: Product[] = [
     tags: ["масло", "подсолнечное", "рафинированное"],
   },
   {
-    id: "olive-oil-ev", emoji: "🫒",
+    id: "olive-oil-ev", image: "/products/olive-oil-ev.webp", emoji: "🫒",
     category: "Масло и жиры",
     title: "Масло оливковое Extra Virgin",
     description: "Масло оливковое Extra Virgin холодного отжима. Бутылка 500мл.",
@@ -2224,7 +2224,7 @@ export const products: Product[] = [
     tags: ["вареники", "картошка", "домашние", "заморозка"],
   },
   {
-    id: "varenyky-cherry", emoji: "🍒",
+    id: "varenyky-cherry", image: "/products/varenyky-cherry.webp", emoji: "🍒",
     category: "Заморозка",
     title: "Вареники с вишней",
     description: "Вареники с вишней сладкие. Упаковка 800г.",
@@ -2251,7 +2251,7 @@ export const products: Product[] = [
     tags: ["блины", "мясо", "говядина", "заморозка"],
   },
   {
-    id: "blini-cottage", emoji: "🫔",
+    id: "blini-cottage", image: "/products/blini-cottage.webp", emoji: "🫔",
     category: "Заморозка",
     title: "Блины с творогом",
     description: "Блины с творогом и изюмом сладкие. Упаковка 500г.",
@@ -2296,7 +2296,7 @@ export const products: Product[] = [
     tags: ["малина", "замороженная", "ягоды"],
   },
   {
-    id: "frozen-broccoli", emoji: "🥦",
+    id: "frozen-broccoli", image: "/products/frozen-broccoli.webp", emoji: "🥦",
     category: "Заморозка",
     title: "Брокколи замороженная",
     description: "Брокколи замороженная соцветия IQF. Упаковка 500г.",
@@ -2479,7 +2479,7 @@ export const products: Product[] = [
     tags: ["куркума", "специи", "антиоксидант"],
   },
   {
-    id: "curry-mix", emoji: "🫙",
+    id: "curry-mix", image: "/products/curry-mix.webp", emoji: "🫙",
     category: "Соусы и специи",
     title: "Карри смесь",
     description: "Карри смесь пряностей индийская. Пакет 50г.",
@@ -2563,7 +2563,7 @@ export const products: Product[] = [
   // ─── МАСЛО И ЖИРЫ ───────────────────────────────────────────────────────────
 
   {
-    id: "olive-oil-monini", emoji: "🫒",
+    id: "olive-oil-monini", image: "/products/olive-oil-monini.webp", emoji: "🫒",
     category: "Масло и жиры",
     title: "Масло оливковое Monini E.V.",
     description: "Масло оливковое Extra Virgin Monini холодного отжима. Стеклянная бутылка 1л.",
@@ -2617,7 +2617,7 @@ export const products: Product[] = [
     tags: ["маргарин", "выпечка"],
   },
   {
-    id: "flaxseed-oil", emoji: "🫙",
+    id: "flaxseed-oil", image: "/products/flaxseed-oil.webp", emoji: "🫙",
     category: "Масло и жиры",
     title: "Масло льняное",
     description: "Масло льняное нерафинированное холодного отжима. Бутылка 250мл.",
@@ -2635,7 +2635,7 @@ export const products: Product[] = [
     tags: ["сало", "копчёное", "свиное"],
   },
   {
-    id: "avocado-oil", emoji: "🥑",
+    id: "avocado-oil", image: "/products/avocado-oil.webp", emoji: "🥑",
     category: "Масло и жиры",
     title: "Масло авокадо",
     description: "Масло авокадо холодного отжима. Для салатов и смузи. Бутылка 250мл.",
@@ -2719,7 +2719,7 @@ export const products: Product[] = [
     tags: ["плов", "узбекский", "говядина"],
   },
   {
-    id: "borsch-ready", emoji: "🍲",
+    id: "borsch-ready", image: "/products/borsch-ready.webp", emoji: "🍲",
     category: "Готовая еда",
     title: "Борщ домашний",
     description: "Борщ украинский домашний со сметаной. Контейнер 500мл.",
@@ -2857,7 +2857,7 @@ export const products: Product[] = [
     tags: ["смесь", "nan", "молочная", "детское питание"],
   },
   {
-    id: "baby-formula-nutrilon2", emoji: "🍼",
+    id: "baby-formula-nutrilon2", image: "/products/baby-formula-nutrilon2.webp", emoji: "🍼",
     category: "Детское питание",
     title: "Смесь Nutrilon 2",
     description: "Смесь молочная Nutrilon 2 с 6 до 12 месяцев. Банка 400г.",
@@ -2959,7 +2959,7 @@ export const products: Product[] = [
     tags: ["тофу", "соевый", "веган", "белок"],
   },
   {
-    id: "chia-seeds", emoji: "🌿",
+    id: "chia-seeds", image: "/products/chia-seeds.webp", emoji: "🌿",
     category: "Здоровое питание",
     title: "Семена чиа",
     description: "Семена чиа мексиканские. Богаты омега-3 и клетчаткой. Упаковка 200г.",
@@ -3004,7 +3004,7 @@ export const products: Product[] = [
     tags: ["хлебцы", "ржаные", "finn crisp", "хрустящие"],
   },
   {
-    id: "almond-milk-tetrapak", emoji: "🌰",
+    id: "almond-milk-tetrapak", image: "/products/almond-milk-tetrapak.webp", emoji: "🌰",
     category: "Здоровое питание",
     title: "Молоко миндальное",
     description: "Напиток миндальный несладкий для кофе и каш. Тетрапак 1л.",
@@ -3287,7 +3287,7 @@ export const products: Product[] = [
     tags: ["краб", "крабовое мясо", "морепродукты", "деликатес"],
   },
   {
-    id: "sea-cocktail", emoji: "🌊",
+    id: "sea-cocktail", image: "/products/sea-cocktail.webp", emoji: "🌊",
     category: "Рыба и морепродукты",
     title: "Морской коктейль замороженный",
     description: "Ассорти из морепродуктов: кальмар, мидии, осьминог, креветки. 400г.",
@@ -3542,7 +3542,7 @@ export const products: Product[] = [
 
   // ─── Кофе, чай и какао — дополнение ──────────────────────────────────────
   {
-    id: "cocoa-jb", emoji: "☕",
+    id: "cocoa-jb", image: "/products/cocoa-jb.webp", emoji: "☕",
     category: "Кофе, чай и какао",
     title: "Какао JB Classic",
     description: "Какао-порошок JB Classic натуральный. Для горячего шоколада и выпечки. 250г.",
@@ -3551,7 +3551,7 @@ export const products: Product[] = [
     tags: ["какао", "порошок", "горячий шоколад", "JB"],
   },
   {
-    id: "caramel-syrup", emoji: "🍮",
+    id: "caramel-syrup", image: "/products/caramel-syrup.webp", emoji: "🍮",
     category: "Кофе, чай и какао",
     title: "Сироп карамель для кофе",
     description: "Сироп карамельный для кофе и коктейлей. Профессиональная серия. 1л.",
