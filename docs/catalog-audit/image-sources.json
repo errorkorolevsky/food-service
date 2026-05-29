@@ -161,9 +161,9 @@
   },
   "green-tea-greenfield": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Tess tea 100 bags",
-    "barcode": "4605246009198",
+    "source_type": "openfoodfacts",
+    "source_name": "Greenfield — Чай зелёный байховый с листьями мелиссы и мяты и ароматом лимона",
+    "source_url": "https://images.openfoodfacts.org/images/products/460/524/600/4353/front_en.3.400.jpg",
     "local_path": "/products/green-tea-greenfield.webp",
     "fetched": "2026-05-29"
   },
@@ -293,19 +293,17 @@
   },
   "canned-peas-bonduelle": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Globus peas 425ml",
-    "barcode": "5998304240022",
-    "note": "Globus brand not Bonduelle",
+    "source_type": "openfoodfacts",
+    "source_name": "Bonduelle — БОНДЮЭЛЬ ЗЕЛЁНЫЙ ГОРОШЕК",
+    "source_url": "https://images.openfoodfacts.org/images/products/308/368/112/6754/front_ru.3.400.jpg",
     "local_path": "/products/canned-peas-bonduelle.webp",
     "fetched": "2026-05-29"
   },
   "canned-corn-bonduelle": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Globus corn 425ml",
-    "barcode": "5998304241111",
-    "note": "Globus brand not Bonduelle",
+    "source_type": "openfoodfacts",
+    "source_name": "Bonduelle — Кукуруза молодая",
+    "source_url": "https://images.openfoodfacts.org/images/products/308/368/108/3361/front_en.16.400.jpg",
     "local_path": "/products/canned-corn-bonduelle.webp",
     "fetched": "2026-05-29"
   },
@@ -429,12 +427,11 @@
   },
   "crab-sticks": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Tuna — canned seafood stand-in",
-    "source_url": "https://magnum.kz:1337/uploads/4870218890313_4016399d07.jpg",
+    "source_type": "openfoodfacts",
+    "source_name": "Vici — Палочки крабовые Vici",
+    "source_url": "https://images.openfoodfacts.org/images/products/461/010/114/6710/front_ru.3.400.jpg",
     "local_path": "/products/crab-sticks.webp",
-    "note": "Tuna — canned seafood stand-in",
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "milk-ultra": {
     "status": "matched_unverified",
@@ -483,12 +480,11 @@
   },
   "cheese-russian": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Yugovsky Gollandsky 50% 300g",
-    "source_url": "https://magnum.kz:1337/uploads/4607168783040_bf074dec22.jpg",
+    "source_type": "openfoodfacts",
+    "source_name": "Брест-Литовск — Сыр Российский",
+    "source_url": "https://images.openfoodfacts.org/images/products/481/026/803/5265/front_ru.3.400.jpg",
     "local_path": "/products/cheese-russian.webp",
-    "note": "Yugovsky Gollandsky 50% 300g",
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "cheese-gouda": {
     "status": "matched_unverified",
@@ -519,12 +515,11 @@
   },
   "processed-cheese": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Vsyo v Dom cheese — processed stand-in",
-    "source_url": "https://magnum.kz:1337/uploads/4870237156872_b395b817bc.jpg",
+    "source_type": "openfoodfacts",
+    "source_name": "Président — сыр президент в большой банке сливочный",
+    "source_url": "https://images.openfoodfacts.org/images/products/460/703/712/0839/front_ru.7.400.jpg",
     "local_path": "/products/processed-cheese.webp",
-    "note": "Vsyo v Dom cheese — processed stand-in",
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "eggs-sv": {
     "status": "matched_unverified",
@@ -1424,10 +1419,11 @@
     "fetched": "2026-05-29"
   },
   "raspberry-morse": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": " — ABC Морс клюквенный",
+    "source_url": "https://images.openfoodfacts.org/images/products/481/028/201/5687/front_ru.3.400.jpg",
+    "local_path": "/products/raspberry-morse.webp",
     "fetched": "2026-05-29"
   },
   "oat-drink": {
@@ -1527,10 +1523,11 @@
     "fetched": "2026-05-28"
   },
   "zephyr-vanilla": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Красный Пищевик — Зефир &quot;Ванильный&quot;",
+    "source_url": "https://images.openfoodfacts.org/images/products/481/041/101/4307/front_en.5.400.jpg",
+    "local_path": "/products/zephyr-vanilla.webp",
     "fetched": "2026-05-29"
   },
   "baklava": {
@@ -1782,10 +1779,10 @@
   "millet": {
     "status": "matched_unverified",
     "source_type": "openfoodfacts",
-    "source_name": "Maestro Cereale avec du Levain, Millet et Quinoa",
-    "source_url": "https://images.openfoodfacts.org/images/products/800/869/800/7389/front_en.275.400.jpg",
+    "source_name": " — пшено агро",
+    "source_url": "https://images.openfoodfacts.org/images/products/460/707/271/0118/front_ru.3.400.jpg",
     "local_path": "/products/millet.webp",
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "lentils-green": {
     "status": "matched_unverified",
@@ -2016,10 +2013,11 @@
     "fetched": "2026-05-28"
   },
   "teriyaki-sauce": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Heinz — Соус «Терияки&quot;",
+    "source_url": "https://images.openfoodfacts.org/images/products/460/167/408/6329/front_en.3.400.jpg",
+    "local_path": "/products/teriyaki-sauce.webp",
     "fetched": "2026-05-29"
   },
   "hummus-classic": {
@@ -2146,10 +2144,11 @@
     "fetched": "2026-05-29"
   },
   "salad-olivie": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "ООО &quot;Глобал Фуд&quot; — Салат Оливье",
+    "source_url": "https://images.openfoodfacts.org/images/products/210/010/006/1241/front_ru.3.400.jpg",
+    "local_path": "/products/salad-olivie.webp",
     "fetched": "2026-05-29"
   },
   "salad-caesar-chicken": {
@@ -2419,11 +2418,12 @@
     "fetched": "2026-05-28"
   },
   "parchment-paper": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "econta — бумага для выпечки",
+    "source_url": "https://images.openfoodfacts.org/images/products/463/101/198/1116/front_ru.3.400.jpg",
+    "local_path": "/products/parchment-paper.webp",
+    "fetched": "2026-05-29"
   },
   "trash-bags-20l": {
     "status": "missing",
@@ -2831,17 +2831,19 @@
     "fetched": "2026-05-29"
   },
   "cabbage": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "О'кей — Капуста белокочанная кг",
+    "source_url": "https://images.openfoodfacts.org/images/products/290/062/802/7503/front_ru.4.400.jpg",
+    "local_path": "/products/cabbage.webp",
     "fetched": "2026-05-29"
   },
   "grapes": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "ВкусВилл — Виноград сушёный Кишмиш: Шигани",
+    "source_url": "https://images.openfoodfacts.org/images/products/210/010/010/0186/front_ru.4.400.jpg",
+    "local_path": "/products/grapes.webp",
     "fetched": "2026-05-29"
   },
   "pears": {
@@ -2878,17 +2880,19 @@
     "fetched": "2026-05-29"
   },
   "blueberry": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Teos — Греческий йогурт, черника",
+    "source_url": "https://images.openfoodfacts.org/images/products/481/026/803/0383/front_ru.18.400.jpg",
+    "local_path": "/products/blueberry.webp",
     "fetched": "2026-05-29"
   },
   "cheesecake": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "ВкусВилл — Чизкейк «Нью-Йорк»",
+    "source_url": "https://images.openfoodfacts.org/images/products/210/010/004/0574/front_ru.3.400.jpg",
+    "local_path": "/products/cheesecake.webp",
     "fetched": "2026-05-29"
   },
   "fanta": {
@@ -2900,10 +2904,11 @@
     "fetched": "2026-05-29"
   },
   "energy-monster": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Black Monster, Monster — Black monster",
+    "source_url": "https://images.openfoodfacts.org/images/products/506/063/912/5364/front_ru.21.400.jpg",
+    "local_path": "/products/energy-monster.webp",
     "fetched": "2026-05-29"
   },
   "caramel-candy": {
@@ -3036,24 +3041,27 @@
     "fetched": "2026-05-29"
   },
   "flax-seeds": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Vita Brown — Smart Food Измельчённые семена льна, грецкий орех, миндаль, бразильский орех",
+    "source_url": "https://images.openfoodfacts.org/images/products/461/001/603/0388/front_ru.3.400.jpg",
+    "local_path": "/products/flax-seeds.webp",
     "fetched": "2026-05-29"
   },
   "coconut-milk-tin": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Alpro Barista — Кокосовое молоко",
+    "source_url": "https://images.openfoodfacts.org/images/products/460/060/503/3265/front_en.8.400.jpg",
+    "local_path": "/products/coconut-milk-tin.webp",
     "fetched": "2026-05-29"
   },
   "goji-berries": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Vita Brown — Измельченные семена льна, ядра подсолнечника, семечки тыквы, кунжут, ягоды годжи",
+    "source_url": "https://images.openfoodfacts.org/images/products/461/001/603/0395/front_ru.3.400.jpg",
+    "local_path": "/products/goji-berries.webp",
     "fetched": "2026-05-29"
   },
   "unagi": {
@@ -3064,10 +3072,11 @@
     "fetched": "2026-05-29"
   },
   "ginger-marinated": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Wike — Имбирь маринованный",
+    "source_url": "https://images.openfoodfacts.org/images/products/200/000/005/4404/front_ru.6.400.jpg",
+    "local_path": "/products/ginger-marinated.webp",
     "fetched": "2026-05-29"
   },
   "caramel-syrup": {
@@ -3095,6 +3104,50 @@
     "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/279213-semena_toplife_chia_chernye_premium_200_g.jpg",
     "local_path": "/products/chia-seeds.webp",
     "note": "Семена TopLife Чиа черные премиум 200 г — arbuz.kz",
+    "fetched": "2026-05-29"
+  },
+  "garlic": {
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Maggi — Приправа томаты базилик чеснок",
+    "source_url": "https://images.openfoodfacts.org/images/products/460/068/002/6886/front_ru.3.400.jpg",
+    "local_path": "/products/garlic.webp",
+    "fetched": "2026-05-29"
+  },
+  "napkins-paper": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "sushi-kit": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "coffee-set": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "baby-set": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "cheese-wine-set": {
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Say cheese — Сырная тарелка #1",
+    "source_url": "https://images.openfoodfacts.org/images/products/462/709/534/0017/front_ru.12.400.jpg",
+    "local_path": "/products/cheese-wine-set.webp",
     "fetched": "2026-05-29"
   }
 }
