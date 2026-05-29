@@ -271,7 +271,7 @@ export const products: Product[] = [
     tags: ["форель", "рыба", "филе", "морепродукты"],
   },
   {
-    id: "tuna-steak", imageStatus: "rejected", emoji: "🐡",
+    id: "tuna-steak", imageStatus: "verified_generic", image: "/products/tuna-steak.webp", emoji: "🐡",
     category: "Рыба и морепродукты",
     title: "Тунец стейк",
     description: "Стейк тунца охлаждённый. Богат белком. Порция 200г.",
@@ -1189,7 +1189,7 @@ export const products: Product[] = [
     tags: ["сок", "апельсиновый", "J7", "напитки"],
   },
   {
-    id: "tomato-juice", imageStatus: "rejected", emoji: "🍅",
+    id: "tomato-juice", imageStatus: "verified_generic", image: "/products/tomato-juice.webp", emoji: "🍅",
     category: "Напитки",
     title: "Сок томатный",
     description: "Сок томатный с солью. Тетрапак 1л.",
@@ -1445,7 +1445,7 @@ export const products: Product[] = [
     tags: ["чай", "зелёный", "greenfield", "китайский"],
   },
   {
-    id: "herbal-tea", imageStatus: "rejected", emoji: "🌿",
+    id: "herbal-tea", imageStatus: "verified_generic", image: "/products/herbal-tea.webp", emoji: "🌿",
     category: "Кофе, чай и какао",
     title: "Чай травяной Ромашка",
     description: "Чай травяной с ромашкой и мятой. Успокаивающий. 20 пакетиков.",
@@ -1508,7 +1508,7 @@ export const products: Product[] = [
     tags: ["чай", "эрл грей", "бергамот", "ahmad"],
   },
   {
-    id: "ginger-tea", imageStatus: "rejected", emoji: "🌶️",
+    id: "ginger-tea", imageStatus: "verified_generic", image: "/products/ginger-tea.webp", emoji: "🌶️",
     category: "Кофе, чай и какао",
     title: "Чай имбирный с лимоном",
     description: "Чай имбирный с лимоном и мёдом. Тонизирующий. 20 пакетиков.",
@@ -1932,7 +1932,7 @@ export const products: Product[] = [
     tags: ["рис", "длиннозёрный", "пропаренный", "крупы"],
   },
   {
-    id: "rice-basmati", imageStatus: "rejected", emoji: "🌾",
+    id: "rice-basmati", imageStatus: "needs_review", image: "/products/rice-basmati.webp", emoji: "🌾",
     category: "Бакалея",
     title: "Рис Басмати Premium",
     description: "Рис Басмати Premium индийский длиннозёрный ароматный. 1кг.",
@@ -2260,7 +2260,7 @@ export const products: Product[] = [
     tags: ["блины", "творог", "сладкие", "заморозка"],
   },
   {
-    id: "french-fries-mccain", emoji: "🍟",
+    id: "french-fries-mccain", imageStatus: "verified_exact", image: "/products/french-fries-mccain.webp", emoji: "🍟",
     category: "Заморозка",
     title: "Картофель фри McCain",
     description: "Картофель фри тонкий классический McCain. Упаковка 750г.",
@@ -2794,7 +2794,7 @@ export const products: Product[] = [
   // ─── ДЕТСКОЕ ПИТАНИЕ ────────────────────────────────────────────────────────
 
   {
-    id: "baby-puree-apple-gerber", imageStatus: "rejected", emoji: "🍎",
+    id: "baby-puree-apple-gerber", imageStatus: "needs_review", image: "/products/baby-puree-apple-gerber.webp", emoji: "🍎",
     category: "Детское питание",
     title: "Пюре яблочное Gerber",
     description: "Пюре яблочное Gerber без сахара и добавок. Баночка 130г. Для детей с 4 мес.",
