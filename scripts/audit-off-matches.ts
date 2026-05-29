@@ -30,35 +30,35 @@ type Entry = {
 
 const REJECT_KEYWORDS: Record<string, string[]> = {
   // Fresh produce — must show raw produce, not processed products containing it
-  "potatoes":    ["chips", "crisps", "vodka", "soup", "puree"],
-  "carrots":     ["cake", "juice", "baby food", "soup"],
+  "potatoes":    ["chips", "crisps", "vodka", "soup", "puree", "powder", "flakes"],
+  "carrots":     ["cake", "juice", "baby food", "soup", "cake", "powder"],
   "onions":      ["sour cream", "onion rings", "chips", "crisps", "powder", "sauce"],
   "cabbage":     ["slaw", "coleslaw", "juice", "pickled", "soup"],
-  "tomatoes":    ["sauce", "soup", "juice", "ketchup", "paste", "sun-dried"],
-  "cucumbers":   ["pickled", "gherkin"],
-  "bell-pepper": ["sauce", "soup", "stuffed", "powder"],
-  "eggplant":    ["spread", "caviar"],
-  "garlic":      ["powder", "herbs", "sauce", "seasoning", "garlic &", "& garlic"],
-  "bananas":     ["juice", "chips", "candy", "flavor", "flavour", "yogurt", "bread"],
-  "oranges":     ["juice", "drink", "candy", "flavor", "flavour"],
-  "mandarins":   ["juice", "drink", "candy"],
+  "tomatoes":    ["sauce", "soup", "juice", "ketchup", "paste", "sun-dried", "cherry tomato ketchup"],
+  "cucumbers":   ["pickled", "gherkin", "relish"],
+  "bell-pepper": ["sauce", "soup", "stuffed", "powder", "blend"],
+  "eggplant":    ["spread", "caviar", "dip"],
+  "garlic":      ["powder", "herbs", "sauce", "seasoning", "garlic &", "& garlic", "black garlic"],
+  "bananas":     ["juice", "chips", "candy", "flavor", "flavour", "yogurt", "bread", "snack"],
+  "oranges":     ["juice", "drink", "candy", "flavor", "flavour", "tic tac", "tictac", "vitamine"],
+  "mandarins":   ["juice", "drink", "candy", "flavour", "flavor"],
   "grapes":      ["juice", "wine", "raisin", "nectar", "anti-ox"],
-  "pears":       ["juice", "nectar", "baby"],
-  "avocado":     ["oil spray", "oil spray", "guacamole", "sauce", "toast"],
-  "mango":       ["juice", "drink", "candy", "chutney"],
-  "pineapple":   ["juice", "drink", "candy", "upside"],
-  "kiwi":        ["juice", "drink"],
-  "strawberry":  ["jam", "yogurt", "candy", "ice cream", "cereal", "granola"],
-  "lemon":       ["juice", "soda", "drink", "lemonade", "fanta", "tops", "candy"],
-  "pomegranate": ["juice", "drink", "milk", "yogurt", "candy", "raspberry-pomegranate"],
-  "cherry":      ["granola", "yogurt", "candy", "jam", "juice", "cranberry", "strawberry"],
+  "pears":       ["juice", "nectar", "baby", "compote", "pomme"],
+  "avocado":     ["oil spray", "guacamole", "sauce", "toast", "dip"],
+  "mango":       ["juice", "drink", "candy", "chutney", "flavour", "flavor"],
+  "pineapple":   ["juice", "drink", "candy", "upside", "flavour", "flavor"],
+  "kiwi":        ["juice", "drink", "candy", "flavour"],
+  "strawberry":  ["jam", "yogurt", "candy", "ice cream", "cereal", "granola", "flavour", "flavor"],
+  "lemon":       ["juice", "soda", "drink", "lemonade", "fanta", "tops", "candy", "curd", "flavour"],
+  "pomegranate": ["juice", "drink", "milk", "yogurt", "candy", "raspberry-pomegranate", "extract"],
+  "cherry":      ["granola", "yogurt", "candy", "jam", "juice", "cranberry", "strawberry", "compote", "bar"],
+  "mushrooms":   ["soup", "sauce", "powder", "dried", "pizza", "mix", "pâtes", "pasta", "poêlé"],
+  "zucchini":    ["mix", "soup", "chips", "bulgur"],
+  "beet":        ["juice", "chips", "salad", "pickled", "shot", "powder"],
+  "blueberry":   ["muffin", "yogurt", "jam", "biscuit", "cereal", "musli", "muesli"],
+  "spinach":     ["soup", "pasta", "powder", "mix", "smoothie"],
   "dill":        ["sauce", "falafel", "seasoning", "cream", "moutarde", "senap"],
   "parsley":     ["falafel", "sauce", "seasoning", "mix", "dates"],
-  "mushrooms":   ["soup", "sauce", "powder", "dried", "pizza"],
-  "zucchini":    ["mix", "soup", "chips", "bulgur"],
-  "beet":        ["juice", "chips", "salad", "pickled"],
-  "blueberry":   ["muffin", "yogurt", "jam", "biscuit", "cereal", "musli", "muesli"],
-  "spinach":     ["soup", "pasta", "powder", "mix"],
 
   // Meat — must not show processed/cooked products for raw meat IDs
   "carbonate":      ["bicarbonate", "baking soda", "soude", "de soude"],
@@ -76,7 +76,6 @@ const REJECT_KEYWORDS: Record<string, string[]> = {
   // Beverages — wrong variants
   "energy-monster": ["munch", "crisps", "chips"],  // Monster Munch ≠ Monster Energy
   "fanta":          ["tops lemon", "lemon 1.5"],    // Fanta should be orange flavour
-  "lemon":          ["fanta", "tops"],
 
   // Dairy
   "cheesecake":     ["skyr", "yogurt", "yaourt"],   // Skyr yogurt ≠ cheesecake dessert
@@ -86,8 +85,8 @@ const REJECT_KEYWORDS: Record<string, string[]> = {
   "caramel-candy":  ["tablette", "barre"],           // Chocolate bar ≠ caramel candy
   "granola-bar":    ["malt loaf", "soreen", "malt"], // Malt loaf ≠ granola bar
   "flax-seeds":     ["granola", "cereal", "bar", "bread"], // Granola/cereal ≠ plain flax seeds
+  "chia-seeds":     ["flaxseed", "flax seed", "sunflower", "pumpkin", "mixed seed", "blend"],
   "goji-berries":   ["flaxseed", "seed mix", "sunflower", "pumpkin seed"], // Seed mix ≠ goji berries
-  "cherry":         ["compote"],   // cherry compote is a cooked product, not fresh cherry
 
   // Frozen food — wrong types
   "blini-meat":          ["falafel", "pois chiches"],   // Falafel ≠ Russian blini
@@ -112,15 +111,19 @@ const REJECT_KEYWORDS: Record<string, string[]> = {
   "mustard-dijon":  ["vinegar"],
   "hummus-classic": ["soup"],
 
-  // Oils — must show actual oil bottle, not products made with oil
-  "olive-oil-ev":     ["dressing", "spray"],
-  "sesame-oil":       ["dressing", "paste", "tahini"],
+  // Oils — must show actual oil bottle, not products made with oil or in oil
+  "olive-oil-ev":     ["dressing", "spray", "anchov", "sardine", "fish", "tuna", "salmon", "preserved"],
+  "olive-oil-monini": ["dressing", "spray", "anchov", "sardine", "fish", "tuna"],
+  "sesame-oil":       ["dressing", "paste", "tahini", "fish", "anchov"],
   "corn-oil":         ["flakes", "cereal", "starch", "syrup"],
   "coconut-oil":      ["cream", "milk", "flakes", "shampoo"],
-  "coconut-milk-tin": ["chocolate", "crepe", "crêpe", "candy", "ice cream"], // Must show actual coconut milk can
+  "coconut-milk-tin": ["chocolate", "crepe", "crêpe", "candy", "ice cream"],
   "sunflower-oil-refined": ["seeds", "seed bar"],
+  "sunflower-seeds-oil":  ["soya", "soyabean", "palm", "palmoline", "rapeseed", "canola", "vegetable"],
   "walnut-oil":       ["walnuts", "mixed nuts"],
   "avocado-oil":      ["guacamole", "spray", "spray oil"],
+  "flaxseed-oil":     ["granola", "bar", "cereal", "seeds"],
+  "margarine-baking": ["butter", "cream", "spread"],
 
   // Ready food — wrong types
   "borsch-ready":         ["powder", "seasoning"],
@@ -133,7 +136,6 @@ const REJECT_KEYWORDS: Record<string, string[]> = {
   "baby-formula-nan1":      ["adult", "protein"],
   "baby-formula-nutrilon2": ["adult", "protein"],
   "baby-porridge-rice-nestle": ["lion", "wild", "chocolate"],  // Lion chocolate cereal ≠ baby rice
-  "baby-cereal-corn":       ["canned", "can ", "corn on"],     // Canned baby corn ≠ corn cereal
   "baby-cookies-gerber":    [],   // Arrowroot cookies → acceptable (Gerber baby cookies brand)
 
   // Ready food — other wrong types
@@ -150,25 +152,17 @@ const REJECT_KEYWORDS: Record<string, string[]> = {
 }
 
 // ─── ALWAYS REJECT product IDs that OFf cannot match well ────────────────────
-// These categories never have useful OFf data for raw product images
+// Fresh produce is no longer always-rejected: explicit OFf_QUERY_OVERRIDES
+// in batch-fetch-images.ts now target the right search terms, and REJECT_KEYWORDS
+// below handle gross mismatches. Only truly hopeless categories stay here.
 const ALWAYS_REJECT_CATEGORIES = new Set([
-  // Bulk fresh produce without barcodes — OFf only has packaged products
-  "potatoes", "carrots", "onions", "cabbage", "bell-pepper", "eggplant",
-  "garlic", "bananas", "oranges", "mandarins", "pears", "dill", "parsley",
-  "mushrooms", "zucchini", "beet", "spinach", "tomatoes", "cucumbers",
-  // Sets (composite products)
+  // Sets (composite products — no single SKU image exists)
   "family-basket", "breakfast-set", "bbq-set", "sushi-kit", "coffee-set",
   "healthy-set", "baby-set", "cheese-wine-set", "baking-set", "plov-set",
-  // HoReCa packaging (no consumer product images)
-  "containers-500ml", "containers-1000ml", "pizza-boxes-30cm",
-  "cups-paper-300ml", "cups-paper-400ml", "lids-for-cups",
-  "cutlery-set-pack", "napkins-paper", "foil-food", "cling-film",
-  "parchment-paper", "trash-bags-20l",
-  // Products with no barcode or OFf coverage
+  // HoReCa packaging — OFf almost never has these consumer-format items
+  "pizza-boxes-30cm",
+  // Products with no barcode or OFf coverage (raw unpackaged meat)
   "carbonate",      // свинина карбонат — local unpackaged meat
-  "chicken-liver",  // raw liver — no barcode
-  "beef-liver",     // raw liver — no barcode
-  "whole-chicken",  // fresh whole chicken — local
 ])
 
 function shouldReject(id: string, entry: Entry): { reject: boolean; reason: string } {

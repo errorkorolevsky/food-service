@@ -34,10 +34,23 @@ function main() {
 
   let src = fs.readFileSync(PRODUCTS_FILE, "utf-8")
   let changed = 0
+  let removed = 0
   let alreadyHave = 0
   let notReady = 0
 
-  // Process each product ID in readyIds
+  // ── Pass 0: remove image fields for files no longer on disk ──────────────────
+  // Handles the case where audit deleted a file that products.ts still references.
+  const stalePattern = /image:\s*"\/products\/([^"]+)\.webp",\s*/g
+  src = src.replace(stalePattern, (match, id) => {
+    if (!onDisk(id)) {
+      removed++
+      if (dryRun) console.log(`  - ${id} → removed stale image field (file deleted by audit)`)
+      return ""
+    }
+    return match
+  })
+
+  // ── Pass 1: add image fields for products with valid disk files ───────────────
   // Pattern: `id: "<id>", emoji:` → `id: "<id>", image: "/products/<id>.webp", emoji:`
   // Also handle: `id: "<id>",\n` followed by no image (multiline)
 
@@ -81,6 +94,7 @@ function main() {
   console.log(`\n  Product Image Updater`)
   console.log(`  ${"─".repeat(40)}`)
   console.log(`  Ready images in manifest: ${readyIds.size}`)
+  console.log(`  Stale refs removed:       ${removed}`)
   console.log(`  Already in products.ts:   ${alreadyHave}`)
   console.log(`  Added image field:        ${changed}`)
   console.log(`  ID not found in file:     ${notReady}`)
@@ -91,9 +105,9 @@ function main() {
     return
   }
 
-  if (changed > 0) {
+  if (changed > 0 || removed > 0) {
     fs.writeFileSync(PRODUCTS_FILE, src, "utf-8")
-    console.log(`  ✓ products.ts updated (${changed} products)\n`)
+    console.log(`  ✓ products.ts updated (+${changed} added, -${removed} removed)\n`)
     console.log("  Next steps:")
     console.log("    npx tsx scripts/seed-products.ts   ← reseed Supabase")
     console.log("    npm run dev                         ← verify in browser\n")

@@ -183,6 +183,7 @@ const MAGNUM_MATCHES: Record<string, { file: string; note?: string }> = {
   "baby-juice-agusha":       { file: "/uploads/4607096002985_5f567dab90.jpg" },                 // Agusha juice 200g ✓
   "baby-puree-pear":         { file: "/uploads/4600338006574_96d645830c.jpg", note: "FrutoNyanya — pear stand-in" }, // [~]
   "baby-puree-carrot":       { file: "/uploads/4600338008592_3276d4f20f.jpg", note: "FrutoNyanya fruit pieces 15g" }, // [~]
+
 }
 
 const MAGNUM_CDN = "https://magnum.kz:1337"
@@ -291,6 +292,181 @@ function loadCheckpoint(): Set<string> {
   }
 }
 
+// ─── OPENFOODFACTS QUERY OVERRIDES ───────────────────────────────────────────
+// Explicit English search queries for products where auto-translation fails.
+// Format: productId → "exact English search string for OFf"
+// When an override is present the first OFf result with a valid image is taken
+// (no keyword-match required, since we control the query).
+
+const OFf_QUERY_OVERRIDES: Record<string, string> = {
+
+  // ─── MEAT & FISH ─────────────────────────────────────────────────────────────
+  "chicken-legs":           "chicken drumsticks legs fresh",
+  "chicken-thighs":         "chicken thighs fresh",
+  "whole-chicken":          "whole chicken broiler",
+  "pork-minced":            "minced pork ground",
+  "turkey-fillet":          "turkey fillet breast",
+  "chicken-liver":          "chicken liver fresh",
+  "beef-liver":             "beef liver fresh",
+  "chorizo":                "chorizo sausage dried cured",
+  "carbonate":              "smoked pork loin carbonate",
+  "salmon-lightly-salted":  "lightly salted salmon gravlax",
+  "tiger-shrimp":           "tiger shrimp raw frozen",
+  "cooked-shrimp":          "cooked shrimp peeled frozen",
+  "mussels":                "mussels smoked canned",
+  "red-caviar":             "salmon roe red caviar",
+  "cod-fillet":             "cod fillet frozen",
+  "pike-perch":             "pike perch zander fillet",
+  "capelin-smoked":         "capelin smoked fish",
+  "octopus-mini":           "baby octopus frozen seafood",
+  "sea-cocktail":           "frozen seafood cocktail mix",
+
+  // ─── DAIRY ───────────────────────────────────────────────────────────────────
+  "cottage-cheese-soft":    "soft cottage cheese quark",
+  "cheese-adygei":          "Adyghe cheese soft white",
+  "cream-10":               "light cream 10 percent coffee",
+  "cream-33":               "heavy whipping cream 33 percent",
+  "cream-38":               "double cream 38 percent",
+  "ryazhenka":              "ryazhenka baked fermented milk",
+  "barista-milk":           "barista oat milk Oatly",
+
+  // ─── FRESH PRODUCE ───────────────────────────────────────────────────────────
+  "potatoes":               "potatoes bag fresh",
+  "carrots":                "carrots fresh bag",
+  "tomatoes":               "tomatoes fresh red",
+  "cucumbers":              "cucumbers fresh",
+  "bell-pepper":            "bell pepper red yellow",
+  "eggplant":               "eggplant aubergine fresh",
+  "bananas":                "bananas fresh yellow",
+  "oranges":                "oranges fresh",
+  "mandarins":              "mandarins clementines fresh",
+  "pears":                  "pears fresh",
+  "strawberry":             "strawberries fresh",
+  "mushrooms":              "champignons mushrooms fresh",
+  "beet":                   "beetroot beet fresh",
+  "spinach":                "spinach fresh leaves",
+  "pomegranate":            "pomegranate fresh",
+  "lemon":                  "lemon fresh yellow",
+  "zucchini":               "zucchini courgette fresh",
+  "garlic":                 "garlic bulb fresh",
+
+  // ─── BREAD & BAKERY ──────────────────────────────────────────────────────────
+  "white-bread":            "white bread loaf sliced",
+  "dark-bread":             "dark rye bread loaf",
+  "whole-wheat-bread":      "whole wheat bread whole grain",
+  "baton":                  "baton white bread roll",
+  "baguette":               "baguette French bread",
+  "samsa-meat":             "samsa meat pastry Central Asian",
+  "samsa-potato":           "samsa potato pastry",
+  "tandyr-bread":           "tandoor flatbread",
+  "pirozhok":               "pirozhki baked stuffed bun",
+
+  // ─── BEVERAGES ───────────────────────────────────────────────────────────────
+  "kvass":                  "kvass kvas bread fermented drink",
+  "tan":                    "tan ayran sparkling fermented milk drink",
+  "pomegranate-juice":      "pomegranate juice 100 percent",
+  "peach-nectar":           "peach nectar juice",
+  "raspberry-morse":        "raspberry fruit drink mors",
+  "water-premium":          "premium still mineral water glass bottle",
+  "kombucha":               "kombucha raw organic fermented tea",
+  "oat-drink":              "oat drink plant based",
+
+  // ─── COFFEE & COCOA ──────────────────────────────────────────────────────────
+  "coffee-arabica-ground":  "100 percent arabica ground coffee",
+  "cocoa-jb":               "cocoa powder pure unsweetened",
+
+  // ─── CONFECTIONERY & SNACKS ──────────────────────────────────────────────────
+  "raffaello":              "Raffaello coconut white Ferrero",
+  "candy-korovka":          "Korovka toffee milk candy",
+  "zephyr-vanilla":         "zephyr marshmallow vanilla",
+  "baklava":                "baklava honey nut pastry",
+  "honey-gingerbread":      "honey gingerbread cookies",
+  "creme-brulee-dessert":   "crème brûlée dessert cup",
+  "lollipop-chupa":         "Chupa Chups lollipop",
+  "popcorn-caramel":        "caramel popcorn snack",
+  "raisins":                "raisins golden sultanas",
+  "sunflower-seeds":        "roasted sunflower seeds",
+  "pumpkin-seeds":          "pumpkin seeds roasted",
+  "roasted-chickpea":       "roasted chickpeas snack",
+  "dates":                  "Medjool dates dried fruit",
+  "hazelnut-roasted":       "roasted hazelnuts shelled",
+
+  // ─── PANTRY ──────────────────────────────────────────────────────────────────
+  "oatmeal-hercules":       "rolled oats Hercules flakes",
+  "olive-oil-ev":           "extra virgin olive oil cold pressed",
+  "olive-oil-monini":       "Monini extra virgin olive oil",
+  "strawberry-jam":         "strawberry jam confiture",
+  "condensed-milk":         "sweetened condensed milk",
+  "apple-vinegar":          "apple cider vinegar Heinz",
+  "sunflower-seeds-oil":    "refined sunflower oil cooking",
+  "margarine-baking":       "margarine baking butter substitute",
+  "flaxseed-oil":           "flaxseed linseed oil cold pressed",
+  "avocado-oil":            "avocado oil cold pressed",
+  "walnut-oil":             "walnut oil cold pressed",
+  "zira-cumin":             "cumin seeds whole",
+  "oregano-dried":          "dried oregano Italian herbs",
+  "wasabi-paste":           "wasabi paste S&B tube",
+  "sushi-rice-koshi":       "koshihikari sushi rice Japanese",
+  "unagi-sauce":            "unagi sauce eel teriyaki",
+
+  // ─── SAUCES ──────────────────────────────────────────────────────────────────
+  "tabasco":                "Tabasco original pepper sauce McIlhenny",
+  "worcestershire-sauce":   "Lea Perrins Worcestershire sauce",
+  "teriyaki-sauce":         "Kikkoman teriyaki sauce",
+  "sesame-oil":             "sesame oil toasted dark",
+
+  // ─── OILS & FATS ─────────────────────────────────────────────────────────────
+
+  // ─── FROZEN ──────────────────────────────────────────────────────────────────
+  "varenyky-potato":        "varenyky pierogi potato dumplings",
+  "varenyky-cherry":        "varenyky cherry dumplings Ukrainian",
+  "blini-cottage":          "blini crepes cottage cheese filled",
+  "frozen-strawberry":      "frozen strawberries IQF",
+  "frozen-blueberry":       "frozen blueberries IQF",
+  "frozen-vegmix":          "frozen mixed vegetables carrots peas",
+  "samsa-frozen":           "samsa frozen pastry meat",
+  "pizza-dough-frozen":     "frozen pizza dough",
+
+  // ─── READY FOOD ──────────────────────────────────────────────────────────────
+  "sushi-set-japan":        "sushi set assorted Japanese",
+  "rolls-california":       "California rolls sushi",
+  "plov-ready":             "pilaf plov rice meat ready",
+  "borsch-ready":           "borscht beetroot soup ready",
+  "salad-olivie":           "Olivier salad Russian",
+  "lagman-ready":           "lagman noodle soup",
+  "hotdog-ready":           "hot dog sausage bun",
+  "dolma-ready":            "dolma stuffed grape leaves",
+
+  // ─── BABY FOOD ───────────────────────────────────────────────────────────────
+  "baby-porridge-buckwheat":"Heinz baby buckwheat porridge cereal",
+  "baby-porridge-oat":      "Heinz baby oat porridge cereal",
+  "baby-formula-nan1":      "NAN 1 Nestlé infant formula",
+  "baby-formula-nutrilon2": "Nutrilon 2 follow on milk formula",
+  "baby-yogurt-agusha":     "Agusha baby yogurt",
+  "baby-water":             "baby drinking water still",
+  "baby-kefir-tema":        "Tema baby kefir",
+  "baby-puree-tube":        "baby fruit puree squeeze pouch",
+
+  // ─── HEALTHY / SPORTS ────────────────────────────────────────────────────────
+  "protein-bar-rex":        "Rex protein bar chocolate",
+  "chia-seeds":             "chia seeds organic",
+  "almond-milk-tetrapak":   "almond milk unsweetened tetrapak",
+  "spirulina-powder":       "spirulina powder organic green",
+
+  // ─── HORECA PACKAGING (low priority — but OFf might have them) ───────────────
+  "foil-food":              "aluminum foil kitchen roll",
+  "cling-film":             "cling film food wrap",
+  "parchment-paper":        "parchment paper baking",
+  "trash-bags-20l":         "trash bags garbage bags 20L",
+  "cups-paper-300ml":       "paper cups disposable 300ml",
+  "cups-paper-400ml":       "paper cups disposable 400ml",
+  "containers-500ml":       "plastic food containers 500ml",
+  "containers-1000ml":      "plastic food containers 1000ml",
+  "cutlery-set-pack":       "disposable plastic cutlery fork spoon set",
+  "lids-for-cups":          "lids for paper cups",
+  "pizza-boxes-30cm":       "pizza boxes cardboard 30cm",
+}
+
 // ─── OPENFOODFACTS ────────────────────────────────────────────────────────────
 
 function normalizeRu(s: string): string {
@@ -301,10 +477,13 @@ function normalizeRu(s: string): string {
 }
 
 async function tryOpenFoodFacts(p: Product): Promise<{ url: string; name: string } | null> {
-  // Build English/transliterated search terms from product title keywords
   const titleLower = p.title.toLowerCase()
 
-  // Map common Russian food terms to English for OFf search
+  // ── Check explicit override first ───────────────────────────────────────────
+  const hasOverride = Object.prototype.hasOwnProperty.call(OFf_QUERY_OVERRIDES, p.id)
+  const overrideQuery = hasOverride ? OFf_QUERY_OVERRIDES[p.id] : null
+
+  // ── Auto-build query from Russian title keywords ────────────────────────────
   const termMap: Record<string, string> = {
     "лосось": "salmon", "форель": "trout", "тунец": "tuna", "скумбрия": "mackerel",
     "минтай": "pollock", "сельдь": "herring", "креветки": "shrimp", "кальмар": "squid",
@@ -340,28 +519,22 @@ async function tryOpenFoodFacts(p: Product): Promise<{ url: string; name: string
     "компот": "compote", "айран": "ayran",
   }
 
-  // Build search query
   const id = p.id.replace(/-/g, " ")
-  let query = id
-
-  // Try to find Russian match
+  let autoQuery = id
   for (const [ru, en] of Object.entries(termMap)) {
-    if (titleLower.includes(ru)) {
-      query = en + " " + p.id.split("-").slice(-1)[0]
-      break
-    }
+    if (titleLower.includes(ru)) { autoQuery = en + " " + p.id.split("-").slice(-1)[0]; break }
   }
-
-  // For known international brands, include brand name
   const brandMatch = p.title.match(/\b(Pringles|Lay['s]*|Haribo|Rafaello|Raffaello|Ferrero|Bounty|KitKat|Milka|Oreo|Nescafe|Jacobs|Nesquik|Heinz|Kikkoman|Tabasco|McCain|Chupa|Mentos|Evian|Monster|Sprite|Fanta)\b/i)
-  if (brandMatch) query = brandMatch[1] + " " + id.split(" ").slice(-1)[0]
+  if (brandMatch) autoQuery = brandMatch[1] + " " + id.split(" ").slice(-1)[0]
+
+  const query = overrideQuery ?? autoQuery
 
   const url = `https://world.openfoodfacts.org/cgi/search.pl?${new URLSearchParams({
     search_terms: query.slice(0, 60),
     search_simple: "1",
     action: "process",
     json: "1",
-    page_size: "5",
+    page_size: "8",
     fields: "product_name,brands,image_front_url,image_url",
   })}`
 
@@ -374,6 +547,20 @@ async function tryOpenFoodFacts(p: Product): Promise<{ url: string; name: string
     for (const r of (data.products ?? [])) {
       const imgUrl = r.image_front_url ?? r.image_url
       if (!imgUrl || imgUrl.includes("thumb")) continue
+
+      if (hasOverride) {
+        // Explicit override: require at least the first meaningful word of the
+        // override query to appear in the product name/brand (prevents gross mismatches
+        // like "oranges fresh" → Tic Tac Orange candy).
+        const firstWord = query.toLowerCase().split(" ").find(w => w.length > 3) ?? ""
+        const rName2 = ((r.product_name ?? "") + " " + (r.brands ?? "")).toLowerCase()
+        if (!firstWord || rName2.includes(firstWord)) {
+          return { url: imgUrl, name: (r.product_name ?? r.brands ?? query).slice(0, 80) }
+        }
+        continue
+      }
+
+      // Auto query: require at least one keyword to appear in the product name
       const rName  = ((r.product_name ?? "") + " " + (r.brands ?? "")).toLowerCase()
       const qWords = query.toLowerCase().split(" ").filter(w => w.length > 3)
       if (qWords.some(w => rName.includes(w))) {

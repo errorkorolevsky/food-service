@@ -782,7 +782,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "chicken-wings": {
     "status": "matched_unverified",
@@ -821,7 +821,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "lamb-leg": {
     "status": "matched_unverified",
@@ -844,7 +844,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "salami-milano": {
     "status": "matched_unverified",
@@ -859,7 +859,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "duck-fillet": {
     "status": "matched_unverified",
@@ -906,7 +906,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "trout-fillet": {
     "status": "matched_unverified",
@@ -961,42 +961,42 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "red-caviar": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "cod-fillet": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "pike-perch": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "capelin-smoked": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "octopus-mini": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "anchovy": {
     "status": "matched_unverified",
@@ -1027,7 +1027,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "cheese-mozzarella": {
     "status": "matched_unverified",
@@ -1050,21 +1050,21 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "cream-33": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "ryazhenka": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "eggs-quail": {
     "status": "matched_unverified",
@@ -1087,70 +1087,52 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "carrots": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Steam Bags Carrots, Peas & Sweetcorn",
+    "source_url": "https://images.openfoodfacts.org/images/products/408/860/022/6156/front_en.6.400.jpg",
+    "local_path": "/products/carrots.webp",
+    "fetched": "2026-05-29"
   },
   "tomatoes": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Red Pearl",
+    "source_url": "https://images.openfoodfacts.org/images/products/871/581/700/0090/front_nl.3.400.jpg",
+    "local_path": "/products/tomatoes.webp",
+    "fetched": "2026-05-29"
   },
   "cucumbers": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
-  },
-  "bell-pepper": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "eggplant": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "bananas": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
-  },
-  "oranges": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "mandarins": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
-  },
-  "pears": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Easy peelers mandarin",
+    "source_url": "https://images.openfoodfacts.org/images/products/000/000/117/4281/front_en.8.400.jpg",
+    "local_path": "/products/mandarins.webp",
+    "fetched": "2026-05-29"
   },
   "mango": {
     "status": "matched_unverified",
@@ -1169,68 +1151,59 @@
     "fetched": "2026-05-28"
   },
   "strawberry": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
-  },
-  "cherry": {
     "status": "matched_unverified",
     "source_type": "openfoodfacts",
-    "source_name": "Granola fruit strawberry cranberry cherry",
-    "source_url": "https://images.openfoodfacts.org/images/products/590/061/700/2969/front_en.50.400.jpg",
-    "local_path": "/products/cherry.webp",
-    "fetched": "2026-05-28"
-  },
-  "mushrooms": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "source_name": "Erdbeeren",
+    "source_url": "https://images.openfoodfacts.org/images/products/000/002/024/1971/front_de.25.400.jpg",
+    "local_path": "/products/strawberry.webp",
+    "fetched": "2026-05-29"
   },
   "beet": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Betteraves rouges bio",
+    "source_url": "https://images.openfoodfacts.org/images/products/000/002/071/3232/front_fr.45.400.jpg",
+    "local_path": "/products/beet.webp",
+    "fetched": "2026-05-29"
   },
   "spinach": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Baby Spinach",
+    "source_url": "https://images.openfoodfacts.org/images/products/405/648/919/8369/front_en.40.400.jpg",
+    "local_path": "/products/spinach.webp",
+    "fetched": "2026-05-29"
   },
   "white-bread": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Original Toastie Soft & Sliced White Loaf",
+    "source_url": "https://images.openfoodfacts.org/images/products/501/004/400/0121/front_en.67.400.jpg",
+    "local_path": "/products/white-bread.webp",
+    "fetched": "2026-05-29"
   },
   "dark-bread": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Dark Rye & Sunflower Loaf",
+    "source_url": "https://images.openfoodfacts.org/images/products/505/754/592/8806/front_en.27.400.jpg",
+    "local_path": "/products/dark-bread.webp",
+    "fetched": "2026-05-29"
   },
   "whole-wheat-bread": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Organic Bread Sprouted Whole Grains",
+    "source_url": "https://images.openfoodfacts.org/images/products/001/376/402/8074/front_en.105.400.jpg",
+    "local_path": "/products/whole-wheat-bread.webp",
+    "fetched": "2026-05-29"
   },
   "baton": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "lavash": {
     "status": "matched_unverified",
@@ -1245,14 +1218,14 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "samsa-potato": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "donut": {
     "status": "matched_unverified",
@@ -1295,11 +1268,12 @@
     "fetched": "2026-05-28"
   },
   "tandyr-bread": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Naan Rounds, Whole-Wheat 16’s",
+    "source_url": "https://images.openfoodfacts.org/images/products/006/038/314/6436/front_en.24.400.jpg",
+    "local_path": "/products/tandyr-bread.webp",
+    "fetched": "2026-05-29"
   },
   "pita": {
     "status": "matched_unverified",
@@ -1310,11 +1284,12 @@
     "fetched": "2026-05-28"
   },
   "baguette": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Baguette aux graines",
+    "source_url": "https://images.openfoodfacts.org/images/products/352/368/035/3671/front_fr.48.400.jpg",
+    "local_path": "/products/baguette.webp",
+    "fetched": "2026-05-29"
   },
   "cinnamon-roll": {
     "status": "matched_unverified",
@@ -1329,7 +1304,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "bagel": {
     "status": "matched_unverified",
@@ -1360,7 +1335,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "ayran": {
     "status": "matched_unverified",
@@ -1375,28 +1350,28 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "pomegranate-juice": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "water-premium": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "kombucha": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "aloe-drink": {
     "status": "matched_unverified",
@@ -1407,25 +1382,26 @@
     "fetched": "2026-05-28"
   },
   "peach-nectar": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "jaouda press up peche 1l",
+    "source_url": "https://images.openfoodfacts.org/images/products/611/124/210/7175/front_fr.3.400.jpg",
+    "local_path": "/products/peach-nectar.webp",
+    "fetched": "2026-05-29"
   },
   "raspberry-morse": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "oat-drink": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "cola-zero": {
     "status": "matched_unverified",
@@ -1464,7 +1440,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "chocolate-dark-70": {
     "status": "matched_unverified",
@@ -1487,7 +1463,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "ferrero-rocher": {
     "status": "matched_unverified",
@@ -1502,7 +1478,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "waffles-choco": {
     "status": "matched_unverified",
@@ -1517,21 +1493,21 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "baklava": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "honey-gingerbread": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "macaron": {
     "status": "matched_unverified",
@@ -1546,7 +1522,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "tiramisu": {
     "status": "matched_unverified",
@@ -1561,7 +1537,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "marshmallow": {
     "status": "matched_unverified",
@@ -1616,7 +1592,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "dried-apricots": {
     "status": "matched_unverified",
@@ -1627,11 +1603,12 @@
     "fetched": "2026-05-28"
   },
   "raisins": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Raisins secs golden sultanas",
+    "source_url": "https://images.openfoodfacts.org/images/products/007/570/003/2491/front_fr.7.400.jpg",
+    "local_path": "/products/raisins.webp",
+    "fetched": "2026-05-29"
   },
   "prunes-snack": {
     "status": "matched_unverified",
@@ -1658,39 +1635,43 @@
     "fetched": "2026-05-28"
   },
   "sunflower-seeds": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Sunflower seeds dry roasted salted",
+    "source_url": "https://images.openfoodfacts.org/images/products/000/002/094/8313/front_ro.4.400.jpg",
+    "local_path": "/products/sunflower-seeds.webp",
+    "fetched": "2026-05-29"
   },
   "pumpkin-seeds": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Pepitas Roasted & Salted Pumpkin Seed Kernels",
+    "source_url": "https://images.openfoodfacts.org/images/products/007/874/236/7040/front_en.21.400.jpg",
+    "local_path": "/products/pumpkin-seeds.webp",
+    "fetched": "2026-05-29"
   },
   "roasted-chickpea": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Roasted chickpeas",
+    "source_url": "https://images.openfoodfacts.org/images/products/931/847/100/0667/front_en.3.400.jpg",
+    "local_path": "/products/roasted-chickpea.webp",
+    "fetched": "2026-05-29"
   },
   "dates": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Medjool dates",
+    "source_url": "https://images.openfoodfacts.org/images/products/000/000/187/5546/front_en.86.400.jpg",
+    "local_path": "/products/dates.webp",
+    "fetched": "2026-05-29"
   },
   "hazelnut-roasted": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "buckwheat-uvelka": {
     "status": "matched_unverified",
@@ -1705,7 +1686,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "salt-marine": {
     "status": "matched_unverified",
@@ -1723,19 +1704,12 @@
     "local_path": "/products/sunflower-oil-refined.webp",
     "fetched": "2026-05-28"
   },
-  "olive-oil-ev": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
-  },
   "strawberry-jam": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "natural-honey": {
     "status": "matched_unverified",
@@ -1746,11 +1720,12 @@
     "fetched": "2026-05-28"
   },
   "condensed-milk": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Full cream sweetened condensed milk في ١٠٠ غرام 271 سعرة حرارية",
+    "source_url": "https://images.openfoodfacts.org/images/products/761/303/832/3701/front_en.71.400.jpg",
+    "local_path": "/products/condensed-milk.webp",
+    "fetched": "2026-05-29"
   },
   "buckwheat-flakes": {
     "status": "matched_unverified",
@@ -1777,11 +1752,12 @@
     "fetched": "2026-05-28"
   },
   "apple-vinegar": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Vinegar apple cider imp",
+    "source_url": "https://images.openfoodfacts.org/images/products/001/300/000/8143/front_en.3.400.jpg",
+    "local_path": "/products/apple-vinegar.webp",
+    "fetched": "2026-05-29"
   },
   "baking-soda": {
     "status": "matched_unverified",
@@ -1799,26 +1775,19 @@
     "local_path": "/products/pearl-barley.webp",
     "fetched": "2026-05-28"
   },
-  "sunflower-seeds-oil": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
-  },
   "varenyky-potato": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "varenyky-cherry": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "manti-frozen": {
     "status": "matched_unverified",
@@ -1833,21 +1802,21 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "frozen-strawberry": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "frozen-blueberry": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "frozen-raspberries": {
     "status": "matched_unverified",
@@ -1858,11 +1827,12 @@
     "fetched": "2026-05-28"
   },
   "frozen-vegmix": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Vegetable Medley, Organic Keep Frozen.",
+    "source_url": "https://images.openfoodfacts.org/images/products/006/038/303/9127/front_en.13.400.jpg",
+    "local_path": "/products/frozen-vegmix.webp",
+    "fetched": "2026-05-29"
   },
   "fish-cakes-frozen": {
     "status": "matched_unverified",
@@ -1885,7 +1855,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "spring-rolls-frozen": {
     "status": "matched_unverified",
@@ -1952,11 +1922,12 @@
     "fetched": "2026-05-28"
   },
   "zira-cumin": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "CUMIN graines éco recharge \"COOK\" 40g*",
+    "source_url": "https://images.openfoodfacts.org/images/products/341/796/004/1955/front_fr.7.400.jpg",
+    "local_path": "/products/zira-cumin.webp",
+    "fetched": "2026-05-29"
   },
   "vanilla-extract": {
     "status": "matched_unverified",
@@ -1971,14 +1942,14 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "worcestershire-sauce": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "balsamic-vinegar": {
     "status": "matched_unverified",
@@ -1993,7 +1964,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "hummus-classic": {
     "status": "matched_unverified",
@@ -2008,14 +1979,15 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "sesame-oil": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Dark Toasted Traditionally pressed 100% pure sesame oil",
+    "source_url": "https://images.openfoodfacts.org/images/products/085/616/500/8098/front_en.3.400.jpg",
+    "local_path": "/products/sesame-oil.webp",
+    "fetched": "2026-05-29"
   },
   "coconut-oil": {
     "status": "matched_unverified",
@@ -2038,42 +2010,44 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "flaxseed-oil": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "avocado-oil": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "walnut-oil": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Cold pressed organic walnut oil",
+    "source_url": "https://images.openfoodfacts.org/images/products/506/009/625/0173/front_fr.4.400.jpg",
+    "local_path": "/products/walnut-oil.webp",
+    "fetched": "2026-05-29"
   },
   "sushi-set-japan": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "rolls-california": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "California Roll",
+    "source_url": "https://images.openfoodfacts.org/images/products/376/022/871/4987/front_fr.4.400.jpg",
+    "local_path": "/products/rolls-california.webp",
+    "fetched": "2026-05-29"
   },
   "burger-beef-fresh": {
     "status": "matched_unverified",
@@ -2096,21 +2070,21 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "borsch-ready": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "salad-olivie": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "salad-caesar-chicken": {
     "status": "matched_unverified",
@@ -2125,7 +2099,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "manti-ready": {
     "status": "missing",
@@ -2135,53 +2109,56 @@
     "fetched": "2026-05-28"
   },
   "hotdog-ready": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "The Classic Bun sausage buns",
+    "source_url": "https://images.openfoodfacts.org/images/products/006/872/130/0915/front_en.6.400.jpg",
+    "local_path": "/products/hotdog-ready.webp",
+    "fetched": "2026-05-29"
   },
   "dolma-ready": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Dolmas - Stuffed Grape Leaves with Rice",
+    "source_url": "https://images.openfoodfacts.org/images/products/063/975/900/0117/front_en.3.400.jpg",
+    "local_path": "/products/dolma-ready.webp",
+    "fetched": "2026-05-29"
   },
   "baby-porridge-buckwheat": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "baby-porridge-oat": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "baby-formula-nan1": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "NAN ET2",
+    "source_url": "https://images.openfoodfacts.org/images/products/750/105/862/3249/front_en.13.400.jpg",
+    "local_path": "/products/baby-formula-nan1.webp",
+    "fetched": "2026-05-29"
   },
   "baby-formula-nutrilon2": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "baby-yogurt-agusha": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "baby-cookies-gerber": {
     "status": "matched_unverified",
@@ -2196,21 +2173,21 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "baby-kefir-tema": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "baby-puree-tube": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "baby-cereal-corn": {
     "status": "matched_unverified",
@@ -2225,7 +2202,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "granola-honey": {
     "status": "matched_unverified",
@@ -2241,13 +2218,6 @@
     "source_name": "NAKED ORGANIC TOFU",
     "source_url": "https://images.openfoodfacts.org/images/products/503/446/700/0216/front_en.64.400.jpg",
     "local_path": "/products/tofu-natural.webp",
-    "fetched": "2026-05-28"
-  },
-  "chia-seeds": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
     "fetched": "2026-05-28"
   },
   "rice-cakes": {
@@ -2271,7 +2241,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "oat-milk-oatly": {
     "status": "matched_unverified",
@@ -2282,11 +2252,12 @@
     "fetched": "2026-05-28"
   },
   "spirulina-powder": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Spirulina Powder Pure",
+    "source_url": "https://images.openfoodfacts.org/images/products/073/373/902/6903/front_en.9.400.jpg",
+    "local_path": "/products/spirulina-powder.webp",
+    "fetched": "2026-05-29"
   },
   "psyllium-husk": {
     "status": "matched_unverified",
@@ -2444,7 +2415,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "masago": {
     "status": "matched_unverified",
@@ -2471,11 +2442,12 @@
     "fetched": "2026-05-28"
   },
   "barista-milk": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Barista edition oat drink",
+    "source_url": "https://images.openfoodfacts.org/images/products/739/437/662/0157/front_en.5.400.jpg",
+    "local_path": "/products/barista-milk.webp",
+    "fetched": "2026-05-29"
   },
   "cheese-cheddar": {
     "status": "matched_unverified",
@@ -2490,7 +2462,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "chicken-breast-fresh": {
     "status": "matched_unverified",
@@ -2537,7 +2509,7 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "pizza-tomato-sauce": {
     "status": "matched_unverified",
@@ -2552,21 +2524,21 @@
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "wasabi-paste": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "sushi-rice-koshi": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
   },
   "nori-gold": {
     "status": "matched_unverified",
@@ -2625,17 +2597,78 @@
     "fetched": "2026-05-28"
   },
   "pizza-dough-frozen": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Frozen Pizza Dough",
+    "source_url": "https://images.openfoodfacts.org/images/products/079/485/910/0003/front_en.3.400.jpg",
+    "local_path": "/products/pizza-dough-frozen.webp",
+    "fetched": "2026-05-29"
   },
   "cocoa-jb": {
     "status": "missing",
     "source_type": null,
     "source_name": "Not found in Magnum or OpenFoodFacts",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-29"
+  },
+  "chicken-thighs": {
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Chicken thigh fillets",
+    "source_url": "https://images.openfoodfacts.org/images/products/501/690/100/2826/front_en.16.400.jpg",
+    "local_path": "/products/chicken-thighs.webp",
+    "fetched": "2026-05-29"
+  },
+  "whole-chicken": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "turkey-fillet": {
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Gebraden kalkoenfilet",
+    "source_url": "https://images.openfoodfacts.org/images/products/405/648/954/8867/front_nl.3.400.jpg",
+    "local_path": "/products/turkey-fillet.webp",
+    "fetched": "2026-05-29"
+  },
+  "chicken-liver": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "carbonate": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "lemon": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "pomegranate": {
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Whole Pomegranates",
+    "source_url": "https://images.openfoodfacts.org/images/products/082/415/091/0626/front_en.3.400.jpg",
+    "local_path": "/products/pomegranate.webp",
+    "fetched": "2026-05-29"
+  },
+  "zucchini": {
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Courgettes",
+    "source_url": "https://images.openfoodfacts.org/images/products/000/000/108/5808/front_en.23.400.jpg",
+    "local_path": "/products/zucchini.webp",
+    "fetched": "2026-05-29"
   }
 }
