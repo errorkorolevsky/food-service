@@ -184,6 +184,23 @@ const MAGNUM_MATCHES: Record<string, { file: string; note?: string }> = {
   "baby-puree-pear":         { file: "/uploads/4600338006574_96d645830c.jpg", note: "FrutoNyanya — pear stand-in" }, // [~]
   "baby-puree-carrot":       { file: "/uploads/4600338008592_3276d4f20f.jpg", note: "FrutoNyanya fruit pieces 15g" }, // [~]
 
+  // ─── ARBUZ.KZ BATCH 2 — produce, frozen, spices, ready food ─────────────────
+  "pineapple":        { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__56e3dd7c-82c4-4cf7-93ec-7c345036e41e-vybor-turlova_png.png",         note: "Ананас Коста Рика, кг — arbuz.kz" },
+  "parsley":          { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__7b0a4a5f-1a1e-49f7-87fa-9d28109dfe8b-2505521_jpg.jpg",               note: "Петрушка, 100 г — arbuz.kz" },
+  "varenyky-potato":  { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__53a7aae4-cbe2-4229-9699-26be9f040e01-4870002570179_vareniki_bekker_s_kartoshkoi_450_g_1_jpg.jpg", note: "Вареники Беккер с картошкой, 450 г — arbuz.kz" },
+  "samsa-frozen":     { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__a2e1a637-2b37-4909-9376-49c2476e5187-307334_2_png.png",              note: "Самса Arbuz Select с говядиной замороженная, 500 г — arbuz.kz" },
+  "blini-meat":       { file: "https://arbuz.kz/image/s3/arbuz-kz-products/image__213476-blinchiki_baron_s_myasom_i_risom_400_g.jpg",                      note: "Блинчики Baron с мясом и рисом 400 г — arbuz.kz" },
+  "black-pepper-ground": { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__0666d9a8-4921-4f5d-8f48-f6d7d02c15c6-312083_1f_png.png",         note: "Перец черный молотый Arbuz Select 100 г — arbuz.kz" },
+  "bay-leaf":         { file: "https://arbuz.kz/image/s3/arbuz-kz-products/253104-list_lavrovyi_kotanyi_celyi_5_g.jpg",                                    note: "Лист лавровый Kotanyi целый 5 г — arbuz.kz" },
+  "turmeric":         { file: "https://arbuz.kz/image/s3/arbuz-kz-products/image__330649-kurkuma_alnatura_organicheskaya_speciya_60_g.jpg",                 note: "Куркума Alnatura органическая специя 60 г — arbuz.kz" },
+  "paprika-smoked":   { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__9f92b7a5-690f-4ff7-99ab-877284e73691-5902741006318_jpg.jpg",          note: "Паприка Dary Natury копченая сладкая органическая 50 г — arbuz.kz" },
+  "plov-ready":       { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__610291a0-3ae7-4edc-9497-9dbf12ffc995-335428_2_png.png",              note: "Плов Arbuz Select x Damdala с говядиной, 300 г — arbuz.kz" },
+  "pizza-margarita-fresh": { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__6fb73a88-b7c9-4bf6-b6ac-8068a4976357-788364724458-1_jpg.jpg",   note: "Пицца Malina Group Маргарита 25 см — arbuz.kz" },
+  "manti-ready":      { file: "https://arbuz.kz/image/s3/arbuz-kz-products/image__333357-manty_arbuz_select_s_govyadinoi_265_g.jpg",                       note: "Манты с говядиной 265 г — arbuz.kz" },
+  "frozen-strawberry":{ file: "https://arbuz.kz/image/s3/arbuz-kz-products/f19af63e-463c-4acd-b89a-3669c504f81d-5240_1_png.png",                          note: "Клубника Arbuz Select замороженная, 300 г — arbuz.kz" },
+  "samsa-meat":       { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__93a5576e-25bd-44af-97fa-7972dc447f5d-341502_1_png.png",              note: "Самса Arbuz Select x JamBull с мясом, 400 г — arbuz.kz" },
+  "fanta":            { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__27e2305d-e060-4be9-be0f-9b281222a1a5-90495793_jpg.jpg",              note: "Напиток Fanta Orange газированный, 0.25 л — arbuz.kz" },
+
   // ─── ARBUZ.KZ — fresh produce, dairy, fish, meat ─────────────────────────
   // Full CDN URLs (arbuz.kz/image/s3/arbuz-kz-products/...)
   "potatoes":     { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__fc40a303-938c-4f80-8cd5-ebf4beb5c7bd-2000001_1_jpg.jpg",             note: "Картофель кг — arbuz.kz" },
@@ -477,6 +494,38 @@ const OFf_QUERY_OVERRIDES: Record<string, string> = {
   "chia-seeds":             "chia seeds organic",
   "almond-milk-tetrapak":   "almond milk unsweetened tetrapak",
   "spirulina-powder":       "spirulina powder organic green",
+
+  // ─── ADDITIONAL ITEMS (not in earlier overrides) ─────────────────────────────
+  "cabbage":              "white cabbage head fresh vegetable",
+  "grapes":               "green seedless grapes bunch Kismish",
+  "pineapple":            "fresh whole pineapple tropical",
+  "dill":                 "fresh dill herb bunch",
+  "parsley":              "fresh parsley herb bunch",
+  "blueberry":            "fresh blueberries punnet berry",
+  "unagi":                "unagi smoked eel fillet Japanese",
+  "fanta":                "Fanta orange carbonated drink can",
+  "energy-monster":       "Monster Energy original green can",
+  "blini-meat":           "Russian blini crepes stuffed meat",
+  "french-fries-mccain":  "McCain original oven fries chips frozen",
+  "frozen-broccoli":      "frozen broccoli florets IQF bag",
+  "black-pepper-ground":  "black pepper ground tin spice",
+  "paprika-smoked":       "smoked paprika powder tin spice",
+  "turmeric":             "turmeric powder organic tin spice",
+  "curry-mix":            "curry powder spice mix tin blend",
+  "bay-leaf":             "dried bay leaves whole herb",
+  "ginger-marinated":     "pickled sushi ginger pink marinated",
+  "corn-oil":             "corn oil refined cooking bottle",
+  "lard-smoked":          "smoked lard back fat slab",
+  "flax-seeds":           "flaxseed whole organic linseed bag",
+  "coconut-milk-tin":     "coconut milk tin 400ml creamy",
+  "goji-berries":         "goji berries dried superfood organic",
+  "caramel-candy":        "caramel hard candy sweets bag",
+  "granola-bar":          "granola muesli bar oat cereal",
+  "chickpeas-dry":        "dried chickpeas garbanzo beans bag",
+  "cheesecake":           "New York cheesecake dessert slice",
+  "pizza-margarita-fresh":"Margherita pizza fresh whole round",
+  "baby-porridge-rice-nestle": "Nestlé baby rice cereal porridge",
+  "caramel-syrup":        "caramel syrup coffee Monin bottle",
 
   // ─── HORECA PACKAGING (low priority — but OFf might have them) ───────────────
   "foil-food":              "aluminum foil kitchen roll",

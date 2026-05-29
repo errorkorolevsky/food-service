@@ -819,10 +819,11 @@
     "fetched": "2026-05-28"
   },
   "pork-minced": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Minced Pork Avatar",
+    "source_url": "https://images.openfoodfacts.org/images/products/996/119/341/0131/front_en.16.400.jpg",
+    "local_path": "/products/pork-minced.webp",
     "fetched": "2026-05-29"
   },
   "lamb-leg": {
@@ -1006,10 +1007,11 @@
     "fetched": "2026-05-29"
   },
   "octopus-mini": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Baby Octopus Frozen",
+    "source_url": "https://images.openfoodfacts.org/images/products/000/002/621/4832/front_en.5.400.jpg",
+    "local_path": "/products/octopus-mini.webp",
     "fetched": "2026-05-29"
   },
   "anchovy": {
@@ -1244,10 +1246,12 @@
     "fetched": "2026-05-28"
   },
   "samsa-meat": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Самса Arbuz Select x JamBull с мясом, 400 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__93a5576e-25bd-44af-97fa-7972dc447f5d-341502_1_png.png",
+    "local_path": "/products/samsa-meat.webp",
+    "note": "Самса Arbuz Select x JamBull с мясом, 400 г — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "samsa-potato": {
@@ -1427,10 +1431,11 @@
     "fetched": "2026-05-29"
   },
   "oat-drink": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Whole Oat Plant Based Vegan Drink",
+    "source_url": "https://images.openfoodfacts.org/images/products/000/002/922/9109/front_en.37.400.jpg",
+    "local_path": "/products/oat-drink.webp",
     "fetched": "2026-05-29"
   },
   "cola-zero": {
@@ -1489,10 +1494,11 @@
     "fetched": "2026-05-28"
   },
   "raffaello": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Raffaello - Confetteria - Kokos & Mandelcreme",
+    "source_url": "https://images.openfoodfacts.org/images/products/800/050/035/9556/front_en.205.400.jpg",
+    "local_path": "/products/raffaello.webp",
     "fetched": "2026-05-29"
   },
   "ferrero-rocher": {
@@ -1563,10 +1569,11 @@
     "fetched": "2026-05-28"
   },
   "lollipop-chupa": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Chupa Chups The best of",
+    "source_url": "https://images.openfoodfacts.org/images/products/841/003/193/6506/front_en.56.400.jpg",
+    "local_path": "/products/lollipop-chupa.webp",
     "fetched": "2026-05-29"
   },
   "marshmallow": {
@@ -1618,10 +1625,11 @@
     "fetched": "2026-05-28"
   },
   "popcorn-caramel": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Werther's Original Popcorn Classic Caramel",
+    "source_url": "https://images.openfoodfacts.org/images/products/401/440/092/5319/front_en.90.400.jpg",
+    "local_path": "/products/popcorn-caramel.webp",
     "fetched": "2026-05-29"
   },
   "dried-apricots": {
@@ -1697,10 +1705,11 @@
     "fetched": "2026-05-29"
   },
   "hazelnut-roasted": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Oregon Hazelnuts Dry Roasted & Unsalted",
+    "source_url": "https://images.openfoodfacts.org/images/products/000/000/094/7633/front_en.15.400.jpg",
+    "local_path": "/products/hazelnut-roasted.webp",
     "fetched": "2026-05-29"
   },
   "buckwheat-uvelka": {
@@ -1735,10 +1744,11 @@
     "fetched": "2026-05-28"
   },
   "strawberry-jam": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Bonne Maman - French Strawberry & Wild Strawberry Jam, 370g (13oz)",
+    "source_url": "https://images.openfoodfacts.org/images/products/304/532/008/2074/front_fr.33.400.jpg",
+    "local_path": "/products/strawberry-jam.webp",
     "fetched": "2026-05-29"
   },
   "natural-honey": {
@@ -1806,10 +1816,12 @@
     "fetched": "2026-05-28"
   },
   "varenyky-potato": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Вареники Беккер с картошкой, 450 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__53a7aae4-cbe2-4229-9699-26be9f040e01-4870002570179_vareniki_bekker_s_kartoshkoi_450_g_1_jpg.jpg",
+    "local_path": "/products/varenyky-potato.webp",
+    "note": "Вареники Беккер с картошкой, 450 г — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "varenyky-cherry": {
@@ -1835,10 +1847,12 @@
     "fetched": "2026-05-29"
   },
   "frozen-strawberry": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Клубника Arbuz Select замороженная, 300 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/f19af63e-463c-4acd-b89a-3669c504f81d-5240_1_png.png",
+    "local_path": "/products/frozen-strawberry.webp",
+    "note": "Клубника Arbuz Select замороженная, 300 г — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "frozen-blueberry": {
@@ -1881,10 +1895,12 @@
     "fetched": "2026-05-28"
   },
   "samsa-frozen": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Самса Arbuz Select с говядиной замороженная, 500 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__a2e1a637-2b37-4909-9376-49c2476e5187-307334_2_png.png",
+    "local_path": "/products/samsa-frozen.webp",
+    "note": "Самса Arbuz Select с говядиной замороженная, 500 г — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "spring-rolls-frozen": {
@@ -1968,17 +1984,19 @@
     "fetched": "2026-05-28"
   },
   "tabasco": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Tabasco Red Pepper Original Sauce",
+    "source_url": "https://images.openfoodfacts.org/images/products/001/121/060/0133/front_fr.22.400.jpg",
+    "local_path": "/products/tabasco.webp",
     "fetched": "2026-05-29"
   },
   "worcestershire-sauce": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Worcestershire Sauce",
+    "source_url": "https://images.openfoodfacts.org/images/products/500/011/104/1836/front_en.58.400.jpg",
+    "local_path": "/products/worcestershire-sauce.webp",
     "fetched": "2026-05-29"
   },
   "balsamic-vinegar": {
@@ -2096,10 +2114,12 @@
     "fetched": "2026-05-28"
   },
   "plov-ready": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Плов Arbuz Select x Damdala с говядиной, 300 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__610291a0-3ae7-4edc-9497-9dbf12ffc995-335428_2_png.png",
+    "local_path": "/products/plov-ready.webp",
+    "note": "Плов Arbuz Select x Damdala с говядиной, 300 г — arbuz.kz",
     "fetched": "2026-05-29"
   },
   "borsch-ready": {
@@ -2132,11 +2152,13 @@
     "fetched": "2026-05-29"
   },
   "manti-ready": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Манты с говядиной 265 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__333357-manty_arbuz_select_s_govyadinoi_265_g.jpg",
+    "local_path": "/products/manti-ready.webp",
+    "note": "Манты с говядиной 265 г — arbuz.kz",
+    "fetched": "2026-05-29"
   },
   "hotdog-ready": {
     "status": "matched_unverified",
@@ -2557,10 +2579,11 @@
     "fetched": "2026-05-29"
   },
   "wasabi-paste": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Wasabi Paste Tube",
+    "source_url": "https://images.openfoodfacts.org/images/products/007/488/002/0021/front_en.6.400.jpg",
+    "local_path": "/products/wasabi-paste.webp",
     "fetched": "2026-05-29"
   },
   "sushi-rice-koshi": {
@@ -2665,10 +2688,11 @@
     "fetched": "2026-05-29"
   },
   "chicken-liver": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Fresh chicken livers",
+    "source_url": "https://images.openfoodfacts.org/images/products/022/131/650/1542/front_en.3.400.jpg",
+    "local_path": "/products/chicken-liver.webp",
     "fetched": "2026-05-29"
   },
   "carbonate": {
@@ -2764,6 +2788,265 @@
     "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__98dae6db-29a5-4476-9182-3ee939907ce0-img_7685_jpg.jpg",
     "local_path": "/products/mushrooms.webp",
     "note": "Грибы шампиньоны кг — arbuz.kz",
+    "fetched": "2026-05-29"
+  },
+  "tiger-shrimp": {
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Black Tiger Raw Shrimp",
+    "source_url": "https://images.openfoodfacts.org/images/products/005/937/180/7398/front_en.4.400.jpg",
+    "local_path": "/products/tiger-shrimp.webp",
+    "fetched": "2026-05-29"
+  },
+  "cooked-shrimp": {
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Prawns - cooked & peeled",
+    "source_url": "https://images.openfoodfacts.org/images/products/000/002/083/6498/front_en.7.400.jpg",
+    "local_path": "/products/cooked-shrimp.webp",
+    "fetched": "2026-05-29"
+  },
+  "cabbage": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "grapes": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "pears": {
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Funsize Koala pears",
+    "source_url": "https://images.openfoodfacts.org/images/products/000/002/097/8501/front_en.39.400.jpg",
+    "local_path": "/products/pears.webp",
+    "fetched": "2026-05-29"
+  },
+  "pineapple": {
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Ананас Коста Рика, кг — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__56e3dd7c-82c4-4cf7-93ec-7c345036e41e-vybor-turlova_png.png",
+    "local_path": "/products/pineapple.webp",
+    "note": "Ананас Коста Рика, кг — arbuz.kz",
+    "fetched": "2026-05-29"
+  },
+  "dill": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "parsley": {
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Петрушка, 100 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__7b0a4a5f-1a1e-49f7-87fa-9d28109dfe8b-2505521_jpg.jpg",
+    "local_path": "/products/parsley.webp",
+    "note": "Петрушка, 100 г — arbuz.kz",
+    "fetched": "2026-05-29"
+  },
+  "blueberry": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "cheesecake": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "fanta": {
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Fanta Orange Mini Can",
+    "source_url": "https://images.openfoodfacts.org/images/products/000/005/449/2578/front_fr.3.400.jpg",
+    "local_path": "/products/fanta.webp",
+    "fetched": "2026-05-29"
+  },
+  "energy-monster": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "caramel-candy": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "granola-bar": {
+    "status": "matched_unverified",
+    "source_type": "openfoodfacts",
+    "source_name": "Oats 'N Honey Granola Bars",
+    "source_url": "https://images.openfoodfacts.org/images/products/001/600/026/4694/front_en.244.400.jpg",
+    "local_path": "/products/granola-bar.webp",
+    "fetched": "2026-05-29"
+  },
+  "chickpeas-dry": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "sunflower-seeds-oil": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "blini-meat": {
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Блинчики Baron с мясом и рисом 400 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__213476-blinchiki_baron_s_myasom_i_risom_400_g.jpg",
+    "local_path": "/products/blini-meat.webp",
+    "note": "Блинчики Baron с мясом и рисом 400 г — arbuz.kz",
+    "fetched": "2026-05-29"
+  },
+  "french-fries-mccain": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "frozen-broccoli": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "black-pepper-ground": {
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Перец черный молотый Arbuz Select 100 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__0666d9a8-4921-4f5d-8f48-f6d7d02c15c6-312083_1f_png.png",
+    "local_path": "/products/black-pepper-ground.webp",
+    "note": "Перец черный молотый Arbuz Select 100 г — arbuz.kz",
+    "fetched": "2026-05-29"
+  },
+  "paprika-smoked": {
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Паприка Dary Natury копченая сладкая органическая 50 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__9f92b7a5-690f-4ff7-99ab-877284e73691-5902741006318_jpg.jpg",
+    "local_path": "/products/paprika-smoked.webp",
+    "note": "Паприка Dary Natury копченая сладкая органическая 50 г — arbuz.kz",
+    "fetched": "2026-05-29"
+  },
+  "turmeric": {
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Куркума Alnatura органическая специя 60 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__330649-kurkuma_alnatura_organicheskaya_speciya_60_g.jpg",
+    "local_path": "/products/turmeric.webp",
+    "note": "Куркума Alnatura органическая специя 60 г — arbuz.kz",
+    "fetched": "2026-05-29"
+  },
+  "curry-mix": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "bay-leaf": {
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Лист лавровый Kotanyi целый 5 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/253104-list_lavrovyi_kotanyi_celyi_5_g.jpg",
+    "local_path": "/products/bay-leaf.webp",
+    "note": "Лист лавровый Kotanyi целый 5 г — arbuz.kz",
+    "fetched": "2026-05-29"
+  },
+  "corn-oil": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "lard-smoked": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "pizza-margarita-fresh": {
+    "status": "matched_unverified",
+    "source_type": "magnum_cdn",
+    "source_name": "Пицца Malina Group Маргарита 25 см — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__6fb73a88-b7c9-4bf6-b6ac-8068a4976357-788364724458-1_jpg.jpg",
+    "local_path": "/products/pizza-margarita-fresh.webp",
+    "note": "Пицца Malina Group Маргарита 25 см — arbuz.kz",
+    "fetched": "2026-05-29"
+  },
+  "baby-porridge-rice-nestle": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "flax-seeds": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "coconut-milk-tin": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "goji-berries": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "unagi": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "ginger-marinated": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
+    "fetched": "2026-05-29"
+  },
+  "caramel-syrup": {
+    "status": "missing",
+    "source_type": null,
+    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "local_path": null,
     "fetched": "2026-05-29"
   }
 }
