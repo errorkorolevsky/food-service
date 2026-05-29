@@ -44,6 +44,7 @@ const rows = products.map((p) => ({
   id:               p.id,
   emoji:            p.emoji,
   image:            p.image ?? null,
+  image_status:     p.imageStatus ?? null,
   category:         p.category,
   title:            p.title,
   description:      p.description,

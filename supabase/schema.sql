@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS products (
   id               text        PRIMARY KEY,
   emoji            text        NOT NULL,
   image            text,
+  image_status     text,
   category         text        NOT NULL,
   title            text        NOT NULL,
   description      text        NOT NULL,
@@ -25,6 +26,18 @@ CREATE TABLE IF NOT EXISTS products (
   created_at       timestamptz NOT NULL DEFAULT now(),
   updated_at       timestamptz NOT NULL DEFAULT now()
 );
+
+-- ─── MIGRATION: image_status (for tables created before this column) ─────────
+-- Tracks the QA state of each product image so the UI can hide unverified/
+-- rejected photos. Values mirror the ImageStatus union in src/types.
+ALTER TABLE products ADD COLUMN IF NOT EXISTS image_status text;
+
+ALTER TABLE products DROP CONSTRAINT IF EXISTS products_image_status_check;
+ALTER TABLE products ADD CONSTRAINT products_image_status_check
+  CHECK (image_status IS NULL OR image_status IN (
+    'verified_exact','verified_generic','real_verified',
+    'needs_review','rejected','missing'
+  ));
 
 -- ─── INDEXES ─────────────────────────────────────────────────────────────────
 
