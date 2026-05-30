@@ -41,12 +41,16 @@ type ProductRow = {
 // This ensures Supabase rows with stale/invalid image paths never reach the UI.
 
 function buildValidImageSet(): Set<string> {
+  const set = new Set<string>()
+  const dir = path.join(process.cwd(), "public", "products")
   try {
-    const dir = path.join(process.cwd(), "public", "products")
-    return new Set(fs.readdirSync(dir).map((f) => `/products/${f}`))
-  } catch {
-    return new Set()
-  }
+    for (const f of fs.readdirSync(dir)) set.add(`/products/${f}`)
+  } catch { /* dir missing */ }
+  // include the AI-generated subfolder (non-recursive readdir above misses it)
+  try {
+    for (const f of fs.readdirSync(path.join(dir, "generated"))) set.add(`/products/generated/${f}`)
+  } catch { /* no generated dir */ }
+  return set
 }
 
 const _validImageSet = buildValidImageSet()

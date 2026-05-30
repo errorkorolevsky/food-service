@@ -41,3 +41,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .audit/
+
+# AI-generated image import — heavy source backups (originals also on Desktop)
+docs/catalog-audit/generated-image-import-backup/
+docs/catalog-audit/generated-image-duplicates/

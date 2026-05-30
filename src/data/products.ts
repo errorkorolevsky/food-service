@@ -464,7 +464,7 @@ export const products: Product[] = [
     tags: ["кефир", "классический", "молочное"],
   },
   {
-    id: "yogurt-natural", imageStatus: "verified_generic", image: "/products/yogurt-natural.webp", emoji: "🥛",
+    id: "yogurt-natural", imageStatus: "verified_exact", image: "/products/generated/yogurt-natural.webp", emoji: "🥛",
     category: "Молочные продукты",
     title: "Йогурт натуральный Активиа",
     description: "Йогурт натуральный без добавок Активиа. Стакан 260г.",
@@ -509,7 +509,7 @@ export const products: Product[] = [
     tags: ["творог", "зернистый", "молочное"],
   },
   {
-    id: "cottage-cheese-soft", imageStatus: "verified_generic", image: "/products/cottage-cheese-soft.webp", emoji: "🥛",
+    id: "cottage-cheese-soft", imageStatus: "verified_exact", image: "/products/generated/cottage-cheese-soft.webp", emoji: "🥛",
     category: "Молочные продукты",
     title: "Творог мягкий President",
     description: "Творог мягкий нежный President. Пачка 170г.",
@@ -555,7 +555,7 @@ export const products: Product[] = [
     tags: ["сыр", "гауда", "молочное"],
   },
   {
-    id: "cheese-mozzarella", imageStatus: "verified_generic", image: "/products/cheese-mozzarella.webp", emoji: "🧀",
+    id: "cheese-mozzarella", imageStatus: "verified_generic", image: "/products/generated/cheese-mozzarella.webp", emoji: "🧀",
     category: "Молочные продукты",
     title: "Моцарелла шарики",
     description: "Сыр Моцарелла мини-шарики в рассоле. Стакан 125г.",
@@ -564,7 +564,7 @@ export const products: Product[] = [
     tags: ["моцарелла", "сыр", "итальянский", "молочное"],
   },
   {
-    id: "cheese-parmesan", imageStatus: "verified_generic", image: "/products/cheese-parmesan.webp", emoji: "🧀",
+    id: "cheese-parmesan", imageStatus: "verified_generic", image: "/products/generated/cheese-parmesan.webp", emoji: "🧀",
     category: "Молочные продукты",
     title: "Пармезан тёртый",
     description: "Сыр Пармезан тёртый, выдержка 12 месяцев. Пакет 100г.",
@@ -591,7 +591,7 @@ export const products: Product[] = [
     tags: ["сулугуни", "сыр", "копчёный", "молочное"],
   },
   {
-    id: "cheese-cream", imageStatus: "needs_review", emoji: "🧀",
+    id: "cheese-cream", imageStatus: "verified_exact", image: "/products/generated/cheese-cream.webp", emoji: "🧀",
     category: "Молочные продукты",
     title: "Сыр творожный Philadelphia",
     description: "Сыр творожный Philadelphia Original для намазывания. Пачка 175г.",
@@ -1234,7 +1234,7 @@ export const products: Product[] = [
     tags: ["фанта", "апельсин", "газировка", "напитки"],
   },
   {
-    id: "energy-redbull", imageStatus: "verified_exact", image: "/products/energy-redbull.webp", emoji: "⚡",
+    id: "energy-redbull", imageStatus: "verified_exact", image: "/products/generated/energy-redbull.webp", emoji: "⚡",
     category: "Напитки",
     title: "Red Bull энергетик",
     description: "Red Bull энергетический напиток классический. Банка 250мл.",
@@ -1270,7 +1270,7 @@ export const products: Product[] = [
     tags: ["квас", "хлебный", "напитки"],
   },
   {
-    id: "iced-tea", imageStatus: "verified_generic", image: "/products/iced-tea.webp", emoji: "🍵",
+    id: "iced-tea", imageStatus: "verified_exact", image: "/products/generated/iced-tea.webp", emoji: "🍵",
     category: "Напитки",
     title: "Холодный чай Lipton",
     description: "Холодный чай Lipton лимон. Бутылка 1.5л.",
@@ -1315,7 +1315,7 @@ export const products: Product[] = [
     tags: ["шоколадное молоко", "молочный", "напитки"],
   },
   {
-    id: "water-premium", imageStatus: "verified_exact", image: "/products/water-premium.webp", emoji: "💧",
+    id: "water-premium", imageStatus: "verified_exact", image: "/products/generated/water-premium.webp", emoji: "💧",
     category: "Напитки",
     title: "Вода Evian Premium",
     description: "Вода горная Evian негазированная Premium. Бутылка 500мл.",
@@ -1324,7 +1324,7 @@ export const products: Product[] = [
     tags: ["вода", "evian", "premium", "напитки"],
   },
   {
-    id: "kombucha", imageStatus: "verified_generic", image: "/products/kombucha.webp", emoji: "🍵",
+    id: "kombucha", imageStatus: "verified_exact", image: "/products/generated/kombucha.webp", emoji: "🍵",
     category: "Напитки",
     title: "Комбуча имбирь-лимон",
     description: "Комбуча живая ферментированная, имбирь и лимон. Бутылка 330мл.",
@@ -1333,7 +1333,7 @@ export const products: Product[] = [
     tags: ["комбуча", "ферментированный", "здоровье", "напитки"],
   },
   {
-    id: "aloe-drink", imageStatus: "verified_generic", image: "/products/aloe-drink.webp", emoji: "🌿",
+    id: "aloe-drink", imageStatus: "verified_generic", image: "/products/generated/aloe-drink.webp", emoji: "🌿",
     category: "Напитки",
     title: "Напиток с алоэ вера",
     description: "Напиток алоэ вера с мёдом. Бутылка 500мл.",
@@ -1361,7 +1361,7 @@ export const products: Product[] = [
     tags: ["морс", "клюква", "напитки"],
   },
   {
-    id: "oat-drink", imageStatus: "verified_generic", image: "/products/oat-drink.webp", emoji: "🌾",
+    id: "oat-drink", imageStatus: "verified_generic", image: "/products/generated/oat-drink.webp", emoji: "🌾",
     category: "Здоровое питание",
     title: "Напиток овсяный Oatly",
     description: "Напиток растительный овсяный Oatly Barista. 1л.",
@@ -1382,7 +1382,7 @@ export const products: Product[] = [
   // ─── КОФЕ, ЧАЙ И КАКАО ──────────────────────────────────────────────────────
 
   {
-    id: "coffee-beans-lavazza", imageStatus: "verified_exact", image: "/products/coffee-beans-lavazza.webp", emoji: "☕",
+    id: "coffee-beans-lavazza", imageStatus: "verified_exact", image: "/products/generated/coffee-beans-lavazza.webp", emoji: "☕",
     category: "Кофе, чай и какао",
     title: "Кофе в зёрнах Lavazza Crema",
     description: "Кофе в зёрнах Lavazza Crema e Gusto, смесь Арабика/Робуста. 1кг.",
@@ -1391,7 +1391,7 @@ export const products: Product[] = [
     tags: ["кофе", "зерновой", "lavazza", "арабика"],
   },
   {
-    id: "coffee-ground-jacobs", imageStatus: "verified_exact", image: "/products/coffee-ground-jacobs.webp", emoji: "☕",
+    id: "coffee-ground-jacobs", imageStatus: "verified_exact", image: "/products/generated/coffee-ground-jacobs.webp", emoji: "☕",
     category: "Кофе, чай и какао",
     title: "Кофе молотый Jacobs Monarch",
     description: "Кофе молотый Jacobs Monarch для заваривания. Вакуумный пакет 250г.",
@@ -1400,7 +1400,7 @@ export const products: Product[] = [
     tags: ["кофе", "молотый", "jacobs", "monarch"],
   },
   {
-    id: "coffee-instant-nescafe", imageStatus: "verified_exact", image: "/products/coffee-instant-nescafe.webp", emoji: "☕",
+    id: "coffee-instant-nescafe", imageStatus: "verified_exact", image: "/products/generated/coffee-instant-nescafe.webp", emoji: "☕",
     category: "Кофе, чай и какао",
     title: "Кофе растворимый Nescafé Gold",
     description: "Кофе растворимый Nescafé Gold сублимированный. Стеклянная банка 190г.",
@@ -1409,7 +1409,7 @@ export const products: Product[] = [
     tags: ["кофе", "растворимый", "nescafe", "gold"],
   },
   {
-    id: "coffee-capsules", imageStatus: "verified_generic", image: "/products/coffee-capsules.webp", emoji: "☕",
+    id: "coffee-capsules", imageStatus: "verified_exact", image: "/products/generated/coffee-capsules.webp", emoji: "☕",
     category: "Кофе, чай и какао",
     title: "Кофе капсулы Nespresso",
     description: "Кофе капсулы Nespresso Original Ristretto. Упаковка 10 капсул.",
@@ -1436,7 +1436,7 @@ export const products: Product[] = [
     tags: ["чай", "чёрный", "akbar", "цейлонский"],
   },
   {
-    id: "green-tea-greenfield", imageStatus: "verified_exact", image: "/products/green-tea-greenfield.webp", emoji: "🍵",
+    id: "green-tea-greenfield", imageStatus: "verified_exact", image: "/products/generated/green-tea-greenfield.webp", emoji: "🍵",
     category: "Кофе, чай и какао",
     title: "Чай зелёный Greenfield",
     description: "Чай зелёный Flying Dragon Greenfield в пакетиках. 25 пакетиков.",
@@ -1472,7 +1472,7 @@ export const products: Product[] = [
     tags: ["матча", "зелёный чай", "японский", "здоровье"],
   },
   {
-    id: "cacao-nesquik", imageStatus: "verified_exact", image: "/products/cacao-nesquik.webp", emoji: "🍫",
+    id: "cacao-nesquik", imageStatus: "verified_exact", image: "/products/generated/cacao-nesquik.webp", emoji: "🍫",
     category: "Кофе, чай и какао",
     title: "Какао Nesquik",
     description: "Какао-порошок Nesquik растворимый. Жестяная банка 500г.",
@@ -1499,7 +1499,7 @@ export const products: Product[] = [
     tags: ["кофе", "арабика", "молотый", "100%"],
   },
   {
-    id: "earl-grey", imageStatus: "verified_generic", image: "/products/earl-grey.webp", emoji: "🍵",
+    id: "earl-grey", imageStatus: "verified_generic", image: "/products/generated/earl-grey.webp", emoji: "🍵",
     category: "Кофе, чай и какао",
     title: "Чай Эрл Грей",
     description: "Чай чёрный Эрл Грей с бергамотом Ahmad Tea. 40 пакетиков.",
@@ -1529,7 +1529,7 @@ export const products: Product[] = [
     tags: ["шоколад", "тёмный", "горький", "70%"],
   },
   {
-    id: "chocolate-white", imageStatus: "verified_generic", image: "/products/chocolate-white.webp", emoji: "🍫",
+    id: "chocolate-white", imageStatus: "verified_exact", image: "/products/generated/chocolate-white.webp", emoji: "🍫",
     category: "Кондитерские изделия",
     title: "Шоколад Dove белый",
     description: "Шоколад белый кремовый Dove. Плитка 90г.",
@@ -1538,7 +1538,7 @@ export const products: Product[] = [
     tags: ["шоколад", "белый", "dove"],
   },
   {
-    id: "raffaello", imageStatus: "verified_exact", image: "/products/raffaello.webp", emoji: "🍬",
+    id: "raffaello", imageStatus: "verified_exact", image: "/products/generated/raffaello.webp", emoji: "🍬",
     category: "Кондитерские изделия",
     title: "Raffaello конфеты",
     description: "Raffaello кокосовые конфеты с миндалём. Коробка 150г.",
@@ -1547,7 +1547,7 @@ export const products: Product[] = [
     tags: ["raffaello", "конфеты", "кокос", "миндаль"],
   },
   {
-    id: "ferrero-rocher", imageStatus: "verified_exact", image: "/products/ferrero-rocher.webp", emoji: "🍬",
+    id: "ferrero-rocher", imageStatus: "verified_exact", image: "/products/generated/ferrero-rocher.webp", emoji: "🍬",
     category: "Кондитерские изделия",
     title: "Ferrero Rocher",
     description: "Ferrero Rocher конфеты шоколадные с фундуком. Коробка 200г.",
@@ -1637,7 +1637,7 @@ export const products: Product[] = [
     tags: ["пряники", "медовые", "глазурь"],
   },
   {
-    id: "snickers", imageStatus: "verified_exact", image: "/products/snickers.webp", emoji: "🍫",
+    id: "snickers", imageStatus: "verified_exact", image: "/products/generated/snickers.webp", emoji: "🍫",
     category: "Кондитерские изделия",
     title: "Snickers шоколадный батончик",
     description: "Snickers с карамелью, арахисом и нугой. 95г.",
@@ -1646,7 +1646,7 @@ export const products: Product[] = [
     tags: ["snickers", "батончик", "карамель", "арахис"],
   },
   {
-    id: "kitkat", imageStatus: "verified_exact", image: "/products/kitkat.webp", emoji: "🍫",
+    id: "kitkat", imageStatus: "verified_exact", image: "/products/generated/kitkat.webp", emoji: "🍫",
     category: "Кондитерские изделия",
     title: "KitKat Chunky",
     description: "KitKat Chunky молочный шоколад с вафлей. 43г.",
@@ -1655,7 +1655,7 @@ export const products: Product[] = [
     tags: ["kitkat", "батончик", "шоколад", "вафля"],
   },
   {
-    id: "oreo", imageStatus: "verified_exact", image: "/products/oreo.webp", emoji: "🍪",
+    id: "oreo", imageStatus: "verified_exact", image: "/products/generated/oreo.webp", emoji: "🍪",
     category: "Кондитерские изделия",
     title: "Oreo двойной шоколад",
     description: "Печенье Oreo с двойной шоколадной начинкой. Упаковка 432г.",
@@ -1664,7 +1664,7 @@ export const products: Product[] = [
     tags: ["oreo", "печенье", "шоколад", "начинка"],
   },
   {
-    id: "nutella", imageStatus: "verified_exact", image: "/products/nutella.webp", emoji: "🍫",
+    id: "nutella", imageStatus: "verified_exact", image: "/products/generated/nutella.webp", emoji: "🍫",
     category: "Кондитерские изделия",
     title: "Нутелла шоколадная паста",
     description: "Nutella шоколадно-фундуковая паста. Стеклянная банка 400г.",
@@ -1673,7 +1673,7 @@ export const products: Product[] = [
     tags: ["нутелла", "nutella", "паста", "фундук"],
   },
   {
-    id: "bounty", imageStatus: "verified_exact", image: "/products/bounty.webp", emoji: "🍫",
+    id: "bounty", imageStatus: "verified_exact", image: "/products/generated/bounty.webp", emoji: "🍫",
     category: "Кондитерские изделия",
     title: "Bounty кокосовый батончик",
     description: "Bounty с кокосовой начинкой в молочном шоколаде. 2×28.5г.",
@@ -1739,7 +1739,7 @@ export const products: Product[] = [
   // ─── СНЕКИ ──────────────────────────────────────────────────────────────────
 
   {
-    id: "lays-classic", imageStatus: "verified_exact", image: "/products/lays-chips.webp", emoji: "🥔",
+    id: "lays-classic", imageStatus: "verified_exact", image: "/products/generated/lays-classic.webp", emoji: "🥔",
     category: "Снеки",
     title: "Чипсы Lay's классические",
     description: "Чипсы картофельные Lay's Classic солёные. Упаковка 150г.",
@@ -1757,7 +1757,7 @@ export const products: Product[] = [
     tags: ["чипсы", "lays", "паприка"],
   },
   {
-    id: "pringles-original", imageStatus: "verified_exact", image: "/products/pringles-original.webp", emoji: "🥔",
+    id: "pringles-original", imageStatus: "verified_exact", image: "/products/generated/pringles-original.webp", emoji: "🥔",
     category: "Снеки",
     title: "Pringles оригинальные",
     description: "Чипсы Pringles Original. Тубус 165г.",
@@ -1959,7 +1959,7 @@ export const products: Product[] = [
     tags: ["спагетти", "barilla", "макароны", "паста"],
   },
   {
-    id: "penne-barilla", imageStatus: "verified_exact", image: "/products/penne-barilla.webp", emoji: "🍝",
+    id: "penne-barilla", imageStatus: "verified_exact", image: "/products/generated/penne-barilla.webp", emoji: "🍝",
     category: "Бакалея",
     title: "Пенне Barilla Rigate",
     description: "Пенне Barilla Rigate рифлёные. Упаковка 500г.",
@@ -1968,7 +1968,7 @@ export const products: Product[] = [
     tags: ["пенне", "barilla", "макароны", "паста"],
   },
   {
-    id: "farfalle", image: "/products/farfalle.webp", emoji: "🍝",
+    id: "farfalle", imageStatus: "verified_generic", image: "/products/generated/farfalle.webp", emoji: "🍝",
     category: "Бакалея",
     title: "Фарфалле (бантики)",
     description: "Макароны Фарфалле из твёрдой пшеницы. Упаковка 500г.",
@@ -2049,7 +2049,7 @@ export const products: Product[] = [
     tags: ["томатная паста", "помидорка", "консервы"],
   },
   {
-    id: "canned-peas-bonduelle", imageStatus: "verified_exact", image: "/products/canned-peas-bonduelle.webp", emoji: "🫘",
+    id: "canned-peas-bonduelle", imageStatus: "verified_exact", image: "/products/generated/canned-peas-bonduelle.webp", emoji: "🫘",
     category: "Бакалея",
     title: "Горошек Bonduelle",
     description: "Горошек зелёный консервированный Bonduelle. Жестяная банка 400г.",
@@ -2059,7 +2059,7 @@ export const products: Product[] = [
   },
 
   {
-    id: "canned-corn-bonduelle", imageStatus: "verified_exact", image: "/products/canned-corn-bonduelle.webp", emoji: "🌽",
+    id: "canned-corn-bonduelle", imageStatus: "verified_exact", image: "/products/generated/canned-corn-bonduelle.webp", emoji: "🌽",
     category: "Бакалея",
     title: "Кукуруза Bonduelle",
     description: "Кукуруза сладкая консервированная Bonduelle. Жестяная банка 400г.",
@@ -2380,7 +2380,7 @@ export const products: Product[] = [
   // ─── СОУСЫ И СПЕЦИИ ─────────────────────────────────────────────────────────
 
   {
-    id: "ketchup-heinz", imageStatus: "verified_generic", image: "/products/ketchup-heinz.webp", emoji: "🍅",
+    id: "ketchup-heinz", imageStatus: "verified_exact", image: "/products/generated/ketchup-heinz.webp", emoji: "🍅",
     category: "Соусы и специи",
     title: "Кетчуп Heinz томатный",
     description: "Кетчуп Heinz томатный классический. Пластиковая бутылка 570г.",
@@ -2416,7 +2416,7 @@ export const products: Product[] = [
     tags: ["майонез", "лёгкий", "25%"],
   },
   {
-    id: "soy-sauce-kikkoman", imageStatus: "verified_generic", image: "/products/soy-sauce-kikkoman.webp", emoji: "🫙",
+    id: "soy-sauce-kikkoman", imageStatus: "verified_exact", image: "/products/generated/soy-sauce-kikkoman.webp", emoji: "🫙",
     category: "Соусы и специи",
     title: "Соевый соус Kikkoman",
     description: "Соевый соус Kikkoman натурального брожения. Бутылка 150мл.",
@@ -2425,7 +2425,7 @@ export const products: Product[] = [
     tags: ["соевый соус", "kikkoman", "японский"],
   },
   {
-    id: "oyster-sauce", imageStatus: "verified_generic", image: "/products/oyster-sauce.webp", emoji: "🫙",
+    id: "oyster-sauce", imageStatus: "verified_generic", image: "/products/generated/oyster-sauce.webp", emoji: "🫙",
     category: "Соусы и специи",
     title: "Устричный соус Lee Kum Kee",
     description: "Устричный соус Lee Kum Kee классический. Бутылка 230мл.",
@@ -2434,7 +2434,7 @@ export const products: Product[] = [
     tags: ["устричный соус", "lee kum kee", "азиатский"],
   },
   {
-    id: "mustard-dijon", imageStatus: "verified_generic", image: "/products/mustard-dijon.webp", emoji: "🥣",
+    id: "mustard-dijon", imageStatus: "verified_exact", image: "/products/generated/mustard-dijon.webp", emoji: "🥣",
     category: "Соусы и специи",
     title: "Горчица Дижонская Maille",
     description: "Горчица Дижонская Maille с зёрнами. Стеклянная банка 200г.",
@@ -2515,7 +2515,7 @@ export const products: Product[] = [
     tags: ["ванилин", "ваниль", "специи", "выпечка"],
   },
   {
-    id: "tabasco", imageStatus: "verified_generic", image: "/products/tabasco.webp", emoji: "🌶️",
+    id: "tabasco", imageStatus: "verified_exact", image: "/products/generated/tabasco.webp", emoji: "🌶️",
     category: "Соусы и специи",
     title: "Tabasco острый соус",
     description: "Tabasco Original Red Pepper Sauce. Стеклянный флакон 60мл.",
@@ -2542,7 +2542,7 @@ export const products: Product[] = [
     tags: ["уксус", "бальзамический", "модена"],
   },
   {
-    id: "teriyaki-sauce", imageStatus: "verified_exact", image: "/products/teriyaki-sauce.webp", emoji: "🫙",
+    id: "teriyaki-sauce", imageStatus: "verified_generic", image: "/products/generated/teriyaki-sauce.webp", emoji: "🫙",
     category: "Соусы и специи",
     title: "Соус Терияки",
     description: "Соус Терияки японский для маринада и глазури. Бутылка 250мл.",
@@ -2794,7 +2794,7 @@ export const products: Product[] = [
   // ─── ДЕТСКОЕ ПИТАНИЕ ────────────────────────────────────────────────────────
 
   {
-    id: "baby-puree-apple-gerber", imageStatus: "verified_generic", image: "/products/baby-puree-apple-gerber.webp", emoji: "🍎",
+    id: "baby-puree-apple-gerber", imageStatus: "verified_exact", image: "/products/generated/baby-puree-apple-gerber.webp", emoji: "🍎",
     category: "Детское питание",
     title: "Пюре яблочное Gerber",
     description: "Пюре яблочное Gerber без сахара и добавок. Баночка 130г. Для детей с 4 мес.",
@@ -2803,7 +2803,7 @@ export const products: Product[] = [
     tags: ["пюре", "яблоко", "gerber", "детское питание"],
   },
   {
-    id: "baby-puree-pear", imageStatus: "verified_generic", image: "/products/baby-puree-pear.webp", emoji: "🍐",
+    id: "baby-puree-pear", imageStatus: "verified_exact", image: "/products/generated/baby-puree-pear.webp", emoji: "🍐",
     category: "Детское питание",
     title: "Пюре грушевое Frutonyanya",
     description: "Пюре грушевое Фруто Няня без сахара. Баночка 130г. С 4 мес.",
@@ -2821,7 +2821,7 @@ export const products: Product[] = [
     tags: ["пюре", "морковь", "semper", "органическое", "детское питание"],
   },
   {
-    id: "baby-porridge-buckwheat", imageStatus: "needs_review", emoji: "🌾",
+    id: "baby-porridge-buckwheat", imageStatus: "verified_generic", image: "/products/generated/baby-porridge-buckwheat.webp", emoji: "🌾",
     category: "Детское питание",
     title: "Каша гречневая Heinz",
     description: "Каша гречневая безмолочная Heinz. Упаковка 200г. С 4 мес.",
@@ -2839,7 +2839,7 @@ export const products: Product[] = [
     tags: ["каша", "рисовая", "nestle", "детское питание"],
   },
   {
-    id: "baby-porridge-oat", imageStatus: "verified_generic", image: "/products/baby-porridge-oat.webp", emoji: "🌾",
+    id: "baby-porridge-oat", imageStatus: "verified_exact", image: "/products/generated/baby-porridge-oat.webp", emoji: "🌾",
     category: "Детское питание",
     title: "Каша овсяная Gerber",
     description: "Каша овсяная молочная Gerber с бананом. Упаковка 200г. С 6 мес.",
@@ -2848,7 +2848,7 @@ export const products: Product[] = [
     tags: ["каша", "овсяная", "gerber", "банан", "детское питание"],
   },
   {
-    id: "baby-formula-nan1", imageStatus: "verified_generic", image: "/products/baby-formula-nan1.webp", emoji: "🍼",
+    id: "baby-formula-nan1", imageStatus: "verified_exact", image: "/products/generated/baby-formula-nan1.webp", emoji: "🍼",
     category: "Детское питание",
     title: "Смесь Nan 1 Premium",
     description: "Смесь молочная Nan 1 Premium для новорождённых с 0 мес. Банка 400г.",
@@ -2857,7 +2857,7 @@ export const products: Product[] = [
     tags: ["смесь", "nan", "молочная", "детское питание"],
   },
   {
-    id: "baby-formula-nutrilon2", imageStatus: "verified_exact", image: "/products/baby-formula-nutrilon2.webp", emoji: "🍼",
+    id: "baby-formula-nutrilon2", imageStatus: "verified_exact", image: "/products/generated/baby-formula-nutrilon2.webp", emoji: "🍼",
     category: "Детское питание",
     title: "Смесь Nutrilon 2",
     description: "Смесь молочная Nutrilon 2 с 6 до 12 месяцев. Банка 400г.",
@@ -2884,7 +2884,7 @@ export const products: Product[] = [
     tags: ["сок", "яблочный", "агуша", "детское"],
   },
   {
-    id: "baby-cookies-gerber", imageStatus: "verified_exact", image: "/products/baby-cookies-gerber.webp", emoji: "🍪",
+    id: "baby-cookies-gerber", imageStatus: "verified_exact", image: "/products/generated/baby-cookies-gerber.webp", emoji: "🍪",
     category: "Детское питание",
     title: "Печенье Gerber детское",
     description: "Печенье растворимое Gerber для первого прикорма. 150г. С 6 мес.",
@@ -2932,7 +2932,7 @@ export const products: Product[] = [
   // ─── ЗДОРОВОЕ ПИТАНИЕ ───────────────────────────────────────────────────────
 
   {
-    id: "protein-bar-rex", imageStatus: "verified_generic", image: "/products/protein-bar-rex.webp", emoji: "💪",
+    id: "protein-bar-rex", imageStatus: "verified_exact", image: "/products/generated/protein-bar-rex.webp", emoji: "💪",
     category: "Здоровое питание",
     title: "Протеиновый батончик Protein Rex",
     description: "Батончик Protein Rex шоколад-миндаль. Высокобелковый. 60г.",
@@ -2995,7 +2995,7 @@ export const products: Product[] = [
     tags: ["хлебцы", "рисовые", "диета", "безглютен"],
   },
   {
-    id: "rye-cakes-finn-crisp", imageStatus: "verified_exact", image: "/products/rye-cakes-finn-crisp.webp", emoji: "🍞",
+    id: "rye-cakes-finn-crisp", imageStatus: "verified_exact", image: "/products/generated/rye-cakes-finn-crisp.webp", emoji: "🍞",
     category: "Здоровое питание",
     title: "Хлебцы ржаные Finn Crisp",
     description: "Хлебцы ржаные хрустящие Finn Crisp Original. Упаковка 200г.",
@@ -3049,7 +3049,7 @@ export const products: Product[] = [
     tags: ["псиллиум", "клетчатка", "подорожник", "пребиотик"],
   },
   {
-    id: "protein-powder-vanilla", imageStatus: "verified_generic", image: "/products/protein-powder-vanilla.webp", emoji: "💪",
+    id: "protein-powder-vanilla", imageStatus: "verified_exact", image: "/products/generated/protein-powder-vanilla.webp", emoji: "💪",
     category: "Здоровое питание",
     title: "Протеин Optimum Vanilla",
     description: "Протеиновый порошок Optimum Nutrition Gold Standard Vanilla. 450г.",
@@ -3334,7 +3334,7 @@ export const products: Product[] = [
 
   // ─── Молочные продукты — дополнение ──────────────────────────────────────
   {
-    id: "barista-milk", imageStatus: "verified_generic", image: "/products/barista-milk.webp", emoji: "🥛",
+    id: "barista-milk", imageStatus: "verified_generic", image: "/products/generated/barista-milk.webp", emoji: "🥛",
     category: "Молочные продукты",
     title: "Молоко Barista 3.5%",
     description: "Молоко специальное для кофе. Идеально вспенивается. Тетрапак 1л.",
@@ -3343,7 +3343,7 @@ export const products: Product[] = [
     tags: ["молоко", "барриста", "кофе", "капучино", "молочные"],
   },
   {
-    id: "cheese-cheddar", imageStatus: "verified_generic", image: "/products/cheese-cheddar.webp", emoji: "🧀",
+    id: "cheese-cheddar", imageStatus: "verified_generic", image: "/products/generated/cheese-cheddar.webp", emoji: "🧀",
     category: "Молочные продукты",
     title: "Сыр Чеддер выдержанный",
     description: "Сыр Чеддер 50% жирности, натуральный выдержанный. Нарезка 200г.",
@@ -3392,7 +3392,7 @@ export const products: Product[] = [
 
   // ─── Соусы и специи — дополнение ─────────────────────────────────────────
   {
-    id: "garlic-sauce", imageStatus: "verified_generic", image: "/products/garlic-sauce.webp", emoji: "🧄",
+    id: "garlic-sauce", imageStatus: "verified_generic", image: "/products/generated/garlic-sauce.webp", emoji: "🧄",
     category: "Соусы и специи",
     title: "Соус чесночный",
     description: "Соус чесночный сливочный. Идеально к шаурме и мясным блюдам. 300г.",
@@ -3401,7 +3401,7 @@ export const products: Product[] = [
     tags: ["соус", "чесночный", "чеснок", "сливочный"],
   },
   {
-    id: "pesto-sauce", imageStatus: "verified_generic", image: "/products/pesto-sauce.webp", emoji: "🌿",
+    id: "pesto-sauce", imageStatus: "verified_generic", image: "/products/generated/pesto-sauce.webp", emoji: "🌿",
     category: "Соусы и специи",
     title: "Соус Песто зелёный",
     description: "Итальянский соус Песто с базиликом и пармезаном. Банка 180г.",
@@ -3419,7 +3419,7 @@ export const products: Product[] = [
     tags: ["унаги", "соус", "суши", "роллы", "японский"],
   },
   {
-    id: "pizza-tomato-sauce", imageStatus: "verified_generic", image: "/products/pizza-tomato-sauce.webp", emoji: "🍅",
+    id: "pizza-tomato-sauce", imageStatus: "verified_generic", image: "/products/generated/pizza-tomato-sauce.webp", emoji: "🍅",
     category: "Соусы и специи",
     title: "Соус томатный для пиццы",
     description: "Готовый соус для пиццы на основе томатов с итальянскими травами. 350г.",
@@ -3562,7 +3562,7 @@ export const products: Product[] = [
 
   // ─── Кондитерские изделия — дополнение ───────────────────────────────────
   {
-    id: "chocolate-bar-milka", imageStatus: "verified_exact", image: "/products/chocolate-bar-milka.webp", emoji: "🍫",
+    id: "chocolate-bar-milka", imageStatus: "verified_exact", image: "/products/generated/chocolate-bar-milka.webp", emoji: "🍫",
     category: "Кондитерские изделия",
     title: "Шоколад Milka молочный",
     description: "Молочный шоколад Milka с нежной альпийской молочной начинкой. 90г.",

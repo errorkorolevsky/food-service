@@ -32,11 +32,10 @@
     "fetched": "2026-05-29"
   },
   "yogurt-natural": {
-    "status": "matched_unverified",
-    "source_type": "arbuz",
-    "source_name": "Биойогурт Активиа питьевой клубника-земляника 260 г — arbuz.kz",
-    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__a84f3670-7388-45d0-bffb-70c1e1f34941-4870206411612_1_jpg.jpg",
-    "local_path": "/products/yogurt-natural.webp",
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Activia_Natural_yogurt_cup_202605300846.jpeg",
+    "local_path": "/products/generated/yogurt-natural.webp",
     "fetched": "2026-05-30"
   },
   "sour-cream-20": {
@@ -113,19 +112,17 @@
   },
   "energy-redbull": {
     "status": "real_verified",
-    "source_type": "magnum_cdn",
-    "source_name": "Red Bull 250ml",
-    "barcode": "9002490100070",
-    "local_path": "/products/energy-redbull.webp",
-    "fetched": "2026-05-29"
+    "source_type": "ai_generated",
+    "source_name": "Red_Bull_energy_drink_can_202605300846.jpeg",
+    "local_path": "/products/generated/energy-redbull.webp",
+    "fetched": "2026-05-30"
   },
   "iced-tea": {
-    "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Fuse Tea 1.5L",
-    "barcode": "5449000216335",
-    "local_path": "/products/iced-tea.webp",
-    "fetched": "2026-05-29"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Lipton_Ice_Tea_bottle_photoshoot_202605300846.jpeg",
+    "local_path": "/products/generated/iced-tea.webp",
+    "fetched": "2026-05-30"
   },
   "chocolate-milk-drink": {
     "status": "matched_unverified",
@@ -137,19 +134,17 @@
   },
   "coffee-ground-jacobs": {
     "status": "real_verified",
-    "source_type": "magnum_cdn",
-    "source_name": "Jacobs Gold 190g",
-    "barcode": "4607001779650",
-    "local_path": "/products/coffee-ground-jacobs.webp",
-    "fetched": "2026-05-29"
+    "source_type": "ai_generated",
+    "source_name": "Jacobs_Monarch_coffee_jar_202605300844.jpeg",
+    "local_path": "/products/generated/coffee-ground-jacobs.webp",
+    "fetched": "2026-05-30"
   },
   "coffee-instant-nescafe": {
     "status": "real_verified",
-    "source_type": "magnum_cdn",
-    "source_name": "Nescafe Gold 320g",
-    "barcode": "4600680017495",
-    "local_path": "/products/coffee-instant-nescafe.webp",
-    "fetched": "2026-05-29"
+    "source_type": "ai_generated",
+    "source_name": "Nescafe_Gold_coffee_glass_jar_202605300844.jpeg",
+    "local_path": "/products/generated/coffee-instant-nescafe.webp",
+    "fetched": "2026-05-30"
   },
   "black-tea-akbar": {
     "status": "needs_review",
@@ -160,20 +155,18 @@
     "fetched": "2026-05-30"
   },
   "green-tea-greenfield": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Greenfield — Чай зелёный байховый с листьями мелиссы и мяты и ароматом лимона",
-    "source_url": "https://images.openfoodfacts.org/images/products/460/524/600/4353/front_en.3.400.jpg",
-    "local_path": "/products/green-tea-greenfield.webp",
-    "fetched": "2026-05-29"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Greenfield_Tea_box_photo_202605300845.jpeg",
+    "local_path": "/products/generated/green-tea-greenfield.webp",
+    "fetched": "2026-05-30"
   },
   "cacao-nesquik": {
     "status": "real_verified",
-    "source_type": "magnum_cdn",
-    "source_name": "Nesquik 400g",
-    "barcode": "8445290452979",
-    "local_path": "/products/cacao-nesquik.webp",
-    "fetched": "2026-05-29"
+    "source_type": "ai_generated",
+    "source_name": "Nesquik_Cocoa_yellow_canister_202605300846.jpeg",
+    "local_path": "/products/generated/cacao-nesquik.webp",
+    "fetched": "2026-05-30"
   },
   "jubilee-cookies": {
     "status": "matched_unverified",
@@ -192,54 +185,46 @@
     "fetched": "2026-05-30"
   },
   "snickers": {
-    "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Snickers bar 50.5g ✓ — arbuz.kz",
-    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__34d58555-b285-4e23-bc14-fb433c9bbf2d-4607065001445_jpg.jpg",
-    "local_path": "/products/snickers.webp",
-    "note": "Snickers bar 50.5g ✓ — arbuz.kz",
-    "fetched": "2026-05-29"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Snickers_Original_chocolate_bar_202605300754.jpeg",
+    "local_path": "/products/generated/snickers.webp",
+    "fetched": "2026-05-30"
   },
   "kitkat": {
     "status": "real_verified",
-    "source_type": "magnum_cdn",
-    "source_name": "KitKat 41.5g",
-    "barcode": "40052403",
-    "local_path": "/products/kitkat.webp",
-    "fetched": "2026-05-29"
+    "source_type": "ai_generated",
+    "source_name": "KitKat_Chunky_chocolate_bar_202605300847.jpeg",
+    "local_path": "/products/generated/kitkat.webp",
+    "fetched": "2026-05-30"
   },
   "oreo": {
     "status": "real_verified",
-    "source_type": "magnum_cdn",
-    "source_name": "Oreo 228g",
-    "barcode": "7622210375742",
-    "local_path": "/products/oreo.webp",
-    "fetched": "2026-05-29"
+    "source_type": "ai_generated",
+    "source_name": "Oreo_Original_cookie_package_202605300812.jpeg",
+    "local_path": "/products/generated/oreo.webp",
+    "fetched": "2026-05-30"
   },
   "nutella": {
-    "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Nutella 350g ✓ — arbuz.kz",
-    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__c648eb6e-cc9c-4fd2-9250-737e8e168abc-20477-001_isp_jpg.jpg",
-    "local_path": "/products/nutella.webp",
-    "note": "Nutella 350g ✓ — arbuz.kz",
-    "fetched": "2026-05-29"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Nutella_350g_glass_jar_202605300755.jpeg",
+    "local_path": "/products/generated/nutella.webp",
+    "fetched": "2026-05-30"
   },
   "chocolate-bar-milka": {
     "status": "real_verified",
-    "source_type": "magnum_cdn",
-    "source_name": "Milka 80-97g",
-    "barcode": "7622202395956",
-    "local_path": "/products/chocolate-bar-milka.webp",
-    "fetched": "2026-05-29"
+    "source_type": "ai_generated",
+    "source_name": "Milka_Chocolate_bar_package_202605300847.jpeg",
+    "local_path": "/products/generated/chocolate-bar-milka.webp",
+    "fetched": "2026-05-30"
   },
   "lays-classic": {
     "status": "real_verified",
-    "source_type": "magnum_cdn",
-    "source_name": "Lays classic original",
-    "barcode": null,
-    "local_path": "/products/lays-chips.webp",
-    "fetched": "2026-05-28"
+    "source_type": "ai_generated",
+    "source_name": "Lay's_Classic_chips_bag_202605300802.jpeg",
+    "local_path": "/products/generated/lays-classic.webp",
+    "fetched": "2026-05-30"
   },
   "crackers-rye": {
     "status": "matched_unverified",
@@ -290,20 +275,18 @@
     "fetched": "2026-05-29"
   },
   "canned-peas-bonduelle": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Bonduelle — БОНДЮЭЛЬ ЗЕЛЁНЫЙ ГОРОШЕК",
-    "source_url": "https://images.openfoodfacts.org/images/products/308/368/112/6754/front_ru.3.400.jpg",
-    "local_path": "/products/canned-peas-bonduelle.webp",
-    "fetched": "2026-05-29"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Bonduelle_Green_Peas_tin_can_202605300811.jpeg",
+    "local_path": "/products/generated/canned-peas-bonduelle.webp",
+    "fetched": "2026-05-30"
   },
   "canned-corn-bonduelle": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Bonduelle — Кукуруза молодая",
-    "source_url": "https://images.openfoodfacts.org/images/products/308/368/108/3361/front_en.16.400.jpg",
-    "local_path": "/products/canned-corn-bonduelle.webp",
-    "fetched": "2026-05-29"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Bonduelle_Sweet_Corn_tin_can_202605300754.jpeg",
+    "local_path": "/products/generated/canned-corn-bonduelle.webp",
+    "fetched": "2026-05-30"
   },
   "canned-tuna-oil": {
     "status": "matched_unverified",
@@ -338,12 +321,10 @@
     "fetched": "2026-05-29"
   },
   "baby-puree-apple-gerber": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Gerber Apple Strawberry Banana 2nd Foods (correct brand, multi-fruit variant)",
-    "source_url": "https://images.openfoodfacts.org/images/products/001/500/007/6092/front_en.7.400.jpg",
-    "local_path": "/products/baby-puree-apple-gerber.webp",
-    "note": "Correct Gerber brand; flavor differs from pure apple",
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Gerber_Apple_Puree_baby_food_202605300845.jpeg",
+    "local_path": "/products/generated/baby-puree-apple-gerber.webp",
     "fetched": "2026-05-30"
   },
   "baby-juice-agusha": {
@@ -500,11 +481,10 @@
     "fetched": "2026-05-28"
   },
   "cheese-cream": {
-    "status": "needs_review",
-    "source_type": null,
-    "source_name": "—",
-    "local_path": null,
-    "note": "Philadelphia is protected brand; Hochland is competitor — needs real Philadelphia image",
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Philadelphia_Cream_Cheese_tub_202605300845.jpeg",
+    "local_path": "/products/generated/cheese-cream.webp",
     "fetched": "2026-05-30"
   },
   "processed-cheese": {
@@ -560,11 +540,10 @@
     "fetched": "2026-05-28"
   },
   "coffee-beans-lavazza": {
-    "status": "matched_unverified",
-    "source_type": "arbuz",
-    "source_name": "Кофе Lavazza Crema e Gusto TI зерно 1 кг — arbuz.kz",
-    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__288412-kofe_lavazza_crema_e_gusto_ti_zerno_1_kg.jpg",
-    "local_path": "/products/coffee-beans-lavazza.webp",
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Lavazza_coffee_bag_product_photo_202605300845.jpeg",
+    "local_path": "/products/generated/coffee-beans-lavazza.webp",
     "fetched": "2026-05-30"
   },
   "coffee-3in1": {
@@ -594,10 +573,9 @@
   },
   "earl-grey": {
     "status": "matched_unverified",
-    "source_type": "arbuz",
-    "source_name": "Чай Lancaster чёрный Эрл грей с розой, 75 г — arbuz.kz",
-    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__203906-chai_lancaster_ch_rnyi_s_bergamotom_lepestkami_vasilka_i_rozy_75_g.jpg",
-    "local_path": "/products/earl-grey.webp",
+    "source_type": "ai_generated",
+    "source_name": "Earl_Grey_Tea_box_photo_202605300845.jpeg",
+    "local_path": "/products/generated/earl-grey.webp",
     "fetched": "2026-05-30"
   },
   "ginger-tea": {
@@ -628,13 +606,11 @@
     "fetched": "2026-05-28"
   },
   "bounty": {
-    "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Bounty bar 55g ✓ — arbuz.kz",
-    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__6906099f-ba16-41dc-a3a5-bfc73ee5b704-4011100977624_jpg.jpg",
-    "local_path": "/products/bounty.webp",
-    "note": "Bounty bar 55g ✓ — arbuz.kz",
-    "fetched": "2026-05-29"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Bounty_Chocolate_Bar_product_photo_202605300755.jpeg",
+    "local_path": "/products/generated/bounty.webp",
+    "fetched": "2026-05-30"
   },
   "lays-paprika": {
     "status": "matched_unverified",
@@ -662,22 +638,18 @@
     "fetched": "2026-05-30"
   },
   "penne-barilla": {
-    "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Barilla Penne Rigate №73 450g ✓ — arbuz.kz",
-    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__f03217cd-00f1-40c1-8b0c-19494eeb5cdc-8076809576079_1_jpg.jpg",
-    "local_path": "/products/penne-barilla.webp",
-    "note": "Barilla Penne Rigate №73 450g ✓ — arbuz.kz",
-    "fetched": "2026-05-29"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Barilla_Penne_Rigate_blue_box_202605300802.jpeg",
+    "local_path": "/products/generated/penne-barilla.webp",
+    "fetched": "2026-05-30"
   },
   "farfalle": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Sultan pasta 400g — farfalle stand-in",
-    "source_url": "https://magnum.kz:1337/uploads/4870091000700_004b301ff1.jpg",
-    "local_path": "/products/farfalle.webp",
-    "note": "Sultan pasta 400g — farfalle stand-in",
-    "fetched": "2026-05-28"
+    "source_type": "ai_generated",
+    "source_name": "Barilla_Farfalle_blue_box_202605300811.jpeg",
+    "local_path": "/products/generated/farfalle.webp",
+    "fetched": "2026-05-30"
   },
   "canned-beans": {
     "status": "matched_unverified",
@@ -742,11 +714,10 @@
     "fetched": "2026-05-28"
   },
   "baby-puree-pear": {
-    "status": "matched_unverified",
-    "source_type": "arbuz",
-    "source_name": "Пюре Агуша фруктовое яблоко, 90 г — arbuz.kz",
-    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__e716a416-feb4-410a-b9c6-be961586da0c-4813163008495_pyure_agusha_fruktovoe_yabloko_90_g_1_jpg.jpg",
-    "local_path": "/products/baby-puree-pear.webp",
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Frutonyanya_Pear_Puree_soft_pouch_202605300845.jpeg",
+    "local_path": "/products/generated/baby-puree-pear.webp",
     "fetched": "2026-05-30"
   },
   "baby-puree-carrot": {
@@ -1021,28 +992,25 @@
     "fetched": "2026-05-28"
   },
   "cottage-cheese-soft": {
-    "status": "matched_unverified",
-    "source_type": "arbuz",
-    "source_name": "Творог President традиционный мягкий 9%, 200 г — arbuz.kz",
-    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__c97447b4-3bba-4522-bf10-ff70d3334588-4870207313953_tvorog_i_mikrozelen_1_jpg.jpg",
-    "local_path": "/products/cottage-cheese-soft.webp",
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "President_Cottage_Cheese_container_202605300845.jpeg",
+    "local_path": "/products/generated/cottage-cheese-soft.webp",
     "fetched": "2026-05-30"
   },
   "cheese-mozzarella": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Mozzarella Pizza-Roma",
-    "source_url": "https://images.openfoodfacts.org/images/products/848/000/051/1102/front_es.60.400.jpg",
-    "local_path": "/products/cheese-mozzarella.webp",
-    "fetched": "2026-05-28"
+    "source_type": "ai_generated",
+    "source_name": "Mozzarella_cheese_in_water_package_202605300845.jpeg",
+    "local_path": "/products/generated/cheese-mozzarella.webp",
+    "fetched": "2026-05-30"
   },
   "cheese-parmesan": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Grated Parmesan Cheese",
-    "source_url": "https://images.openfoodfacts.org/images/products/002/100/001/0615/front_en.45.400.jpg",
-    "local_path": "/products/cheese-parmesan.webp",
-    "fetched": "2026-05-28"
+    "source_type": "ai_generated",
+    "source_name": "Parmesan_cheese_in_plastic_wrap_202605300845.jpeg",
+    "local_path": "/products/generated/cheese-parmesan.webp",
+    "fetched": "2026-05-30"
   },
   "cheese-adygei": {
     "status": "matched_unverified",
@@ -1381,28 +1349,25 @@
     "fetched": "2026-05-30"
   },
   "water-premium": {
-    "status": "matched_unverified",
-    "source_type": "arbuz",
-    "source_name": "Вода Evian природная минеральная, 1.5 л — arbuz.kz",
-    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__3338354d-2f7f-490e-a472-367cc7c9e8fe-3068320111919_jpg.jpg",
-    "local_path": "/products/water-premium.webp",
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Evian_water_bottle_product_photo_202605300846.jpeg",
+    "local_path": "/products/generated/water-premium.webp",
     "fetched": "2026-05-30"
   },
   "kombucha": {
-    "status": "matched_unverified",
-    "source_type": "arbuz",
-    "source_name": "Комбуча Õs Kombucha Персик 500 мл — arbuz.kz",
-    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__302651-kombucha_s_kombucha_persik_500_ml.jpg",
-    "local_path": "/products/kombucha.webp",
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Kombucha_Ginger_Lemon_bottle_202605300846.jpeg",
+    "local_path": "/products/generated/kombucha.webp",
     "fetched": "2026-05-30"
   },
   "aloe-drink": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Aloe Vera Drink",
-    "source_url": "https://images.openfoodfacts.org/images/products/871/285/700/5900/front_fr.96.400.jpg",
-    "local_path": "/products/aloe-drink.webp",
-    "fetched": "2026-05-28"
+    "source_type": "ai_generated",
+    "source_name": "Aloe_Vera_Drink_bottle_202605300846.jpeg",
+    "local_path": "/products/generated/aloe-drink.webp",
+    "fetched": "2026-05-30"
   },
   "peach-nectar": {
     "status": "matched_unverified",
@@ -1422,11 +1387,10 @@
   },
   "oat-drink": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Whole Oat Plant Based Vegan Drink",
-    "source_url": "https://images.openfoodfacts.org/images/products/000/002/922/9109/front_en.37.400.jpg",
-    "local_path": "/products/oat-drink.webp",
-    "fetched": "2026-05-29"
+    "source_type": "ai_generated",
+    "source_name": "Oatly_Oat_Drink_carton_202605300845.jpeg",
+    "local_path": "/products/generated/oat-drink.webp",
+    "fetched": "2026-05-30"
   },
   "cola-zero": {
     "status": "matched_unverified",
@@ -1437,12 +1401,11 @@
     "fetched": "2026-05-28"
   },
   "coffee-capsules": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "NESCAFE DOLCE GUSTO Espresso 16 Capsules",
-    "source_url": "https://images.openfoodfacts.org/images/products/761/303/792/8532/front_fr.113.400.jpg",
-    "local_path": "/products/coffee-capsules.webp",
-    "fetched": "2026-05-28"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Nespresso_coffee_capsules_in_box_202605300845.jpeg",
+    "local_path": "/products/generated/coffee-capsules.webp",
+    "fetched": "2026-05-30"
   },
   "fruit-tea-hibiscus": {
     "status": "matched_unverified",
@@ -1478,28 +1441,24 @@
     "fetched": "2026-05-28"
   },
   "chocolate-white": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Bueno White",
-    "source_url": "https://images.openfoodfacts.org/images/products/000/008/076/1761/front_en.623.400.jpg",
-    "local_path": "/products/chocolate-white.webp",
-    "fetched": "2026-05-28"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Dove_White_Chocolate_bar_package_202605300847.jpeg",
+    "local_path": "/products/generated/chocolate-white.webp",
+    "fetched": "2026-05-30"
   },
   "raffaello": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Raffaello - Confetteria - Kokos & Mandelcreme",
-    "source_url": "https://images.openfoodfacts.org/images/products/800/050/035/9556/front_en.205.400.jpg",
-    "local_path": "/products/raffaello.webp",
-    "fetched": "2026-05-29"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Raffaello_chocolates_box_photoshoot_202605300847.jpeg",
+    "local_path": "/products/generated/raffaello.webp",
+    "fetched": "2026-05-30"
   },
   "ferrero-rocher": {
-    "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Конфеты Ferrero Rocher 200 г ✓ — arbuz.kz (clean studio)",
-    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__20472-konfety_ferrero_rocher_200_g.jpg",
-    "local_path": "/products/ferrero-rocher.webp",
-    "note": "Конфеты Ferrero Rocher 200 г ✓ — arbuz.kz (clean studio)",
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Ferrero_Rocher_gold_box_202605300755.jpeg",
+    "local_path": "/products/generated/ferrero-rocher.webp",
     "fetched": "2026-05-30"
   },
   "candy-korovka": {
@@ -1583,12 +1542,11 @@
     "fetched": "2026-05-28"
   },
   "pringles-original": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Pringles Original",
-    "source_url": "https://images.openfoodfacts.org/images/products/505/399/015/6009/front_fr.230.400.jpg",
-    "local_path": "/products/pringles-original.webp",
-    "fetched": "2026-05-28"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Pringles_Original_canister_white…_202605300802.jpeg",
+    "local_path": "/products/generated/pringles-original.webp",
+    "fetched": "2026-05-30"
   },
   "almonds-roasted": {
     "status": "matched_unverified",
@@ -1925,12 +1883,11 @@
     "fetched": "2026-05-28"
   },
   "ketchup-heinz": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Tomato Ketchup BIO",
-    "source_url": "https://images.openfoodfacts.org/images/products/871/570/040/7760/front_en.141.400.jpg",
-    "local_path": "/products/ketchup-heinz.webp",
-    "fetched": "2026-05-28"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Heinz_Ketchup_bottle_on_white_202605300802.jpeg",
+    "local_path": "/products/generated/ketchup-heinz.webp",
+    "fetched": "2026-05-30"
   },
   "ketchup-hot": {
     "status": "matched_unverified",
@@ -1941,28 +1898,25 @@
     "fetched": "2026-05-28"
   },
   "soy-sauce-kikkoman": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Soy Sauce",
-    "source_url": "https://images.openfoodfacts.org/images/products/871/503/511/0106/front_en.247.400.jpg",
-    "local_path": "/products/soy-sauce-kikkoman.webp",
-    "fetched": "2026-05-28"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Kikkoman_Soy_Sauce_bottle_photo_202605300846.jpeg",
+    "local_path": "/products/generated/soy-sauce-kikkoman.webp",
+    "fetched": "2026-05-30"
   },
   "oyster-sauce": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Panda Brand Oyster Flavoured Sauce",
-    "source_url": "https://images.openfoodfacts.org/images/products/007/889/530/0024/front_en.131.400.jpg",
-    "local_path": "/products/oyster-sauce.webp",
-    "fetched": "2026-05-28"
+    "source_type": "ai_generated",
+    "source_name": "Oyster_sauce_bottle_on_white_202605300844.jpeg",
+    "local_path": "/products/generated/oyster-sauce.webp",
+    "fetched": "2026-05-30"
   },
   "mustard-dijon": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Star moutarde",
-    "source_url": "https://images.openfoodfacts.org/images/products/611/118/400/4716/front_en.35.400.jpg",
-    "local_path": "/products/mustard-dijon.webp",
-    "fetched": "2026-05-28"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Maille_Dijon_Mustard_glass_jar_202605300844.jpeg",
+    "local_path": "/products/generated/mustard-dijon.webp",
+    "fetched": "2026-05-30"
   },
   "mustard-russian": {
     "status": "matched_unverified",
@@ -1989,12 +1943,11 @@
     "fetched": "2026-05-28"
   },
   "tabasco": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Tabasco Red Pepper Original Sauce",
-    "source_url": "https://images.openfoodfacts.org/images/products/001/121/060/0133/front_fr.22.400.jpg",
-    "local_path": "/products/tabasco.webp",
-    "fetched": "2026-05-29"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Tabasco_Red_Pepper_Sauce_bottle_202605300844.jpeg",
+    "local_path": "/products/generated/tabasco.webp",
+    "fetched": "2026-05-30"
   },
   "worcestershire-sauce": {
     "status": "matched_unverified",
@@ -2014,11 +1967,10 @@
   },
   "teriyaki-sauce": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Heinz — Соус «Терияки&quot;",
-    "source_url": "https://images.openfoodfacts.org/images/products/460/167/408/6329/front_en.3.400.jpg",
-    "local_path": "/products/teriyaki-sauce.webp",
-    "fetched": "2026-05-29"
+    "source_type": "ai_generated",
+    "source_name": "Teriyaki_Sauce_bottle_white_back…_202605300844.jpeg",
+    "local_path": "/products/generated/teriyaki-sauce.webp",
+    "fetched": "2026-05-30"
   },
   "hummus-classic": {
     "status": "matched_unverified",
@@ -2195,37 +2147,32 @@
     "fetched": "2026-05-29"
   },
   "baby-porridge-buckwheat": {
-    "status": "needs_review",
-    "source_type": null,
-    "source_name": "—",
-    "local_path": null,
-    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "status": "matched_unverified",
+    "source_type": "ai_generated",
+    "source_name": "Heinz_Baby_Porridge_box_202605300845.jpeg",
+    "local_path": "/products/generated/baby-porridge-buckwheat.webp",
     "fetched": "2026-05-30"
   },
   "baby-porridge-oat": {
-    "status": "matched_unverified",
-    "source_type": "arbuz",
-    "source_name": "Каша Gerber Безмолочная овсяная с тыквой, абрикосом и бифидобактериями для продолжения прикорма 180 г — arbuz.kz",
-    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/239103-kasha_gerber_ovsyanaya_bezmolochnaya_s_tykvoi_i_abrikosom_dlya_prodolzheniya_prikorma_180_g.jpg",
-    "local_path": "/products/baby-porridge-oat.webp",
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Gerber_Oatmeal_baby_cereal_box_202605300845.jpeg",
+    "local_path": "/products/generated/baby-porridge-oat.webp",
     "fetched": "2026-05-30"
   },
   "baby-formula-nan1": {
-    "status": "matched_unverified",
-    "source_type": "arbuz",
-    "source_name": "Смесь NAN 3 Optipro HA Гипоаллергенная молочная гипоаллергенная для детей (12+ мес) 400 г — arbuz.kz",
-    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/211927-smes_nan_3_optipro_molochnaya_gipoallergennaya_dlya_detei_12_mes_400_g.jpg",
-    "local_path": "/products/baby-formula-nan1.webp",
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Baby_formula_canister_product_photo_202605300845.jpeg",
+    "local_path": "/products/generated/baby-formula-nan1.webp",
     "fetched": "2026-05-30"
   },
   "baby-formula-nutrilon2": {
-    "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Смесь Nutrilon Premium №2 молочная 6+ мес 1.2 кг — arbuz.kz",
-    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/252371-smes_nutrilon_premium_2_molochnaya_6_mes_1_2_kg.jpg",
-    "local_path": "/products/baby-formula-nutrilon2.webp",
-    "note": "Смесь Nutrilon Premium №2 молочная 6+ мес 1.2 кг — arbuz.kz",
-    "fetched": "2026-05-29"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Nutrilon_2_baby_formula_canister_202605300845.jpeg",
+    "local_path": "/products/generated/baby-formula-nutrilon2.webp",
+    "fetched": "2026-05-30"
   },
   "baby-yogurt-agusha": {
     "status": "needs_review",
@@ -2236,12 +2183,11 @@
     "fetched": "2026-05-30"
   },
   "baby-cookies-gerber": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Graduates arrowroot cookies imp",
-    "source_url": "https://images.openfoodfacts.org/images/products/001/500/000/5962/front_en.28.400.jpg",
-    "local_path": "/products/baby-cookies-gerber.webp",
-    "fetched": "2026-05-28"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Gerber_baby_cookies_package_202605300845.jpeg",
+    "local_path": "/products/generated/baby-cookies-gerber.webp",
+    "fetched": "2026-05-30"
   },
   "baby-water": {
     "status": "matched_unverified",
@@ -2276,11 +2222,10 @@
     "fetched": "2026-05-28"
   },
   "protein-bar-rex": {
-    "status": "matched_unverified",
-    "source_type": "arbuz",
-    "source_name": "Батончик ProteinRex протеиновый малина йогурт, 60 г — arbuz.kz",
-    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__288058-batonchik_proteinrex_proteinovyi_malina_iogurt_60_g.jpg",
-    "local_path": "/products/protein-bar-rex.webp",
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Protein_Rex_snack_bar_package_202605300845.jpeg",
+    "local_path": "/products/generated/protein-bar-rex.webp",
     "fetched": "2026-05-30"
   },
   "granola-honey": {
@@ -2308,12 +2253,11 @@
     "fetched": "2026-05-28"
   },
   "rye-cakes-finn-crisp": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Finn Crisp",
-    "source_url": "https://images.openfoodfacts.org/images/products/641/050/009/0014/front_en.220.400.jpg",
-    "local_path": "/products/rye-cakes-finn-crisp.webp",
-    "fetched": "2026-05-28"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Finn_Crisp_rye_snack_box_202605300845.jpeg",
+    "local_path": "/products/generated/rye-cakes-finn-crisp.webp",
+    "fetched": "2026-05-30"
   },
   "almond-milk-tetrapak": {
     "status": "matched_unverified",
@@ -2349,12 +2293,11 @@
     "fetched": "2026-05-28"
   },
   "protein-powder-vanilla": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "High Protein Pudding vaníliaízű",
-    "source_url": "https://images.openfoodfacts.org/images/products/405/648/921/6155/front_en.290.400.jpg",
-    "local_path": "/products/protein-powder-vanilla.webp",
-    "fetched": "2026-05-28"
+    "status": "real_verified",
+    "source_type": "ai_generated",
+    "source_name": "Optimum_Nutrition_protein_tub_202605300846.jpeg",
+    "local_path": "/products/generated/protein-powder-vanilla.webp",
+    "fetched": "2026-05-30"
   },
   "collagen-marine": {
     "status": "matched_unverified",
@@ -2543,19 +2486,17 @@
   },
   "barista-milk": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Barista edition oat drink",
-    "source_url": "https://images.openfoodfacts.org/images/products/739/437/662/0157/front_en.5.400.jpg",
-    "local_path": "/products/barista-milk.webp",
-    "fetched": "2026-05-29"
+    "source_type": "ai_generated",
+    "source_name": "Barista_Milk_carton_on_white_202605300845.jpeg",
+    "local_path": "/products/generated/barista-milk.webp",
+    "fetched": "2026-05-30"
   },
   "cheese-cheddar": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Cheddar",
-    "source_url": "https://images.openfoodfacts.org/images/products/611/120/300/6653/front_ar.14.400.jpg",
-    "local_path": "/products/cheese-cheddar.webp",
-    "fetched": "2026-05-28"
+    "source_type": "ai_generated",
+    "source_name": "Cheddar_cheese_in_packaging_202605300845.jpeg",
+    "local_path": "/products/generated/cheese-cheddar.webp",
+    "fetched": "2026-05-30"
   },
   "cream-38": {
     "status": "matched_unverified",
@@ -2591,19 +2532,17 @@
   },
   "garlic-sauce": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Tomato Roasted Garlic Pasta Sauce",
-    "source_url": "https://images.openfoodfacts.org/images/products/500/035/415/5024/front_en.25.400.jpg",
-    "local_path": "/products/garlic-sauce.webp",
-    "fetched": "2026-05-28"
+    "source_type": "ai_generated",
+    "source_name": "Squeeze_bottle_of_Garlic_Sauce_202605300844.jpeg",
+    "local_path": "/products/generated/garlic-sauce.webp",
+    "fetched": "2026-05-30"
   },
   "pesto-sauce": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "PESTO alla GENOVESE",
-    "source_url": "https://images.openfoodfacts.org/images/products/807/680/951/3753/front_en.347.400.jpg",
-    "local_path": "/products/pesto-sauce.webp",
-    "fetched": "2026-05-28"
+    "source_type": "ai_generated",
+    "source_name": "Glass_jar_of_Pesto_Sauce_202605300844.jpeg",
+    "local_path": "/products/generated/pesto-sauce.webp",
+    "fetched": "2026-05-30"
   },
   "unagi-sauce": {
     "status": "needs_review",
@@ -2615,11 +2554,10 @@
   },
   "pizza-tomato-sauce": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Tomapizza",
-    "source_url": "https://images.openfoodfacts.org/images/products/303/835/287/6506/front_en.122.400.jpg",
-    "local_path": "/products/pizza-tomato-sauce.webp",
-    "fetched": "2026-05-28"
+    "source_type": "ai_generated",
+    "source_name": "Glass_jar_Tomato_Pizza_Sauce_202605300844.jpeg",
+    "local_path": "/products/generated/pizza-tomato-sauce.webp",
+    "fetched": "2026-05-30"
   },
   "oregano-dried": {
     "status": "matched_unverified",
