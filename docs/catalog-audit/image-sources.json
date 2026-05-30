@@ -72,12 +72,12 @@
     "fetched": "2026-05-29"
   },
   "eggs-c0": {
-    "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Луговое Поле eggs 30pcs",
-    "barcode": "4870237158753",
-    "local_path": "/products/eggs-c0.webp",
-    "fetched": "2026-05-29"
+    "status": "needs_review",
+    "source_type": null,
+    "source_name": "—",
+    "local_path": null,
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "water-still": {
     "status": "matched_unverified",
@@ -152,11 +152,11 @@
     "fetched": "2026-05-29"
   },
   "black-tea-akbar": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
+    "source_name": "—",
     "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
     "fetched": "2026-05-30"
   },
   "green-tea-greenfield": {
@@ -466,11 +466,11 @@
     "fetched": "2026-05-30"
   },
   "butter-825": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
-    "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Масло Эмиль сливочное крестьянское 72,5%, 200 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__4367306c-2532-4523-b979-d70c412d0a44-img_8605_jpg.jpg",
+    "local_path": "/products/butter-825.webp",
     "fetched": "2026-05-30"
   },
   "cheese-russian": {
@@ -500,11 +500,11 @@
     "fetched": "2026-05-28"
   },
   "cheese-cream": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
+    "source_name": "—",
     "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "note": "Philadelphia is protected brand; Hochland is competitor — needs real Philadelphia image",
     "fetched": "2026-05-30"
   },
   "processed-cheese": {
@@ -517,12 +517,11 @@
   },
   "eggs-sv": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Lugovoye Pole — premium grade stand-in",
-    "source_url": "https://magnum.kz:1337/uploads/4870237158753_6c2873dc63.jpg",
+    "source_type": "arbuz",
+    "source_name": "Яйца Сары-Булак куриные SB-O категория Отборное, 10 шт — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__3c115b14-6767-43fc-aebf-80f03873568b-4870144560502_1_jpg.jpg",
     "local_path": "/products/eggs-sv.webp",
-    "note": "Lugovoye Pole — premium grade stand-in",
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-30"
   },
   "apples": {
     "status": "matched_unverified",
@@ -586,11 +585,11 @@
     "fetched": "2026-05-28"
   },
   "hot-chocolate": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
+    "source_name": "—",
     "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
     "fetched": "2026-05-30"
   },
   "earl-grey": {
@@ -648,12 +647,11 @@
   },
   "rice-basmati": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Arnau rice — basmati stand-in",
-    "source_url": "https://magnum.kz:1337/uploads/4870201180452_453ba0a77c.jpg",
+    "source_type": "arbuz",
+    "source_name": "Рис Asia Rice басмати, 800 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__e87fabc6-eaff-41da-8df3-191ec90aaa26-725765585776_2_jpg.jpg",
     "local_path": "/products/rice-basmati.webp",
-    "note": "Arnau rice — basmati stand-in",
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-30"
   },
   "rice-round": {
     "status": "matched_unverified",
@@ -752,11 +750,11 @@
     "fetched": "2026-05-30"
   },
   "baby-puree-carrot": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
+    "source_name": "—",
     "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
     "fetched": "2026-05-30"
   },
   "chicken-legs": {
@@ -983,11 +981,12 @@
     "fetched": "2026-05-30"
   },
   "capelin-smoked": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "octopus-mini": {
     "status": "matched_unverified",
@@ -1098,11 +1097,11 @@
     "fetched": "2026-05-29"
   },
   "carrots": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
-    "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Морковь мытая, кг — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__227fe22f-c7a0-439e-be13-9ab3418f253f-2045122_jpg.jpg",
+    "local_path": "/products/carrots.webp",
     "fetched": "2026-05-30"
   },
   "tomatoes": {
@@ -1213,11 +1212,11 @@
     "fetched": "2026-05-29"
   },
   "baton": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
+    "source_name": "—",
     "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
     "fetched": "2026-05-30"
   },
   "lavash": {
@@ -1238,11 +1237,11 @@
     "fetched": "2026-05-29"
   },
   "samsa-potato": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
+    "source_name": "—",
     "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
     "fetched": "2026-05-30"
   },
   "donut": {
@@ -1318,11 +1317,11 @@
     "fetched": "2026-05-28"
   },
   "pirozhok": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
+    "source_name": "—",
     "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
     "fetched": "2026-05-30"
   },
   "bagel": {
@@ -1382,18 +1381,19 @@
     "fetched": "2026-05-30"
   },
   "water-premium": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-29"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Вода Evian природная минеральная, 1.5 л — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__3338354d-2f7f-490e-a472-367cc7c9e8fe-3068320111919_jpg.jpg",
+    "local_path": "/products/water-premium.webp",
+    "fetched": "2026-05-30"
   },
   "kombucha": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
-    "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Комбуча Õs Kombucha Персик 500 мл — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__302651-kombucha_s_kombucha_persik_500_ml.jpg",
+    "local_path": "/products/kombucha.webp",
     "fetched": "2026-05-30"
   },
   "aloe-drink": {
@@ -1503,11 +1503,11 @@
     "fetched": "2026-05-30"
   },
   "candy-korovka": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
+    "source_name": "—",
     "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
     "fetched": "2026-05-30"
   },
   "waffles-choco": {
@@ -1527,18 +1527,20 @@
     "fetched": "2026-05-29"
   },
   "baklava": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "honey-gingerbread": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "macaron": {
     "status": "matched_unverified",
@@ -1549,11 +1551,12 @@
     "fetched": "2026-05-28"
   },
   "creme-brulee-dessert": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "tiramisu": {
     "status": "matched_unverified",
@@ -2059,11 +2062,12 @@
     "fetched": "2026-05-28"
   },
   "margarine-baking": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-29"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Масло President Гастрономик несолёное 82% 250 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__21b00178-979f-4c33-92be-324db2211b97-3155251205500_maslo_president_gastronomik_nesole_noe_82_250_g_1_jpg.jpg",
+    "local_path": "/products/margarine-baking.webp",
+    "fetched": "2026-05-30"
   },
   "flaxseed-oil": {
     "status": "matched_unverified",
@@ -2092,11 +2096,11 @@
     "fetched": "2026-05-29"
   },
   "sushi-set-japan": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
+    "source_name": "—",
     "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
     "fetched": "2026-05-30"
   },
   "rolls-california": {
@@ -2158,11 +2162,11 @@
     "fetched": "2026-05-28"
   },
   "lagman-ready": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
-    "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Лапша MFood.kz для лагмана 500 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/299446-lapsha_mfood_kz_dlya_lagmana_500_g.jpg",
+    "local_path": "/products/lagman-ready.webp",
     "fetched": "2026-05-30"
   },
   "manti-ready": {
@@ -2191,11 +2195,12 @@
     "fetched": "2026-05-29"
   },
   "baby-porridge-buckwheat": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "baby-porridge-oat": {
     "status": "matched_unverified",
@@ -2207,11 +2212,11 @@
   },
   "baby-formula-nan1": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "NAN ET2",
-    "source_url": "https://images.openfoodfacts.org/images/products/750/105/862/3249/front_en.13.400.jpg",
+    "source_type": "arbuz",
+    "source_name": "Смесь NAN 3 Optipro HA Гипоаллергенная молочная гипоаллергенная для детей (12+ мес) 400 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/211927-smes_nan_3_optipro_molochnaya_gipoallergennaya_dlya_detei_12_mes_400_g.jpg",
     "local_path": "/products/baby-formula-nan1.webp",
-    "fetched": "2026-05-29"
+    "fetched": "2026-05-30"
   },
   "baby-formula-nutrilon2": {
     "status": "matched_unverified",
@@ -2223,11 +2228,11 @@
     "fetched": "2026-05-29"
   },
   "baby-yogurt-agusha": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
+    "source_name": "—",
     "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
     "fetched": "2026-05-30"
   },
   "baby-cookies-gerber": {
@@ -2247,11 +2252,12 @@
     "fetched": "2026-05-30"
   },
   "baby-kefir-tema": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "baby-puree-tube": {
     "status": "matched_unverified",
@@ -2279,11 +2285,11 @@
   },
   "granola-honey": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Honey",
-    "source_url": "https://images.openfoodfacts.org/images/products/308/854/000/4440/front_fr.129.400.jpg",
+    "source_type": "arbuz",
+    "source_name": "Гранола Sante Fit с какао и орехами без добавления сахара, 300 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__fdfa8c89-f1a5-4dd3-96b7-bc1bd14c0471-252367-001_jpg.jpg",
     "local_path": "/products/granola-honey.webp",
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-30"
   },
   "tofu-natural": {
     "status": "matched_unverified",
@@ -2359,25 +2365,28 @@
     "fetched": "2026-05-28"
   },
   "containers-500ml": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "containers-1000ml": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "pizza-boxes-30cm": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "cups-paper-300ml": {
     "status": "matched_unverified",
@@ -2388,26 +2397,28 @@
     "fetched": "2026-05-30"
   },
   "cups-paper-400ml": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
+    "source_name": "—",
     "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
     "fetched": "2026-05-30"
   },
   "lids-for-cups": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "cutlery-set-pack": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "foil-food": {
     "status": "matched_unverified",
@@ -2434,53 +2445,60 @@
     "fetched": "2026-05-29"
   },
   "trash-bags-20l": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Пакеты Фрекен БОК для мусора с ручками 60 л 20 шт — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/256057-pakety_freken_bok_dlya_musora_s_ruchkami_60_l_20_sht.jpg",
+    "local_path": "/products/trash-bags-20l.webp",
+    "fetched": "2026-05-30"
   },
   "family-basket": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "note": "Combo bundle — no single-product SKU photo exists; use composite or drop from catalog",
+    "fetched": "2026-05-30"
   },
   "breakfast-set": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "note": "Combo bundle — no single-product SKU photo exists; use composite or drop from catalog",
+    "fetched": "2026-05-30"
   },
   "bbq-set": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "note": "Combo bundle — no single-product SKU photo exists; use composite or drop from catalog",
+    "fetched": "2026-05-30"
   },
   "healthy-set": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "note": "Combo bundle — no single-product SKU photo exists; use composite or drop from catalog",
+    "fetched": "2026-05-30"
   },
   "baking-set": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "note": "Combo bundle — no single-product SKU photo exists; use composite or drop from catalog",
+    "fetched": "2026-05-30"
   },
   "plov-set": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "note": "Combo bundle — no single-product SKU photo exists; use composite or drop from catalog",
+    "fetched": "2026-05-30"
   },
   "crab-meat": {
     "status": "matched_unverified",
@@ -2588,11 +2606,12 @@
     "fetched": "2026-05-28"
   },
   "unagi-sauce": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "pizza-tomato-sauce": {
     "status": "matched_unverified",
@@ -2603,11 +2622,11 @@
     "fetched": "2026-05-28"
   },
   "oregano-dried": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
-    "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Орегано Arbuz Select 100 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__ef9a3db5-5e09-457e-bd89-c912d5f1fcb4-312072_1f_png.png",
+    "local_path": "/products/oregano-dried.webp",
     "fetched": "2026-05-30"
   },
   "wasabi-paste": {
@@ -2619,11 +2638,12 @@
     "fetched": "2026-05-29"
   },
   "sushi-rice-koshi": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "nori-gold": {
     "status": "matched_unverified",
@@ -2666,11 +2686,11 @@
     "fetched": "2026-05-28"
   },
   "pasta-tiger": {
-    "status": "rejected",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Rejected — Asian Kitchen Udon noodles (wrong product+amateur); Barilla Conchiglie needs real image",
+    "source_name": "—",
     "local_path": null,
-    "note": "Wrong product type & amateur photo",
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
     "fetched": "2026-05-30"
   },
   "frozen-dough-puff": {
@@ -2707,11 +2727,12 @@
     "fetched": "2026-05-29"
   },
   "whole-chicken": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "turkey-fillet": {
     "status": "matched_unverified",
@@ -2850,12 +2871,12 @@
     "fetched": "2026-05-29"
   },
   "grapes": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "ВкусВилл — Виноград сушёный Кишмиш: Шигани",
-    "source_url": "https://images.openfoodfacts.org/images/products/210/010/010/0186/front_ru.4.400.jpg",
-    "local_path": "/products/grapes.webp",
-    "fetched": "2026-05-29"
+    "status": "needs_review",
+    "source_type": null,
+    "source_name": "—",
+    "local_path": null,
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "pears": {
     "status": "matched_unverified",
@@ -2875,11 +2896,12 @@
     "fetched": "2026-05-29"
   },
   "dill": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "parsley": {
     "status": "matched_unverified",
@@ -2891,11 +2913,11 @@
     "fetched": "2026-05-29"
   },
   "blueberry": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
+    "source_name": "—",
     "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
     "fetched": "2026-05-30"
   },
   "cheesecake": {
@@ -2916,19 +2938,20 @@
     "fetched": "2026-05-30"
   },
   "energy-monster": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Black Monster, Monster — Black monster",
-    "source_url": "https://images.openfoodfacts.org/images/products/506/063/912/5364/front_ru.21.400.jpg",
-    "local_path": "/products/energy-monster.webp",
-    "fetched": "2026-05-29"
+    "status": "needs_review",
+    "source_type": null,
+    "source_name": "—",
+    "local_path": null,
+    "note": "Monster Energy not stocked on arbuz.kz; source from brand site",
+    "fetched": "2026-05-30"
   },
   "caramel-candy": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "granola-bar": {
     "status": "matched_unverified",
@@ -2939,11 +2962,11 @@
     "fetched": "2026-05-29"
   },
   "chickpeas-dry": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
-    "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Безглютеновый нут Bio planet органический 500 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__328920-bezglyutenovyi_nut_bio_planet_organicheskii_500_g.jpg",
+    "local_path": "/products/chickpeas-dry.webp",
     "fetched": "2026-05-30"
   },
   "sunflower-seeds-oil": {
@@ -3025,19 +3048,20 @@
     "fetched": "2026-05-29"
   },
   "corn-oil": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
+    "source_name": "—",
     "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
     "fetched": "2026-05-30"
   },
   "lard-smoked": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "pizza-margarita-fresh": {
     "status": "matched_unverified",
@@ -3073,19 +3097,20 @@
     "fetched": "2026-05-30"
   },
   "goji-berries": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "No clean match found on arbuz.kz",
+    "source_name": "—",
     "local_path": null,
-    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
     "fetched": "2026-05-30"
   },
   "unagi": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "No exact source image found on arbuz.kz/Magnum — manual sourcing or supplier feed needed",
+    "fetched": "2026-05-30"
   },
   "ginger-marinated": {
     "status": "matched_unverified",
@@ -3139,25 +3164,28 @@
     "fetched": "2026-05-30"
   },
   "sushi-kit": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "Combo bundle — no single-product SKU photo exists; use composite or drop from catalog",
+    "fetched": "2026-05-30"
   },
   "coffee-set": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "Combo bundle — no single-product SKU photo exists; use composite or drop from catalog",
+    "fetched": "2026-05-30"
   },
   "baby-set": {
-    "status": "missing",
+    "status": "needs_review",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "—",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "Combo bundle — no single-product SKU photo exists; use composite or drop from catalog",
+    "fetched": "2026-05-30"
   },
   "cheese-wine-set": {
     "status": "matched_unverified",

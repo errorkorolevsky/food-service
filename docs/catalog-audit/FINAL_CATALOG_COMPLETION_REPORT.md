@@ -1,4 +1,48 @@
-# Final Catalog Completion Report — Phase C (2026-05-30)
+# Final Catalog Completion Report — Phases C & D (2026-05-30)
+
+Goal: maximum correct source-image coverage before any AI standardization.
+No AI/redesign performed — source images only.
+
+## PHASE D — FINAL STATE (authoritative, `npm run validate:images`)
+
+| Field | Count | % |
+|-------|------:|--:|
+| **Total products** | 387 | — |
+| **With image** | 342 | **88%** |
+| **Missing image** | 45 | 12% |
+| **Verified exact** | 36 | — |
+| **Verified generic** | 287 | — |
+| **Verified total** | **323** | **83%** |
+| **Needs review** | 45 | — |
+| **Rejected** | 0 | — |
+| Validator errors | 0 | ✓ |
+
+Phase D added **+13** verified images (incl. `water-premium` = real Evian) by
+re-harvesting arbuz.kz with hand-tuned brand queries and visually verifying all
+22 candidates (accepted 14, rejected 8 wrong matches — e.g. Snickers for
+`candy-korovka`, Danissimo for `creme-brulee-dessert`, corn crackers for
+`corn-oil`). The validator also blocked `cheese-cream` (title Philadelphia,
+image Hochland — competitor) → reverted to needs_review.
+
+Every one of the remaining 45 products is now explicitly `needs_review` with a
+written reason in `image-sources.json` (combo bundle / not stocked on arbuz /
+no exact source). **Rejected is now 0** — nothing shows a wrong or competitor
+image; gaps are honest placeholders awaiting correct sourcing or the AI
+standardization pass.
+
+### Remaining 45 needs_review — reason groups
+- **Combo sets (9)** — no single-product SKU photo exists.
+- **HoReCa packaging (5)** — containers/cups/lids/cutlery/pizza-boxes; supplier feed.
+- **Not on arbuz / niche (31)** — `energy-monster`, `cheese-cream` (Philadelphia),
+  `samsa-potato`, `pirozhok`, `baton`, `eggs-c0`, `grapes`, `dill`, `blueberry`,
+  `whole-chicken`, `capelin-smoked`, `unagi`/`unagi-sauce`, `sushi-rice-koshi`,
+  `pasta-tiger`, `black-tea-akbar`, `hot-chocolate`, `baklava`, `honey-gingerbread`,
+  `caramel-candy`, `candy-korovka`, `creme-brulee-dessert`, `corn-oil`,
+  `lard-smoked`, `goji-berries`, baby-food variants, etc.
+
+---
+
+## PHASE C (earlier same day)
 
 Goal: bring every one of the 387 products to a verified, brand-accurate image.
 

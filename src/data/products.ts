@@ -32,7 +32,7 @@ export const products: Product[] = [
     tags: ["курица", "бёдра", "мясо"],
   },
   {
-    id: "whole-chicken", emoji: "🐔",
+    id: "whole-chicken", imageStatus: "needs_review", emoji: "🐔",
     category: "Мясо и птица",
     title: "Курица целая охлаждённая",
     description: "Курица-бройлер охлаждённая потрошёная. Вес ≈1.5–1.8кг.",
@@ -380,7 +380,7 @@ export const products: Product[] = [
     tags: ["судак", "рыба", "речная", "свежая"],
   },
   {
-    id: "capelin-smoked", emoji: "🐟",
+    id: "capelin-smoked", imageStatus: "needs_review", emoji: "🐟",
     category: "Рыба и морепродукты",
     title: "Мойва копчёная",
     description: "Мойва горячего копчения. Упаковка 500г.",
@@ -527,7 +527,7 @@ export const products: Product[] = [
     tags: ["масло", "сливочное", "молочное"],
   },
   {
-    id: "butter-825", emoji: "🧈",
+    id: "butter-825", imageStatus: "verified_generic", image: "/products/butter-825.webp", emoji: "🧈",
     category: "Молочные продукты",
     title: "Масло сливочное 82.5% Экстра",
     description: "Масло сливочное Экстра 82.5% жирности ГОСТ. Пачка 200г.",
@@ -591,7 +591,7 @@ export const products: Product[] = [
     tags: ["сулугуни", "сыр", "копчёный", "молочное"],
   },
   {
-    id: "cheese-cream", emoji: "🧀",
+    id: "cheese-cream", imageStatus: "needs_review", emoji: "🧀",
     category: "Молочные продукты",
     title: "Сыр творожный Philadelphia",
     description: "Сыр творожный Philadelphia Original для намазывания. Пачка 175г.",
@@ -657,7 +657,7 @@ export const products: Product[] = [
     tags: ["яйца", "куриные", "C1"],
   },
   {
-    id: "eggs-c0", imageStatus: "rejected", emoji: "🥚",
+    id: "eggs-c0", imageStatus: "needs_review", emoji: "🥚",
     category: "Яйца",
     title: "Яйца куриные отборные С0",
     description: "Яйца куриные отборные, категория С0, крупные. Упаковка 10 штук.",
@@ -666,7 +666,7 @@ export const products: Product[] = [
     tags: ["яйца", "куриные", "отборные", "C0"],
   },
   {
-    id: "eggs-sv", imageStatus: "rejected", emoji: "🥚",
+    id: "eggs-sv", imageStatus: "verified_generic", image: "/products/eggs-sv.webp", emoji: "🥚",
     category: "Яйца",
     title: "Яйца высшей категории СВ",
     description: "Яйца куриные высшей категории СВ, очень крупные. Упаковка 10 штук.",
@@ -705,7 +705,7 @@ export const products: Product[] = [
     tags: ["картофель", "овощи"],
   },
   {
-    id: "carrots", emoji: "🥕",
+    id: "carrots", imageStatus: "verified_generic", image: "/products/carrots.webp", emoji: "🥕",
     category: "Овощи и фрукты",
     title: "Морковь",
     description: "Морковь свежая мытая. Богата витамином А. Упаковка 1кг.",
@@ -813,7 +813,7 @@ export const products: Product[] = [
     tags: ["мандарины", "фрукты", "цитрусовые"],
   },
   {
-    id: "grapes", emoji: "🍇",
+    id: "grapes", imageStatus: "needs_review", emoji: "🍇",
     category: "Овощи и фрукты",
     title: "Виноград Кишмиш",
     description: "Виноград Кишмиш без косточек. Упаковка 500г.",
@@ -904,7 +904,7 @@ export const products: Product[] = [
     tags: ["черешня", "ягоды", "фрукты"],
   },
   {
-    id: "dill", emoji: "🌿",
+    id: "dill", imageStatus: "needs_review", emoji: "🌿",
     category: "Овощи и фрукты",
     title: "Укроп пучок",
     description: "Укроп свежий, пучок ≈100г.",
@@ -949,7 +949,7 @@ export const products: Product[] = [
     tags: ["свёкла", "овощи"],
   },
   {
-    id: "blueberry", emoji: "🫐",
+    id: "blueberry", imageStatus: "needs_review", emoji: "🫐",
     category: "Овощи и фрукты",
     title: "Черника",
     description: "Черника свежая садовая. Богата антиоксидантами. Упаковка 250г.",
@@ -997,7 +997,7 @@ export const products: Product[] = [
     tags: ["хлеб", "цельнозерновой", "здоровое", "выпечка"],
   },
   {
-    id: "baton", emoji: "🥖",
+    id: "baton", imageStatus: "needs_review", emoji: "🥖",
     category: "Хлеб и выпечка",
     title: "Батон молочный",
     description: "Батон молочный нарезной мягкий. Упаковка 400г.",
@@ -1033,7 +1033,7 @@ export const products: Product[] = [
     tags: ["самса", "мясо", "выпечка"],
   },
   {
-    id: "samsa-potato", emoji: "🥟",
+    id: "samsa-potato", imageStatus: "needs_review", emoji: "🥟",
     category: "Хлеб и выпечка",
     title: "Самса с картофелем",
     description: "Самса слоёная с картофелем и зеленью. Упаковка 2 штуки.",
@@ -1132,7 +1132,7 @@ export const products: Product[] = [
     tags: ["булочка", "корица", "выпечка"],
   },
   {
-    id: "pirozhok", emoji: "🥟",
+    id: "pirozhok", imageStatus: "needs_review", emoji: "🥟",
     category: "Хлеб и выпечка",
     title: "Пирожок с капустой",
     description: "Пирожок печёный с белокочанной капустой. 1 штука.",
@@ -1243,7 +1243,7 @@ export const products: Product[] = [
     tags: ["Red Bull", "энергетик", "кофеин", "напитки"],
   },
   {
-    id: "energy-monster", imageStatus: "needs_review", image: "/products/energy-monster.webp", emoji: "⚡",
+    id: "energy-monster", imageStatus: "needs_review", emoji: "⚡",
     category: "Напитки",
     title: "Monster Energy",
     description: "Monster Energy Original зелёный. Банка 500мл.",
@@ -1315,7 +1315,7 @@ export const products: Product[] = [
     tags: ["шоколадное молоко", "молочный", "напитки"],
   },
   {
-    id: "water-premium", emoji: "💧",
+    id: "water-premium", imageStatus: "verified_exact", image: "/products/water-premium.webp", emoji: "💧",
     category: "Напитки",
     title: "Вода Evian Premium",
     description: "Вода горная Evian негазированная Premium. Бутылка 500мл.",
@@ -1324,7 +1324,7 @@ export const products: Product[] = [
     tags: ["вода", "evian", "premium", "напитки"],
   },
   {
-    id: "kombucha", emoji: "🍵",
+    id: "kombucha", imageStatus: "verified_generic", image: "/products/kombucha.webp", emoji: "🍵",
     category: "Напитки",
     title: "Комбуча имбирь-лимон",
     description: "Комбуча живая ферментированная, имбирь и лимон. Бутылка 330мл.",
@@ -1427,7 +1427,7 @@ export const products: Product[] = [
     tags: ["кофе", "3в1", "maccoffee", "растворимый"],
   },
   {
-    id: "black-tea-akbar", emoji: "🍵",
+    id: "black-tea-akbar", imageStatus: "needs_review", emoji: "🍵",
     category: "Кофе, чай и какао",
     title: "Чай чёрный Akbar Ceylon",
     description: "Чай чёрный байховый цейлонский Akbar Gold. Жестяная банка 100г.",
@@ -1481,7 +1481,7 @@ export const products: Product[] = [
     tags: ["какао", "nesquik", "шоколадный", "напиток"],
   },
   {
-    id: "hot-chocolate", emoji: "🍫",
+    id: "hot-chocolate", imageStatus: "needs_review", emoji: "🍫",
     category: "Кофе, чай и какао",
     title: "Горячий шоколад Van Houten",
     description: "Горячий шоколад Premium Van Houten. Пакет 400г.",
@@ -1556,7 +1556,7 @@ export const products: Product[] = [
     tags: ["ferrero", "конфеты", "шоколад", "фундук"],
   },
   {
-    id: "candy-korovka", emoji: "🍬",
+    id: "candy-korovka", imageStatus: "needs_review", emoji: "🍬",
     category: "Кондитерские изделия",
     title: "Конфеты Коровка ассорти",
     description: "Конфеты молочные Коровка в ассортименте. Упаковка 500г.",
@@ -1619,7 +1619,7 @@ export const products: Product[] = [
     tags: ["халва", "подсолнечная", "натуральная"],
   },
   {
-    id: "baklava", emoji: "🍯",
+    id: "baklava", imageStatus: "needs_review", emoji: "🍯",
     category: "Кондитерские изделия",
     title: "Пахлава медовая",
     description: "Пахлава домашняя с грецким орехом и мёдом. Упаковка 500г.",
@@ -1628,7 +1628,7 @@ export const products: Product[] = [
     tags: ["пахлава", "медовая", "грецкий орех"],
   },
   {
-    id: "honey-gingerbread", emoji: "🎄",
+    id: "honey-gingerbread", imageStatus: "needs_review", emoji: "🎄",
     category: "Кондитерские изделия",
     title: "Пряники медовые",
     description: "Пряники медовые с глазурью. Упаковка 400г.",
@@ -1691,7 +1691,7 @@ export const products: Product[] = [
     tags: ["макаруны", "французские", "десерт"],
   },
   {
-    id: "creme-brulee-dessert", emoji: "🍮",
+    id: "creme-brulee-dessert", imageStatus: "needs_review", emoji: "🍮",
     category: "Кондитерские изделия",
     title: "Крем-брюле",
     description: "Крем-брюле с карамельной корочкой. Порция 120г.",
@@ -1727,7 +1727,7 @@ export const products: Product[] = [
     tags: ["маршмеллоу", "ваниль", "конфеты"],
   },
   {
-    id: "caramel-candy", emoji: "🍬",
+    id: "caramel-candy", imageStatus: "needs_review", emoji: "🍬",
     category: "Кондитерские изделия",
     title: "Карамельки Взлётные",
     description: "Карамель леденцовая Взлётные ментол+лимон. Упаковка 250г.",
@@ -1932,7 +1932,7 @@ export const products: Product[] = [
     tags: ["рис", "длиннозёрный", "пропаренный", "крупы"],
   },
   {
-    id: "rice-basmati", imageStatus: "needs_review", image: "/products/rice-basmati.webp", emoji: "🌾",
+    id: "rice-basmati", imageStatus: "verified_generic", image: "/products/rice-basmati.webp", emoji: "🌾",
     category: "Бакалея",
     title: "Рис Басмати Premium",
     description: "Рис Басмати Premium индийский длиннозёрный ароматный. 1кг.",
@@ -2149,7 +2149,7 @@ export const products: Product[] = [
     tags: ["чечевица", "зелёная", "бобовые", "крупы"],
   },
   {
-    id: "chickpeas-dry", emoji: "🫘",
+    id: "chickpeas-dry", imageStatus: "verified_generic", image: "/products/chickpeas-dry.webp", emoji: "🫘",
     category: "Бакалея",
     title: "Нут сухой",
     description: "Нут сухой для хумуса и супов. Упаковка 500г.",
@@ -2572,7 +2572,7 @@ export const products: Product[] = [
     tags: ["масло", "оливковое", "monini", "extra virgin"],
   },
   {
-    id: "corn-oil", emoji: "🌽",
+    id: "corn-oil", imageStatus: "needs_review", emoji: "🌽",
     category: "Масло и жиры",
     title: "Масло кукурузное рафинированное",
     description: "Масло кукурузное рафинированное. Бутылка 1л.",
@@ -2608,7 +2608,7 @@ export const products: Product[] = [
     tags: ["гхи", "топлёное", "масло"],
   },
   {
-    id: "margarine-baking", emoji: "🧈",
+    id: "margarine-baking", imageStatus: "verified_generic", image: "/products/margarine-baking.webp", emoji: "🧈",
     category: "Масло и жиры",
     title: "Маргарин для выпечки",
     description: "Маргарин Пышка для выпечки. Упаковка 250г.",
@@ -2626,7 +2626,7 @@ export const products: Product[] = [
     tags: ["масло", "льняное", "омега-3", "здоровье"],
   },
   {
-    id: "lard-smoked", emoji: "🥓",
+    id: "lard-smoked", imageStatus: "needs_review", emoji: "🥓",
     category: "Масло и жиры",
     title: "Сало копчёное",
     description: "Сало свиное горячего копчения с чесноком. Упаковка 300г.",
@@ -2656,7 +2656,7 @@ export const products: Product[] = [
   // ─── ГОТОВАЯ ЕДА ────────────────────────────────────────────────────────────
 
   {
-    id: "sushi-set-japan", emoji: "🍱",
+    id: "sushi-set-japan", imageStatus: "needs_review", emoji: "🍱",
     category: "Готовая еда",
     title: "Суши сет Японское",
     description: "Суши сет ассорти: нигири лосось, тунец, угорь — 20 штук.",
@@ -2746,7 +2746,7 @@ export const products: Product[] = [
     tags: ["салат", "цезарь", "курица"],
   },
   {
-    id: "lagman-ready", emoji: "🍜",
+    id: "lagman-ready", imageStatus: "verified_generic", image: "/products/lagman-ready.webp", emoji: "🍜",
     category: "Готовая еда",
     title: "Лагман домашний",
     description: "Лагман с говядиной и домашней лапшой по-уйгурски. Контейнер 500г.",
@@ -2812,7 +2812,7 @@ export const products: Product[] = [
     tags: ["пюре", "груша", "фрутоняня", "детское питание"],
   },
   {
-    id: "baby-puree-carrot", emoji: "🥕",
+    id: "baby-puree-carrot", imageStatus: "needs_review", emoji: "🥕",
     category: "Детское питание",
     title: "Пюре морковное Semper",
     description: "Пюре морковное Semper органическое. Баночка 125г. С 4 мес.",
@@ -2821,7 +2821,7 @@ export const products: Product[] = [
     tags: ["пюре", "морковь", "semper", "органическое", "детское питание"],
   },
   {
-    id: "baby-porridge-buckwheat", emoji: "🌾",
+    id: "baby-porridge-buckwheat", imageStatus: "needs_review", emoji: "🌾",
     category: "Детское питание",
     title: "Каша гречневая Heinz",
     description: "Каша гречневая безмолочная Heinz. Упаковка 200г. С 4 мес.",
@@ -2848,7 +2848,7 @@ export const products: Product[] = [
     tags: ["каша", "овсяная", "gerber", "банан", "детское питание"],
   },
   {
-    id: "baby-formula-nan1", imageStatus: "needs_review", image: "/products/baby-formula-nan1.webp", emoji: "🍼",
+    id: "baby-formula-nan1", imageStatus: "verified_generic", image: "/products/baby-formula-nan1.webp", emoji: "🍼",
     category: "Детское питание",
     title: "Смесь Nan 1 Premium",
     description: "Смесь молочная Nan 1 Premium для новорождённых с 0 мес. Банка 400г.",
@@ -2866,7 +2866,7 @@ export const products: Product[] = [
     tags: ["смесь", "nutrilon", "молочная", "детское питание"],
   },
   {
-    id: "baby-yogurt-agusha", emoji: "🥛",
+    id: "baby-yogurt-agusha", imageStatus: "needs_review", emoji: "🥛",
     category: "Детское питание",
     title: "Йогурт детский Агуша",
     description: "Йогурт детский Агуша клубника-банан. Стакан 200г. С 8 мес.",
@@ -2902,7 +2902,7 @@ export const products: Product[] = [
     tags: ["вода", "детская", "агуша"],
   },
   {
-    id: "baby-kefir-tema", emoji: "🥛",
+    id: "baby-kefir-tema", imageStatus: "needs_review", emoji: "🥛",
     category: "Детское питание",
     title: "Кефир детский Тёма",
     description: "Кефир детский Тёма 3.2% с 8 мес. Стакан 200г.",
@@ -2941,7 +2941,7 @@ export const products: Product[] = [
     tags: ["протеин", "батончик", "белок", "здоровое"],
   },
   {
-    id: "granola-honey", imageStatus: "rejected", emoji: "🌾",
+    id: "granola-honey", imageStatus: "verified_generic", image: "/products/granola-honey.webp", emoji: "🌾",
     category: "Здоровое питание",
     title: "Гранола с мёдом и орехами",
     description: "Гранола хрустящая с мёдом, овсом, грецким орехом и изюмом. 300г.",
@@ -3022,7 +3022,7 @@ export const products: Product[] = [
     tags: ["овсяное молоко", "oatly", "barista", "растительное"],
   },
   {
-    id: "goji-berries", emoji: "🌿",
+    id: "goji-berries", imageStatus: "needs_review", emoji: "🌿",
     category: "Здоровое питание",
     title: "Ягоды годжи",
     description: "Ягоды годжи сушёные тибетские. Антиоксиданты. Упаковка 100г.",
@@ -3070,7 +3070,7 @@ export const products: Product[] = [
   // ─── УПАКОВКА HORECA ────────────────────────────────────────────────────────
 
   {
-    id: "containers-500ml", emoji: "📦",
+    id: "containers-500ml", imageStatus: "needs_review", emoji: "📦",
     category: "Упаковка HoReCa",
     title: "Контейнеры 500мл",
     description: "Контейнеры пищевые прозрачные с крышкой 500мл. Упаковка 50 штук.",
@@ -3079,7 +3079,7 @@ export const products: Product[] = [
     tags: ["контейнеры", "500мл", "упаковка"],
   },
   {
-    id: "containers-1000ml", emoji: "📦",
+    id: "containers-1000ml", imageStatus: "needs_review", emoji: "📦",
     category: "Упаковка HoReCa",
     title: "Контейнеры 1000мл",
     description: "Контейнеры пищевые прозрачные с крышкой 1000мл. Упаковка 50 штук.",
@@ -3088,7 +3088,7 @@ export const products: Product[] = [
     tags: ["контейнеры", "1000мл", "упаковка"],
   },
   {
-    id: "pizza-boxes-30cm", emoji: "📦",
+    id: "pizza-boxes-30cm", imageStatus: "needs_review", emoji: "📦",
     category: "Упаковка HoReCa",
     title: "Коробки для пиццы 30см",
     description: "Коробки гофрированные для пиццы 30×30см белые. Упаковка 50 штук.",
@@ -3106,7 +3106,7 @@ export const products: Product[] = [
     tags: ["стаканы", "бумажные", "300мл", "кофе"],
   },
   {
-    id: "cups-paper-400ml", emoji: "☕",
+    id: "cups-paper-400ml", imageStatus: "needs_review", emoji: "☕",
     category: "Упаковка HoReCa",
     title: "Стаканы бумажные 400мл",
     description: "Стаканы бумажные двухслойные 400мл Ripple Cup. Упаковка 50 штук.",
@@ -3115,7 +3115,7 @@ export const products: Product[] = [
     tags: ["стаканы", "бумажные", "400мл", "кофе"],
   },
   {
-    id: "lids-for-cups", emoji: "📦",
+    id: "lids-for-cups", imageStatus: "needs_review", emoji: "📦",
     category: "Упаковка HoReCa",
     title: "Крышки к стаканам",
     description: "Крышки пластиковые для бумажных стаканов 300/400мл. Упаковка 50 штук.",
@@ -3124,7 +3124,7 @@ export const products: Product[] = [
     tags: ["крышки", "стаканы", "упаковка"],
   },
   {
-    id: "cutlery-set-pack", emoji: "🍴",
+    id: "cutlery-set-pack", imageStatus: "needs_review", emoji: "🍴",
     category: "Упаковка HoReCa",
     title: "Набор приборов одноразовых",
     description: "Набор вилка+нож+ложка одноразовые в пакете. Упаковка 50 наборов.",
@@ -3169,7 +3169,7 @@ export const products: Product[] = [
     tags: ["бумага", "выпечка", "силиконовая"],
   },
   {
-    id: "trash-bags-20l", emoji: "🗑️",
+    id: "trash-bags-20l", imageStatus: "verified_generic", image: "/products/trash-bags-20l.webp", emoji: "🗑️",
     category: "Упаковка HoReCa",
     title: "Пакеты мусорные 20л",
     description: "Пакеты мусорные чёрные 20л прочные. Упаковка 20 штук.",
@@ -3181,7 +3181,7 @@ export const products: Product[] = [
   // ─── НАБОРЫ ─────────────────────────────────────────────────────────────────
 
   {
-    id: "family-basket", emoji: "🧺",
+    id: "family-basket", imageStatus: "needs_review", emoji: "🧺",
     category: "Наборы",
     title: "Семейная корзина",
     description: "Набор продуктов на неделю: крупы, молоко, яйца, овощи, хлеб. Скидка 10%.",
@@ -3191,7 +3191,7 @@ export const products: Product[] = [
     tags: ["набор", "семейный", "корзина", "выгодно"],
   },
   {
-    id: "breakfast-set", emoji: "🌅",
+    id: "breakfast-set", imageStatus: "needs_review", emoji: "🌅",
     category: "Наборы",
     title: "Набор для завтрака",
     description: "Кофе, сливки, йогурт, круассан, яйца, масло, варенье. Скидка 10%.",
@@ -3201,7 +3201,7 @@ export const products: Product[] = [
     tags: ["набор", "завтрак", "кофе", "выгодно"],
   },
   {
-    id: "bbq-set", emoji: "🔥",
+    id: "bbq-set", imageStatus: "needs_review", emoji: "🔥",
     category: "Наборы",
     title: "Набор для барбекю",
     description: "Шея свиная, маринад, уголь, соусы, овощи для гриля. Скидка 10%.",
@@ -3211,7 +3211,7 @@ export const products: Product[] = [
     tags: ["набор", "барбекю", "шашлык", "гриль"],
   },
   {
-    id: "sushi-kit", emoji: "🍱",
+    id: "sushi-kit", imageStatus: "needs_review", emoji: "🍱",
     category: "Наборы",
     title: "Набор для суши",
     description: "Лосось, рис для суши, нори, соевый соус, имбирь, васаби. Скидка 10%.",
@@ -3221,7 +3221,7 @@ export const products: Product[] = [
     tags: ["набор", "суши", "лосось", "нори"],
   },
   {
-    id: "coffee-set", emoji: "☕",
+    id: "coffee-set", imageStatus: "needs_review", emoji: "☕",
     category: "Наборы",
     title: "Кофейный набор",
     description: "Кофе в зёрнах Lavazza, капсулы Nespresso, сироп ваниль, сливки 33%.",
@@ -3230,7 +3230,7 @@ export const products: Product[] = [
     tags: ["набор", "кофе", "lavazza", "nespresso"],
   },
   {
-    id: "healthy-set", emoji: "🥗",
+    id: "healthy-set", imageStatus: "needs_review", emoji: "🥗",
     category: "Наборы",
     title: "Набор здорового питания",
     description: "Гранола, chia, алmond milk, протеиновый батончик, хлебцы ржаные.",
@@ -3239,7 +3239,7 @@ export const products: Product[] = [
     tags: ["набор", "здоровое", "суперфуд", "диета"],
   },
   {
-    id: "baby-set", emoji: "🍼",
+    id: "baby-set", imageStatus: "needs_review", emoji: "🍼",
     category: "Наборы",
     title: "Детский набор",
     description: "Пюре Gerber (3 вкуса), каша Heinz, сок Агуша, печенье, вода детская.",
@@ -3258,7 +3258,7 @@ export const products: Product[] = [
     tags: ["набор", "сыр", "тарелка", "ассорти"],
   },
   {
-    id: "baking-set", emoji: "🎂",
+    id: "baking-set", imageStatus: "needs_review", emoji: "🎂",
     category: "Наборы",
     title: "Набор для выпечки",
     description: "Мука, сахар, масло сливочное, яйца, ванилин, разрыхлитель, какао.",
@@ -3267,7 +3267,7 @@ export const products: Product[] = [
     tags: ["набор", "выпечка", "торт", "кекс"],
   },
   {
-    id: "plov-set", emoji: "🍚",
+    id: "plov-set", imageStatus: "needs_review", emoji: "🍚",
     category: "Наборы",
     title: "Набор для плова",
     description: "Рис Басмати, баранина, морковь, лук, зира, подсолнечное масло.",
@@ -3314,7 +3314,7 @@ export const products: Product[] = [
     tags: ["тобико", "икра", "суши", "роллы"],
   },
   {
-    id: "unagi", emoji: "🐍",
+    id: "unagi", imageStatus: "needs_review", emoji: "🐍",
     category: "Рыба и морепродукты",
     title: "Угорь копчёный унаги",
     description: "Угорь копчёный японский (унаги) для суши и роллов. Вакуумная упаковка 200г.",
@@ -3410,7 +3410,7 @@ export const products: Product[] = [
     tags: ["песто", "соус", "итальянский", "базилик"],
   },
   {
-    id: "unagi-sauce", emoji: "🫙",
+    id: "unagi-sauce", imageStatus: "needs_review", emoji: "🫙",
     category: "Соусы и специи",
     title: "Соус унаги",
     description: "Соус унаги для суши и роллов, сладко-солёный. Бутылка 200мл.",
@@ -3428,7 +3428,7 @@ export const products: Product[] = [
     tags: ["соус", "пицца", "томатный", "итальянский"],
   },
   {
-    id: "oregano-dried", emoji: "🌿",
+    id: "oregano-dried", imageStatus: "verified_generic", image: "/products/oregano-dried.webp", emoji: "🌿",
     category: "Соусы и специи",
     title: "Орегано сушёное",
     description: "Орегано (душица) сушёное молотое. Для пиццы, пасты, мяса. 20г.",
@@ -3457,7 +3457,7 @@ export const products: Product[] = [
 
   // ─── Бакалея — сушеные продукты для суши и роллов ────────────────────────
   {
-    id: "sushi-rice-koshi", emoji: "🍚",
+    id: "sushi-rice-koshi", imageStatus: "needs_review", emoji: "🍚",
     category: "Бакалея",
     title: "Рис для суши Koshi Hikari",
     description: "Рис японский круглозернистый сорта Koshi Hikari. Идеален для суши. 1кг.",
@@ -3511,7 +3511,7 @@ export const products: Product[] = [
     tags: ["темпура", "японский", "смесь", "тесто"],
   },
   {
-    id: "pasta-tiger", imageStatus: "rejected", emoji: "🍝",
+    id: "pasta-tiger", imageStatus: "needs_review", emoji: "🍝",
     category: "Бакалея",
     title: "Паста тигровая Barilla",
     description: "Паста Barilla тигровые ракушки (Conchiglie). Твёрдые сорта пшеницы. 500г.",
