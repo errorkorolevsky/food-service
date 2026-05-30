@@ -293,6 +293,9 @@ export default function CartDrawer() {
   const mounted  = useSyncExternalStore(() => () => {}, () => true, () => false)
   const isMobile = useIsMobile()
   const { t }    = useLang()
+  // Drag-to-dismiss only engages when the items list is scrolled to the top, so
+  // it never steals scroll from a long cart.
+  const [atTop, setAtTop] = useState(true)
 
   const {
     items,
@@ -358,15 +361,28 @@ export default function CartDrawer() {
         )}
       </AnimatePresence>
 
-      {/* DRAWER — right-side on desktop, bottom-sheet on mobile */}
+      {/* DRAWER — mounts on open so drag never fights a persistent animate.
+          Right-side on desktop; bottom-sheet with swipe-to-dismiss on mobile. */}
+      <AnimatePresence>
+      {isOpen && (
       <motion.div
-        initial={{ x: "100%", y: "100%" }}
-        animate={isMobile
-          ? { x: 0, y: isOpen ? 0 : "100%" }
-          : { y: 0, x: isOpen ? 0 : "100%" }}
+        key="cart-drawer"
+        initial={isMobile ? { y: "100%" } : { x: "100%" }}
+        animate={isMobile ? { y: 0 } : { x: 0 }}
+        exit={isMobile ? { y: "100%" } : { x: "100%" }}
         transition={{ type: "spring", stiffness: 340, damping: 36, mass: 0.8 }}
+        drag={isMobile ? "y" : false}
+        dragDirectionLock
+        dragListener={isMobile && atTop}
+        dragConstraints={{ top: 0 }}
+        dragElastic={{ top: 0.12, bottom: 0 }}
+        dragSnapToOrigin
+        onDragEnd={(_, info) => {
+          const sheet = window.innerHeight * 0.9   // 90dvh
+          if (info.offset.y > sheet * 0.3 || info.velocity.y > 700) onClose()
+        }}
         className={`
-          fixed z-[999] flex flex-col bg-fs-white
+          fixed z-[999] flex flex-col bg-fs-white touch-pan-y
           ${isMobile
             ? "inset-x-0 bottom-0 w-full max-w-full h-[90dvh] rounded-t-2xl border-t border-fs-border shadow-[0_-10px_50px_rgba(0,0,0,0.22)]"
             : "top-0 right-0 h-dvh w-full max-w-[440px] border-l border-fs-border shadow-[0_0_60px_rgba(0,0,0,0.15)] dark:shadow-[0_0_80px_rgba(0,0,0,0.5)]"
@@ -473,7 +489,10 @@ export default function CartDrawer() {
         {/* ITEMS */}
         {items.length > 0 && (
           <>
-            <div className="flex-1 overflow-y-auto p-5 space-y-3">
+            <div
+              className="flex-1 overflow-y-auto overscroll-contain p-5 space-y-3"
+              onScroll={(e) => setAtTop(e.currentTarget.scrollTop <= 0)}
+            >
               <AnimatePresence initial={false}>
                 {items.map((item) => (
                   <CartItemRow
@@ -530,9 +549,10 @@ export default function CartDrawer() {
                 )
               })()}
 
-              {/* RECOMMENDED UPSELL */}
+              {/* RECOMMENDED UPSELL — hidden on a long mobile cart so the
+                  items list keeps usable height */}
               <AnimatePresence>
-                {recommended.length > 0 && (
+                {recommended.length > 0 && !(isMobile && items.length >= 4) && (
                   <motion.div
                     key="upsell"
                     initial={{ opacity: 0, height: 0 }}
@@ -667,6 +687,8 @@ export default function CartDrawer() {
           </>
         )}
       </motion.div>
+      )}
+      </AnimatePresence>
     </>,
     document.body,
   )
