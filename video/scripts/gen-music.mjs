@@ -8,10 +8,12 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const scriptData = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "../src/config/script.json"), "utf8")
-);
-const DURATION = scriptData.scenes.reduce((s, sc) => s + sc.seconds, 0); // seconds
+// Use the longer of the two scripts so the bed covers both v1 and v2.
+const s1 = JSON.parse(fs.readFileSync(path.join(__dirname, "../src/config/script.json"), "utf8"));
+const s2 = JSON.parse(fs.readFileSync(path.join(__dirname, "../src/config/script-v2.json"), "utf8"));
+const dur = (d) => d.scenes.reduce((s, sc) => s + sc.seconds, 0);
+void s1;
+const DURATION = dur(s2); // V2 length (seconds)
 const SR = 44100;
 const N = Math.floor(DURATION * SR);
 

@@ -239,12 +239,21 @@ export const AmbientBackground: React.FC<{ variant?: "dark" | "light" }> = ({
 
 /* ─── ANIMATED SUBTITLE (word-by-word reveal) ────────────────────────────── */
 
-export const Subtitle: React.FC<{ text: string; format: Format }> = ({ text, format }) => {
+export const Subtitle: React.FC<{ text: string; format: Format; variant?: "dark" | "light" }> = ({
+  text,
+  format,
+  variant = "dark",
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const words = text.split(" ");
-  const start = 8;
+  const start = 6;
   const wide = format === "16x9";
+  const dark = variant === "dark";
+  const color = dark ? "#FFFFFF" : "#0A0F0D";
+  const shadow = dark
+    ? "0 2px 20px rgba(0,0,0,0.65)"
+    : "0 1px 2px rgba(255,255,255,0.9), 0 2px 14px rgba(255,255,255,0.7)";
 
   return (
     <div
@@ -252,10 +261,10 @@ export const Subtitle: React.FC<{ text: string; format: Format }> = ({ text, for
         position: "absolute",
         left: 0,
         right: 0,
-        bottom: wide ? 80 : 230,
+        bottom: wide ? 84 : 300,
         display: "flex",
         justifyContent: "center",
-        padding: wide ? "0 200px" : "0 70px",
+        padding: wide ? "0 180px" : "0 70px",
       }}
     >
       <div
@@ -263,29 +272,30 @@ export const Subtitle: React.FC<{ text: string; format: Format }> = ({ text, for
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
-          gap: wide ? "10px 14px" : "8px 12px",
-          maxWidth: wide ? 1300 : 900,
+          gap: wide ? "8px 14px" : "8px 14px",
+          maxWidth: wide ? 1360 : 940,
         }}
       >
         {words.map((w, i) => {
           const appear = spring({
-            frame: frame - start - i * 2.2,
+            frame: frame - start - i * 1.8,
             fps,
-            config: { damping: 18, stiffness: 120 },
-            durationInFrames: 20,
+            config: { damping: 18, stiffness: 140 },
+            durationInFrames: 16,
           });
           return (
             <span
               key={i}
               style={{
                 fontFamily: FONT,
-                fontWeight: 700,
-                fontSize: wide ? 38 : 44,
-                lineHeight: 1.25,
-                color: "#fff",
+                fontWeight: 800,
+                fontSize: wide ? 42 : 56,
+                lineHeight: 1.2,
+                letterSpacing: "-0.01em",
+                color,
                 opacity: appear,
-                transform: `translateY(${(1 - appear) * 18}px)`,
-                textShadow: "0 2px 18px rgba(0,0,0,0.55)",
+                transform: `translateY(${(1 - appear) * 16}px)`,
+                textShadow: shadow,
               }}
             >
               {w}
@@ -309,8 +319,8 @@ export const LowerThird: React.FC<{ title: string; format: Format }> = ({ title,
     <div
       style={{
         position: "absolute",
-        left: wide ? 90 : 70,
-        bottom: wide ? 170 : 340,
+        left: wide ? 90 : 60,
+        ...(wide ? { bottom: 170 } : { top: 150 }),
         opacity: s,
         transform: `translateX(${(1 - s) * -30}px)`,
       }}
@@ -320,8 +330,8 @@ export const LowerThird: React.FC<{ title: string; format: Format }> = ({ title,
           display: "inline-flex",
           alignItems: "center",
           gap: 12,
-          background: "rgba(255,255,255,0.14)",
-          border: "1px solid rgba(255,255,255,0.20)",
+          background: "rgba(10,15,13,0.72)",
+          border: "1px solid rgba(255,255,255,0.16)",
           borderRadius: 999,
           padding: wide ? "10px 22px" : "12px 26px",
         }}
@@ -505,7 +515,7 @@ export const SceneWrap: React.FC<{
         {children}
       </AbsoluteFill>
       <LowerThird title={title} format={format} />
-      <Subtitle text={subtitle} format={format} />
+      <Subtitle text={subtitle} format={format} variant={variant} />
     </AbsoluteFill>
   );
 };

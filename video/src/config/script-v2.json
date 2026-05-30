@@ -1,0 +1,20 @@
+{
+  "fps": 30,
+  "scenes": [
+    { "id": "hook",      "title": "",            "subtitle": "Продукты домой в Шымкенте за пару минут.",        "seconds": 4 },
+    { "id": "problem",   "title": "",            "subtitle": "Заказ с телефона: быстро, понятно, удобно.",       "seconds": 4 },
+    { "id": "categories","title": "Категории",   "subtitle": "Категории листаются свайпом.",                     "seconds": 4 },
+    { "id": "grid",      "title": "Каталог",     "subtitle": "Карточки товаров под мобильный сценарий.",         "seconds": 4 },
+    { "id": "search",    "title": "Поиск",       "subtitle": "Поиск по всему каталогу.",                         "seconds": 3 },
+    { "id": "product",   "title": "Товар",       "subtitle": "Один тап, и товар в корзине.",                     "seconds": 4.5 },
+    { "id": "addcart",   "title": "",            "subtitle": "Добавлено в корзину.",                             "seconds": 3 },
+    { "id": "cartsheet", "title": "Корзина",     "subtitle": "Корзина работает как мобильное приложение.",        "seconds": 4.5 },
+    { "id": "cartsum",   "title": "",            "subtitle": "Сумма пересчитывается сразу.",                     "seconds": 3 },
+    { "id": "checkout",  "title": "Оформление",  "subtitle": "Оформление в одну колонку, без лишних шагов.",      "seconds": 5.5 },
+    { "id": "confirm",   "title": "",            "subtitle": "Заказ принят.",                                    "seconds": 2.5 },
+    { "id": "mobile",    "title": "Mobile First","subtitle": "Адаптирован под реальные телефоны.",                "seconds": 5 },
+    { "id": "trust",     "title": "Товары",      "subtitle": "Реальные товары, понятные карточки.",              "seconds": 5 },
+    { "id": "business",  "title": "Витрина",     "subtitle": "Готовая цифровая витрина для доставки.",            "seconds": 5.5 },
+    { "id": "final",     "title": "",            "subtitle": "Food Service Kazakhstan. Современная доставка продуктов в Шымкенте.", "seconds": 6 }
+  ]
+}

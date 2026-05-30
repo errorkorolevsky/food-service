@@ -1,4 +1,5 @@
 import scriptData from "./script.json";
+import scriptDataV2 from "./script-v2.json";
 
 export const FPS = scriptData.fps;
 
@@ -36,6 +37,16 @@ export const SCENES: SceneData[] = scriptData.scenes.map((s) => ({
 }));
 
 export const TOTAL_FRAMES = SCENES.reduce(
+  (sum, s) => sum + s.durationInFrames,
+  0
+);
+
+export const SCENES_V2: SceneData[] = scriptDataV2.scenes.map((s) => ({
+  ...s,
+  durationInFrames: Math.round(s.seconds * FPS),
+}));
+
+export const TOTAL_FRAMES_V2 = SCENES_V2.reduce(
   (sum, s) => sum + s.durationInFrames,
   0
 );
