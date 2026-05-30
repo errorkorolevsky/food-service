@@ -33,11 +33,11 @@
   },
   "yogurt-natural": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Danone Activia питьевой 650g",
-    "barcode": "4870206411711",
+    "source_type": "arbuz",
+    "source_name": "Биойогурт Активиа питьевой клубника-земляника 260 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__a84f3670-7388-45d0-bffb-70c1e1f34941-4870206411612_1_jpg.jpg",
     "local_path": "/products/yogurt-natural.webp",
-    "fetched": "2026-05-29"
+    "fetched": "2026-05-30"
   },
   "sour-cream-20": {
     "status": "matched_unverified",
@@ -152,12 +152,12 @@
     "fetched": "2026-05-29"
   },
   "black-tea-akbar": {
-    "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Bayce tea 100 bags",
-    "barcode": "8690717004365",
-    "local_path": "/products/black-tea-akbar.webp",
-    "fetched": "2026-05-29"
+    "status": "missing",
+    "source_type": null,
+    "source_name": "No clean match found on arbuz.kz",
+    "local_path": null,
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "green-tea-greenfield": {
     "status": "matched_unverified",
@@ -185,12 +185,11 @@
   },
   "halva-sunflower": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Alpen Gold spread",
-    "barcode": "7622201695989",
-    "note": "WRONG TYPE — shows chocolate spread not halva. Needs replacement.",
+    "source_type": "arbuz",
+    "source_name": "Халва A-product Подсолнечная 275 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/192625-39-halva_almatinskaya_a_ru.jpg",
     "local_path": "/products/halva-sunflower.webp",
-    "fetched": "2026-05-29"
+    "fetched": "2026-05-30"
   },
   "snickers": {
     "status": "matched_unverified",
@@ -260,12 +259,11 @@
   },
   "spaghetti-barilla": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Makfa penne 400g",
-    "barcode": "4601780009885",
-    "note": "Wrong shape — penne not spaghetti",
+    "source_type": "arbuz",
+    "source_name": "Спагетти Barilla без глютена, 400 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__01cfcbba-70c4-4028-9f9b-c3cf4eac310c-8076809545440_spagetti_barilla_bez_glyutena_400_g_12_jpg.jpg",
     "local_path": "/products/spaghetti-barilla.webp",
-    "fetched": "2026-05-29"
+    "fetched": "2026-05-30"
   },
   "flour-premium": {
     "status": "matched_unverified",
@@ -419,12 +417,11 @@
   },
   "ham-boiled": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Ostankino fillet sausage 500g",
-    "source_url": "https://magnum.kz:1337/uploads/4607958074761_9ff05ea54b.jpg",
+    "source_type": "arbuz",
+    "source_name": "Ветчина Знаменский по швейцарскому рецепту в/у, 300 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__4ecbd4b4-6ebc-4ce8-9bcf-940d547b4d9f-4640017930875_1_jpg.jpg",
     "local_path": "/products/ham-boiled.webp",
-    "note": "Ostankino fillet sausage 500g",
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-30"
   },
   "crab-sticks": {
     "status": "matched_unverified",
@@ -445,12 +442,11 @@
   },
   "kefir-1": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Molochny Mir kefir — 1% stand-in",
-    "source_url": "https://magnum.kz:1337/uploads/4870002012754_45b6e99973.jpg",
+    "source_type": "arbuz",
+    "source_name": "Кефир Food Master 2,5% т/п 1 л — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__d6e15638-63f2-49d5-8d76-498c1d1dab5e-4870055000852_jpg.jpg",
     "local_path": "/products/kefir-1.webp",
-    "note": "Molochny Mir kefir — 1% stand-in",
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-30"
   },
   "yogurt-berry": {
     "status": "matched_unverified",
@@ -463,21 +459,19 @@
   },
   "sour-cream-15": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Molochny Mir sour cream — 15% stand-in",
-    "source_url": "https://magnum.kz:1337/uploads/4870002012709_3f9d11b779.jpg",
+    "source_type": "arbuz",
+    "source_name": "Сметана President 15%, 400 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__289e23b3-0589-458f-a84f-535c5879bc3a-4870055001231_jpg.jpg",
     "local_path": "/products/sour-cream-15.webp",
-    "note": "Molochny Mir sour cream — 15% stand-in",
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-30"
   },
   "butter-825": {
-    "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Molochny Mir butter — 82.5% stand-in",
-    "source_url": "https://magnum.kz:1337/uploads/4870002012372_fc2c56d95a.jpg",
-    "local_path": "/products/butter-825.webp",
-    "note": "Molochny Mir butter — 82.5% stand-in",
-    "fetched": "2026-05-28"
+    "status": "missing",
+    "source_type": null,
+    "source_name": "No clean match found on arbuz.kz",
+    "local_path": null,
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "cheese-russian": {
     "status": "matched_unverified",
@@ -506,13 +500,12 @@
     "fetched": "2026-05-28"
   },
   "cheese-cream": {
-    "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Vsyo v Dom creamy 50% 350g",
-    "source_url": "https://magnum.kz:1337/uploads/4870237156872_b395b817bc.jpg",
-    "local_path": "/products/cheese-cream.webp",
-    "note": "Vsyo v Dom creamy 50% 350g",
-    "fetched": "2026-05-28"
+    "status": "missing",
+    "source_type": null,
+    "source_name": "No clean match found on arbuz.kz",
+    "local_path": null,
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "processed-cheese": {
     "status": "matched_unverified",
@@ -569,21 +562,19 @@
   },
   "coffee-beans-lavazza": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Jacobs Monarch 95g — coffee beans stand-in",
-    "source_url": "https://magnum.kz:1337/uploads/8714599524220_b6a397caeb.jpg",
+    "source_type": "arbuz",
+    "source_name": "Кофе Lavazza Crema e Gusto TI зерно 1 кг — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__288412-kofe_lavazza_crema_e_gusto_ti_zerno_1_kg.jpg",
     "local_path": "/products/coffee-beans-lavazza.webp",
-    "note": "Jacobs Monarch 95g — coffee beans stand-in",
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-30"
   },
   "coffee-3in1": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Jacobs Monarch — 3-in-1 stand-in",
-    "source_url": "https://magnum.kz:1337/uploads/8714599524220_b6a397caeb.jpg",
+    "source_type": "arbuz",
+    "source_name": "Напиток MacCoffee Latte al Caramello кофейный быстрорастворимый 3 в 1 20 шт — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/262474-napitok_maccoffee_latte_al_caramello_kofeinyi_bystrorastvorimyi_3_v_1_20_sht.jpg",
     "local_path": "/products/coffee-3in1.webp",
-    "note": "Jacobs Monarch — 3-in-1 stand-in",
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-30"
   },
   "herbal-tea": {
     "status": "matched_unverified",
@@ -595,22 +586,20 @@
     "fetched": "2026-05-28"
   },
   "hot-chocolate": {
-    "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Nesquik — hot chocolate stand-in",
-    "source_url": "https://magnum.kz:1337/uploads/8445290452979_21a6b6e9ac.jpg",
-    "local_path": "/products/hot-chocolate.webp",
-    "note": "Nesquik — hot chocolate stand-in",
-    "fetched": "2026-05-28"
+    "status": "missing",
+    "source_type": null,
+    "source_name": "No clean match found on arbuz.kz",
+    "local_path": null,
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "earl-grey": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Tess tea — Earl Grey stand-in",
-    "source_url": "https://magnum.kz:1337/uploads/4605246009198_0f616785c4.jpg",
+    "source_type": "arbuz",
+    "source_name": "Чай Lancaster чёрный Эрл грей с розой, 75 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__203906-chai_lancaster_ch_rnyi_s_bergamotom_lepestkami_vasilka_i_rozy_75_g.jpg",
     "local_path": "/products/earl-grey.webp",
-    "note": "Tess tea — Earl Grey stand-in",
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-30"
   },
   "ginger-tea": {
     "status": "matched_unverified",
@@ -668,12 +657,11 @@
   },
   "rice-round": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Arnau rice — round stand-in",
-    "source_url": "https://magnum.kz:1337/uploads/4870201180452_453ba0a77c.jpg",
+    "source_type": "arbuz",
+    "source_name": "Рис Натуральная кухня для плова 700 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__87a5b104-bfd2-4fce-9aab-d1998445ad8a-226302-001_isp_jpg.jpg",
     "local_path": "/products/rice-round.webp",
-    "note": "Arnau rice — round stand-in",
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-30"
   },
   "penne-barilla": {
     "status": "matched_unverified",
@@ -757,21 +745,19 @@
   },
   "baby-puree-pear": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "FrutoNyanya — pear stand-in",
-    "source_url": "https://magnum.kz:1337/uploads/4600338006574_96d645830c.jpg",
+    "source_type": "arbuz",
+    "source_name": "Пюре Агуша фруктовое яблоко, 90 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__e716a416-feb4-410a-b9c6-be961586da0c-4813163008495_pyure_agusha_fruktovoe_yabloko_90_g_1_jpg.jpg",
     "local_path": "/products/baby-puree-pear.webp",
-    "note": "FrutoNyanya — pear stand-in",
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-30"
   },
   "baby-puree-carrot": {
-    "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "FrutoNyanya fruit pieces 15g",
-    "source_url": "https://magnum.kz:1337/uploads/4600338008592_3276d4f20f.jpg",
-    "local_path": "/products/baby-puree-carrot.webp",
-    "note": "FrutoNyanya fruit pieces 15g",
-    "fetched": "2026-05-28"
+    "status": "missing",
+    "source_type": null,
+    "source_name": "No clean match found on arbuz.kz",
+    "local_path": null,
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "chicken-legs": {
     "status": "matched_unverified",
@@ -939,11 +925,11 @@
   },
   "pollock-fillet": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "OMEGA 3 BREADED ALASKA POLLOCK FISH FINGERS",
-    "source_url": "https://images.openfoodfacts.org/images/products/500/011/611/1978/front_en.26.400.jpg",
+    "source_type": "arbuz",
+    "source_name": "Минтай Borealis филе блочное, 750 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__2214664a-17d2-4947-a8a0-23f617d4d539-322594-001_jpg.jpg",
     "local_path": "/products/pollock-fillet.webp",
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-30"
   },
   "herring-salted": {
     "status": "matched_unverified",
@@ -989,11 +975,12 @@
     "fetched": "2026-05-29"
   },
   "pike-perch": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-29"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Филе судака Arbuz Select среднее, замороженное кг — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__f3078908-e9b7-497f-8a32-b005d1c7bb06-vybor-turlova_png.png",
+    "local_path": "/products/pike-perch.webp",
+    "fetched": "2026-05-30"
   },
   "capelin-smoked": {
     "status": "missing",
@@ -1036,12 +1023,11 @@
   },
   "cottage-cheese-soft": {
     "status": "matched_unverified",
-    "source_type": "magnum_cdn",
-    "source_name": "Творог Простоквашино мягкий 5%, 170 г — arbuz.kz",
-    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__288379-tvorog_prostokvashino_myagkii_5_170_g.jpg",
+    "source_type": "arbuz",
+    "source_name": "Творог President традиционный мягкий 9%, 200 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__c97447b4-3bba-4522-bf10-ff70d3334588-4870207313953_tvorog_i_mikrozelen_1_jpg.jpg",
     "local_path": "/products/cottage-cheese-soft.webp",
-    "note": "Творог Простоквашино мягкий 5%, 170 г — arbuz.kz",
-    "fetched": "2026-05-29"
+    "fetched": "2026-05-30"
   },
   "cheese-mozzarella": {
     "status": "matched_unverified",
@@ -1112,12 +1098,12 @@
     "fetched": "2026-05-29"
   },
   "carrots": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Steam Bags Carrots, Peas & Sweetcorn",
-    "source_url": "https://images.openfoodfacts.org/images/products/408/860/022/6156/front_en.6.400.jpg",
-    "local_path": "/products/carrots.webp",
-    "fetched": "2026-05-29"
+    "status": "missing",
+    "source_type": null,
+    "source_name": "No clean match found on arbuz.kz",
+    "local_path": null,
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "tomatoes": {
     "status": "matched_unverified",
@@ -1229,9 +1215,10 @@
   "baton": {
     "status": "missing",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "No clean match found on arbuz.kz",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "lavash": {
     "status": "matched_unverified",
@@ -1253,9 +1240,10 @@
   "samsa-potato": {
     "status": "missing",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "No clean match found on arbuz.kz",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "donut": {
     "status": "matched_unverified",
@@ -1332,9 +1320,10 @@
   "pirozhok": {
     "status": "missing",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "No clean match found on arbuz.kz",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "bagel": {
     "status": "matched_unverified",
@@ -1361,11 +1350,12 @@
     "fetched": "2026-05-28"
   },
   "kvass": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-29"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Био квас BioСlub хлебный 1 л — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__c2fc5b3a-5d81-4c97-882e-a83952a3af66-4700023521273_bio_kvas_hlebnyi_bioclub_1_l_1_jpg.jpg",
+    "local_path": "/products/kvass.webp",
+    "fetched": "2026-05-30"
   },
   "ayran": {
     "status": "matched_unverified",
@@ -1376,18 +1366,20 @@
     "fetched": "2026-05-28"
   },
   "tan": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-29"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Напиток Рудненский Тан кисломолочный газированный, 500 мл — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__229054-napitok_rudnenskii_tan_kislomolochnyi_gazirovannyi_500_ml.jpg",
+    "local_path": "/products/tan.webp",
+    "fetched": "2026-05-30"
   },
   "pomegranate-juice": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-29"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Сок Yan натуральный гранатовый ст/б, 0.93 л — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__5cc06b1b-2824-43c7-b898-49e26793f9d5-4850001111009_1_jpg.jpg",
+    "local_path": "/products/pomegranate-juice.webp",
+    "fetched": "2026-05-30"
   },
   "water-premium": {
     "status": "missing",
@@ -1399,9 +1391,10 @@
   "kombucha": {
     "status": "missing",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "No clean match found on arbuz.kz",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "aloe-drink": {
     "status": "matched_unverified",
@@ -1421,11 +1414,11 @@
   },
   "raspberry-morse": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": " — ABC Морс клюквенный",
-    "source_url": "https://images.openfoodfacts.org/images/products/481/028/201/5687/front_ru.3.400.jpg",
+    "source_type": "arbuz",
+    "source_name": "Морс Сады Придонья клюквенный 1 л — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/239021-mors_sady_pridonya_klyukvennyi_1_l.jpg",
     "local_path": "/products/raspberry-morse.webp",
-    "fetched": "2026-05-29"
+    "fetched": "2026-05-30"
   },
   "oat-drink": {
     "status": "matched_unverified",
@@ -1512,9 +1505,10 @@
   "candy-korovka": {
     "status": "missing",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "No clean match found on arbuz.kz",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "waffles-choco": {
     "status": "matched_unverified",
@@ -1863,19 +1857,20 @@
     "fetched": "2026-05-29"
   },
   "frozen-blueberry": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-29"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Черника Зимой и летом 300 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/261332-chernika_zimoi_i_letom_300_g.jpg",
+    "local_path": "/products/frozen-blueberry.webp",
+    "fetched": "2026-05-30"
   },
   "frozen-raspberries": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Nature's Raspberries Frozen Fresh in White & Dark Chocolate",
-    "source_url": "https://images.openfoodfacts.org/images/products/500/015/960/0903/front_en.39.400.jpg",
+    "source_type": "arbuz",
+    "source_name": "Малина Bio Inside органическая замороженная 300 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__329418-malina_bio_inside_organicheskaya_zamorozhennaya_300_g.jpg",
     "local_path": "/products/frozen-raspberries.webp",
-    "fetched": "2026-05-28"
+    "fetched": "2026-05-30"
   },
   "frozen-vegmix": {
     "status": "matched_unverified",
@@ -2099,9 +2094,10 @@
   "sushi-set-japan": {
     "status": "missing",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "No clean match found on arbuz.kz",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "rolls-california": {
     "status": "matched_unverified",
@@ -2164,9 +2160,10 @@
   "lagman-ready": {
     "status": "missing",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "No clean match found on arbuz.kz",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "manti-ready": {
     "status": "matched_unverified",
@@ -2201,11 +2198,12 @@
     "fetched": "2026-05-29"
   },
   "baby-porridge-oat": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-29"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Каша Gerber Безмолочная овсяная с тыквой, абрикосом и бифидобактериями для продолжения прикорма 180 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/239103-kasha_gerber_ovsyanaya_bezmolochnaya_s_tykvoi_i_abrikosom_dlya_prodolzheniya_prikorma_180_g.jpg",
+    "local_path": "/products/baby-porridge-oat.webp",
+    "fetched": "2026-05-30"
   },
   "baby-formula-nan1": {
     "status": "matched_unverified",
@@ -2227,9 +2225,10 @@
   "baby-yogurt-agusha": {
     "status": "missing",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "No clean match found on arbuz.kz",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "baby-cookies-gerber": {
     "status": "matched_unverified",
@@ -2240,11 +2239,12 @@
     "fetched": "2026-05-28"
   },
   "baby-water": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-29"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Вода Агуша питьевая негазированная для детей, 330 мл — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__fad09c36-2a1b-4a6d-b313-2848d3f006cb-4602541002640_jpg.jpg",
+    "local_path": "/products/baby-water.webp",
+    "fetched": "2026-05-30"
   },
   "baby-kefir-tema": {
     "status": "missing",
@@ -2254,11 +2254,12 @@
     "fetched": "2026-05-29"
   },
   "baby-puree-tube": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-29"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Пюре Агуша фруктовое яблоко, 90 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__e716a416-feb4-410a-b9c6-be961586da0c-4813163008495_pyure_agusha_fruktovoe_yabloko_90_g_1_jpg.jpg",
+    "local_path": "/products/baby-puree-tube.webp",
+    "fetched": "2026-05-30"
   },
   "baby-cereal-corn": {
     "status": "matched_unverified",
@@ -2269,11 +2270,12 @@
     "fetched": "2026-05-28"
   },
   "protein-bar-rex": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-29"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Батончик ProteinRex протеиновый малина йогурт, 60 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__288058-batonchik_proteinrex_proteinovyi_malina_iogurt_60_g.jpg",
+    "local_path": "/products/protein-bar-rex.webp",
+    "fetched": "2026-05-30"
   },
   "granola-honey": {
     "status": "matched_unverified",
@@ -2378,18 +2380,20 @@
     "fetched": "2026-05-28"
   },
   "cups-paper-300ml": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Стакан ZTC бумажный WHISS, 300мл 5шт — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/215183-stakan_ztc_bumazhnyi_whiss_300ml_5sht.jpg",
+    "local_path": "/products/cups-paper-300ml.webp",
+    "fetched": "2026-05-30"
   },
   "cups-paper-400ml": {
     "status": "missing",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "No clean match found on arbuz.kz",
     "local_path": null,
-    "fetched": "2026-05-28"
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "lids-for-cups": {
     "status": "missing",
@@ -2406,18 +2410,20 @@
     "fetched": "2026-05-28"
   },
   "foil-food": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Пленка Пищевая &quot;Домашний Сундук&quot; 290мм*100м — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__293265-plenka_pishevaya_domashnii_sunduk_290mm_100m.jpg",
+    "local_path": "/products/foil-food.webp",
+    "fetched": "2026-05-30"
   },
   "cling-film": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-28"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Пленка Paclan пищевая для продуктов 30 м — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/248367-plenka_paclan_pishevaya_dlya_produktov_30_m.jpg",
+    "local_path": "/products/cling-film.webp",
+    "fetched": "2026-05-30"
   },
   "parchment-paper": {
     "status": "matched_unverified",
@@ -2534,11 +2540,12 @@
     "fetched": "2026-05-28"
   },
   "cream-38": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-29"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Молоко Шадринское концентрированное 7,1% 500 мл — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__49e8ff95-8850-4824-94a1-30603016dec6-283048-001_jpg.jpg",
+    "local_path": "/products/cream-38.webp",
+    "fetched": "2026-05-30"
   },
   "chicken-breast-fresh": {
     "status": "matched_unverified",
@@ -2598,9 +2605,10 @@
   "oregano-dried": {
     "status": "missing",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "No clean match found on arbuz.kz",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "wasabi-paste": {
     "status": "matched_unverified",
@@ -2722,11 +2730,12 @@
     "fetched": "2026-05-29"
   },
   "carbonate": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-29"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Карбонад свиной замороженный б/к, кг — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__bb233963-ec35-472a-81c2-0ca40d202986-2043567011469_karbonad_svinoi_zamorozhennyi_b_k_kg_3_jpg.jpg",
+    "local_path": "/products/carbonate.webp",
+    "fetched": "2026-05-30"
   },
   "lemon": {
     "status": "matched_unverified",
@@ -2882,12 +2891,12 @@
     "fetched": "2026-05-29"
   },
   "blueberry": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Teos — Греческий йогурт, черника",
-    "source_url": "https://images.openfoodfacts.org/images/products/481/026/803/0383/front_ru.18.400.jpg",
-    "local_path": "/products/blueberry.webp",
-    "fetched": "2026-05-29"
+    "status": "missing",
+    "source_type": null,
+    "source_name": "No clean match found on arbuz.kz",
+    "local_path": null,
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "cheesecake": {
     "status": "matched_unverified",
@@ -2932,16 +2941,18 @@
   "chickpeas-dry": {
     "status": "missing",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "No clean match found on arbuz.kz",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "sunflower-seeds-oil": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-29"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Масло Царь подсолнечное, 1 л — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__229047-maslo_car_podsolnechnoe_1_l.jpg",
+    "local_path": "/products/sunflower-seeds-oil.webp",
+    "fetched": "2026-05-30"
   },
   "blini-meat": {
     "status": "matched_unverified",
@@ -3016,9 +3027,10 @@
   "corn-oil": {
     "status": "missing",
     "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
+    "source_name": "No clean match found on arbuz.kz",
     "local_path": null,
-    "fetched": "2026-05-29"
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "lard-smoked": {
     "status": "missing",
@@ -3037,35 +3049,36 @@
     "fetched": "2026-05-29"
   },
   "baby-porridge-rice-nestle": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-29"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Каша Nestle Молочная рисовая для детей (4+ мес) 200 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/282139-kasha_nestle_molochnaya_risovaya_dlya_detei_4_mes_200_g.jpg",
+    "local_path": "/products/baby-porridge-rice-nestle.webp",
+    "fetched": "2026-05-30"
   },
   "flax-seeds": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Vita Brown — Smart Food Измельчённые семена льна, грецкий орех, миндаль, бразильский орех",
-    "source_url": "https://images.openfoodfacts.org/images/products/461/001/603/0388/front_ru.3.400.jpg",
+    "source_type": "arbuz",
+    "source_name": "Крекеры Bite овсяные с семенами подсолнечника, льна и чиа 200 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__225141-krekery_bite_ovsyanye_s_semenami_podsolnechnika_lna_i_chia_200_g.jpg",
     "local_path": "/products/flax-seeds.webp",
-    "fetched": "2026-05-29"
+    "fetched": "2026-05-30"
   },
   "coconut-milk-tin": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Alpro Barista — Кокосовое молоко",
-    "source_url": "https://images.openfoodfacts.org/images/products/460/060/503/3265/front_en.8.400.jpg",
+    "source_type": "arbuz",
+    "source_name": "Молоко Edeka кокосовое, концентрированное 400 мл — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__323938-moloko_edeka_kokosovoe_koncentrirovannoe_400_ml.jpg",
     "local_path": "/products/coconut-milk-tin.webp",
-    "fetched": "2026-05-29"
+    "fetched": "2026-05-30"
   },
   "goji-berries": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Vita Brown — Измельченные семена льна, ядра подсолнечника, семечки тыквы, кунжут, ягоды годжи",
-    "source_url": "https://images.openfoodfacts.org/images/products/461/001/603/0395/front_ru.3.400.jpg",
-    "local_path": "/products/goji-berries.webp",
-    "fetched": "2026-05-29"
+    "status": "missing",
+    "source_type": null,
+    "source_name": "No clean match found on arbuz.kz",
+    "local_path": null,
+    "note": "auto-pick was wrong product/variant; needs manual sourcing",
+    "fetched": "2026-05-30"
   },
   "unagi": {
     "status": "missing",
@@ -3111,18 +3124,19 @@
   },
   "garlic": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Maggi — Приправа томаты базилик чеснок",
-    "source_url": "https://images.openfoodfacts.org/images/products/460/068/002/6886/front_ru.3.400.jpg",
+    "source_type": "arbuz",
+    "source_name": "Чеснок Мир на тарелке дробленый сушёный, 200 г — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__323695-chesnok_mir_na_tarelke_droblenyi_sush_nyi_200_g_.jpg",
     "local_path": "/products/garlic.webp",
-    "fetched": "2026-05-29"
+    "fetched": "2026-05-30"
   },
   "napkins-paper": {
-    "status": "missing",
-    "source_type": null,
-    "source_name": "Not found in Magnum or OpenFoodFacts",
-    "local_path": null,
-    "fetched": "2026-05-29"
+    "status": "matched_unverified",
+    "source_type": "arbuz",
+    "source_name": "Салфетки G&amp;G бумажные 4-х слойные 100 шт — arbuz.kz",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__320829-salfetki_g_g_bumazhnye_4-h_sloinye_100_sht.jpg",
+    "local_path": "/products/napkins-paper.webp",
+    "fetched": "2026-05-30"
   },
   "sushi-kit": {
     "status": "missing",
