@@ -71,11 +71,11 @@ export default function Footer() {
         FSK
       </div>
 
-      <div className="fs-container py-16 relative z-10">
+      <div className="fs-container py-10 lg:py-16 relative z-10">
 
         {/* TOP */}
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-14"
+          className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-10 lg:gap-14"
           variants={stagger}
           initial="hidden"
           whileInView="show"
@@ -145,8 +145,8 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* RIGHT — NAV */}
-          <motion.div variants={fadeUp} className="grid grid-cols-3 gap-8">
+          {/* RIGHT — NAV (2-col on mobile, 3-col desktop) */}
+          <motion.div variants={fadeUp} className="grid grid-cols-2 gap-6 sm:grid-cols-3 sm:gap-8">
             {navCols.map((col) => (
               <div key={col.title}>
                 <p className="text-label text-white/40 uppercase tracking-widest mb-5">
@@ -170,7 +170,7 @@ export default function Footer() {
         </motion.div>
 
         {/* BOTTOM */}
-        <div className="border-t border-white/10 mt-14 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="border-t border-white/10 mt-10 lg:mt-14 pt-6 lg:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-label text-white/40">
             {t.footer.copyright}
           </p>

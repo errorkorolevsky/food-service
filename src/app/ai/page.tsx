@@ -448,11 +448,11 @@ function AIPageInner() {
       />
       <CartDrawer />
 
-      <div className="fs-container py-10 flex-1 flex flex-col max-w-3xl">
+      <div className="fs-container py-4 lg:py-10 flex-1 flex flex-col max-w-3xl">
 
         {/* CHAT ACTIONS */}
         <FadeIn>
-          <div className="flex items-center justify-end mb-8 gap-2">
+          <div className="flex items-center justify-end mb-3 lg:mb-8 gap-2">
             <div className="flex items-center gap-2">
               {cartItems.length > 0 && (
                 <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 border border-emerald-200">
@@ -511,7 +511,7 @@ function AIPageInner() {
             <div
               ref={scrollRef}
               onScroll={handleScroll}
-              className="flex-1 overflow-y-auto p-6 space-y-5 min-h-[400px] max-h-[520px]"
+              className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-5 min-h-[240px] max-h-[58vh] lg:min-h-[400px] lg:max-h-[520px]"
             >
               {messages.map((msg, i) => {
                 const isLastAssistant = !loading && i === messages.length - 1 && msg.role === "assistant"

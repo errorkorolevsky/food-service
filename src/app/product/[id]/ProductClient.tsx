@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
+import { createPortal } from "react-dom"
 import { useRouter } from "next/navigation"
 import { useSession } from "next-auth/react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -52,7 +53,10 @@ export default function ProductClient({
   const [imgError,       setImgError]       = useState(false)
   const [shareCopied,    setShareCopied]    = useState(false)
   const [showStickyBar,  setShowStickyBar]  = useState(false)
+  const [mounted,        setMounted]        = useState(false)
   const actionsRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => setMounted(true), [])
 
   useEffect(() => {
     const el = actionsRef.current
@@ -699,8 +703,12 @@ export default function ProductClient({
 
       <Footer />
 
-      {/* STICKY BUY BAR — mobile only, appears when main CTA scrolls out of view */}
-      <AnimatePresence>
+      {/* STICKY BUY BAR — mobile only, appears when main CTA scrolls out of view.
+          Portaled to <body> so position:fixed anchors to the viewport (not the
+          transformed AnimatedLayout ancestor). Floating nav is hidden on /product
+          so this CTA owns the bottom edge. */}
+      {mounted && createPortal(
+        <AnimatePresence>
         {showStickyBar && (
           <motion.div
             key="sticky-bar"
@@ -708,14 +716,14 @@ export default function ProductClient({
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 80, opacity: 0 }}
             transition={{ type: "spring", stiffness: 360, damping: 32 }}
-            className="fixed left-4 right-4 z-40 lg:hidden"
-            style={{ bottom: "calc(max(env(safe-area-inset-bottom, 0px) + 8px, 16px) + 72px)" }}
+            className="fixed left-0 right-0 bottom-0 z-[60] lg:hidden px-3 pt-2"
+            style={{ paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 0.5rem)" }}
           >
             <div className="
               bg-white/95 dark:bg-[#1C2128]/95 backdrop-blur-xl
               border border-white/60 dark:border-white/10
               rounded-2xl px-4 py-3
-              shadow-[0_8px_32px_rgba(0,0,0,0.14)]
+              shadow-[0_-6px_32px_rgba(0,0,0,0.16)]
               flex items-center gap-3
             ">
               <span className="text-2xl flex-shrink-0">{product.emoji}</span>
@@ -759,7 +767,9 @@ export default function ProductClient({
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
+        </AnimatePresence>,
+        document.body,
+      )}
     </main>
   )
 }

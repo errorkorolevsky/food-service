@@ -1,6 +1,7 @@
 "use client"
 
 import { useSyncExternalStore, useState, useEffect, useCallback } from "react"
+import { createPortal } from "react-dom"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
@@ -54,6 +55,19 @@ function ItemThumbnail({ image, title, emoji }: Pick<CartItem, "image" | "title"
       )}
     </div>
   )
+}
+
+// Mobile breakpoint hook (lg = 1024px). SSR-safe: defaults to desktop.
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 1023px)")
+    const update = () => setIsMobile(mq.matches)
+    update()
+    mq.addEventListener("change", update)
+    return () => mq.removeEventListener("change", update)
+  }, [])
+  return isMobile
 }
 
 function pluralizeItems(n: number, forms: [string, string, string]): string {
@@ -274,10 +288,11 @@ function CartItemRow({
 }
 
 export default function CartDrawer() {
-  const isOpen  = useCartUI((state) => state.isOpen)
-  const onClose = useCartUI((state) => state.closeCart)
-  const mounted = useSyncExternalStore(() => () => {}, () => true, () => false)
-  const { t }   = useLang()
+  const isOpen   = useCartUI((state) => state.isOpen)
+  const onClose  = useCartUI((state) => state.closeCart)
+  const mounted  = useSyncExternalStore(() => () => {}, () => true, () => false)
+  const isMobile = useIsMobile()
+  const { t }    = useLang()
 
   const {
     items,
@@ -323,7 +338,10 @@ export default function CartDrawer() {
   const totalItems = getTotalItems()
   const itemLabel  = pluralizeItems(totalItems, [t.cart.items_one, t.cart.items_few, t.cart.items_many])
 
-  return (
+  // Portal to <body> so the fixed drawer/sheet escapes any transformed
+  // ancestor (AnimatedLayout) — otherwise position:fixed anchors to that
+  // ancestor and the bottom-sheet flies to the document bottom.
+  return createPortal(
     <>
       {/* OVERLAY */}
       <AnimatePresence>
@@ -340,23 +358,32 @@ export default function CartDrawer() {
         )}
       </AnimatePresence>
 
-      {/* DRAWER — spring physics */}
+      {/* DRAWER — right-side on desktop, bottom-sheet on mobile */}
       <motion.div
-        initial={{ x: "100%" }}
-        animate={{ x: isOpen ? "0%" : "100%" }}
+        initial={{ x: "100%", y: "100%" }}
+        animate={isMobile
+          ? { x: 0, y: isOpen ? 0 : "100%" }
+          : { y: 0, x: isOpen ? 0 : "100%" }}
         transition={{ type: "spring", stiffness: 340, damping: 36, mass: 0.8 }}
-        className="
-          fixed top-0 right-0 h-dvh w-full max-w-[440px]
-          bg-fs-white border-l border-fs-border
-          z-[999] flex flex-col
-          shadow-[0_0_60px_rgba(0,0,0,0.15)] dark:shadow-[0_0_80px_rgba(0,0,0,0.5)]
-        "
+        className={`
+          fixed z-[999] flex flex-col bg-fs-white
+          ${isMobile
+            ? "inset-x-0 bottom-0 w-full max-w-full h-[90dvh] rounded-t-2xl border-t border-fs-border shadow-[0_-10px_50px_rgba(0,0,0,0.22)]"
+            : "top-0 right-0 h-dvh w-full max-w-[440px] border-l border-fs-border shadow-[0_0_60px_rgba(0,0,0,0.15)] dark:shadow-[0_0_80px_rgba(0,0,0,0.5)]"
+          }
+        `}
       >
-        {/* Top green accent line */}
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-fs-dark via-fs-accent to-fs-primary" />
+        {/* Top accent line / mobile grabber */}
+        {isMobile ? (
+          <div className="flex-shrink-0 flex justify-center pt-2.5 pb-1">
+            <span className="w-10 h-1.5 rounded-full bg-fs-border" />
+          </div>
+        ) : (
+          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-fs-dark via-fs-accent to-fs-primary" />
+        )}
 
         {/* HEADER */}
-        <div className="p-6 border-b border-fs-border flex items-center justify-between flex-shrink-0">
+        <div className="px-5 py-4 lg:p-6 border-b border-fs-border flex items-center justify-between flex-shrink-0">
           <div>
             <h2 className="text-xl font-bold text-fs-graphite">
               {t.cart.title}
@@ -462,7 +489,10 @@ export default function CartDrawer() {
             </div>
 
             {/* FOOTER */}
-            <div className="border-t border-fs-border p-5 space-y-3 flex-shrink-0 bg-fs-offwhite">
+            <div
+              className="border-t border-fs-border p-5 space-y-3 flex-shrink-0 bg-fs-offwhite"
+              style={{ paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 1.25rem)" }}
+            >
 
               {/* FREE DELIVERY PROGRESS */}
               {(() => {
@@ -637,6 +667,7 @@ export default function CartDrawer() {
           </>
         )}
       </motion.div>
-    </>
+    </>,
+    document.body,
   )
 }
