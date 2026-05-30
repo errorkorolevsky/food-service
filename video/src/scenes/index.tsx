@@ -32,7 +32,7 @@ const HookScene: React.FC<SProps> = ({ scene, format }) => {
   const rise = spring({ frame: frame - 12, fps, config: { damping: 18 }, durationInFrames: 34 });
 
   return (
-    <SceneWrap variant="dark" title="" subtitle={scene.subtitle} format={format}>
+    <SceneWrap variant="dark" title="" subtitle={scene.subtitle} format={format} noFadeIn>
       <AbsoluteFill style={{ justifyContent: "center", alignItems: "center" }}>
         <div
           style={{
@@ -385,7 +385,7 @@ const FinalScene: React.FC<SProps> = ({ scene, format }) => {
   const rayOpacity = interpolate(frame % 120, [0, 60, 120], [0.5, 0.9, 0.5]);
 
   return (
-    <SceneWrap variant="dark" title="" subtitle={scene.subtitle} format={format}>
+    <SceneWrap variant="dark" title="" subtitle={scene.subtitle} format={format} fadeOut>
       {/* light rays */}
       <AbsoluteFill
         style={{
@@ -424,14 +424,22 @@ const SCENE_MAP: Record<string, React.FC<SProps>> = {
   final: FinalScene,
 };
 
+// Scenes overlap by this many frames so the incoming scene crossfades over the
+// previous one (no dip to black between scenes).
+const OVERLAP = 12;
+
 export const Timeline: React.FC<{ format: Format }> = ({ format }) => {
   let from = 0;
+  const last = SCENES.length - 1;
   return (
     <AbsoluteFill style={{ backgroundColor: COLORS.graphite }}>
-      {SCENES.map((scene) => {
+      {SCENES.map((scene, i) => {
         const Comp = SCENE_MAP[scene.id];
+        // Non-last scenes linger OVERLAP frames into the next so they stay
+        // visible underneath its fade-in.
+        const dur = scene.durationInFrames + (i === last ? 0 : OVERLAP);
         const seq = (
-          <Sequence key={scene.id} from={from} durationInFrames={scene.durationInFrames} name={scene.id}>
+          <Sequence key={scene.id} from={from} durationInFrames={dur} name={scene.id}>
             <Comp scene={scene} format={format} />
           </Sequence>
         );

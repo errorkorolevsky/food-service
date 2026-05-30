@@ -471,15 +471,29 @@ export const SceneWrap: React.FC<{
   subtitle: string;
   format: Format;
   children: React.ReactNode;
-}> = ({ variant, title, subtitle, format, children }) => {
+  /** first scene: start fully visible (no fade from black) */
+  noFadeIn?: boolean;
+  /** last scene: fade to black at the very end */
+  fadeOut?: boolean;
+}> = ({ variant, title, subtitle, format, children, noFadeIn, fadeOut }) => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
-  const opacity = interpolate(
-    frame,
-    [0, 12, durationInFrames - 12, durationInFrames],
-    [0, 1, 1, 0],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-  );
+  // Fade IN only (scenes overlap, so the incoming crossfades over the previous
+  // one — never through black). The first scene skips it; the last fades out.
+  let opacity = noFadeIn
+    ? 1
+    : interpolate(frame, [0, 12], [0, 1], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      });
+  if (fadeOut) {
+    opacity *= interpolate(
+      frame,
+      [durationInFrames - 16, durationInFrames],
+      [1, 0],
+      { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+    );
+  }
   const scale = interpolate(frame, [0, 18], [1.02, 1], {
     extrapolateRight: "clamp",
     easing: Easing.out(Easing.cubic),
