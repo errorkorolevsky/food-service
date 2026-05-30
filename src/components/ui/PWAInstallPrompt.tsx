@@ -1,12 +1,17 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { Download, X } from "lucide-react"
 import { useLang } from "@/locales"
+import { useCartUI } from "@/store/cartUIStore"
 
 const DISMISSED_KEY  = "fs-pwa-dismissed"
 const DISMISS_DAYS   = 14
+
+// Pages where a bottom banner would fight the purchase flow (sticky CTA / sheet)
+const PURCHASE_PATHS = ["/product", "/checkout"]
 
 type BeforeInstallPromptEvent = Event & {
   prompt:              () => Promise<void>
@@ -17,6 +22,11 @@ export default function PWAInstallPrompt() {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null)
   const [visible, setVisible]               = useState(false)
   const { t }                               = useLang()
+  const pathname                            = usePathname()
+  const cartOpen                            = useCartUI((s) => s.isOpen)
+
+  // Never compete with the purchase UI (product sticky CTA, checkout, open cart)
+  const suppressed = cartOpen || PURCHASE_PATHS.some((p) => pathname === p || pathname.startsWith(p + "/"))
 
   useEffect(() => {
     // Don't show if recently dismissed
@@ -48,14 +58,15 @@ export default function PWAInstallPrompt() {
 
   return (
     <AnimatePresence>
-      {visible && (
+      {visible && !suppressed && (
         <motion.div
           key="pwa-prompt"
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ type: "spring", stiffness: 320, damping: 30 }}
-          className="fixed bottom-20 sm:bottom-6 left-4 right-4 sm:left-auto sm:right-6 sm:w-[360px] z-[200]"
+          className="fixed left-4 right-4 sm:left-auto sm:right-6 sm:w-[360px] z-[45]
+                     bottom-[calc(env(safe-area-inset-bottom)+88px)] sm:bottom-6"
         >
           <div className="bg-fs-graphite border border-white/10 rounded-2xl p-4 shadow-[0_20px_60px_rgba(0,0,0,0.5)] flex items-center gap-4">
             <div className="w-12 h-12 rounded-xl bg-fs-primary flex items-center justify-center flex-shrink-0 text-white font-black text-base">
