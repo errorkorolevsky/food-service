@@ -13,7 +13,7 @@ import ThemeToggle from "@/components/ui/ThemeToggle"
 
 // /product/* hides the floating nav so the sticky "Add to cart" CTA owns the
 // bottom edge (standard mobile-app detail-page pattern).
-const HIDDEN_PATHS = ["/admin", "/checkout", "/login", "/order/success", "/product"]
+const HIDDEN_PATHS = ["/admin", "/checkout", "/login", "/order/success", "/product", "/presentation"]
 
 export default function MobileNav() {
   const pathname          = usePathname()

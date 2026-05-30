@@ -11,7 +11,8 @@ const DISMISSED_KEY  = "fs-pwa-dismissed"
 const DISMISS_DAYS   = 14
 
 // Pages where a bottom banner would fight the purchase flow (sticky CTA / sheet)
-const PURCHASE_PATHS = ["/product", "/checkout"]
+// or the full-screen presentation demo.
+const PURCHASE_PATHS = ["/product", "/checkout", "/presentation"]
 
 type BeforeInstallPromptEvent = Event & {
   prompt:              () => Promise<void>
