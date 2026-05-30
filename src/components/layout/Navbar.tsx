@@ -124,7 +124,7 @@ export default function Navbar() {
         </nav>
 
         {/* ACTIONS */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-3 min-w-0">
 
           {/* LANGUAGE SWITCHER — animated active pill */}
           <div className="hidden sm:flex items-center gap-0.5 bg-white/[0.06] border border-white/[0.10] rounded-lg p-0.5 relative">
@@ -178,8 +178,8 @@ export default function Navbar() {
             <button
               onClick={() => signIn("google", { callbackUrl: "/profile" })}
               className="
-                px-4 py-2 rounded-lg
-                text-caption font-medium
+                px-2.5 sm:px-4 py-2 rounded-lg shrink-0
+                text-[12px] sm:text-caption font-medium whitespace-nowrap
                 text-white/70 border border-white/[0.12] bg-white/[0.06]
                 hover:text-white hover:bg-white/[0.12] hover:border-white/20
                 transition-all duration-200

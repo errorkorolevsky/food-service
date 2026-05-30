@@ -61,6 +61,10 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     transition: background-color 0.25s ease, color 0.25s ease;
+    /* GLOBAL HORIZONTAL-SCROLL GUARD — clip (not hidden) so position:sticky
+       headers keep working. No element may widen the page past the viewport. */
+    overflow-x: clip;
+    max-width: 100%;
   }
 
   @media (pointer: fine) {
@@ -72,6 +76,15 @@
     padding: 0;
     background: var(--page-bg);
     color: rgb(var(--fs-graphite));
+    overflow-x: clip;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+
+  /* Belt-and-suspenders: media/iframes never overflow their container */
+  img, picture, video, canvas, svg, iframe {
+    max-width: 100%;
   }
 
   * {
