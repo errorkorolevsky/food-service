@@ -47,31 +47,17 @@ export default function MobileNav() {
 
   return (
     <nav
-      className="fixed left-1/2 -translate-x-1/2 z-50 lg:hidden"
-      style={{ bottom: "max(env(safe-area-inset-bottom, 0px) + 8px, 16px)" }}
+      className="
+        fixed bottom-0 inset-x-0 z-40 lg:hidden
+        bg-white/95 dark:bg-[#1C2128]/95 backdrop-blur-2xl
+        border-t border-black/[0.06] dark:border-white/10
+        shadow-[0_-4px_24px_rgba(0,0,0,0.06)]
+      "
+      style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)" }}
     >
-      {/* GLOW SHADOW */}
-      <div
-        className="absolute -inset-2 rounded-3xl pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 70% 50% at 50% 100%, rgba(0,91,70,0.18) 0%, transparent 70%)" }}
-      />
-
-      <motion.div
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 340, damping: 32, delay: 0.15 }}
-        className="
-          relative
-          bg-white/90 dark:bg-[#1C2128]/92 backdrop-blur-2xl
-          border border-white/60 dark:border-white/10
-          rounded-2xl px-2 py-2
-          flex items-center gap-0
-          shadow-[0_8px_32px_rgba(0,0,0,0.14),0_0_0_1px_rgba(255,255,255,0.6)_inset]
-          dark:shadow-[0_8px_32px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.06)_inset]
-        "
-      >
-        {/* LANG SWITCHER */}
-        <div className="flex items-center gap-0.5 pl-1 pr-1 border-r border-black/10 dark:border-white/10 mr-0.5">
+      <div className="flex items-stretch h-16 px-1 max-w-lg mx-auto">
+        {/* LANG + THEME */}
+        <div className="flex items-center gap-0.5 px-1.5 border-r border-black/[0.06] dark:border-white/10 mr-0.5">
           {(["ru", "kz"] as const).map((l) => (
             <button
               key={l}
@@ -98,13 +84,13 @@ export default function MobileNav() {
               key={href}
               href={href}
               aria-current={isActive ? "page" : undefined}
-              className="relative flex flex-col items-center justify-center gap-0.5 px-4 py-2 rounded-xl min-w-[56px]"
+              className="relative flex-1 flex flex-col items-center justify-center gap-1 py-2 rounded-xl min-w-0"
             >
               {/* ACTIVE PILL BG */}
               {isActive && (
                 <motion.div
                   layoutId="mobile-nav-active"
-                  className="absolute inset-0 rounded-xl bg-fs-primary"
+                  className="absolute inset-x-2 inset-y-1 rounded-2xl bg-fs-primary/12 dark:bg-fs-primary/20"
                   transition={{ type: "spring", stiffness: 400, damping: 34 }}
                 />
               )}
@@ -116,9 +102,9 @@ export default function MobileNav() {
                 transition={{ type: "spring", stiffness: 400, damping: 26 }}
               >
                 <Icon
-                  size={20}
-                  strokeWidth={isActive ? 2.2 : 1.6}
-                  className={isActive ? "text-white" : "text-fs-gray dark:text-fs-gray"}
+                  size={22}
+                  strokeWidth={isActive ? 2.4 : 1.7}
+                  className={isActive ? "text-fs-primary" : "text-fs-gray dark:text-fs-gray"}
                 />
 
                 {/* FAVORITES BADGE */}
@@ -150,15 +136,15 @@ export default function MobileNav() {
 
               {/* LABEL */}
               <motion.span
-                className={`relative z-10 text-[9px] font-semibold leading-none tracking-wide ${isActive ? "text-white" : "text-fs-muted"}`}
-                animate={isActive ? { opacity: 1 } : { opacity: 0.7 }}
+                className={`relative z-10 text-[10px] font-semibold leading-none tracking-wide ${isActive ? "text-fs-primary" : "text-fs-gray"}`}
+                animate={isActive ? { opacity: 1 } : { opacity: 0.85 }}
               >
                 {label}
               </motion.span>
             </Link>
           )
         })}
-      </motion.div>
+      </div>
     </nav>
   )
 }

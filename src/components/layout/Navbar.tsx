@@ -69,7 +69,7 @@ export default function Navbar() {
         style={{ scaleX }}
       />
 
-      <div className="fs-container py-4 flex items-center justify-between">
+      <div className="fs-container py-2.5 lg:py-4 flex items-center justify-between gap-2">
 
         {/* LOGO */}
         <Logo />
@@ -151,7 +151,9 @@ export default function Navbar() {
 
           <GlobalSearch />
 
-          <ThemeToggle variant="navbar" />
+          <span className="hidden lg:inline-flex">
+            <ThemeToggle variant="navbar" />
+          </span>
 
           {session?.user ? (
             <Link href="/profile" className="flex items-center gap-2.5 group">

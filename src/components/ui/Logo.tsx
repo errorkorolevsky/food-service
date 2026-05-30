@@ -19,7 +19,7 @@ export default function Logo({
   const isWhite = variant === "white"
 
   return (
-    <Link href={href} className="flex items-center gap-3 group flex-shrink-0">
+    <Link href={href} className="flex items-center gap-2 sm:gap-3 group flex-shrink-0 min-w-0">
 
       {/* FSK ICON — rounded square with F lettermark */}
       <svg
@@ -54,6 +54,7 @@ export default function Logo({
         <div className={`
           ${subSize}
           font-semibold tracking-widest uppercase mt-0.5
+          hidden sm:block
           ${isWhite ? "text-white/70" : "text-fs-primary"}
         `}>
           Kazakhstan
