@@ -199,7 +199,8 @@ const MAGNUM_MATCHES: Record<string, { file: string; note?: string }> = {
   "manti-ready":      { file: "https://arbuz.kz/image/s3/arbuz-kz-products/image__333357-manty_arbuz_select_s_govyadinoi_265_g.jpg",                       note: "Манты с говядиной 265 г — arbuz.kz" },
   "frozen-strawberry":{ file: "https://arbuz.kz/image/s3/arbuz-kz-products/f19af63e-463c-4acd-b89a-3669c504f81d-5240_1_png.png",                          note: "Клубника Arbuz Select замороженная, 300 г — arbuz.kz" },
   "samsa-meat":       { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__93a5576e-25bd-44af-97fa-7972dc447f5d-341502_1_png.png",              note: "Самса Arbuz Select x JamBull с мясом, 400 г — arbuz.kz" },
-  "fanta":            { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__27e2305d-e060-4be9-be0f-9b281222a1a5-90495793_jpg.jpg",              note: "Напиток Fanta Orange газированный, 0.25 л — arbuz.kz" },
+  "fanta":            { file: "https://arbuz.kz/image/s3/arbuz-kz-products/image__287544-napitok_fanta_1_5_l.jpg",                                        note: "Напиток Fanta 1.5 л ✓ — arbuz.kz (clean studio)" },
+  "ferrero-rocher":   { file: "https://arbuz.kz/image/s3/arbuz-kz-products/image__20472-konfety_ferrero_rocher_200_g.jpg",                              note: "Конфеты Ferrero Rocher 200 г ✓ — arbuz.kz (clean studio)" },
 
   // ─── ARBUZ.KZ BATCH 3 — oils, spices, frozen, ready food, baby, pantry ──────
   "varenyky-cherry":  { file: "https://arbuz.kz/image/s3/arbuz-kz-products/file_name__edabff77-0701-4649-95c4-b27055c07dd3-326816_2_png.png",              note: "Вареники Arbuz Select с вишней, замороженные 500 г — arbuz.kz" },

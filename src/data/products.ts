@@ -3511,7 +3511,7 @@ export const products: Product[] = [
     tags: ["темпура", "японский", "смесь", "тесто"],
   },
   {
-    id: "pasta-tiger", imageStatus: "verified_generic", image: "/products/pasta-tiger.webp", emoji: "🍝",
+    id: "pasta-tiger", imageStatus: "rejected", emoji: "🍝",
     category: "Бакалея",
     title: "Паста тигровая Barilla",
     description: "Паста Barilla тигровые ракушки (Conchiglie). Твёрдые сорта пшеницы. 500г.",

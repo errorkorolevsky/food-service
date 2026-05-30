@@ -1502,11 +1502,12 @@
   },
   "ferrero-rocher": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Ferrero Rocher",
-    "source_url": "https://images.openfoodfacts.org/images/products/800/050/027/3296/front_en.10.400.jpg",
+    "source_type": "magnum_cdn",
+    "source_name": "Конфеты Ferrero Rocher 200 г ✓ — arbuz.kz (clean studio)",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__20472-konfety_ferrero_rocher_200_g.jpg",
     "local_path": "/products/ferrero-rocher.webp",
-    "fetched": "2026-05-28"
+    "note": "Конфеты Ferrero Rocher 200 г ✓ — arbuz.kz (clean studio)",
+    "fetched": "2026-05-30"
   },
   "candy-korovka": {
     "status": "missing",
@@ -2657,12 +2658,12 @@
     "fetched": "2026-05-28"
   },
   "pasta-tiger": {
-    "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Nouilles Udon",
-    "source_url": "https://images.openfoodfacts.org/images/products/761/331/243/4086/front_fr.3.400.jpg",
-    "local_path": "/products/pasta-tiger.webp",
-    "fetched": "2026-05-28"
+    "status": "rejected",
+    "source_type": null,
+    "source_name": "Rejected — Asian Kitchen Udon noodles (wrong product+amateur); Barilla Conchiglie needs real image",
+    "local_path": null,
+    "note": "Wrong product type & amateur photo",
+    "fetched": "2026-05-30"
   },
   "frozen-dough-puff": {
     "status": "matched_unverified",
@@ -2898,11 +2899,12 @@
   },
   "fanta": {
     "status": "matched_unverified",
-    "source_type": "openfoodfacts",
-    "source_name": "Fanta Orange Mini Can",
-    "source_url": "https://images.openfoodfacts.org/images/products/000/005/449/2578/front_fr.3.400.jpg",
+    "source_type": "magnum_cdn",
+    "source_name": "Напиток Fanta 1.5 л ✓ — arbuz.kz (clean studio)",
+    "source_url": "https://arbuz.kz/image/s3/arbuz-kz-products/image__287544-napitok_fanta_1_5_l.jpg",
     "local_path": "/products/fanta.webp",
-    "fetched": "2026-05-29"
+    "note": "Напиток Fanta 1.5 л ✓ — arbuz.kz (clean studio)",
+    "fetched": "2026-05-30"
   },
   "energy-monster": {
     "status": "matched_unverified",
