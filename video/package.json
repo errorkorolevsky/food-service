@@ -1,0 +1,25 @@
+{
+  "name": "food-service-video",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Isolated Remotion project — Food Service Kazakhstan product presentation video. Does not import the website.",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render:16x9": "remotion render src/index.ts Presentation16x9 ../public/videos/food-service-presentation-16x9.mp4",
+    "render:9x16": "remotion render src/index.ts Presentation9x16 ../public/videos/food-service-presentation-9x16.mp4",
+    "music": "node scripts/gen-music.mjs",
+    "subtitles": "node scripts/gen-subtitles.mjs",
+    "thumbs:16x9": "remotion still src/index.ts Presentation16x9 ../public/videos/thumbnails/scene.png"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.469",
+    "remotion": "4.0.469",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "typescript": "5.6.3"
+  }
+}

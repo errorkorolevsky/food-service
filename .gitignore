@@ -48,3 +48,9 @@ docs/catalog-audit/generated-image-duplicates/
 
 # Local QA / debug screenshots (not deployed)
 screenshots/
+
+# Agent skill installs (frontend-slides, remotion) — local tooling, not project code
+.agents/
+
+# Detached render logs / stray temp
+video_server.log

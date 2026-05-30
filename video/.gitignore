@@ -1,0 +1,5 @@
+node_modules/
+out/
+*.log
+# regenerable via `npm run music` — kept out of git to stay lean
+public/audio/
