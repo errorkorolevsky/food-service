@@ -45,3 +45,6 @@ next-env.d.ts
 # AI-generated image import — heavy source backups (originals also on Desktop)
 docs/catalog-audit/generated-image-import-backup/
 docs/catalog-audit/generated-image-duplicates/
+
+# Local QA / debug screenshots (not deployed)
+screenshots/
