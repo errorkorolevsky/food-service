@@ -6,6 +6,8 @@ import { rateLimit } from "@/lib/rateLimiter"
 export const dynamic = "force-dynamic"
 
 // ─── POST — request a 6-digit login code for the mobile app ───────────────────
+// Lives under /api/mobile/* (not /api/auth/*) so the NextAuth [...nextauth]
+// catch-all never intercepts it.
 export async function POST(req: NextRequest) {
   const { email } = await req.json()
   if (!email || typeof email !== "string" || !email.includes("@")) {

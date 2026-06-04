@@ -4,6 +4,8 @@ import { verifyOtp, mintMobileToken } from "@/lib/mobileAuth"
 export const dynamic = "force-dynamic"
 
 // ─── POST — verify the code and issue a mobile session JWT ────────────────────
+// Lives under /api/mobile/* (not /api/auth/*) so the NextAuth [...nextauth]
+// catch-all never intercepts it.
 export async function POST(req: NextRequest) {
   const { email, code, expires, signature } = await req.json()
   const normalized = String(email || "").toLowerCase().trim()
