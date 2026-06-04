@@ -227,6 +227,18 @@ ALTER TABLE orders ADD COLUMN IF NOT EXISTS promo_code text;
 ALTER TABLE orders ADD COLUMN IF NOT EXISTS discount   integer NOT NULL DEFAULT 0;
 
 -- =============================================================================
+-- ─── ORDERS — courier assignment (Phase 3 · Delivery Management) ──────────────
+-- =============================================================================
+-- Who the order is dispatched to. Written by the admin-gated
+-- PATCH /api/orders/[id]/courier; the courier cabinet filters by courier_name.
+
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS courier_name        text;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS courier_phone       text;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS courier_assigned_at timestamptz;
+
+CREATE INDEX IF NOT EXISTS idx_orders_courier_name ON orders (courier_name);
+
+-- =============================================================================
 -- ─── RESTOCK SUBSCRIPTIONS ────────────────────────────────────────────────────
 -- =============================================================================
 
