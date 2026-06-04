@@ -4,6 +4,7 @@ import { sendOrderEmail }            from "@/lib/email"
 import { notifyTelegramStatusChange } from "@/lib/telegram"
 import { sendPushToUser }            from "@/lib/push"
 import { sendSms }                   from "@/lib/sms"
+import { recordOrderEvent }          from "@/lib/orderEvents"
 import { getApiSession }             from "@/lib/mobileAuth"
 
 export const dynamic = "force-dynamic"
@@ -58,6 +59,8 @@ export async function PATCH(
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 })
   }
+
+  recordOrderEvent({ orderId: id, event: status, actor: "admin" })
 
   // Отправляем email уведомление если у заказа есть email
   const { data: order } = await supabase

@@ -239,6 +239,43 @@ ALTER TABLE orders ADD COLUMN IF NOT EXISTS courier_assigned_at timestamptz;
 CREATE INDEX IF NOT EXISTS idx_orders_courier_name ON orders (courier_name);
 
 -- =============================================================================
+-- ─── ORDER EVENT LOG (Phase 3 · Part 1 — full lifecycle audit trail) ──────────
+-- =============================================================================
+-- Append-only journal of everything that happens to an order: created,
+-- confirmed, picking, handed to courier, delivered, cancelled, courier (re)assigned.
+-- Drives the real-timestamp timeline in the app (12:14 создан → 12:16 подтверждён …).
+-- Written server-side from the order routes; never edited or deleted.
+
+CREATE TABLE IF NOT EXISTS order_events (
+  id         uuid        PRIMARY KEY DEFAULT gen_random_uuid(),
+  order_id   uuid        NOT NULL REFERENCES orders (id) ON DELETE CASCADE,
+  event      text        NOT NULL,            -- order status OR action key (e.g. 'courier_assigned')
+  actor      text        NOT NULL DEFAULT 'system'  -- 'system' | 'admin' | 'customer' | 'courier'
+                         CHECK (actor IN ('system', 'admin', 'customer', 'courier')),
+  note       text,                            -- optional human-readable detail
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_order_events_order_id
+  ON order_events (order_id, created_at);
+
+ALTER TABLE order_events ENABLE ROW LEVEL SECURITY;
+
+-- Read is gated by knowledge of the (unguessable) order UUID at the API layer —
+-- same capability model as GET /api/orders/[id]. Writes happen server-side.
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Public read order_events' AND tablename = 'order_events') THEN
+    CREATE POLICY "Public read order_events" ON order_events FOR SELECT USING (true);
+  END IF;
+END $$;
+
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Public insert order_events' AND tablename = 'order_events') THEN
+    CREATE POLICY "Public insert order_events" ON order_events FOR INSERT WITH CHECK (true);
+  END IF;
+END $$;
+
+-- =============================================================================
 -- ─── RESTOCK SUBSCRIPTIONS ────────────────────────────────────────────────────
 -- =============================================================================
 

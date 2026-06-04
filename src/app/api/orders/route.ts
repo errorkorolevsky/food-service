@@ -4,6 +4,7 @@ import { createClient } from "@supabase/supabase-js"
 import { supabase } from "@/lib/supabase"
 import { sendOrderEmail } from "@/lib/email"
 import { notifyTelegramNewOrder } from "@/lib/telegram"
+import { recordOrderEvent } from "@/lib/orderEvents"
 import { auth } from "@/lib/auth"
 import { rateLimit, getIp } from "@/lib/rateLimiter"
 
@@ -104,6 +105,8 @@ export async function POST(req: NextRequest) {
     console.error("Supabase error:", error)
     return NextResponse.json({ error: error.message }, { status: 500 })
   }
+
+  recordOrderEvent({ orderId: data.id, event: "pending", actor: "customer", note: "Заказ оформлен" })
 
   if (user_email) {
     sendOrderEmail({

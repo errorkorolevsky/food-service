@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { supabase }      from "@/lib/supabase"
+import { recordOrderEvent } from "@/lib/orderEvents"
 import { getApiSession } from "@/lib/mobileAuth"
 
 export const dynamic = "force-dynamic"
@@ -38,6 +39,13 @@ export async function PATCH(
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 })
   }
+
+  recordOrderEvent({
+    orderId: id,
+    event:   clearing ? "courier_unassigned" : "courier_assigned",
+    actor:   "admin",
+    note:    clearing ? null : courierName.trim(),
+  })
 
   return NextResponse.json({ ok: true })
 }
