@@ -197,6 +197,25 @@ export async function sendMagicLink({ to, url }: { to: string; url: string }) {
   })
 }
 
+/** 6-digit one-time code for the mobile (Expo) app login. */
+export async function sendOtpCode({ to, code }: { to: string; code: string }) {
+  const resend = getResend()
+  if (!resend) return
+  await resend.emails.send({
+    from:    "Food Service <onboarding@resend.dev>",
+    to,
+    subject: `${code} — код для входа в Food Service`,
+    html: `<!DOCTYPE html><html><body style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#0B0F0D;padding:32px;color:#ECEEED">
+      <div style="max-width:420px;margin:0 auto;background:#1A201E;border-radius:20px;padding:32px;text-align:center">
+        <div style="font-size:22px;font-weight:700;color:#fff;margin-bottom:8px">Food Service</div>
+        <div style="color:#8A938F;font-size:14px;margin-bottom:24px">Код для входа в приложение</div>
+        <div style="font-size:38px;font-weight:700;letter-spacing:10px;color:#2BA178;background:#0B0F0D;border-radius:14px;padding:18px 0;margin-bottom:20px">${code}</div>
+        <div style="color:#626B67;font-size:13px">Код действителен 10 минут. Если вы не запрашивали вход — просто проигнорируйте это письмо.</div>
+      </div>
+    </body></html>`,
+  })
+}
+
 // ─── PUBLIC API ───────────────────────────────────────────────────────────────
 
 export async function sendOrderEmail({

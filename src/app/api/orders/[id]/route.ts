@@ -4,7 +4,7 @@ import { sendOrderEmail }            from "@/lib/email"
 import { notifyTelegramStatusChange } from "@/lib/telegram"
 import { sendPushToUser }            from "@/lib/push"
 import { sendSms }                   from "@/lib/sms"
-import { auth }                      from "@/lib/auth"
+import { getApiSession }             from "@/lib/mobileAuth"
 
 export const dynamic = "force-dynamic"
 
@@ -14,8 +14,8 @@ export async function PATCH(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const session = await auth()
-  if (!session?.user?.email || session.user.email !== ADMIN_EMAIL) {
+  const sess = await getApiSession(req)
+  if (!sess || sess.email !== ADMIN_EMAIL) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
   }
 
