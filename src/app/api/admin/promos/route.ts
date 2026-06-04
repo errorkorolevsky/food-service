@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { createClient } from "@supabase/supabase-js"
-import { auth } from "@/lib/auth"
+import { getApiSession } from "@/lib/mobileAuth"
 import { z } from "zod"
 
 export const dynamic = "force-dynamic"
@@ -14,9 +14,10 @@ function getAdminClient() {
   return createClient(url, key, { auth: { persistSession: false } })
 }
 
-async function requireAdmin() {
-  const session = await auth()
-  if (!session?.user?.email || session.user.email !== ADMIN_EMAIL) return null
+// Accepts the NextAuth cookie (web admin) OR the mobile Bearer token.
+async function requireAdmin(req: NextRequest) {
+  const session = await getApiSession(req)
+  if (!session?.email || session.email !== ADMIN_EMAIL) return null
   return session
 }
 
@@ -31,8 +32,8 @@ const CreatePromoSchema = z.object({
 
 // ─── GET — list all promo codes ───────────────────────────────────────────────
 
-export async function GET() {
-  if (!await requireAdmin()) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+export async function GET(req: NextRequest) {
+  if (!await requireAdmin(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
 
   const client = getAdminClient()
   if (!client) return NextResponse.json({ promos: [] })
@@ -49,7 +50,7 @@ export async function GET() {
 // ─── POST — create a new promo code ──────────────────────────────────────────
 
 export async function POST(req: NextRequest) {
-  if (!await requireAdmin()) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+  if (!await requireAdmin(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
 
   const raw    = await req.json().catch(() => null)
   const parsed = CreatePromoSchema.safeParse(raw)
@@ -86,7 +87,7 @@ export async function POST(req: NextRequest) {
 // ─── PATCH — toggle is_active ─────────────────────────────────────────────────
 
 export async function PATCH(req: NextRequest) {
-  if (!await requireAdmin()) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+  if (!await requireAdmin(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
 
   const { code, is_active } = await req.json().catch(() => ({}))
   if (!code) return NextResponse.json({ error: "Missing code" }, { status: 400 })
