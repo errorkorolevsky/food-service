@@ -10,6 +10,29 @@ export const dynamic = "force-dynamic"
 
 const ADMIN_EMAIL = "artemfi435@gmail.com"
 
+// ─── GET — a single order by id ───────────────────────────────────────────────
+// Consumed by the order-detail screen (web tracking + mobile app, customer and
+// admin). The UUID acts as an unguessable capability — same exposure model as
+// /api/orders/track — so guests can view an order they just placed.
+export async function GET(
+  _req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const { id } = await params
+
+  const { data, error } = await supabase
+    .from("orders")
+    .select("*")
+    .eq("id", id)
+    .single()
+
+  if (error || !data) {
+    return NextResponse.json({ error: "Заказ не найден" }, { status: 404 })
+  }
+
+  return NextResponse.json(data)
+}
+
 export async function PATCH(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
