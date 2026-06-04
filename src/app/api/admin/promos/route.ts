@@ -2,10 +2,9 @@ import { NextRequest, NextResponse } from "next/server"
 import { createClient } from "@supabase/supabase-js"
 import { getApiSession } from "@/lib/mobileAuth"
 import { z } from "zod"
+import { ADMIN_EMAIL } from "@/lib/admin"
 
 export const dynamic = "force-dynamic"
-
-const ADMIN_EMAIL = "artemfi435@gmail.com"
 
 function getAdminClient() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL

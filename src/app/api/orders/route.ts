@@ -7,6 +7,7 @@ import { notifyTelegramNewOrder } from "@/lib/telegram"
 import { recordOrderEvent } from "@/lib/orderEvents"
 import { auth } from "@/lib/auth"
 import { rateLimit, getIp } from "@/lib/rateLimiter"
+import { ADMIN_EMAIL } from "@/lib/admin"
 
 function getAdminClient() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL
@@ -16,8 +17,6 @@ function getAdminClient() {
 }
 
 export const dynamic = "force-dynamic"
-
-const ADMIN_EMAIL = "artemfi435@gmail.com"
 
 const OrderItemSchema = z.object({
   id:       z.string().min(1).max(100),

@@ -6,10 +6,9 @@ import { sendPushToUser }            from "@/lib/push"
 import { sendSms }                   from "@/lib/sms"
 import { recordOrderEvent }          from "@/lib/orderEvents"
 import { getApiSession }             from "@/lib/mobileAuth"
+import { ADMIN_EMAIL }               from "@/lib/admin"
 
 export const dynamic = "force-dynamic"
-
-const ADMIN_EMAIL = "artemfi435@gmail.com"
 
 // ─── GET — a single order by id ───────────────────────────────────────────────
 // Consumed by the order-detail screen (web tracking + mobile app, customer and

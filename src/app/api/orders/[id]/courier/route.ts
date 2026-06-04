@@ -2,10 +2,9 @@ import { NextRequest, NextResponse } from "next/server"
 import { supabase }      from "@/lib/supabase"
 import { recordOrderEvent } from "@/lib/orderEvents"
 import { getApiSession } from "@/lib/mobileAuth"
+import { ADMIN_EMAIL }   from "@/lib/admin"
 
 export const dynamic = "force-dynamic"
-
-const ADMIN_EMAIL = "artemfi435@gmail.com"
 
 // ─── PATCH — assign (or clear) the courier for an order ───────────────────────
 // Admin-only. Stores who delivers the order; status is managed separately by

@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server"
 import { supabase }      from "@/lib/supabase"
 import { getApiSession } from "@/lib/mobileAuth"
+import { ADMIN_EMAIL }   from "@/lib/admin"
 
 export const dynamic = "force-dynamic"
-
-const ADMIN_EMAIL = "artemfi435@gmail.com"
 
 // Match the catalog's stored price string (see src/lib/db/products.ts).
 const priceString = (n: number) => `₸${n.toLocaleString("ru-RU")}`

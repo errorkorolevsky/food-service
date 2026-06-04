@@ -18,10 +18,10 @@ import { supabase } from "@/lib/supabase"
 import { MOCK_ORDERS, MOCK_COURIERS, type MockOrder, type MockCourier, type CourierStatus } from "@/data/mock-orders"
 import { useSession } from "next-auth/react"
 import { useLang } from "@/locales"
+import { ADMIN_EMAIL } from "@/lib/admin"
 
 // ─── PIN GUARD ────────────────────────────────────────────────────────────────
 
-const ADMIN_EMAIL = "artemfi435@gmail.com"
 // Demo PIN for non-authenticated preview — real data requires admin session via API
 const ADMIN_PIN = process.env.NEXT_PUBLIC_ADMIN_PIN ?? "2048"
 
