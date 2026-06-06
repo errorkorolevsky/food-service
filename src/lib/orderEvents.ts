@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabase"
+import { supabase, supabaseAdmin } from "@/lib/supabase"
 
 /**
  * Order event log (Phase 3 · Part 1).
@@ -23,12 +23,13 @@ export type OrderEventInput = {
 
 export async function recordOrderEvent(input: OrderEventInput): Promise<void> {
   try {
-    await supabase.from("order_events").insert({
+    const { error } = await supabaseAdmin.from("order_events").insert({
       order_id: input.orderId,
       event:    input.event,
       actor:    input.actor ?? "system",
       note:     input.note ?? null,
     })
+    if (error) console.error("[orderEvents] insert rejected", input.event, error.message)
   } catch (err) {
     console.error("[orderEvents] failed to record", input.event, err)
   }

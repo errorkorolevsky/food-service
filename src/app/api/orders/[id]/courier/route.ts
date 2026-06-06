@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { supabase }      from "@/lib/supabase"
+import { supabaseAdmin } from "@/lib/supabase"
 import { recordOrderEvent } from "@/lib/orderEvents"
 import { getApiSession } from "@/lib/mobileAuth"
 import { ADMIN_EMAIL }   from "@/lib/admin"
@@ -34,9 +34,12 @@ export async function PATCH(
         courier_assigned_at: new Date().toISOString(),
       }
 
-  const { error } = await supabase.from("orders").update(update).eq("id", id)
+  const { data: updated, error } = await supabaseAdmin.from("orders").update(update).eq("id", id).select("id")
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 })
+  }
+  if (!updated || updated.length === 0) {
+    return NextResponse.json({ error: "Заказ не найден" }, { status: 404 })
   }
 
   recordOrderEvent({

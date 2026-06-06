@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { supabase } from "@/lib/supabase"
+import { supabase, supabaseAdmin } from "@/lib/supabase"
 import { notifyTelegramStatusChange } from "@/lib/telegram"
 import { recordOrderEvent } from "@/lib/orderEvents"
 
@@ -43,7 +43,7 @@ export async function POST(
     )
   }
 
-  const { error: updateErr } = await supabase
+  const { error: updateErr } = await supabaseAdmin
     .from("orders")
     .update({ status: "cancelled" })
     .eq("id", id)

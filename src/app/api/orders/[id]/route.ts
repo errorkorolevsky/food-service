@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { supabase }                  from "@/lib/supabase"
+import { supabase, supabaseAdmin }   from "@/lib/supabase"
 import { sendOrderEmail }            from "@/lib/email"
 import { notifyTelegramStatusChange } from "@/lib/telegram"
 import { sendPushToUser }            from "@/lib/push"
@@ -50,13 +50,17 @@ export async function PATCH(
     return NextResponse.json({ error: "Недопустимый статус" }, { status: 400 })
   }
 
-  const { error } = await supabase
+  const { data: updated, error } = await supabaseAdmin
     .from("orders")
     .update({ status })
     .eq("id", id)
+    .select("id")
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 })
+  }
+  if (!updated || updated.length === 0) {
+    return NextResponse.json({ error: "Заказ не найден" }, { status: 404 })
   }
 
   recordOrderEvent({ orderId: id, event: status, actor: "admin" })
