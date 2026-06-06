@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server"
 import { auth }        from "@/lib/auth"
-import { supabase }    from "@/lib/supabase"
+import { supabaseAdmin } from "@/lib/supabase"
 
 export const dynamic = "force-dynamic"
 
@@ -15,7 +15,7 @@ export async function GET(req: NextRequest) {
   const productId = req.nextUrl.searchParams.get("productId")
   if (!productId) return Response.json({ subscribed: false })
 
-  const { data } = await supabase
+  const { data } = await supabaseAdmin
     .from("restock_subscriptions")
     .select("id")
     .eq("user_email", session.user.email)
@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
   const { productId, productTitle } = await req.json() as { productId: string; productTitle: string }
   if (!productId) return Response.json({ error: "Missing productId" }, { status: 400 })
 
-  const { error } = await supabase
+  const { error } = await supabaseAdmin
     .from("restock_subscriptions")
     .upsert(
       { user_email: session.user.email, product_id: productId, product_title: productTitle ?? productId },
@@ -48,7 +48,7 @@ export async function DELETE(req: NextRequest) {
   if (!session?.user?.email) return new Response("Unauthorized", { status: 401 })
 
   const { productId } = await req.json() as { productId: string }
-  await supabase
+  await supabaseAdmin
     .from("restock_subscriptions")
     .delete()
     .eq("user_email", session.user.email)

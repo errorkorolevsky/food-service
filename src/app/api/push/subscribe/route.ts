@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server"
 import { auth }        from "@/lib/auth"
-import { supabase }    from "@/lib/supabase"
+import { supabaseAdmin } from "@/lib/supabase"
 
 export const dynamic = "force-dynamic"
 
@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
     return Response.json({ error: "Invalid subscription" }, { status: 400 })
   }
 
-  const { error } = await supabase
+  const { error } = await supabaseAdmin
     .from("push_subscriptions")
     .upsert(
       { user_email: session.user.email, endpoint, keys },
@@ -33,6 +33,6 @@ export async function DELETE(req: NextRequest) {
   const { endpoint } = await req.json() as { endpoint: string }
   if (!endpoint) return Response.json({ error: "Missing endpoint" }, { status: 400 })
 
-  await supabase.from("push_subscriptions").delete().eq("endpoint", endpoint)
+  await supabaseAdmin.from("push_subscriptions").delete().eq("endpoint", endpoint)
   return Response.json({ ok: true })
 }
