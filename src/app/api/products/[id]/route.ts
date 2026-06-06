@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { supabase }      from "@/lib/supabase"
+import { supabase, supabaseAdmin } from "@/lib/supabase"
 import { getApiSession } from "@/lib/mobileAuth"
 import { ADMIN_EMAIL }   from "@/lib/admin"
 
@@ -74,7 +74,7 @@ export async function PATCH(
     return NextResponse.json({ error: "Нет изменений" }, { status: 400 })
   }
 
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from("products")
     .update(update)
     .eq("id", id)

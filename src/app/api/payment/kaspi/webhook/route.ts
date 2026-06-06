@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server"
-import { supabase }    from "@/lib/supabase"
+import { supabase, supabaseAdmin } from "@/lib/supabase"
 import { verifyKaspiWebhook } from "@/lib/payment"
 import { sendPushToUser }     from "@/lib/push"
 
@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
       .single()
 
     if (order && order.status === "pending") {
-      await supabase
+      await supabaseAdmin
         .from("orders")
         .update({ status: "processing" })
         .eq("id", result.orderId)
