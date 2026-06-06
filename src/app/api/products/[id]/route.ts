@@ -74,6 +74,9 @@ export async function PATCH(
     return NextResponse.json({ error: "Нет изменений" }, { status: 400 })
   }
 
+  // service-role: this route is the admin write path. Don't depend on table RLS
+  // permitting the write — the request is already gated above (getApiSession +
+  // ADMIN_EMAIL). This also lets the products anon-write RLS policy be tightened.
   const { data, error } = await supabaseAdmin
     .from("products")
     .update(update)
