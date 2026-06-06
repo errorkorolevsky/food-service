@@ -63,7 +63,7 @@ export async function PATCH(
     return NextResponse.json({ error: "Заказ не найден" }, { status: 404 })
   }
 
-  recordOrderEvent({ orderId: id, event: status, actor: "admin" })
+  await recordOrderEvent({ orderId: id, event: status, actor: "admin" })
 
   // Отправляем email уведомление если у заказа есть email
   const { data: order } = await supabase

@@ -42,7 +42,7 @@ export async function PATCH(
     return NextResponse.json({ error: "Заказ не найден" }, { status: 404 })
   }
 
-  recordOrderEvent({
+  await recordOrderEvent({
     orderId: id,
     event:   clearing ? "courier_unassigned" : "courier_assigned",
     actor:   "admin",

@@ -105,7 +105,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: error.message }, { status: 500 })
   }
 
-  recordOrderEvent({ orderId: data.id, event: "pending", actor: "customer", note: "Заказ оформлен" })
+  await recordOrderEvent({ orderId: data.id, event: "pending", actor: "customer", note: "Заказ оформлен" })
 
   if (user_email) {
     sendOrderEmail({

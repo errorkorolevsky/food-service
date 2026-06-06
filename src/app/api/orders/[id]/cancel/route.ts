@@ -52,7 +52,7 @@ export async function POST(
     return NextResponse.json({ error: updateErr.message }, { status: 500 })
   }
 
-  recordOrderEvent({ orderId: id, event: "cancelled", actor: "customer", note: "Отменён клиентом" })
+  await recordOrderEvent({ orderId: id, event: "cancelled", actor: "customer", note: "Отменён клиентом" })
 
   notifyTelegramStatusChange({
     orderId:             id,
